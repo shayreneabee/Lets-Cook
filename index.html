@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brent & Co. Platform</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Brent and Co. home">
+        <img src="assets/brent-co-logo.svg" alt="Brent and Co." />
+      </a>
+      <div class="active-app-mark" aria-live="polite">
+        <img src="assets/brent-co-logo.svg" alt="" />
+        <span>Brent &amp; Co.</span>
+      </div>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#home" data-route="home">Home</a>
+        <a href="#lets-cook" data-route="lets-cook">Let's Cook</a>
+        <a href="#find-the-beat" data-route="find-the-beat">Find the Beat</a>
+        <a href="#beu" data-route="beu">BEU</a>
+        <a href="#second-chance" data-route="second-chance">Careers</a>
+      </nav>
+    </header>
+
+    <main id="app" tabindex="-1"></main>
+
+    <footer class="site-footer">
+      <div class="socials" aria-label="Social links">
+        <a href="https://www.facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">f</a>
+        <a href="https://www.twitter.com" target="_blank" rel="noreferrer" aria-label="Twitter">t</a>
+        <a href="https://www.pinterest.com" target="_blank" rel="noreferrer" aria-label="Pinterest">p</a>
+      </div>
+      <a class="home-fab" href="#home" aria-label="Back to home">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 11.5 12 4l9 7.5v8a1 1 0 0 1-1 1h-5.5v-6h-5v6H4a1 1 0 0 1-1-1z" />
+        </svg>
+      </a>
+    </footer>
+
+    <script src="services/beuSearchService.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
