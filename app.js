@@ -685,12 +685,13 @@ function platformHero() {
   return `
     <section class="platform-hero">
       <div>
+        <img class="platform-wordmark" src="assets/brent-co-wordmark.png" alt="Brent & Co." />
         <p class="eyebrow">Brent & Co. ecosystem</p>
-        <h1>Creative, practical apps for community life.</h1>
-        <p>One warm platform connecting cooking, music, direction, and career support with a shared design language and distinct app personalities.</p>
+        <h1>One welcoming home for every Brent & Co. platform.</h1>
+        <p>Start here, then move into cooking, music, cultural discovery, or career support with links that open the real live apps.</p>
         <div class="hero-actions">
-          <a class="small-button" href="#lets-cook">Enter Let's Cook Ya'll</a>
-          <a class="small-button secondary" href="#community">See the ecosystem</a>
+          <a class="small-button" href="#storefront">View All Platforms</a>
+          <a class="small-button secondary" href="#lets-cook">Preview Let's Cook</a>
         </div>
       </div>
       <div class="ecosystem-preview">
@@ -703,22 +704,32 @@ function platformHero() {
 function renderPlatformHome() {
   app.innerHTML = `
     ${platformHero()}
-    <section class="cream-section">
+    <section class="cream-section landing-links" id="storefront">
       <div class="section-heading">
-        <p class="eyebrow">Storefront</p>
-        <h2>Built as one Brent & Co. family</h2>
+        <p class="eyebrow">Launch pad</p>
+        <h2>Choose where you want to go</h2>
+        <p>Each platform keeps its own personality, but every path starts from this Brent & Co. home base.</p>
       </div>
       <div class="app-grid">${ecosystemApps.map(appCard).join("")}</div>
     </section>
+    <section class="cream-section direct-link-section">
+      <div class="section-heading">
+        <p class="eyebrow">Correct links</p>
+        <h2>Live destinations</h2>
+      </div>
+      <div class="direct-link-grid">
+        ${ecosystemApps.map(platformLinkCard).join("")}
+      </div>
+    </section>
     <section class="gold-section">
       <div class="section-heading">
-        <p class="eyebrow">Shared system</p>
-        <h2>Consistent structure, distinct personalities</h2>
+        <p class="eyebrow">Connected structure</p>
+        <h2>A platform family, not random separate projects</h2>
       </div>
       <div class="system-grid">
-        <article><strong>Unified spacing</strong><span>Sections, cards, buttons, and grids now use one rhythm.</span></article>
-        <article><strong>Connected navigation</strong><span>Every app has a platform route, with Let’s Cook pages preserved.</span></article>
-        <article><strong>Ownable accents</strong><span>Gold, orange, blue, and career green distinguish the products.</span></article>
+        <article><strong>Live app first</strong><span>Storefront cards open the deployed apps so visitors land where they are supposed to go.</span></article>
+        <article><strong>Preview preserved</strong><span>The Brent & Co. prototype still includes local previews for visual direction and future planning.</span></article>
+        <article><strong>GitHub connected</strong><span>Each brand card includes its source repo for development, deployment, and handoff work.</span></article>
       </div>
     </section>
   `;
@@ -1690,6 +1701,21 @@ function appCard(item) {
         <a class="small-button secondary" href="${item.route}">Preview</a>
         <a class="small-button secondary" ${linkAttrs(item.repoUrl)}>GitHub</a>
       </div>
+    </article>
+  `;
+}
+
+function platformLinkCard(item) {
+  return `
+    <article class="direct-link-card ${item.accent}">
+      <div>
+        <img src="${item.image}" alt="" />
+        <span>${item.status}</span>
+      </div>
+      <h3>${item.title}</h3>
+      <p>${item.description}</p>
+      <a class="small-button" ${linkAttrs(item.externalUrl || item.route)}>Open ${item.title}</a>
+      <a class="direct-url" ${linkAttrs(item.externalUrl || item.route)}>${item.externalUrl || item.route}</a>
     </article>
   `;
 }

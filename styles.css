@@ -313,6 +313,18 @@ select {
     linear-gradient(180deg, #03550d, #2c1a10);
 }
 
+.platform-wordmark {
+  display: block;
+  width: min(360px, 70vw);
+  max-height: 110px;
+  margin: 0 0 24px;
+  border-radius: 20px;
+  object-fit: cover;
+  object-position: center 60%;
+  background: rgba(255, 248, 233, 0.96);
+  box-shadow: 0 20px 50px rgba(13, 6, 2, 0.24);
+}
+
 .platform-hero h1,
 .app-hub h1 {
   margin: 0;
@@ -457,6 +469,74 @@ select {
   min-height: 40px;
   padding: 0 14px;
   font-size: 0.86rem;
+}
+
+.landing-links .section-heading p:not(.eyebrow),
+.direct-link-section .section-heading p:not(.eyebrow) {
+  max-width: 740px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.direct-link-section {
+  padding-top: 0;
+}
+
+.direct-link-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(210px, 1fr));
+  gap: 18px;
+}
+
+.direct-link-card {
+  display: grid;
+  gap: 14px;
+  padding: 24px;
+  border: 1px solid color-mix(in srgb, var(--app-accent, var(--gold)) 38%, var(--line));
+  border-radius: 22px;
+  background: linear-gradient(180deg, #fffdf8, #fff4db);
+  box-shadow: 0 18px 42px rgba(44, 26, 16, 0.1);
+}
+
+.direct-link-card > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.direct-link-card img {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.direct-link-card span {
+  color: var(--app-accent, var(--green-dark));
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.direct-link-card h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 2.3vw, 2.35rem);
+  font-weight: 400;
+}
+
+.direct-link-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.direct-url {
+  overflow-wrap: anywhere;
+  color: var(--green-dark);
+  font-size: 0.86rem;
+  font-weight: 800;
 }
 
 .gold {
@@ -2255,6 +2335,7 @@ select {
   .lesson-grid,
   .feature-grid,
   .app-grid,
+  .direct-link-grid,
   .system-grid,
   .beu-grid,
   .beu-results-grid,
@@ -2305,6 +2386,7 @@ select {
   .account-stats,
   .feature-grid,
   .app-grid,
+  .direct-link-grid,
   .system-grid,
   .beu-grid,
   .beu-results-grid,
