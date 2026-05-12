@@ -601,7 +601,7 @@ document.addEventListener("input", handleSearch);
 document.addEventListener("change", handleSearch);
 
 function routeParts() {
-  const [route, id] = (window.location.hash.replace("#", "") || "home").split("/");
+  const [route, id] = (window.location.hash.replace("#", "") || "lets-cook").split("/");
   return { route, id };
 }
 
