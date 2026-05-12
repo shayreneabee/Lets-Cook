@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Brent & Co. Platform</title>
+    <meta name="theme-color" content="#087d15" />
+    <link rel="manifest" href="manifest.webmanifest" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -44,5 +46,14 @@
 
     <script src="services/beuSearchService.js"></script>
     <script src="app.js"></script>
+    <script>
+      if ("serviceWorker" in navigator && location.protocol !== "file:") {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("sw.js").catch((error) => {
+            console.warn("Offline service worker registration failed.", error);
+          });
+        });
+      }
+    </script>
   </body>
 </html>
