@@ -1,3 +1,17 @@
+const liveAppUrls = {
+  letsCook: "https://lets-cook.onrender.com",
+  findTheBeat: "https://find-the-beat.onrender.com",
+  beu: "https://beu-pi.vercel.app/",
+  secondChance: "https://brentco.netlify.app/second-chance"
+};
+
+const githubUrls = {
+  letsCook: "https://github.com/shayreneabee/Lets-Cook",
+  findTheBeat: "https://github.com/shayreneabee/find-the-beat",
+  beu: "https://github.com/shayreneabee/BEU",
+  secondChance: "https://github.com/shayreneabee/second-chance-careers"
+};
+
 let categories = [
   "Southern Comfort",
   "Quick Weeknight Meals",
@@ -17,11 +31,14 @@ const ecosystemApps = [
     tagline: "Cooking confidence for real families, real kitchens, and warm tables.",
     description: "Southern fresh meets global flavor through recipes, Cook 101 lessons, Shay's Kitchen, hosting ideas, and meal planning.",
     route: "#lets-cook",
+    externalUrl: liveAppUrls.letsCook,
+    repoUrl: githubUrls.letsCook,
     status: "Live prototype",
     links: [
+      ["Open Live App", liveAppUrls.letsCook],
+      ["Preview Here", "#lets-cook"],
       ["Shay's Kitchen", "#kitchen"],
-      ["Cook 101", "#cook101"],
-      ["Recipes", "#recipes"]
+      ["GitHub", githubUrls.letsCook]
     ]
   },
   {
@@ -32,11 +49,13 @@ const ecosystemApps = [
     tagline: "Music energy, creative rhythm, and discovery for artists and listeners.",
     description: "A music-centered app with bold orange movement, playlists, lessons, community showcases, and creative tools.",
     route: "#find-the-beat",
-    status: "App home",
+    externalUrl: liveAppUrls.findTheBeat,
+    repoUrl: githubUrls.findTheBeat,
+    status: "Live app",
     links: [
-      ["Open Home", "#find-the-beat"],
-      ["Artist Discovery", "#find-the-beat"],
-      ["Sound Map", "#find-the-beat"]
+      ["Open Live App", liveAppUrls.findTheBeat],
+      ["Preview Here", "#find-the-beat"],
+      ["GitHub", githubUrls.findTheBeat]
     ]
   },
   {
@@ -47,11 +66,13 @@ const ecosystemApps = [
     tagline: "A cultural compass for people, places, cuisine, and community rhythm.",
     description: "A polished blue navigation app for cultural discovery: promoter spotlights, cuisine features, places to visit, and a yearly community calendar.",
     route: "#beu",
-    status: "Cultural compass",
+    externalUrl: liveAppUrls.beu,
+    repoUrl: githubUrls.beu,
+    status: "Live compass",
     links: [
-      ["Open Compass", "#beu"],
-      ["Live BEU", "https://beu-pi.vercel.app/"],
-      ["Platform Home", "#home"]
+      ["Open Live BEU", liveAppUrls.beu],
+      ["Preview Here", "#beu"],
+      ["GitHub", githubUrls.beu]
     ]
   },
   {
@@ -62,11 +83,13 @@ const ecosystemApps = [
     tagline: "Uplifting career support built with dignity, clarity, and practical momentum.",
     description: "A supportive professional app for jobs, training, resumes, resources, and people rebuilding with purpose.",
     route: "#second-chance",
-    status: "App home",
+    externalUrl: liveAppUrls.secondChance,
+    repoUrl: githubUrls.secondChance,
+    status: "Live careers",
     links: [
-      ["Open Home", "#second-chance"],
-      ["Job Pathways", "#second-chance"],
-      ["Employer Tools", "#second-chance"]
+      ["Open Live App", liveAppUrls.secondChance],
+      ["Preview Here", "#second-chance"],
+      ["GitHub", githubUrls.secondChance]
     ]
   }
 ];
@@ -638,6 +661,12 @@ function updateAppChrome(route) {
   mark.innerHTML = `<img src="${activeApp.image}" alt="" /><span>${activeApp.title}</span>`;
 }
 
+function linkAttrs(href) {
+  const safeHref = href || "#home";
+  const external = safeHref.startsWith("http");
+  return `href="${safeHref}"${external ? ' target="_blank" rel="noreferrer"' : ""}`;
+}
+
 function hero(title, text, image = "assets/logo.png", actions = "") {
   return `
     <section class="hero">
@@ -665,7 +694,7 @@ function platformHero() {
         </div>
       </div>
       <div class="ecosystem-preview">
-        ${ecosystemApps.map((app) => `<a class="mini-app ${app.accent}" href="${app.route}"><span>${app.title}</span><strong>${app.status}</strong></a>`).join("")}
+        ${ecosystemApps.map((app) => `<a class="mini-app ${app.accent}" ${linkAttrs(app.externalUrl || app.route)}><span>${app.title}</span><strong>${app.status}</strong></a>`).join("")}
       </div>
     </section>
   `;
@@ -743,7 +772,7 @@ function renderAppHub(id) {
         <p class="eyebrow">Brent & Co. app</p>
         <h1>${currentApp.title}</h1>
         <p>${currentApp.tagline}</p>
-        <div class="hero-actions">${currentApp.links.map(([label, href]) => `<a class="small-button ${href === currentApp.route ? "" : "secondary"}" href="${href}">${label}</a>`).join("")}</div>
+        <div class="hero-actions">${currentApp.links.map(([label, href], index) => `<a class="small-button ${index === 0 ? "" : "secondary"}" ${linkAttrs(href)}>${label}</a>`).join("")}</div>
       </div>
       <figure><img src="${currentApp.image}" alt="" /></figure>
     </section>
@@ -782,7 +811,9 @@ function renderFindTheBeatHome() {
         <h1>Find the rhythm of a city, a scene, and a creative community.</h1>
         <p>${currentApp.description}</p>
         <div class="hero-actions">
-          <a class="small-button" href="#home">Back to Brent & Co.</a>
+          <a class="small-button" ${linkAttrs(liveAppUrls.findTheBeat)}>Open Live App</a>
+          <a class="small-button secondary" ${linkAttrs(githubUrls.findTheBeat)}>GitHub Repo</a>
+          <a class="small-button secondary" href="#home">Back to Brent & Co.</a>
           <a class="small-button secondary" href="#beu-section/scene">Connect to BEU Scene</a>
         </div>
       </div>
@@ -794,7 +825,7 @@ function renderFindTheBeatHome() {
         <h2>Music discovery with a real destination</h2>
       </div>
       <div class="system-grid">
-        ${features.map(([title, text]) => `<article><strong>${title}</strong><span>${text}</span><a class="small-button secondary" href="#find-the-beat">Open ${title}</a></article>`).join("")}
+        ${features.map(([title, text]) => `<article><strong>${title}</strong><span>${text}</span><a class="small-button secondary" ${linkAttrs(liveAppUrls.findTheBeat)}>Open ${title}</a></article>`).join("")}
       </div>
     </section>
   `;
@@ -816,7 +847,9 @@ function renderSecondChanceHome() {
         <h1>Career rebuilding with dignity, clarity, and momentum.</h1>
         <p>${currentApp.description}</p>
         <div class="hero-actions">
-          <a class="small-button" href="#home">Back to Brent & Co.</a>
+          <a class="small-button" ${linkAttrs(liveAppUrls.secondChance)}>Open Live App</a>
+          <a class="small-button secondary" ${linkAttrs(githubUrls.secondChance)}>GitHub Repo</a>
+          <a class="small-button secondary" href="#home">Back to Brent & Co.</a>
           <a class="small-button secondary" href="#beu-profile">Trust Profile Pattern</a>
         </div>
       </div>
@@ -828,7 +861,7 @@ function renderSecondChanceHome() {
         <h2>Practical support that feels human</h2>
       </div>
       <div class="system-grid">
-        ${features.map(([title, text]) => `<article><strong>${title}</strong><span>${text}</span><a class="small-button secondary" href="#second-chance">Open ${title}</a></article>`).join("")}
+        ${features.map(([title, text]) => `<article><strong>${title}</strong><span>${text}</span><a class="small-button secondary" ${linkAttrs(liveAppUrls.secondChance)}>Open ${title}</a></article>`).join("")}
       </div>
     </section>
   `;
@@ -856,7 +889,9 @@ function renderBeuHome() {
         <h1>Your cultural compass wherever you land</h1>
         <p>Explore, connect, and bond through monthly cultural picks, live “near me” updates, food, places, people, and events.</p>
         <div class="hero-actions">
-          <a class="small-button" href="#home">Back to Brent & Co.</a>
+          <a class="small-button" ${linkAttrs(liveAppUrls.beu)}>Open Live BEU</a>
+          <a class="small-button secondary" ${linkAttrs(githubUrls.beu)}>GitHub Repo</a>
+          <a class="small-button secondary" href="#home">Back to Brent & Co.</a>
           <a class="small-button secondary" href="#beu-profile">Community Trust</a>
         </div>
       </div>
@@ -950,8 +985,8 @@ function renderBeuHome() {
       </div>
       <div class="beu-link-stack">
         <a href="#lets-cook">Cuisine features with Let's Cook Ya'll</a>
-        <a href="#find-the-beat">Music and event energy with Find the Beat</a>
-        <a href="#second-chance">Community support with Second Chance Careers</a>
+        <a ${linkAttrs(liveAppUrls.findTheBeat)}>Music and event energy with Find the Beat</a>
+        <a ${linkAttrs(liveAppUrls.secondChance)}>Community support with Second Chance Careers</a>
       </div>
     </section>
   `;
@@ -1642,7 +1677,7 @@ function renderCuisine(id) {
 function appCard(item) {
   return `
     <article class="app-card ${item.accent}">
-      <a href="${item.route}">
+      <a class="app-card-main" ${linkAttrs(item.externalUrl || item.route)}>
         <figure><img src="${item.image}" alt="" /></figure>
         <div>
           <span>${item.status}</span>
@@ -1650,6 +1685,11 @@ function appCard(item) {
           <p>${item.tagline}</p>
         </div>
       </a>
+      <div class="app-card-actions">
+        <a class="small-button" ${linkAttrs(item.externalUrl || item.route)}>Live App</a>
+        <a class="small-button secondary" href="${item.route}">Preview</a>
+        <a class="small-button secondary" ${linkAttrs(item.repoUrl)}>GitHub</a>
+      </div>
     </article>
   `;
 }
