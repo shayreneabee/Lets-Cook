@@ -6,10 +6,11 @@ A working prototype for a warm Brent & Co. cooking-skills app inspired by the or
 
 - Brent & Co. ecosystem homepage with storefront cards for Let's Cook Ya'll, Find the Beat, BEU, and Second Chance Careers
 - Verified live app links from the Brent & Co. homepage:
-  - Let's Cook Ya'll: https://lets-cook.onrender.com
-  - Find the Beat: https://find-the-beat.onrender.com
-  - BEU: https://beu-pi.vercel.app/
-  - Second Chance Careers: https://brentco.netlify.app/second-chance
+  - Brent & Co.: https://brentandco.org/
+  - Let's Cook Ya'll: https://letscookyall.com/
+  - Find the Beat: https://findthebeatmusic.com/
+  - BEU: https://beutravel.org/
+  - Second Chance Careers: https://secondchancecareers.org/
 - GitHub repo links from each storefront card for the connected Brent & Co. projects
 - Shared platform design system for spacing, cards, buttons, hover motion, accent colors, and responsive layout
 - App-specific accent personalities: gold for Let's Cook Ya'll, orange for Find the Beat, blue for BEU, and green/supportive tones for Second Chance Careers
