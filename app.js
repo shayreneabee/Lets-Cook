@@ -807,7 +807,7 @@ function renderFindTheBeatHome() {
         <p>${currentApp.description}</p>
         <div class="hero-actions">
           <a class="small-button" ${linkAttrs(liveAppUrls.findTheBeat)}>Preview App</a>
-          <a class="small-button secondary" href="#home">Back to Brent & Co.</a>
+          <a class="small-button secondary" ${linkAttrs("https://brentandco.org/")}>Back to Brent & Co.</a>
           <a class="small-button secondary" href="#beu-section/scene">Connect to BEU Scene</a>
         </div>
       </div>
@@ -842,7 +842,7 @@ function renderSecondChanceHome() {
         <p>${currentApp.description}</p>
         <div class="hero-actions">
           <a class="small-button" ${linkAttrs(liveAppUrls.secondChance)}>Preview App</a>
-          <a class="small-button secondary" href="#home">Back to Brent & Co.</a>
+          <a class="small-button secondary" ${linkAttrs("https://brentandco.org/")}>Back to Brent & Co.</a>
           <a class="small-button secondary" href="#beu-profile">Trust Profile Pattern</a>
         </div>
       </div>
@@ -883,7 +883,7 @@ function renderBeuHome() {
         <p>Explore, connect, and bond through monthly cultural picks, live “near me” updates, food, places, people, and events.</p>
         <div class="hero-actions">
           <a class="small-button" ${linkAttrs(liveAppUrls.beu)}>Preview BEU</a>
-          <a class="small-button secondary" href="#home">Back to Brent & Co.</a>
+          <a class="small-button secondary" ${linkAttrs("https://brentandco.org/")}>Back to Brent & Co.</a>
           <a class="small-button secondary" href="#beu-profile">Community Trust</a>
         </div>
       </div>
