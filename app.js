@@ -546,6 +546,12 @@ const menuToggle = document.querySelector(".menu-toggle");
 let saved = readJSON("letsCookSaved", []);
 let planned = readJSON("letsCookPlanned", []);
 let submissions = readJSON("letsCookSubmissions", []);
+let lessonProgress = readJSON("letsCookLessonProgress", {});
+let letsCookSession = {
+  authenticated: false,
+  user: null,
+  status: ""
+};
 let beuListings = [];
 let beuCities = [];
 let beuCommunity = {
@@ -612,7 +618,7 @@ function render() {
   if (route === "planner") return renderPlanner();
   if (route === "hosting") return renderHosting();
   if (route === "about") return renderAbout();
-  if (route === "account") return renderAbout();
+  if (route === "account") return renderAccount();
   if (route === "search") return renderRecipes();
   if (route === "cuisine") return renderCuisine(id);
   renderPlatformHome();
@@ -725,7 +731,7 @@ function renderLetsCookHome() {
       "Cook With Confidence",
       "A warm cooking-skills app for kid chefs, home cooks, and hosts who want food to feel welcoming, not intimidating.",
       "assets/logo.png",
-      `<a class="small-button" href="#paths">Find Your Path</a><a class="small-button secondary" href="#recipes">Browse Recipes</a>`
+      `<a class="small-button" href="#paths">Find Your Path</a><a class="small-button secondary" href="#recipes">Browse Recipes</a><a class="small-button secondary" href="#kitchen">Upload Food Video</a>`
     )}
     ${cookSubnav()}
     <section class="cream-section">
@@ -737,10 +743,10 @@ function renderLetsCookHome() {
       <div class="section-heading">
         <p class="eyebrow">From my kitchen</p>
         <h2>Shay's Kitchen</h2>
-        <p>Meals already cooked, loved, talked about, or planned for the next Brent & Co. table.</p>
+        <p>Meals already cooked, loved, talked about, or planned for the next Brent & Co. table. This is also where cooks can upload food videos.</p>
       </div>
       <div class="recipe-grid">${personalRecipes().slice(0, 6).map(recipeCard).join("")}</div>
-      <div class="hero-actions"><a class="small-button" href="#kitchen">Open Shay's Kitchen</a></div>
+      <div class="hero-actions"><a class="small-button" href="#kitchen">Open Shay's Kitchen</a><a class="small-button secondary" href="#kitchen">Upload Food Video</a></div>
     </section>
     <section class="gold-section">
       <div class="section-heading">
@@ -1544,6 +1550,7 @@ function renderRecipe(id) {
           <div class="tag-row"><span class="tag">${recipe.category}</span><span class="tag">${recipe.time}</span><span class="tag">${recipe.level}</span><span class="tag">${recipe.servings} servings</span></div>
           <h2>${recipe.title}</h2>
           <p class="detail-copy">${recipe.description}</p>
+          ${(recipe.prepTime || recipe.cookTime) ? `<div class="tag-row">${recipe.prepTime ? `<span class="tag">Prep ${recipe.prepTime}</span>` : ""}${recipe.cookTime ? `<span class="tag">Cook ${recipe.cookTime}</span>` : ""}</div>` : ""}
           <div class="card-actions">
             <button class="small-button" data-save="${recipe.id}">${saved.includes(recipe.id) ? "Saved" : "Save Recipe"}</button>
             <button class="small-button secondary" data-plan="${recipe.id}">${planned.includes(recipe.id) ? "Planned" : "Add to Meal Plan"}</button>
@@ -1551,6 +1558,10 @@ function renderRecipe(id) {
           <div class="detail-columns">
             <section><h3>Ingredients</h3><ul>${recipe.ingredients.map((item) => `<li>${item}</li>`).join("")}</ul></section>
             <section><h3>Guided Steps</h3><ol>${recipe.steps.map((item) => `<li>${item}</li>`).join("")}</ol></section>
+            ${recipe.equipment?.length ? `<section><h3>Equipment</h3><ul>${recipe.equipment.map((item) => `<li>${item}</li>`).join("")}</ul></section>` : ""}
+            ${recipe.tips?.length ? `<section><h3>Kitchen Tips</h3><ul>${recipe.tips.map((item) => `<li>${item}</li>`).join("")}</ul></section>` : ""}
+            ${recipe.makeAhead ? `<section><h3>Make Ahead</h3><p>${recipe.makeAhead}</p></section>` : ""}
+            ${recipe.servingIdeas?.length ? `<section><h3>Serving Ideas</h3><ul>${recipe.servingIdeas.map((item) => `<li>${item}</li>`).join("")}</ul></section>` : ""}
           </div>
         </article>
       </div>
@@ -1640,8 +1651,8 @@ function renderAbout() {
           <p class="detail-copy">The golden palette, warm cards, practical copy, and food-first imagery are set up so the Brent & Co. homepage can link to this app with a matching storefront card.</p>
         </article>
         <article class="detail-panel">
-          <h2>Cook Video Studio</h2>
-          <p class="detail-copy">Cooks can submit a YouTube link or choose a local video file draft. A production build would upload files to cloud media storage.</p>
+          <h2 id="food-video-studio">Cook Video Studio</h2>
+          <p class="detail-copy">Cooks can submit a YouTube link or upload a food video. Logged-in uploads are saved to your Let's Cook account.</p>
           <form class="upload-form" data-upload-form>
             <label>Recipe<select name="recipeId">${recipes.map((recipe) => `<option value="${recipe.id}">${recipe.title}</option>`).join("")}</select></label>
             <label>Video title<input name="title" placeholder="Auntie's shrimp and grits tips" required /></label>
@@ -1650,6 +1661,66 @@ function renderAbout() {
             <button class="small-button" type="submit">Submit Video</button>
           </form>
           <div class="submission-grid">${submissions.length ? submissions.map(submissionCard).join("") : `<div class="empty-state">No cook videos submitted yet.</div>`}</div>
+        </article>
+      </div>
+    </section>
+  `;
+}
+
+function renderAccount() {
+  const user = letsCookSession.user || {};
+  const status = letsCookSession.status ? `<div class="empty-state">${escapeHTML(letsCookSession.status)}</div>` : "";
+  app.innerHTML = `
+    ${hero("Your Let's Cook Account", "Save recipes, track lesson progress, keep your profile picture, and upload food videos from your own kitchen.", user.profilePic || "assets/logo.png")}
+    ${cookSubnav()}
+    <section class="cream-section">
+      <div class="account-layout">
+        <article class="account-panel">
+          <h2>${letsCookSession.authenticated ? "Kitchen Profile" : "Create Your Kitchen Profile"}</h2>
+          <p>${letsCookSession.authenticated ? `Signed in as ${escapeHTML(user.email || "")}. Your saved recipes, meal plan, lesson progress, and food videos are backed by the Let's Cook database.` : "Create an account so your favorites, progress, profile picture, and food videos are saved beyond this browser."}</p>
+          ${status}
+          ${letsCookSession.authenticated ? `
+            <div class="beu-profile-head">
+              <img src="${user.profilePic || "assets/logo.png"}" alt="" />
+              <div>
+                <p class="eyebrow">Home cook</p>
+                <h2>${escapeHTML(user.displayName || "Home Cook")}</h2>
+              </div>
+            </div>
+            <form class="profile-form" data-lets-profile-form>
+              <label>Display name<input name="displayName" value="${escapeHTML(user.displayName || "")}" required /></label>
+              <label>Profile picture<input name="photo" type="file" accept="image/*" /></label>
+              <button class="small-button" type="submit">Save Profile</button>
+            </form>
+            <form class="profile-form" data-lets-logout-form>
+              <button class="small-button secondary" type="submit">Log Out</button>
+            </form>
+          ` : `
+            <form class="profile-form" data-lets-signup-form>
+              <label>Display name<input name="displayName" placeholder="Shay's Kitchen Fan" required /></label>
+              <label>Email<input name="email" type="email" placeholder="you@example.com" required /></label>
+              <label>Password<input name="password" type="password" minlength="8" placeholder="At least 8 characters" required /></label>
+              <button class="small-button" type="submit">Create Account</button>
+            </form>
+            <form class="profile-form" data-lets-login-form>
+              <label>Email<input name="email" type="email" required /></label>
+              <label>Password<input name="password" type="password" required /></label>
+              <button class="small-button secondary" type="submit">Log In</button>
+            </form>
+          `}
+        </article>
+        <article class="account-panel">
+          <h2>Your Kitchen Stats</h2>
+          <div class="account-stats">
+            <div><strong>${saved.length}</strong><span>Saved recipes</span></div>
+            <div><strong>${planned.length}</strong><span>Meal plan items</span></div>
+            <div><strong>${submissions.length}</strong><span>Food videos</span></div>
+          </div>
+          <p class="detail-copy">Use recipe cards to save favorites and plan meals. Upload food videos from the Kitchen page.</p>
+          <div class="card-actions">
+            <a class="small-button" href="#recipes">Browse Recipes</a>
+            <a class="small-button secondary" href="#about">Upload Food Video</a>
+          </div>
         </article>
       </div>
     </section>
@@ -1764,6 +1835,10 @@ function applyRecipeDatabase(database) {
     tags: recipe.tags || [],
     featured: Boolean(recipe.featured),
     chefNotes: recipe.chefNotes || "",
+    equipment: recipe.equipment || [],
+    tips: recipe.tips || [],
+    makeAhead: recipe.makeAhead || "",
+    servingIdeas: recipe.servingIdeas || [],
     source: recipe.source || { type: "internal" }
   }));
 }
@@ -1929,12 +2004,12 @@ function handleClick(event) {
   const planButton = event.target.closest("[data-plan]");
   if (saveButton) {
     saved = toggleValue(saved, saveButton.dataset.save);
-    localStorage.setItem("letsCookSaved", JSON.stringify(saved));
+    persistLetsCookState();
     render();
   }
   if (planButton) {
     planned = toggleValue(planned, planButton.dataset.plan);
-    localStorage.setItem("letsCookPlanned", JSON.stringify(planned));
+    persistLetsCookState();
     render();
   }
 }
@@ -2024,7 +2099,64 @@ function updateBeuCountry(country) {
   renderBeuHome();
 }
 
-function handleSubmit(event) {
+async function handleSubmit(event) {
+  if (event.target.matches("[data-lets-signup-form]")) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    await submitLetsCookAuth("/api/lets-cook/signup", {
+      displayName: formData.get("displayName")?.toString().trim(),
+      email: formData.get("email")?.toString().trim(),
+      password: formData.get("password")?.toString()
+    });
+    return;
+  }
+
+  if (event.target.matches("[data-lets-login-form]")) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    await submitLetsCookAuth("/api/lets-cook/login", {
+      email: formData.get("email")?.toString().trim(),
+      password: formData.get("password")?.toString()
+    });
+    return;
+  }
+
+  if (event.target.matches("[data-lets-logout-form]")) {
+    event.preventDefault();
+    const response = await fetch("/api/lets-cook/logout", { method: "POST" });
+    const payload = response.ok ? await response.json() : {};
+    applyLetsCookState(payload, "You are logged out.");
+    renderAccount();
+    return;
+  }
+
+  if (event.target.matches("[data-lets-profile-form]")) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const photo = formData.get("photo");
+    if (photo?.name) {
+      const photoData = new FormData();
+      photoData.append("photo", photo);
+      const photoResponse = await fetch("/api/lets-cook/profile-photo", { method: "POST", body: photoData });
+      const photoPayload = await photoResponse.json().catch(() => ({}));
+      if (!photoResponse.ok) {
+        letsCookSession = { ...letsCookSession, status: photoPayload.error || "Profile picture upload failed." };
+        renderAccount();
+        return;
+      }
+      applyLetsCookState(photoPayload, "Profile picture saved.");
+    }
+    const profileResponse = await fetch("/api/lets-cook/profile", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ displayName: formData.get("displayName")?.toString().trim() })
+    });
+    const profilePayload = await profileResponse.json().catch(() => ({}));
+    applyLetsCookState(profilePayload, profileResponse.ok ? "Profile saved." : profilePayload.error || "Profile save failed.");
+    renderAccount();
+    return;
+  }
+
   if (event.target.matches("[data-beu-profile-form]")) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -2102,6 +2234,22 @@ function handleSubmit(event) {
   const recipe = recipes.find((item) => item.id === formData.get("recipeId"));
   const file = formData.get("file");
   const url = formData.get("url")?.toString().trim() || "";
+  formData.set("recipeTitle", recipe?.title || "Recipe");
+  if (letsCookSession.authenticated) {
+    const response = await fetch("/api/lets-cook/food-videos", {
+      method: "POST",
+      body: formData
+    });
+    const payload = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      letsCookSession = { ...letsCookSession, status: payload.error || "Food video upload failed." };
+      renderAccount();
+      return;
+    }
+    applyLetsCookState(payload, "Food video saved.");
+    render();
+    return;
+  }
   submissions = [{
     id: Date.now().toString(),
     recipeTitle: recipe?.title || "Recipe",
@@ -2114,6 +2262,58 @@ function handleSubmit(event) {
 
 function toggleValue(list, value) {
   return list.includes(value) ? list.filter((item) => item !== value) : [...list, value];
+}
+
+async function loadLetsCookState() {
+  try {
+    const response = await fetch("/api/lets-cook/state", { cache: "no-store" });
+    if (!response.ok) throw new Error(`Let's Cook state failed: ${response.status}`);
+    const payload = await response.json();
+    applyLetsCookState(payload);
+  } catch (error) {
+    console.warn("Using browser-only Let's Cook state fallback.", error);
+  }
+}
+
+function applyLetsCookState(payload, status = "") {
+  if (!payload) return;
+  letsCookSession = {
+    authenticated: Boolean(payload.authenticated),
+    user: payload.user || null,
+    status
+  };
+  saved = payload.saved || saved || [];
+  planned = payload.planned || planned || [];
+  lessonProgress = payload.lessonProgress || lessonProgress || {};
+  submissions = payload.submissions || submissions || [];
+}
+
+async function submitLetsCookAuth(url, payload) {
+  const response = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  });
+  const data = await response.json().catch(() => ({}));
+  applyLetsCookState(data, response.ok ? "Your Let's Cook account is connected." : data.error || "Account request failed.");
+  renderAccount();
+}
+
+async function persistLetsCookState() {
+  if (!letsCookSession.authenticated) {
+    localStorage.setItem("letsCookSaved", JSON.stringify(saved));
+    localStorage.setItem("letsCookPlanned", JSON.stringify(planned));
+    localStorage.setItem("letsCookLessonProgress", JSON.stringify(lessonProgress));
+    return false;
+  }
+  const response = await fetch("/api/lets-cook/state", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ saved, planned, lessonProgress })
+  });
+  const payload = await response.json().catch(() => ({}));
+  applyLetsCookState(payload, response.ok ? "Saved to your Let's Cook account." : payload.error || "Save failed.");
+  return response.ok;
 }
 
 function persistBeuCommunity() {
@@ -2132,4 +2332,4 @@ function escapeHTML(value) {
   return value.toString().replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#039;");
 }
 
-Promise.all([loadBeuDatabase(), loadBeuCommunity(), loadRecipeDatabase()]).finally(render);
+Promise.all([loadBeuDatabase(), loadBeuCommunity(), loadRecipeDatabase(), loadLetsCookState()]).finally(render);
