@@ -18,20 +18,39 @@ A working prototype for a warm Brent & Co. cooking-skills app inspired by the or
 - Location-aware BEU prototype with geolocation, country dropdown, city selector, radius/category/tag filters, and sample global cultural listings
 - BEU community trust prototype with editable user profile, badges, saved places, photo-backed place cards, compass ratings, simple recommendations, reports, and an admin-style review queue
 - Home page with Brent & Co. hero positioning
+- Flask backend for Let's Cook accounts, login/logout, profile pictures, saved recipe state, lesson progress, and food video uploads
 - Shay's Kitchen / From My Kitchen personal recipe collection
 - Cook 101 beginner basics and lesson detail pages
 - Recipe search/filter by keyword, category, and skill level
 - Recipe listing and recipe detail pages
 - Learning paths for Kid Chefs, Amateur Home Chef, and Professional Mode
 - Cuisine/category tiles for Southern classics and global-inspired meals
-- Save recipes in the browser
-- Add recipes to a meal plan
+- Save recipes to a user account when logged in, with browser fallback for guests
+- Add recipes to a meal plan and persist it to the account database
 - Generate a shopping list from planned recipes
 - Hosting and entertaining menu ideas
-- Cook-created video submissions through the Brent & Co. Kitchen/About page
+- Cook-created video submissions through the Brent & Co. Kitchen/About page, backed by database records and uploaded video storage for logged-in users
 - Personal sample content including orange chicken, crab rangoon, Yakamein, shrimp and grits with green beans, oxtails, Cajun cream salmon rotini pasta, roasted vegetables, white chicken chili, General Tso-style chicken, cashew chicken, fried rice, chicken parmesan, deviled eggs, Rotel dip, party meatballs, charcuterie boards, dessert charcuterie board, bourbon praline bread pudding, blackened fish, Tuscan chicken, garlic wings, pineapple fried rice, and lamb bone broth soup
 - Local JSON recipe database in `data/recipes.json`
 - Search/filter by keyword, pantry ingredients, cuisine, cook time, category, and difficulty
+
+## Database Tables
+
+- `users`: email, password hash, display name, profile picture, and account creation time.
+- `user_state`: saved recipes, planned recipes, and lesson progress JSON per user.
+- `food_videos`: user-submitted recipe videos, YouTube links, uploaded video filenames, and timestamps.
+
+## Deploy on Render
+
+Use a Web Service:
+
+- Build command: `pip install -r requirements.txt`
+- Start command: `gunicorn app:app`
+- Add a persistent disk mounted at `/data`
+- Set `SECRET_KEY` to a real generated secret
+- Set `INSTANCE_DIR=/data/instance`
+- Set `DATABASE_PATH=/data/instance/lets_cook.sqlite`
+- Set `UPLOAD_DIR=/data/uploads`
 
 ## Next Product Steps
 

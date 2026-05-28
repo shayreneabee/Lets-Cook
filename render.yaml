@@ -1,5 +1,19 @@
 services:
-  - type: static
+  - type: web
     name: lets-cook-yall
-    buildCommand: ""
-    staticPublishPath: .
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: INSTANCE_DIR
+        value: /data/instance
+      - key: DATABASE_PATH
+        value: /data/instance/lets_cook.sqlite
+      - key: UPLOAD_DIR
+        value: /data/uploads
+    disk:
+      name: lets-cook-data
+      mountPath: /data
+      sizeGB: 1
