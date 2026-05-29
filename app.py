@@ -6,7 +6,7 @@ import sqlite3
 import time
 from pathlib import Path
 
-from flask import Flask, jsonify, request, send_from_directory, session
+from flask import Flask, abort, jsonify, request, send_from_directory, session
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
 
@@ -327,6 +327,16 @@ def api_food_video():
 @app.get("/")
 def index():
     return send_from_directory(BASE_DIR, "index.html")
+
+
+@app.get("/data/beu-listings.json")
+@app.get("/data/beu-community.json")
+@app.get("/data/BEU-STRATEGY.md")
+@app.get("/data/BEU-TRUST.md")
+@app.get("/services/beuSearchService.js")
+@app.get("/assets/beu-logo.jpg")
+def archived_beu_asset():
+    abort(404)
 
 
 @app.get("/uploads/<path:path>")
