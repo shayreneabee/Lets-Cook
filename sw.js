@@ -1,4 +1,4 @@
-const CACHE_NAME = "brent-co-platform-v8";
+const CACHE_NAME = "brent-co-platform-v9";
 
 const OFFLINE_ASSETS = [
   "./",
@@ -6,11 +6,7 @@ const OFFLINE_ASSETS = [
   "./styles.css",
   "./app.js",
   "./manifest.webmanifest",
-  "./services/beuSearchService.js",
   "./data/recipes.json",
-  "./data/beu-listings.json",
-  "./data/beu-community.json",
-  "./assets/beu-logo.jpg",
   "./assets/brent-co-logo.svg",
   "./assets/editorial-cajun-pasta.jpg",
   "./assets/editorial-career-support.jpg",

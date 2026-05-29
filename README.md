@@ -4,19 +4,15 @@ A working prototype for a warm Brent & Co. cooking-skills app inspired by the or
 
 ## What Works Now
 
-- Brent & Co. ecosystem homepage with storefront cards for Let's Cook Ya'll, Find the Beat, BEU, and Second Chance Careers
+- Brent & Co. ecosystem homepage with storefront cards for Let's Cook Ya'll, Find the Beat, and Second Chance Careers
 - Verified live app links from the Brent & Co. homepage:
   - Brent & Co.: https://brentandco.org/
   - Let's Cook Ya'll: https://letscookyall.com/
   - Find the Beat: https://findthebeatmusic.com/
-  - BEU: https://beutravel.org/
   - Second Chance Careers: https://secondchancecareers.org/
 - GitHub repo links from each storefront card for the connected Brent & Co. projects
 - Shared platform design system for spacing, cards, buttons, hover motion, accent colors, and responsive layout
-- App-specific accent personalities: gold for Let's Cook Ya'll, orange for Find the Beat, blue for BEU, and green/supportive tones for Second Chance Careers
-- Polished BEU cultural compass route with city selector, compass UI, North Star, Essence, Scene, and Waypoint sections
-- Location-aware BEU prototype with geolocation, country dropdown, city selector, radius/category/tag filters, and sample global cultural listings
-- BEU community trust prototype with editable user profile, badges, saved places, photo-backed place cards, compass ratings, simple recommendations, reports, and an admin-style review queue
+- App-specific accent personalities: gold for Let's Cook Ya'll, orange for Find the Beat, and green/supportive tones for Second Chance Careers
 - Home page with Brent & Co. hero positioning
 - Flask backend for Let's Cook accounts, login/logout, profile pictures, saved recipe state, lesson progress, and food video uploads
 - Shay's Kitchen / From My Kitchen personal recipe collection
@@ -55,9 +51,6 @@ Use a Web Service:
 ## Next Product Steps
 
 - Expand Find the Beat and Second Chance Careers from concept hubs into full apps
-- Connect BEU to live data for promoters, places, cuisines, and calendar events
-- Move BEU API calls behind a backend proxy and add verified listing/admin review workflow
-- Add BEU authentication, photo uploads, production moderation tools, and verified user/listing workflows
 - Replace starter recipe guidance with tested, finalized recipes
 - Add matched cooking videos to individual recipe pages
 - Add user accounts with cloud persistence

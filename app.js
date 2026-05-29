@@ -1,7 +1,6 @@
 const liveAppUrls = {
   letsCook: "https://letscookyall.com/",
   findTheBeat: "https://findthebeatmusic.com/",
-  beu: "https://beutravel.org/",
   secondChance: "https://secondchancecareers.org/"
 };
 
@@ -44,21 +43,6 @@ const ecosystemApps = [
     links: [
       ["Launch Site", liveAppUrls.findTheBeat],
       ["Preview Here", "#find-the-beat"]
-    ]
-  },
-  {
-    id: "beu",
-    title: "BEU",
-    accent: "blue",
-    image: "assets/beu-logo.jpg",
-    tagline: "A cultural compass for people, places, cuisine, and community rhythm.",
-    description: "A polished blue navigation app for cultural discovery: promoter spotlights, cuisine features, places to visit, and a yearly community calendar.",
-    route: "#beu",
-    externalUrl: liveAppUrls.beu,
-    status: "Live",
-    links: [
-      ["Launch Site", liveAppUrls.beu],
-      ["Preview Here", "#beu"]
     ]
   },
   {
@@ -121,7 +105,7 @@ const appHubSections = {
   "find-the-beat": [
     { title: "Artist Discovery", text: "A future home for local artists, producers, DJs, playlists, and creative spotlights." },
     { title: "Creative Sessions", text: "A section for workshops, listening parties, studio nights, and community music events." },
-    { title: "Sound Map", text: "A city-based discovery layer that can connect music scenes to BEU cultural listings." }
+    { title: "Sound Map", text: "A city-based discovery layer for music scenes, venues, and creative neighborhoods." }
   ],
   "second-chance": [
     { title: "Job Pathways", text: "Career tracks, listings, training links, and supportive employment resources." },
@@ -602,13 +586,6 @@ function render() {
   if (route === "home") return renderPlatformHome();
   if (route === "lets-cook") return renderLetsCookHome();
   if (route === "find-the-beat") return renderFindTheBeatHome();
-  if (route === "beu") return renderBeuHome();
-  if (route === "beu-section") return renderBeuSection(id);
-  if (beuSections.some((section) => section.id === route)) return renderBeuSection(route);
-  if (route === "beu-place") return renderBeuPlace(id);
-  if (route === "beu-profile") return renderBeuProfile();
-  if (route === "beu-saved") return renderBeuSaved();
-  if (route === "beu-admin") return renderBeuAdmin();
   if (route === "second-chance") return renderSecondChanceHome();
   if (route === "community") return renderCommunity();
   if (route === "kitchen") return renderKitchen();
@@ -626,8 +603,7 @@ function render() {
 
 function setActive(route) {
   const cookingRoutes = ["kitchen", "cook101", "recipes", "paths", "planner", "hosting", "about", "account", "search", "cuisine"];
-  const beuRoutes = ["beu-section", "beu-place", "beu-profile", "beu-saved", "beu-admin", ...beuSections.map((section) => section.id)];
-  const normalizedRoute = cookingRoutes.includes(route) ? "lets-cook" : beuRoutes.includes(route) ? "beu" : route;
+  const normalizedRoute = cookingRoutes.includes(route) ? "lets-cook" : route;
   document.querySelectorAll(".main-nav a").forEach((link) => {
     link.classList.toggle("active", link.dataset.route === normalizedRoute);
   });
@@ -635,9 +611,7 @@ function setActive(route) {
 
 function activeAppForRoute(route) {
   const cookingRoutes = ["lets-cook", "kitchen", "cook101", "recipes", "paths", "planner", "hosting", "about", "account", "search", "cuisine"];
-  const beuRoutes = ["beu", "beu-section", "beu-place", "beu-profile", "beu-saved", "beu-admin", ...beuSections.map((section) => section.id)];
   if (cookingRoutes.includes(route)) return ecosystemApps.find((item) => item.id === "lets-cook");
-  if (beuRoutes.includes(route)) return ecosystemApps.find((item) => item.id === "beu");
   if (route === "find-the-beat") return ecosystemApps.find((item) => item.id === "find-the-beat");
   if (route === "second-chance") return ecosystemApps.find((item) => item.id === "second-chance");
   return { title: "Brent & Co.", image: "assets/brent-co-logo.svg", accent: "platform" };
@@ -2316,10 +2290,6 @@ async function persistLetsCookState() {
   return response.ok;
 }
 
-function persistBeuCommunity() {
-  localStorage.setItem("beuCommunity", JSON.stringify(beuCommunity));
-}
-
 function readJSON(key, fallback) {
   try {
     return JSON.parse(localStorage.getItem(key) || JSON.stringify(fallback));
@@ -2332,4 +2302,4 @@ function escapeHTML(value) {
   return value.toString().replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#039;");
 }
 
-Promise.all([loadBeuDatabase(), loadBeuCommunity(), loadRecipeDatabase(), loadLetsCookState()]).finally(render);
+Promise.all([loadRecipeDatabase(), loadLetsCookState()]).finally(render);
