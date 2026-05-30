@@ -25,6 +25,10 @@ app = Flask(__name__, static_folder=None)
 app.secret_key = os.getenv("SECRET_KEY", "dev-lets-cook-change-me")
 app.config["MAX_CONTENT_LENGTH"] = int(os.getenv("MAX_UPLOAD_MB", "250")) * 1024 * 1024
 AUTH_PROVIDER = os.getenv("BRENT_AUTH_PROVIDER", "local")
+OWNER_EMAIL = os.getenv("BRENT_OWNER_EMAIL", "shalanda.brent@gmail.com").strip().lower()
+OWNER_DISPLAY_NAME = os.getenv("BRENT_OWNER_DISPLAY_NAME", "Shay / Brent & Co Founder")
+OWNER_AUTH_PROVIDER = os.getenv("BRENT_OWNER_AUTH_PROVIDER", "brent-core")
+OWNER_INITIAL_PASSWORD = os.getenv("BRENT_OWNER_INITIAL_PASSWORD", "")
 
 
 def db():
@@ -46,8 +50,12 @@ def init_db():
                 password_hash TEXT NOT NULL,
                 display_name TEXT NOT NULL,
                 profile_pic TEXT DEFAULT '',
+                role TEXT DEFAULT '',
                 brent_account_id TEXT DEFAULT '',
                 auth_provider TEXT DEFAULT 'local',
+                is_admin INTEGER DEFAULT 0,
+                is_founder INTEGER DEFAULT 0,
+                is_verified INTEGER DEFAULT 0,
                 created_at INTEGER NOT NULL
             )
             """
@@ -68,8 +76,12 @@ def init_db():
             row["name"] for row in conn.execute("PRAGMA table_info(users)").fetchall()
         }
         for column, definition in {
+            "role": "TEXT DEFAULT ''",
             "brent_account_id": "TEXT DEFAULT ''",
             "auth_provider": "TEXT DEFAULT 'local'",
+            "is_admin": "INTEGER DEFAULT 0",
+            "is_founder": "INTEGER DEFAULT 0",
+            "is_verified": "INTEGER DEFAULT 0",
         }.items():
             if column not in existing_columns:
                 conn.execute(f"ALTER TABLE users ADD COLUMN {column} {definition}")
@@ -93,6 +105,7 @@ def init_db():
 @app.before_request
 def ensure_database():
     init_db()
+    seed_founder_profile()
 
 
 def allowed_file(filename, allowed):
@@ -128,14 +141,71 @@ def current_user():
 def public_user(row):
     if not row:
         return None
+    official_badges = []
+    if row["is_founder"]:
+        official_badges.extend(["Founder", "Brent & Co"])
+    if row["is_verified"]:
+        official_badges.append("Verified")
     return {
         "id": row["id"],
         "email": row["email"],
         "displayName": row["display_name"],
+        "role": row["role"] or "Home Cook",
         "profilePic": row["profile_pic"] or "assets/logo.png",
         "brentAccountId": row["brent_account_id"] or brent_account_id(row["email"]),
         "authProvider": row["auth_provider"] or AUTH_PROVIDER,
+        "isAdmin": bool(row["is_admin"]),
+        "isFounder": bool(row["is_founder"]),
+        "isVerified": bool(row["is_verified"]),
+        "badges": official_badges,
     }
+
+
+def seed_founder_profile():
+    if not OWNER_EMAIL:
+        return
+    with db() as conn:
+        existing = conn.execute(
+            "SELECT * FROM users WHERE lower(email) = lower(?)",
+            (OWNER_EMAIL,),
+        ).fetchone()
+        if existing:
+            conn.execute(
+                """
+                UPDATE users
+                SET display_name = ?, role = ?, brent_account_id = ?,
+                    auth_provider = ?, is_admin = 1, is_founder = 1,
+                    is_verified = 1
+                WHERE id = ?
+                """,
+                (
+                    OWNER_DISPLAY_NAME,
+                    "admin",
+                    brent_account_id(OWNER_EMAIL),
+                    OWNER_AUTH_PROVIDER,
+                    existing["id"],
+                ),
+            )
+            return
+        conn.execute(
+            """
+            INSERT INTO users (
+                email, password_hash, display_name, role, profile_pic,
+                brent_account_id, auth_provider, is_admin, is_founder,
+                is_verified, created_at
+            )
+            VALUES (?, ?, ?, ?, '', ?, ?, 1, 1, 1, ?)
+            """,
+            (
+                OWNER_EMAIL,
+                generate_password_hash(OWNER_INITIAL_PASSWORD or secrets.token_urlsafe(32)),
+                OWNER_DISPLAY_NAME,
+                "admin",
+                brent_account_id(OWNER_EMAIL),
+                OWNER_AUTH_PROVIDER,
+                int(time.time()),
+            ),
+        )
 
 
 def ensure_state(conn, user_id):

@@ -1011,6 +1011,7 @@ function renderAbout() {
 function renderAccount() {
   const user = letsCookSession.user || {};
   const status = letsCookSession.status ? `<div class="empty-state">${escapeHTML(letsCookSession.status)}</div>` : "";
+  const officialBadges = (user.badges || []).map((badge) => `<span>${escapeHTML(badge)}</span>`).join("");
   app.innerHTML = `
     ${hero("Your Let's Cook Account", "Save recipes, track lesson progress, keep your profile picture, and upload food videos from your own kitchen.", user.profilePic || "assets/logo.png")}
     ${cookSubnav()}
@@ -1024,8 +1025,9 @@ function renderAccount() {
             <div class="account-profile-head">
               <img src="${user.profilePic || "assets/logo.png"}" alt="" />
               <div>
-                <p class="eyebrow">Home cook</p>
+                <p class="eyebrow">${escapeHTML(user.role || "Home Cook")}</p>
                 <h2>${escapeHTML(user.displayName || "Home Cook")}</h2>
+                ${officialBadges ? `<div class="founder-badges">${officialBadges}</div>` : ""}
               </div>
             </div>
             <form class="profile-form" data-lets-profile-form>
