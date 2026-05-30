@@ -25,10 +25,18 @@ app = Flask(__name__, static_folder=None)
 app.secret_key = os.getenv("SECRET_KEY", "dev-lets-cook-change-me")
 app.config["MAX_CONTENT_LENGTH"] = int(os.getenv("MAX_UPLOAD_MB", "250")) * 1024 * 1024
 AUTH_PROVIDER = os.getenv("BRENT_AUTH_PROVIDER", "local")
-OWNER_EMAIL = os.getenv("BRENT_OWNER_EMAIL", "shalanda.brent@gmail.com").strip().lower()
-OWNER_DISPLAY_NAME = os.getenv("BRENT_OWNER_DISPLAY_NAME", "Shay / Brent & Co Founder")
 OWNER_AUTH_PROVIDER = os.getenv("BRENT_OWNER_AUTH_PROVIDER", "brent-core")
 OWNER_INITIAL_PASSWORD = os.getenv("BRENT_OWNER_INITIAL_PASSWORD", "")
+FOUNDER_PROFILES = [
+    {
+        "email": os.getenv("BRENT_OWNER_EMAIL", "shalanda.brent@gmail.com").strip().lower(),
+        "display_name": os.getenv("BRENT_OWNER_DISPLAY_NAME", "Shay / Brent & Co Founder"),
+    },
+    {
+        "email": os.getenv("BRENT_COFOUNDER_EMAIL", "jerod.l.cotton@gmail.com").strip().lower(),
+        "display_name": os.getenv("BRENT_COFOUNDER_DISPLAY_NAME", "Jerod / Brent & Co Founder"),
+    },
+]
 
 
 def db():
@@ -162,50 +170,52 @@ def public_user(row):
 
 
 def seed_founder_profile():
-    if not OWNER_EMAIL:
-        return
     with db() as conn:
-        existing = conn.execute(
-            "SELECT * FROM users WHERE lower(email) = lower(?)",
-            (OWNER_EMAIL,),
-        ).fetchone()
-        if existing:
+        for founder in FOUNDER_PROFILES:
+            email = founder["email"]
+            if not email:
+                continue
+            existing = conn.execute(
+                "SELECT * FROM users WHERE lower(email) = lower(?)",
+                (email,),
+            ).fetchone()
+            if existing:
+                conn.execute(
+                    """
+                    UPDATE users
+                    SET display_name = ?, role = ?, brent_account_id = ?,
+                        auth_provider = ?, is_admin = 1, is_founder = 1,
+                        is_verified = 1
+                    WHERE id = ?
+                    """,
+                    (
+                        founder["display_name"],
+                        "admin",
+                        brent_account_id(email),
+                        OWNER_AUTH_PROVIDER,
+                        existing["id"],
+                    ),
+                )
+                continue
             conn.execute(
                 """
-                UPDATE users
-                SET display_name = ?, role = ?, brent_account_id = ?,
-                    auth_provider = ?, is_admin = 1, is_founder = 1,
-                    is_verified = 1
-                WHERE id = ?
+                INSERT INTO users (
+                    email, password_hash, display_name, role, profile_pic,
+                    brent_account_id, auth_provider, is_admin, is_founder,
+                    is_verified, created_at
+                )
+                VALUES (?, ?, ?, ?, '', ?, ?, 1, 1, 1, ?)
                 """,
                 (
-                    OWNER_DISPLAY_NAME,
+                    email,
+                    generate_password_hash(OWNER_INITIAL_PASSWORD or secrets.token_urlsafe(32)),
+                    founder["display_name"],
                     "admin",
-                    brent_account_id(OWNER_EMAIL),
+                    brent_account_id(email),
                     OWNER_AUTH_PROVIDER,
-                    existing["id"],
+                    int(time.time()),
                 ),
             )
-            return
-        conn.execute(
-            """
-            INSERT INTO users (
-                email, password_hash, display_name, role, profile_pic,
-                brent_account_id, auth_provider, is_admin, is_founder,
-                is_verified, created_at
-            )
-            VALUES (?, ?, ?, ?, '', ?, ?, 1, 1, 1, ?)
-            """,
-            (
-                OWNER_EMAIL,
-                generate_password_hash(OWNER_INITIAL_PASSWORD or secrets.token_urlsafe(32)),
-                OWNER_DISPLAY_NAME,
-                "admin",
-                brent_account_id(OWNER_EMAIL),
-                OWNER_AUTH_PROVIDER,
-                int(time.time()),
-            ),
-        )
 
 
 def ensure_state(conn, user_id):
