@@ -2204,6 +2204,19 @@ select {
   line-height: 1.65;
 }
 
+.source-note {
+  max-width: 760px;
+  margin: 14px 0 0;
+  color: #6e5a42;
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.source-note a {
+  color: var(--green-dark);
+  font-weight: 800;
+}
+
 .recipe-facts,
 .recipe-card-meta {
   display: grid;

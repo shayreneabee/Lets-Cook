@@ -776,6 +776,7 @@ function normalizeRecipe(recipe) {
   recipe.related_recipe_ids ||= recipe.relatedRecipeIds || [];
   recipe.video_url ||= recipe.videoUrl || "";
   recipe.videoUrl ||= recipe.video_url;
+  recipe.source ||= { type: "internal", name: "Let's Cook Y'all" };
   return recipe;
 }
 
@@ -787,6 +788,13 @@ function cuisineName(cuisineId) {
 
 function recipeDuration(recipe) {
   return [recipe.prep_time && `Prep ${recipe.prep_time}`, recipe.cook_time && `Cook ${recipe.cook_time}`].filter(Boolean).join(" / ") || recipe.time || "";
+}
+
+function recipeSourceNote(recipe) {
+  const source = recipe.source || {};
+  if (!source.name || source.type === "original" || source.type === "internal") return "";
+  const label = source.url ? `<a href="${source.url}" target="_blank" rel="noreferrer">${source.name}</a>` : source.name;
+  return `<p class="source-note">Source: ${label}. Reviewed and organized for the Let's Cook Y'all kitchen.</p>`;
 }
 
 function relatedRecipesFor(recipe, limit = 6) {
@@ -1248,6 +1256,7 @@ function renderRecipe(id) {
           <p class="eyebrow">About this dish</p>
           <h2>${recipe.title}</h2>
           <p class="detail-copy">${recipe.description}</p>
+          ${recipeSourceNote(recipe)}
           <div class="recipe-card-meta">
             <div><small>Cuisine</small><strong>${cuisineName(recipe.cuisine)}</strong></div>
             <div><small>Prep</small><strong>${recipe.prep_time}</strong></div>

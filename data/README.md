@@ -73,3 +73,22 @@ Use API adapters to ingest or reference data without copying copyrighted blog co
 - Open Food Facts: product and pantry lookup
 
 Any imported recipe should store `source.type`, `source.name`, and `source.url` when applicable.
+
+## Importing Free/Public API Recipes
+
+The current importer pulls from TheMealDB's public API and stores attribution metadata on each recipe.
+
+Run from the `Lets-Cook` folder:
+
+```powershell
+python scripts/import_themealdb.py --areas Indian Mexican Jamaican Italian Greek Chinese Japanese Thai --per-area 3
+```
+
+The importer:
+
+- maps TheMealDB areas into Let's Cook cuisine categories
+- stores the original source URL/API metadata in `recipe.source`
+- keeps imported recipes unfeatured by default
+- updates existing imported recipes by stable `mealdb-...` IDs
+
+Before making imported recipes featured content, review the wording, cooking steps, photos, and source terms so the final recipe feels like Let's Cook Y'all and fits launch requirements.

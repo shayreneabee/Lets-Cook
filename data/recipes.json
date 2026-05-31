@@ -9,7 +9,12 @@
       "Public-domain or open-license recipes with attribution",
       "User-submitted recipes",
       "Free/public recipe APIs such as TheMealDB, Spoonacular, Edamam, DummyJSON, and Open Food Facts"
-    ]
+    ],
+    "lastApiImport": {
+      "source": "TheMealDB",
+      "importedCount": 21,
+      "importedAt": "2026-05-31"
+    }
   },
   "categories": [
     "Southern Comfort",
@@ -67,18 +72,58 @@
       "prepTimeMinutes": 10,
       "servings": 4,
       "difficulty": "Beginner",
-      "ingredients": ["1 1/2 lb chicken breast, cut into bite-size pieces", "1/2 cup cornstarch", "1/2 tsp kosher salt", "1/2 tsp black pepper", "1 cup orange juice", "2 tbsp soy sauce", "2 tbsp honey", "2 cloves garlic, minced", "1 tsp grated ginger", "Cooked rice, for serving", "Green onion or sesame seeds, optional"],
-      "instructions": ["Pat chicken dry, then season with salt and pepper.", "Toss chicken pieces with cornstarch until lightly coated on every side.", "Pan-cook chicken in a thin layer of oil until golden and cooked through, working in batches if needed.", "Simmer orange juice, soy sauce, honey, garlic, and ginger until glossy and slightly reduced.", "Toss chicken in the sauce until every piece is coated.", "Serve over warm rice and finish with green onion or sesame seeds."],
-      "equipment": ["Large skillet", "Mixing bowl", "Measuring cups and spoons", "Wooden spoon or spatula"],
-      "tips": ["Dry chicken browns better than wet chicken.", "Keep the pan from crowding so the coating gets crisp instead of steaming.", "For a spicier version, add chili flakes or a spoon of chili garlic sauce to the glaze."],
+      "ingredients": [
+        "1 1/2 lb chicken breast, cut into bite-size pieces",
+        "1/2 cup cornstarch",
+        "1/2 tsp kosher salt",
+        "1/2 tsp black pepper",
+        "1 cup orange juice",
+        "2 tbsp soy sauce",
+        "2 tbsp honey",
+        "2 cloves garlic, minced",
+        "1 tsp grated ginger",
+        "Cooked rice, for serving",
+        "Green onion or sesame seeds, optional"
+      ],
+      "instructions": [
+        "Pat chicken dry, then season with salt and pepper.",
+        "Toss chicken pieces with cornstarch until lightly coated on every side.",
+        "Pan-cook chicken in a thin layer of oil until golden and cooked through, working in batches if needed.",
+        "Simmer orange juice, soy sauce, honey, garlic, and ginger until glossy and slightly reduced.",
+        "Toss chicken in the sauce until every piece is coated.",
+        "Serve over warm rice and finish with green onion or sesame seeds."
+      ],
+      "equipment": [
+        "Large skillet",
+        "Mixing bowl",
+        "Measuring cups and spoons",
+        "Wooden spoon or spatula"
+      ],
+      "tips": [
+        "Dry chicken browns better than wet chicken.",
+        "Keep the pan from crowding so the coating gets crisp instead of steaming.",
+        "For a spicier version, add chili flakes or a spoon of chili garlic sauce to the glaze."
+      ],
       "makeAhead": "Cut the chicken and mix the sauce up to one day ahead. Cook the chicken fresh so the coating stays crisp.",
-      "servingIdeas": ["Serve with rice and broccoli.", "Turn leftovers into lettuce wraps.", "Make orange chicken bowls with cucumber, carrots, and green onion."],
+      "servingIdeas": [
+        "Serve with rice and broccoli.",
+        "Turn leftovers into lettuce wraps.",
+        "Make orange chicken bowls with cucumber, carrots, and green onion."
+      ],
       "image": "assets/editorial-cooking-hero.jpg",
-      "tags": ["Chicken", "Quick Meals", "Global Flavors", "Kid-Friendly Cooking"],
+      "tags": [
+        "Chicken",
+        "Quick Meals",
+        "Global Flavors",
+        "Kid-Friendly Cooking"
+      ],
       "featured": true,
       "chefNotes": "A Shay's Kitchen favorite because it feels fun, familiar, and easy to build confidence with.",
       "path": "kid-chefs",
-      "source": { "type": "original", "name": "Brent & Co. starter recipe" }
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
     },
     {
       "id": "crab-rangoon",
@@ -92,18 +137,54 @@
       "prepTimeMinutes": 15,
       "servings": 8,
       "difficulty": "Intermediate",
-      "ingredients": ["24 wonton wrappers", "8 oz cream cheese, softened", "1 cup crab meat or imitation crab, chopped", "2 green onions, thinly sliced", "1/2 tsp garlic powder", "1/2 tsp Worcestershire sauce", "Pinch of sugar", "Small bowl of water, for sealing", "Sweet chili sauce, for serving"],
-      "instructions": ["Stir cream cheese, crab, green onion, garlic powder, Worcestershire, and sugar until evenly mixed.", "Place one spoonful of filling in the center of each wonton wrapper.", "Wet the wrapper edges with water and pinch closed tightly so the filling stays inside.", "Fry, bake, or air-fry until the wrappers are crisp and golden.", "Let cool for a minute, then serve with sweet chili sauce."],
-      "equipment": ["Mixing bowl", "Small spoon", "Air fryer, oven, or heavy pot for frying", "Sheet pan or cooling rack"],
-      "tips": ["Do not overfill the wrappers or they may split.", "Keep unused wrappers covered with a towel so they do not dry out.", "If air-frying, lightly spray the outside for better browning."],
+      "ingredients": [
+        "24 wonton wrappers",
+        "8 oz cream cheese, softened",
+        "1 cup crab meat or imitation crab, chopped",
+        "2 green onions, thinly sliced",
+        "1/2 tsp garlic powder",
+        "1/2 tsp Worcestershire sauce",
+        "Pinch of sugar",
+        "Small bowl of water, for sealing",
+        "Sweet chili sauce, for serving"
+      ],
+      "instructions": [
+        "Stir cream cheese, crab, green onion, garlic powder, Worcestershire, and sugar until evenly mixed.",
+        "Place one spoonful of filling in the center of each wonton wrapper.",
+        "Wet the wrapper edges with water and pinch closed tightly so the filling stays inside.",
+        "Fry, bake, or air-fry until the wrappers are crisp and golden.",
+        "Let cool for a minute, then serve with sweet chili sauce."
+      ],
+      "equipment": [
+        "Mixing bowl",
+        "Small spoon",
+        "Air fryer, oven, or heavy pot for frying",
+        "Sheet pan or cooling rack"
+      ],
+      "tips": [
+        "Do not overfill the wrappers or they may split.",
+        "Keep unused wrappers covered with a towel so they do not dry out.",
+        "If air-frying, lightly spray the outside for better browning."
+      ],
       "makeAhead": "Mix the filling a day ahead. Assemble right before cooking, or freeze assembled rangoons in a single layer.",
-      "servingIdeas": ["Serve as a game-night appetizer.", "Pair with fried rice or orange chicken.", "Add to a party board with dipping sauces."],
+      "servingIdeas": [
+        "Serve as a game-night appetizer.",
+        "Pair with fried rice or orange chicken.",
+        "Add to a party board with dipping sauces."
+      ],
       "image": "assets/editorial-kitchen-prep.jpg",
-      "tags": ["Party & Hosting", "Global Flavors", "Seafood"],
+      "tags": [
+        "Party & Hosting",
+        "Global Flavors",
+        "Seafood"
+      ],
       "featured": true,
       "chefNotes": "Great for game nights, grazing tables, and a starter that feels special without being fussy.",
       "path": "professional-mode",
-      "source": { "type": "original", "name": "Brent & Co. starter recipe" }
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
     },
     {
       "id": "yakamein",
@@ -117,18 +198,56 @@
       "prepTimeMinutes": 10,
       "servings": 4,
       "difficulty": "Intermediate",
-      "ingredients": ["1 lb beef chuck or stew meat", "8 oz spaghetti noodles", "6 cups beef broth", "2 boiled eggs, halved", "3 green onions, sliced", "1 tbsp Creole seasoning", "1 tbsp soy sauce", "1 tsp garlic powder", "Hot sauce, to taste", "Lemon wedges, optional"],
-      "instructions": ["Season beef with Creole seasoning and garlic powder.", "Simmer beef in broth with soy sauce until tender and easy to pull apart.", "Boil spaghetti separately so the noodles stay springy.", "Taste broth and adjust with hot sauce, salt, or lemon.", "Build bowls with noodles, broth, beef, boiled egg, and green onion.", "Serve hot with extra hot sauce on the side."],
-      "equipment": ["Soup pot or Dutch oven", "Medium pot for noodles", "Tongs", "Ladle"],
-      "tips": ["Cook noodles separately so leftovers do not soak up all the broth.", "A splash of lemon or pickle juice can brighten the bowl.", "Use leftover roast beef when you need a faster version."],
+      "ingredients": [
+        "1 lb beef chuck or stew meat",
+        "8 oz spaghetti noodles",
+        "6 cups beef broth",
+        "2 boiled eggs, halved",
+        "3 green onions, sliced",
+        "1 tbsp Creole seasoning",
+        "1 tbsp soy sauce",
+        "1 tsp garlic powder",
+        "Hot sauce, to taste",
+        "Lemon wedges, optional"
+      ],
+      "instructions": [
+        "Season beef with Creole seasoning and garlic powder.",
+        "Simmer beef in broth with soy sauce until tender and easy to pull apart.",
+        "Boil spaghetti separately so the noodles stay springy.",
+        "Taste broth and adjust with hot sauce, salt, or lemon.",
+        "Build bowls with noodles, broth, beef, boiled egg, and green onion.",
+        "Serve hot with extra hot sauce on the side."
+      ],
+      "equipment": [
+        "Soup pot or Dutch oven",
+        "Medium pot for noodles",
+        "Tongs",
+        "Ladle"
+      ],
+      "tips": [
+        "Cook noodles separately so leftovers do not soak up all the broth.",
+        "A splash of lemon or pickle juice can brighten the bowl.",
+        "Use leftover roast beef when you need a faster version."
+      ],
       "makeAhead": "Broth and beef can be made two days ahead. Store noodles separately and assemble bowls when ready to eat.",
-      "servingIdeas": ["Serve as a late-night comfort bowl.", "Add extra green onion and hot sauce for a New Orleans-style finish.", "Pair with simple greens or a small side salad."],
+      "servingIdeas": [
+        "Serve as a late-night comfort bowl.",
+        "Add extra green onion and hot sauce for a New Orleans-style finish.",
+        "Pair with simple greens or a small side salad."
+      ],
       "image": "assets/editorial-kitchen-prep.jpg",
-      "tags": ["Southern Comfort", "Global Flavors", "Family Dinners"],
+      "tags": [
+        "Southern Comfort",
+        "Global Flavors",
+        "Family Dinners"
+      ],
       "featured": true,
       "chefNotes": "A personal New Orleans-style comfort bowl that bridges Southern roots and global noodle-bowl energy.",
       "path": "professional-mode",
-      "source": { "type": "original", "name": "Brent & Co. starter recipe" }
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
     },
     {
       "id": "shrimp-and-grits-green-beans",
@@ -142,14 +261,35 @@
       "prepTimeMinutes": 10,
       "servings": 4,
       "difficulty": "Beginner",
-      "ingredients": ["Shrimp", "Stone-ground grits", "Green beans", "Chicken stock", "Butter", "Bell pepper", "Garlic", "Lemon"],
-      "instructions": ["Cook grits low and slow with stock.", "Saute peppers, garlic, and green beans.", "Cook shrimp until just pink.", "Spoon shrimp and vegetables over creamy grits."],
+      "ingredients": [
+        "Shrimp",
+        "Stone-ground grits",
+        "Green beans",
+        "Chicken stock",
+        "Butter",
+        "Bell pepper",
+        "Garlic",
+        "Lemon"
+      ],
+      "instructions": [
+        "Cook grits low and slow with stock.",
+        "Saute peppers, garlic, and green beans.",
+        "Cook shrimp until just pink.",
+        "Spoon shrimp and vegetables over creamy grits."
+      ],
       "image": "assets/editorial-cooking-hero.jpg",
-      "tags": ["Southern Comfort", "Seafood", "Beginner Friendly"],
+      "tags": [
+        "Southern Comfort",
+        "Seafood",
+        "Beginner Friendly"
+      ],
       "featured": true,
       "chefNotes": "This one should feel like a real plate from home, not a generic shrimp-and-grits card.",
       "path": "amateur-home-chef",
-      "source": { "type": "original", "name": "Shay's Kitchen" }
+      "source": {
+        "type": "original",
+        "name": "Shay's Kitchen"
+      }
     },
     {
       "id": "oxtails",
@@ -163,14 +303,34 @@
       "prepTimeMinutes": 20,
       "servings": 6,
       "difficulty": "Advanced",
-      "ingredients": ["Oxtails", "Onion", "Carrots", "Celery", "Garlic", "Beef stock", "Thyme"],
-      "instructions": ["Season and brown oxtails well.", "Cook aromatics in the same pot.", "Add stock and thyme.", "Braise covered until tender and reduce the gravy."],
+      "ingredients": [
+        "Oxtails",
+        "Onion",
+        "Carrots",
+        "Celery",
+        "Garlic",
+        "Beef stock",
+        "Thyme"
+      ],
+      "instructions": [
+        "Season and brown oxtails well.",
+        "Cook aromatics in the same pot.",
+        "Add stock and thyme.",
+        "Braise covered until tender and reduce the gravy."
+      ],
       "image": "assets/editorial-kitchen-prep.jpg",
-      "tags": ["Southern Comfort", "Family Dinners", "Meal Prep"],
+      "tags": [
+        "Southern Comfort",
+        "Family Dinners",
+        "Meal Prep"
+      ],
       "featured": true,
       "chefNotes": "A slow-cook confidence recipe for people ready to build patience and flavor.",
       "path": "professional-mode",
-      "source": { "type": "original", "name": "Shay's Kitchen" }
+      "source": {
+        "type": "original",
+        "name": "Shay's Kitchen"
+      }
     },
     {
       "id": "cajun-cream-salmon-rotini",
@@ -184,14 +344,33 @@
       "prepTimeMinutes": 10,
       "servings": 4,
       "difficulty": "Beginner",
-      "ingredients": ["Rotini pasta", "Salmon", "Cajun seasoning", "Cream", "Parmesan", "Bell pepper"],
-      "instructions": ["Boil rotini in salted water.", "Sear salmon with Cajun seasoning.", "Add pepper, cream, and parmesan.", "Toss pasta with sauce and flaked salmon."],
+      "ingredients": [
+        "Rotini pasta",
+        "Salmon",
+        "Cajun seasoning",
+        "Cream",
+        "Parmesan",
+        "Bell pepper"
+      ],
+      "instructions": [
+        "Boil rotini in salted water.",
+        "Sear salmon with Cajun seasoning.",
+        "Add pepper, cream, and parmesan.",
+        "Toss pasta with sauce and flaked salmon."
+      ],
       "image": "assets/editorial-cajun-pasta.jpg",
-      "tags": ["Quick Meals", "Seafood", "Date Night"],
+      "tags": [
+        "Quick Meals",
+        "Seafood",
+        "Date Night"
+      ],
       "featured": true,
       "chefNotes": "Fast enough for a weeknight, polished enough for a date-night plate.",
       "path": "amateur-home-chef",
-      "source": { "type": "original", "name": "Shay's Kitchen" }
+      "source": {
+        "type": "original",
+        "name": "Shay's Kitchen"
+      }
     },
     {
       "id": "roasted-vegetable-tray",
@@ -205,14 +384,34 @@
       "prepTimeMinutes": 10,
       "servings": 4,
       "difficulty": "Beginner",
-      "ingredients": ["Broccoli", "Zucchini", "Red onion", "Cherry tomatoes", "Sweet potatoes", "Olive oil", "Garlic seasoning"],
-      "instructions": ["Cut vegetables into similar sizes.", "Toss with oil and seasoning.", "Roast sweet potatoes first, then add tender vegetables.", "Finish when browned at the edges."],
+      "ingredients": [
+        "Broccoli",
+        "Zucchini",
+        "Red onion",
+        "Cherry tomatoes",
+        "Sweet potatoes",
+        "Olive oil",
+        "Garlic seasoning"
+      ],
+      "instructions": [
+        "Cut vegetables into similar sizes.",
+        "Toss with oil and seasoning.",
+        "Roast sweet potatoes first, then add tender vegetables.",
+        "Finish when browned at the edges."
+      ],
       "image": "assets/editorial-kitchen-prep.jpg",
-      "tags": ["Vegetarian", "Meal Prep", "Beginner Friendly"],
+      "tags": [
+        "Vegetarian",
+        "Meal Prep",
+        "Beginner Friendly"
+      ],
       "featured": false,
       "chefNotes": "A practical side that can become a bowl, plate, or meal-prep base.",
       "path": "amateur-home-chef",
-      "source": { "type": "original", "name": "Shay's Kitchen" }
+      "source": {
+        "type": "original",
+        "name": "Shay's Kitchen"
+      }
     },
     {
       "id": "white-chicken-chili",
@@ -226,14 +425,34 @@
       "prepTimeMinutes": 10,
       "servings": 6,
       "difficulty": "Beginner",
-      "ingredients": ["Chicken", "White beans", "Corn", "Green chiles", "Chicken broth", "Cream cheese", "Cumin"],
-      "instructions": ["Simmer chicken with broth, beans, corn, and chiles.", "Season with cumin and salt.", "Shred chicken.", "Stir in cream cheese until creamy."],
+      "ingredients": [
+        "Chicken",
+        "White beans",
+        "Corn",
+        "Green chiles",
+        "Chicken broth",
+        "Cream cheese",
+        "Cumin"
+      ],
+      "instructions": [
+        "Simmer chicken with broth, beans, corn, and chiles.",
+        "Season with cumin and salt.",
+        "Shred chicken.",
+        "Stir in cream cheese until creamy."
+      ],
       "image": "assets/editorial-cooking-hero.jpg",
-      "tags": ["Chicken", "Meal Prep", "Family Dinners"],
+      "tags": [
+        "Chicken",
+        "Meal Prep",
+        "Family Dinners"
+      ],
       "featured": false,
       "chefNotes": "A flexible soup that can stretch across lunches and busy evenings.",
       "path": "amateur-home-chef",
-      "source": { "type": "original", "name": "Shay's Kitchen" }
+      "source": {
+        "type": "original",
+        "name": "Shay's Kitchen"
+      }
     },
     {
       "id": "general-tso-style-chicken",
@@ -247,14 +466,34 @@
       "prepTimeMinutes": 10,
       "servings": 4,
       "difficulty": "Intermediate",
-      "ingredients": ["Chicken thighs", "Cornstarch", "Soy sauce", "Rice vinegar", "Brown sugar", "Garlic", "Chili flakes"],
-      "instructions": ["Coat chicken with cornstarch.", "Cook until crisp.", "Simmer sauce until glossy.", "Toss chicken in sauce and serve with rice."],
+      "ingredients": [
+        "Chicken thighs",
+        "Cornstarch",
+        "Soy sauce",
+        "Rice vinegar",
+        "Brown sugar",
+        "Garlic",
+        "Chili flakes"
+      ],
+      "instructions": [
+        "Coat chicken with cornstarch.",
+        "Cook until crisp.",
+        "Simmer sauce until glossy.",
+        "Toss chicken in sauce and serve with rice."
+      ],
       "image": "assets/editorial-cooking-hero.jpg",
-      "tags": ["Chicken", "Global Flavors", "Quick Meals"],
+      "tags": [
+        "Chicken",
+        "Global Flavors",
+        "Quick Meals"
+      ],
       "featured": false,
       "chefNotes": "A home version that keeps the joy of takeout while teaching sauce balance.",
       "path": "amateur-home-chef",
-      "source": { "type": "original", "name": "Shay's Kitchen" }
+      "source": {
+        "type": "original",
+        "name": "Shay's Kitchen"
+      }
     },
     {
       "id": "cashew-chicken",
@@ -268,14 +507,34 @@
       "prepTimeMinutes": 10,
       "servings": 4,
       "difficulty": "Beginner",
-      "ingredients": ["Chicken breast", "Cashews", "Bell pepper", "Soy sauce", "Honey", "Garlic", "Rice"],
-      "instructions": ["Cook chicken pieces until browned.", "Add peppers and garlic.", "Stir in sauce.", "Finish with cashews and serve over rice."],
+      "ingredients": [
+        "Chicken breast",
+        "Cashews",
+        "Bell pepper",
+        "Soy sauce",
+        "Honey",
+        "Garlic",
+        "Rice"
+      ],
+      "instructions": [
+        "Cook chicken pieces until browned.",
+        "Add peppers and garlic.",
+        "Stir in sauce.",
+        "Finish with cashews and serve over rice."
+      ],
       "image": "assets/editorial-cooking-hero.jpg",
-      "tags": ["Chicken", "Quick Meals", "Global Flavors"],
+      "tags": [
+        "Chicken",
+        "Quick Meals",
+        "Global Flavors"
+      ],
       "featured": false,
       "chefNotes": "A strong candidate for the What Can I Cook flow because it uses common pantry sauces.",
       "path": "amateur-home-chef",
-      "source": { "type": "original", "name": "Shay's Kitchen" }
+      "source": {
+        "type": "original",
+        "name": "Shay's Kitchen"
+      }
     },
     {
       "id": "fried-rice",
@@ -289,14 +548,33 @@
       "prepTimeMinutes": 5,
       "servings": 4,
       "difficulty": "Beginner",
-      "ingredients": ["Cold rice", "Eggs", "Peas and carrots", "Soy sauce", "Green onion", "Oil"],
-      "instructions": ["Scramble eggs and set aside.", "Cook vegetables.", "Add cold rice and soy sauce.", "Fold eggs back in and finish with green onion."],
+      "ingredients": [
+        "Cold rice",
+        "Eggs",
+        "Peas and carrots",
+        "Soy sauce",
+        "Green onion",
+        "Oil"
+      ],
+      "instructions": [
+        "Scramble eggs and set aside.",
+        "Cook vegetables.",
+        "Add cold rice and soy sauce.",
+        "Fold eggs back in and finish with green onion."
+      ],
       "image": "assets/editorial-kitchen-prep.jpg",
-      "tags": ["Quick Meals", "Beginner Friendly", "Vegetarian"],
+      "tags": [
+        "Quick Meals",
+        "Beginner Friendly",
+        "Vegetarian"
+      ],
       "featured": false,
       "chefNotes": "A cornerstone leftover recipe for building confidence with what is already in the fridge.",
       "path": "kid-chefs",
-      "source": { "type": "original", "name": "Shay's Kitchen" }
+      "source": {
+        "type": "original",
+        "name": "Shay's Kitchen"
+      }
     },
     {
       "id": "chicken-parmesan",
@@ -310,14 +588,33 @@
       "prepTimeMinutes": 15,
       "servings": 4,
       "difficulty": "Intermediate",
-      "ingredients": ["Chicken cutlets", "Breadcrumbs", "Eggs", "Marinara", "Mozzarella", "Parmesan"],
-      "instructions": ["Bread chicken with flour, egg, and breadcrumbs.", "Pan-fry until golden.", "Top with marinara and cheese.", "Bake until bubbly and cooked through."],
+      "ingredients": [
+        "Chicken cutlets",
+        "Breadcrumbs",
+        "Eggs",
+        "Marinara",
+        "Mozzarella",
+        "Parmesan"
+      ],
+      "instructions": [
+        "Bread chicken with flour, egg, and breadcrumbs.",
+        "Pan-fry until golden.",
+        "Top with marinara and cheese.",
+        "Bake until bubbly and cooked through."
+      ],
       "image": "assets/editorial-cooking-hero.jpg",
-      "tags": ["Chicken", "Family Dinners", "Date Night"],
+      "tags": [
+        "Chicken",
+        "Family Dinners",
+        "Date Night"
+      ],
       "featured": true,
       "chefNotes": "A classic confidence recipe because it teaches breading, sauce, and oven finishing.",
       "path": "amateur-home-chef",
-      "source": { "type": "original", "name": "Brent & Co. starter recipe" }
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
     },
     {
       "id": "deviled-eggs",
@@ -331,14 +628,33 @@
       "prepTimeMinutes": 13,
       "servings": 12,
       "difficulty": "Beginner",
-      "ingredients": ["Eggs", "Mayonnaise", "Mustard", "Relish", "Paprika", "Salt"],
-      "instructions": ["Boil and cool eggs.", "Peel and halve them.", "Mix yolks with mayo, mustard, relish, and salt.", "Pipe or spoon filling back into whites."],
+      "ingredients": [
+        "Eggs",
+        "Mayonnaise",
+        "Mustard",
+        "Relish",
+        "Paprika",
+        "Salt"
+      ],
+      "instructions": [
+        "Boil and cool eggs.",
+        "Peel and halve them.",
+        "Mix yolks with mayo, mustard, relish, and salt.",
+        "Pipe or spoon filling back into whites."
+      ],
       "image": "assets/editorial-kitchen-prep.jpg",
-      "tags": ["Beginner Friendly", "Party & Hosting", "Holiday"],
+      "tags": [
+        "Beginner Friendly",
+        "Party & Hosting",
+        "Holiday"
+      ],
       "featured": false,
       "chefNotes": "Small, teachable, and perfect for kid chefs or beginner hosts.",
       "path": "kid-chefs",
-      "source": { "type": "original", "name": "Brent & Co. starter recipe" }
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
     },
     {
       "id": "rotel-dip",
@@ -352,14 +668,31 @@
       "prepTimeMinutes": 5,
       "servings": 10,
       "difficulty": "Beginner",
-      "ingredients": ["Melting cheese", "Rotel tomatoes", "Ground beef or sausage", "Tortilla chips"],
-      "instructions": ["Brown meat if using.", "Melt cheese with tomatoes.", "Stir everything together.", "Keep warm and serve with chips."],
+      "ingredients": [
+        "Melting cheese",
+        "Rotel tomatoes",
+        "Ground beef or sausage",
+        "Tortilla chips"
+      ],
+      "instructions": [
+        "Brown meat if using.",
+        "Melt cheese with tomatoes.",
+        "Stir everything together.",
+        "Keep warm and serve with chips."
+      ],
       "image": "assets/editorial-kitchen-prep.jpg",
-      "tags": ["Party & Hosting", "Quick Meals", "Beginner Friendly"],
+      "tags": [
+        "Party & Hosting",
+        "Quick Meals",
+        "Beginner Friendly"
+      ],
       "featured": false,
       "chefNotes": "The kind of recipe that makes a gathering feel easy.",
       "path": "kid-chefs",
-      "source": { "type": "original", "name": "Shay's Kitchen" }
+      "source": {
+        "type": "original",
+        "name": "Shay's Kitchen"
+      }
     },
     {
       "id": "party-meatballs",
@@ -373,14 +706,32 @@
       "prepTimeMinutes": 5,
       "servings": 10,
       "difficulty": "Beginner",
-      "ingredients": ["Meatballs", "Chili sauce", "Grape jelly", "Worcestershire", "Parsley"],
-      "instructions": ["Warm sauce ingredients together.", "Add meatballs.", "Simmer until glossy and hot.", "Serve with toothpicks."],
+      "ingredients": [
+        "Meatballs",
+        "Chili sauce",
+        "Grape jelly",
+        "Worcestershire",
+        "Parsley"
+      ],
+      "instructions": [
+        "Warm sauce ingredients together.",
+        "Add meatballs.",
+        "Simmer until glossy and hot.",
+        "Serve with toothpicks."
+      ],
       "image": "assets/editorial-kitchen-prep.jpg",
-      "tags": ["Party & Hosting", "Holiday", "Meal Prep"],
+      "tags": [
+        "Party & Hosting",
+        "Holiday",
+        "Meal Prep"
+      ],
       "featured": false,
       "chefNotes": "A hosting helper for when the table needs something warm and low-stress.",
       "path": "amateur-home-chef",
-      "source": { "type": "original", "name": "Shay's Kitchen" }
+      "source": {
+        "type": "original",
+        "name": "Shay's Kitchen"
+      }
     },
     {
       "id": "charcuterie-boards",
@@ -394,14 +745,34 @@
       "prepTimeMinutes": 20,
       "servings": 8,
       "difficulty": "Beginner",
-      "ingredients": ["Cheese", "Crackers", "Fruit", "Nuts", "Pickles", "Jam", "Cured meat"],
-      "instructions": ["Place bowls and cheeses first.", "Add crackers in small rivers.", "Fill gaps with fruit and nuts.", "Finish with color and height."],
+      "ingredients": [
+        "Cheese",
+        "Crackers",
+        "Fruit",
+        "Nuts",
+        "Pickles",
+        "Jam",
+        "Cured meat"
+      ],
+      "instructions": [
+        "Place bowls and cheeses first.",
+        "Add crackers in small rivers.",
+        "Fill gaps with fruit and nuts.",
+        "Finish with color and height."
+      ],
       "image": "assets/editorial-kitchen-prep.jpg",
-      "tags": ["Party & Hosting", "Date Night", "Holiday"],
+      "tags": [
+        "Party & Hosting",
+        "Date Night",
+        "Holiday"
+      ],
       "featured": true,
       "chefNotes": "A visual confidence recipe for hosting without cooking.",
       "path": "kid-chefs",
-      "source": { "type": "original", "name": "Brent & Co. starter recipe" }
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
     },
     {
       "id": "dessert-charcuterie-board",
@@ -415,14 +786,33 @@
       "prepTimeMinutes": 25,
       "servings": 10,
       "difficulty": "Beginner",
-      "ingredients": ["Cookies", "Chocolate", "Berries", "Marshmallows", "Caramel dip", "Pretzels"],
-      "instructions": ["Place dips first.", "Group cookies and fruit.", "Add chocolate and salty bites.", "Fill gaps so the board feels abundant."],
+      "ingredients": [
+        "Cookies",
+        "Chocolate",
+        "Berries",
+        "Marshmallows",
+        "Caramel dip",
+        "Pretzels"
+      ],
+      "instructions": [
+        "Place dips first.",
+        "Group cookies and fruit.",
+        "Add chocolate and salty bites.",
+        "Fill gaps so the board feels abundant."
+      ],
       "image": "assets/editorial-kitchen-prep.jpg",
-      "tags": ["Desserts", "Party & Hosting", "Holiday"],
+      "tags": [
+        "Desserts",
+        "Party & Hosting",
+        "Holiday"
+      ],
       "featured": false,
       "chefNotes": "A playful hosting recipe that kids can help build.",
       "path": "kid-chefs",
-      "source": { "type": "original", "name": "Shay's Kitchen" }
+      "source": {
+        "type": "original",
+        "name": "Shay's Kitchen"
+      }
     },
     {
       "id": "bourbon-praline-bread-pudding",
@@ -436,14 +826,34 @@
       "prepTimeMinutes": 20,
       "servings": 10,
       "difficulty": "Intermediate",
-      "ingredients": ["Day-old bread", "Eggs", "Cream", "Brown sugar", "Pecans", "Vanilla", "Bourbon extract"],
-      "instructions": ["Soak bread in custard.", "Fold in pecans.", "Bake until set and golden.", "Spoon warm praline sauce over the top."],
+      "ingredients": [
+        "Day-old bread",
+        "Eggs",
+        "Cream",
+        "Brown sugar",
+        "Pecans",
+        "Vanilla",
+        "Bourbon extract"
+      ],
+      "instructions": [
+        "Soak bread in custard.",
+        "Fold in pecans.",
+        "Bake until set and golden.",
+        "Spoon warm praline sauce over the top."
+      ],
       "image": "assets/editorial-kitchen-prep.jpg",
-      "tags": ["Desserts", "Southern Comfort", "Holiday"],
+      "tags": [
+        "Desserts",
+        "Southern Comfort",
+        "Holiday"
+      ],
       "featured": true,
       "chefNotes": "A Brent & Co. signature dessert candidate.",
       "path": "professional-mode",
-      "source": { "type": "original", "name": "Brent & Co. starter recipe" }
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
     },
     {
       "id": "blackened-fish",
@@ -457,14 +867,32 @@
       "prepTimeMinutes": 10,
       "servings": 4,
       "difficulty": "Intermediate",
-      "ingredients": ["White fish fillets", "Blackened seasoning", "Butter", "Lemon", "Rice or vegetables"],
-      "instructions": ["Pat fish dry.", "Season generously.", "Sear in a hot skillet.", "Finish with lemon and serve right away."],
+      "ingredients": [
+        "White fish fillets",
+        "Blackened seasoning",
+        "Butter",
+        "Lemon",
+        "Rice or vegetables"
+      ],
+      "instructions": [
+        "Pat fish dry.",
+        "Season generously.",
+        "Sear in a hot skillet.",
+        "Finish with lemon and serve right away."
+      ],
       "image": "assets/editorial-kitchen-prep.jpg",
-      "tags": ["Seafood", "Quick Meals", "Date Night"],
+      "tags": [
+        "Seafood",
+        "Quick Meals",
+        "Date Night"
+      ],
       "featured": false,
       "chefNotes": "A technique recipe for learning heat control.",
       "path": "professional-mode",
-      "source": { "type": "original", "name": "Shay's Kitchen" }
+      "source": {
+        "type": "original",
+        "name": "Shay's Kitchen"
+      }
     },
     {
       "id": "tuscan-chicken",
@@ -478,14 +906,33 @@
       "prepTimeMinutes": 10,
       "servings": 4,
       "difficulty": "Intermediate",
-      "ingredients": ["Chicken cutlets", "Spinach", "Sun-dried tomatoes", "Cream", "Parmesan", "Garlic"],
-      "instructions": ["Sear chicken.", "Build cream sauce with garlic and tomatoes.", "Add spinach.", "Return chicken and simmer until done."],
+      "ingredients": [
+        "Chicken cutlets",
+        "Spinach",
+        "Sun-dried tomatoes",
+        "Cream",
+        "Parmesan",
+        "Garlic"
+      ],
+      "instructions": [
+        "Sear chicken.",
+        "Build cream sauce with garlic and tomatoes.",
+        "Add spinach.",
+        "Return chicken and simmer until done."
+      ],
       "image": "assets/editorial-cooking-hero.jpg",
-      "tags": ["Chicken", "Date Night", "Family Dinners"],
+      "tags": [
+        "Chicken",
+        "Date Night",
+        "Family Dinners"
+      ],
       "featured": false,
       "chefNotes": "A cozy restaurant-at-home dinner idea.",
       "path": "amateur-home-chef",
-      "source": { "type": "original", "name": "Shay's Kitchen" }
+      "source": {
+        "type": "original",
+        "name": "Shay's Kitchen"
+      }
     },
     {
       "id": "garlic-wings",
@@ -499,14 +946,33 @@
       "prepTimeMinutes": 10,
       "servings": 6,
       "difficulty": "Beginner",
-      "ingredients": ["Chicken wings", "Garlic", "Butter", "Parsley", "Lemon pepper", "Salt"],
-      "instructions": ["Season and bake or air-fry wings.", "Melt butter with garlic.", "Toss wings in garlic butter.", "Finish with parsley."],
+      "ingredients": [
+        "Chicken wings",
+        "Garlic",
+        "Butter",
+        "Parsley",
+        "Lemon pepper",
+        "Salt"
+      ],
+      "instructions": [
+        "Season and bake or air-fry wings.",
+        "Melt butter with garlic.",
+        "Toss wings in garlic butter.",
+        "Finish with parsley."
+      ],
       "image": "assets/editorial-cooking-hero.jpg",
-      "tags": ["Chicken", "Party & Hosting", "Quick Meals"],
+      "tags": [
+        "Chicken",
+        "Party & Hosting",
+        "Quick Meals"
+      ],
       "featured": false,
       "chefNotes": "A strong game-night or weekend platter.",
       "path": "kid-chefs",
-      "source": { "type": "original", "name": "Shay's Kitchen" }
+      "source": {
+        "type": "original",
+        "name": "Shay's Kitchen"
+      }
     },
     {
       "id": "pineapple-fried-rice",
@@ -520,14 +986,33 @@
       "prepTimeMinutes": 5,
       "servings": 4,
       "difficulty": "Beginner",
-      "ingredients": ["Cold rice", "Pineapple", "Eggs", "Peas", "Soy sauce", "Green onion"],
-      "instructions": ["Scramble eggs.", "Cook vegetables and pineapple.", "Add rice and sauce.", "Fold eggs back in and serve."],
+      "ingredients": [
+        "Cold rice",
+        "Pineapple",
+        "Eggs",
+        "Peas",
+        "Soy sauce",
+        "Green onion"
+      ],
+      "instructions": [
+        "Scramble eggs.",
+        "Cook vegetables and pineapple.",
+        "Add rice and sauce.",
+        "Fold eggs back in and serve."
+      ],
       "image": "assets/editorial-kitchen-prep.jpg",
-      "tags": ["Global Flavors", "Quick Meals", "Vegetarian"],
+      "tags": [
+        "Global Flavors",
+        "Quick Meals",
+        "Vegetarian"
+      ],
       "featured": false,
       "chefNotes": "A sunny pantry recipe with personality.",
       "path": "amateur-home-chef",
-      "source": { "type": "original", "name": "Shay's Kitchen" }
+      "source": {
+        "type": "original",
+        "name": "Shay's Kitchen"
+      }
     },
     {
       "id": "lamb-bone-broth-soup",
@@ -541,33 +1026,1576 @@
       "prepTimeMinutes": 15,
       "servings": 6,
       "difficulty": "Advanced",
-      "ingredients": ["Lamb bones", "Onion", "Carrots", "Celery", "Garlic", "Bay leaf", "Herbs"],
-      "instructions": ["Roast or brown bones for flavor.", "Simmer with aromatics.", "Strain broth.", "Build soup with vegetables, meat, or noodles."],
+      "ingredients": [
+        "Lamb bones",
+        "Onion",
+        "Carrots",
+        "Celery",
+        "Garlic",
+        "Bay leaf",
+        "Herbs"
+      ],
+      "instructions": [
+        "Roast or brown bones for flavor.",
+        "Simmer with aromatics.",
+        "Strain broth.",
+        "Build soup with vegetables, meat, or noodles."
+      ],
       "image": "assets/editorial-kitchen-prep.jpg",
-      "tags": ["Meal Prep", "Global Flavors", "Family Dinners"],
+      "tags": [
+        "Meal Prep",
+        "Global Flavors",
+        "Family Dinners"
+      ],
       "featured": false,
       "chefNotes": "Keep this as an idea card until the exact final method is tested.",
       "path": "professional-mode",
-      "source": { "type": "original", "name": "Shay's Kitchen" }
+      "source": {
+        "type": "original",
+        "name": "Shay's Kitchen"
+      }
+    },
+    {
+      "id": "mealdb-braised-beef-chilli",
+      "title": "Braised Beef Chilli",
+      "description": "A Mexican recipe imported from TheMealDB and organized for the Let's Cook Y'all kitchen.",
+      "cuisine": "mexican",
+      "category": "Family Dinners",
+      "cookTime": "35 min",
+      "cookTimeMinutes": 35,
+      "prepTime": "15 min",
+      "prepTimeMinutes": 15,
+      "servings": 4,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "1kg Beef",
+        "3 Onions",
+        "4 cloves Garlic",
+        "Dash Olive oil",
+        "300g Chorizo",
+        "2 tsp Cumin",
+        "2 tsp Allspice",
+        "1 tsp Cloves",
+        "1 large Cinnamon stick",
+        "3 Bay Leaves",
+        "2 tsp dried Oregano",
+        "2 ancho Ancho Chillies",
+        "3 tbsp Balsamic Vinegar",
+        "2 x 400g Plum Tomatoes",
+        "2 tbsp Tomato Ketchup",
+        "2 tbsp Dark Brown Sugar",
+        "2 x 400g tins Borlotti Beans"
+      ],
+      "instructions": [
+        "Preheat the oven to 120C/225F/gas mark 1.",
+        "Take the meat out of the fridge to de-chill.",
+        "Pulse the onions and garlic in a food processor until finely chopped.",
+        "Heat 2 tbsp olive oil in a large casserole and sear the meat on all sides until golden.",
+        "Set to one side and add another small slug of oil to brown the chorizo.",
+        "Remove and add the onion and garlic, spices, herbs and chillies then cook until soft in the chorizo oil.",
+        "Season with salt and pepper and add the vinegar, tomatoes, ketchup and sugar.",
+        "Put all the meat back into the pot with 400ml water (or red wine if you prefer), bring up to a simmer and cook, covered, in the low oven.",
+        "After 2 hours, check the meat and add the beans.",
+        "Cook for a further hour and just before serving, pull the meat apart with a pair of forks."
+      ],
+      "directions": [
+        "Preheat the oven to 120C/225F/gas mark 1.",
+        "Take the meat out of the fridge to de-chill.",
+        "Pulse the onions and garlic in a food processor until finely chopped.",
+        "Heat 2 tbsp olive oil in a large casserole and sear the meat on all sides until golden.",
+        "Set to one side and add another small slug of oil to brown the chorizo.",
+        "Remove and add the onion and garlic, spices, herbs and chillies then cook until soft in the chorizo oil.",
+        "Season with salt and pepper and add the vinegar, tomatoes, ketchup and sugar.",
+        "Put all the meat back into the pot with 400ml water (or red wine if you prefer), bring up to a simmer and cook, covered, in the low oven.",
+        "After 2 hours, check the meat and add the beans.",
+        "Cook for a further hour and just before serving, pull the meat apart with a pair of forks."
+      ],
+      "image": "https://www.themealdb.com/images/media/meals/uuqvwu1504629254.jpg",
+      "image_url": "https://www.themealdb.com/images/media/meals/uuqvwu1504629254.jpg",
+      "video_url": "https://www.youtube.com/watch?v=z4kSoJgsu6Y",
+      "tags": [
+        "Beef",
+        "Imported",
+        "Mexican",
+        "TheMealDB",
+        "mexican"
+      ],
+      "featured": false,
+      "chefNotes": "Imported from a free/public recipe API. Review and warm up the voice before featuring on the homepage.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "api",
+        "name": "TheMealDB",
+        "url": "http://www.telegraph.co.uk/food-and-drink/recipes/braised-beef-chilli-con-carne/",
+        "apiUrl": "https://www.themealdb.com/api.php",
+        "externalId": "52826",
+        "licenseNote": "Free public API; verify production/app-store terms before wide release."
+      }
+    },
+    {
+      "id": "mealdb-cajun-spiced-fish-tacos",
+      "title": "Cajun spiced fish tacos",
+      "description": "A Mexican recipe imported from TheMealDB and organized for the Let's Cook Y'all kitchen.",
+      "cuisine": "mexican",
+      "category": "Seafood",
+      "cookTime": "35 min",
+      "cookTimeMinutes": 35,
+      "prepTime": "15 min",
+      "prepTimeMinutes": 15,
+      "servings": 4,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "2 tbsp cajun",
+        "1 tsp cayenne pepper",
+        "4 fillets white fish",
+        "1 tsp vegetable oil",
+        "8 flour tortilla",
+        "1 sliced avocado",
+        "2 shredded little gem lettuce",
+        "4 shredded Spring Onions",
+        "1 x 300ml salsa",
+        "1 pot sour cream",
+        "1 lemon",
+        "1 clove finely chopped garlic"
+      ],
+      "instructions": [
+        "Cooking in a cajun spice and cayenne pepper marinade makes this fish super succulent and flavoursome.",
+        "Top with a zesty dressing and serve in a tortilla for a quick, fuss-free main that's delightfully summery.",
+        "On a large plate, mix the cajun spice and cayenne pepper with a little seasoning and use to coat the fish all over.",
+        "Heat a little oil in a frying pan, add in the fish and cook over a medium heat until golden.",
+        "Reduce the heat and continue frying until the fish is cooked through, about 10 minutes.",
+        "Cook in batches if you don’t have enough room in the pan.",
+        "Meanwhile, prepare the dressing by combining all the ingredients with a little seasoning.",
+        "Soften the tortillas by heating in the microwave for 5-10 seconds.",
+        "Pile high with the avocado, lettuce and spring onion, add a spoonful of salsa, top with large flakes of fish and drizzle over the dressing."
+      ],
+      "directions": [
+        "Cooking in a cajun spice and cayenne pepper marinade makes this fish super succulent and flavoursome.",
+        "Top with a zesty dressing and serve in a tortilla for a quick, fuss-free main that's delightfully summery.",
+        "On a large plate, mix the cajun spice and cayenne pepper with a little seasoning and use to coat the fish all over.",
+        "Heat a little oil in a frying pan, add in the fish and cook over a medium heat until golden.",
+        "Reduce the heat and continue frying until the fish is cooked through, about 10 minutes.",
+        "Cook in batches if you don’t have enough room in the pan.",
+        "Meanwhile, prepare the dressing by combining all the ingredients with a little seasoning.",
+        "Soften the tortillas by heating in the microwave for 5-10 seconds.",
+        "Pile high with the avocado, lettuce and spring onion, add a spoonful of salsa, top with large flakes of fish and drizzle over the dressing."
+      ],
+      "image": "https://www.themealdb.com/images/media/meals/uvuyxu1503067369.jpg",
+      "image_url": "https://www.themealdb.com/images/media/meals/uvuyxu1503067369.jpg",
+      "video_url": "https://www.youtube.com/watch?v=N4EdUt0Ou48",
+      "tags": [
+        "Imported",
+        "Mexican",
+        "Seafood",
+        "TheMealDB",
+        "mexican"
+      ],
+      "featured": false,
+      "chefNotes": "Imported from a free/public recipe API. Review and warm up the voice before featuring on the homepage.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "api",
+        "name": "TheMealDB",
+        "url": "https://realfood.tesco.com/recipes/cajun-spiced-fish-tacos.html",
+        "apiUrl": "https://www.themealdb.com/api.php",
+        "externalId": "52819",
+        "licenseNote": "Free public API; verify production/app-store terms before wide release."
+      }
+    },
+    {
+      "id": "mealdb-chicken-enchilada-casserole",
+      "title": "Chicken Enchilada Casserole",
+      "description": "A Mexican recipe imported from TheMealDB and organized for the Let's Cook Y'all kitchen.",
+      "cuisine": "mexican",
+      "category": "Family Dinners",
+      "cookTime": "35 min",
+      "cookTimeMinutes": 35,
+      "prepTime": "15 min",
+      "prepTimeMinutes": 15,
+      "servings": 4,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "14 oz jar Enchilada sauce",
+        "3 Cups shredded Monterey Jack cheese",
+        "6 corn tortillas",
+        "2 chicken breasts"
+      ],
+      "instructions": [
+        "Cut each chicken breast in about 3 pieces, so that it cooks faster and put it in a small pot.",
+        "Pour Enchilada sauce over it and cook covered on low to medium heat until chicken is cooked through, about 20 minutes.",
+        "No water is needed, the chicken will cook in the Enchilada sauce.",
+        "Make sure you stir occasionally so that it doesn't stick to the bottom.",
+        "Remove chicken from the pot and shred with two forks.",
+        "Preheat oven to 375 F degrees.",
+        "Start layering the casserole.",
+        "Start with about ¼ cup of the leftover Enchilada sauce over the bottom of a baking dish.",
+        "I used a longer baking dish, so that I can put 2 corn tortillas across.",
+        "Place 2 tortillas on the bottom, top with ⅓ of the chicken and ⅓ of the remaining sauce.",
+        "Sprinkle with ⅓ of the cheese and repeat starting with 2 more tortillas, then chicken, sauce, cheese.",
+        "Repeat with last layer with the remaining ingredients, tortillas, chicken, sauce and cheese."
+      ],
+      "directions": [
+        "Cut each chicken breast in about 3 pieces, so that it cooks faster and put it in a small pot.",
+        "Pour Enchilada sauce over it and cook covered on low to medium heat until chicken is cooked through, about 20 minutes.",
+        "No water is needed, the chicken will cook in the Enchilada sauce.",
+        "Make sure you stir occasionally so that it doesn't stick to the bottom.",
+        "Remove chicken from the pot and shred with two forks.",
+        "Preheat oven to 375 F degrees.",
+        "Start layering the casserole.",
+        "Start with about ¼ cup of the leftover Enchilada sauce over the bottom of a baking dish.",
+        "I used a longer baking dish, so that I can put 2 corn tortillas across.",
+        "Place 2 tortillas on the bottom, top with ⅓ of the chicken and ⅓ of the remaining sauce.",
+        "Sprinkle with ⅓ of the cheese and repeat starting with 2 more tortillas, then chicken, sauce, cheese.",
+        "Repeat with last layer with the remaining ingredients, tortillas, chicken, sauce and cheese."
+      ],
+      "image": "https://www.themealdb.com/images/media/meals/qtuwxu1468233098.jpg",
+      "image_url": "https://www.themealdb.com/images/media/meals/qtuwxu1468233098.jpg",
+      "video_url": "https://www.youtube.com/watch?v=EtVkwVKLc_M",
+      "tags": [
+        "Chicken",
+        "Imported",
+        "Mexican",
+        "TheMealDB",
+        "mexican"
+      ],
+      "featured": false,
+      "chefNotes": "Imported from a free/public recipe API. Review and warm up the voice before featuring on the homepage.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "api",
+        "name": "TheMealDB",
+        "url": "https://www.themealdb.com/meal/52765",
+        "apiUrl": "https://www.themealdb.com/api.php",
+        "externalId": "52765",
+        "licenseNote": "Free public API; verify production/app-store terms before wide release."
+      }
+    },
+    {
+      "id": "mealdb-brown-stew-chicken",
+      "title": "Brown Stew Chicken",
+      "description": "A Jamaican recipe imported from TheMealDB and organized for the Let's Cook Y'all kitchen.",
+      "cuisine": "caribbean",
+      "category": "Family Dinners",
+      "cookTime": "35 min",
+      "cookTimeMinutes": 35,
+      "prepTime": "15 min",
+      "prepTimeMinutes": 15,
+      "servings": 4,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "1 whole Chicken",
+        "1 chopped Tomato",
+        "2 chopped Onions",
+        "2 chopped Garlic Clove",
+        "1 chopped Red Pepper",
+        "1 chopped Carrots",
+        "1 Lime",
+        "2 tsp Thyme",
+        "1 tsp Allspice",
+        "2 tbs Soy Sauce",
+        "2 tsp Cornstarch",
+        "2 cups Coconut Milk",
+        "1 tbs Vegetable Oil"
+      ],
+      "instructions": [
+        "Squeeze lime over chicken and rub well.",
+        "Drain off excess lime juice.",
+        "Combine tomato, scallion, onion, garlic, pepper, thyme, pimento and soy sauce in a large bowl with the chicken pieces.",
+        "Cover and marinate at least one hour.",
+        "Heat oil in a dutch pot or large saucepan.",
+        "Shake off the seasonings as you remove each piece of chicken from the marinade.",
+        "Reserve the marinade for sauce.",
+        "Lightly brown the chicken a few pieces at a time in very hot oil.",
+        "Place browned chicken pieces on a plate to rest while you brown the remaining pieces.",
+        "Drain off excess oil and return the chicken to the pan.",
+        "Pour the marinade over the chicken and add the carrots.",
+        "Stir and cook over medium heat for 10 minutes."
+      ],
+      "directions": [
+        "Squeeze lime over chicken and rub well.",
+        "Drain off excess lime juice.",
+        "Combine tomato, scallion, onion, garlic, pepper, thyme, pimento and soy sauce in a large bowl with the chicken pieces.",
+        "Cover and marinate at least one hour.",
+        "Heat oil in a dutch pot or large saucepan.",
+        "Shake off the seasonings as you remove each piece of chicken from the marinade.",
+        "Reserve the marinade for sauce.",
+        "Lightly brown the chicken a few pieces at a time in very hot oil.",
+        "Place browned chicken pieces on a plate to rest while you brown the remaining pieces.",
+        "Drain off excess oil and return the chicken to the pan.",
+        "Pour the marinade over the chicken and add the carrots.",
+        "Stir and cook over medium heat for 10 minutes."
+      ],
+      "image": "https://www.themealdb.com/images/media/meals/sypxpx1515365095.jpg",
+      "image_url": "https://www.themealdb.com/images/media/meals/sypxpx1515365095.jpg",
+      "video_url": "https://www.youtube.com/watch?v=_gFB1fkNhXs",
+      "tags": [
+        "Chicken",
+        "Imported",
+        "Jamaican",
+        "TheMealDB",
+        "caribbean"
+      ],
+      "featured": false,
+      "chefNotes": "Imported from a free/public recipe API. Review and warm up the voice before featuring on the homepage.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "api",
+        "name": "TheMealDB",
+        "url": "http://www.geniuskitchen.com/recipe/authentic-jamaican-brown-stew-chicken-347996",
+        "apiUrl": "https://www.themealdb.com/api.php",
+        "externalId": "52940",
+        "licenseNote": "Free public API; verify production/app-store terms before wide release."
+      }
+    },
+    {
+      "id": "mealdb-callaloo-and-saltfish",
+      "title": "Callaloo and SaltFish",
+      "description": "A Jamaican recipe imported from TheMealDB and organized for the Let's Cook Y'all kitchen.",
+      "cuisine": "caribbean",
+      "category": "Beginner Basics",
+      "cookTime": "35 min",
+      "cookTimeMinutes": 35,
+      "prepTime": "15 min",
+      "prepTimeMinutes": 15,
+      "servings": 4,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "1/2 lb Salt Cod",
+        "4 Bacon",
+        "525g Callaloo",
+        "1 chopped Onion",
+        "2 chopped Spring Onions",
+        "2 cloves minced Garlic",
+        "1 chopped Scotch Bonnet",
+        "2 chopped Plum Tomatoes",
+        "2 sprigs Thyme",
+        "1/4 tsp Black Pepper"
+      ],
+      "instructions": [
+        "Soak salted fish in water overnight.",
+        "Next, heat salted fish in water on stove until water boils.",
+        "You should see a foam on top.",
+        "Remove from heat and drain.",
+        "Set aside and shred salted fish once it cools.",
+        "Cook bacon in skillet over medium heat until crispy.",
+        "Remove bacon from heat and drain the majority of the bacon grease, leaving about 1 tablespoon in the skillet.",
+        "Add yellow onion, green onion, scotch bonnet pepper, and garlic to the skillet and stir.",
+        "Cook for about 2 minutes or until onions soften.",
+        "Add salted fish to skillet and stir.",
+        "Cook for about a minute.",
+        "Next, add callaloo, roma tomatoes, thyme, and black pepper."
+      ],
+      "directions": [
+        "Soak salted fish in water overnight.",
+        "Next, heat salted fish in water on stove until water boils.",
+        "You should see a foam on top.",
+        "Remove from heat and drain.",
+        "Set aside and shred salted fish once it cools.",
+        "Cook bacon in skillet over medium heat until crispy.",
+        "Remove bacon from heat and drain the majority of the bacon grease, leaving about 1 tablespoon in the skillet.",
+        "Add yellow onion, green onion, scotch bonnet pepper, and garlic to the skillet and stir.",
+        "Cook for about 2 minutes or until onions soften.",
+        "Add salted fish to skillet and stir.",
+        "Cook for about a minute.",
+        "Next, add callaloo, roma tomatoes, thyme, and black pepper."
+      ],
+      "image": "https://www.themealdb.com/images/media/meals/73o3vq1765317873.jpg",
+      "image_url": "https://www.themealdb.com/images/media/meals/73o3vq1765317873.jpg",
+      "video_url": "https://www.youtube.com/watch?v=n1fRCk-zTRM",
+      "tags": [
+        "Imported",
+        "Jamaican",
+        "Side",
+        "TheMealDB",
+        "caribbean"
+      ],
+      "featured": false,
+      "chefNotes": "Imported from a free/public recipe API. Review and warm up the voice before featuring on the homepage.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "api",
+        "name": "TheMealDB",
+        "url": "https://www.myforkinglife.com/callaloo-and-saltfish/#recipe",
+        "apiUrl": "https://www.themealdb.com/api.php",
+        "externalId": "53361",
+        "licenseNote": "Free public API; verify production/app-store terms before wide release."
+      }
+    },
+    {
+      "id": "mealdb-callaloo-jamaican-style",
+      "title": "Callaloo Jamaican Style",
+      "description": "A Jamaican recipe imported from TheMealDB and organized for the Let's Cook Y'all kitchen.",
+      "cuisine": "caribbean",
+      "category": "Global Flavors",
+      "cookTime": "35 min",
+      "cookTimeMinutes": 35,
+      "prepTime": "15 min",
+      "prepTimeMinutes": 15,
+      "servings": 4,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "1  bunch Kale",
+        "2 strips Bacon",
+        "3 cloves Chopped Garlic",
+        "1 medium Onion",
+        "1/2 tsp Paprika",
+        "1 Sprig Thyme",
+        "1 Tomato",
+        "1 Red Pepper",
+        "4 Banana",
+        "Splash Vegetable Oil"
+      ],
+      "instructions": [
+        "Cut leaves and soft stems from the kale branches, them soak in a bowl of cold water for about 5-10 minutes or until finish with prep.",
+        "Proceed to slicing the onions, mincing the garlic and dicing the tomatoes.",
+        "Set aside",
+        "Remove kale from water cut in chunks.",
+        "Place bacon on saucepan and cook until crispy.",
+        "Then add onions, garlic, thyme, stir for about a minute or more",
+        "Add tomatoes; scotch bonnet pepper, smoked paprika.",
+        "Sauté for about 2-3 more minutes.",
+        "Finally add vegetable, salt, mix well, and steamed for about 6-8 minutes or until leaves are tender.",
+        "Add a tiny bit of water as needed.",
+        "Adjust seasonings and turn off the heat.",
+        "Using a sharp knife cut both ends off the plantain."
+      ],
+      "directions": [
+        "Cut leaves and soft stems from the kale branches, them soak in a bowl of cold water for about 5-10 minutes or until finish with prep.",
+        "Proceed to slicing the onions, mincing the garlic and dicing the tomatoes.",
+        "Set aside",
+        "Remove kale from water cut in chunks.",
+        "Place bacon on saucepan and cook until crispy.",
+        "Then add onions, garlic, thyme, stir for about a minute or more",
+        "Add tomatoes; scotch bonnet pepper, smoked paprika.",
+        "Sauté for about 2-3 more minutes.",
+        "Finally add vegetable, salt, mix well, and steamed for about 6-8 minutes or until leaves are tender.",
+        "Add a tiny bit of water as needed.",
+        "Adjust seasonings and turn off the heat.",
+        "Using a sharp knife cut both ends off the plantain."
+      ],
+      "image": "https://www.themealdb.com/images/media/meals/ussyxw1515364536.jpg",
+      "image_url": "https://www.themealdb.com/images/media/meals/ussyxw1515364536.jpg",
+      "video_url": "https://www.youtube.com/watch?v=bCr3GasJWwE",
+      "tags": [
+        "Imported",
+        "Jamaican",
+        "Miscellaneous",
+        "TheMealDB",
+        "caribbean"
+      ],
+      "featured": false,
+      "chefNotes": "Imported from a free/public recipe API. Review and warm up the voice before featuring on the homepage.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "api",
+        "name": "TheMealDB",
+        "url": "https://www.africanbites.com/callaloo-jamaican-style/",
+        "apiUrl": "https://www.themealdb.com/api.php",
+        "externalId": "52939",
+        "licenseNote": "Free public API; verify production/app-store terms before wide release."
+      }
+    },
+    {
+      "id": "mealdb-budino-di-ricotta",
+      "title": "Budino Di Ricotta",
+      "description": "An Italian recipe imported from TheMealDB and organized for the Let's Cook Y'all kitchen.",
+      "cuisine": "italian",
+      "category": "Desserts",
+      "cookTime": "35 min",
+      "cookTimeMinutes": 35,
+      "prepTime": "15 min",
+      "prepTimeMinutes": 15,
+      "servings": 4,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "500g Ricotta",
+        "4 large Eggs",
+        "3 tbs Flour",
+        "250g Sugar",
+        "1 tsp Cinnamon",
+        "Grated Zest of 2 Lemons",
+        "5 tbs Dark Rum",
+        "sprinking Icing Sugar"
+      ],
+      "instructions": [
+        "Mash the ricotta and beat well with the egg yolks, stir in the flour, sugar, cinnamon, grated lemon rind and the rum and mix well.",
+        "You can do this in a food processor.",
+        "Beat the egg whites until stiff, fold in and pour into a buttered and floured 25cm cake tin.",
+        "Bake in the oven at 180ºC/160ºC fan/gas 4 for about 40 minutes, or until it is firm.",
+        "Serve hot or cold dusted with icing sugar."
+      ],
+      "directions": [
+        "Mash the ricotta and beat well with the egg yolks, stir in the flour, sugar, cinnamon, grated lemon rind and the rum and mix well.",
+        "You can do this in a food processor.",
+        "Beat the egg whites until stiff, fold in and pour into a buttered and floured 25cm cake tin.",
+        "Bake in the oven at 180ºC/160ºC fan/gas 4 for about 40 minutes, or until it is firm.",
+        "Serve hot or cold dusted with icing sugar."
+      ],
+      "image": "https://www.themealdb.com/images/media/meals/1549542877.jpg",
+      "image_url": "https://www.themealdb.com/images/media/meals/1549542877.jpg",
+      "video_url": "https://www.youtube.com/watch?v=6dzd6Ra6sb4",
+      "tags": [
+        "Dessert",
+        "Imported",
+        "Italian",
+        "TheMealDB",
+        "italian"
+      ],
+      "featured": false,
+      "chefNotes": "Imported from a free/public recipe API. Review and warm up the voice before featuring on the homepage.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "api",
+        "name": "TheMealDB",
+        "url": "https://thehappyfoodie.co.uk/recipes/ricotta-cake-budino-di-ricotta",
+        "apiUrl": "https://www.themealdb.com/api.php",
+        "externalId": "52961",
+        "licenseNote": "Free public API; verify production/app-store terms before wide release."
+      }
+    },
+    {
+      "id": "mealdb-chicken-alfredo-primavera",
+      "title": "Chicken Alfredo Primavera",
+      "description": "An Italian recipe imported from TheMealDB and organized for the Let's Cook Y'all kitchen.",
+      "cuisine": "italian",
+      "category": "Family Dinners",
+      "cookTime": "35 min",
+      "cookTimeMinutes": 35,
+      "prepTime": "15 min",
+      "prepTimeMinutes": 15,
+      "servings": 4,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "2 tablespoons Butter",
+        "3 tablespoons Olive Oil",
+        "5 boneless Chicken",
+        "1 teaspoon Salt",
+        "1 cut into 1/2-inch cubes Squash",
+        "1 Head chopped Broccoli",
+        "8-ounce sliced mushrooms",
+        "1 red Pepper",
+        "1 chopped onion",
+        "3 cloves garlic",
+        "1/2 teaspoon red pepper flakes",
+        "1/2 cup white wine",
+        "1/2 cup milk",
+        "1/2 cup heavy cream",
+        "1 cup grated Parmesan cheese",
+        "16 ounces bowtie pasta",
+        "pinch Salt",
+        "pinch Pepper",
+        "chopped Parsley"
+      ],
+      "instructions": [
+        "Heat 1 tablespoon of butter and 2 tablespoons of olive oil in a large skillet over medium-high heat.",
+        "Season both sides of each chicken breast with seasoned salt and a pinch of pepper.",
+        "Add the chicken to the skillet and cook for 5-7 minutes on each side, or until cooked through.",
+        "While the chicken is cooking, bring a large pot of water to a boil.",
+        "Season the boiling water with a few generous pinches of kosher salt.",
+        "Add the pasta and give it a stir.",
+        "Cook, stirring occasionally, until al dente, about 12 minutes.",
+        "Reserve 1/2 cup of  pasta water before draining the pasta.",
+        "Remove the chicken from the pan and transfer it to a cutting board; allow it to rest.",
+        "Turn the heat down to medium and dd the remaining 1 tablespoon of butter and olive oil to the same pan you used to cook the chicken.",
+        "Add the veggies (minus the garlic) and red pepper flakes to the pan and stir to coat with the oil and butter (refrain from seasoning with salt until the veggies are finished browning).",
+        "Cook, stirring often, until the veggies are tender, about 5 minutes."
+      ],
+      "directions": [
+        "Heat 1 tablespoon of butter and 2 tablespoons of olive oil in a large skillet over medium-high heat.",
+        "Season both sides of each chicken breast with seasoned salt and a pinch of pepper.",
+        "Add the chicken to the skillet and cook for 5-7 minutes on each side, or until cooked through.",
+        "While the chicken is cooking, bring a large pot of water to a boil.",
+        "Season the boiling water with a few generous pinches of kosher salt.",
+        "Add the pasta and give it a stir.",
+        "Cook, stirring occasionally, until al dente, about 12 minutes.",
+        "Reserve 1/2 cup of  pasta water before draining the pasta.",
+        "Remove the chicken from the pan and transfer it to a cutting board; allow it to rest.",
+        "Turn the heat down to medium and dd the remaining 1 tablespoon of butter and olive oil to the same pan you used to cook the chicken.",
+        "Add the veggies (minus the garlic) and red pepper flakes to the pan and stir to coat with the oil and butter (refrain from seasoning with salt until the veggies are finished browning).",
+        "Cook, stirring often, until the veggies are tender, about 5 minutes."
+      ],
+      "image": "https://www.themealdb.com/images/media/meals/syqypv1486981727.jpg",
+      "image_url": "https://www.themealdb.com/images/media/meals/syqypv1486981727.jpg",
+      "video_url": "https://www.youtube.com/watch?v=qCIbq8HywpQ",
+      "tags": [
+        "Chicken",
+        "Imported",
+        "Italian",
+        "TheMealDB",
+        "italian"
+      ],
+      "featured": false,
+      "chefNotes": "Imported from a free/public recipe API. Review and warm up the voice before featuring on the homepage.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "api",
+        "name": "TheMealDB",
+        "url": "https://www.themealdb.com/meal/52796",
+        "apiUrl": "https://www.themealdb.com/api.php",
+        "externalId": "52796",
+        "licenseNote": "Free public API; verify production/app-store terms before wide release."
+      }
+    },
+    {
+      "id": "mealdb-chilli-prawn-linguine",
+      "title": "Chilli prawn linguine",
+      "description": "An Italian recipe imported from TheMealDB and organized for the Let's Cook Y'all kitchen.",
+      "cuisine": "italian",
+      "category": "Family Dinners",
+      "cookTime": "35 min",
+      "cookTimeMinutes": 35,
+      "prepTime": "15 min",
+      "prepTimeMinutes": 15,
+      "servings": 4,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "280g Linguine Pasta",
+        "200g Sugar Snap Peas",
+        "2 tblsp Olive Oil",
+        "2 cloves chopped Garlic Clove",
+        "1 large Red Chilli",
+        "24 Skinned King Prawns",
+        "12 Cherry Tomatoes",
+        "Handful Basil Leaves",
+        "Leaves Lettuce",
+        "to serve Bread",
+        "2 tbsp Fromage Frais",
+        "Grated Zest of 2 Lime",
+        "2 tsp Caster Sugar"
+      ],
+      "instructions": [
+        "Mix the dressing ingredients in a small bowl and season with salt and pepper.",
+        "Set aside.",
+        "Cook the pasta according to the packet instructions.",
+        "Add the sugar snap peas for the last minute or so of cooking time.",
+        "Meanwhile, heat the oil in a wok or large frying pan, toss in the garlic and chilli and cook over a fairly gentle heat for about 30 seconds without letting the garlic brown.",
+        "Tip in the prawns and cook over a high heat, stirring frequently, for about 3 minutes until they turn pink.",
+        "Add the tomatoes and cook, stirring occasionally, for 3 minutes until they just start to soften.",
+        "Drain the pasta and sugar snaps well, then toss into the prawn mixture.",
+        "Tear in the basil leaves, stir, and season with salt and pepper.",
+        "Serve with salad leaves drizzled with the lime dressing, and warm crusty bread."
+      ],
+      "directions": [
+        "Mix the dressing ingredients in a small bowl and season with salt and pepper.",
+        "Set aside.",
+        "Cook the pasta according to the packet instructions.",
+        "Add the sugar snap peas for the last minute or so of cooking time.",
+        "Meanwhile, heat the oil in a wok or large frying pan, toss in the garlic and chilli and cook over a fairly gentle heat for about 30 seconds without letting the garlic brown.",
+        "Tip in the prawns and cook over a high heat, stirring frequently, for about 3 minutes until they turn pink.",
+        "Add the tomatoes and cook, stirring occasionally, for 3 minutes until they just start to soften.",
+        "Drain the pasta and sugar snaps well, then toss into the prawn mixture.",
+        "Tear in the basil leaves, stir, and season with salt and pepper.",
+        "Serve with salad leaves drizzled with the lime dressing, and warm crusty bread."
+      ],
+      "image": "https://www.themealdb.com/images/media/meals/usywpp1511189717.jpg",
+      "image_url": "https://www.themealdb.com/images/media/meals/usywpp1511189717.jpg",
+      "video_url": "https://www.youtube.com/watch?v=SC17Mc70Db0",
+      "tags": [
+        "Imported",
+        "Italian",
+        "Pasta",
+        "TheMealDB",
+        "italian"
+      ],
+      "featured": false,
+      "chefNotes": "Imported from a free/public recipe API. Review and warm up the voice before featuring on the homepage.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "api",
+        "name": "TheMealDB",
+        "url": "https://www.bbcgoodfood.com/recipes/1269/chilli-prawn-linguine",
+        "apiUrl": "https://www.themealdb.com/api.php",
+        "externalId": "52839",
+        "licenseNote": "Free public API; verify production/app-store terms before wide release."
+      }
+    },
+    {
+      "id": "mealdb-chicken-quinoa-greek-salad",
+      "title": "Chicken Quinoa Greek Salad",
+      "description": "A Greek recipe imported from TheMealDB and organized for the Let's Cook Y'all kitchen.",
+      "cuisine": "mediterranean",
+      "category": "Family Dinners",
+      "cookTime": "35 min",
+      "cookTimeMinutes": 35,
+      "prepTime": "15 min",
+      "prepTimeMinutes": 15,
+      "servings": 4,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "225g Quinoa",
+        "25g Butter",
+        "1 chopped Red Chilli",
+        "1 clove finely chopped Garlic",
+        "400g Chicken Breast",
+        "2 tbs Olive Oil",
+        "Handful Black Olives",
+        "1 chopped Red Onions",
+        "100g Feta",
+        "Chopped Mint",
+        "Juice of 1/2 Lemon"
+      ],
+      "instructions": [
+        "Cook the quinoa following the pack instructions, then rinse in cold water and drain thoroughly.",
+        "Meanwhile, mix the butter, chilli and garlic into a paste.",
+        "Toss the chicken fillets in 2 tsp of the olive oil with some seasoning.",
+        "Lay in a hot griddle pan and cook for 3-4 mins each side or until cooked through.",
+        "Transfer to a plate, dot with the spicy butter and set aside to melt.",
+        "Next, tip the tomatoes, olives, onion, feta and mint into a bowl.",
+        "Toss in the cooked quinoa.",
+        "Stir through the remaining olive oil, lemon juice and zest, and season well.",
+        "Serve with the chicken fillets on top, drizzled with any buttery chicken juices."
+      ],
+      "directions": [
+        "Cook the quinoa following the pack instructions, then rinse in cold water and drain thoroughly.",
+        "Meanwhile, mix the butter, chilli and garlic into a paste.",
+        "Toss the chicken fillets in 2 tsp of the olive oil with some seasoning.",
+        "Lay in a hot griddle pan and cook for 3-4 mins each side or until cooked through.",
+        "Transfer to a plate, dot with the spicy butter and set aside to melt.",
+        "Next, tip the tomatoes, olives, onion, feta and mint into a bowl.",
+        "Toss in the cooked quinoa.",
+        "Stir through the remaining olive oil, lemon juice and zest, and season well.",
+        "Serve with the chicken fillets on top, drizzled with any buttery chicken juices."
+      ],
+      "image": "https://www.themealdb.com/images/media/meals/k29viq1585565980.jpg",
+      "image_url": "https://www.themealdb.com/images/media/meals/k29viq1585565980.jpg",
+      "video_url": "https://www.youtube.com/watch?v=akcrkXYr61M",
+      "tags": [
+        "Chicken",
+        "Greek",
+        "Imported",
+        "TheMealDB",
+        "mediterranean"
+      ],
+      "featured": false,
+      "chefNotes": "Imported from a free/public recipe API. Review and warm up the voice before featuring on the homepage.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "api",
+        "name": "TheMealDB",
+        "url": "https://www.bbcgoodfood.com/recipes/griddled-chicken-quinoa-greek-salad",
+        "apiUrl": "https://www.themealdb.com/api.php",
+        "externalId": "53011",
+        "licenseNote": "Free public API; verify production/app-store terms before wide release."
+      }
+    },
+    {
+      "id": "mealdb-garides-saganaki",
+      "title": "Garides Saganaki",
+      "description": "A Greek recipe imported from TheMealDB and organized for the Let's Cook Y'all kitchen.",
+      "cuisine": "mediterranean",
+      "category": "Seafood",
+      "cookTime": "35 min",
+      "cookTimeMinutes": 35,
+      "prepTime": "15 min",
+      "prepTimeMinutes": 15,
+      "servings": 4,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "500g Raw king prawns",
+        "3 tablespoons Olive oil",
+        "1 Chopped onion",
+        "pinch Freshly chopped parsley",
+        "250ml White wine",
+        "1 (400g) tin Chopped tomatoes",
+        "1/2 teaspoon Minced garlic",
+        "1 (200g) pack Cubed Feta cheese"
+      ],
+      "instructions": [
+        "Place the prawns in a pot and add enough water to cover.",
+        "Boil for 5 minutes.",
+        "Drain, reserving the liquid, and set aside.",
+        "Heat 2 tablespoons of oil in a saucepan.",
+        "Add the onion; cook and stir until soft.",
+        "Mix in the parsley, wine, tomatoes, garlic and remaining olive oil.",
+        "Simmer, stirring occasionally, for about 30 minutes, or until the sauce is thickened.",
+        "While the sauce is simmering, the prawns should become cool enough to handle.",
+        "First remove the legs by pinching them, and then pull off the shells, leaving the head and tail on.",
+        "When the sauce has thickened, stir in the prawns.",
+        "Bring to a simmer again if the sauce has cooled with the prawns, and cook for about 5 minutes.",
+        "Add the feta and remove from the heat."
+      ],
+      "directions": [
+        "Place the prawns in a pot and add enough water to cover.",
+        "Boil for 5 minutes.",
+        "Drain, reserving the liquid, and set aside.",
+        "Heat 2 tablespoons of oil in a saucepan.",
+        "Add the onion; cook and stir until soft.",
+        "Mix in the parsley, wine, tomatoes, garlic and remaining olive oil.",
+        "Simmer, stirring occasionally, for about 30 minutes, or until the sauce is thickened.",
+        "While the sauce is simmering, the prawns should become cool enough to handle.",
+        "First remove the legs by pinching them, and then pull off the shells, leaving the head and tail on.",
+        "When the sauce has thickened, stir in the prawns.",
+        "Bring to a simmer again if the sauce has cooled with the prawns, and cook for about 5 minutes.",
+        "Add the feta and remove from the heat."
+      ],
+      "image": "https://www.themealdb.com/images/media/meals/wuvryu1468232995.jpg",
+      "image_url": "https://www.themealdb.com/images/media/meals/wuvryu1468232995.jpg",
+      "video_url": "https://www.youtube.com/watch?v=uO0ejc85zSE",
+      "tags": [
+        "Greek",
+        "Imported",
+        "Seafood",
+        "TheMealDB",
+        "mediterranean"
+      ],
+      "featured": false,
+      "chefNotes": "Imported from a free/public recipe API. Review and warm up the voice before featuring on the homepage.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "api",
+        "name": "TheMealDB",
+        "url": "https://www.themealdb.com/meal/52764",
+        "apiUrl": "https://www.themealdb.com/api.php",
+        "externalId": "52764",
+        "licenseNote": "Free public API; verify production/app-store terms before wide release."
+      }
+    },
+    {
+      "id": "mealdb-gigantes-plaki",
+      "title": "Gigantes Plaki",
+      "description": "A Greek recipe imported from TheMealDB and organized for the Let's Cook Y'all kitchen.",
+      "cuisine": "mediterranean",
+      "category": "Vegetarian",
+      "cookTime": "35 min",
+      "cookTimeMinutes": 35,
+      "prepTime": "15 min",
+      "prepTimeMinutes": 15,
+      "servings": 4,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "400g Butter Beans",
+        "3 tbs Olive Oil",
+        "1 chopped Onion",
+        "2 chopped Garlic Clove",
+        "2 tbs Tomato Puree",
+        "800g Tomatoes",
+        "1 tbs Sugar",
+        "1 tbs Dried Oregano",
+        "Pinch Cinnamon",
+        "2 tbs Chopped Parsley"
+      ],
+      "instructions": [
+        "Soak the beans overnight in plenty of water.",
+        "Drain, rinse, then place in a pan covered with water.",
+        "Bring to the boil, reduce the heat, then simmer for approx 50 mins until slightly tender but not soft.",
+        "Drain, then set aside.",
+        "Heat oven to 180C/160C fan/gas 4.",
+        "Heat the olive oil in a large frying pan, tip in the onion and garlic, then cook over a medium heat for 10 mins until softened but not browned.",
+        "Add the tomato purée, cook for a further min, add remaining ingredients, then simmer for 2-3 mins.",
+        "Season generously, then stir in the beans.",
+        "Tip into a large ovenproof dish, then bake for approximately 1 hr, uncovered and without stirring, until the beans are tender.",
+        "The beans will absorb all the fabulous flavours and the sauce will thicken.",
+        "Allow to cool, then scatter with parsley and drizzle with a little more olive oil to serve."
+      ],
+      "directions": [
+        "Soak the beans overnight in plenty of water.",
+        "Drain, rinse, then place in a pan covered with water.",
+        "Bring to the boil, reduce the heat, then simmer for approx 50 mins until slightly tender but not soft.",
+        "Drain, then set aside.",
+        "Heat oven to 180C/160C fan/gas 4.",
+        "Heat the olive oil in a large frying pan, tip in the onion and garlic, then cook over a medium heat for 10 mins until softened but not browned.",
+        "Add the tomato purée, cook for a further min, add remaining ingredients, then simmer for 2-3 mins.",
+        "Season generously, then stir in the beans.",
+        "Tip into a large ovenproof dish, then bake for approximately 1 hr, uncovered and without stirring, until the beans are tender.",
+        "The beans will absorb all the fabulous flavours and the sauce will thicken.",
+        "Allow to cool, then scatter with parsley and drizzle with a little more olive oil to serve."
+      ],
+      "image": "https://www.themealdb.com/images/media/meals/b79r6f1585566277.jpg",
+      "image_url": "https://www.themealdb.com/images/media/meals/b79r6f1585566277.jpg",
+      "video_url": "https://www.youtube.com/watch?v=e-2K2iyPASA",
+      "tags": [
+        "Greek",
+        "Imported",
+        "TheMealDB",
+        "Vegetarian",
+        "mediterranean"
+      ],
+      "featured": false,
+      "chefNotes": "Imported from a free/public recipe API. Review and warm up the voice before featuring on the homepage.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "api",
+        "name": "TheMealDB",
+        "url": "https://www.bbcgoodfood.com/recipes/gigantes-plaki",
+        "apiUrl": "https://www.themealdb.com/api.php",
+        "externalId": "53012",
+        "licenseNote": "Free public API; verify production/app-store terms before wide release."
+      }
+    },
+    {
+      "id": "mealdb-air-fryer-egg-rolls",
+      "title": "Air Fryer Egg Rolls",
+      "description": "A Chinese recipe imported from TheMealDB and organized for the Let's Cook Y'all kitchen.",
+      "cuisine": "asian-inspired",
+      "category": "Beginner Basics",
+      "cookTime": "35 min",
+      "cookTimeMinutes": 35,
+      "prepTime": "15 min",
+      "prepTimeMinutes": 15,
+      "servings": 4,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "1 tablespoon Olive Oil",
+        "1 lb Ground Pork",
+        "1 clove peeled crushed Garlic",
+        "1 tablespoon Ginger",
+        "1 medium Carrots",
+        "3 chopped Scallions",
+        "3 Cups Cabbage",
+        "1 tablespoon Soy Sauce",
+        "1 tablespoon Rice Vinegar",
+        "12 Egg Roll Wrappers",
+        "For brushing Oil",
+        "To serve Duck Sauce",
+        "To serve Plum Sauce",
+        "To serve Soy Sauce"
+      ],
+      "instructions": [
+        "Alternative Pan Fry Method: If you don’t have access to an air fryer, you can make these egg rolls using a traditional pan fry method.",
+        "Add enough oil to a medium skillet with high walls so the oil is about 1/2 inch up the side of the skillet.",
+        "Heat oil on medium high heat until it reaches 350°F.",
+        "Add egg rolls and fry for 3 to 4 minutes, flip, and fry for another 3 to 4 minutes until golden brown.",
+        "Remove and let them drain and cool on a few paper towels.",
+        "Cook the filling:",
+        "In a large skillet over medium heat, add the olive oil along with the ground pork or chicken.",
+        "Break apart the meat with a spatula or wooden spoon as it cooks.",
+        "Cook until the meat is cooked through, 6 to 8 minutes.",
+        "Add garlic, ginger, carrot, scallions, and cabbage.",
+        "Continue to cook until cabbage wilts down and is soft, another 3 to 4 minutes, stirring regularly.",
+        "Season the filling with soy sauce and rice wine vinegar, and take off the heat to cool. (This filling can be made in advance.)"
+      ],
+      "directions": [
+        "Alternative Pan Fry Method: If you don’t have access to an air fryer, you can make these egg rolls using a traditional pan fry method.",
+        "Add enough oil to a medium skillet with high walls so the oil is about 1/2 inch up the side of the skillet.",
+        "Heat oil on medium high heat until it reaches 350°F.",
+        "Add egg rolls and fry for 3 to 4 minutes, flip, and fry for another 3 to 4 minutes until golden brown.",
+        "Remove and let them drain and cool on a few paper towels.",
+        "Cook the filling:",
+        "In a large skillet over medium heat, add the olive oil along with the ground pork or chicken.",
+        "Break apart the meat with a spatula or wooden spoon as it cooks.",
+        "Cook until the meat is cooked through, 6 to 8 minutes.",
+        "Add garlic, ginger, carrot, scallions, and cabbage.",
+        "Continue to cook until cabbage wilts down and is soft, another 3 to 4 minutes, stirring regularly.",
+        "Season the filling with soy sauce and rice wine vinegar, and take off the heat to cool. (This filling can be made in advance.)"
+      ],
+      "image": "https://www.themealdb.com/images/media/meals/grhn401765687086.jpg",
+      "image_url": "https://www.themealdb.com/images/media/meals/grhn401765687086.jpg",
+      "video_url": "https://www.youtube.com/watch?v=XnA-wcVb4l0",
+      "tags": [
+        "Chinese",
+        "Imported",
+        "Side",
+        "TheMealDB",
+        "asian-inspired"
+      ],
+      "featured": false,
+      "chefNotes": "Imported from a free/public recipe API. Review and warm up the voice before featuring on the homepage.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "api",
+        "name": "TheMealDB",
+        "url": "https://www.simplyrecipes.com/recipes/air_fryer_chinese_egg_rolls/",
+        "apiUrl": "https://www.themealdb.com/api.php",
+        "externalId": "53373",
+        "licenseNote": "Free public API; verify production/app-store terms before wide release."
+      }
+    },
+    {
+      "id": "mealdb-beef-and-broccoli-stir-fry",
+      "title": "Beef and Broccoli Stir-Fry",
+      "description": "A Chinese recipe imported from TheMealDB and organized for the Let's Cook Y'all kitchen.",
+      "cuisine": "asian-inspired",
+      "category": "Family Dinners",
+      "cookTime": "35 min",
+      "cookTimeMinutes": 35,
+      "prepTime": "15 min",
+      "prepTimeMinutes": 15,
+      "servings": 4,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "1 tsp Soy Sauce",
+        "1 tsp Dry sherry",
+        "1/2 tsp Cornstarch",
+        "1/8 teaspoon Black Pepper",
+        "1 lb Sirloin steak",
+        "2 tablespoons Oyster Sauce",
+        "1 tsp Dry sherry",
+        "1 tablespoon Soy Sauce",
+        "1/4 cup Chicken Stock",
+        "1 lb Broccoli",
+        "2 tablespoons High Heat Cooking Oil",
+        "2 cloves minced Garlic",
+        "1 tsp Cornstarch",
+        "1 tablespoon Water"
+      ],
+      "instructions": [
+        "Marinate the beef:",
+        "Stir together the beef marinade ingredients (1 teaspoon soy sauce, 1 teaspoon Chinese rice wine, 1/2 teaspoon cornstarch, 1/8 teaspoon black pepper) in a medium bowl.",
+        "Add the beef slices and stir until coated.",
+        "Let stand for 10 minutes.",
+        "Prepare the sauce:",
+        "Stir together the sauce ingredients (2 tablespoons oyster sauce, 1 teaspoon Chinese rice wine, 1 teaspoon soy sauce, 1/4 cup chicken broth) in a small bowl.",
+        "Set aside.",
+        "Blanch or steam the broccoli:",
+        "Bring a pot of water to a boil.",
+        "Add the broccoli and cook until crisp-tender, about 2 minutes.",
+        "Drain thoroughly.",
+        "Stir-fry the beef:"
+      ],
+      "directions": [
+        "Marinate the beef:",
+        "Stir together the beef marinade ingredients (1 teaspoon soy sauce, 1 teaspoon Chinese rice wine, 1/2 teaspoon cornstarch, 1/8 teaspoon black pepper) in a medium bowl.",
+        "Add the beef slices and stir until coated.",
+        "Let stand for 10 minutes.",
+        "Prepare the sauce:",
+        "Stir together the sauce ingredients (2 tablespoons oyster sauce, 1 teaspoon Chinese rice wine, 1 teaspoon soy sauce, 1/4 cup chicken broth) in a small bowl.",
+        "Set aside.",
+        "Blanch or steam the broccoli:",
+        "Bring a pot of water to a boil.",
+        "Add the broccoli and cook until crisp-tender, about 2 minutes.",
+        "Drain thoroughly.",
+        "Stir-fry the beef:"
+      ],
+      "image": "https://www.themealdb.com/images/media/meals/m0p0j81765568742.jpg",
+      "image_url": "https://www.themealdb.com/images/media/meals/m0p0j81765568742.jpg",
+      "video_url": "https://www.youtube.com/watch?v=BBABeZjlRM8",
+      "tags": [
+        "Beef",
+        "Chinese",
+        "Imported",
+        "TheMealDB",
+        "asian-inspired"
+      ],
+      "featured": false,
+      "chefNotes": "Imported from a free/public recipe API. Review and warm up the voice before featuring on the homepage.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "api",
+        "name": "TheMealDB",
+        "url": "https://www.simplyrecipes.com/recipes/broccoli_beef/",
+        "apiUrl": "https://www.themealdb.com/api.php",
+        "externalId": "53366",
+        "licenseNote": "Free public API; verify production/app-store terms before wide release."
+      }
+    },
+    {
+      "id": "mealdb-beef-lo-mein",
+      "title": "Beef Lo Mein",
+      "description": "A Chinese recipe imported from TheMealDB and organized for the Let's Cook Y'all kitchen.",
+      "cuisine": "asian-inspired",
+      "category": "Family Dinners",
+      "cookTime": "35 min",
+      "cookTimeMinutes": 35,
+      "prepTime": "15 min",
+      "prepTimeMinutes": 15,
+      "servings": 4,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "1/2 lb Beef",
+        "pinch Salt",
+        "pinch Pepper",
+        "2 tsp Sesame Seed Oil",
+        "1/2 Egg",
+        "3 tbs Starch",
+        "5 tbs Oil",
+        "1/4 lb Noodles",
+        "1/2 cup Onion",
+        "1 tsp Minced Garlic",
+        "1 tsp Ginger",
+        "1 cup Bean Sprouts",
+        "1 cup Mushrooms",
+        "1 cup Water",
+        "1 tbs Oyster Sauce",
+        "1 tsp Sugar",
+        "1 tsp Soy Sauce"
+      ],
+      "instructions": [
+        "STEP 1 - MARINATING THE BEEF",
+        "In a bowl, add the beef, salt, 1 pinch white pepper, 1 Teaspoon sesame seed oil, 1/2 egg, corn starch,1 Tablespoon of oil and mix together.",
+        "STEP 2 - BOILING THE THE NOODLES",
+        "In a 6 qt pot add your noodles to boiling water until the noodles are submerged and boil on high heat for 10 seconds.",
+        "After your noodles is done boiling strain and cool with cold water.",
+        "STEP 3 - STIR FRY",
+        "Add 2 Tablespoons of oil, beef and cook on high heat untill beef is medium cooked.",
+        "Set the cooked beef aside",
+        "In a wok add 2 Tablespoon of oil, onions, minced garlic, minced ginger, bean sprouts, mushrooms, peapods and 1.5 cups of water or until the vegetables are submerged in water.",
+        "Add the noodles to wok",
+        "To make the sauce, add oyster sauce, 1 pinch white pepper, 1 teaspoon sesame seed oil, sugar, and 1 Teaspoon of soy sauce.",
+        "Next add the beef to wok and stir-fry"
+      ],
+      "directions": [
+        "STEP 1 - MARINATING THE BEEF",
+        "In a bowl, add the beef, salt, 1 pinch white pepper, 1 Teaspoon sesame seed oil, 1/2 egg, corn starch,1 Tablespoon of oil and mix together.",
+        "STEP 2 - BOILING THE THE NOODLES",
+        "In a 6 qt pot add your noodles to boiling water until the noodles are submerged and boil on high heat for 10 seconds.",
+        "After your noodles is done boiling strain and cool with cold water.",
+        "STEP 3 - STIR FRY",
+        "Add 2 Tablespoons of oil, beef and cook on high heat untill beef is medium cooked.",
+        "Set the cooked beef aside",
+        "In a wok add 2 Tablespoon of oil, onions, minced garlic, minced ginger, bean sprouts, mushrooms, peapods and 1.5 cups of water or until the vegetables are submerged in water.",
+        "Add the noodles to wok",
+        "To make the sauce, add oyster sauce, 1 pinch white pepper, 1 teaspoon sesame seed oil, sugar, and 1 Teaspoon of soy sauce.",
+        "Next add the beef to wok and stir-fry"
+      ],
+      "image": "https://www.themealdb.com/images/media/meals/1529444830.jpg",
+      "image_url": "https://www.themealdb.com/images/media/meals/1529444830.jpg",
+      "video_url": "https://www.youtube.com/watch?v=ZT9LSsNXXe0",
+      "tags": [
+        "Beef",
+        "Chinese",
+        "Imported",
+        "TheMealDB",
+        "asian-inspired"
+      ],
+      "featured": false,
+      "chefNotes": "Imported from a free/public recipe API. Review and warm up the voice before featuring on the homepage.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "api",
+        "name": "TheMealDB",
+        "url": "https://sueandgambo.com/pages/beef-lo-mein",
+        "apiUrl": "https://www.themealdb.com/api.php",
+        "externalId": "52952",
+        "licenseNote": "Free public API; verify production/app-store terms before wide release."
+      }
+    },
+    {
+      "id": "mealdb-chicken-karaage",
+      "title": "Chicken Karaage",
+      "description": "A Japanese recipe imported from TheMealDB and organized for the Let's Cook Y'all kitchen.",
+      "cuisine": "asian-inspired",
+      "category": "Family Dinners",
+      "cookTime": "35 min",
+      "cookTimeMinutes": 35,
+      "prepTime": "15 min",
+      "prepTimeMinutes": 15,
+      "servings": 4,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "450 grams Boneless skin Chicken",
+        "1 tablespoon Ginger",
+        "1 clove Garlic",
+        "2 tablespoons Soy sauce",
+        "1 tablespoon Sake",
+        "2 teaspoon Granulated sugar",
+        "1/3 cup Potato starch",
+        "1/3 cup Vegetable oil",
+        "1/3 cup Lemon"
+      ],
+      "instructions": [
+        "Add the ginger, garlic, soy sauce, sake and sugar to a bowl and whisk to combine.",
+        "Add the chicken, then stir to coat evenly.",
+        "Cover and refrigerate for at least 1 hour.",
+        "Add 1 inch of vegetable oil to a heavy bottomed pot and heat until the oil reaches 360 degrees F.",
+        "Line a wire rack with 2 sheets of paper towels and get your tongs out.",
+        "Put the potato starch in a bowl",
+        "Add a handful of chicken to the potato starch and toss to coat each piece evenly.",
+        "Fry the karaage in batches until the exterior is a medium brown and the chicken is cooked through.",
+        "Transfer the fried chicken to the paper towel lined rack.",
+        "If you want the karaage to stay crispy longer, you can fry the chicken a second time, until it's a darker color after it's cooled off once.",
+        "Serve with lemon wedges."
+      ],
+      "directions": [
+        "Add the ginger, garlic, soy sauce, sake and sugar to a bowl and whisk to combine.",
+        "Add the chicken, then stir to coat evenly.",
+        "Cover and refrigerate for at least 1 hour.",
+        "Add 1 inch of vegetable oil to a heavy bottomed pot and heat until the oil reaches 360 degrees F.",
+        "Line a wire rack with 2 sheets of paper towels and get your tongs out.",
+        "Put the potato starch in a bowl",
+        "Add a handful of chicken to the potato starch and toss to coat each piece evenly.",
+        "Fry the karaage in batches until the exterior is a medium brown and the chicken is cooked through.",
+        "Transfer the fried chicken to the paper towel lined rack.",
+        "If you want the karaage to stay crispy longer, you can fry the chicken a second time, until it's a darker color after it's cooled off once.",
+        "Serve with lemon wedges."
+      ],
+      "image": "https://www.themealdb.com/images/media/meals/tyywsw1505930373.jpg",
+      "image_url": "https://www.themealdb.com/images/media/meals/tyywsw1505930373.jpg",
+      "video_url": "https://www.youtube.com/watch?v=XivddFddthc",
+      "tags": [
+        "Chicken",
+        "Imported",
+        "Japanese",
+        "TheMealDB",
+        "asian-inspired"
+      ],
+      "featured": false,
+      "chefNotes": "Imported from a free/public recipe API. Review and warm up the voice before featuring on the homepage.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "api",
+        "name": "TheMealDB",
+        "url": "https://norecipes.com/karaage-recipe",
+        "apiUrl": "https://www.themealdb.com/api.php",
+        "externalId": "52831",
+        "licenseNote": "Free public API; verify production/app-store terms before wide release."
+      }
+    },
+    {
+      "id": "mealdb-honey-teriyaki-salmon",
+      "title": "Honey Teriyaki Salmon",
+      "description": "A Japanese recipe imported from TheMealDB and organized for the Let's Cook Y'all kitchen.",
+      "cuisine": "asian-inspired",
+      "category": "Seafood",
+      "cookTime": "35 min",
+      "cookTimeMinutes": 35,
+      "prepTime": "15 min",
+      "prepTimeMinutes": 15,
+      "servings": 4,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "1 lb Salmon",
+        "1 tablespoon Olive oil",
+        "2 tablespoons Soy Sauce",
+        "2 tablespoons Sake",
+        "4 tablespoons Sesame Seed"
+      ],
+      "instructions": [
+        "Mix all the ingredients in the Honey Teriyaki Glaze together.",
+        "Whisk to blend well.",
+        "Combine the salmon and the Glaze together.",
+        "Heat up a skillet on medium-low heat.",
+        "Add the oil, Pan-fry the salmon on both sides until it’s completely cooked inside and the glaze thickens.",
+        "Garnish with sesame and serve immediately."
+      ],
+      "directions": [
+        "Mix all the ingredients in the Honey Teriyaki Glaze together.",
+        "Whisk to blend well.",
+        "Combine the salmon and the Glaze together.",
+        "Heat up a skillet on medium-low heat.",
+        "Add the oil, Pan-fry the salmon on both sides until it’s completely cooked inside and the glaze thickens.",
+        "Garnish with sesame and serve immediately."
+      ],
+      "image": "https://www.themealdb.com/images/media/meals/xxyupu1468262513.jpg",
+      "image_url": "https://www.themealdb.com/images/media/meals/xxyupu1468262513.jpg",
+      "video_url": "https://www.youtube.com/watch?v=4MpYuaJsvRw",
+      "tags": [
+        "Imported",
+        "Japanese",
+        "Seafood",
+        "TheMealDB",
+        "asian-inspired"
+      ],
+      "featured": false,
+      "chefNotes": "Imported from a free/public recipe API. Review and warm up the voice before featuring on the homepage.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "api",
+        "name": "TheMealDB",
+        "url": "https://www.themealdb.com/meal/52773",
+        "apiUrl": "https://www.themealdb.com/api.php",
+        "externalId": "52773",
+        "licenseNote": "Free public API; verify production/app-store terms before wide release."
+      }
+    },
+    {
+      "id": "mealdb-japanese-gohan-rice",
+      "title": "Japanese gohan rice",
+      "description": "A Japanese recipe imported from TheMealDB and organized for the Let's Cook Y'all kitchen.",
+      "cuisine": "asian-inspired",
+      "category": "Beginner Basics",
+      "cookTime": "35 min",
+      "cookTimeMinutes": 35,
+      "prepTime": "15 min",
+      "prepTimeMinutes": 15,
+      "servings": 4,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "300g Sushi Rice",
+        "1 tbs Mirin",
+        "Garnish Pickle Juice",
+        "Garnish Spring Onions"
+      ],
+      "instructions": [
+        "STEP 1",
+        "Rinsing and soaking your rice is key to achieving the perfect texture.",
+        "Measure the rice into a bowl, cover with cold water, then use your fingers to massage the grains of rice – the water will become cloudy.",
+        "Drain and rinse again with fresh water.",
+        "Repeat five more times until the water stays clear.",
+        "STEP 2",
+        "Tip the rinsed rice into a saucepan with 400ml water, or 200ml dashi and 200ml water, bring to the boil, then turn down the heat to a low simmer, cover with a tight-fitting lid with a steam hole and cook for 15 mins.",
+        "Remove from the heat and leave to sit for another 15 mins, then stir through the mirin.",
+        "Remove the lid and give it a good stir.",
+        "Serve with any or all of the optional toppings."
+      ],
+      "directions": [
+        "STEP 1",
+        "Rinsing and soaking your rice is key to achieving the perfect texture.",
+        "Measure the rice into a bowl, cover with cold water, then use your fingers to massage the grains of rice – the water will become cloudy.",
+        "Drain and rinse again with fresh water.",
+        "Repeat five more times until the water stays clear.",
+        "STEP 2",
+        "Tip the rinsed rice into a saucepan with 400ml water, or 200ml dashi and 200ml water, bring to the boil, then turn down the heat to a low simmer, cover with a tight-fitting lid with a steam hole and cook for 15 mins.",
+        "Remove from the heat and leave to sit for another 15 mins, then stir through the mirin.",
+        "Remove the lid and give it a good stir.",
+        "Serve with any or all of the optional toppings."
+      ],
+      "image": "https://www.themealdb.com/images/media/meals/kw92t41604181871.jpg",
+      "image_url": "https://www.themealdb.com/images/media/meals/kw92t41604181871.jpg",
+      "video_url": "https://www.youtube.com/watch?v=rZO86_-MIp0",
+      "tags": [
+        "Imported",
+        "Japanese",
+        "Side",
+        "TheMealDB",
+        "asian-inspired"
+      ],
+      "featured": false,
+      "chefNotes": "Imported from a free/public recipe API. Review and warm up the voice before featuring on the homepage.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "api",
+        "name": "TheMealDB",
+        "url": "https://www.bbcgoodfood.com/recipes/japanese-rice-gohan",
+        "apiUrl": "https://www.themealdb.com/api.php",
+        "externalId": "53033",
+        "licenseNote": "Free public API; verify production/app-store terms before wide release."
+      }
+    },
+    {
+      "id": "mealdb-drunken-noodles-pad-kee-mao",
+      "title": "Drunken noodles (pad kee mao)",
+      "description": "A Thai recipe imported from TheMealDB and organized for the Let's Cook Y'all kitchen.",
+      "cuisine": "asian-inspired",
+      "category": "Family Dinners",
+      "cookTime": "35 min",
+      "cookTimeMinutes": 35,
+      "prepTime": "15 min",
+      "prepTimeMinutes": 15,
+      "servings": 4,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "200g Flat Rice Noodles",
+        "2 tblsp Vegetable Oil",
+        "3 cloves Chopped Garlic",
+        "3 chopped Birds-eye Chillies",
+        "225g Sirloin steak",
+        "100g Broccoli",
+        "Handful Basil Leaves",
+        "4 tbsp Soy Sauce",
+        "4 tbsp Oyster Sauce",
+        "1 teaspoon Fish Sauce",
+        "1 tblsp Sugar"
+      ],
+      "instructions": [
+        "step 1",
+        "Prepare the noodles following pack instructions, then drain and set aside.",
+        "Combine all the ingredients for the sauce in a small bowl or jug, and set aside.",
+        "step 2",
+        "Heat the oil in a large wok or frying pan over a high heat and stir-fry the garlic and chilli for 20 seconds until just starting to turn golden.",
+        "Add the steak and stir-fry for 1 minute until seared and starting to brown.",
+        "Add the broccoli and stir-fry for another minute, then tip in the noodles and add the sauce.",
+        "Stir-fry for another 1-2 mins until well combined and piping hot.",
+        "step 3",
+        "Stir through the basil and turn off the heat.",
+        "Serve immediately to avoid overcooking."
+      ],
+      "directions": [
+        "step 1",
+        "Prepare the noodles following pack instructions, then drain and set aside.",
+        "Combine all the ingredients for the sauce in a small bowl or jug, and set aside.",
+        "step 2",
+        "Heat the oil in a large wok or frying pan over a high heat and stir-fry the garlic and chilli for 20 seconds until just starting to turn golden.",
+        "Add the steak and stir-fry for 1 minute until seared and starting to brown.",
+        "Add the broccoli and stir-fry for another minute, then tip in the noodles and add the sauce.",
+        "Stir-fry for another 1-2 mins until well combined and piping hot.",
+        "step 3",
+        "Stir through the basil and turn off the heat.",
+        "Serve immediately to avoid overcooking."
+      ],
+      "image": "https://www.themealdb.com/images/media/meals/2wx8cm1763373419.jpg",
+      "image_url": "https://www.themealdb.com/images/media/meals/2wx8cm1763373419.jpg",
+      "video_url": "https://www.youtube.com/watch?v=eJ3w2iJB4x8",
+      "tags": [
+        "Beef",
+        "Imported",
+        "Thai",
+        "TheMealDB",
+        "asian-inspired"
+      ],
+      "featured": false,
+      "chefNotes": "Imported from a free/public recipe API. Review and warm up the voice before featuring on the homepage.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "api",
+        "name": "TheMealDB",
+        "url": "https://www.bbcgoodfood.com/recipes/drunken-noodles-pad-kee-mao",
+        "apiUrl": "https://www.themealdb.com/api.php",
+        "externalId": "53193",
+        "licenseNote": "Free public API; verify production/app-store terms before wide release."
+      }
+    },
+    {
+      "id": "mealdb-lemongrass-beef-stew-with-noodles",
+      "title": "Lemongrass beef stew with noodles",
+      "description": "A Thai recipe imported from TheMealDB and organized for the Let's Cook Y'all kitchen.",
+      "cuisine": "asian-inspired",
+      "category": "Family Dinners",
+      "cookTime": "35 min",
+      "cookTimeMinutes": 35,
+      "prepTime": "15 min",
+      "prepTimeMinutes": 15,
+      "servings": 4,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "1 tablespoon chopped Ginger",
+        "2 chopped Garlic Clove",
+        "3 Lemongrass Stalks",
+        "2 tblsp Coriander Leaves",
+        "2 sliced Red Chilli",
+        "2 tblsp Vegetable Oil",
+        "250g Beef",
+        "2 tblsp Soy Sauce",
+        "1 tsp Five Spice Powder",
+        "1 tsp Brown Sugar",
+        "400ml Beef Stock",
+        "100g Rice Noodles",
+        "To serve Lime"
+      ],
+      "instructions": [
+        "step 1",
+        "Put the ginger, garlic, lemongrass, coriander and 1 chilli in a food processor, then pulse until puréed.",
+        "Heat the oil in a pan over a low heat.",
+        "Add the purée and cook for 5 mins.",
+        "Stir in the beef, soy, five-spice, sugar and stock.",
+        "Put on a lid and bring to the boil, then lower heat and simmer for 1 hr 15 mins.",
+        "Remove the lid and cook for a further 15 mins until the beef is tender.",
+        "step 2",
+        "Just before serving, prepare noodles following pack instructions.",
+        "Drain well, then divide between 2 bowls and spoon over the beef stew.",
+        "Serve sprinkled with the remaining chilli and coriander leaves, with lime wedges for squeezing over."
+      ],
+      "directions": [
+        "step 1",
+        "Put the ginger, garlic, lemongrass, coriander and 1 chilli in a food processor, then pulse until puréed.",
+        "Heat the oil in a pan over a low heat.",
+        "Add the purée and cook for 5 mins.",
+        "Stir in the beef, soy, five-spice, sugar and stock.",
+        "Put on a lid and bring to the boil, then lower heat and simmer for 1 hr 15 mins.",
+        "Remove the lid and cook for a further 15 mins until the beef is tender.",
+        "step 2",
+        "Just before serving, prepare noodles following pack instructions.",
+        "Drain well, then divide between 2 bowls and spoon over the beef stew.",
+        "Serve sprinkled with the remaining chilli and coriander leaves, with lime wedges for squeezing over."
+      ],
+      "image": "https://www.themealdb.com/images/media/meals/ntafxw1763586291.jpg",
+      "image_url": "https://www.themealdb.com/images/media/meals/ntafxw1763586291.jpg",
+      "video_url": "",
+      "tags": [
+        "Beef",
+        "Imported",
+        "Thai",
+        "TheMealDB",
+        "asian-inspired"
+      ],
+      "featured": false,
+      "chefNotes": "Imported from a free/public recipe API. Review and warm up the voice before featuring on the homepage.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "api",
+        "name": "TheMealDB",
+        "url": "https://www.bbcgoodfood.com/recipes/lemongrass-beef-stew-noodles",
+        "apiUrl": "https://www.themealdb.com/api.php",
+        "externalId": "53211",
+        "licenseNote": "Free public API; verify production/app-store terms before wide release."
+      }
+    },
+    {
+      "id": "mealdb-massaman-beef-curry",
+      "title": "Massaman Beef curry",
+      "description": "A Thai recipe imported from TheMealDB and organized for the Let's Cook Y'all kitchen.",
+      "cuisine": "asian-inspired",
+      "category": "Family Dinners",
+      "cookTime": "35 min",
+      "cookTimeMinutes": 35,
+      "prepTime": "15 min",
+      "prepTimeMinutes": 15,
+      "servings": 4,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "85g Peanuts",
+        "400ml can Coconut cream",
+        "4 tbsp Massaman curry paste",
+        "600g stewing cut into strips Beef",
+        "450g waxy Potatoes",
+        "1 cut thin wedges Onion",
+        "4 leaves Lime",
+        "1 Cinnamon stick",
+        "1 tbsp Tamarind paste",
+        "1 tbsp palm or soft light Brown sugar",
+        "1 tbsp Fish Sauce",
+        "1 red deseeded and finely sliced, to serve chilli",
+        "to serve Jasmine Rice"
+      ],
+      "instructions": [
+        "Heat oven to 200C/180C fan/gas 6, then roast the peanuts on a baking tray for 5 mins until golden brown.",
+        "When cool enough to handle, roughly chop.",
+        "Reduce oven to 180C/160C fan/gas 4.",
+        "Heat 2 tbsp coconut cream in a large casserole dish with a lid.",
+        "Add the curry paste and fry for 1 min, then stir in the beef and fry until well coated and sealed.",
+        "Stir in the rest of the coconut with half a can of water, the potatoes, onion, lime leaves, cinnamon, tamarind, sugar, fish sauce and most of the peanuts.",
+        "Bring to a simmer, then cover and cook for 2 hrs in the oven until the beef is tender.",
+        "Sprinkle with sliced chilli and the remaining peanuts, then serve straight from the dish with jasmine rice."
+      ],
+      "directions": [
+        "Heat oven to 200C/180C fan/gas 6, then roast the peanuts on a baking tray for 5 mins until golden brown.",
+        "When cool enough to handle, roughly chop.",
+        "Reduce oven to 180C/160C fan/gas 4.",
+        "Heat 2 tbsp coconut cream in a large casserole dish with a lid.",
+        "Add the curry paste and fry for 1 min, then stir in the beef and fry until well coated and sealed.",
+        "Stir in the rest of the coconut with half a can of water, the potatoes, onion, lime leaves, cinnamon, tamarind, sugar, fish sauce and most of the peanuts.",
+        "Bring to a simmer, then cover and cook for 2 hrs in the oven until the beef is tender.",
+        "Sprinkle with sliced chilli and the remaining peanuts, then serve straight from the dish with jasmine rice."
+      ],
+      "image": "https://www.themealdb.com/images/media/meals/tvttqv1504640475.jpg",
+      "image_url": "https://www.themealdb.com/images/media/meals/tvttqv1504640475.jpg",
+      "video_url": "https://www.youtube.com/watch?v=mVxgZSCU9_g",
+      "tags": [
+        "Beef",
+        "Imported",
+        "Thai",
+        "TheMealDB",
+        "asian-inspired"
+      ],
+      "featured": false,
+      "chefNotes": "Imported from a free/public recipe API. Review and warm up the voice before featuring on the homepage.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "api",
+        "name": "TheMealDB",
+        "url": "https://www.bbcgoodfood.com/recipes/420631/beef-massaman-curry",
+        "apiUrl": "https://www.themealdb.com/api.php",
+        "externalId": "52827",
+        "licenseNote": "Free public API; verify production/app-store terms before wide release."
+      }
     }
   ],
   "apiAdapters": [
     {
       "id": "themealdb",
       "name": "TheMealDB",
-      "useFor": ["Discovery", "Public API enrichment", "Cuisine inspiration"],
+      "useFor": [
+        "Discovery",
+        "Public API enrichment",
+        "Cuisine inspiration"
+      ],
       "notes": "Use API response as inspiration or linked external source; do not copy copyrighted blog text."
     },
     {
       "id": "dummyjson",
       "name": "DummyJSON Recipes",
-      "useFor": ["Development placeholders", "Testing search and filters"],
+      "useFor": [
+        "Development placeholders",
+        "Testing search and filters"
+      ],
       "notes": "Useful for test data while original Brent & Co. recipes are being written."
     },
     {
       "id": "openfoodfacts",
       "name": "Open Food Facts",
-      "useFor": ["Ingredient/product lookup", "Grocery-list enrichment"],
+      "useFor": [
+        "Ingredient/product lookup",
+        "Grocery-list enrichment"
+      ],
       "notes": "Useful later for product details and pantry matching."
     }
   ]
