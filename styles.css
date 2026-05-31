@@ -2142,6 +2142,23 @@ select {
   padding: clamp(22px, 4vw, 36px);
 }
 
+.path-outcome-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(160px, 1fr));
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.path-outcome-strip span {
+  min-height: 54px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #fff8e9, #f4d68d);
+  color: var(--green-dark);
+  font-weight: 900;
+  line-height: 1.3;
+}
+
 .path-recipe-section {
   padding-top: clamp(20px, 3vw, 38px);
 }
@@ -3021,6 +3038,88 @@ select {
   padding: 11px 14px;
 }
 
+.planner-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(160px, 1fr));
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.planner-summary article,
+.planner-preset-grid section {
+  border: 1px solid rgba(92, 48, 18, 0.16);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255, 250, 238, 0.98), rgba(255, 244, 220, 0.94));
+  box-shadow: 0 14px 30px rgba(82, 45, 10, 0.1);
+}
+
+.planner-summary article {
+  display: grid;
+  gap: 4px;
+  padding: 18px;
+}
+
+.planner-summary strong {
+  color: var(--green-dark);
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.planner-summary span {
+  color: #6b3b18;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.planner-preset-grid {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.planner-preset-grid section {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+}
+
+.planner-preset-grid h3 {
+  margin: 0;
+  color: var(--green-dark);
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.planner-preset-grid ul,
+.hosting-checklist {
+  margin: 0;
+  padding-left: 1.15rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.hosting-note {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-left: 5px solid #f3c15d;
+  border-radius: 12px;
+  background: rgba(243, 193, 93, 0.18);
+  color: #4a3323;
+  line-height: 1.5;
+}
+
+.hosting-note strong {
+  color: var(--green-dark);
+}
+
+.hosting-checklist {
+  margin-top: 14px;
+}
+
 .stack-list {
   display: grid;
   gap: 14px;
@@ -3234,6 +3333,8 @@ select {
   .lesson-grid,
   .cook101-stats,
   .cook101-cuisine-grid,
+  .planner-summary,
+  .path-outcome-strip,
   .path-showcase-grid,
   .path-detail-hero,
   .path-module-grid,
@@ -3290,6 +3391,8 @@ select {
   .account-stats,
   .cook101-hero,
   .cook101-stats,
+  .planner-summary,
+  .path-outcome-strip,
   .recipe-facts,
   .recipe-card-meta,
   .recipe-detail-grid,

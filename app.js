@@ -95,6 +95,7 @@ const paths = [
       { title: "Snack Builder", text: "Simple, colorful food kids can assemble and feel proud serving." }
     ],
     skills: ["Wash and prep a station", "Measure dry and wet ingredients", "Mix without overworking", "Use kid-safe tools", "Taste and describe flavor"],
+    outcomes: ["Make a no-cook lunch", "Practice one stovetop recipe with help", "Build a colorful snack plate"],
     recipes: ["pb-and-j-sandwich", "stovetop-mac-and-cheese", "mini-pizza-bagels", "fruit-kabobs", "soft-scrambled-eggs"]
   },
   {
@@ -115,7 +116,8 @@ const paths = [
       { title: "Dinner Flow", text: "Prep order, sides, sauces, and getting everything hot at the same time." }
     ],
     skills: ["Build a balanced plate", "Season in layers", "Read doneness cues", "Prep ahead", "Save leftovers with purpose"],
-    recipes: ["shrimp-and-grits", "cajun-cream-pasta", "chicken-parmesan"]
+    outcomes: ["Cook one confident weeknight dinner", "Make one side without a box", "Plan leftovers before cooking"],
+    recipes: ["chicken-street-tacos", "lemon-herb-salmon", "cajun-cream-salmon-rotini", "shrimp-and-grits-green-beans", "chicken-parmesan"]
   },
   {
     id: "professional-mode",
@@ -135,7 +137,8 @@ const paths = [
       { title: "Plate & Host", text: "Finishing salt, garnish, contrast, serving flow, and table timing." }
     ],
     skills: ["Write a prep list", "Build a sauce base", "Control heat and reduction", "Plate with contrast", "Host without rushing"],
-    recipes: ["oxtails", "yakamein", "bourbon-praline-bread-pudding"]
+    outcomes: ["Write a prep timeline", "Cook a sauce or braise", "Plate and serve without rushing"],
+    recipes: ["oxtails", "jerk-chicken", "biryani", "smothered-pork-chops", "bourbon-praline-bread-pudding"]
   }
 ];
 
@@ -1011,9 +1014,12 @@ function cuisine101For(cuisineId) {
 }
 
 const hostingIdeas = [
-  { title: "Sunday Comfort Supper", text: "Braised oxtails, deviled eggs, greens, and bread pudding.", recipes: ["oxtails", "deviled-eggs", "bourbon-praline-bread-pudding"] },
-  { title: "Game Night Bites", text: "Crab rangoon, charcuterie, orange chicken bites, and sparkling lemonade.", recipes: ["crab-rangoon", "charcuterie-boards", "orange-chicken"] },
-  { title: "Beginner Dinner Party", text: "Shrimp and grits with a board to start and bread pudding to finish.", recipes: ["shrimp-and-grits", "charcuterie-boards", "bourbon-praline-bread-pudding"] }
+  { title: "Sunday Comfort Supper", text: "A warm table with braised meat, greens, cornbread, and dessert.", timing: "Start the braise early; finish sides in the last hour.", setup: ["Set serving spoons out first", "Keep one dish oven-safe", "Make dessert ahead"], recipes: ["oxtails", "collard-greens", "cornbread", "bourbon-praline-bread-pudding"] },
+  { title: "Game Night Bites", text: "Finger foods, dips, wings, boards, and one sweet bite so people can graze.", timing: "Build the board first; keep hot bites rotating.", setup: ["Use small plates", "Keep napkins everywhere", "Make a refill tray"], recipes: ["crab-rangoon", "charcuterie-boards", "garlic-wings", "rotel-dip"] },
+  { title: "Beginner Dinner Party", text: "A simple starter, one main, one side, and one dessert without too many moving parts.", timing: "Choose one hot main and make the starter ahead.", setup: ["Pick serving bowls early", "Prep garnish before guests arrive", "Use a written timeline"], recipes: ["shrimp-and-grits-green-beans", "greek-salad", "charcuterie-boards", "bourbon-praline-bread-pudding"] },
+  { title: "Taco Night", text: "A build-your-own spread with protein, rice, salsa, and easy toppings.", timing: "Cook the chicken and rice first; warm tortillas last.", setup: ["Put toppings in small bowls", "Keep limes cut", "Use foil to hold tortillas"], recipes: ["chicken-street-tacos", "cilantro-lime-rice", "black-bean-enchiladas", "cheese-quesadillas"] },
+  { title: "Caribbean Family Plate", text: "Big flavor with curry, rice and peas, plantains, and something bright on the side.", timing: "Start curry first, then rice, then plantains right before serving.", setup: ["Serve sauces on the side", "Use a platter for plantains", "Keep drinks cold"], recipes: ["caribbean-curry-chicken", "rice-and-peas", "fried-sweet-plantains", "jerk-chicken"] },
+  { title: "Mediterranean Lunch Spread", text: "Fresh, bright, and easy to set out with pita, dips, salad, and protein.", timing: "Make hummus and salad ahead; cook protein close to serving.", setup: ["Slice pita last", "Set olive oil and lemon out", "Use shallow bowls"], recipes: ["creamy-hummus", "greek-salad", "chicken-gyros", "lemon-herb-salmon"] }
 ];
 
 const app = document.querySelector("#app");
@@ -1580,6 +1586,7 @@ function renderPath(id) {
           <section><h3>What You Learn</h3><ol>${path.steps.map((step) => `<li>${step}</li>`).join("")}</ol></section>
           <section><h3>Skills You Build</h3><ul>${path.skills.map((skill) => `<li>${skill}</li>`).join("")}</ul></section>
         </div>
+        <div class="path-outcome-strip">${path.outcomes.map((outcome) => `<span>${outcome}</span>`).join("")}</div>
       </div>
     </section>
     <section class="cream-section path-recipe-section">
@@ -1602,23 +1609,42 @@ function renderPath(id) {
 function renderPlanner() {
   const plannedRecipes = recipes.filter((recipe) => planned.includes(recipe.id));
   const shoppingItems = [...new Set(plannedRecipes.flatMap((recipe) => recipe.ingredients))];
+  const quickPlan = [
+    { title: "Kid-friendly start", ids: ["pb-and-j-sandwich", "stovetop-mac-and-cheese", "fruit-kabobs"] },
+    { title: "Weeknight dinner", ids: ["chicken-street-tacos", "cilantro-lime-rice", "greek-salad"] },
+    { title: "Sunday comfort", ids: ["oxtails", "collard-greens", "cornbread"] }
+  ];
+  const featuredPlanRecipes = ["chicken-street-tacos", "caribbean-curry-chicken", "lemon-herb-salmon", "stovetop-mac-and-cheese"].map((id) => recipes.find((recipe) => recipe.id === id)).filter(Boolean);
   app.innerHTML = `
     ${hero("Meal Planner", "Answer the classic question: what can I cook? Save meals, plan your week, and build a shopping list.", "assets/editorial-kitchen-prep.jpg")}
     ${cookSubnav()}
     <section class="cream-section">
+      <div class="planner-summary">
+        <article><strong>${plannedRecipes.length}</strong><span>Meals planned</span></article>
+        <article><strong>${shoppingItems.length}</strong><span>Ingredients listed</span></article>
+        <article><strong>${saved.length}</strong><span>Saved recipes</span></article>
+      </div>
       <div class="planner-layout">
         <article class="detail-panel">
-          <h2>What Can I Cook?</h2>
-          <p class="detail-copy">Pick a mood and start with recipes that match your night.</p>
-          <div class="mini-category-grid">${categories.map((category) => `<a href="#recipes">${category}</a>`).join("")}</div>
+          <p class="eyebrow">Start fast</p>
+          <h2>Pick a plan that already makes sense.</h2>
+          <div class="planner-preset-grid">${quickPlan.map((plan) => `
+            <section>
+              <h3>${plan.title}</h3>
+              <ul>${plan.ids.map((id) => `<li>${recipes.find((recipe) => recipe.id === id)?.title || id}</li>`).join("")}</ul>
+              <a class="small-button secondary" href="#recipes">Browse recipes</a>
+            </section>
+          `).join("")}</div>
         </article>
         <article class="detail-panel">
+          <p class="eyebrow">This week</p>
           <h2>This Week</h2>
-          <div class="stack-list">${plannedRecipes.length ? plannedRecipes.map(compactRecipe).join("") : `<div class="empty-state">Add recipes from any card to build your week.</div>`}</div>
+          <div class="stack-list">${plannedRecipes.length ? plannedRecipes.map(compactRecipe).join("") : featuredPlanRecipes.map(compactRecipe).join("")}</div>
         </article>
         <article class="detail-panel">
+          <p class="eyebrow">Shop once</p>
           <h2>Shopping List</h2>
-          <ul class="shopping-list">${shoppingItems.length ? shoppingItems.map((item) => `<li>${item}</li>`).join("") : `<li>Your ingredients will appear here.</li>`}</ul>
+          <ul class="shopping-list">${shoppingItems.length ? shoppingItems.map((item) => `<li>${item}</li>`).join("") : featuredPlanRecipes.slice(0, 2).flatMap((recipe) => recipe.ingredients.slice(0, 4)).map((item) => `<li>${item}</li>`).join("")}</ul>
         </article>
       </div>
     </section>
@@ -1632,8 +1658,11 @@ function renderHosting() {
     <section class="cream-section">
       <div class="hosting-grid">${hostingIdeas.map((idea) => `
         <article class="detail-panel">
+          <p class="eyebrow">Hosting menu</p>
           <h2>${idea.title}</h2>
           <p class="detail-copy">${idea.text}</p>
+          <div class="hosting-note"><strong>Timing:</strong> ${idea.timing}</div>
+          <ul class="hosting-checklist">${idea.setup.map((item) => `<li>${item}</li>`).join("")}</ul>
           <div class="stack-list">${idea.recipes.map((id) => compactRecipe(recipes.find((recipe) => recipe.id === id))).join("")}</div>
         </article>
       `).join("")}</div>
