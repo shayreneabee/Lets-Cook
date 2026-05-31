@@ -3647,6 +3647,736 @@
         "type": "original",
         "name": "Brent & Co. starter recipe"
       }
+    },
+    {
+      "id": "chicken-street-tacos",
+      "title": "Chicken Street Tacos",
+      "description": "Small warm tortillas filled with seasoned chicken, onion, cilantro, lime, and an easy salsa finish.",
+      "cuisine": "mexican",
+      "category": "Family Dinners",
+      "cookTime": "18 min",
+      "cookTimeMinutes": 18,
+      "prepTime": "12 min",
+      "prepTimeMinutes": 12,
+      "servings": 4,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Chicken thighs or breast",
+        "Corn tortillas",
+        "Onion",
+        "Cilantro",
+        "Lime",
+        "Cumin",
+        "Chili powder",
+        "Salsa"
+      ],
+      "instructions": [
+        "Season chicken with cumin, chili powder, salt, and lime.",
+        "Cook chicken in a hot skillet until browned and cooked through.",
+        "Rest chicken, then chop into bite-size pieces.",
+        "Warm tortillas until soft.",
+        "Fill tortillas with chicken, onion, cilantro, salsa, and lime."
+      ],
+      "equipment": [
+        "Skillet",
+        "Cutting board",
+        "Tongs"
+      ],
+      "tips": [
+        "Warm tortillas before filling so they do not crack.",
+        "Use two tortillas per taco if they are thin.",
+        "Let chicken rest before chopping."
+      ],
+      "makeAhead": "Cook chicken up to two days ahead and warm before serving.",
+      "servingIdeas": [
+        "Serve with cilantro lime rice.",
+        "Add avocado or crema.",
+        "Set up a taco bar."
+      ],
+      "image": "assets/american-food.jpeg",
+      "tags": [
+        "tacos",
+        "chicken",
+        "lime",
+        "weeknight"
+      ],
+      "path": "amateur-home-chef",
+      "image_url": "assets/american-food.jpeg",
+      "video_url": "",
+      "related_recipe_ids": [],
+      "featured": false,
+      "chefNotes": "Original Let's Cook Y'all starter recipe for building out this cuisine section.",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "cheese-quesadillas",
+      "title": "Cheese Quesadillas",
+      "description": "A kid-friendly skillet recipe for practicing flipping, melting, and building a quick lunch.",
+      "cuisine": "mexican",
+      "category": "Kid-Friendly Cooking",
+      "cookTime": "8 min",
+      "cookTimeMinutes": 8,
+      "prepTime": "5 min",
+      "prepTimeMinutes": 5,
+      "servings": 2,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Flour tortillas",
+        "Shredded cheese",
+        "Butter or oil",
+        "Salsa",
+        "Sour cream, optional"
+      ],
+      "instructions": [
+        "Place a tortilla in a warm skillet.",
+        "Sprinkle cheese over one half.",
+        "Fold tortilla and cook until golden.",
+        "Flip carefully and cook the second side.",
+        "Cool slightly, slice, and serve with salsa."
+      ],
+      "equipment": [
+        "Skillet",
+        "Spatula"
+      ],
+      "tips": [
+        "Keep heat medium-low so the cheese melts before the tortilla burns.",
+        "Do not overfill.",
+        "Let kids sprinkle cheese while grown-ups handle the skillet."
+      ],
+      "makeAhead": "Best fresh, but fillings can be prepped ahead.",
+      "servingIdeas": [
+        "Serve with fruit.",
+        "Add beans or chicken for a bigger meal."
+      ],
+      "image": "assets/kid-friendly.jpeg",
+      "tags": [
+        "quesadilla",
+        "cheese",
+        "kid chefs",
+        "quick"
+      ],
+      "path": "kid-chefs",
+      "image_url": "assets/kid-friendly.jpeg",
+      "video_url": "",
+      "related_recipe_ids": [],
+      "featured": false,
+      "chefNotes": "Original Let's Cook Y'all starter recipe for building out this cuisine section.",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "cilantro-lime-rice",
+      "title": "Cilantro Lime Rice",
+      "description": "Fluffy rice brightened with lime, cilantro, and a little butter for bowls, tacos, and weeknight plates.",
+      "cuisine": "mexican",
+      "category": "Beginner Basics",
+      "cookTime": "18 min",
+      "cookTimeMinutes": 18,
+      "prepTime": "5 min",
+      "prepTimeMinutes": 5,
+      "servings": 4,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Long-grain rice",
+        "Water or broth",
+        "Lime",
+        "Cilantro",
+        "Butter",
+        "Salt"
+      ],
+      "instructions": [
+        "Rinse rice until the water runs mostly clear.",
+        "Cook rice with water or broth and salt.",
+        "Rest covered for 5 minutes.",
+        "Fluff with butter, lime juice, and chopped cilantro.",
+        "Taste and adjust salt."
+      ],
+      "equipment": [
+        "Pot with lid",
+        "Fork"
+      ],
+      "tips": [
+        "Resting makes rice fluffier.",
+        "Add lime zest for extra brightness.",
+        "Use broth for deeper flavor."
+      ],
+      "makeAhead": "Cook rice one day ahead and reheat with a splash of water.",
+      "servingIdeas": [
+        "Serve with tacos.",
+        "Build burrito bowls.",
+        "Pair with black beans."
+      ],
+      "image": "assets/ingredients.jpeg",
+      "tags": [
+        "rice",
+        "lime",
+        "cilantro",
+        "side dish"
+      ],
+      "path": "amateur-home-chef",
+      "image_url": "assets/ingredients.jpeg",
+      "video_url": "",
+      "related_recipe_ids": [],
+      "featured": false,
+      "chefNotes": "Original Let's Cook Y'all starter recipe for building out this cuisine section.",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "black-bean-enchiladas",
+      "title": "Black Bean Enchiladas",
+      "description": "Soft tortillas filled with seasoned black beans, sauce, and cheese for a cozy vegetarian dinner.",
+      "cuisine": "mexican",
+      "category": "Vegetarian",
+      "cookTime": "25 min",
+      "cookTimeMinutes": 25,
+      "prepTime": "15 min",
+      "prepTimeMinutes": 15,
+      "servings": 4,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "Tortillas",
+        "Black beans",
+        "Enchilada sauce",
+        "Cheese",
+        "Onion",
+        "Cumin",
+        "Garlic",
+        "Cilantro"
+      ],
+      "instructions": [
+        "Cook onion, garlic, cumin, and black beans until warm.",
+        "Spread sauce in a baking dish.",
+        "Fill tortillas with beans and cheese.",
+        "Roll and place seam-side down.",
+        "Top with sauce and cheese, then bake until bubbly."
+      ],
+      "equipment": [
+        "Skillet",
+        "Baking dish"
+      ],
+      "tips": [
+        "Warm tortillas before rolling.",
+        "Use enough sauce to keep everything soft.",
+        "Let rest 5 minutes before serving."
+      ],
+      "makeAhead": "Assemble earlier in the day and bake before dinner.",
+      "servingIdeas": [
+        "Serve with rice.",
+        "Add avocado.",
+        "Top with cilantro and lime."
+      ],
+      "image": "assets/american-food.jpeg",
+      "tags": [
+        "beans",
+        "enchiladas",
+        "vegetarian",
+        "baked"
+      ],
+      "path": "amateur-home-chef",
+      "image_url": "assets/american-food.jpeg",
+      "video_url": "",
+      "related_recipe_ids": [],
+      "featured": false,
+      "chefNotes": "Original Let's Cook Y'all starter recipe for building out this cuisine section.",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "jerk-chicken",
+      "title": "Jerk Chicken",
+      "description": "Bold, smoky chicken with warm spice, citrus, thyme, and just enough heat to wake everything up.",
+      "cuisine": "caribbean",
+      "category": "Family Dinners",
+      "cookTime": "35 min",
+      "cookTimeMinutes": 35,
+      "prepTime": "20 min",
+      "prepTimeMinutes": 20,
+      "servings": 4,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "Chicken legs or thighs",
+        "Jerk seasoning",
+        "Thyme",
+        "Garlic",
+        "Ginger",
+        "Lime juice",
+        "Brown sugar",
+        "Oil"
+      ],
+      "instructions": [
+        "Mix seasoning, thyme, garlic, ginger, lime, sugar, and oil.",
+        "Coat chicken and marinate if time allows.",
+        "Bake or grill until cooked through.",
+        "Rest chicken before serving.",
+        "Spoon pan juices over the top."
+      ],
+      "equipment": [
+        "Baking sheet or grill",
+        "Mixing bowl"
+      ],
+      "tips": [
+        "Marinate overnight for deeper flavor.",
+        "Use gloves if working with hot peppers.",
+        "Balance heat with lime and a little sweetness."
+      ],
+      "makeAhead": "Marinate up to one day ahead.",
+      "servingIdeas": [
+        "Serve with rice and peas.",
+        "Add fried plantains.",
+        "Make jerk chicken bowls."
+      ],
+      "image": "assets/african-food.jpeg",
+      "tags": [
+        "jerk",
+        "chicken",
+        "spice",
+        "grill"
+      ],
+      "path": "professional-mode",
+      "image_url": "assets/african-food.jpeg",
+      "video_url": "",
+      "related_recipe_ids": [],
+      "featured": false,
+      "chefNotes": "Original Let's Cook Y'all starter recipe for building out this cuisine section.",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "rice-and-peas",
+      "title": "Caribbean Rice and Peas",
+      "description": "Coconut rice with beans, thyme, garlic, and gentle island comfort in every spoonful.",
+      "cuisine": "caribbean",
+      "category": "Beginner Basics",
+      "cookTime": "25 min",
+      "cookTimeMinutes": 25,
+      "prepTime": "10 min",
+      "prepTimeMinutes": 10,
+      "servings": 6,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Long-grain rice",
+        "Kidney beans or pigeon peas",
+        "Coconut milk",
+        "Thyme",
+        "Garlic",
+        "Green onion",
+        "Allspice",
+        "Salt"
+      ],
+      "instructions": [
+        "Rinse rice.",
+        "Simmer coconut milk, beans, thyme, garlic, green onion, and seasoning.",
+        "Stir in rice.",
+        "Cover and cook until tender.",
+        "Rest, fluff, and serve."
+      ],
+      "equipment": [
+        "Pot with lid"
+      ],
+      "tips": [
+        "Keep the lid on while rice cooks.",
+        "Use canned beans for a quick version.",
+        "Add a whole pepper for aroma, then remove it."
+      ],
+      "makeAhead": "Reheats well with a splash of water.",
+      "servingIdeas": [
+        "Pair with jerk chicken.",
+        "Serve with curry chicken.",
+        "Add cabbage on the side."
+      ],
+      "image": "assets/ingredients.jpeg",
+      "tags": [
+        "rice",
+        "peas",
+        "coconut",
+        "side dish"
+      ],
+      "path": "amateur-home-chef",
+      "image_url": "assets/ingredients.jpeg",
+      "video_url": "",
+      "related_recipe_ids": [],
+      "featured": false,
+      "chefNotes": "Original Let's Cook Y'all starter recipe for building out this cuisine section.",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "fried-sweet-plantains",
+      "title": "Fried Sweet Plantains",
+      "description": "Golden sweet plantains with caramelized edges, perfect as a side, snack, or beginner skillet lesson.",
+      "cuisine": "caribbean",
+      "category": "Beginner Friendly",
+      "cookTime": "10 min",
+      "cookTimeMinutes": 10,
+      "prepTime": "5 min",
+      "prepTimeMinutes": 5,
+      "servings": 4,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Ripe plantains",
+        "Oil",
+        "Pinch of salt"
+      ],
+      "instructions": [
+        "Peel ripe plantains and slice on a diagonal.",
+        "Heat a thin layer of oil in a skillet.",
+        "Cook plantains until golden on one side.",
+        "Flip and brown the second side.",
+        "Drain and sprinkle lightly with salt."
+      ],
+      "equipment": [
+        "Skillet",
+        "Spatula"
+      ],
+      "tips": [
+        "Use plantains with black spots for sweetness.",
+        "Do not crowd the pan.",
+        "Keep heat medium so the sugar does not burn."
+      ],
+      "makeAhead": "Best fresh, but can be rewarmed in a skillet.",
+      "servingIdeas": [
+        "Serve with rice and peas.",
+        "Add to breakfast plates.",
+        "Pair with stew or curry."
+      ],
+      "image": "assets/african-food.jpeg",
+      "tags": [
+        "plantains",
+        "sweet",
+        "side dish",
+        "skillet"
+      ],
+      "path": "kid-chefs",
+      "image_url": "assets/african-food.jpeg",
+      "video_url": "",
+      "related_recipe_ids": [],
+      "featured": false,
+      "chefNotes": "Original Let's Cook Y'all starter recipe for building out this cuisine section.",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "caribbean-curry-chicken",
+      "title": "Caribbean Curry Chicken",
+      "description": "Tender chicken simmered in curry, garlic, thyme, potatoes, and a cozy golden gravy.",
+      "cuisine": "caribbean",
+      "category": "Family Dinners",
+      "cookTime": "45 min",
+      "cookTimeMinutes": 45,
+      "prepTime": "15 min",
+      "prepTimeMinutes": 15,
+      "servings": 5,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "Chicken thighs",
+        "Curry powder",
+        "Potatoes",
+        "Onion",
+        "Garlic",
+        "Thyme",
+        "Chicken stock",
+        "Scallions"
+      ],
+      "instructions": [
+        "Season chicken with curry, salt, garlic, and thyme.",
+        "Brown chicken in a pot.",
+        "Add onion, potatoes, and stock.",
+        "Simmer until chicken and potatoes are tender.",
+        "Taste and adjust seasoning."
+      ],
+      "equipment": [
+        "Dutch oven or deep pot"
+      ],
+      "tips": [
+        "Bloom curry powder in oil for deeper flavor.",
+        "Cut potatoes evenly.",
+        "Let the gravy reduce until it coats a spoon."
+      ],
+      "makeAhead": "Even better the next day.",
+      "servingIdeas": [
+        "Serve with rice.",
+        "Add cabbage.",
+        "Finish with scallions."
+      ],
+      "image": "assets/african-food.jpeg",
+      "tags": [
+        "curry",
+        "chicken",
+        "potatoes",
+        "stew"
+      ],
+      "path": "amateur-home-chef",
+      "image_url": "assets/african-food.jpeg",
+      "video_url": "",
+      "related_recipe_ids": [],
+      "featured": false,
+      "chefNotes": "Original Let's Cook Y'all starter recipe for building out this cuisine section.",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "chicken-gyros",
+      "title": "Chicken Gyros",
+      "description": "Warm pita filled with lemony chicken, cucumber, tomato, herbs, and creamy yogurt sauce.",
+      "cuisine": "mediterranean",
+      "category": "Family Dinners",
+      "cookTime": "20 min",
+      "cookTimeMinutes": 20,
+      "prepTime": "20 min",
+      "prepTimeMinutes": 20,
+      "servings": 4,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Chicken",
+        "Pita bread",
+        "Greek yogurt",
+        "Cucumber",
+        "Tomato",
+        "Lemon",
+        "Garlic",
+        "Oregano"
+      ],
+      "instructions": [
+        "Season chicken with lemon, garlic, oregano, salt, and oil.",
+        "Cook chicken until browned and done.",
+        "Mix yogurt sauce with cucumber, garlic, lemon, and salt.",
+        "Warm pita.",
+        "Fill with chicken, vegetables, and sauce."
+      ],
+      "equipment": [
+        "Skillet",
+        "Mixing bowl"
+      ],
+      "tips": [
+        "Slice chicken thin for quick cooking.",
+        "Warm pita before filling.",
+        "Keep sauce chilled until serving."
+      ],
+      "makeAhead": "Cook chicken and mix sauce one day ahead.",
+      "servingIdeas": [
+        "Serve with Greek salad.",
+        "Add roasted potatoes.",
+        "Make rice bowls."
+      ],
+      "image": "assets/fresh-bread.jpeg",
+      "tags": [
+        "pita",
+        "chicken",
+        "yogurt sauce",
+        "lemon"
+      ],
+      "path": "amateur-home-chef",
+      "image_url": "assets/fresh-bread.jpeg",
+      "video_url": "",
+      "related_recipe_ids": [],
+      "featured": false,
+      "chefNotes": "Original Let's Cook Y'all starter recipe for building out this cuisine section.",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "greek-salad",
+      "title": "Greek Salad",
+      "description": "Crisp cucumber, tomato, olives, feta, herbs, and a bright lemon-olive oil dressing.",
+      "cuisine": "mediterranean",
+      "category": "Beginner Friendly",
+      "cookTime": "0 min",
+      "cookTimeMinutes": 0,
+      "prepTime": "15 min",
+      "prepTimeMinutes": 15,
+      "servings": 4,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Cucumber",
+        "Tomatoes",
+        "Red onion",
+        "Olives",
+        "Feta",
+        "Lemon juice",
+        "Olive oil",
+        "Oregano"
+      ],
+      "instructions": [
+        "Chop cucumber and tomatoes.",
+        "Thinly slice red onion.",
+        "Whisk lemon juice, olive oil, oregano, salt, and pepper.",
+        "Toss vegetables with dressing.",
+        "Top with feta and olives."
+      ],
+      "equipment": [
+        "Cutting board",
+        "Mixing bowl"
+      ],
+      "tips": [
+        "Salt tomatoes lightly to bring out flavor.",
+        "Add dressing right before serving.",
+        "Use block feta if possible."
+      ],
+      "makeAhead": "Chop vegetables ahead and dress before serving.",
+      "servingIdeas": [
+        "Serve with gyros.",
+        "Add grilled chicken.",
+        "Scoop with pita."
+      ],
+      "image": "assets/ingredients.jpeg",
+      "tags": [
+        "salad",
+        "feta",
+        "olive oil",
+        "no-cook"
+      ],
+      "path": "kid-chefs",
+      "image_url": "assets/ingredients.jpeg",
+      "video_url": "",
+      "related_recipe_ids": [],
+      "featured": false,
+      "chefNotes": "Original Let's Cook Y'all starter recipe for building out this cuisine section.",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "creamy-hummus",
+      "title": "Creamy Hummus",
+      "description": "A smooth chickpea dip with tahini, lemon, garlic, and olive oil for snacking or sharing.",
+      "cuisine": "mediterranean",
+      "category": "Beginner Basics",
+      "cookTime": "0 min",
+      "cookTimeMinutes": 0,
+      "prepTime": "12 min",
+      "prepTimeMinutes": 12,
+      "servings": 6,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Chickpeas",
+        "Tahini",
+        "Lemon juice",
+        "Garlic",
+        "Olive oil",
+        "Salt",
+        "Cold water"
+      ],
+      "instructions": [
+        "Drain chickpeas.",
+        "Blend chickpeas, tahini, lemon, garlic, salt, and olive oil.",
+        "Add cold water a spoon at a time until creamy.",
+        "Taste and adjust lemon or salt.",
+        "Spoon into a bowl and drizzle with olive oil."
+      ],
+      "equipment": [
+        "Blender or food processor"
+      ],
+      "tips": [
+        "Cold water helps make hummus fluffy.",
+        "Blend longer than you think.",
+        "Top with paprika or herbs."
+      ],
+      "makeAhead": "Keeps refrigerated for several days.",
+      "servingIdeas": [
+        "Serve with pita.",
+        "Add to wraps.",
+        "Use as a veggie dip."
+      ],
+      "image": "assets/fresh-bread.jpeg",
+      "tags": [
+        "hummus",
+        "chickpeas",
+        "dip",
+        "no-cook"
+      ],
+      "path": "kid-chefs",
+      "image_url": "assets/fresh-bread.jpeg",
+      "video_url": "",
+      "related_recipe_ids": [],
+      "featured": false,
+      "chefNotes": "Original Let's Cook Y'all starter recipe for building out this cuisine section.",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "lemon-herb-salmon",
+      "title": "Lemon Herb Salmon",
+      "description": "Tender salmon baked with lemon, garlic, olive oil, and herbs for a bright Mediterranean-style dinner.",
+      "cuisine": "mediterranean",
+      "category": "Seafood",
+      "cookTime": "14 min",
+      "cookTimeMinutes": 14,
+      "prepTime": "10 min",
+      "prepTimeMinutes": 10,
+      "servings": 4,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Salmon fillets",
+        "Lemon",
+        "Garlic",
+        "Olive oil",
+        "Parsley",
+        "Oregano",
+        "Salt",
+        "Pepper"
+      ],
+      "instructions": [
+        "Place salmon on a lined baking sheet.",
+        "Mix olive oil, lemon, garlic, herbs, salt, and pepper.",
+        "Spoon mixture over salmon.",
+        "Bake until salmon flakes gently.",
+        "Rest briefly and serve with lemon."
+      ],
+      "equipment": [
+        "Baking sheet",
+        "Small bowl"
+      ],
+      "tips": [
+        "Do not overbake salmon.",
+        "Use fresh lemon if you can.",
+        "Let the fish rest a few minutes before serving."
+      ],
+      "makeAhead": "Mix the herb oil ahead, then bake salmon fresh.",
+      "servingIdeas": [
+        "Serve with Greek salad.",
+        "Add rice or potatoes.",
+        "Pair with hummus and pita."
+      ],
+      "image": "assets/editorial-cooking-hero.jpg",
+      "tags": [
+        "salmon",
+        "lemon",
+        "herbs",
+        "seafood"
+      ],
+      "path": "amateur-home-chef",
+      "image_url": "assets/editorial-cooking-hero.jpg",
+      "video_url": "",
+      "related_recipe_ids": [],
+      "featured": false,
+      "chefNotes": "Original Let's Cook Y'all starter recipe for building out this cuisine section.",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
     }
   ],
   "apiAdapters": [
