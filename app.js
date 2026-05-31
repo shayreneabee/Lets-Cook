@@ -903,6 +903,11 @@ function recipeSourceNote(recipe) {
   return `<p class="source-note">Source: ${label}. Reviewed and organized for the Let's Cook Y'all kitchen.</p>`;
 }
 
+function recipeTagline(recipe) {
+  const tags = (recipe.tags || []).filter((tag) => !["Imported", "TheMealDB"].includes(tag)).slice(0, 3);
+  return tags.length ? tags.join(" • ") : `${cuisineName(recipe.cuisine)} • ${recipe.category}`;
+}
+
 function relatedRecipesFor(recipe, limit = 6) {
   const picked = [];
   const add = (items) => {
@@ -1336,17 +1341,18 @@ function renderRecipe(id) {
   const related = relatedRecipesFor(recipe);
   const otherCuisines = otherCuisinesFor(recipe.cuisine);
   app.innerHTML = `
-    <section class="recipe-hero">
+    <section class="recipe-hero recipe-story-hero">
       <figure><img src="${recipe.image_url}" alt="${recipe.title}" /></figure>
       <div class="recipe-hero-copy">
-        <p class="eyebrow">${cuisineName(recipe.cuisine)}</p>
+        <p class="eyebrow">Let's Make</p>
         <h1>${recipe.title}</h1>
+        <div class="script-accent">${recipeTagline(recipe)}</div>
         <p>${recipe.description}</p>
         <div class="recipe-facts">
-          <span>${recipe.category}</span>
-          <span>${recipeDuration(recipe)}</span>
-          <span>${recipe.servings} servings</span>
-          <span>${recipe.difficulty}</span>
+          <span><small>Prep Time</small>${recipe.prep_time}</span>
+          <span><small>Cook Time</small>${recipe.cook_time}</span>
+          <span><small>Servings</small>${recipe.servings}</span>
+          <span><small>Skill Level</small>${recipe.difficulty}</span>
         </div>
         <div class="hero-actions">
           <button class="small-button" data-save="${recipe.id}">${saved.includes(recipe.id) ? "Saved" : "Save Recipe"}</button>
@@ -1372,11 +1378,18 @@ function renderRecipe(id) {
         </article>
         <article class="detail-panel ingredients-panel">
           <p class="eyebrow">Ingredients</p>
-          <ul>${recipe.ingredients.map((item) => `<li>${item}</li>`).join("")}</ul>
+          <h2>Gather everything first.</h2>
+          <ul class="ingredient-checklist">${recipe.ingredients.map((item) => `<li><span>&#10003;</span>${item}</li>`).join("")}</ul>
         </article>
-        <article class="detail-panel directions-panel">
-          <p class="eyebrow">Step-by-step directions</p>
-          <ol>${recipe.directions.map((item) => `<li>${item}</li>`).join("")}</ol>
+        <article class="detail-panel directions-panel recipe-steps-panel">
+          <p class="eyebrow">How to make it</p>
+          <h2>Cook it one calm step at a time.</h2>
+          <div class="recipe-step-grid">${recipe.directions.map((item, index) => `
+            <section class="recipe-step-card">
+              <strong>${index + 1}</strong>
+              <p>${item}</p>
+            </section>
+          `).join("")}</div>
         </article>
         <article class="detail-panel momma-panel">
           <p class="eyebrow">Tips from Momma</p>
@@ -1387,7 +1400,7 @@ function renderRecipe(id) {
     <section class="cream-section related-section">
       <div class="section-heading">
         <p class="eyebrow">${cuisineName(recipe.cuisine)} recommendations</p>
-        <h2>Stay in the same flavor family.</h2>
+        <h2>More favorites in this flavor family.</h2>
       </div>
       <div class="recipe-grid">${related.map(recipeCard).join("")}</div>
     </section>
@@ -1676,12 +1689,18 @@ function recipeCard(recipe) {
     <article class="recipe-card">
       <a class="recipe-photo" href="#recipes/${recipe.id}"><img src="${recipe.image_url || recipe.image}" alt="${recipe.title}" /></a>
       <div class="recipe-content">
-        <div class="tag-row">${isPersonal ? `<span class="tag personal-tag">Shay's Kitchen</span>` : ""}<span class="tag">${cuisineName(recipe.cuisine)}</span><span class="tag">${recipe.category}</span><span class="tag">${recipeDuration(recipe)}</span><span class="tag">${recipe.difficulty}</span></div>
+        <div class="recipe-card-topline">
+          ${isPersonal ? `<span>Shay's Kitchen</span>` : `<span>${cuisineName(recipe.cuisine)}</span>`}
+          <span>${recipe.difficulty}</span>
+        </div>
         <h3>${recipe.title}</h3>
+        <div class="recipe-mini-meta">
+          <span>${recipeDuration(recipe)}</span>
+          <span>${recipe.servings} servings</span>
+        </div>
         <p>${recipe.description}</p>
-        ${recipe.chefNotes ? `<div class="chef-note">${recipe.chefNotes}</div>` : ""}
         <div class="ingredient-preview"><strong>Ingredients:</strong> ${recipe.ingredients.slice(0, 4).join(", ")}</div>
-        <div class="card-actions"><a class="small-button" href="#recipes/${recipe.id}">View Recipe</a><button class="small-button secondary" data-save="${recipe.id}">${saved.includes(recipe.id) ? "Saved" : "Save"}</button>${recipe.video_url ? `<a class="small-button secondary" href="${recipe.video_url}" target="_blank" rel="noreferrer">Watch</a>` : ""}</div>
+        <div class="card-actions"><a class="small-button" href="#recipes/${recipe.id}">View Recipe</a><button class="small-button secondary" data-save="${recipe.id}">${saved.includes(recipe.id) ? "Saved" : "&#9825; Save"}</button>${recipe.video_url ? `<a class="small-button secondary" href="${recipe.video_url}" target="_blank" rel="noreferrer">&#9654; Watch</a>` : ""}</div>
       </div>
     </article>
   `;
