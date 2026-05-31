@@ -1975,10 +1975,17 @@ select {
   text-align: center;
 }
 
+.path-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: clamp(18px, 3vw, 34px);
+}
+
 .path-card {
   display: grid;
-  gap: 12px;
-  padding: 18px;
+  overflow: hidden;
+  gap: 0;
+  padding: 0;
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
@@ -1994,7 +2001,13 @@ select {
   width: 100%;
   aspect-ratio: 16 / 10;
   object-fit: cover;
-  border-radius: 16px;
+  border-radius: 0;
+}
+
+.path-card-body {
+  display: grid;
+  gap: 12px;
+  padding: 20px;
 }
 
 .path-card h3 {
@@ -2008,6 +2021,133 @@ select {
   margin: 0;
   color: var(--muted);
   line-height: 1.55;
+}
+
+.path-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.path-badges span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 6px 11px;
+  border: 1px solid rgba(82, 45, 10, 0.12);
+  border-radius: 999px;
+  background: #fff8e9;
+  color: var(--green-dark);
+  font-size: 0.82rem;
+  font-weight: 850;
+}
+
+.path-detail-section {
+  display: grid;
+  gap: 24px;
+}
+
+.path-detail-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+.path-detail-hero > div,
+.path-stat-card,
+.path-module-grid article,
+.path-learning-panel {
+  border: 1px solid rgba(82, 45, 10, 0.12);
+  border-radius: 24px;
+  background: rgba(255, 253, 247, 0.82);
+  box-shadow: 0 22px 52px rgba(82, 45, 10, 0.12);
+}
+
+.path-detail-hero > div {
+  display: grid;
+  align-content: center;
+  gap: 14px;
+  padding: clamp(24px, 4vw, 46px);
+}
+
+.path-detail-hero h2 {
+  max-width: 920px;
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4.5vw, 4.8rem);
+  line-height: 0.98;
+  color: var(--green-dark);
+}
+
+.path-detail-hero p:not(.eyebrow) {
+  max-width: 760px;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.6vw, 1.18rem);
+  line-height: 1.7;
+}
+
+.path-stat-card {
+  display: grid;
+  align-content: center;
+  gap: 10px;
+  padding: 24px;
+}
+
+.path-stat-card span {
+  color: var(--muted);
+  text-transform: uppercase;
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.path-stat-card strong {
+  margin-bottom: 8px;
+  color: var(--green-dark);
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 2.4vw, 2.2rem);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.path-module-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(180px, 1fr));
+  gap: 18px;
+}
+
+.path-module-grid article {
+  display: grid;
+  gap: 10px;
+  padding: 22px;
+}
+
+.path-module-grid h3 {
+  margin: 0;
+  color: var(--green-dark);
+  font-family: var(--serif);
+  font-size: clamp(1.45rem, 2.5vw, 2.2rem);
+  font-weight: 400;
+}
+
+.path-module-grid p:not(.eyebrow) {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.path-learning-panel {
+  padding: clamp(22px, 4vw, 36px);
+}
+
+.path-recipe-section {
+  padding-top: clamp(20px, 3vw, 38px);
+}
+
+.path-more-heading {
+  margin-top: clamp(30px, 5vw, 64px);
 }
 
 .toolbar {
@@ -2751,6 +2891,9 @@ select {
   .recipe-card-meta,
   .lesson-chip-grid,
   .lesson-grid,
+  .path-showcase-grid,
+  .path-detail-hero,
+  .path-module-grid,
   .feature-grid,
   .app-grid,
   .direct-link-grid,
@@ -2806,6 +2949,9 @@ select {
   .recipe-card-meta,
   .recipe-detail-grid,
   .lesson-chip-grid,
+  .path-showcase-grid,
+  .path-detail-hero,
+  .path-module-grid,
   .feature-grid,
   .app-grid,
   .direct-link-grid,

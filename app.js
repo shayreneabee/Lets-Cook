@@ -81,9 +81,19 @@ const paths = [
     title: "Kid Chefs",
     eyebrow: "Small hands, big confidence",
     level: "Beginner",
-    image: "assets/editorial-kitchen-prep.jpg",
+    image: "assets/kid-friendly.jpeg",
     description: "Short, safe lessons for young cooks and families cooking together.",
-    steps: ["Wash hands and set up a clean station", "Practice measuring and mixing", "Build no-fear snacks and simple dinners"],
+    promise: "Make the kitchen feel safe, fun, and confidence-building before the stove ever feels scary.",
+    pace: "10-25 minute lessons",
+    focus: "Safety, measuring, mixing, snacks, simple meals",
+    badges: ["Family guided", "No-fear basics", "Hands-on"],
+    steps: ["Wash hands and set up a clean station", "Practice measuring, mixing, spreading, and tasting", "Build no-fear snacks, sides, and simple dinners"],
+    modules: [
+      { title: "Kitchen Safety", text: "Hand washing, clean counters, safe tools, and grown-up help around heat." },
+      { title: "Measure & Mix", text: "Cups, spoons, bowls, textures, and learning how ingredients change." },
+      { title: "Snack Builder", text: "Simple, colorful food kids can assemble and feel proud serving." }
+    ],
+    skills: ["Wash and prep a station", "Measure dry and wet ingredients", "Mix without overworking", "Use kid-safe tools", "Taste and describe flavor"],
     recipes: ["deviled-eggs", "orange-chicken", "charcuterie-boards"]
   },
   {
@@ -91,9 +101,19 @@ const paths = [
     title: "Amateur Home Chef",
     eyebrow: "Dinner gets easier from here",
     level: "Beginner to Intermediate",
-    image: "assets/editorial-cooking-hero.jpg",
+    image: "assets/cooking-family.jpeg",
     description: "Everyday cooking skills for the person who wants dinner to feel less stressful.",
+    promise: "Turn weeknight cooking into something calmer, tastier, and easier to repeat.",
+    pace: "25-45 minute lessons",
+    focus: "Seasoning, timing, proteins, sides, meal flow",
+    badges: ["Weeknight ready", "Confidence builder", "Family meals"],
     steps: ["Learn seasoning and timing", "Cook proteins without guessing", "Plan two or three meals ahead"],
+    modules: [
+      { title: "Season With Sense", text: "Salt, acid, herbs, spice, and how to fix food that tastes flat." },
+      { title: "Protein Confidence", text: "Chicken, shrimp, salmon, and ground meats without panic or dryness." },
+      { title: "Dinner Flow", text: "Prep order, sides, sauces, and getting everything hot at the same time." }
+    ],
+    skills: ["Build a balanced plate", "Season in layers", "Read doneness cues", "Prep ahead", "Save leftovers with purpose"],
     recipes: ["shrimp-and-grits", "cajun-cream-pasta", "chicken-parmesan"]
   },
   {
@@ -101,9 +121,19 @@ const paths = [
     title: "Professional Mode",
     eyebrow: "Cook like you mean it",
     level: "Advanced",
-    image: "assets/editorial-kitchen-prep.jpg",
+    image: "assets/ingredients.jpeg",
     description: "Technique-driven recipes, hosting flow, plating, prep lists, and stronger kitchen rhythm.",
-    steps: ["Prep like a line cook", "Build sauces and braises", "Plate and host with calm"],
+    promise: "Practice the rhythm, organization, and finishing touches that make food feel restaurant-level at home.",
+    pace: "45-90 minute sessions",
+    focus: "Mise en place, sauces, braises, plating, hosting",
+    badges: ["Technique driven", "Hosting flow", "Plating polish"],
+    steps: ["Prep like a line cook", "Build sauces, reductions, braises, and layered flavor", "Plate and host with calm"],
+    modules: [
+      { title: "Mise En Place", text: "Prep lists, stations, timing, and the calm that comes from being ready." },
+      { title: "Sauce & Braise Lab", text: "Roux, pan sauces, reductions, slow cooking, and flavor concentration." },
+      { title: "Plate & Host", text: "Finishing salt, garnish, contrast, serving flow, and table timing." }
+    ],
+    skills: ["Write a prep list", "Build a sauce base", "Control heat and reduction", "Plate with contrast", "Host without rushing"],
     recipes: ["oxtails", "yakamein", "bourbon-praline-bread-pudding"]
   }
 ];
@@ -1305,28 +1335,63 @@ function renderRecipe(id) {
 
 function renderPaths() {
   app.innerHTML = `
-    ${hero("Cooking Paths", "Choose the pace that fits your kitchen today: Kid Chefs, Amateur Home Chef, or Professional Mode.", "assets/editorial-cooking-hero.jpg")}
+    ${hero("Cooking Paths", "Choose the pace that fits your kitchen today: Kid Chefs, Amateur Home Chef, or Professional Mode.", "assets/cooking-family.jpeg")}
     ${cookSubnav()}
-    <section class="cream-section"><div class="feature-grid">${paths.map(pathCard).join("")}</div></section>
+    <section class="cream-section path-intro-section">
+      <div class="section-heading">
+        <p class="eyebrow">Learn your way</p>
+        <h2>Three warm paths for every kind of cook.</h2>
+      </div>
+      <div class="path-showcase-grid">${paths.map(pathCard).join("")}</div>
+    </section>
   `;
 }
 
 function renderPath(id) {
   const path = paths.find((item) => item.id === id) || paths[0];
   const pathRecipes = recipes.filter((recipe) => recipe.path === path.id);
+  const starterRecipes = path.recipes.map((recipeId) => recipes.find((recipe) => recipe.id === recipeId)).filter(Boolean);
+  const moreRecipes = pathRecipes.filter((recipe) => !starterRecipes.some((starter) => starter.id === recipe.id));
   app.innerHTML = `
     ${hero(path.title, path.description, path.image, `<a class="small-button" href="#paths">All Paths</a>`)}
     ${cookSubnav()}
-    <section class="cream-section">
-      <div class="detail-panel">
-        <p class="eyebrow">${path.eyebrow}</p>
-        <h2>${path.level}</h2>
+    <section class="cream-section path-detail-section">
+      <div class="path-detail-hero">
+        <div>
+          <p class="eyebrow">${path.eyebrow}</p>
+          <h2>${path.promise}</h2>
+          <p>${path.description}</p>
+          <div class="path-badges">${path.badges.map((badge) => `<span>${badge}</span>`).join("")}</div>
+        </div>
+        <aside class="path-stat-card">
+          <span>Level</span><strong>${path.level}</strong>
+          <span>Pace</span><strong>${path.pace}</strong>
+          <span>Focus</span><strong>${path.focus}</strong>
+        </aside>
+      </div>
+      <div class="path-module-grid">
+        ${path.modules.map((module) => `<article><p class="eyebrow">${path.title}</p><h3>${module.title}</h3><p>${module.text}</p></article>`).join("")}
+      </div>
+      <div class="detail-panel path-learning-panel">
         <div class="detail-columns">
           <section><h3>What You Learn</h3><ol>${path.steps.map((step) => `<li>${step}</li>`).join("")}</ol></section>
-          <section><h3>Start Here</h3><ul>${pathRecipes.map((recipe) => `<li><a href="#recipes/${recipe.id}">${recipe.title}</a></li>`).join("")}</ul></section>
+          <section><h3>Skills You Build</h3><ul>${path.skills.map((skill) => `<li>${skill}</li>`).join("")}</ul></section>
         </div>
       </div>
-      <div class="recipe-grid path-recipes">${pathRecipes.map(recipeCard).join("")}</div>
+    </section>
+    <section class="cream-section path-recipe-section">
+      <div class="section-heading">
+        <p class="eyebrow">Start here</p>
+        <h2>First recipes for ${path.title}.</h2>
+      </div>
+      <div class="recipe-grid path-recipes">${starterRecipes.map(recipeCard).join("")}</div>
+      ${moreRecipes.length ? `
+        <div class="section-heading path-more-heading">
+          <p class="eyebrow">Keep practicing</p>
+          <h2>More lessons in this path.</h2>
+        </div>
+        <div class="recipe-grid path-recipes">${moreRecipes.map(recipeCard).join("")}</div>
+      ` : ""}
     </section>
   `;
 }
@@ -1508,7 +1573,17 @@ function platformLinkCard(item) {
 }
 
 function pathCard(path) {
-  return `<article class="path-card"><img src="${path.image}" alt="" /><p class="eyebrow">${path.eyebrow}</p><h3>${path.title}</h3><p>${path.description}</p><a class="small-button secondary" href="#paths/${path.id}">Open Path</a></article>`;
+  return `
+    <article class="path-card">
+      <img src="${path.image}" alt="" />
+      <div class="path-card-body">
+        <p class="eyebrow">${path.eyebrow}</p>
+        <h3>${path.title}</h3>
+        <p>${path.description}</p>
+        <div class="path-badges">${path.badges.map((badge) => `<span>${badge}</span>`).join("")}</div>
+        <a class="small-button secondary" href="#paths/${path.id}">Open Path</a>
+      </div>
+    </article>`;
 }
 
 function cuisineCard(cuisine) {
