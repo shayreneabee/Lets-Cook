@@ -1256,7 +1256,6 @@ function renderRecipe(id) {
           <p class="eyebrow">About this dish</p>
           <h2>${recipe.title}</h2>
           <p class="detail-copy">${recipe.description}</p>
-          ${recipeSourceNote(recipe)}
           <div class="recipe-card-meta">
             <div><small>Cuisine</small><strong>${cuisineName(recipe.cuisine)}</strong></div>
             <div><small>Prep</small><strong>${recipe.prep_time}</strong></div>
@@ -1300,6 +1299,7 @@ function renderRecipe(id) {
       </div>
       <div class="cuisine-grid">${otherCuisines.map(cuisineCard).join("")}</div>
     </section>
+    ${recipeSourceNote(recipe)}
   `;
 }
 
