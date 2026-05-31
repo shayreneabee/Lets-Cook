@@ -1367,7 +1367,18 @@ function renderKitchen() {
 
 function renderCook101() {
   app.innerHTML = `
-    ${hero("Cook 101", "Simple basics that make the kitchen feel calm: safety, chopping, seasoning, heat, sauces, grains, prep, and hosting flow.", "assets/editorial-kitchen-prep.jpg")}
+    <section class="cook101-hero">
+      <div>
+        <p class="eyebrow">Cook 101</p>
+        <h1>Learn the skills, then cook the recipe.</h1>
+        <p>Safety, chopping, seasoning, heat, sauces, grains, prep, and hosting flow, all connected to real recipes you can practice right away.</p>
+      </div>
+      <div class="cook101-stats" aria-label="Cook 101 overview">
+        <article><strong>${lessons.length}</strong><span>Core lessons</span></article>
+        <article><strong>${Object.keys(cuisine101).length}</strong><span>Cuisine guides</span></article>
+        <article><strong>Real</strong><span>Practice recipes</span></article>
+      </div>
+    </section>
     ${cookSubnav()}
     <section class="cream-section cook101-overview">
       <div class="section-heading">

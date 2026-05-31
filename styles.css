@@ -2187,6 +2187,82 @@ select {
   gap: 24px;
 }
 
+.cook101-hero {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(280px, 0.72fr);
+  gap: clamp(18px, 4vw, 42px);
+  align-items: stretch;
+  padding: clamp(110px, 12vw, 140px) clamp(20px, 7vw, 120px) clamp(30px, 5vw, 58px);
+  background:
+    linear-gradient(120deg, rgba(255, 248, 233, 0.96), rgba(247, 210, 140, 0.86) 48%, rgba(13, 79, 29, 0.95)),
+    url("assets/editorial-kitchen-prep.jpg") center / cover;
+  border-bottom: 8px solid #0d4f1d;
+}
+
+.cook101-hero > div:first-child,
+.cook101-stats article {
+  border: 1px solid rgba(92, 48, 18, 0.16);
+  border-radius: 18px;
+  background: rgba(255, 253, 247, 0.86);
+  box-shadow: 0 24px 54px rgba(82, 45, 10, 0.16);
+}
+
+.cook101-hero > div:first-child {
+  display: grid;
+  align-content: center;
+  gap: 14px;
+  padding: clamp(24px, 4vw, 46px);
+}
+
+.cook101-hero h1 {
+  margin: 0;
+  color: var(--green-dark);
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 6vw, 5.7rem);
+  line-height: 0.92;
+}
+
+.cook101-hero p:not(.eyebrow) {
+  max-width: 760px;
+  margin: 0;
+  color: #4a3323;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.65;
+}
+
+.cook101-stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.cook101-stats article {
+  display: grid;
+  align-content: center;
+  gap: 4px;
+  padding: 18px;
+}
+
+.cook101-stats strong {
+  color: var(--green-dark);
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.cook101-stats span {
+  color: #6b3b18;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cook101-overview .lesson-grid {
+  grid-template-columns: repeat(4, minmax(210px, 1fr));
+  gap: 18px;
+}
+
 .recipe-card {
   display: grid;
   overflow: hidden;
@@ -3130,6 +3206,7 @@ select {
   }
 
   .hero,
+  .cook101-hero,
   .platform-hero,
   .app-hub,
   .product-home,
@@ -3155,6 +3232,7 @@ select {
   .recipe-step-grid,
   .lesson-chip-grid,
   .lesson-grid,
+  .cook101-stats,
   .cook101-cuisine-grid,
   .path-showcase-grid,
   .path-detail-hero,
@@ -3210,6 +3288,8 @@ select {
   .search-toolbar,
   .detail-columns,
   .account-stats,
+  .cook101-hero,
+  .cook101-stats,
   .recipe-facts,
   .recipe-card-meta,
   .recipe-detail-grid,
