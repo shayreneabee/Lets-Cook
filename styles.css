@@ -2741,15 +2741,82 @@ select {
 
 .lesson-card {
   overflow: hidden;
+  border: 1px solid rgba(92, 48, 18, 0.2);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(255, 250, 238, 0.98), rgba(255, 244, 220, 0.94)),
+    var(--paper);
 }
 
 .lesson-card figure {
   margin: 0;
   aspect-ratio: 16 / 10;
+  border-bottom: 5px solid #f3c15d;
 }
 
 .lesson-card div {
+  display: grid;
+  gap: 12px;
   padding: 22px;
+}
+
+.lesson-skill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+}
+
+.lesson-skill-row span {
+  min-height: 30px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(13, 79, 29, 0.09);
+  color: var(--green-dark);
+  font-size: 0.8rem;
+  font-weight: 850;
+}
+
+.cook101-cuisine-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(160px, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.cook101-cuisine-grid article {
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+  border: 1px solid rgba(255, 248, 233, 0.24);
+  border-radius: 14px;
+  background: rgba(255, 248, 233, 0.12);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.12);
+}
+
+.cook101-cuisine-grid h3 {
+  margin: 0;
+  color: #fff8e9;
+  font-family: var(--serif);
+  font-size: clamp(1.25rem, 2vw, 1.8rem);
+  font-weight: 400;
+}
+
+.cook101-cuisine-grid p {
+  margin: 0;
+  color: rgba(255, 248, 233, 0.78);
+  line-height: 1.5;
+}
+
+.lesson-detail {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(24px, 4vw, 44px);
+  border-top: 6px solid #f3c15d;
+}
+
+.lesson-recipes-heading {
+  margin-top: clamp(28px, 5vw, 58px);
 }
 
 .account-panel {
@@ -3088,6 +3155,7 @@ select {
   .recipe-step-grid,
   .lesson-chip-grid,
   .lesson-grid,
+  .cook101-cuisine-grid,
   .path-showcase-grid,
   .path-detail-hero,
   .path-module-grid,
@@ -3147,6 +3215,8 @@ select {
   .recipe-detail-grid,
   .recipe-step-grid,
   .lesson-chip-grid,
+  .lesson-grid,
+  .cook101-cuisine-grid,
   .path-showcase-grid,
   .path-detail-hero,
   .path-module-grid,

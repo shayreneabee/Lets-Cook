@@ -818,10 +818,86 @@ recipes.push(
 );
 
 const lessons = [
-  { id: "knife-skills", title: "Knife Skills", image: "assets/editorial-kitchen-prep.jpg", text: "Practice safe grips, stable cutting boards, and beginner-friendly cuts." },
-  { id: "seasoning", title: "Seasoning Without Fear", image: "assets/editorial-kitchen-prep.jpg", text: "Learn salt, acid, fat, heat, herbs, and tasting as you go." },
-  { id: "rice-grits-pasta", title: "Rice, Grits, and Pasta", image: "assets/editorial-cajun-pasta.jpg", text: "Master the everyday bases that make dinner feel possible." },
-  { id: "hosting-flow", title: "Hosting Flow", image: "assets/editorial-kitchen-prep.jpg", text: "Prep lists, timing, serving pieces, and keeping guests comfortable." }
+  {
+    id: "kitchen-safety",
+    title: "Kitchen Safety",
+    image: "assets/kid-friendly.jpeg",
+    level: "Beginner",
+    text: "Start with clean hands, stable stations, hot-pan awareness, and calm grown-up help.",
+    skills: ["Wash hands and surfaces", "Use a stable cutting board", "Handle hot pans with help", "Clean as you go"],
+    steps: ["Wash hands and tie back hair.", "Clear the counter before bringing food out.", "Put a towel under a slippery cutting board.", "Ask for help with heat, knives, boiling water, and ovens."],
+    recipes: ["pb-and-j-sandwich", "fruit-kabobs", "mini-pizza-bagels"]
+  },
+  {
+    id: "knife-skills",
+    title: "Knife Skills",
+    image: "assets/editorial-kitchen-prep.jpg",
+    level: "Beginner",
+    text: "Practice safe grips, stable cutting boards, and beginner-friendly cuts.",
+    skills: ["Claw grip", "Rock chop", "Slice safely", "Cut even pieces"],
+    steps: ["Stabilize the board.", "Hold food with a tucked-finger claw grip.", "Cut slowly before trying to cut fast.", "Keep pieces even so they cook evenly."],
+    recipes: ["greek-salad", "roasted-vegetable-tray", "cilantro-lime-rice"]
+  },
+  {
+    id: "seasoning",
+    title: "Seasoning Without Fear",
+    image: "assets/editorial-kitchen-prep.jpg",
+    level: "Beginner",
+    text: "Learn salt, acid, fat, heat, herbs, and tasting as you go.",
+    skills: ["Salt in layers", "Use acid to brighten", "Balance sweetness and heat", "Taste before serving"],
+    steps: ["Start with a small amount of salt.", "Taste before adding more.", "Use lemon, lime, or vinegar when food tastes flat.", "Finish with herbs, butter, or olive oil when it needs roundness."],
+    recipes: ["chicken-street-tacos", "lemon-herb-salmon", "chana-masala"]
+  },
+  {
+    id: "heat-control",
+    title: "Heat Control",
+    image: "assets/editorial-cooking-hero.jpg",
+    level: "Beginner",
+    text: "Understand low, medium, and high heat so food browns, melts, simmers, and softens without panic.",
+    skills: ["Low heat melting", "Medium saute", "High heat sear", "Simmer gently"],
+    steps: ["Use low heat for eggs, cheese, and gentle sauces.", "Use medium heat for most skillet cooking.", "Use high heat only when you are ready to move quickly.", "Lower the heat if food browns before it cooks through."],
+    recipes: ["soft-scrambled-eggs", "stovetop-mac-and-cheese", "jerk-chicken"]
+  },
+  {
+    id: "rice-grits-pasta",
+    title: "Rice, Grits, and Pasta",
+    image: "assets/editorial-cajun-pasta.jpg",
+    level: "Beginner",
+    text: "Master the everyday bases that make dinner feel possible.",
+    skills: ["Salt pasta water", "Rest rice", "Whisk grits", "Save pasta water"],
+    steps: ["Read the package or recipe first.", "Salt the water or liquid.", "Stir at the right time, then let food cook undisturbed when needed.", "Taste for doneness before draining or serving."],
+    recipes: ["cilantro-lime-rice", "rice-and-peas", "cajun-cream-salmon-rotini"]
+  },
+  {
+    id: "sauces-gravies",
+    title: "Sauces and Gravies",
+    image: "assets/ingredients.jpeg",
+    level: "Intermediate",
+    text: "Build creamy sauces, pan gravies, curry bases, and quick dips without guessing.",
+    skills: ["Make a roux", "Reduce gently", "Bloom spices", "Adjust thickness"],
+    steps: ["Start with fat, aromatics, or spices.", "Add liquid slowly when thickening.", "Simmer until the sauce coats a spoon.", "Taste for salt, acid, and richness."],
+    recipes: ["butter-chicken", "smothered-pork-chops", "creamy-hummus"]
+  },
+  {
+    id: "meal-prep",
+    title: "Meal Prep Basics",
+    image: "assets/cooking-family.jpeg",
+    level: "Beginner",
+    text: "Cook once, eat calmer: prep proteins, grains, vegetables, and sauces that can become several meals.",
+    skills: ["Batch grains", "Store safely", "Reheat without drying", "Build bowls"],
+    steps: ["Pick one protein, one grain, one vegetable, and one sauce.", "Label leftovers with the date.", "Cool food before storing.", "Reheat with moisture so it stays tender."],
+    recipes: ["chicken-gyros", "caribbean-curry-chicken", "fried-rice"]
+  },
+  {
+    id: "hosting-flow",
+    title: "Hosting Flow",
+    image: "assets/editorial-kitchen-prep.jpg",
+    level: "Intermediate",
+    text: "Prep lists, timing, serving pieces, and keeping guests comfortable.",
+    skills: ["Write a prep list", "Plan oven timing", "Set serving zones", "Keep food warm"],
+    steps: ["Choose dishes that do not all need last-minute attention.", "Write what can be made ahead.", "Set out plates, napkins, and serving spoons early.", "Leave one simple thing for guests to help with."],
+    recipes: ["charcuterie-boards", "rotel-dip", "party-meatballs"]
+  }
 ];
 
 const cuisine101 = {
@@ -1291,27 +1367,54 @@ function renderKitchen() {
 
 function renderCook101() {
   app.innerHTML = `
-    ${hero("Cook 101", "Simple basics that make the kitchen feel calm: chopping, seasoning, timing, prep, and hosting flow.", "assets/editorial-kitchen-prep.jpg")}
+    ${hero("Cook 101", "Simple basics that make the kitchen feel calm: safety, chopping, seasoning, heat, sauces, grains, prep, and hosting flow.", "assets/editorial-kitchen-prep.jpg")}
     ${cookSubnav()}
-    <section class="cream-section">
+    <section class="cream-section cook101-overview">
+      <div class="section-heading">
+        <p class="eyebrow">Build confidence first</p>
+        <h2>Start with the skills that make every recipe easier.</h2>
+      </div>
       <div class="lesson-grid">${lessons.map(lessonCard).join("")}</div>
+    </section>
+    <section class="band cuisine-101-band">
+      <div class="section-heading">
+        <p class="eyebrow">Cuisine 101</p>
+        <h2>Learn the flavor foundations by culture and cooking style.</h2>
+      </div>
+      <div class="cook101-cuisine-grid">
+        ${Object.entries(cuisine101).map(([id, lesson]) => `
+          <article>
+            <h3>${lesson.title}</h3>
+            <p>${lesson.items.slice(0, 3).join(", ")}</p>
+            <a class="small-button secondary" href="#cuisine/${id}">Explore Recipes</a>
+          </article>
+        `).join("")}
+      </div>
     </section>
   `;
 }
 
 function renderLesson(id) {
   const lesson = lessons.find((item) => item.id === id) || lessons[0];
+  const linkedRecipes = lesson.recipes.map((recipeId) => recipes.find((recipe) => recipe.id === recipeId)).filter(Boolean);
   app.innerHTML = `
     ${hero(lesson.title, lesson.text, lesson.image, `<a class="small-button" href="#cook101">All Basics</a>`)}
     ${cookSubnav()}
     <section class="cream-section">
-      <article class="detail-panel">
+      <article class="detail-panel lesson-detail">
+        <p class="eyebrow">Cook 101 / ${lesson.level}</p>
         <h2>${lesson.title}</h2>
+        <p class="detail-copy">${lesson.text}</p>
         <div class="detail-columns">
-          <section><h3>Practice Steps</h3><ol><li>Set up your station before cooking.</li><li>Read the recipe from top to bottom.</li><li>Move slowly, taste often, and repeat the skill.</li></ol></section>
-          <section><h3>Recipes To Try</h3><ul>${recipes.slice(0, 4).map((recipe) => `<li><a href="#recipes/${recipe.id}">${recipe.title}</a></li>`).join("")}</ul></section>
+          <section><h3>Practice Steps</h3><ol>${lesson.steps.map((step) => `<li>${step}</li>`).join("")}</ol></section>
+          <section><h3>Skills You Build</h3><ul>${lesson.skills.map((skill) => `<li>${skill}</li>`).join("")}</ul></section>
         </div>
       </article>
+      <div class="section-heading lesson-recipes-heading">
+        <p class="eyebrow">Practice recipes</p>
+        <h2>Try the skill in a real kitchen moment.</h2>
+      </div>
+      <div class="recipe-grid">${linkedRecipes.map(recipeCard).join("")}</div>
     </section>
   `;
 }
@@ -1680,7 +1783,17 @@ function cuisineCard(cuisine) {
 }
 
 function lessonCard(lesson) {
-  return `<article class="lesson-card"><figure><img src="${lesson.image}" alt="" /></figure><div><h3>${lesson.title}</h3><p>${lesson.text}</p><a class="small-button secondary" href="#cook101/${lesson.id}">Start Lesson</a></div></article>`;
+  return `
+    <article class="lesson-card">
+      <figure><img src="${lesson.image}" alt="" /></figure>
+      <div>
+        <p class="eyebrow">${lesson.level}</p>
+        <h3>${lesson.title}</h3>
+        <p>${lesson.text}</p>
+        <div class="lesson-skill-row">${lesson.skills.slice(0, 3).map((skill) => `<span>${skill}</span>`).join("")}</div>
+        <a class="small-button secondary" href="#cook101/${lesson.id}">Start Lesson</a>
+      </div>
+    </article>`;
 }
 
 function recipeCard(recipe) {
