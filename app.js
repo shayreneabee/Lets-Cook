@@ -111,6 +111,10 @@ const paths = [
 const cuisines = [
   { id: "southern", name: "Southern Classics", image: "assets/editorial-kitchen-prep.jpg", blurb: "Comforting dishes, porch-table sides, slow braises, and big hospitality." },
   { id: "creole", name: "Creole & Cajun", image: "assets/editorial-cajun-pasta.jpg", blurb: "New Orleans flavor, seafood, spice, rice, roux, and soulful one-pot meals." },
+  { id: "indian", name: "Indian", image: "assets/indian-food.jpeg", blurb: "Layered spices, cozy curries, breads, rice dishes, and generous family-style meals." },
+  { id: "mexican", name: "Mexican", image: "assets/american-food.jpeg", blurb: "Chiles, tortillas, salsas, braises, bright toppings, and weeknight-friendly flavor." },
+  { id: "caribbean", name: "Caribbean", image: "assets/african-food.jpeg", blurb: "Warm spice, rice and peas, seafood, stews, grilling, and sunny island comfort." },
+  { id: "mediterranean", name: "Mediterranean", image: "assets/fresh-bread.jpeg", blurb: "Fresh herbs, olive oil, grilled proteins, breads, salads, and bright sauces." },
   { id: "asian-inspired", name: "Asian Inspired", image: "assets/editorial-cooking-hero.jpg", blurb: "Crisp, saucy, family-friendly dinners with bold pantry flavor." },
   { id: "italian", name: "Italian Comfort", image: "assets/editorial-cajun-pasta.jpg", blurb: "Pasta nights, red sauce, baked mains, and beginner-friendly classics." },
   { id: "hosting", name: "Party & Hosting", image: "assets/editorial-kitchen-prep.jpg", blurb: "Boards, bites, desserts, and dinner-party helpers that make people feel cared for." },
@@ -468,6 +472,242 @@ recipes.push(
     description: "A planned soup idea built from lamb bones, aromatics, herbs, and slow simmered broth.",
     ingredients: ["Lamb bones", "Onion", "Carrots", "Celery", "Garlic", "Bay leaf", "Herbs"],
     steps: ["Roast or brown bones for flavor.", "Simmer with aromatics.", "Strain broth.", "Build soup with vegetables, meat, or noodles."]
+  },
+  {
+    id: "tandoori-chicken",
+    title: "Tandoori-Style Chicken",
+    cuisine: "indian",
+    category: "Global Flavors",
+    image: "assets/tandoori-chicken.jpeg",
+    prep_time: "20 min",
+    cook_time: "35 min",
+    time: "55 min",
+    level: "Intermediate",
+    difficulty: "Intermediate",
+    servings: 4,
+    path: "amateur-home-chef",
+    description: "Juicy yogurt-marinated chicken with warm spices, lemon, garlic, and a roasted edge.",
+    ingredients: ["Chicken thighs", "Plain yogurt", "Lemon juice", "Garlic", "Ginger", "Garam masala", "Paprika", "Turmeric"],
+    steps: ["Mix yogurt, lemon, garlic, ginger, and spices.", "Coat chicken and marinate at least 30 minutes.", "Roast or grill until charred at the edges and cooked through.", "Rest before serving with rice, naan, and cucumber salad."],
+    tips: ["Bloom a pinch of spices in warm oil for extra aroma.", "Use thighs for the juiciest beginner-friendly result."],
+    related_recipe_ids: ["butter-chicken", "chicken-tikka-masala", "biryani", "garlic-naan"],
+    tags: ["chicken", "spices", "yogurt marinade", "naan"]
+  },
+  {
+    id: "butter-chicken",
+    title: "Butter Chicken",
+    cuisine: "indian",
+    category: "Family Dinners",
+    image: "assets/indian-food.jpeg",
+    prep_time: "15 min",
+    cook_time: "35 min",
+    time: "50 min",
+    level: "Intermediate",
+    difficulty: "Intermediate",
+    servings: 4,
+    path: "amateur-home-chef",
+    description: "Tender chicken simmered in a creamy tomato sauce with warm spice and a soft buttery finish.",
+    ingredients: ["Chicken", "Tomato puree", "Cream", "Butter", "Garam masala", "Garlic", "Ginger"],
+    steps: ["Season and brown chicken.", "Cook garlic, ginger, tomato, and spices.", "Simmer chicken in the sauce.", "Finish with cream and butter."],
+    tags: ["chicken", "curry", "tomato", "cream"]
+  },
+  {
+    id: "chicken-tikka-masala",
+    title: "Chicken Tikka Masala",
+    cuisine: "indian",
+    category: "Global Flavors",
+    image: "assets/tandoori-chicken.jpeg",
+    prep_time: "20 min",
+    cook_time: "30 min",
+    time: "50 min",
+    level: "Intermediate",
+    difficulty: "Intermediate",
+    servings: 4,
+    path: "amateur-home-chef",
+    description: "Spiced chicken pieces in a creamy curry-style sauce made for rice or naan.",
+    ingredients: ["Chicken", "Yogurt", "Tomato sauce", "Cream", "Garam masala", "Cumin", "Coriander"],
+    steps: ["Marinate chicken with yogurt and spices.", "Sear or broil the chicken.", "Build a tomato spice sauce.", "Simmer together and finish with cream."],
+    tags: ["chicken", "masala", "curry", "rice"]
+  },
+  {
+    id: "biryani",
+    title: "Beginner Chicken Biryani",
+    cuisine: "indian",
+    category: "Family Dinners",
+    image: "assets/indian-food.jpeg",
+    prep_time: "25 min",
+    cook_time: "45 min",
+    time: "1 hr 10 min",
+    level: "Intermediate",
+    difficulty: "Intermediate",
+    servings: 6,
+    path: "professional-mode",
+    description: "Fragrant rice layered with seasoned chicken, onions, herbs, and gentle spice.",
+    ingredients: ["Basmati rice", "Chicken", "Onion", "Yogurt", "Garam masala", "Cilantro", "Mint"],
+    steps: ["Par-cook rice until just tender.", "Cook spiced chicken and onions.", "Layer rice, chicken, herbs, and a splash of water.", "Steam covered until fragrant."],
+    tags: ["rice", "chicken", "spices", "family dinner"]
+  },
+  {
+    id: "palak-paneer",
+    title: "Palak Paneer",
+    cuisine: "indian",
+    category: "Vegetarian",
+    image: "assets/indian-food.jpeg",
+    prep_time: "15 min",
+    cook_time: "25 min",
+    time: "40 min",
+    level: "Beginner",
+    difficulty: "Beginner",
+    servings: 4,
+    path: "amateur-home-chef",
+    description: "Creamy spinach with paneer cubes, garlic, ginger, and soft warm spice.",
+    ingredients: ["Spinach", "Paneer", "Onion", "Garlic", "Ginger", "Cumin", "Cream"],
+    steps: ["Wilt spinach and blend until smooth.", "Cook onion, garlic, ginger, and spices.", "Add spinach sauce and paneer.", "Simmer gently and finish with cream."],
+    tags: ["vegetarian", "spinach", "paneer", "curry"]
+  },
+  {
+    id: "chana-masala",
+    title: "Chana Masala",
+    cuisine: "indian",
+    category: "Vegetarian",
+    image: "assets/indian-food.jpeg",
+    prep_time: "10 min",
+    cook_time: "25 min",
+    time: "35 min",
+    level: "Beginner",
+    difficulty: "Beginner",
+    servings: 4,
+    path: "kid-chefs",
+    description: "Chickpeas simmered with tomato, onion, cumin, coriander, and lemon.",
+    ingredients: ["Chickpeas", "Tomatoes", "Onion", "Garlic", "Cumin", "Coriander", "Lemon"],
+    steps: ["Cook onion and garlic until soft.", "Add spices and tomatoes.", "Simmer chickpeas in the sauce.", "Finish with lemon and herbs."],
+    tags: ["vegetarian", "chickpeas", "curry", "quick"]
+  },
+  {
+    id: "garlic-naan",
+    title: "Garlic Naan",
+    cuisine: "indian",
+    category: "Beginner Basics",
+    image: "assets/fresh-bread.jpeg",
+    prep_time: "20 min",
+    cook_time: "10 min",
+    time: "30 min",
+    level: "Beginner",
+    difficulty: "Beginner",
+    servings: 6,
+    path: "kid-chefs",
+    description: "Soft skillet flatbread brushed with garlic butter and herbs.",
+    ingredients: ["Flour", "Yogurt", "Baking powder", "Salt", "Garlic", "Butter", "Cilantro"],
+    steps: ["Mix a soft dough.", "Rest briefly and divide.", "Cook in a hot skillet.", "Brush with garlic butter."],
+    tags: ["bread", "naan", "garlic", "basics"]
+  },
+  {
+    id: "fried-chicken",
+    title: "Southern Fried Chicken",
+    cuisine: "southern",
+    category: "Southern Comfort",
+    image: "assets/beautiful-chicken.jpeg",
+    prep_time: "20 min",
+    cook_time: "25 min",
+    time: "45 min",
+    level: "Intermediate",
+    difficulty: "Intermediate",
+    servings: 6,
+    path: "professional-mode",
+    description: "Crispy, seasoned chicken with a family-table crust and juicy inside.",
+    ingredients: ["Chicken pieces", "Buttermilk", "Hot sauce", "Flour", "Seasoning salt", "Paprika", "Oil"],
+    steps: ["Soak chicken in seasoned buttermilk.", "Dredge in seasoned flour.", "Fry at steady heat until golden.", "Rest on a rack before serving."],
+    tags: ["chicken", "soul food", "cast iron", "fried"]
+  },
+  {
+    id: "mac-and-cheese",
+    title: "Baked Mac and Cheese",
+    cuisine: "southern",
+    category: "Southern Comfort",
+    image: "assets/american-food.jpeg",
+    prep_time: "15 min",
+    cook_time: "35 min",
+    time: "50 min",
+    level: "Beginner",
+    difficulty: "Beginner",
+    servings: 8,
+    path: "amateur-home-chef",
+    description: "Creamy baked macaroni with a golden cheese top and holiday-table energy.",
+    ingredients: ["Macaroni", "Cheddar", "Evaporated milk", "Eggs", "Butter", "Seasoning"],
+    steps: ["Boil pasta just shy of tender.", "Mix cheese custard.", "Fold pasta and cheese together.", "Bake until bubbly and golden."],
+    tags: ["cheese", "side dish", "holiday", "soul food"]
+  },
+  {
+    id: "collard-greens",
+    title: "Collard Greens",
+    cuisine: "southern",
+    category: "Beginner Basics",
+    image: "assets/ingredients.jpeg",
+    prep_time: "20 min",
+    cook_time: "1 hr 30 min",
+    time: "1 hr 50 min",
+    level: "Beginner",
+    difficulty: "Beginner",
+    servings: 8,
+    path: "amateur-home-chef",
+    description: "Tender greens simmered with smoky depth, pepper vinegar, and patience.",
+    ingredients: ["Collard greens", "Smoked turkey", "Onion", "Garlic", "Chicken stock", "Vinegar", "Pepper flakes"],
+    steps: ["Wash and chop greens.", "Simmer smoked turkey with aromatics.", "Add greens and stock.", "Cook until tender and season to taste."],
+    tags: ["greens", "soul food", "side dish", "slow cooking"]
+  },
+  {
+    id: "cornbread",
+    title: "Skillet Cornbread",
+    cuisine: "southern",
+    category: "Beginner Basics",
+    image: "assets/fresh-bread.jpeg",
+    prep_time: "10 min",
+    cook_time: "20 min",
+    time: "30 min",
+    level: "Beginner",
+    difficulty: "Beginner",
+    servings: 8,
+    path: "kid-chefs",
+    description: "Golden cast-iron cornbread with crisp edges and a soft middle.",
+    ingredients: ["Cornmeal", "Flour", "Buttermilk", "Egg", "Butter", "Baking powder", "Salt"],
+    steps: ["Heat skillet with butter.", "Mix wet and dry ingredients.", "Pour batter into hot skillet.", "Bake until golden."],
+    tags: ["cornbread", "cast iron", "bread", "soul food"]
+  },
+  {
+    id: "smothered-pork-chops",
+    title: "Smothered Pork Chops",
+    cuisine: "southern",
+    category: "Family Dinners",
+    image: "assets/american-food.jpeg",
+    prep_time: "15 min",
+    cook_time: "40 min",
+    time: "55 min",
+    level: "Intermediate",
+    difficulty: "Intermediate",
+    servings: 4,
+    path: "professional-mode",
+    description: "Seared pork chops simmered in onion gravy until tender and deeply comforting.",
+    ingredients: ["Pork chops", "Onion", "Flour", "Chicken stock", "Garlic", "Seasoning", "Oil"],
+    steps: ["Season and sear pork chops.", "Cook onions in the same pan.", "Build a light gravy.", "Return chops and simmer until tender."],
+    tags: ["gravy", "pork", "soul food", "skillet"]
+  },
+  {
+    id: "fried-catfish",
+    title: "Fried Catfish",
+    cuisine: "southern",
+    category: "Seafood",
+    image: "assets/american-food.jpeg",
+    prep_time: "15 min",
+    cook_time: "15 min",
+    time: "30 min",
+    level: "Beginner",
+    difficulty: "Beginner",
+    servings: 4,
+    path: "amateur-home-chef",
+    description: "Crisp cornmeal-crusted catfish with lemon, hot sauce, and fish-fry spirit.",
+    ingredients: ["Catfish fillets", "Cornmeal", "Flour", "Cajun seasoning", "Egg", "Milk", "Oil"],
+    steps: ["Season fish.", "Dip in egg wash.", "Coat with cornmeal mix.", "Fry until crisp and flaky."],
+    tags: ["seafood", "fish fry", "cornmeal", "soul food"]
   }
 );
 
@@ -477,6 +717,103 @@ const lessons = [
   { id: "rice-grits-pasta", title: "Rice, Grits, and Pasta", image: "assets/editorial-cajun-pasta.jpg", text: "Master the everyday bases that make dinner feel possible." },
   { id: "hosting-flow", title: "Hosting Flow", image: "assets/editorial-kitchen-prep.jpg", text: "Prep lists, timing, serving pieces, and keeping guests comfortable." }
 ];
+
+const cuisine101 = {
+  indian: {
+    title: "Indian Cuisine 101",
+    items: ["Common spices", "Garam masala", "Curry bases", "How to bloom spices", "Naan basics"]
+  },
+  southern: {
+    title: "Southern Cooking 101",
+    items: ["Cast iron basics", "Seasoning meat", "Greens", "Cornbread", "Roux and gravy"]
+  },
+  creole: {
+    title: "Creole & Cajun 101",
+    items: ["Holy trinity", "Roux color", "Blackening spice", "Seafood timing", "Rice and one-pot flow"]
+  },
+  mexican: {
+    title: "Mexican Cooking 101",
+    items: ["Chiles", "Salsas", "Tortillas", "Adobo", "Mole basics"]
+  },
+  caribbean: {
+    title: "Caribbean Cooking 101",
+    items: ["Jerk seasoning", "Rice and peas", "Plantains", "Scotch bonnet heat", "Slow stews"]
+  },
+  mediterranean: {
+    title: "Mediterranean Cooking 101",
+    items: ["Olive oil", "Fresh herbs", "Grilled proteins", "Yogurt sauces", "Flatbreads"]
+  },
+  italian: {
+    title: "Italian Comfort 101",
+    items: ["Pasta water", "Red sauce", "Breading cutlets", "Cream sauces", "Cheese finishing"]
+  },
+  "asian-inspired": {
+    title: "Asian-Inspired 101",
+    items: ["Stir-fry setup", "Rice timing", "Sauce balance", "Cornstarch coating", "High-heat cooking"]
+  },
+  hosting: {
+    title: "Hosting 101",
+    items: ["Board balance", "Make-ahead bites", "Serving flow", "Warm dips", "Dessert stations"]
+  },
+  global: {
+    title: "Global Flavor 101",
+    items: ["Taste as you go", "Pantry building", "Sauce foundations", "Texture contrast", "Serving with confidence"]
+  }
+};
+
+function normalizeRecipe(recipe) {
+  recipe.image_url ||= recipe.image;
+  recipe.image ||= recipe.image_url;
+  recipe.prep_time ||= recipe.prepTime || "15 min";
+  recipe.cook_time ||= recipe.cookTime || recipe.time || "30 min";
+  recipe.prepTime ||= recipe.prep_time;
+  recipe.cookTime ||= recipe.cook_time;
+  recipe.difficulty ||= recipe.level || "Beginner";
+  recipe.level ||= recipe.difficulty;
+  recipe.directions ||= recipe.steps || [];
+  recipe.steps ||= recipe.directions;
+  recipe.tags ||= [recipe.category, recipe.cuisine, recipe.path].filter(Boolean);
+  recipe.related_recipe_ids ||= recipe.relatedRecipeIds || [];
+  recipe.video_url ||= recipe.videoUrl || "";
+  recipe.videoUrl ||= recipe.video_url;
+  return recipe;
+}
+
+recipes = recipes.map(normalizeRecipe);
+
+function cuisineName(cuisineId) {
+  return cuisines.find((item) => item.id === cuisineId)?.name || "Global Flavors";
+}
+
+function recipeDuration(recipe) {
+  return [recipe.prep_time && `Prep ${recipe.prep_time}`, recipe.cook_time && `Cook ${recipe.cook_time}`].filter(Boolean).join(" / ") || recipe.time || "";
+}
+
+function relatedRecipesFor(recipe, limit = 6) {
+  const picked = [];
+  const add = (items) => {
+    items.forEach((item) => {
+      if (item && item.id !== recipe.id && !picked.some((existing) => existing.id === item.id) && picked.length < limit) {
+        picked.push(item);
+      }
+    });
+  };
+  add((recipe.related_recipe_ids || []).map((id) => recipes.find((item) => item.id === id)));
+  add(recipes.filter((item) => item.cuisine === recipe.cuisine));
+  if (picked.length < limit) {
+    const tags = new Set(recipe.tags || []);
+    add(recipes.filter((item) => item.tags?.some((tag) => tags.has(tag)) || item.category === recipe.category));
+  }
+  return picked.slice(0, limit);
+}
+
+function otherCuisinesFor(activeCuisine) {
+  return cuisines.filter((item) => item.id !== activeCuisine && !["hosting", "global"].includes(item.id)).slice(0, 7);
+}
+
+function cuisine101For(cuisineId) {
+  return cuisine101[cuisineId] || cuisine101.global;
+}
 
 const hostingIdeas = [
   { title: "Sunday Comfort Supper", text: "Braised oxtails, deviled eggs, greens, and bread pudding.", recipes: ["oxtails", "deviled-eggs", "bourbon-praline-bread-pudding"] },
@@ -881,31 +1218,78 @@ function renderRecipes() {
 function renderRecipe(id) {
   const recipe = recipes.find((item) => item.id === id) || recipes[0];
   const path = paths.find((item) => item.id === recipe.path);
+  const cuisineLesson = cuisine101For(recipe.cuisine);
+  const related = relatedRecipesFor(recipe);
+  const otherCuisines = otherCuisinesFor(recipe.cuisine);
   app.innerHTML = `
-    ${hero(recipe.title, recipe.description, recipe.image, `<a class="small-button" href="#planner">Add To Planner</a><a class="small-button secondary" href="#paths/${path.id}">${path.title}</a>`)}
+    <section class="recipe-hero">
+      <figure><img src="${recipe.image_url}" alt="${recipe.title}" /></figure>
+      <div class="recipe-hero-copy">
+        <p class="eyebrow">${cuisineName(recipe.cuisine)}</p>
+        <h1>${recipe.title}</h1>
+        <p>${recipe.description}</p>
+        <div class="recipe-facts">
+          <span>${recipe.category}</span>
+          <span>${recipeDuration(recipe)}</span>
+          <span>${recipe.servings} servings</span>
+          <span>${recipe.difficulty}</span>
+        </div>
+        <div class="hero-actions">
+          <button class="small-button" data-save="${recipe.id}">${saved.includes(recipe.id) ? "Saved" : "Save Recipe"}</button>
+          ${recipe.video_url ? `<a class="small-button secondary" href="${recipe.video_url}" target="_blank" rel="noreferrer">Watch Video</a>` : `<a class="small-button secondary" href="#kitchen">Upload Food Video</a>`}
+          <button class="small-button secondary" data-plan="${recipe.id}">${planned.includes(recipe.id) ? "Planned" : "Add to Meal Plan"}</button>
+        </div>
+      </div>
+    </section>
     ${cookSubnav()}
     <section class="cream-section">
-      <div class="detail-layout">
-        <figure class="detail-photo"><img src="${recipe.image}" alt="${recipe.title}" /></figure>
-        <article class="detail-panel">
-          <div class="tag-row"><span class="tag">${recipe.category}</span><span class="tag">${recipe.time}</span><span class="tag">${recipe.level}</span><span class="tag">${recipe.servings} servings</span></div>
+      <div class="recipe-detail-grid">
+        <article class="detail-panel recipe-overview">
+          <p class="eyebrow">About this dish</p>
           <h2>${recipe.title}</h2>
           <p class="detail-copy">${recipe.description}</p>
-          ${(recipe.prepTime || recipe.cookTime) ? `<div class="tag-row">${recipe.prepTime ? `<span class="tag">Prep ${recipe.prepTime}</span>` : ""}${recipe.cookTime ? `<span class="tag">Cook ${recipe.cookTime}</span>` : ""}</div>` : ""}
-          <div class="card-actions">
-            <button class="small-button" data-save="${recipe.id}">${saved.includes(recipe.id) ? "Saved" : "Save Recipe"}</button>
-            <button class="small-button secondary" data-plan="${recipe.id}">${planned.includes(recipe.id) ? "Planned" : "Add to Meal Plan"}</button>
-          </div>
-          <div class="detail-columns">
-            <section><h3>Ingredients</h3><ul>${recipe.ingredients.map((item) => `<li>${item}</li>`).join("")}</ul></section>
-            <section><h3>Guided Steps</h3><ol>${recipe.steps.map((item) => `<li>${item}</li>`).join("")}</ol></section>
-            ${recipe.equipment?.length ? `<section><h3>Equipment</h3><ul>${recipe.equipment.map((item) => `<li>${item}</li>`).join("")}</ul></section>` : ""}
-            ${recipe.tips?.length ? `<section><h3>Kitchen Tips</h3><ul>${recipe.tips.map((item) => `<li>${item}</li>`).join("")}</ul></section>` : ""}
-            ${recipe.makeAhead ? `<section><h3>Make Ahead</h3><p>${recipe.makeAhead}</p></section>` : ""}
-            ${recipe.servingIdeas?.length ? `<section><h3>Serving Ideas</h3><ul>${recipe.servingIdeas.map((item) => `<li>${item}</li>`).join("")}</ul></section>` : ""}
+          <div class="recipe-card-meta">
+            <div><small>Cuisine</small><strong>${cuisineName(recipe.cuisine)}</strong></div>
+            <div><small>Prep</small><strong>${recipe.prep_time}</strong></div>
+            <div><small>Cook</small><strong>${recipe.cook_time}</strong></div>
+            <div><small>Serves</small><strong>${recipe.servings}</strong></div>
+            <div><small>Difficulty</small><strong>${recipe.difficulty}</strong></div>
           </div>
         </article>
+        <article class="detail-panel ingredients-panel">
+          <p class="eyebrow">Ingredients</p>
+          <ul>${recipe.ingredients.map((item) => `<li>${item}</li>`).join("")}</ul>
+        </article>
+        <article class="detail-panel directions-panel">
+          <p class="eyebrow">Step-by-step directions</p>
+          <ol>${recipe.directions.map((item) => `<li>${item}</li>`).join("")}</ol>
+        </article>
+        <article class="detail-panel momma-panel">
+          <p class="eyebrow">Tips from Momma</p>
+          <ul>${(recipe.tips?.length ? recipe.tips : ["Taste as you go. A recipe is a guide, but your kitchen gets the final say.", "Set everything out before the heat comes on so cooking feels calm.", "Let cooked meat rest before serving so the juices stay where they belong."]).map((item) => `<li>${item}</li>`).join("")}</ul>
+        </article>
       </div>
+    </section>
+    <section class="cream-section related-section">
+      <div class="section-heading">
+        <p class="eyebrow">${cuisineName(recipe.cuisine)} recommendations</p>
+        <h2>Stay in the same flavor family.</h2>
+      </div>
+      <div class="recipe-grid">${related.map(recipeCard).join("")}</div>
+    </section>
+    <section class="band cuisine-101-band">
+      <div class="section-heading">
+        <p class="eyebrow">Cuisine 101</p>
+        <h2>${cuisineLesson.title}</h2>
+      </div>
+      <div class="lesson-chip-grid">${cuisineLesson.items.map((item) => `<a href="#cook101" class="lesson-chip">${item}</a>`).join("")}</div>
+    </section>
+    <section class="cream-section">
+      <div class="section-heading">
+        <p class="eyebrow">Explore other cuisines</p>
+        <h2>Step into another kitchen when you’re ready.</h2>
+      </div>
+      <div class="cuisine-grid">${otherCuisines.map(cuisineCard).join("")}</div>
     </section>
   `;
 }
@@ -1130,14 +1514,14 @@ function recipeCard(recipe) {
   const isPersonal = personalRecipeIds.includes(recipe.id);
   return `
     <article class="recipe-card">
-      <a class="recipe-photo" href="#recipes/${recipe.id}"><img src="${recipe.image}" alt="${recipe.title}" /></a>
+      <a class="recipe-photo" href="#recipes/${recipe.id}"><img src="${recipe.image_url || recipe.image}" alt="${recipe.title}" /></a>
       <div class="recipe-content">
-        <div class="tag-row">${isPersonal ? `<span class="tag personal-tag">Shay's Kitchen</span>` : ""}<span class="tag">${recipe.category}</span><span class="tag">${recipe.time}</span><span class="tag">${recipe.level}</span></div>
+        <div class="tag-row">${isPersonal ? `<span class="tag personal-tag">Shay's Kitchen</span>` : ""}<span class="tag">${cuisineName(recipe.cuisine)}</span><span class="tag">${recipe.category}</span><span class="tag">${recipeDuration(recipe)}</span><span class="tag">${recipe.difficulty}</span></div>
         <h3>${recipe.title}</h3>
         <p>${recipe.description}</p>
         ${recipe.chefNotes ? `<div class="chef-note">${recipe.chefNotes}</div>` : ""}
         <div class="ingredient-preview"><strong>Ingredients:</strong> ${recipe.ingredients.slice(0, 4).join(", ")}</div>
-        <div class="card-actions"><a class="small-button" href="#recipes/${recipe.id}">View Recipe</a><button class="small-button secondary" data-plan="${recipe.id}">${planned.includes(recipe.id) ? "Planned" : "Plan"}</button></div>
+        <div class="card-actions"><a class="small-button" href="#recipes/${recipe.id}">View Recipe</a><button class="small-button secondary" data-save="${recipe.id}">${saved.includes(recipe.id) ? "Saved" : "Save"}</button>${recipe.video_url ? `<a class="small-button secondary" href="${recipe.video_url}" target="_blank" rel="noreferrer">Watch</a>` : ""}</div>
       </div>
     </article>
   `;
@@ -1154,18 +1538,22 @@ function compactRecipe(recipe) {
 
 function applyRecipeDatabase(database) {
   if (!database?.recipes?.length) return;
+  const bundledRecipes = recipes.map((recipe) => ({ ...recipe }));
   categories = database.categories || categories;
   personalRecipeIds = database.collections?.shaysKitchen || personalRecipeIds;
-  recipes = database.recipes.map((recipe) => ({
+  const loadedRecipes = database.recipes.map((recipe) => ({
     id: recipe.id,
     title: recipe.title,
     cuisine: recipe.cuisine,
     category: recipe.category,
-    image: recipe.image || "assets/logo.png",
+    image: recipe.image || recipe.image_url || "assets/logo.png",
+    image_url: recipe.image_url || recipe.image || "assets/logo.png",
     time: recipe.cookTime || `${recipe.cookTimeMinutes || 0} min`,
-    cookTime: recipe.cookTime,
+    cookTime: recipe.cookTime || recipe.cook_time,
+    cook_time: recipe.cook_time || recipe.cookTime,
     cookTimeMinutes: recipe.cookTimeMinutes,
-    prepTime: recipe.prepTime,
+    prepTime: recipe.prepTime || recipe.prep_time,
+    prep_time: recipe.prep_time || recipe.prepTime,
     prepTimeMinutes: recipe.prepTimeMinutes,
     level: recipe.difficulty,
     difficulty: recipe.difficulty,
@@ -1173,9 +1561,13 @@ function applyRecipeDatabase(database) {
     path: recipe.path || "amateur-home-chef",
     description: recipe.description,
     ingredients: recipe.ingredients || [],
-    steps: recipe.instructions || [],
-    instructions: recipe.instructions || [],
+    steps: recipe.instructions || recipe.directions || [],
+    directions: recipe.directions || recipe.instructions || [],
+    instructions: recipe.instructions || recipe.directions || [],
     tags: recipe.tags || [],
+    video_url: recipe.video_url || recipe.videoUrl || "",
+    videoUrl: recipe.videoUrl || recipe.video_url || "",
+    related_recipe_ids: recipe.related_recipe_ids || recipe.relatedRecipeIds || [],
     featured: Boolean(recipe.featured),
     chefNotes: recipe.chefNotes || "",
     equipment: recipe.equipment || [],
@@ -1184,6 +1576,9 @@ function applyRecipeDatabase(database) {
     servingIdeas: recipe.servingIdeas || [],
     source: recipe.source || { type: "internal" }
   }));
+  const loadedIds = new Set(loadedRecipes.map((recipe) => recipe.id));
+  const missingBundled = bundledRecipes.filter((recipe) => !loadedIds.has(recipe.id));
+  recipes = [...loadedRecipes, ...missingBundled].map(normalizeRecipe);
 }
 
 async function loadRecipeDatabase() {

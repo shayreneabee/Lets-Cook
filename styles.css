@@ -2151,6 +2151,136 @@ select {
   appearance: none;
 }
 
+.recipe-hero {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.95fr) minmax(320px, 1.05fr);
+  gap: clamp(20px, 5vw, 70px);
+  align-items: stretch;
+  padding: clamp(104px, 12vw, 150px) clamp(18px, 7vw, 120px) clamp(34px, 6vw, 78px);
+  background:
+    radial-gradient(circle at 12% 10%, rgba(239, 189, 90, 0.38), transparent 28rem),
+    linear-gradient(135deg, #fff8e9, #ead4ab 48%, #1d4b2d 120%);
+}
+
+.recipe-hero figure {
+  margin: 0;
+  min-height: 320px;
+  overflow: hidden;
+  border: 10px solid #fff8e9;
+  border-radius: 32px;
+  box-shadow: 0 28px 70px rgba(82, 45, 10, 0.24);
+}
+
+.recipe-hero figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.recipe-hero-copy {
+  display: grid;
+  align-content: center;
+  gap: 16px;
+  padding: clamp(22px, 4vw, 46px);
+  border: 1px solid rgba(82, 45, 10, 0.12);
+  border-radius: 32px;
+  background: rgba(255, 253, 247, 0.78);
+  box-shadow: 0 24px 60px rgba(82, 45, 10, 0.14);
+  backdrop-filter: blur(16px);
+}
+
+.recipe-hero-copy h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 7vw, 6.8rem);
+  line-height: 0.9;
+  color: var(--green-dark);
+}
+
+.recipe-hero-copy p:not(.eyebrow) {
+  margin: 0;
+  color: #4a3323;
+  font-size: clamp(1.05rem, 1.7vw, 1.28rem);
+  line-height: 1.65;
+}
+
+.recipe-facts,
+.recipe-card-meta {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.recipe-facts span,
+.recipe-card-meta div {
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(255, 248, 233, 0.86);
+  color: var(--green-dark);
+  font-weight: 900;
+}
+
+.recipe-card-meta small {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--muted);
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+}
+
+.recipe-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.85fr) minmax(320px, 1.15fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.recipe-overview {
+  grid-column: 1 / -1;
+}
+
+.ingredients-panel,
+.directions-panel,
+.momma-panel {
+  min-height: 100%;
+}
+
+.ingredients-panel ul,
+.directions-panel ol,
+.momma-panel ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.momma-panel {
+  background:
+    linear-gradient(135deg, rgba(239, 189, 90, 0.22), rgba(255, 248, 233, 0.9)),
+    var(--paper);
+}
+
+.lesson-chip-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(140px, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.lesson-chip {
+  min-height: 76px;
+  display: grid;
+  place-items: center;
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(255, 248, 233, 0.92);
+  color: var(--green-dark);
+  font-weight: 900;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
 .detail-layout {
   display: grid;
   grid-template-columns: minmax(260px, 0.78fr) minmax(320px, 1.22fr);
@@ -2585,6 +2715,8 @@ select {
   .platform-hero,
   .app-hub,
   .product-home,
+  .recipe-hero,
+  .recipe-detail-grid,
   .beu-hero,
   .beu-map-strip,
   .beu-place-layout,
@@ -2599,6 +2731,9 @@ select {
 
   .cuisine-grid,
   .recipe-grid,
+  .recipe-facts,
+  .recipe-card-meta,
+  .lesson-chip-grid,
   .lesson-grid,
   .feature-grid,
   .app-grid,
@@ -2651,6 +2786,10 @@ select {
   .search-toolbar,
   .detail-columns,
   .account-stats,
+  .recipe-facts,
+  .recipe-card-meta,
+  .recipe-detail-grid,
+  .lesson-chip-grid,
   .feature-grid,
   .app-grid,
   .direct-link-grid,
