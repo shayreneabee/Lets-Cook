@@ -2861,6 +2861,792 @@
         "externalId": "52827",
         "licenseNote": "Free public API; verify production/app-store terms before wide release."
       }
+    },
+    {
+      "id": "shrimp-and-grits",
+      "title": "Shrimp and Grits with Green Beans",
+      "description": "Creamy grits, juicy shrimp, peppers, and green beans for the kind of plate that feels cooked with care.",
+      "cuisine": "southern",
+      "category": "Southern Comfort",
+      "cookTime": "35 min",
+      "cookTimeMinutes": null,
+      "prepTime": "15 min",
+      "prepTimeMinutes": null,
+      "servings": 4,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Shrimp",
+        "Stone-ground grits",
+        "Green beans",
+        "Chicken stock",
+        "Butter",
+        "Bell pepper",
+        "Garlic",
+        "Lemon"
+      ],
+      "instructions": [
+        "Cook grits low and slow with stock.",
+        "Saute peppers, garlic, and green beans.",
+        "Cook shrimp until just pink.",
+        "Spoon shrimp and vegetables over creamy grits."
+      ],
+      "equipment": [],
+      "tips": [],
+      "makeAhead": "",
+      "servingIdeas": [],
+      "image": "assets/editorial-cooking-hero.jpg",
+      "image_url": "assets/editorial-cooking-hero.jpg",
+      "video_url": "",
+      "related_recipe_ids": [],
+      "tags": [
+        "Southern Comfort",
+        "southern"
+      ],
+      "featured": false,
+      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "cajun-cream-pasta",
+      "title": "Cajun Cream Salmon Rotini Pasta",
+      "description": "A creamy, lightly spicy rotini pasta with salmon, Cajun seasoning, and a sauce that comes together fast.",
+      "cuisine": "creole",
+      "category": "Quick Weeknight Meals",
+      "cookTime": "30 min",
+      "cookTimeMinutes": null,
+      "prepTime": "15 min",
+      "prepTimeMinutes": null,
+      "servings": 4,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Rotini pasta",
+        "Salmon",
+        "Cajun seasoning",
+        "Cream",
+        "Parmesan",
+        "Bell pepper"
+      ],
+      "instructions": [
+        "Boil rotini in salted water.",
+        "Sear salmon with Cajun seasoning.",
+        "Add pepper, cream, and parmesan.",
+        "Toss pasta with sauce and flaked salmon."
+      ],
+      "equipment": [],
+      "tips": [],
+      "makeAhead": "",
+      "servingIdeas": [],
+      "image": "assets/editorial-cajun-pasta.jpg",
+      "image_url": "assets/editorial-cajun-pasta.jpg",
+      "video_url": "",
+      "related_recipe_ids": [],
+      "tags": [
+        "Quick Weeknight Meals",
+        "creole"
+      ],
+      "featured": false,
+      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "general-tso-chicken",
+      "title": "General Tso-Style Chicken",
+      "description": "Sweet, tangy, lightly spicy chicken bites inspired by takeout but made for a home kitchen.",
+      "cuisine": "asian-inspired",
+      "category": "Global Flavors",
+      "cookTime": "35 min",
+      "cookTimeMinutes": null,
+      "prepTime": "15 min",
+      "prepTimeMinutes": null,
+      "servings": 4,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "Chicken thighs",
+        "Cornstarch",
+        "Soy sauce",
+        "Rice vinegar",
+        "Brown sugar",
+        "Garlic",
+        "Chili flakes"
+      ],
+      "instructions": [
+        "Coat chicken with cornstarch.",
+        "Cook until crisp.",
+        "Simmer sauce until glossy.",
+        "Toss chicken in sauce and serve with rice."
+      ],
+      "equipment": [],
+      "tips": [],
+      "makeAhead": "",
+      "servingIdeas": [],
+      "image": "assets/editorial-cooking-hero.jpg",
+      "image_url": "assets/editorial-cooking-hero.jpg",
+      "video_url": "",
+      "related_recipe_ids": [],
+      "tags": [
+        "Global Flavors",
+        "asian-inspired"
+      ],
+      "featured": false,
+      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "tandoori-chicken",
+      "title": "Tandoori-Style Chicken",
+      "description": "Juicy yogurt-marinated chicken with warm spices, lemon, garlic, and a roasted edge.",
+      "cuisine": "indian",
+      "category": "Global Flavors",
+      "cookTime": "35 min",
+      "cookTimeMinutes": null,
+      "prepTime": "20 min",
+      "prepTimeMinutes": null,
+      "servings": 4,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "Chicken thighs",
+        "Plain yogurt",
+        "Lemon juice",
+        "Garlic",
+        "Ginger",
+        "Garam masala",
+        "Paprika",
+        "Turmeric"
+      ],
+      "instructions": [
+        "Mix yogurt, lemon, garlic, ginger, and spices.",
+        "Coat chicken and marinate at least 30 minutes.",
+        "Roast or grill until charred at the edges and cooked through.",
+        "Rest before serving with rice, naan, and cucumber salad."
+      ],
+      "equipment": [],
+      "tips": [
+        "Bloom a pinch of spices in warm oil for extra aroma.",
+        "Use thighs for the juiciest beginner-friendly result."
+      ],
+      "makeAhead": "",
+      "servingIdeas": [],
+      "image": "assets/tandoori-chicken.jpeg",
+      "image_url": "assets/tandoori-chicken.jpeg",
+      "video_url": "",
+      "related_recipe_ids": [
+        "butter-chicken",
+        "chicken-tikka-masala",
+        "biryani",
+        "garlic-naan"
+      ],
+      "tags": [
+        "chicken",
+        "spices",
+        "yogurt marinade",
+        "naan"
+      ],
+      "featured": false,
+      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "butter-chicken",
+      "title": "Butter Chicken",
+      "description": "Tender chicken simmered in a creamy tomato sauce with warm spice and a soft buttery finish.",
+      "cuisine": "indian",
+      "category": "Family Dinners",
+      "cookTime": "35 min",
+      "cookTimeMinutes": null,
+      "prepTime": "15 min",
+      "prepTimeMinutes": null,
+      "servings": 4,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "Chicken",
+        "Tomato puree",
+        "Cream",
+        "Butter",
+        "Garam masala",
+        "Garlic",
+        "Ginger"
+      ],
+      "instructions": [
+        "Season and brown chicken.",
+        "Cook garlic, ginger, tomato, and spices.",
+        "Simmer chicken in the sauce.",
+        "Finish with cream and butter."
+      ],
+      "equipment": [],
+      "tips": [],
+      "makeAhead": "",
+      "servingIdeas": [],
+      "image": "assets/indian-food.jpeg",
+      "image_url": "assets/indian-food.jpeg",
+      "video_url": "",
+      "related_recipe_ids": [],
+      "tags": [
+        "chicken",
+        "curry",
+        "tomato",
+        "cream"
+      ],
+      "featured": false,
+      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "chicken-tikka-masala",
+      "title": "Chicken Tikka Masala",
+      "description": "Spiced chicken pieces in a creamy curry-style sauce made for rice or naan.",
+      "cuisine": "indian",
+      "category": "Global Flavors",
+      "cookTime": "30 min",
+      "cookTimeMinutes": null,
+      "prepTime": "20 min",
+      "prepTimeMinutes": null,
+      "servings": 4,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "Chicken",
+        "Yogurt",
+        "Tomato sauce",
+        "Cream",
+        "Garam masala",
+        "Cumin",
+        "Coriander"
+      ],
+      "instructions": [
+        "Marinate chicken with yogurt and spices.",
+        "Sear or broil the chicken.",
+        "Build a tomato spice sauce.",
+        "Simmer together and finish with cream."
+      ],
+      "equipment": [],
+      "tips": [],
+      "makeAhead": "",
+      "servingIdeas": [],
+      "image": "assets/tandoori-chicken.jpeg",
+      "image_url": "assets/tandoori-chicken.jpeg",
+      "video_url": "",
+      "related_recipe_ids": [],
+      "tags": [
+        "chicken",
+        "masala",
+        "curry",
+        "rice"
+      ],
+      "featured": false,
+      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "biryani",
+      "title": "Beginner Chicken Biryani",
+      "description": "Fragrant rice layered with seasoned chicken, onions, herbs, and gentle spice.",
+      "cuisine": "indian",
+      "category": "Family Dinners",
+      "cookTime": "45 min",
+      "cookTimeMinutes": null,
+      "prepTime": "25 min",
+      "prepTimeMinutes": null,
+      "servings": 6,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "Basmati rice",
+        "Chicken",
+        "Onion",
+        "Yogurt",
+        "Garam masala",
+        "Cilantro",
+        "Mint"
+      ],
+      "instructions": [
+        "Par-cook rice until just tender.",
+        "Cook spiced chicken and onions.",
+        "Layer rice, chicken, herbs, and a splash of water.",
+        "Steam covered until fragrant."
+      ],
+      "equipment": [],
+      "tips": [],
+      "makeAhead": "",
+      "servingIdeas": [],
+      "image": "assets/indian-food.jpeg",
+      "image_url": "assets/indian-food.jpeg",
+      "video_url": "",
+      "related_recipe_ids": [],
+      "tags": [
+        "rice",
+        "chicken",
+        "spices",
+        "family dinner"
+      ],
+      "featured": false,
+      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "path": "professional-mode",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "palak-paneer",
+      "title": "Palak Paneer",
+      "description": "Creamy spinach with paneer cubes, garlic, ginger, and soft warm spice.",
+      "cuisine": "indian",
+      "category": "Vegetarian",
+      "cookTime": "25 min",
+      "cookTimeMinutes": null,
+      "prepTime": "15 min",
+      "prepTimeMinutes": null,
+      "servings": 4,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Spinach",
+        "Paneer",
+        "Onion",
+        "Garlic",
+        "Ginger",
+        "Cumin",
+        "Cream"
+      ],
+      "instructions": [
+        "Wilt spinach and blend until smooth.",
+        "Cook onion, garlic, ginger, and spices.",
+        "Add spinach sauce and paneer.",
+        "Simmer gently and finish with cream."
+      ],
+      "equipment": [],
+      "tips": [],
+      "makeAhead": "",
+      "servingIdeas": [],
+      "image": "assets/indian-food.jpeg",
+      "image_url": "assets/indian-food.jpeg",
+      "video_url": "",
+      "related_recipe_ids": [],
+      "tags": [
+        "vegetarian",
+        "spinach",
+        "paneer",
+        "curry"
+      ],
+      "featured": false,
+      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "chana-masala",
+      "title": "Chana Masala",
+      "description": "Chickpeas simmered with tomato, onion, cumin, coriander, and lemon.",
+      "cuisine": "indian",
+      "category": "Vegetarian",
+      "cookTime": "25 min",
+      "cookTimeMinutes": null,
+      "prepTime": "10 min",
+      "prepTimeMinutes": null,
+      "servings": 4,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Chickpeas",
+        "Tomatoes",
+        "Onion",
+        "Garlic",
+        "Cumin",
+        "Coriander",
+        "Lemon"
+      ],
+      "instructions": [
+        "Cook onion and garlic until soft.",
+        "Add spices and tomatoes.",
+        "Simmer chickpeas in the sauce.",
+        "Finish with lemon and herbs."
+      ],
+      "equipment": [],
+      "tips": [],
+      "makeAhead": "",
+      "servingIdeas": [],
+      "image": "assets/indian-food.jpeg",
+      "image_url": "assets/indian-food.jpeg",
+      "video_url": "",
+      "related_recipe_ids": [],
+      "tags": [
+        "vegetarian",
+        "chickpeas",
+        "curry",
+        "quick"
+      ],
+      "featured": false,
+      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "path": "kid-chefs",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "garlic-naan",
+      "title": "Garlic Naan",
+      "description": "Soft skillet flatbread brushed with garlic butter and herbs.",
+      "cuisine": "indian",
+      "category": "Beginner Basics",
+      "cookTime": "10 min",
+      "cookTimeMinutes": null,
+      "prepTime": "20 min",
+      "prepTimeMinutes": null,
+      "servings": 6,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Flour",
+        "Yogurt",
+        "Baking powder",
+        "Salt",
+        "Garlic",
+        "Butter",
+        "Cilantro"
+      ],
+      "instructions": [
+        "Mix a soft dough.",
+        "Rest briefly and divide.",
+        "Cook in a hot skillet.",
+        "Brush with garlic butter."
+      ],
+      "equipment": [],
+      "tips": [],
+      "makeAhead": "",
+      "servingIdeas": [],
+      "image": "assets/fresh-bread.jpeg",
+      "image_url": "assets/fresh-bread.jpeg",
+      "video_url": "",
+      "related_recipe_ids": [],
+      "tags": [
+        "bread",
+        "naan",
+        "garlic",
+        "basics"
+      ],
+      "featured": false,
+      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "path": "kid-chefs",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "fried-chicken",
+      "title": "Southern Fried Chicken",
+      "description": "Crispy, seasoned chicken with a family-table crust and juicy inside.",
+      "cuisine": "southern",
+      "category": "Southern Comfort",
+      "cookTime": "25 min",
+      "cookTimeMinutes": null,
+      "prepTime": "20 min",
+      "prepTimeMinutes": null,
+      "servings": 6,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "Chicken pieces",
+        "Buttermilk",
+        "Hot sauce",
+        "Flour",
+        "Seasoning salt",
+        "Paprika",
+        "Oil"
+      ],
+      "instructions": [
+        "Soak chicken in seasoned buttermilk.",
+        "Dredge in seasoned flour.",
+        "Fry at steady heat until golden.",
+        "Rest on a rack before serving."
+      ],
+      "equipment": [],
+      "tips": [],
+      "makeAhead": "",
+      "servingIdeas": [],
+      "image": "assets/beautiful-chicken.jpeg",
+      "image_url": "assets/beautiful-chicken.jpeg",
+      "video_url": "",
+      "related_recipe_ids": [],
+      "tags": [
+        "chicken",
+        "soul food",
+        "cast iron",
+        "fried"
+      ],
+      "featured": false,
+      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "path": "professional-mode",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "mac-and-cheese",
+      "title": "Baked Mac and Cheese",
+      "description": "Creamy baked macaroni with a golden cheese top and holiday-table energy.",
+      "cuisine": "southern",
+      "category": "Southern Comfort",
+      "cookTime": "35 min",
+      "cookTimeMinutes": null,
+      "prepTime": "15 min",
+      "prepTimeMinutes": null,
+      "servings": 8,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Macaroni",
+        "Cheddar",
+        "Evaporated milk",
+        "Eggs",
+        "Butter",
+        "Seasoning"
+      ],
+      "instructions": [
+        "Boil pasta just shy of tender.",
+        "Mix cheese custard.",
+        "Fold pasta and cheese together.",
+        "Bake until bubbly and golden."
+      ],
+      "equipment": [],
+      "tips": [],
+      "makeAhead": "",
+      "servingIdeas": [],
+      "image": "assets/american-food.jpeg",
+      "image_url": "assets/american-food.jpeg",
+      "video_url": "",
+      "related_recipe_ids": [],
+      "tags": [
+        "cheese",
+        "side dish",
+        "holiday",
+        "soul food"
+      ],
+      "featured": false,
+      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "collard-greens",
+      "title": "Collard Greens",
+      "description": "Tender greens simmered with smoky depth, pepper vinegar, and patience.",
+      "cuisine": "southern",
+      "category": "Beginner Basics",
+      "cookTime": "1 hr 30 min",
+      "cookTimeMinutes": null,
+      "prepTime": "20 min",
+      "prepTimeMinutes": null,
+      "servings": 8,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Collard greens",
+        "Smoked turkey",
+        "Onion",
+        "Garlic",
+        "Chicken stock",
+        "Vinegar",
+        "Pepper flakes"
+      ],
+      "instructions": [
+        "Wash and chop greens.",
+        "Simmer smoked turkey with aromatics.",
+        "Add greens and stock.",
+        "Cook until tender and season to taste."
+      ],
+      "equipment": [],
+      "tips": [],
+      "makeAhead": "",
+      "servingIdeas": [],
+      "image": "assets/ingredients.jpeg",
+      "image_url": "assets/ingredients.jpeg",
+      "video_url": "",
+      "related_recipe_ids": [],
+      "tags": [
+        "greens",
+        "soul food",
+        "side dish",
+        "slow cooking"
+      ],
+      "featured": false,
+      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "cornbread",
+      "title": "Skillet Cornbread",
+      "description": "Golden cast-iron cornbread with crisp edges and a soft middle.",
+      "cuisine": "southern",
+      "category": "Beginner Basics",
+      "cookTime": "20 min",
+      "cookTimeMinutes": null,
+      "prepTime": "10 min",
+      "prepTimeMinutes": null,
+      "servings": 8,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Cornmeal",
+        "Flour",
+        "Buttermilk",
+        "Egg",
+        "Butter",
+        "Baking powder",
+        "Salt"
+      ],
+      "instructions": [
+        "Heat skillet with butter.",
+        "Mix wet and dry ingredients.",
+        "Pour batter into hot skillet.",
+        "Bake until golden."
+      ],
+      "equipment": [],
+      "tips": [],
+      "makeAhead": "",
+      "servingIdeas": [],
+      "image": "assets/fresh-bread.jpeg",
+      "image_url": "assets/fresh-bread.jpeg",
+      "video_url": "",
+      "related_recipe_ids": [],
+      "tags": [
+        "cornbread",
+        "cast iron",
+        "bread",
+        "soul food"
+      ],
+      "featured": false,
+      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "path": "kid-chefs",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "smothered-pork-chops",
+      "title": "Smothered Pork Chops",
+      "description": "Seared pork chops simmered in onion gravy until tender and deeply comforting.",
+      "cuisine": "southern",
+      "category": "Family Dinners",
+      "cookTime": "40 min",
+      "cookTimeMinutes": null,
+      "prepTime": "15 min",
+      "prepTimeMinutes": null,
+      "servings": 4,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "Pork chops",
+        "Onion",
+        "Flour",
+        "Chicken stock",
+        "Garlic",
+        "Seasoning",
+        "Oil"
+      ],
+      "instructions": [
+        "Season and sear pork chops.",
+        "Cook onions in the same pan.",
+        "Build a light gravy.",
+        "Return chops and simmer until tender."
+      ],
+      "equipment": [],
+      "tips": [],
+      "makeAhead": "",
+      "servingIdeas": [],
+      "image": "assets/american-food.jpeg",
+      "image_url": "assets/american-food.jpeg",
+      "video_url": "",
+      "related_recipe_ids": [],
+      "tags": [
+        "gravy",
+        "pork",
+        "soul food",
+        "skillet"
+      ],
+      "featured": false,
+      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "path": "professional-mode",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "fried-catfish",
+      "title": "Fried Catfish",
+      "description": "Crisp cornmeal-crusted catfish with lemon, hot sauce, and fish-fry spirit.",
+      "cuisine": "southern",
+      "category": "Seafood",
+      "cookTime": "15 min",
+      "cookTimeMinutes": null,
+      "prepTime": "15 min",
+      "prepTimeMinutes": null,
+      "servings": 4,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Catfish fillets",
+        "Cornmeal",
+        "Flour",
+        "Cajun seasoning",
+        "Egg",
+        "Milk",
+        "Oil"
+      ],
+      "instructions": [
+        "Season fish.",
+        "Dip in egg wash.",
+        "Coat with cornmeal mix.",
+        "Fry until crisp and flaky."
+      ],
+      "equipment": [],
+      "tips": [],
+      "makeAhead": "",
+      "servingIdeas": [],
+      "image": "assets/american-food.jpeg",
+      "image_url": "assets/american-food.jpeg",
+      "video_url": "",
+      "related_recipe_ids": [],
+      "tags": [
+        "seafood",
+        "fish fry",
+        "cornmeal",
+        "soul food"
+      ],
+      "featured": false,
+      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
     }
   ],
   "apiAdapters": [
