@@ -85,16 +85,17 @@ const paths = [
     description: "Short, safe lessons for young cooks and families cooking together.",
     promise: "Make the kitchen feel safe, fun, and confidence-building before the stove ever feels scary.",
     pace: "10-25 minute lessons",
-    focus: "Safety, measuring, mixing, snacks, simple meals",
+    focus: "PB&J, mac and cheese, eggs, snacks, simple meals",
     badges: ["Family guided", "No-fear basics", "Hands-on"],
-    steps: ["Wash hands and set up a clean station", "Practice measuring, mixing, spreading, and tasting", "Build no-fear snacks, sides, and simple dinners"],
+    steps: ["Wash hands and set up a clean station", "Practice spreading, stirring, measuring, mixing, and tasting", "Build PB&J, mac and cheese, eggs, mini pizzas, and simple snacks"],
     modules: [
       { title: "Kitchen Safety", text: "Hand washing, clean counters, safe tools, and grown-up help around heat." },
-      { title: "Measure & Mix", text: "Cups, spoons, bowls, textures, and learning how ingredients change." },
+      { title: "Spread & Build", text: "PB&J, snack plates, mini sandwiches, and learning how to assemble food neatly." },
+      { title: "Stir & Melt", text: "Mac and cheese, oatmeal, eggs, and safe stovetop skills with grown-up help." },
       { title: "Snack Builder", text: "Simple, colorful food kids can assemble and feel proud serving." }
     ],
     skills: ["Wash and prep a station", "Measure dry and wet ingredients", "Mix without overworking", "Use kid-safe tools", "Taste and describe flavor"],
-    recipes: ["deviled-eggs", "orange-chicken", "charcuterie-boards"]
+    recipes: ["pb-and-j-sandwich", "stovetop-mac-and-cheese", "mini-pizza-bagels", "fruit-kabobs", "soft-scrambled-eggs"]
   },
   {
     id: "amateur-home-chef",
@@ -152,6 +153,81 @@ const cuisines = [
 ];
 
 let recipes = [
+  {
+    id: "pb-and-j-sandwich",
+    title: "Classic PB&J Sandwich",
+    cuisine: "southern",
+    category: "Kid-Friendly Cooking",
+    image: "assets/kid-friendly.jpeg",
+    time: "10 min",
+    level: "Beginner",
+    servings: 1,
+    path: "kid-chefs",
+    description: "A first-kitchen sandwich that teaches spreading, slicing, cleanup, and making food with care.",
+    ingredients: ["2 slices soft sandwich bread", "2 tbsp peanut butter or sunflower butter", "1 tbsp jelly or jam", "Banana slices, optional", "Honey, optional"],
+    steps: ["Wash hands and wipe the counter.", "Lay both slices of bread on a plate.", "Spread peanut butter on one slice and jelly on the other.", "Add banana slices if using.", "Close the sandwich, cut with grown-up help if needed, and wipe up sticky spots."],
+    tags: ["kid chefs", "no-cook", "sandwich", "beginner"]
+  },
+  {
+    id: "stovetop-mac-and-cheese",
+    title: "Easy Stovetop Mac and Cheese",
+    cuisine: "southern",
+    category: "Kid-Friendly Cooking",
+    image: "assets/pasta.jpeg",
+    time: "20 min",
+    level: "Beginner",
+    servings: 4,
+    path: "kid-chefs",
+    description: "Creamy mac and cheese for practicing measuring, stirring, draining, and melting cheese with grown-up help.",
+    ingredients: ["2 cups elbow macaroni", "1 cup shredded cheddar", "1/2 cup milk", "1 tbsp butter", "Pinch of salt", "Black pepper, optional"],
+    steps: ["Boil macaroni in salted water with grown-up help.", "Drain pasta carefully.", "Return pasta to the warm pot on low heat.", "Stir in butter, milk, and cheese until creamy.", "Taste and add a tiny pinch of salt or pepper if needed."],
+    tags: ["kid chefs", "mac and cheese", "stirring", "comfort food"]
+  },
+  {
+    id: "mini-pizza-bagels",
+    title: "Mini Pizza Bagels",
+    cuisine: "italian",
+    category: "Kid-Friendly Cooking",
+    image: "assets/american-food.jpeg",
+    time: "15 min",
+    level: "Beginner",
+    servings: 2,
+    path: "kid-chefs",
+    description: "A simple toaster-oven style lesson for saucing, sprinkling, and choosing toppings.",
+    ingredients: ["2 mini bagels, split", "1/3 cup pizza sauce", "1/2 cup shredded mozzarella", "Pepperoni or veggies", "Italian seasoning, optional"],
+    steps: ["Place bagel halves on a baking sheet.", "Spread a spoonful of sauce on each half.", "Sprinkle cheese over the sauce.", "Add toppings.", "Bake with grown-up help until cheese melts and cool before eating."],
+    tags: ["kid chefs", "pizza", "snack", "beginner"]
+  },
+  {
+    id: "fruit-kabobs",
+    title: "Rainbow Fruit Kabobs",
+    cuisine: "global",
+    category: "Kid-Friendly Cooking",
+    image: "assets/ingredients.jpeg",
+    time: "15 min",
+    level: "Beginner",
+    servings: 4,
+    path: "kid-chefs",
+    description: "Colorful fruit skewers that teach washing, pattern-making, and simple presentation.",
+    ingredients: ["Strawberries", "Grapes", "Pineapple chunks", "Blueberries", "Melon cubes", "Yogurt for dipping"],
+    steps: ["Wash fruit well.", "Ask a grown-up to cut large fruit into bite-size pieces.", "Slide fruit onto skewers in a pattern.", "Place kabobs on a plate.", "Serve with yogurt for dipping."],
+    tags: ["kid chefs", "fruit", "no-cook", "snack"]
+  },
+  {
+    id: "soft-scrambled-eggs",
+    title: "Soft Scrambled Eggs",
+    cuisine: "southern",
+    category: "Kid-Friendly Cooking",
+    image: "assets/editorial-kitchen-prep.jpg",
+    time: "10 min",
+    level: "Beginner",
+    servings: 2,
+    path: "kid-chefs",
+    description: "A gentle first stovetop lesson for cracking, whisking, stirring, and watching heat.",
+    ingredients: ["4 eggs", "2 tbsp milk", "1 tsp butter", "Pinch of salt", "Toast, optional"],
+    steps: ["Crack eggs into a bowl with grown-up help.", "Whisk eggs with milk and a pinch of salt.", "Melt butter in a nonstick pan over low heat.", "Stir eggs slowly until soft and creamy.", "Take eggs off the heat before they look dry."],
+    tags: ["kid chefs", "eggs", "breakfast", "stovetop"]
+  },
   {
     id: "yakamein",
     title: "Yakamein",

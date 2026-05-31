@@ -34,6 +34,11 @@
   ],
   "collections": {
     "shaysKitchen": [
+      "pb-and-j-sandwich",
+      "stovetop-mac-and-cheese",
+      "mini-pizza-bagels",
+      "fruit-kabobs",
+      "soft-scrambled-eggs",
       "orange-chicken",
       "crab-rangoon",
       "yakamein",
@@ -60,6 +65,295 @@
     ]
   },
   "recipes": [
+    {
+      "id": "pb-and-j-sandwich",
+      "title": "Classic PB&J Sandwich",
+      "description": "A first-kitchen sandwich that teaches spreading, slicing, cleanup, and making food with care.",
+      "cuisine": "southern",
+      "category": "Kid-Friendly Cooking",
+      "cookTime": "0 min",
+      "cookTimeMinutes": 0,
+      "prepTime": "10 min",
+      "prepTimeMinutes": 10,
+      "servings": 1,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "2 slices soft sandwich bread",
+        "2 tbsp peanut butter or sunflower butter",
+        "1 tbsp jelly or jam",
+        "Banana slices, optional",
+        "Honey, optional"
+      ],
+      "instructions": [
+        "Wash hands and wipe the counter.",
+        "Lay both slices of bread on a plate.",
+        "Spread peanut butter on one slice and jelly on the other.",
+        "Add banana slices if using.",
+        "Close the sandwich, cut with grown-up help if needed, and wipe up sticky spots."
+      ],
+      "equipment": [
+        "Plate",
+        "Butter knife",
+        "Napkin or towel"
+      ],
+      "tips": [
+        "Use sunflower butter for a nut-free version.",
+        "Spread all the way to the edges so every bite tastes good.",
+        "Try strawberry, grape, peach, or apple jelly."
+      ],
+      "makeAhead": "Assemble the sandwich the same day so the bread stays soft.",
+      "servingIdeas": [
+        "Serve with apple slices.",
+        "Cut into triangles or small squares.",
+        "Add a glass of milk or water."
+      ],
+      "image": "assets/kid-friendly.jpeg",
+      "tags": [
+        "Kid Chefs",
+        "No-Cook",
+        "Sandwich",
+        "Beginner"
+      ],
+      "featured": false,
+      "chefNotes": "A true first recipe: safe, familiar, and full of tiny skills kids can master.",
+      "path": "kid-chefs",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "stovetop-mac-and-cheese",
+      "title": "Easy Stovetop Mac and Cheese",
+      "description": "Creamy mac and cheese for practicing measuring, stirring, draining, and melting cheese with grown-up help.",
+      "cuisine": "southern",
+      "category": "Kid-Friendly Cooking",
+      "cookTime": "12 min",
+      "cookTimeMinutes": 12,
+      "prepTime": "8 min",
+      "prepTimeMinutes": 8,
+      "servings": 4,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "2 cups elbow macaroni",
+        "1 cup shredded cheddar",
+        "1/2 cup milk",
+        "1 tbsp butter",
+        "Pinch of salt",
+        "Black pepper, optional"
+      ],
+      "instructions": [
+        "Boil macaroni in salted water with grown-up help.",
+        "Drain pasta carefully.",
+        "Return pasta to the warm pot on low heat.",
+        "Stir in butter, milk, and cheese until creamy.",
+        "Taste and add a tiny pinch of salt or pepper if needed."
+      ],
+      "equipment": [
+        "Medium pot",
+        "Colander",
+        "Measuring cups",
+        "Spoon"
+      ],
+      "tips": [
+        "Keep the heat low after draining so the cheese melts without getting grainy.",
+        "Add a splash more milk if the sauce gets too thick.",
+        "Let kids measure and stir while grown-ups handle boiling water."
+      ],
+      "makeAhead": "Best eaten fresh, but leftovers can be warmed with a splash of milk.",
+      "servingIdeas": [
+        "Serve with fruit or steamed broccoli.",
+        "Add peas for color.",
+        "Make it a small lunch bowl."
+      ],
+      "image": "assets/pasta.jpeg",
+      "tags": [
+        "Kid Chefs",
+        "Mac and Cheese",
+        "Stirring",
+        "Comfort Food"
+      ],
+      "featured": false,
+      "chefNotes": "This one teaches patience: low heat, steady stirring, and tasting before serving.",
+      "path": "kid-chefs",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "mini-pizza-bagels",
+      "title": "Mini Pizza Bagels",
+      "description": "A simple toaster-oven style lesson for saucing, sprinkling, and choosing toppings.",
+      "cuisine": "italian",
+      "category": "Kid-Friendly Cooking",
+      "cookTime": "8 min",
+      "cookTimeMinutes": 8,
+      "prepTime": "7 min",
+      "prepTimeMinutes": 7,
+      "servings": 2,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "2 mini bagels, split",
+        "1/3 cup pizza sauce",
+        "1/2 cup shredded mozzarella",
+        "Pepperoni or veggies",
+        "Italian seasoning, optional"
+      ],
+      "instructions": [
+        "Place bagel halves on a baking sheet.",
+        "Spread a spoonful of sauce on each half.",
+        "Sprinkle cheese over the sauce.",
+        "Add toppings.",
+        "Bake with grown-up help until cheese melts and cool before eating."
+      ],
+      "equipment": [
+        "Baking sheet",
+        "Spoon",
+        "Oven mitts"
+      ],
+      "tips": [
+        "Use light sauce so the bagels do not get soggy.",
+        "Let kids pick two toppings so the recipe feels personal.",
+        "Cool for a few minutes because melted cheese is hot."
+      ],
+      "makeAhead": "Prep toppings ahead and assemble right before baking.",
+      "servingIdeas": [
+        "Serve with carrot sticks.",
+        "Make a mini pizza bar for siblings or friends.",
+        "Try pineapple, peppers, mushrooms, or olives."
+      ],
+      "image": "assets/american-food.jpeg",
+      "tags": [
+        "Kid Chefs",
+        "Pizza",
+        "Snack",
+        "Beginner"
+      ],
+      "featured": false,
+      "chefNotes": "A joyful little recipe for teaching assembly, toppings, and oven safety.",
+      "path": "kid-chefs",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "fruit-kabobs",
+      "title": "Rainbow Fruit Kabobs",
+      "description": "Colorful fruit skewers that teach washing, pattern-making, and simple presentation.",
+      "cuisine": "global",
+      "category": "Kid-Friendly Cooking",
+      "cookTime": "0 min",
+      "cookTimeMinutes": 0,
+      "prepTime": "15 min",
+      "prepTimeMinutes": 15,
+      "servings": 4,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Strawberries",
+        "Grapes",
+        "Pineapple chunks",
+        "Blueberries",
+        "Melon cubes",
+        "Yogurt for dipping"
+      ],
+      "instructions": [
+        "Wash fruit well.",
+        "Ask a grown-up to cut large fruit into bite-size pieces.",
+        "Slide fruit onto skewers in a pattern.",
+        "Place kabobs on a plate.",
+        "Serve with yogurt for dipping."
+      ],
+      "equipment": [
+        "Skewers",
+        "Cutting board",
+        "Serving plate"
+      ],
+      "tips": [
+        "Use soft-tip skewers for younger kids.",
+        "Make color patterns like red, yellow, green, blue.",
+        "Pat fruit dry so it is easier to hold."
+      ],
+      "makeAhead": "Wash and cut fruit a few hours ahead, then assemble close to serving.",
+      "servingIdeas": [
+        "Serve as an after-school snack.",
+        "Add granola on the side.",
+        "Make a fruit rainbow platter."
+      ],
+      "image": "assets/ingredients.jpeg",
+      "tags": [
+        "Kid Chefs",
+        "Fruit",
+        "No-Cook",
+        "Snack"
+      ],
+      "featured": false,
+      "chefNotes": "This recipe makes food feel creative and gives kids a win without needing the stove.",
+      "path": "kid-chefs",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "soft-scrambled-eggs",
+      "title": "Soft Scrambled Eggs",
+      "description": "A gentle first stovetop lesson for cracking, whisking, stirring, and watching heat.",
+      "cuisine": "southern",
+      "category": "Kid-Friendly Cooking",
+      "cookTime": "5 min",
+      "cookTimeMinutes": 5,
+      "prepTime": "5 min",
+      "prepTimeMinutes": 5,
+      "servings": 2,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "4 eggs",
+        "2 tbsp milk",
+        "1 tsp butter",
+        "Pinch of salt",
+        "Toast, optional"
+      ],
+      "instructions": [
+        "Crack eggs into a bowl with grown-up help.",
+        "Whisk eggs with milk and a pinch of salt.",
+        "Melt butter in a nonstick pan over low heat.",
+        "Stir eggs slowly until soft and creamy.",
+        "Take eggs off the heat before they look dry."
+      ],
+      "equipment": [
+        "Mixing bowl",
+        "Whisk or fork",
+        "Nonstick pan",
+        "Spatula"
+      ],
+      "tips": [
+        "Low heat keeps eggs soft.",
+        "Stir slowly instead of rushing.",
+        "Take the pan off the heat early because eggs keep cooking."
+      ],
+      "makeAhead": "Eggs are best cooked right before eating.",
+      "servingIdeas": [
+        "Serve with toast.",
+        "Add fruit on the side.",
+        "Sprinkle with a little cheese."
+      ],
+      "image": "assets/editorial-kitchen-prep.jpg",
+      "tags": [
+        "Kid Chefs",
+        "Eggs",
+        "Breakfast",
+        "Stovetop"
+      ],
+      "featured": false,
+      "chefNotes": "A simple heat-control lesson with quick payoff.",
+      "path": "kid-chefs",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
     {
       "id": "orange-chicken",
       "title": "Orange Chicken",
