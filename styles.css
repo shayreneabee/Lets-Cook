@@ -3717,3 +3717,52 @@ body {
   transform: translateY(-4px);
   box-shadow: var(--bc-shadow);
 }
+/* Let the cuisine cards win over repeated shared card overrides. */
+.cuisine-card {
+  color: #2b1a12;
+  background: #fff8ec;
+  border: 1px solid #e7d8bf;
+  box-shadow: 0 16px 38px rgba(43, 26, 18, 0.12);
+}
+
+.cuisine-card a,
+.cuisine-card a:hover,
+.cuisine-card a:focus-visible {
+  color: #2b1a12;
+  opacity: 1;
+  text-decoration: none;
+}
+
+.cuisine-card h3,
+.cuisine-card:hover h3,
+.cuisine-card a:hover h3,
+.cuisine-card a:focus-visible h3 {
+  color: #2b1a12;
+  opacity: 1;
+}
+
+.cuisine-card p,
+.cuisine-card li,
+.cuisine-card span,
+.cuisine-card:hover p,
+.cuisine-card:hover li,
+.cuisine-card:hover span,
+.cuisine-card a:hover p,
+.cuisine-card a:focus-visible p {
+  color: #5f4a3f;
+  opacity: 1;
+}
+
+.cuisine-card .small-button,
+.cuisine-card button,
+.cuisine-card a.small-button {
+  color: #2b1a12;
+  background: #efbd5a;
+  border-color: #d39a32;
+}
+
+.cuisine-card:hover {
+  background: #fffaf3;
+  border-color: #d9c29a;
+  box-shadow: 0 22px 52px rgba(43, 26, 18, 0.16);
+}
