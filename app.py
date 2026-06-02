@@ -1,9 +1,11 @@
 import json
 import hashlib
+import json
 import os
 import secrets
 import sqlite3
 import time
+from html import escape
 from pathlib import Path
 
 from flask import Flask, abort, jsonify, request, send_from_directory, session
@@ -30,7 +32,7 @@ OWNER_INITIAL_PASSWORD = os.getenv("BRENT_OWNER_INITIAL_PASSWORD", "")
 FOUNDER_PROFILES = [
     {
         "email": os.getenv("BRENT_OWNER_EMAIL", "shalanda.brent@gmail.com").strip().lower(),
-        "display_name": os.getenv("BRENT_OWNER_DISPLAY_NAME", "Shay / Brent & Co Founder"),
+        "display_name": os.getenv("BRENT_OWNER_DISPLAY_NAME", "Shalanda Brent"),
     },
     {
         "email": os.getenv("BRENT_COFOUNDER_EMAIL", "jerod.l.cotton@gmail.com").strip().lower(),
@@ -58,7 +60,7 @@ def init_db():
                 password_hash TEXT NOT NULL,
                 display_name TEXT NOT NULL,
                 profile_pic TEXT DEFAULT '',
-                role TEXT DEFAULT '',
+                role TEXT DEFAULT 'user',
                 brent_account_id TEXT DEFAULT '',
                 auth_provider TEXT DEFAULT 'local',
                 is_admin INTEGER DEFAULT 0,
@@ -84,7 +86,7 @@ def init_db():
             row["name"] for row in conn.execute("PRAGMA table_info(users)").fetchall()
         }
         for column, definition in {
-            "role": "TEXT DEFAULT ''",
+            "role": "TEXT DEFAULT 'user'",
             "brent_account_id": "TEXT DEFAULT ''",
             "auth_provider": "TEXT DEFAULT 'local'",
             "is_admin": "INTEGER DEFAULT 0",
@@ -108,6 +110,7 @@ def init_db():
             )
             """
         )
+        conn.execute("UPDATE users SET role = 'user' WHERE role IS NULL OR role = ''")
 
 
 @app.before_request
@@ -190,7 +193,7 @@ def seed_founder_profile():
                     """,
                     (
                         founder["display_name"],
-                        "admin",
+                        "founder/admin",
                         brent_account_id(email),
                         OWNER_AUTH_PROVIDER,
                         existing["id"],
@@ -210,7 +213,7 @@ def seed_founder_profile():
                     email,
                     generate_password_hash(OWNER_INITIAL_PASSWORD or secrets.token_urlsafe(32)),
                     founder["display_name"],
-                    "admin",
+                    "founder/admin",
                     brent_account_id(email),
                     OWNER_AUTH_PROVIDER,
                     int(time.time()),
@@ -283,8 +286,8 @@ def api_signup():
         try:
             cursor = conn.execute(
                 """
-                INSERT INTO users (email, password_hash, display_name, brent_account_id, auth_provider, created_at)
-                VALUES (?, ?, ?, ?, ?, ?)
+                INSERT INTO users (email, password_hash, display_name, role, brent_account_id, auth_provider, created_at)
+                VALUES (?, ?, ?, 'user', ?, ?, ?)
                 """,
                 (email, generate_password_hash(password), display_name, brent_account_id(email), AUTH_PROVIDER, int(time.time())),
             )
@@ -402,6 +405,92 @@ def api_food_video():
             (user["id"], recipe_id, recipe_title, title, youtube_url, video_filename, int(time.time())),
         )
     return jsonify(load_state(user))
+
+
+def load_recipe_data():
+    recipe_path = BASE_DIR / "data" / "recipes.json"
+    try:
+        with recipe_path.open(encoding="utf-8") as handle:
+            return json.load(handle)
+    except (OSError, json.JSONDecodeError):
+        return {"recipes": []}
+
+
+def dashboard_html(user):
+    recipes = load_recipe_data().get("recipes", [])
+    with db() as conn:
+        user_count = conn.execute("SELECT COUNT(*) FROM users").fetchone()[0]
+    apps = [
+        ("Let’s Cook Y’all", "https://letscookyall.com/"),
+        ("Find The Beat", "https://findthebeatmusic.com/"),
+        ("Second Chance Careers", "https://secondchancecareers.org/"),
+        ("BEU", "https://beutravel.org/"),
+        ("Brent & Co", "https://brentandco.org/"),
+    ]
+    app_links = "".join(f'<li><a href="{url}">{name}</a></li>' for name, url in apps)
+    return f"""<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Let’s Cook Admin</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="admin-dashboard">
+    <p class="eyebrow">Brent & Co founder/admin</p>
+    <h1>Let’s Cook Y’all Admin</h1>
+    <p>Signed in as {public_user(user)["displayName"]}. Admin and founder flags are set server-side only.</p>
+    <section class="admin-stat-grid">
+      <article><strong>{user_count}</strong><span>Users</span></article>
+      <article><strong>{len(recipes)}</strong><span>Recipes</span></article>
+      <article><strong>5</strong><span>Connected apps</span></article>
+    </section>
+    <section class="admin-panel-grid">
+      <article><h2>Apps</h2><ul>{app_links}</ul></article>
+      <article><h2>Manage</h2><ul><li><a href="/data/recipe-source.json">Recipe source</a></li><li><a href="/data/recipes.json">Recipe database</a></li><li><a href="/#account">Users/account area</a></li><li><a href="/#kitchen">Content uploads</a></li></ul></article>
+    </section>
+    <a class="small-button" href="/#lets-cook">Back to Let’s Cook</a>
+  </main>
+</body>
+</html>"""
+
+
+@app.get("/admin")
+def admin_dashboard():
+    user = current_user()
+    if not user or not user["is_admin"]:
+        return "<h1>Admin access required</h1><p>Log in with a founder/admin account first.</p>", 403
+    return dashboard_html(user)
+
+
+def inject_meta(html, recipe):
+    if not recipe:
+        return html
+    title = escape(f'{recipe.get("title", "Recipe")} | Let’s Cook Y’all')
+    description = escape(recipe.get("description") or "A warm Let’s Cook Y’all recipe from Shay’s Kitchen.")
+    image = recipe.get("image_url") or recipe.get("image") or "assets/logo.png"
+    absolute_image = image if image.startswith("http") else f"https://www.letscookyall.com/{image.lstrip('/')}"
+    tags = f"""
+    <title>{title}</title>
+    <meta name="description" content="{description}" />
+    <meta property="og:title" content="{title}" />
+    <meta property="og:description" content="{description}" />
+    <meta property="og:image" content="{absolute_image}" />
+    <meta property="og:type" content="article" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{title}" />
+    <meta name="twitter:description" content="{description}" />
+    <meta name="twitter:image" content="{absolute_image}" />"""
+    return html.replace("<title>Let's Cook Ya'll</title>", tags)
+
+
+@app.get("/recipes/<slug>")
+def recipe_share_page(slug):
+    recipes = load_recipe_data().get("recipes", [])
+    recipe = next((item for item in recipes if item.get("slug") == slug or item.get("id") == slug), None)
+    html = (BASE_DIR / "index.html").read_text(encoding="utf-8")
+    return inject_meta(html, recipe)
 
 
 @app.get("/")

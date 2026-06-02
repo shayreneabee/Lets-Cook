@@ -2197,6 +2197,47 @@ select {
   background: white;
 }
 
+.quick-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.quick-filter {
+  min-height: 42px;
+  padding: 0 15px;
+  border: 1px solid rgba(255, 248, 233, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 248, 233, 0.14);
+  color: #fff8e9;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.quick-filter.active {
+  background: #f3c15d;
+  color: #2d170b;
+}
+
+.rollout-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(210px, 1fr));
+  gap: 18px;
+}
+
+.rollout-grid > article {
+  display: grid;
+  gap: 10px;
+}
+
+.rollout-grid > article > span {
+  color: var(--green-dark);
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
 .recipe-grid,
 .lesson-grid {
   display: grid;
@@ -3038,6 +3079,76 @@ select {
   padding: 11px 14px;
 }
 
+.oauth-prep {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+  padding: 16px;
+  border: 1px solid rgba(82, 45, 10, 0.12);
+  border-radius: 14px;
+  background: rgba(255, 248, 233, 0.72);
+}
+
+.oauth-prep button {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 46px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: white;
+  color: var(--ink);
+  font-weight: 850;
+}
+
+.oauth-prep span {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.admin-dashboard {
+  min-height: 100vh;
+  padding: clamp(32px, 7vw, 90px);
+  background: var(--cream);
+}
+
+.admin-dashboard h1 {
+  margin: 0 0 12px;
+  color: var(--green-dark);
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 6vw, 5rem);
+}
+
+.admin-stat-grid,
+.admin-panel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(180px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.admin-panel-grid {
+  grid-template-columns: repeat(2, minmax(240px, 1fr));
+}
+
+.admin-stat-grid article,
+.admin-panel-grid article {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: white;
+  box-shadow: var(--shadow);
+}
+
+.admin-stat-grid strong {
+  display: block;
+  color: var(--green-dark);
+  font-family: var(--serif);
+  font-size: 3rem;
+  font-weight: 400;
+}
+
 .planner-summary {
   display: grid;
   grid-template-columns: repeat(3, minmax(160px, 1fr));
@@ -3333,6 +3444,9 @@ select {
   .lesson-grid,
   .cook101-stats,
   .cook101-cuisine-grid,
+  .rollout-grid,
+  .admin-stat-grid,
+  .admin-panel-grid,
   .planner-summary,
   .path-outcome-strip,
   .path-showcase-grid,
@@ -3400,6 +3514,9 @@ select {
   .lesson-chip-grid,
   .lesson-grid,
   .cook101-cuisine-grid,
+  .rollout-grid,
+  .admin-stat-grid,
+  .admin-panel-grid,
   .path-showcase-grid,
   .path-detail-hero,
   .path-module-grid,

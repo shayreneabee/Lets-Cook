@@ -120,7 +120,13 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "classic-pb-j-sandwich",
+      "image_url": "assets/kid-friendly.jpeg",
+      "prep_time": "10 min",
+      "cook_time": "0 min",
+      "skill_level": "Kid Chef",
+      "cultural_variations": []
     },
     {
       "id": "stovetop-mac-and-cheese",
@@ -179,7 +185,13 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "easy-stovetop-mac-and-cheese",
+      "image_url": "assets/pasta.jpeg",
+      "prep_time": "8 min",
+      "cook_time": "12 min",
+      "skill_level": "Kid Chef",
+      "cultural_variations": []
     },
     {
       "id": "mini-pizza-bagels",
@@ -236,7 +248,13 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "mini-pizza-bagels",
+      "image_url": "assets/american-food.jpeg",
+      "prep_time": "7 min",
+      "cook_time": "8 min",
+      "skill_level": "Kid Chef",
+      "cultural_variations": []
     },
     {
       "id": "fruit-kabobs",
@@ -294,7 +312,13 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "rainbow-fruit-kabobs",
+      "image_url": "assets/ingredients.jpeg",
+      "prep_time": "15 min",
+      "cook_time": "0 min",
+      "skill_level": "Kid Chef",
+      "cultural_variations": []
     },
     {
       "id": "soft-scrambled-eggs",
@@ -352,7 +376,13 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "soft-scrambled-eggs",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "5 min",
+      "cook_time": "5 min",
+      "skill_level": "Kid Chef",
+      "cultural_variations": []
     },
     {
       "id": "orange-chicken",
@@ -417,7 +447,13 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "orange-chicken",
+      "image_url": "assets/editorial-cooking-hero.jpg",
+      "prep_time": "10 min",
+      "cook_time": "20 min",
+      "skill_level": "Kid Chef",
+      "cultural_variations": []
     },
     {
       "id": "crab-rangoon",
@@ -478,7 +514,13 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "crab-rangoon",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "15 min",
+      "cook_time": "20 min",
+      "skill_level": "Professional",
+      "cultural_variations": []
     },
     {
       "id": "yakamein",
@@ -541,7 +583,13 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "yakamein",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "10 min",
+      "cook_time": "40 min",
+      "skill_level": "Professional",
+      "cultural_variations": []
     },
     {
       "id": "shrimp-and-grits-green-beans",
@@ -583,7 +631,13 @@
       "source": {
         "type": "original",
         "name": "Shay's Kitchen"
-      }
+      },
+      "slug": "shrimp-and-grits-with-green-beans",
+      "image_url": "assets/editorial-cooking-hero.jpg",
+      "prep_time": "10 min",
+      "cook_time": "25 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "oxtails",
@@ -624,7 +678,13 @@
       "source": {
         "type": "original",
         "name": "Shay's Kitchen"
-      }
+      },
+      "slug": "braised-oxtails",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "20 min",
+      "cook_time": "3 hr",
+      "skill_level": "Professional",
+      "cultural_variations": []
     },
     {
       "id": "cajun-cream-salmon-rotini",
@@ -664,7 +724,13 @@
       "source": {
         "type": "original",
         "name": "Shay's Kitchen"
-      }
+      },
+      "slug": "cajun-cream-salmon-rotini-pasta",
+      "image_url": "assets/editorial-cajun-pasta.jpg",
+      "prep_time": "10 min",
+      "cook_time": "20 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "roasted-vegetable-tray",
@@ -705,7 +771,13 @@
       "source": {
         "type": "original",
         "name": "Shay's Kitchen"
-      }
+      },
+      "slug": "roasted-broccoli-zucchini-red-onion-cherry-tomatoes-and-sweet-potatoes",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "10 min",
+      "cook_time": "30 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "white-chicken-chili",
@@ -746,7 +818,13 @@
       "source": {
         "type": "original",
         "name": "Shay's Kitchen"
-      }
+      },
+      "slug": "white-chicken-chili-southwest-chicken-soup",
+      "image_url": "assets/editorial-cooking-hero.jpg",
+      "prep_time": "10 min",
+      "cook_time": "35 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "general-tso-style-chicken",
@@ -787,7 +865,13 @@
       "source": {
         "type": "original",
         "name": "Shay's Kitchen"
-      }
+      },
+      "slug": "general-tso-style-chicken",
+      "image_url": "assets/editorial-cooking-hero.jpg",
+      "prep_time": "10 min",
+      "cook_time": "25 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "cashew-chicken",
@@ -828,7 +912,13 @@
       "source": {
         "type": "original",
         "name": "Shay's Kitchen"
-      }
+      },
+      "slug": "cashew-chicken",
+      "image_url": "assets/editorial-cooking-hero.jpg",
+      "prep_time": "10 min",
+      "cook_time": "20 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "fried-rice",
@@ -868,7 +958,13 @@
       "source": {
         "type": "original",
         "name": "Shay's Kitchen"
-      }
+      },
+      "slug": "fried-rice",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "5 min",
+      "cook_time": "15 min",
+      "skill_level": "Kid Chef",
+      "cultural_variations": []
     },
     {
       "id": "chicken-parmesan",
@@ -908,7 +1004,13 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "chicken-parmesan",
+      "image_url": "assets/editorial-cooking-hero.jpg",
+      "prep_time": "15 min",
+      "cook_time": "30 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "deviled-eggs",
@@ -948,7 +1050,13 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "deviled-eggs",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "13 min",
+      "cook_time": "12 min",
+      "skill_level": "Kid Chef",
+      "cultural_variations": []
     },
     {
       "id": "rotel-dip",
@@ -986,7 +1094,13 @@
       "source": {
         "type": "original",
         "name": "Shay's Kitchen"
-      }
+      },
+      "slug": "rotel-dip",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "5 min",
+      "cook_time": "15 min",
+      "skill_level": "Kid Chef",
+      "cultural_variations": []
     },
     {
       "id": "party-meatballs",
@@ -1025,7 +1139,13 @@
       "source": {
         "type": "original",
         "name": "Shay's Kitchen"
-      }
+      },
+      "slug": "party-meatballs",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "5 min",
+      "cook_time": "30 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "charcuterie-boards",
@@ -1066,7 +1186,13 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "charcuterie-boards",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "20 min",
+      "cook_time": "0 min",
+      "skill_level": "Kid Chef",
+      "cultural_variations": []
     },
     {
       "id": "dessert-charcuterie-board",
@@ -1106,7 +1232,13 @@
       "source": {
         "type": "original",
         "name": "Shay's Kitchen"
-      }
+      },
+      "slug": "dessert-charcuterie-board",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "25 min",
+      "cook_time": "0 min",
+      "skill_level": "Kid Chef",
+      "cultural_variations": []
     },
     {
       "id": "bourbon-praline-bread-pudding",
@@ -1147,7 +1279,13 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "bourbon-praline-bread-pudding",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "20 min",
+      "cook_time": "55 min",
+      "skill_level": "Professional",
+      "cultural_variations": []
     },
     {
       "id": "blackened-fish",
@@ -1186,7 +1324,13 @@
       "source": {
         "type": "original",
         "name": "Shay's Kitchen"
-      }
+      },
+      "slug": "blackened-fish",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "10 min",
+      "cook_time": "15 min",
+      "skill_level": "Professional",
+      "cultural_variations": []
     },
     {
       "id": "tuscan-chicken",
@@ -1226,7 +1370,13 @@
       "source": {
         "type": "original",
         "name": "Shay's Kitchen"
-      }
+      },
+      "slug": "tuscan-chicken",
+      "image_url": "assets/editorial-cooking-hero.jpg",
+      "prep_time": "10 min",
+      "cook_time": "30 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "garlic-wings",
@@ -1266,7 +1416,13 @@
       "source": {
         "type": "original",
         "name": "Shay's Kitchen"
-      }
+      },
+      "slug": "garlic-wings",
+      "image_url": "assets/editorial-cooking-hero.jpg",
+      "prep_time": "10 min",
+      "cook_time": "40 min",
+      "skill_level": "Kid Chef",
+      "cultural_variations": []
     },
     {
       "id": "pineapple-fried-rice",
@@ -1306,7 +1462,13 @@
       "source": {
         "type": "original",
         "name": "Shay's Kitchen"
-      }
+      },
+      "slug": "pineapple-fried-rice",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "5 min",
+      "cook_time": "20 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "lamb-bone-broth-soup",
@@ -1347,7 +1509,13 @@
       "source": {
         "type": "original",
         "name": "Shay's Kitchen"
-      }
+      },
+      "slug": "lamb-bone-broth-soup-idea",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "15 min",
+      "cook_time": "2 hr",
+      "skill_level": "Professional",
+      "cultural_variations": []
     },
     {
       "id": "mealdb-braised-beef-chilli",
@@ -1424,7 +1592,12 @@
         "apiUrl": "https://www.themealdb.com/api.php",
         "externalId": "52826",
         "licenseNote": "Free public API; verify production/app-store terms before wide release."
-      }
+      },
+      "slug": "braised-beef-chilli",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "mealdb-cajun-spiced-fish-tacos",
@@ -1494,7 +1667,12 @@
         "apiUrl": "https://www.themealdb.com/api.php",
         "externalId": "52819",
         "licenseNote": "Free public API; verify production/app-store terms before wide release."
-      }
+      },
+      "slug": "cajun-spiced-fish-tacos",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "mealdb-chicken-enchilada-casserole",
@@ -1562,7 +1740,12 @@
         "apiUrl": "https://www.themealdb.com/api.php",
         "externalId": "52765",
         "licenseNote": "Free public API; verify production/app-store terms before wide release."
-      }
+      },
+      "slug": "chicken-enchilada-casserole",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "mealdb-brown-stew-chicken",
@@ -1639,7 +1822,12 @@
         "apiUrl": "https://www.themealdb.com/api.php",
         "externalId": "52940",
         "licenseNote": "Free public API; verify production/app-store terms before wide release."
-      }
+      },
+      "slug": "brown-stew-chicken",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "mealdb-callaloo-and-saltfish",
@@ -1713,7 +1901,12 @@
         "apiUrl": "https://www.themealdb.com/api.php",
         "externalId": "53361",
         "licenseNote": "Free public API; verify production/app-store terms before wide release."
-      }
+      },
+      "slug": "callaloo-and-saltfish",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "mealdb-callaloo-jamaican-style",
@@ -1787,7 +1980,12 @@
         "apiUrl": "https://www.themealdb.com/api.php",
         "externalId": "52939",
         "licenseNote": "Free public API; verify production/app-store terms before wide release."
-      }
+      },
+      "slug": "callaloo-jamaican-style",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "mealdb-budino-di-ricotta",
@@ -1845,7 +2043,12 @@
         "apiUrl": "https://www.themealdb.com/api.php",
         "externalId": "52961",
         "licenseNote": "Free public API; verify production/app-store terms before wide release."
-      }
+      },
+      "slug": "budino-di-ricotta",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "mealdb-chicken-alfredo-primavera",
@@ -1928,7 +2131,12 @@
         "apiUrl": "https://www.themealdb.com/api.php",
         "externalId": "52796",
         "licenseNote": "Free public API; verify production/app-store terms before wide release."
-      }
+      },
+      "slug": "chicken-alfredo-primavera",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "mealdb-chilli-prawn-linguine",
@@ -2001,7 +2209,12 @@
         "apiUrl": "https://www.themealdb.com/api.php",
         "externalId": "52839",
         "licenseNote": "Free public API; verify production/app-store terms before wide release."
-      }
+      },
+      "slug": "chilli-prawn-linguine",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "mealdb-chicken-quinoa-greek-salad",
@@ -2070,7 +2283,12 @@
         "apiUrl": "https://www.themealdb.com/api.php",
         "externalId": "53011",
         "licenseNote": "Free public API; verify production/app-store terms before wide release."
-      }
+      },
+      "slug": "chicken-quinoa-greek-salad",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "mealdb-garides-saganaki",
@@ -2142,7 +2360,12 @@
         "apiUrl": "https://www.themealdb.com/api.php",
         "externalId": "52764",
         "licenseNote": "Free public API; verify production/app-store terms before wide release."
-      }
+      },
+      "slug": "garides-saganaki",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "mealdb-gigantes-plaki",
@@ -2214,7 +2437,12 @@
         "apiUrl": "https://www.themealdb.com/api.php",
         "externalId": "53012",
         "licenseNote": "Free public API; verify production/app-store terms before wide release."
-      }
+      },
+      "slug": "gigantes-plaki",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "mealdb-air-fryer-egg-rolls",
@@ -2292,7 +2520,12 @@
         "apiUrl": "https://www.themealdb.com/api.php",
         "externalId": "53373",
         "licenseNote": "Free public API; verify production/app-store terms before wide release."
-      }
+      },
+      "slug": "air-fryer-egg-rolls",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "mealdb-beef-and-broccoli-stir-fry",
@@ -2370,7 +2603,12 @@
         "apiUrl": "https://www.themealdb.com/api.php",
         "externalId": "53366",
         "licenseNote": "Free public API; verify production/app-store terms before wide release."
-      }
+      },
+      "slug": "beef-and-broccoli-stir-fry",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "mealdb-beef-lo-mein",
@@ -2451,7 +2689,12 @@
         "apiUrl": "https://www.themealdb.com/api.php",
         "externalId": "52952",
         "licenseNote": "Free public API; verify production/app-store terms before wide release."
-      }
+      },
+      "slug": "beef-lo-mein",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "mealdb-chicken-karaage",
@@ -2522,7 +2765,12 @@
         "apiUrl": "https://www.themealdb.com/api.php",
         "externalId": "52831",
         "licenseNote": "Free public API; verify production/app-store terms before wide release."
-      }
+      },
+      "slug": "chicken-karaage",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "mealdb-honey-teriyaki-salmon",
@@ -2579,7 +2827,12 @@
         "apiUrl": "https://www.themealdb.com/api.php",
         "externalId": "52773",
         "licenseNote": "Free public API; verify production/app-store terms before wide release."
-      }
+      },
+      "slug": "honey-teriyaki-salmon",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "mealdb-japanese-gohan-rice",
@@ -2643,7 +2896,12 @@
         "apiUrl": "https://www.themealdb.com/api.php",
         "externalId": "53033",
         "licenseNote": "Free public API; verify production/app-store terms before wide release."
-      }
+      },
+      "slug": "japanese-gohan-rice",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "mealdb-drunken-noodles-pad-kee-mao",
@@ -2716,7 +2974,12 @@
         "apiUrl": "https://www.themealdb.com/api.php",
         "externalId": "53193",
         "licenseNote": "Free public API; verify production/app-store terms before wide release."
-      }
+      },
+      "slug": "drunken-noodles-pad-kee-mao",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "mealdb-lemongrass-beef-stew-with-noodles",
@@ -2791,7 +3054,12 @@
         "apiUrl": "https://www.themealdb.com/api.php",
         "externalId": "53211",
         "licenseNote": "Free public API; verify production/app-store terms before wide release."
-      }
+      },
+      "slug": "lemongrass-beef-stew-with-noodles",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "mealdb-massaman-beef-curry",
@@ -2860,7 +3128,12 @@
         "apiUrl": "https://www.themealdb.com/api.php",
         "externalId": "52827",
         "licenseNote": "Free public API; verify production/app-store terms before wide release."
-      }
+      },
+      "slug": "massaman-beef-curry",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "shrimp-and-grits",
@@ -2908,7 +3181,12 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "shrimp-and-grits-with-green-beans",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "cajun-cream-pasta",
@@ -2954,7 +3232,12 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "cajun-cream-salmon-rotini-pasta",
+      "prep_time": "15 min",
+      "cook_time": "30 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "general-tso-chicken",
@@ -3001,7 +3284,12 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "general-tso-style-chicken",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "tandoori-chicken",
@@ -3059,7 +3347,12 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "tandoori-style-chicken",
+      "prep_time": "20 min",
+      "cook_time": "35 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "butter-chicken",
@@ -3108,7 +3401,12 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "butter-chicken",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "chicken-tikka-masala",
@@ -3157,7 +3455,12 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "chicken-tikka-masala",
+      "prep_time": "20 min",
+      "cook_time": "30 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "biryani",
@@ -3206,7 +3509,12 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "beginner-chicken-biryani",
+      "prep_time": "25 min",
+      "cook_time": "45 min",
+      "skill_level": "Professional",
+      "cultural_variations": []
     },
     {
       "id": "palak-paneer",
@@ -3255,7 +3563,12 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "palak-paneer",
+      "prep_time": "15 min",
+      "cook_time": "25 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "chana-masala",
@@ -3304,7 +3617,12 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "chana-masala",
+      "prep_time": "10 min",
+      "cook_time": "25 min",
+      "skill_level": "Kid Chef",
+      "cultural_variations": []
     },
     {
       "id": "garlic-naan",
@@ -3353,7 +3671,12 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "garlic-naan",
+      "prep_time": "20 min",
+      "cook_time": "10 min",
+      "skill_level": "Kid Chef",
+      "cultural_variations": []
     },
     {
       "id": "fried-chicken",
@@ -3402,7 +3725,12 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "southern-fried-chicken",
+      "prep_time": "20 min",
+      "cook_time": "25 min",
+      "skill_level": "Professional",
+      "cultural_variations": []
     },
     {
       "id": "mac-and-cheese",
@@ -3450,7 +3778,12 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "baked-mac-and-cheese",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "collard-greens",
@@ -3499,7 +3832,12 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "collard-greens",
+      "prep_time": "20 min",
+      "cook_time": "1 hr 30 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "cornbread",
@@ -3548,7 +3886,12 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "skillet-cornbread",
+      "prep_time": "10 min",
+      "cook_time": "20 min",
+      "skill_level": "Kid Chef",
+      "cultural_variations": []
     },
     {
       "id": "smothered-pork-chops",
@@ -3597,7 +3940,12 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "smothered-pork-chops",
+      "prep_time": "15 min",
+      "cook_time": "40 min",
+      "skill_level": "Professional",
+      "cultural_variations": []
     },
     {
       "id": "fried-catfish",
@@ -3646,7 +3994,12 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "fried-catfish",
+      "prep_time": "15 min",
+      "cook_time": "15 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "chicken-street-tacos",
@@ -3709,7 +4062,12 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "chicken-street-tacos",
+      "prep_time": "12 min",
+      "cook_time": "18 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "cheese-quesadillas",
@@ -3767,7 +4125,12 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "cheese-quesadillas",
+      "prep_time": "5 min",
+      "cook_time": "8 min",
+      "skill_level": "Kid Chef",
+      "cultural_variations": []
     },
     {
       "id": "cilantro-lime-rice",
@@ -3827,7 +4190,12 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "cilantro-lime-rice",
+      "prep_time": "5 min",
+      "cook_time": "18 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "black-bean-enchiladas",
@@ -3889,7 +4257,12 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "black-bean-enchiladas",
+      "prep_time": "15 min",
+      "cook_time": "25 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "jerk-chicken",
@@ -3951,7 +4324,12 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "jerk-chicken",
+      "prep_time": "20 min",
+      "cook_time": "35 min",
+      "skill_level": "Professional",
+      "cultural_variations": []
     },
     {
       "id": "rice-and-peas",
@@ -4012,7 +4390,12 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "caribbean-rice-and-peas",
+      "prep_time": "10 min",
+      "cook_time": "25 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "fried-sweet-plantains",
@@ -4069,7 +4452,12 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "fried-sweet-plantains",
+      "prep_time": "5 min",
+      "cook_time": "10 min",
+      "skill_level": "Kid Chef",
+      "cultural_variations": []
     },
     {
       "id": "caribbean-curry-chicken",
@@ -4130,7 +4518,12 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "caribbean-curry-chicken",
+      "prep_time": "15 min",
+      "cook_time": "45 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "chicken-gyros",
@@ -4192,7 +4585,12 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "chicken-gyros",
+      "prep_time": "20 min",
+      "cook_time": "20 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
     },
     {
       "id": "greek-salad",
@@ -4254,7 +4652,12 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "greek-salad",
+      "prep_time": "15 min",
+      "cook_time": "0 min",
+      "skill_level": "Kid Chef",
+      "cultural_variations": []
     },
     {
       "id": "creamy-hummus",
@@ -4314,7 +4717,12 @@
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"
-      }
+      },
+      "slug": "creamy-hummus",
+      "prep_time": "12 min",
+      "cook_time": "0 min",
+      "skill_level": "Kid Chef",
+      "cultural_variations": []
     },
     {
       "id": "lemon-herb-salmon",
@@ -4373,6 +4781,154 @@
       "related_recipe_ids": [],
       "featured": false,
       "chefNotes": "Original Let's Cook Y'all starter recipe for building out this cuisine section.",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      },
+      "slug": "lemon-herb-salmon",
+      "prep_time": "10 min",
+      "cook_time": "14 min",
+      "skill_level": "Amateur",
+      "cultural_variations": []
+    },
+    {
+      "id": "chicken-salad-croissants",
+      "title": "Chicken Salad Croissants",
+      "slug": "chicken-salad-croissants",
+      "cuisine": "southern",
+      "category": "Quick Meals",
+      "skill_level": "Amateur",
+      "image": "assets/beautiful-chicken.jpeg",
+      "image_url": "assets/beautiful-chicken.jpeg",
+      "prep_time": "15 min",
+      "cook_time": "0 min",
+      "cookTimeMinutes": 0,
+      "difficulty": "Beginner",
+      "servings": 4,
+      "description": "Creamy chicken salad tucked into buttery croissants for lunch, showers, brunch, or an easy hosting tray.",
+      "ingredients": [
+        "Cooked chicken",
+        "Croissants",
+        "Mayonnaise",
+        "Celery",
+        "Green onion",
+        "Relish",
+        "Lemon juice",
+        "Seasoning"
+      ],
+      "instructions": [
+        "Chop cooked chicken into small pieces.",
+        "Mix chicken with mayo, celery, green onion, relish, lemon, and seasoning.",
+        "Taste and adjust salt or lemon.",
+        "Split croissants and fill with chicken salad.",
+        "Chill until serving."
+      ],
+      "tags": [
+        "lunch",
+        "croissants",
+        "hosting",
+        "quick meals"
+      ],
+      "cultural_variations": [
+        "Use curry powder for a curried chicken salad.",
+        "Add grapes or pecans for a Southern luncheon style."
+      ],
+      "featured": false,
+      "path": "amateur-home-chef",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "turkey-pinwheels",
+      "title": "Turkey Pinwheels",
+      "slug": "turkey-pinwheels",
+      "cuisine": "southern",
+      "category": "Kid-Friendly Cooking",
+      "skill_level": "Kid Chef",
+      "image": "assets/kid-friendly.jpeg",
+      "image_url": "assets/kid-friendly.jpeg",
+      "prep_time": "12 min",
+      "cook_time": "0 min",
+      "cookTimeMinutes": 0,
+      "difficulty": "Beginner",
+      "servings": 4,
+      "description": "Soft tortilla roll-ups with turkey, cheese, and cream cheese that kids can help spread, roll, and slice.",
+      "ingredients": [
+        "Flour tortillas",
+        "Turkey slices",
+        "Cheese slices",
+        "Cream cheese",
+        "Lettuce",
+        "Ranch seasoning, optional"
+      ],
+      "instructions": [
+        "Spread cream cheese over each tortilla.",
+        "Layer turkey, cheese, and lettuce.",
+        "Roll tightly.",
+        "Chill briefly if needed.",
+        "Slice into pinwheels with grown-up help."
+      ],
+      "tags": [
+        "kid chefs",
+        "lunchbox",
+        "no-cook",
+        "wraps"
+      ],
+      "cultural_variations": [
+        "Use hummus instead of cream cheese.",
+        "Add roasted peppers for a Mediterranean-style wrap."
+      ],
+      "featured": false,
+      "path": "kid-chefs",
+      "source": {
+        "type": "original",
+        "name": "Brent & Co. starter recipe"
+      }
+    },
+    {
+      "id": "easy-lunch-wraps",
+      "title": "Easy Lunch Wraps",
+      "slug": "easy-lunch-wraps",
+      "cuisine": "global",
+      "category": "Quick Meals",
+      "skill_level": "Kid Chef",
+      "image": "assets/cooking-family.jpeg",
+      "image_url": "assets/cooking-family.jpeg",
+      "prep_time": "10 min",
+      "cook_time": "0 min",
+      "cookTimeMinutes": 0,
+      "difficulty": "Beginner",
+      "servings": 2,
+      "description": "Simple wraps with protein, veggies, and a creamy spread for quick lunches or after-school practice.",
+      "ingredients": [
+        "Large tortillas",
+        "Turkey, chicken, or hummus",
+        "Lettuce",
+        "Shredded carrots",
+        "Cheese",
+        "Ranch, hummus, or mayo"
+      ],
+      "instructions": [
+        "Lay tortillas flat.",
+        "Spread a thin layer of sauce or hummus.",
+        "Add protein, lettuce, carrots, and cheese.",
+        "Fold the sides in and roll tightly.",
+        "Slice in half and serve."
+      ],
+      "tags": [
+        "wraps",
+        "kid chefs",
+        "quick meals",
+        "no-cook"
+      ],
+      "cultural_variations": [
+        "Use hummus, cucumber, and feta for a Mediterranean wrap.",
+        "Use rice, beans, and salsa for a Mexican-inspired wrap."
+      ],
+      "featured": false,
+      "path": "kid-chefs",
       "source": {
         "type": "original",
         "name": "Brent & Co. starter recipe"

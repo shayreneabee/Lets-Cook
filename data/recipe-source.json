@@ -1,0 +1,3060 @@
+{
+  "schemaVersion": "2.0.0",
+  "description": "Canonical backend-ready recipe source for Let's Cook Y'all.",
+  "fields": [
+    "id",
+    "title",
+    "slug",
+    "cuisine",
+    "category",
+    "skill_level",
+    "image_url",
+    "prep_time",
+    "cook_time",
+    "difficulty",
+    "ingredients",
+    "instructions",
+    "tags",
+    "cultural_variations",
+    "featured"
+  ],
+  "recipes": [
+    {
+      "id": "pb-and-j-sandwich",
+      "title": "Classic PB&J Sandwich",
+      "slug": "classic-pb-j-sandwich",
+      "cuisine": "southern",
+      "category": "Kid-Friendly Cooking",
+      "skill_level": "Kid Chef",
+      "image_url": "assets/kid-friendly.jpeg",
+      "prep_time": "10 min",
+      "cook_time": "0 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "2 slices soft sandwich bread",
+        "2 tbsp peanut butter or sunflower butter",
+        "1 tbsp jelly or jam",
+        "Banana slices, optional",
+        "Honey, optional"
+      ],
+      "instructions": [
+        "Wash hands and wipe the counter.",
+        "Lay both slices of bread on a plate.",
+        "Spread peanut butter on one slice and jelly on the other.",
+        "Add banana slices if using.",
+        "Close the sandwich, cut with grown-up help if needed, and wipe up sticky spots."
+      ],
+      "tags": [
+        "Kid Chefs",
+        "No-Cook",
+        "Sandwich",
+        "Beginner"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "stovetop-mac-and-cheese",
+      "title": "Easy Stovetop Mac and Cheese",
+      "slug": "easy-stovetop-mac-and-cheese",
+      "cuisine": "southern",
+      "category": "Kid-Friendly Cooking",
+      "skill_level": "Kid Chef",
+      "image_url": "assets/pasta.jpeg",
+      "prep_time": "8 min",
+      "cook_time": "12 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "2 cups elbow macaroni",
+        "1 cup shredded cheddar",
+        "1/2 cup milk",
+        "1 tbsp butter",
+        "Pinch of salt",
+        "Black pepper, optional"
+      ],
+      "instructions": [
+        "Boil macaroni in salted water with grown-up help.",
+        "Drain pasta carefully.",
+        "Return pasta to the warm pot on low heat.",
+        "Stir in butter, milk, and cheese until creamy.",
+        "Taste and add a tiny pinch of salt or pepper if needed."
+      ],
+      "tags": [
+        "Kid Chefs",
+        "Mac and Cheese",
+        "Stirring",
+        "Comfort Food"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "mini-pizza-bagels",
+      "title": "Mini Pizza Bagels",
+      "slug": "mini-pizza-bagels",
+      "cuisine": "italian",
+      "category": "Kid-Friendly Cooking",
+      "skill_level": "Kid Chef",
+      "image_url": "assets/american-food.jpeg",
+      "prep_time": "7 min",
+      "cook_time": "8 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "2 mini bagels, split",
+        "1/3 cup pizza sauce",
+        "1/2 cup shredded mozzarella",
+        "Pepperoni or veggies",
+        "Italian seasoning, optional"
+      ],
+      "instructions": [
+        "Place bagel halves on a baking sheet.",
+        "Spread a spoonful of sauce on each half.",
+        "Sprinkle cheese over the sauce.",
+        "Add toppings.",
+        "Bake with grown-up help until cheese melts and cool before eating."
+      ],
+      "tags": [
+        "Kid Chefs",
+        "Pizza",
+        "Snack",
+        "Beginner"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "fruit-kabobs",
+      "title": "Rainbow Fruit Kabobs",
+      "slug": "rainbow-fruit-kabobs",
+      "cuisine": "global",
+      "category": "Kid-Friendly Cooking",
+      "skill_level": "Kid Chef",
+      "image_url": "assets/ingredients.jpeg",
+      "prep_time": "15 min",
+      "cook_time": "0 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Strawberries",
+        "Grapes",
+        "Pineapple chunks",
+        "Blueberries",
+        "Melon cubes",
+        "Yogurt for dipping"
+      ],
+      "instructions": [
+        "Wash fruit well.",
+        "Ask a grown-up to cut large fruit into bite-size pieces.",
+        "Slide fruit onto skewers in a pattern.",
+        "Place kabobs on a plate.",
+        "Serve with yogurt for dipping."
+      ],
+      "tags": [
+        "Kid Chefs",
+        "Fruit",
+        "No-Cook",
+        "Snack"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "soft-scrambled-eggs",
+      "title": "Soft Scrambled Eggs",
+      "slug": "soft-scrambled-eggs",
+      "cuisine": "southern",
+      "category": "Kid-Friendly Cooking",
+      "skill_level": "Kid Chef",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "5 min",
+      "cook_time": "5 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "4 eggs",
+        "2 tbsp milk",
+        "1 tsp butter",
+        "Pinch of salt",
+        "Toast, optional"
+      ],
+      "instructions": [
+        "Crack eggs into a bowl with grown-up help.",
+        "Whisk eggs with milk and a pinch of salt.",
+        "Melt butter in a nonstick pan over low heat.",
+        "Stir eggs slowly until soft and creamy.",
+        "Take eggs off the heat before they look dry."
+      ],
+      "tags": [
+        "Kid Chefs",
+        "Eggs",
+        "Breakfast",
+        "Stovetop"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "orange-chicken",
+      "title": "Orange Chicken",
+      "slug": "orange-chicken",
+      "cuisine": "asian-inspired",
+      "category": "Kid-Friendly Cooking",
+      "skill_level": "Kid Chef",
+      "image_url": "assets/editorial-cooking-hero.jpg",
+      "prep_time": "10 min",
+      "cook_time": "20 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "1 1/2 lb chicken breast, cut into bite-size pieces",
+        "1/2 cup cornstarch",
+        "1/2 tsp kosher salt",
+        "1/2 tsp black pepper",
+        "1 cup orange juice",
+        "2 tbsp soy sauce",
+        "2 tbsp honey",
+        "2 cloves garlic, minced",
+        "1 tsp grated ginger",
+        "Cooked rice, for serving",
+        "Green onion or sesame seeds, optional"
+      ],
+      "instructions": [
+        "Pat chicken dry, then season with salt and pepper.",
+        "Toss chicken pieces with cornstarch until lightly coated on every side.",
+        "Pan-cook chicken in a thin layer of oil until golden and cooked through, working in batches if needed.",
+        "Simmer orange juice, soy sauce, honey, garlic, and ginger until glossy and slightly reduced.",
+        "Toss chicken in the sauce until every piece is coated.",
+        "Serve over warm rice and finish with green onion or sesame seeds."
+      ],
+      "tags": [
+        "Chicken",
+        "Quick Meals",
+        "Global Flavors",
+        "Kid-Friendly Cooking"
+      ],
+      "cultural_variations": [],
+      "featured": true
+    },
+    {
+      "id": "crab-rangoon",
+      "title": "Crab Rangoon",
+      "slug": "crab-rangoon",
+      "cuisine": "asian-inspired",
+      "category": "Party & Hosting",
+      "skill_level": "Professional",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "15 min",
+      "cook_time": "20 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "24 wonton wrappers",
+        "8 oz cream cheese, softened",
+        "1 cup crab meat or imitation crab, chopped",
+        "2 green onions, thinly sliced",
+        "1/2 tsp garlic powder",
+        "1/2 tsp Worcestershire sauce",
+        "Pinch of sugar",
+        "Small bowl of water, for sealing",
+        "Sweet chili sauce, for serving"
+      ],
+      "instructions": [
+        "Stir cream cheese, crab, green onion, garlic powder, Worcestershire, and sugar until evenly mixed.",
+        "Place one spoonful of filling in the center of each wonton wrapper.",
+        "Wet the wrapper edges with water and pinch closed tightly so the filling stays inside.",
+        "Fry, bake, or air-fry until the wrappers are crisp and golden.",
+        "Let cool for a minute, then serve with sweet chili sauce."
+      ],
+      "tags": [
+        "Party & Hosting",
+        "Global Flavors",
+        "Seafood"
+      ],
+      "cultural_variations": [],
+      "featured": true
+    },
+    {
+      "id": "yakamein",
+      "title": "Yakamein",
+      "slug": "yakamein",
+      "cuisine": "creole",
+      "category": "Southern Comfort",
+      "skill_level": "Professional",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "10 min",
+      "cook_time": "40 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "1 lb beef chuck or stew meat",
+        "8 oz spaghetti noodles",
+        "6 cups beef broth",
+        "2 boiled eggs, halved",
+        "3 green onions, sliced",
+        "1 tbsp Creole seasoning",
+        "1 tbsp soy sauce",
+        "1 tsp garlic powder",
+        "Hot sauce, to taste",
+        "Lemon wedges, optional"
+      ],
+      "instructions": [
+        "Season beef with Creole seasoning and garlic powder.",
+        "Simmer beef in broth with soy sauce until tender and easy to pull apart.",
+        "Boil spaghetti separately so the noodles stay springy.",
+        "Taste broth and adjust with hot sauce, salt, or lemon.",
+        "Build bowls with noodles, broth, beef, boiled egg, and green onion.",
+        "Serve hot with extra hot sauce on the side."
+      ],
+      "tags": [
+        "Southern Comfort",
+        "Global Flavors",
+        "Family Dinners"
+      ],
+      "cultural_variations": [],
+      "featured": true
+    },
+    {
+      "id": "shrimp-and-grits-green-beans",
+      "title": "Shrimp and Grits with Green Beans",
+      "slug": "shrimp-and-grits-with-green-beans",
+      "cuisine": "southern",
+      "category": "Southern Comfort",
+      "skill_level": "Amateur",
+      "image_url": "assets/editorial-cooking-hero.jpg",
+      "prep_time": "10 min",
+      "cook_time": "25 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Shrimp",
+        "Stone-ground grits",
+        "Green beans",
+        "Chicken stock",
+        "Butter",
+        "Bell pepper",
+        "Garlic",
+        "Lemon"
+      ],
+      "instructions": [
+        "Cook grits low and slow with stock.",
+        "Saute peppers, garlic, and green beans.",
+        "Cook shrimp until just pink.",
+        "Spoon shrimp and vegetables over creamy grits."
+      ],
+      "tags": [
+        "Southern Comfort",
+        "Seafood",
+        "Beginner Friendly"
+      ],
+      "cultural_variations": [],
+      "featured": true
+    },
+    {
+      "id": "oxtails",
+      "title": "Braised Oxtails",
+      "slug": "braised-oxtails",
+      "cuisine": "southern",
+      "category": "Family Dinners",
+      "skill_level": "Professional",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "20 min",
+      "cook_time": "3 hr",
+      "difficulty": "Advanced",
+      "ingredients": [
+        "Oxtails",
+        "Onion",
+        "Carrots",
+        "Celery",
+        "Garlic",
+        "Beef stock",
+        "Thyme"
+      ],
+      "instructions": [
+        "Season and brown oxtails well.",
+        "Cook aromatics in the same pot.",
+        "Add stock and thyme.",
+        "Braise covered until tender and reduce the gravy."
+      ],
+      "tags": [
+        "Southern Comfort",
+        "Family Dinners",
+        "Meal Prep"
+      ],
+      "cultural_variations": [],
+      "featured": true
+    },
+    {
+      "id": "cajun-cream-salmon-rotini",
+      "title": "Cajun Cream Salmon Rotini Pasta",
+      "slug": "cajun-cream-salmon-rotini-pasta",
+      "cuisine": "creole",
+      "category": "Quick Meals",
+      "skill_level": "Amateur",
+      "image_url": "assets/editorial-cajun-pasta.jpg",
+      "prep_time": "10 min",
+      "cook_time": "20 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Rotini pasta",
+        "Salmon",
+        "Cajun seasoning",
+        "Cream",
+        "Parmesan",
+        "Bell pepper"
+      ],
+      "instructions": [
+        "Boil rotini in salted water.",
+        "Sear salmon with Cajun seasoning.",
+        "Add pepper, cream, and parmesan.",
+        "Toss pasta with sauce and flaked salmon."
+      ],
+      "tags": [
+        "Quick Meals",
+        "Seafood",
+        "Date Night"
+      ],
+      "cultural_variations": [],
+      "featured": true
+    },
+    {
+      "id": "roasted-vegetable-tray",
+      "title": "Roasted Broccoli, Zucchini, Red Onion, Cherry Tomatoes, and Sweet Potatoes",
+      "slug": "roasted-broccoli-zucchini-red-onion-cherry-tomatoes-and-sweet-potatoes",
+      "cuisine": "global",
+      "category": "Vegetarian",
+      "skill_level": "Amateur",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "10 min",
+      "cook_time": "30 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Broccoli",
+        "Zucchini",
+        "Red onion",
+        "Cherry tomatoes",
+        "Sweet potatoes",
+        "Olive oil",
+        "Garlic seasoning"
+      ],
+      "instructions": [
+        "Cut vegetables into similar sizes.",
+        "Toss with oil and seasoning.",
+        "Roast sweet potatoes first, then add tender vegetables.",
+        "Finish when browned at the edges."
+      ],
+      "tags": [
+        "Vegetarian",
+        "Meal Prep",
+        "Beginner Friendly"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "white-chicken-chili",
+      "title": "White Chicken Chili / Southwest Chicken Soup",
+      "slug": "white-chicken-chili-southwest-chicken-soup",
+      "cuisine": "southern",
+      "category": "Meal Prep",
+      "skill_level": "Amateur",
+      "image_url": "assets/editorial-cooking-hero.jpg",
+      "prep_time": "10 min",
+      "cook_time": "35 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Chicken",
+        "White beans",
+        "Corn",
+        "Green chiles",
+        "Chicken broth",
+        "Cream cheese",
+        "Cumin"
+      ],
+      "instructions": [
+        "Simmer chicken with broth, beans, corn, and chiles.",
+        "Season with cumin and salt.",
+        "Shred chicken.",
+        "Stir in cream cheese until creamy."
+      ],
+      "tags": [
+        "Chicken",
+        "Meal Prep",
+        "Family Dinners"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "general-tso-style-chicken",
+      "title": "General Tso-Style Chicken",
+      "slug": "general-tso-style-chicken",
+      "cuisine": "asian-inspired",
+      "category": "Global Flavors",
+      "skill_level": "Amateur",
+      "image_url": "assets/editorial-cooking-hero.jpg",
+      "prep_time": "10 min",
+      "cook_time": "25 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "Chicken thighs",
+        "Cornstarch",
+        "Soy sauce",
+        "Rice vinegar",
+        "Brown sugar",
+        "Garlic",
+        "Chili flakes"
+      ],
+      "instructions": [
+        "Coat chicken with cornstarch.",
+        "Cook until crisp.",
+        "Simmer sauce until glossy.",
+        "Toss chicken in sauce and serve with rice."
+      ],
+      "tags": [
+        "Chicken",
+        "Global Flavors",
+        "Quick Meals"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "cashew-chicken",
+      "title": "Cashew Chicken",
+      "slug": "cashew-chicken",
+      "cuisine": "asian-inspired",
+      "category": "Quick Meals",
+      "skill_level": "Amateur",
+      "image_url": "assets/editorial-cooking-hero.jpg",
+      "prep_time": "10 min",
+      "cook_time": "20 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Chicken breast",
+        "Cashews",
+        "Bell pepper",
+        "Soy sauce",
+        "Honey",
+        "Garlic",
+        "Rice"
+      ],
+      "instructions": [
+        "Cook chicken pieces until browned.",
+        "Add peppers and garlic.",
+        "Stir in sauce.",
+        "Finish with cashews and serve over rice."
+      ],
+      "tags": [
+        "Chicken",
+        "Quick Meals",
+        "Global Flavors"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "fried-rice",
+      "title": "Fried Rice",
+      "slug": "fried-rice",
+      "cuisine": "asian-inspired",
+      "category": "Quick Meals",
+      "skill_level": "Kid Chef",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "5 min",
+      "cook_time": "15 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Cold rice",
+        "Eggs",
+        "Peas and carrots",
+        "Soy sauce",
+        "Green onion",
+        "Oil"
+      ],
+      "instructions": [
+        "Scramble eggs and set aside.",
+        "Cook vegetables.",
+        "Add cold rice and soy sauce.",
+        "Fold eggs back in and finish with green onion."
+      ],
+      "tags": [
+        "Quick Meals",
+        "Beginner Friendly",
+        "Vegetarian"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "chicken-parmesan",
+      "title": "Chicken Parmesan",
+      "slug": "chicken-parmesan",
+      "cuisine": "italian",
+      "category": "Family Dinners",
+      "skill_level": "Amateur",
+      "image_url": "assets/editorial-cooking-hero.jpg",
+      "prep_time": "15 min",
+      "cook_time": "30 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "Chicken cutlets",
+        "Breadcrumbs",
+        "Eggs",
+        "Marinara",
+        "Mozzarella",
+        "Parmesan"
+      ],
+      "instructions": [
+        "Bread chicken with flour, egg, and breadcrumbs.",
+        "Pan-fry until golden.",
+        "Top with marinara and cheese.",
+        "Bake until bubbly and cooked through."
+      ],
+      "tags": [
+        "Chicken",
+        "Family Dinners",
+        "Date Night"
+      ],
+      "cultural_variations": [],
+      "featured": true
+    },
+    {
+      "id": "deviled-eggs",
+      "title": "Deviled Eggs",
+      "slug": "deviled-eggs",
+      "cuisine": "southern",
+      "category": "Beginner Friendly",
+      "skill_level": "Kid Chef",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "13 min",
+      "cook_time": "12 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Eggs",
+        "Mayonnaise",
+        "Mustard",
+        "Relish",
+        "Paprika",
+        "Salt"
+      ],
+      "instructions": [
+        "Boil and cool eggs.",
+        "Peel and halve them.",
+        "Mix yolks with mayo, mustard, relish, and salt.",
+        "Pipe or spoon filling back into whites."
+      ],
+      "tags": [
+        "Beginner Friendly",
+        "Party & Hosting",
+        "Holiday"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "rotel-dip",
+      "title": "Rotel Dip",
+      "slug": "rotel-dip",
+      "cuisine": "hosting",
+      "category": "Party & Hosting",
+      "skill_level": "Kid Chef",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "5 min",
+      "cook_time": "15 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Melting cheese",
+        "Rotel tomatoes",
+        "Ground beef or sausage",
+        "Tortilla chips"
+      ],
+      "instructions": [
+        "Brown meat if using.",
+        "Melt cheese with tomatoes.",
+        "Stir everything together.",
+        "Keep warm and serve with chips."
+      ],
+      "tags": [
+        "Party & Hosting",
+        "Quick Meals",
+        "Beginner Friendly"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "party-meatballs",
+      "title": "Party Meatballs",
+      "slug": "party-meatballs",
+      "cuisine": "hosting",
+      "category": "Party & Hosting",
+      "skill_level": "Amateur",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "5 min",
+      "cook_time": "30 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Meatballs",
+        "Chili sauce",
+        "Grape jelly",
+        "Worcestershire",
+        "Parsley"
+      ],
+      "instructions": [
+        "Warm sauce ingredients together.",
+        "Add meatballs.",
+        "Simmer until glossy and hot.",
+        "Serve with toothpicks."
+      ],
+      "tags": [
+        "Party & Hosting",
+        "Holiday",
+        "Meal Prep"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "charcuterie-boards",
+      "title": "Charcuterie Boards",
+      "slug": "charcuterie-boards",
+      "cuisine": "hosting",
+      "category": "Party & Hosting",
+      "skill_level": "Kid Chef",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "20 min",
+      "cook_time": "0 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Cheese",
+        "Crackers",
+        "Fruit",
+        "Nuts",
+        "Pickles",
+        "Jam",
+        "Cured meat"
+      ],
+      "instructions": [
+        "Place bowls and cheeses first.",
+        "Add crackers in small rivers.",
+        "Fill gaps with fruit and nuts.",
+        "Finish with color and height."
+      ],
+      "tags": [
+        "Party & Hosting",
+        "Date Night",
+        "Holiday"
+      ],
+      "cultural_variations": [],
+      "featured": true
+    },
+    {
+      "id": "dessert-charcuterie-board",
+      "title": "Dessert Charcuterie Board",
+      "slug": "dessert-charcuterie-board",
+      "cuisine": "hosting",
+      "category": "Desserts",
+      "skill_level": "Kid Chef",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "25 min",
+      "cook_time": "0 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Cookies",
+        "Chocolate",
+        "Berries",
+        "Marshmallows",
+        "Caramel dip",
+        "Pretzels"
+      ],
+      "instructions": [
+        "Place dips first.",
+        "Group cookies and fruit.",
+        "Add chocolate and salty bites.",
+        "Fill gaps so the board feels abundant."
+      ],
+      "tags": [
+        "Desserts",
+        "Party & Hosting",
+        "Holiday"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "bourbon-praline-bread-pudding",
+      "title": "Bourbon Praline Bread Pudding",
+      "slug": "bourbon-praline-bread-pudding",
+      "cuisine": "southern",
+      "category": "Desserts",
+      "skill_level": "Professional",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "20 min",
+      "cook_time": "55 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "Day-old bread",
+        "Eggs",
+        "Cream",
+        "Brown sugar",
+        "Pecans",
+        "Vanilla",
+        "Bourbon extract"
+      ],
+      "instructions": [
+        "Soak bread in custard.",
+        "Fold in pecans.",
+        "Bake until set and golden.",
+        "Spoon warm praline sauce over the top."
+      ],
+      "tags": [
+        "Desserts",
+        "Southern Comfort",
+        "Holiday"
+      ],
+      "cultural_variations": [],
+      "featured": true
+    },
+    {
+      "id": "blackened-fish",
+      "title": "Blackened Fish",
+      "slug": "blackened-fish",
+      "cuisine": "creole",
+      "category": "Seafood",
+      "skill_level": "Professional",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "10 min",
+      "cook_time": "15 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "White fish fillets",
+        "Blackened seasoning",
+        "Butter",
+        "Lemon",
+        "Rice or vegetables"
+      ],
+      "instructions": [
+        "Pat fish dry.",
+        "Season generously.",
+        "Sear in a hot skillet.",
+        "Finish with lemon and serve right away."
+      ],
+      "tags": [
+        "Seafood",
+        "Quick Meals",
+        "Date Night"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "tuscan-chicken",
+      "title": "Tuscan Chicken",
+      "slug": "tuscan-chicken",
+      "cuisine": "italian",
+      "category": "Date Night",
+      "skill_level": "Amateur",
+      "image_url": "assets/editorial-cooking-hero.jpg",
+      "prep_time": "10 min",
+      "cook_time": "30 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "Chicken cutlets",
+        "Spinach",
+        "Sun-dried tomatoes",
+        "Cream",
+        "Parmesan",
+        "Garlic"
+      ],
+      "instructions": [
+        "Sear chicken.",
+        "Build cream sauce with garlic and tomatoes.",
+        "Add spinach.",
+        "Return chicken and simmer until done."
+      ],
+      "tags": [
+        "Chicken",
+        "Date Night",
+        "Family Dinners"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "garlic-wings",
+      "title": "Garlic Wings",
+      "slug": "garlic-wings",
+      "cuisine": "southern",
+      "category": "Party & Hosting",
+      "skill_level": "Kid Chef",
+      "image_url": "assets/editorial-cooking-hero.jpg",
+      "prep_time": "10 min",
+      "cook_time": "40 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Chicken wings",
+        "Garlic",
+        "Butter",
+        "Parsley",
+        "Lemon pepper",
+        "Salt"
+      ],
+      "instructions": [
+        "Season and bake or air-fry wings.",
+        "Melt butter with garlic.",
+        "Toss wings in garlic butter.",
+        "Finish with parsley."
+      ],
+      "tags": [
+        "Chicken",
+        "Party & Hosting",
+        "Quick Meals"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "pineapple-fried-rice",
+      "title": "Pineapple Fried Rice",
+      "slug": "pineapple-fried-rice",
+      "cuisine": "asian-inspired",
+      "category": "Global Flavors",
+      "skill_level": "Amateur",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "5 min",
+      "cook_time": "20 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Cold rice",
+        "Pineapple",
+        "Eggs",
+        "Peas",
+        "Soy sauce",
+        "Green onion"
+      ],
+      "instructions": [
+        "Scramble eggs.",
+        "Cook vegetables and pineapple.",
+        "Add rice and sauce.",
+        "Fold eggs back in and serve."
+      ],
+      "tags": [
+        "Global Flavors",
+        "Quick Meals",
+        "Vegetarian"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "lamb-bone-broth-soup",
+      "title": "Lamb Bone Broth / Soup Idea",
+      "slug": "lamb-bone-broth-soup-idea",
+      "cuisine": "global",
+      "category": "Meal Prep",
+      "skill_level": "Professional",
+      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "prep_time": "15 min",
+      "cook_time": "2 hr",
+      "difficulty": "Advanced",
+      "ingredients": [
+        "Lamb bones",
+        "Onion",
+        "Carrots",
+        "Celery",
+        "Garlic",
+        "Bay leaf",
+        "Herbs"
+      ],
+      "instructions": [
+        "Roast or brown bones for flavor.",
+        "Simmer with aromatics.",
+        "Strain broth.",
+        "Build soup with vegetables, meat, or noodles."
+      ],
+      "tags": [
+        "Meal Prep",
+        "Global Flavors",
+        "Family Dinners"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "mealdb-braised-beef-chilli",
+      "title": "Braised Beef Chilli",
+      "slug": "braised-beef-chilli",
+      "cuisine": "mexican",
+      "category": "Family Dinners",
+      "skill_level": "Amateur",
+      "image_url": "https://www.themealdb.com/images/media/meals/uuqvwu1504629254.jpg",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "1kg Beef",
+        "3 Onions",
+        "4 cloves Garlic",
+        "Dash Olive oil",
+        "300g Chorizo",
+        "2 tsp Cumin",
+        "2 tsp Allspice",
+        "1 tsp Cloves",
+        "1 large Cinnamon stick",
+        "3 Bay Leaves",
+        "2 tsp dried Oregano",
+        "2 ancho Ancho Chillies",
+        "3 tbsp Balsamic Vinegar",
+        "2 x 400g Plum Tomatoes",
+        "2 tbsp Tomato Ketchup",
+        "2 tbsp Dark Brown Sugar",
+        "2 x 400g tins Borlotti Beans"
+      ],
+      "instructions": [
+        "Preheat the oven to 120C/225F/gas mark 1.",
+        "Take the meat out of the fridge to de-chill.",
+        "Pulse the onions and garlic in a food processor until finely chopped.",
+        "Heat 2 tbsp olive oil in a large casserole and sear the meat on all sides until golden.",
+        "Set to one side and add another small slug of oil to brown the chorizo.",
+        "Remove and add the onion and garlic, spices, herbs and chillies then cook until soft in the chorizo oil.",
+        "Season with salt and pepper and add the vinegar, tomatoes, ketchup and sugar.",
+        "Put all the meat back into the pot with 400ml water (or red wine if you prefer), bring up to a simmer and cook, covered, in the low oven.",
+        "After 2 hours, check the meat and add the beans.",
+        "Cook for a further hour and just before serving, pull the meat apart with a pair of forks."
+      ],
+      "tags": [
+        "Beef",
+        "Imported",
+        "Mexican",
+        "TheMealDB",
+        "mexican"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "mealdb-cajun-spiced-fish-tacos",
+      "title": "Cajun spiced fish tacos",
+      "slug": "cajun-spiced-fish-tacos",
+      "cuisine": "mexican",
+      "category": "Seafood",
+      "skill_level": "Amateur",
+      "image_url": "https://www.themealdb.com/images/media/meals/uvuyxu1503067369.jpg",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "2 tbsp cajun",
+        "1 tsp cayenne pepper",
+        "4 fillets white fish",
+        "1 tsp vegetable oil",
+        "8 flour tortilla",
+        "1 sliced avocado",
+        "2 shredded little gem lettuce",
+        "4 shredded Spring Onions",
+        "1 x 300ml salsa",
+        "1 pot sour cream",
+        "1 lemon",
+        "1 clove finely chopped garlic"
+      ],
+      "instructions": [
+        "Cooking in a cajun spice and cayenne pepper marinade makes this fish super succulent and flavoursome.",
+        "Top with a zesty dressing and serve in a tortilla for a quick, fuss-free main that's delightfully summery.",
+        "On a large plate, mix the cajun spice and cayenne pepper with a little seasoning and use to coat the fish all over.",
+        "Heat a little oil in a frying pan, add in the fish and cook over a medium heat until golden.",
+        "Reduce the heat and continue frying until the fish is cooked through, about 10 minutes.",
+        "Cook in batches if you don’t have enough room in the pan.",
+        "Meanwhile, prepare the dressing by combining all the ingredients with a little seasoning.",
+        "Soften the tortillas by heating in the microwave for 5-10 seconds.",
+        "Pile high with the avocado, lettuce and spring onion, add a spoonful of salsa, top with large flakes of fish and drizzle over the dressing."
+      ],
+      "tags": [
+        "Imported",
+        "Mexican",
+        "Seafood",
+        "TheMealDB",
+        "mexican"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "mealdb-chicken-enchilada-casserole",
+      "title": "Chicken Enchilada Casserole",
+      "slug": "chicken-enchilada-casserole",
+      "cuisine": "mexican",
+      "category": "Family Dinners",
+      "skill_level": "Amateur",
+      "image_url": "https://www.themealdb.com/images/media/meals/qtuwxu1468233098.jpg",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "14 oz jar Enchilada sauce",
+        "3 Cups shredded Monterey Jack cheese",
+        "6 corn tortillas",
+        "2 chicken breasts"
+      ],
+      "instructions": [
+        "Cut each chicken breast in about 3 pieces, so that it cooks faster and put it in a small pot.",
+        "Pour Enchilada sauce over it and cook covered on low to medium heat until chicken is cooked through, about 20 minutes.",
+        "No water is needed, the chicken will cook in the Enchilada sauce.",
+        "Make sure you stir occasionally so that it doesn't stick to the bottom.",
+        "Remove chicken from the pot and shred with two forks.",
+        "Preheat oven to 375 F degrees.",
+        "Start layering the casserole.",
+        "Start with about ¼ cup of the leftover Enchilada sauce over the bottom of a baking dish.",
+        "I used a longer baking dish, so that I can put 2 corn tortillas across.",
+        "Place 2 tortillas on the bottom, top with ⅓ of the chicken and ⅓ of the remaining sauce.",
+        "Sprinkle with ⅓ of the cheese and repeat starting with 2 more tortillas, then chicken, sauce, cheese.",
+        "Repeat with last layer with the remaining ingredients, tortillas, chicken, sauce and cheese."
+      ],
+      "tags": [
+        "Chicken",
+        "Imported",
+        "Mexican",
+        "TheMealDB",
+        "mexican"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "mealdb-brown-stew-chicken",
+      "title": "Brown Stew Chicken",
+      "slug": "brown-stew-chicken",
+      "cuisine": "caribbean",
+      "category": "Family Dinners",
+      "skill_level": "Amateur",
+      "image_url": "https://www.themealdb.com/images/media/meals/sypxpx1515365095.jpg",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "1 whole Chicken",
+        "1 chopped Tomato",
+        "2 chopped Onions",
+        "2 chopped Garlic Clove",
+        "1 chopped Red Pepper",
+        "1 chopped Carrots",
+        "1 Lime",
+        "2 tsp Thyme",
+        "1 tsp Allspice",
+        "2 tbs Soy Sauce",
+        "2 tsp Cornstarch",
+        "2 cups Coconut Milk",
+        "1 tbs Vegetable Oil"
+      ],
+      "instructions": [
+        "Squeeze lime over chicken and rub well.",
+        "Drain off excess lime juice.",
+        "Combine tomato, scallion, onion, garlic, pepper, thyme, pimento and soy sauce in a large bowl with the chicken pieces.",
+        "Cover and marinate at least one hour.",
+        "Heat oil in a dutch pot or large saucepan.",
+        "Shake off the seasonings as you remove each piece of chicken from the marinade.",
+        "Reserve the marinade for sauce.",
+        "Lightly brown the chicken a few pieces at a time in very hot oil.",
+        "Place browned chicken pieces on a plate to rest while you brown the remaining pieces.",
+        "Drain off excess oil and return the chicken to the pan.",
+        "Pour the marinade over the chicken and add the carrots.",
+        "Stir and cook over medium heat for 10 minutes."
+      ],
+      "tags": [
+        "Chicken",
+        "Imported",
+        "Jamaican",
+        "TheMealDB",
+        "caribbean"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "mealdb-callaloo-and-saltfish",
+      "title": "Callaloo and SaltFish",
+      "slug": "callaloo-and-saltfish",
+      "cuisine": "caribbean",
+      "category": "Beginner Basics",
+      "skill_level": "Amateur",
+      "image_url": "https://www.themealdb.com/images/media/meals/73o3vq1765317873.jpg",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "1/2 lb Salt Cod",
+        "4 Bacon",
+        "525g Callaloo",
+        "1 chopped Onion",
+        "2 chopped Spring Onions",
+        "2 cloves minced Garlic",
+        "1 chopped Scotch Bonnet",
+        "2 chopped Plum Tomatoes",
+        "2 sprigs Thyme",
+        "1/4 tsp Black Pepper"
+      ],
+      "instructions": [
+        "Soak salted fish in water overnight.",
+        "Next, heat salted fish in water on stove until water boils.",
+        "You should see a foam on top.",
+        "Remove from heat and drain.",
+        "Set aside and shred salted fish once it cools.",
+        "Cook bacon in skillet over medium heat until crispy.",
+        "Remove bacon from heat and drain the majority of the bacon grease, leaving about 1 tablespoon in the skillet.",
+        "Add yellow onion, green onion, scotch bonnet pepper, and garlic to the skillet and stir.",
+        "Cook for about 2 minutes or until onions soften.",
+        "Add salted fish to skillet and stir.",
+        "Cook for about a minute.",
+        "Next, add callaloo, roma tomatoes, thyme, and black pepper."
+      ],
+      "tags": [
+        "Imported",
+        "Jamaican",
+        "Side",
+        "TheMealDB",
+        "caribbean"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "mealdb-callaloo-jamaican-style",
+      "title": "Callaloo Jamaican Style",
+      "slug": "callaloo-jamaican-style",
+      "cuisine": "caribbean",
+      "category": "Global Flavors",
+      "skill_level": "Amateur",
+      "image_url": "https://www.themealdb.com/images/media/meals/ussyxw1515364536.jpg",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "1  bunch Kale",
+        "2 strips Bacon",
+        "3 cloves Chopped Garlic",
+        "1 medium Onion",
+        "1/2 tsp Paprika",
+        "1 Sprig Thyme",
+        "1 Tomato",
+        "1 Red Pepper",
+        "4 Banana",
+        "Splash Vegetable Oil"
+      ],
+      "instructions": [
+        "Cut leaves and soft stems from the kale branches, them soak in a bowl of cold water for about 5-10 minutes or until finish with prep.",
+        "Proceed to slicing the onions, mincing the garlic and dicing the tomatoes.",
+        "Set aside",
+        "Remove kale from water cut in chunks.",
+        "Place bacon on saucepan and cook until crispy.",
+        "Then add onions, garlic, thyme, stir for about a minute or more",
+        "Add tomatoes; scotch bonnet pepper, smoked paprika.",
+        "Sauté for about 2-3 more minutes.",
+        "Finally add vegetable, salt, mix well, and steamed for about 6-8 minutes or until leaves are tender.",
+        "Add a tiny bit of water as needed.",
+        "Adjust seasonings and turn off the heat.",
+        "Using a sharp knife cut both ends off the plantain."
+      ],
+      "tags": [
+        "Imported",
+        "Jamaican",
+        "Miscellaneous",
+        "TheMealDB",
+        "caribbean"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "mealdb-budino-di-ricotta",
+      "title": "Budino Di Ricotta",
+      "slug": "budino-di-ricotta",
+      "cuisine": "italian",
+      "category": "Desserts",
+      "skill_level": "Amateur",
+      "image_url": "https://www.themealdb.com/images/media/meals/1549542877.jpg",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "500g Ricotta",
+        "4 large Eggs",
+        "3 tbs Flour",
+        "250g Sugar",
+        "1 tsp Cinnamon",
+        "Grated Zest of 2 Lemons",
+        "5 tbs Dark Rum",
+        "sprinking Icing Sugar"
+      ],
+      "instructions": [
+        "Mash the ricotta and beat well with the egg yolks, stir in the flour, sugar, cinnamon, grated lemon rind and the rum and mix well.",
+        "You can do this in a food processor.",
+        "Beat the egg whites until stiff, fold in and pour into a buttered and floured 25cm cake tin.",
+        "Bake in the oven at 180ºC/160ºC fan/gas 4 for about 40 minutes, or until it is firm.",
+        "Serve hot or cold dusted with icing sugar."
+      ],
+      "tags": [
+        "Dessert",
+        "Imported",
+        "Italian",
+        "TheMealDB",
+        "italian"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "mealdb-chicken-alfredo-primavera",
+      "title": "Chicken Alfredo Primavera",
+      "slug": "chicken-alfredo-primavera",
+      "cuisine": "italian",
+      "category": "Family Dinners",
+      "skill_level": "Amateur",
+      "image_url": "https://www.themealdb.com/images/media/meals/syqypv1486981727.jpg",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "2 tablespoons Butter",
+        "3 tablespoons Olive Oil",
+        "5 boneless Chicken",
+        "1 teaspoon Salt",
+        "1 cut into 1/2-inch cubes Squash",
+        "1 Head chopped Broccoli",
+        "8-ounce sliced mushrooms",
+        "1 red Pepper",
+        "1 chopped onion",
+        "3 cloves garlic",
+        "1/2 teaspoon red pepper flakes",
+        "1/2 cup white wine",
+        "1/2 cup milk",
+        "1/2 cup heavy cream",
+        "1 cup grated Parmesan cheese",
+        "16 ounces bowtie pasta",
+        "pinch Salt",
+        "pinch Pepper",
+        "chopped Parsley"
+      ],
+      "instructions": [
+        "Heat 1 tablespoon of butter and 2 tablespoons of olive oil in a large skillet over medium-high heat.",
+        "Season both sides of each chicken breast with seasoned salt and a pinch of pepper.",
+        "Add the chicken to the skillet and cook for 5-7 minutes on each side, or until cooked through.",
+        "While the chicken is cooking, bring a large pot of water to a boil.",
+        "Season the boiling water with a few generous pinches of kosher salt.",
+        "Add the pasta and give it a stir.",
+        "Cook, stirring occasionally, until al dente, about 12 minutes.",
+        "Reserve 1/2 cup of  pasta water before draining the pasta.",
+        "Remove the chicken from the pan and transfer it to a cutting board; allow it to rest.",
+        "Turn the heat down to medium and dd the remaining 1 tablespoon of butter and olive oil to the same pan you used to cook the chicken.",
+        "Add the veggies (minus the garlic) and red pepper flakes to the pan and stir to coat with the oil and butter (refrain from seasoning with salt until the veggies are finished browning).",
+        "Cook, stirring often, until the veggies are tender, about 5 minutes."
+      ],
+      "tags": [
+        "Chicken",
+        "Imported",
+        "Italian",
+        "TheMealDB",
+        "italian"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "mealdb-chilli-prawn-linguine",
+      "title": "Chilli prawn linguine",
+      "slug": "chilli-prawn-linguine",
+      "cuisine": "italian",
+      "category": "Family Dinners",
+      "skill_level": "Amateur",
+      "image_url": "https://www.themealdb.com/images/media/meals/usywpp1511189717.jpg",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "280g Linguine Pasta",
+        "200g Sugar Snap Peas",
+        "2 tblsp Olive Oil",
+        "2 cloves chopped Garlic Clove",
+        "1 large Red Chilli",
+        "24 Skinned King Prawns",
+        "12 Cherry Tomatoes",
+        "Handful Basil Leaves",
+        "Leaves Lettuce",
+        "to serve Bread",
+        "2 tbsp Fromage Frais",
+        "Grated Zest of 2 Lime",
+        "2 tsp Caster Sugar"
+      ],
+      "instructions": [
+        "Mix the dressing ingredients in a small bowl and season with salt and pepper.",
+        "Set aside.",
+        "Cook the pasta according to the packet instructions.",
+        "Add the sugar snap peas for the last minute or so of cooking time.",
+        "Meanwhile, heat the oil in a wok or large frying pan, toss in the garlic and chilli and cook over a fairly gentle heat for about 30 seconds without letting the garlic brown.",
+        "Tip in the prawns and cook over a high heat, stirring frequently, for about 3 minutes until they turn pink.",
+        "Add the tomatoes and cook, stirring occasionally, for 3 minutes until they just start to soften.",
+        "Drain the pasta and sugar snaps well, then toss into the prawn mixture.",
+        "Tear in the basil leaves, stir, and season with salt and pepper.",
+        "Serve with salad leaves drizzled with the lime dressing, and warm crusty bread."
+      ],
+      "tags": [
+        "Imported",
+        "Italian",
+        "Pasta",
+        "TheMealDB",
+        "italian"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "mealdb-chicken-quinoa-greek-salad",
+      "title": "Chicken Quinoa Greek Salad",
+      "slug": "chicken-quinoa-greek-salad",
+      "cuisine": "mediterranean",
+      "category": "Family Dinners",
+      "skill_level": "Amateur",
+      "image_url": "https://www.themealdb.com/images/media/meals/k29viq1585565980.jpg",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "225g Quinoa",
+        "25g Butter",
+        "1 chopped Red Chilli",
+        "1 clove finely chopped Garlic",
+        "400g Chicken Breast",
+        "2 tbs Olive Oil",
+        "Handful Black Olives",
+        "1 chopped Red Onions",
+        "100g Feta",
+        "Chopped Mint",
+        "Juice of 1/2 Lemon"
+      ],
+      "instructions": [
+        "Cook the quinoa following the pack instructions, then rinse in cold water and drain thoroughly.",
+        "Meanwhile, mix the butter, chilli and garlic into a paste.",
+        "Toss the chicken fillets in 2 tsp of the olive oil with some seasoning.",
+        "Lay in a hot griddle pan and cook for 3-4 mins each side or until cooked through.",
+        "Transfer to a plate, dot with the spicy butter and set aside to melt.",
+        "Next, tip the tomatoes, olives, onion, feta and mint into a bowl.",
+        "Toss in the cooked quinoa.",
+        "Stir through the remaining olive oil, lemon juice and zest, and season well.",
+        "Serve with the chicken fillets on top, drizzled with any buttery chicken juices."
+      ],
+      "tags": [
+        "Chicken",
+        "Greek",
+        "Imported",
+        "TheMealDB",
+        "mediterranean"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "mealdb-garides-saganaki",
+      "title": "Garides Saganaki",
+      "slug": "garides-saganaki",
+      "cuisine": "mediterranean",
+      "category": "Seafood",
+      "skill_level": "Amateur",
+      "image_url": "https://www.themealdb.com/images/media/meals/wuvryu1468232995.jpg",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "500g Raw king prawns",
+        "3 tablespoons Olive oil",
+        "1 Chopped onion",
+        "pinch Freshly chopped parsley",
+        "250ml White wine",
+        "1 (400g) tin Chopped tomatoes",
+        "1/2 teaspoon Minced garlic",
+        "1 (200g) pack Cubed Feta cheese"
+      ],
+      "instructions": [
+        "Place the prawns in a pot and add enough water to cover.",
+        "Boil for 5 minutes.",
+        "Drain, reserving the liquid, and set aside.",
+        "Heat 2 tablespoons of oil in a saucepan.",
+        "Add the onion; cook and stir until soft.",
+        "Mix in the parsley, wine, tomatoes, garlic and remaining olive oil.",
+        "Simmer, stirring occasionally, for about 30 minutes, or until the sauce is thickened.",
+        "While the sauce is simmering, the prawns should become cool enough to handle.",
+        "First remove the legs by pinching them, and then pull off the shells, leaving the head and tail on.",
+        "When the sauce has thickened, stir in the prawns.",
+        "Bring to a simmer again if the sauce has cooled with the prawns, and cook for about 5 minutes.",
+        "Add the feta and remove from the heat."
+      ],
+      "tags": [
+        "Greek",
+        "Imported",
+        "Seafood",
+        "TheMealDB",
+        "mediterranean"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "mealdb-gigantes-plaki",
+      "title": "Gigantes Plaki",
+      "slug": "gigantes-plaki",
+      "cuisine": "mediterranean",
+      "category": "Vegetarian",
+      "skill_level": "Amateur",
+      "image_url": "https://www.themealdb.com/images/media/meals/b79r6f1585566277.jpg",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "400g Butter Beans",
+        "3 tbs Olive Oil",
+        "1 chopped Onion",
+        "2 chopped Garlic Clove",
+        "2 tbs Tomato Puree",
+        "800g Tomatoes",
+        "1 tbs Sugar",
+        "1 tbs Dried Oregano",
+        "Pinch Cinnamon",
+        "2 tbs Chopped Parsley"
+      ],
+      "instructions": [
+        "Soak the beans overnight in plenty of water.",
+        "Drain, rinse, then place in a pan covered with water.",
+        "Bring to the boil, reduce the heat, then simmer for approx 50 mins until slightly tender but not soft.",
+        "Drain, then set aside.",
+        "Heat oven to 180C/160C fan/gas 4.",
+        "Heat the olive oil in a large frying pan, tip in the onion and garlic, then cook over a medium heat for 10 mins until softened but not browned.",
+        "Add the tomato purée, cook for a further min, add remaining ingredients, then simmer for 2-3 mins.",
+        "Season generously, then stir in the beans.",
+        "Tip into a large ovenproof dish, then bake for approximately 1 hr, uncovered and without stirring, until the beans are tender.",
+        "The beans will absorb all the fabulous flavours and the sauce will thicken.",
+        "Allow to cool, then scatter with parsley and drizzle with a little more olive oil to serve."
+      ],
+      "tags": [
+        "Greek",
+        "Imported",
+        "TheMealDB",
+        "Vegetarian",
+        "mediterranean"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "mealdb-air-fryer-egg-rolls",
+      "title": "Air Fryer Egg Rolls",
+      "slug": "air-fryer-egg-rolls",
+      "cuisine": "asian-inspired",
+      "category": "Beginner Basics",
+      "skill_level": "Amateur",
+      "image_url": "https://www.themealdb.com/images/media/meals/grhn401765687086.jpg",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "1 tablespoon Olive Oil",
+        "1 lb Ground Pork",
+        "1 clove peeled crushed Garlic",
+        "1 tablespoon Ginger",
+        "1 medium Carrots",
+        "3 chopped Scallions",
+        "3 Cups Cabbage",
+        "1 tablespoon Soy Sauce",
+        "1 tablespoon Rice Vinegar",
+        "12 Egg Roll Wrappers",
+        "For brushing Oil",
+        "To serve Duck Sauce",
+        "To serve Plum Sauce",
+        "To serve Soy Sauce"
+      ],
+      "instructions": [
+        "Alternative Pan Fry Method: If you don’t have access to an air fryer, you can make these egg rolls using a traditional pan fry method.",
+        "Add enough oil to a medium skillet with high walls so the oil is about 1/2 inch up the side of the skillet.",
+        "Heat oil on medium high heat until it reaches 350°F.",
+        "Add egg rolls and fry for 3 to 4 minutes, flip, and fry for another 3 to 4 minutes until golden brown.",
+        "Remove and let them drain and cool on a few paper towels.",
+        "Cook the filling:",
+        "In a large skillet over medium heat, add the olive oil along with the ground pork or chicken.",
+        "Break apart the meat with a spatula or wooden spoon as it cooks.",
+        "Cook until the meat is cooked through, 6 to 8 minutes.",
+        "Add garlic, ginger, carrot, scallions, and cabbage.",
+        "Continue to cook until cabbage wilts down and is soft, another 3 to 4 minutes, stirring regularly.",
+        "Season the filling with soy sauce and rice wine vinegar, and take off the heat to cool. (This filling can be made in advance.)"
+      ],
+      "tags": [
+        "Chinese",
+        "Imported",
+        "Side",
+        "TheMealDB",
+        "asian-inspired"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "mealdb-beef-and-broccoli-stir-fry",
+      "title": "Beef and Broccoli Stir-Fry",
+      "slug": "beef-and-broccoli-stir-fry",
+      "cuisine": "asian-inspired",
+      "category": "Family Dinners",
+      "skill_level": "Amateur",
+      "image_url": "https://www.themealdb.com/images/media/meals/m0p0j81765568742.jpg",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "1 tsp Soy Sauce",
+        "1 tsp Dry sherry",
+        "1/2 tsp Cornstarch",
+        "1/8 teaspoon Black Pepper",
+        "1 lb Sirloin steak",
+        "2 tablespoons Oyster Sauce",
+        "1 tsp Dry sherry",
+        "1 tablespoon Soy Sauce",
+        "1/4 cup Chicken Stock",
+        "1 lb Broccoli",
+        "2 tablespoons High Heat Cooking Oil",
+        "2 cloves minced Garlic",
+        "1 tsp Cornstarch",
+        "1 tablespoon Water"
+      ],
+      "instructions": [
+        "Marinate the beef:",
+        "Stir together the beef marinade ingredients (1 teaspoon soy sauce, 1 teaspoon Chinese rice wine, 1/2 teaspoon cornstarch, 1/8 teaspoon black pepper) in a medium bowl.",
+        "Add the beef slices and stir until coated.",
+        "Let stand for 10 minutes.",
+        "Prepare the sauce:",
+        "Stir together the sauce ingredients (2 tablespoons oyster sauce, 1 teaspoon Chinese rice wine, 1 teaspoon soy sauce, 1/4 cup chicken broth) in a small bowl.",
+        "Set aside.",
+        "Blanch or steam the broccoli:",
+        "Bring a pot of water to a boil.",
+        "Add the broccoli and cook until crisp-tender, about 2 minutes.",
+        "Drain thoroughly.",
+        "Stir-fry the beef:"
+      ],
+      "tags": [
+        "Beef",
+        "Chinese",
+        "Imported",
+        "TheMealDB",
+        "asian-inspired"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "mealdb-beef-lo-mein",
+      "title": "Beef Lo Mein",
+      "slug": "beef-lo-mein",
+      "cuisine": "asian-inspired",
+      "category": "Family Dinners",
+      "skill_level": "Amateur",
+      "image_url": "https://www.themealdb.com/images/media/meals/1529444830.jpg",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "1/2 lb Beef",
+        "pinch Salt",
+        "pinch Pepper",
+        "2 tsp Sesame Seed Oil",
+        "1/2 Egg",
+        "3 tbs Starch",
+        "5 tbs Oil",
+        "1/4 lb Noodles",
+        "1/2 cup Onion",
+        "1 tsp Minced Garlic",
+        "1 tsp Ginger",
+        "1 cup Bean Sprouts",
+        "1 cup Mushrooms",
+        "1 cup Water",
+        "1 tbs Oyster Sauce",
+        "1 tsp Sugar",
+        "1 tsp Soy Sauce"
+      ],
+      "instructions": [
+        "STEP 1 - MARINATING THE BEEF",
+        "In a bowl, add the beef, salt, 1 pinch white pepper, 1 Teaspoon sesame seed oil, 1/2 egg, corn starch,1 Tablespoon of oil and mix together.",
+        "STEP 2 - BOILING THE THE NOODLES",
+        "In a 6 qt pot add your noodles to boiling water until the noodles are submerged and boil on high heat for 10 seconds.",
+        "After your noodles is done boiling strain and cool with cold water.",
+        "STEP 3 - STIR FRY",
+        "Add 2 Tablespoons of oil, beef and cook on high heat untill beef is medium cooked.",
+        "Set the cooked beef aside",
+        "In a wok add 2 Tablespoon of oil, onions, minced garlic, minced ginger, bean sprouts, mushrooms, peapods and 1.5 cups of water or until the vegetables are submerged in water.",
+        "Add the noodles to wok",
+        "To make the sauce, add oyster sauce, 1 pinch white pepper, 1 teaspoon sesame seed oil, sugar, and 1 Teaspoon of soy sauce.",
+        "Next add the beef to wok and stir-fry"
+      ],
+      "tags": [
+        "Beef",
+        "Chinese",
+        "Imported",
+        "TheMealDB",
+        "asian-inspired"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "mealdb-chicken-karaage",
+      "title": "Chicken Karaage",
+      "slug": "chicken-karaage",
+      "cuisine": "asian-inspired",
+      "category": "Family Dinners",
+      "skill_level": "Amateur",
+      "image_url": "https://www.themealdb.com/images/media/meals/tyywsw1505930373.jpg",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "450 grams Boneless skin Chicken",
+        "1 tablespoon Ginger",
+        "1 clove Garlic",
+        "2 tablespoons Soy sauce",
+        "1 tablespoon Sake",
+        "2 teaspoon Granulated sugar",
+        "1/3 cup Potato starch",
+        "1/3 cup Vegetable oil",
+        "1/3 cup Lemon"
+      ],
+      "instructions": [
+        "Add the ginger, garlic, soy sauce, sake and sugar to a bowl and whisk to combine.",
+        "Add the chicken, then stir to coat evenly.",
+        "Cover and refrigerate for at least 1 hour.",
+        "Add 1 inch of vegetable oil to a heavy bottomed pot and heat until the oil reaches 360 degrees F.",
+        "Line a wire rack with 2 sheets of paper towels and get your tongs out.",
+        "Put the potato starch in a bowl",
+        "Add a handful of chicken to the potato starch and toss to coat each piece evenly.",
+        "Fry the karaage in batches until the exterior is a medium brown and the chicken is cooked through.",
+        "Transfer the fried chicken to the paper towel lined rack.",
+        "If you want the karaage to stay crispy longer, you can fry the chicken a second time, until it's a darker color after it's cooled off once.",
+        "Serve with lemon wedges."
+      ],
+      "tags": [
+        "Chicken",
+        "Imported",
+        "Japanese",
+        "TheMealDB",
+        "asian-inspired"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "mealdb-honey-teriyaki-salmon",
+      "title": "Honey Teriyaki Salmon",
+      "slug": "honey-teriyaki-salmon",
+      "cuisine": "asian-inspired",
+      "category": "Seafood",
+      "skill_level": "Amateur",
+      "image_url": "https://www.themealdb.com/images/media/meals/xxyupu1468262513.jpg",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "1 lb Salmon",
+        "1 tablespoon Olive oil",
+        "2 tablespoons Soy Sauce",
+        "2 tablespoons Sake",
+        "4 tablespoons Sesame Seed"
+      ],
+      "instructions": [
+        "Mix all the ingredients in the Honey Teriyaki Glaze together.",
+        "Whisk to blend well.",
+        "Combine the salmon and the Glaze together.",
+        "Heat up a skillet on medium-low heat.",
+        "Add the oil, Pan-fry the salmon on both sides until it’s completely cooked inside and the glaze thickens.",
+        "Garnish with sesame and serve immediately."
+      ],
+      "tags": [
+        "Imported",
+        "Japanese",
+        "Seafood",
+        "TheMealDB",
+        "asian-inspired"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "mealdb-japanese-gohan-rice",
+      "title": "Japanese gohan rice",
+      "slug": "japanese-gohan-rice",
+      "cuisine": "asian-inspired",
+      "category": "Beginner Basics",
+      "skill_level": "Amateur",
+      "image_url": "https://www.themealdb.com/images/media/meals/kw92t41604181871.jpg",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "300g Sushi Rice",
+        "1 tbs Mirin",
+        "Garnish Pickle Juice",
+        "Garnish Spring Onions"
+      ],
+      "instructions": [
+        "STEP 1",
+        "Rinsing and soaking your rice is key to achieving the perfect texture.",
+        "Measure the rice into a bowl, cover with cold water, then use your fingers to massage the grains of rice – the water will become cloudy.",
+        "Drain and rinse again with fresh water.",
+        "Repeat five more times until the water stays clear.",
+        "STEP 2",
+        "Tip the rinsed rice into a saucepan with 400ml water, or 200ml dashi and 200ml water, bring to the boil, then turn down the heat to a low simmer, cover with a tight-fitting lid with a steam hole and cook for 15 mins.",
+        "Remove from the heat and leave to sit for another 15 mins, then stir through the mirin.",
+        "Remove the lid and give it a good stir.",
+        "Serve with any or all of the optional toppings."
+      ],
+      "tags": [
+        "Imported",
+        "Japanese",
+        "Side",
+        "TheMealDB",
+        "asian-inspired"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "mealdb-drunken-noodles-pad-kee-mao",
+      "title": "Drunken noodles (pad kee mao)",
+      "slug": "drunken-noodles-pad-kee-mao",
+      "cuisine": "asian-inspired",
+      "category": "Family Dinners",
+      "skill_level": "Amateur",
+      "image_url": "https://www.themealdb.com/images/media/meals/2wx8cm1763373419.jpg",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "200g Flat Rice Noodles",
+        "2 tblsp Vegetable Oil",
+        "3 cloves Chopped Garlic",
+        "3 chopped Birds-eye Chillies",
+        "225g Sirloin steak",
+        "100g Broccoli",
+        "Handful Basil Leaves",
+        "4 tbsp Soy Sauce",
+        "4 tbsp Oyster Sauce",
+        "1 teaspoon Fish Sauce",
+        "1 tblsp Sugar"
+      ],
+      "instructions": [
+        "step 1",
+        "Prepare the noodles following pack instructions, then drain and set aside.",
+        "Combine all the ingredients for the sauce in a small bowl or jug, and set aside.",
+        "step 2",
+        "Heat the oil in a large wok or frying pan over a high heat and stir-fry the garlic and chilli for 20 seconds until just starting to turn golden.",
+        "Add the steak and stir-fry for 1 minute until seared and starting to brown.",
+        "Add the broccoli and stir-fry for another minute, then tip in the noodles and add the sauce.",
+        "Stir-fry for another 1-2 mins until well combined and piping hot.",
+        "step 3",
+        "Stir through the basil and turn off the heat.",
+        "Serve immediately to avoid overcooking."
+      ],
+      "tags": [
+        "Beef",
+        "Imported",
+        "Thai",
+        "TheMealDB",
+        "asian-inspired"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "mealdb-lemongrass-beef-stew-with-noodles",
+      "title": "Lemongrass beef stew with noodles",
+      "slug": "lemongrass-beef-stew-with-noodles",
+      "cuisine": "asian-inspired",
+      "category": "Family Dinners",
+      "skill_level": "Amateur",
+      "image_url": "https://www.themealdb.com/images/media/meals/ntafxw1763586291.jpg",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "1 tablespoon chopped Ginger",
+        "2 chopped Garlic Clove",
+        "3 Lemongrass Stalks",
+        "2 tblsp Coriander Leaves",
+        "2 sliced Red Chilli",
+        "2 tblsp Vegetable Oil",
+        "250g Beef",
+        "2 tblsp Soy Sauce",
+        "1 tsp Five Spice Powder",
+        "1 tsp Brown Sugar",
+        "400ml Beef Stock",
+        "100g Rice Noodles",
+        "To serve Lime"
+      ],
+      "instructions": [
+        "step 1",
+        "Put the ginger, garlic, lemongrass, coriander and 1 chilli in a food processor, then pulse until puréed.",
+        "Heat the oil in a pan over a low heat.",
+        "Add the purée and cook for 5 mins.",
+        "Stir in the beef, soy, five-spice, sugar and stock.",
+        "Put on a lid and bring to the boil, then lower heat and simmer for 1 hr 15 mins.",
+        "Remove the lid and cook for a further 15 mins until the beef is tender.",
+        "step 2",
+        "Just before serving, prepare noodles following pack instructions.",
+        "Drain well, then divide between 2 bowls and spoon over the beef stew.",
+        "Serve sprinkled with the remaining chilli and coriander leaves, with lime wedges for squeezing over."
+      ],
+      "tags": [
+        "Beef",
+        "Imported",
+        "Thai",
+        "TheMealDB",
+        "asian-inspired"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "mealdb-massaman-beef-curry",
+      "title": "Massaman Beef curry",
+      "slug": "massaman-beef-curry",
+      "cuisine": "asian-inspired",
+      "category": "Family Dinners",
+      "skill_level": "Amateur",
+      "image_url": "https://www.themealdb.com/images/media/meals/tvttqv1504640475.jpg",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "85g Peanuts",
+        "400ml can Coconut cream",
+        "4 tbsp Massaman curry paste",
+        "600g stewing cut into strips Beef",
+        "450g waxy Potatoes",
+        "1 cut thin wedges Onion",
+        "4 leaves Lime",
+        "1 Cinnamon stick",
+        "1 tbsp Tamarind paste",
+        "1 tbsp palm or soft light Brown sugar",
+        "1 tbsp Fish Sauce",
+        "1 red deseeded and finely sliced, to serve chilli",
+        "to serve Jasmine Rice"
+      ],
+      "instructions": [
+        "Heat oven to 200C/180C fan/gas 6, then roast the peanuts on a baking tray for 5 mins until golden brown.",
+        "When cool enough to handle, roughly chop.",
+        "Reduce oven to 180C/160C fan/gas 4.",
+        "Heat 2 tbsp coconut cream in a large casserole dish with a lid.",
+        "Add the curry paste and fry for 1 min, then stir in the beef and fry until well coated and sealed.",
+        "Stir in the rest of the coconut with half a can of water, the potatoes, onion, lime leaves, cinnamon, tamarind, sugar, fish sauce and most of the peanuts.",
+        "Bring to a simmer, then cover and cook for 2 hrs in the oven until the beef is tender.",
+        "Sprinkle with sliced chilli and the remaining peanuts, then serve straight from the dish with jasmine rice."
+      ],
+      "tags": [
+        "Beef",
+        "Imported",
+        "Thai",
+        "TheMealDB",
+        "asian-inspired"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "shrimp-and-grits",
+      "title": "Shrimp and Grits with Green Beans",
+      "slug": "shrimp-and-grits-with-green-beans",
+      "cuisine": "southern",
+      "category": "Southern Comfort",
+      "skill_level": "Amateur",
+      "image_url": "assets/editorial-cooking-hero.jpg",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Shrimp",
+        "Stone-ground grits",
+        "Green beans",
+        "Chicken stock",
+        "Butter",
+        "Bell pepper",
+        "Garlic",
+        "Lemon"
+      ],
+      "instructions": [
+        "Cook grits low and slow with stock.",
+        "Saute peppers, garlic, and green beans.",
+        "Cook shrimp until just pink.",
+        "Spoon shrimp and vegetables over creamy grits."
+      ],
+      "tags": [
+        "Southern Comfort",
+        "southern"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "cajun-cream-pasta",
+      "title": "Cajun Cream Salmon Rotini Pasta",
+      "slug": "cajun-cream-salmon-rotini-pasta",
+      "cuisine": "creole",
+      "category": "Quick Weeknight Meals",
+      "skill_level": "Amateur",
+      "image_url": "assets/editorial-cajun-pasta.jpg",
+      "prep_time": "15 min",
+      "cook_time": "30 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Rotini pasta",
+        "Salmon",
+        "Cajun seasoning",
+        "Cream",
+        "Parmesan",
+        "Bell pepper"
+      ],
+      "instructions": [
+        "Boil rotini in salted water.",
+        "Sear salmon with Cajun seasoning.",
+        "Add pepper, cream, and parmesan.",
+        "Toss pasta with sauce and flaked salmon."
+      ],
+      "tags": [
+        "Quick Weeknight Meals",
+        "creole"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "general-tso-chicken",
+      "title": "General Tso-Style Chicken",
+      "slug": "general-tso-style-chicken",
+      "cuisine": "asian-inspired",
+      "category": "Global Flavors",
+      "skill_level": "Amateur",
+      "image_url": "assets/editorial-cooking-hero.jpg",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "Chicken thighs",
+        "Cornstarch",
+        "Soy sauce",
+        "Rice vinegar",
+        "Brown sugar",
+        "Garlic",
+        "Chili flakes"
+      ],
+      "instructions": [
+        "Coat chicken with cornstarch.",
+        "Cook until crisp.",
+        "Simmer sauce until glossy.",
+        "Toss chicken in sauce and serve with rice."
+      ],
+      "tags": [
+        "Global Flavors",
+        "asian-inspired"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "tandoori-chicken",
+      "title": "Tandoori-Style Chicken",
+      "slug": "tandoori-style-chicken",
+      "cuisine": "indian",
+      "category": "Global Flavors",
+      "skill_level": "Amateur",
+      "image_url": "assets/tandoori-chicken.jpeg",
+      "prep_time": "20 min",
+      "cook_time": "35 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "Chicken thighs",
+        "Plain yogurt",
+        "Lemon juice",
+        "Garlic",
+        "Ginger",
+        "Garam masala",
+        "Paprika",
+        "Turmeric"
+      ],
+      "instructions": [
+        "Mix yogurt, lemon, garlic, ginger, and spices.",
+        "Coat chicken and marinate at least 30 minutes.",
+        "Roast or grill until charred at the edges and cooked through.",
+        "Rest before serving with rice, naan, and cucumber salad."
+      ],
+      "tags": [
+        "chicken",
+        "spices",
+        "yogurt marinade",
+        "naan"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "butter-chicken",
+      "title": "Butter Chicken",
+      "slug": "butter-chicken",
+      "cuisine": "indian",
+      "category": "Family Dinners",
+      "skill_level": "Amateur",
+      "image_url": "assets/indian-food.jpeg",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "Chicken",
+        "Tomato puree",
+        "Cream",
+        "Butter",
+        "Garam masala",
+        "Garlic",
+        "Ginger"
+      ],
+      "instructions": [
+        "Season and brown chicken.",
+        "Cook garlic, ginger, tomato, and spices.",
+        "Simmer chicken in the sauce.",
+        "Finish with cream and butter."
+      ],
+      "tags": [
+        "chicken",
+        "curry",
+        "tomato",
+        "cream"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "chicken-tikka-masala",
+      "title": "Chicken Tikka Masala",
+      "slug": "chicken-tikka-masala",
+      "cuisine": "indian",
+      "category": "Global Flavors",
+      "skill_level": "Amateur",
+      "image_url": "assets/tandoori-chicken.jpeg",
+      "prep_time": "20 min",
+      "cook_time": "30 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "Chicken",
+        "Yogurt",
+        "Tomato sauce",
+        "Cream",
+        "Garam masala",
+        "Cumin",
+        "Coriander"
+      ],
+      "instructions": [
+        "Marinate chicken with yogurt and spices.",
+        "Sear or broil the chicken.",
+        "Build a tomato spice sauce.",
+        "Simmer together and finish with cream."
+      ],
+      "tags": [
+        "chicken",
+        "masala",
+        "curry",
+        "rice"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "biryani",
+      "title": "Beginner Chicken Biryani",
+      "slug": "beginner-chicken-biryani",
+      "cuisine": "indian",
+      "category": "Family Dinners",
+      "skill_level": "Professional",
+      "image_url": "assets/indian-food.jpeg",
+      "prep_time": "25 min",
+      "cook_time": "45 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "Basmati rice",
+        "Chicken",
+        "Onion",
+        "Yogurt",
+        "Garam masala",
+        "Cilantro",
+        "Mint"
+      ],
+      "instructions": [
+        "Par-cook rice until just tender.",
+        "Cook spiced chicken and onions.",
+        "Layer rice, chicken, herbs, and a splash of water.",
+        "Steam covered until fragrant."
+      ],
+      "tags": [
+        "rice",
+        "chicken",
+        "spices",
+        "family dinner"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "palak-paneer",
+      "title": "Palak Paneer",
+      "slug": "palak-paneer",
+      "cuisine": "indian",
+      "category": "Vegetarian",
+      "skill_level": "Amateur",
+      "image_url": "assets/indian-food.jpeg",
+      "prep_time": "15 min",
+      "cook_time": "25 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Spinach",
+        "Paneer",
+        "Onion",
+        "Garlic",
+        "Ginger",
+        "Cumin",
+        "Cream"
+      ],
+      "instructions": [
+        "Wilt spinach and blend until smooth.",
+        "Cook onion, garlic, ginger, and spices.",
+        "Add spinach sauce and paneer.",
+        "Simmer gently and finish with cream."
+      ],
+      "tags": [
+        "vegetarian",
+        "spinach",
+        "paneer",
+        "curry"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "chana-masala",
+      "title": "Chana Masala",
+      "slug": "chana-masala",
+      "cuisine": "indian",
+      "category": "Vegetarian",
+      "skill_level": "Kid Chef",
+      "image_url": "assets/indian-food.jpeg",
+      "prep_time": "10 min",
+      "cook_time": "25 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Chickpeas",
+        "Tomatoes",
+        "Onion",
+        "Garlic",
+        "Cumin",
+        "Coriander",
+        "Lemon"
+      ],
+      "instructions": [
+        "Cook onion and garlic until soft.",
+        "Add spices and tomatoes.",
+        "Simmer chickpeas in the sauce.",
+        "Finish with lemon and herbs."
+      ],
+      "tags": [
+        "vegetarian",
+        "chickpeas",
+        "curry",
+        "quick"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "garlic-naan",
+      "title": "Garlic Naan",
+      "slug": "garlic-naan",
+      "cuisine": "indian",
+      "category": "Beginner Basics",
+      "skill_level": "Kid Chef",
+      "image_url": "assets/fresh-bread.jpeg",
+      "prep_time": "20 min",
+      "cook_time": "10 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Flour",
+        "Yogurt",
+        "Baking powder",
+        "Salt",
+        "Garlic",
+        "Butter",
+        "Cilantro"
+      ],
+      "instructions": [
+        "Mix a soft dough.",
+        "Rest briefly and divide.",
+        "Cook in a hot skillet.",
+        "Brush with garlic butter."
+      ],
+      "tags": [
+        "bread",
+        "naan",
+        "garlic",
+        "basics"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "fried-chicken",
+      "title": "Southern Fried Chicken",
+      "slug": "southern-fried-chicken",
+      "cuisine": "southern",
+      "category": "Southern Comfort",
+      "skill_level": "Professional",
+      "image_url": "assets/beautiful-chicken.jpeg",
+      "prep_time": "20 min",
+      "cook_time": "25 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "Chicken pieces",
+        "Buttermilk",
+        "Hot sauce",
+        "Flour",
+        "Seasoning salt",
+        "Paprika",
+        "Oil"
+      ],
+      "instructions": [
+        "Soak chicken in seasoned buttermilk.",
+        "Dredge in seasoned flour.",
+        "Fry at steady heat until golden.",
+        "Rest on a rack before serving."
+      ],
+      "tags": [
+        "chicken",
+        "soul food",
+        "cast iron",
+        "fried"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "mac-and-cheese",
+      "title": "Baked Mac and Cheese",
+      "slug": "baked-mac-and-cheese",
+      "cuisine": "southern",
+      "category": "Southern Comfort",
+      "skill_level": "Amateur",
+      "image_url": "assets/american-food.jpeg",
+      "prep_time": "15 min",
+      "cook_time": "35 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Macaroni",
+        "Cheddar",
+        "Evaporated milk",
+        "Eggs",
+        "Butter",
+        "Seasoning"
+      ],
+      "instructions": [
+        "Boil pasta just shy of tender.",
+        "Mix cheese custard.",
+        "Fold pasta and cheese together.",
+        "Bake until bubbly and golden."
+      ],
+      "tags": [
+        "cheese",
+        "side dish",
+        "holiday",
+        "soul food"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "collard-greens",
+      "title": "Collard Greens",
+      "slug": "collard-greens",
+      "cuisine": "southern",
+      "category": "Beginner Basics",
+      "skill_level": "Amateur",
+      "image_url": "assets/ingredients.jpeg",
+      "prep_time": "20 min",
+      "cook_time": "1 hr 30 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Collard greens",
+        "Smoked turkey",
+        "Onion",
+        "Garlic",
+        "Chicken stock",
+        "Vinegar",
+        "Pepper flakes"
+      ],
+      "instructions": [
+        "Wash and chop greens.",
+        "Simmer smoked turkey with aromatics.",
+        "Add greens and stock.",
+        "Cook until tender and season to taste."
+      ],
+      "tags": [
+        "greens",
+        "soul food",
+        "side dish",
+        "slow cooking"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "cornbread",
+      "title": "Skillet Cornbread",
+      "slug": "skillet-cornbread",
+      "cuisine": "southern",
+      "category": "Beginner Basics",
+      "skill_level": "Kid Chef",
+      "image_url": "assets/fresh-bread.jpeg",
+      "prep_time": "10 min",
+      "cook_time": "20 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Cornmeal",
+        "Flour",
+        "Buttermilk",
+        "Egg",
+        "Butter",
+        "Baking powder",
+        "Salt"
+      ],
+      "instructions": [
+        "Heat skillet with butter.",
+        "Mix wet and dry ingredients.",
+        "Pour batter into hot skillet.",
+        "Bake until golden."
+      ],
+      "tags": [
+        "cornbread",
+        "cast iron",
+        "bread",
+        "soul food"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "smothered-pork-chops",
+      "title": "Smothered Pork Chops",
+      "slug": "smothered-pork-chops",
+      "cuisine": "southern",
+      "category": "Family Dinners",
+      "skill_level": "Professional",
+      "image_url": "assets/american-food.jpeg",
+      "prep_time": "15 min",
+      "cook_time": "40 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "Pork chops",
+        "Onion",
+        "Flour",
+        "Chicken stock",
+        "Garlic",
+        "Seasoning",
+        "Oil"
+      ],
+      "instructions": [
+        "Season and sear pork chops.",
+        "Cook onions in the same pan.",
+        "Build a light gravy.",
+        "Return chops and simmer until tender."
+      ],
+      "tags": [
+        "gravy",
+        "pork",
+        "soul food",
+        "skillet"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "fried-catfish",
+      "title": "Fried Catfish",
+      "slug": "fried-catfish",
+      "cuisine": "southern",
+      "category": "Seafood",
+      "skill_level": "Amateur",
+      "image_url": "assets/american-food.jpeg",
+      "prep_time": "15 min",
+      "cook_time": "15 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Catfish fillets",
+        "Cornmeal",
+        "Flour",
+        "Cajun seasoning",
+        "Egg",
+        "Milk",
+        "Oil"
+      ],
+      "instructions": [
+        "Season fish.",
+        "Dip in egg wash.",
+        "Coat with cornmeal mix.",
+        "Fry until crisp and flaky."
+      ],
+      "tags": [
+        "seafood",
+        "fish fry",
+        "cornmeal",
+        "soul food"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "chicken-street-tacos",
+      "title": "Chicken Street Tacos",
+      "slug": "chicken-street-tacos",
+      "cuisine": "mexican",
+      "category": "Family Dinners",
+      "skill_level": "Amateur",
+      "image_url": "assets/american-food.jpeg",
+      "prep_time": "12 min",
+      "cook_time": "18 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Chicken thighs or breast",
+        "Corn tortillas",
+        "Onion",
+        "Cilantro",
+        "Lime",
+        "Cumin",
+        "Chili powder",
+        "Salsa"
+      ],
+      "instructions": [
+        "Season chicken with cumin, chili powder, salt, and lime.",
+        "Cook chicken in a hot skillet until browned and cooked through.",
+        "Rest chicken, then chop into bite-size pieces.",
+        "Warm tortillas until soft.",
+        "Fill tortillas with chicken, onion, cilantro, salsa, and lime."
+      ],
+      "tags": [
+        "tacos",
+        "chicken",
+        "lime",
+        "weeknight"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "cheese-quesadillas",
+      "title": "Cheese Quesadillas",
+      "slug": "cheese-quesadillas",
+      "cuisine": "mexican",
+      "category": "Kid-Friendly Cooking",
+      "skill_level": "Kid Chef",
+      "image_url": "assets/kid-friendly.jpeg",
+      "prep_time": "5 min",
+      "cook_time": "8 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Flour tortillas",
+        "Shredded cheese",
+        "Butter or oil",
+        "Salsa",
+        "Sour cream, optional"
+      ],
+      "instructions": [
+        "Place a tortilla in a warm skillet.",
+        "Sprinkle cheese over one half.",
+        "Fold tortilla and cook until golden.",
+        "Flip carefully and cook the second side.",
+        "Cool slightly, slice, and serve with salsa."
+      ],
+      "tags": [
+        "quesadilla",
+        "cheese",
+        "kid chefs",
+        "quick"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "cilantro-lime-rice",
+      "title": "Cilantro Lime Rice",
+      "slug": "cilantro-lime-rice",
+      "cuisine": "mexican",
+      "category": "Beginner Basics",
+      "skill_level": "Amateur",
+      "image_url": "assets/ingredients.jpeg",
+      "prep_time": "5 min",
+      "cook_time": "18 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Long-grain rice",
+        "Water or broth",
+        "Lime",
+        "Cilantro",
+        "Butter",
+        "Salt"
+      ],
+      "instructions": [
+        "Rinse rice until the water runs mostly clear.",
+        "Cook rice with water or broth and salt.",
+        "Rest covered for 5 minutes.",
+        "Fluff with butter, lime juice, and chopped cilantro.",
+        "Taste and adjust salt."
+      ],
+      "tags": [
+        "rice",
+        "lime",
+        "cilantro",
+        "side dish"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "black-bean-enchiladas",
+      "title": "Black Bean Enchiladas",
+      "slug": "black-bean-enchiladas",
+      "cuisine": "mexican",
+      "category": "Vegetarian",
+      "skill_level": "Amateur",
+      "image_url": "assets/american-food.jpeg",
+      "prep_time": "15 min",
+      "cook_time": "25 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "Tortillas",
+        "Black beans",
+        "Enchilada sauce",
+        "Cheese",
+        "Onion",
+        "Cumin",
+        "Garlic",
+        "Cilantro"
+      ],
+      "instructions": [
+        "Cook onion, garlic, cumin, and black beans until warm.",
+        "Spread sauce in a baking dish.",
+        "Fill tortillas with beans and cheese.",
+        "Roll and place seam-side down.",
+        "Top with sauce and cheese, then bake until bubbly."
+      ],
+      "tags": [
+        "beans",
+        "enchiladas",
+        "vegetarian",
+        "baked"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "jerk-chicken",
+      "title": "Jerk Chicken",
+      "slug": "jerk-chicken",
+      "cuisine": "caribbean",
+      "category": "Family Dinners",
+      "skill_level": "Professional",
+      "image_url": "assets/african-food.jpeg",
+      "prep_time": "20 min",
+      "cook_time": "35 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "Chicken legs or thighs",
+        "Jerk seasoning",
+        "Thyme",
+        "Garlic",
+        "Ginger",
+        "Lime juice",
+        "Brown sugar",
+        "Oil"
+      ],
+      "instructions": [
+        "Mix seasoning, thyme, garlic, ginger, lime, sugar, and oil.",
+        "Coat chicken and marinate if time allows.",
+        "Bake or grill until cooked through.",
+        "Rest chicken before serving.",
+        "Spoon pan juices over the top."
+      ],
+      "tags": [
+        "jerk",
+        "chicken",
+        "spice",
+        "grill"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "rice-and-peas",
+      "title": "Caribbean Rice and Peas",
+      "slug": "caribbean-rice-and-peas",
+      "cuisine": "caribbean",
+      "category": "Beginner Basics",
+      "skill_level": "Amateur",
+      "image_url": "assets/ingredients.jpeg",
+      "prep_time": "10 min",
+      "cook_time": "25 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Long-grain rice",
+        "Kidney beans or pigeon peas",
+        "Coconut milk",
+        "Thyme",
+        "Garlic",
+        "Green onion",
+        "Allspice",
+        "Salt"
+      ],
+      "instructions": [
+        "Rinse rice.",
+        "Simmer coconut milk, beans, thyme, garlic, green onion, and seasoning.",
+        "Stir in rice.",
+        "Cover and cook until tender.",
+        "Rest, fluff, and serve."
+      ],
+      "tags": [
+        "rice",
+        "peas",
+        "coconut",
+        "side dish"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "fried-sweet-plantains",
+      "title": "Fried Sweet Plantains",
+      "slug": "fried-sweet-plantains",
+      "cuisine": "caribbean",
+      "category": "Beginner Friendly",
+      "skill_level": "Kid Chef",
+      "image_url": "assets/african-food.jpeg",
+      "prep_time": "5 min",
+      "cook_time": "10 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Ripe plantains",
+        "Oil",
+        "Pinch of salt"
+      ],
+      "instructions": [
+        "Peel ripe plantains and slice on a diagonal.",
+        "Heat a thin layer of oil in a skillet.",
+        "Cook plantains until golden on one side.",
+        "Flip and brown the second side.",
+        "Drain and sprinkle lightly with salt."
+      ],
+      "tags": [
+        "plantains",
+        "sweet",
+        "side dish",
+        "skillet"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "caribbean-curry-chicken",
+      "title": "Caribbean Curry Chicken",
+      "slug": "caribbean-curry-chicken",
+      "cuisine": "caribbean",
+      "category": "Family Dinners",
+      "skill_level": "Amateur",
+      "image_url": "assets/african-food.jpeg",
+      "prep_time": "15 min",
+      "cook_time": "45 min",
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "Chicken thighs",
+        "Curry powder",
+        "Potatoes",
+        "Onion",
+        "Garlic",
+        "Thyme",
+        "Chicken stock",
+        "Scallions"
+      ],
+      "instructions": [
+        "Season chicken with curry, salt, garlic, and thyme.",
+        "Brown chicken in a pot.",
+        "Add onion, potatoes, and stock.",
+        "Simmer until chicken and potatoes are tender.",
+        "Taste and adjust seasoning."
+      ],
+      "tags": [
+        "curry",
+        "chicken",
+        "potatoes",
+        "stew"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "chicken-gyros",
+      "title": "Chicken Gyros",
+      "slug": "chicken-gyros",
+      "cuisine": "mediterranean",
+      "category": "Family Dinners",
+      "skill_level": "Amateur",
+      "image_url": "assets/fresh-bread.jpeg",
+      "prep_time": "20 min",
+      "cook_time": "20 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Chicken",
+        "Pita bread",
+        "Greek yogurt",
+        "Cucumber",
+        "Tomato",
+        "Lemon",
+        "Garlic",
+        "Oregano"
+      ],
+      "instructions": [
+        "Season chicken with lemon, garlic, oregano, salt, and oil.",
+        "Cook chicken until browned and done.",
+        "Mix yogurt sauce with cucumber, garlic, lemon, and salt.",
+        "Warm pita.",
+        "Fill with chicken, vegetables, and sauce."
+      ],
+      "tags": [
+        "pita",
+        "chicken",
+        "yogurt sauce",
+        "lemon"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "greek-salad",
+      "title": "Greek Salad",
+      "slug": "greek-salad",
+      "cuisine": "mediterranean",
+      "category": "Beginner Friendly",
+      "skill_level": "Kid Chef",
+      "image_url": "assets/ingredients.jpeg",
+      "prep_time": "15 min",
+      "cook_time": "0 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Cucumber",
+        "Tomatoes",
+        "Red onion",
+        "Olives",
+        "Feta",
+        "Lemon juice",
+        "Olive oil",
+        "Oregano"
+      ],
+      "instructions": [
+        "Chop cucumber and tomatoes.",
+        "Thinly slice red onion.",
+        "Whisk lemon juice, olive oil, oregano, salt, and pepper.",
+        "Toss vegetables with dressing.",
+        "Top with feta and olives."
+      ],
+      "tags": [
+        "salad",
+        "feta",
+        "olive oil",
+        "no-cook"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "creamy-hummus",
+      "title": "Creamy Hummus",
+      "slug": "creamy-hummus",
+      "cuisine": "mediterranean",
+      "category": "Beginner Basics",
+      "skill_level": "Kid Chef",
+      "image_url": "assets/fresh-bread.jpeg",
+      "prep_time": "12 min",
+      "cook_time": "0 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Chickpeas",
+        "Tahini",
+        "Lemon juice",
+        "Garlic",
+        "Olive oil",
+        "Salt",
+        "Cold water"
+      ],
+      "instructions": [
+        "Drain chickpeas.",
+        "Blend chickpeas, tahini, lemon, garlic, salt, and olive oil.",
+        "Add cold water a spoon at a time until creamy.",
+        "Taste and adjust lemon or salt.",
+        "Spoon into a bowl and drizzle with olive oil."
+      ],
+      "tags": [
+        "hummus",
+        "chickpeas",
+        "dip",
+        "no-cook"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "lemon-herb-salmon",
+      "title": "Lemon Herb Salmon",
+      "slug": "lemon-herb-salmon",
+      "cuisine": "mediterranean",
+      "category": "Seafood",
+      "skill_level": "Amateur",
+      "image_url": "assets/editorial-cooking-hero.jpg",
+      "prep_time": "10 min",
+      "cook_time": "14 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Salmon fillets",
+        "Lemon",
+        "Garlic",
+        "Olive oil",
+        "Parsley",
+        "Oregano",
+        "Salt",
+        "Pepper"
+      ],
+      "instructions": [
+        "Place salmon on a lined baking sheet.",
+        "Mix olive oil, lemon, garlic, herbs, salt, and pepper.",
+        "Spoon mixture over salmon.",
+        "Bake until salmon flakes gently.",
+        "Rest briefly and serve with lemon."
+      ],
+      "tags": [
+        "salmon",
+        "lemon",
+        "herbs",
+        "seafood"
+      ],
+      "cultural_variations": [],
+      "featured": false
+    },
+    {
+      "id": "chicken-salad-croissants",
+      "title": "Chicken Salad Croissants",
+      "slug": "chicken-salad-croissants",
+      "cuisine": "southern",
+      "category": "Quick Meals",
+      "skill_level": "Amateur",
+      "image_url": "assets/beautiful-chicken.jpeg",
+      "prep_time": "15 min",
+      "cook_time": "0 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Cooked chicken",
+        "Croissants",
+        "Mayonnaise",
+        "Celery",
+        "Green onion",
+        "Relish",
+        "Lemon juice",
+        "Seasoning"
+      ],
+      "instructions": [
+        "Chop cooked chicken into small pieces.",
+        "Mix chicken with mayo, celery, green onion, relish, lemon, and seasoning.",
+        "Taste and adjust salt or lemon.",
+        "Split croissants and fill with chicken salad.",
+        "Chill until serving."
+      ],
+      "tags": [
+        "lunch",
+        "croissants",
+        "hosting",
+        "quick meals"
+      ],
+      "cultural_variations": [
+        "Use curry powder for a curried chicken salad.",
+        "Add grapes or pecans for a Southern luncheon style."
+      ],
+      "featured": false
+    },
+    {
+      "id": "turkey-pinwheels",
+      "title": "Turkey Pinwheels",
+      "slug": "turkey-pinwheels",
+      "cuisine": "southern",
+      "category": "Kid-Friendly Cooking",
+      "skill_level": "Kid Chef",
+      "image_url": "assets/kid-friendly.jpeg",
+      "prep_time": "12 min",
+      "cook_time": "0 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Flour tortillas",
+        "Turkey slices",
+        "Cheese slices",
+        "Cream cheese",
+        "Lettuce",
+        "Ranch seasoning, optional"
+      ],
+      "instructions": [
+        "Spread cream cheese over each tortilla.",
+        "Layer turkey, cheese, and lettuce.",
+        "Roll tightly.",
+        "Chill briefly if needed.",
+        "Slice into pinwheels with grown-up help."
+      ],
+      "tags": [
+        "kid chefs",
+        "lunchbox",
+        "no-cook",
+        "wraps"
+      ],
+      "cultural_variations": [
+        "Use hummus instead of cream cheese.",
+        "Add roasted peppers for a Mediterranean-style wrap."
+      ],
+      "featured": false
+    },
+    {
+      "id": "easy-lunch-wraps",
+      "title": "Easy Lunch Wraps",
+      "slug": "easy-lunch-wraps",
+      "cuisine": "global",
+      "category": "Quick Meals",
+      "skill_level": "Kid Chef",
+      "image_url": "assets/cooking-family.jpeg",
+      "prep_time": "10 min",
+      "cook_time": "0 min",
+      "difficulty": "Beginner",
+      "ingredients": [
+        "Large tortillas",
+        "Turkey, chicken, or hummus",
+        "Lettuce",
+        "Shredded carrots",
+        "Cheese",
+        "Ranch, hummus, or mayo"
+      ],
+      "instructions": [
+        "Lay tortillas flat.",
+        "Spread a thin layer of sauce or hummus.",
+        "Add protein, lettuce, carrots, and cheese.",
+        "Fold the sides in and roll tightly.",
+        "Slice in half and serve."
+      ],
+      "tags": [
+        "wraps",
+        "kid chefs",
+        "quick meals",
+        "no-cook"
+      ],
+      "cultural_variations": [
+        "Use hummus, cucumber, and feta for a Mediterranean wrap.",
+        "Use rice, beans, and salsa for a Mexican-inspired wrap."
+      ],
+      "featured": false
+    }
+  ]
+}

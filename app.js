@@ -949,15 +949,18 @@ const cuisine101 = {
 function normalizeRecipe(recipe) {
   recipe.image_url ||= recipe.image;
   recipe.image ||= recipe.image_url;
+  recipe.slug ||= recipe.title?.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || recipe.id;
   recipe.prep_time ||= recipe.prepTime || "15 min";
   recipe.cook_time ||= recipe.cookTime || recipe.time || "30 min";
   recipe.prepTime ||= recipe.prep_time;
   recipe.cookTime ||= recipe.cook_time;
   recipe.difficulty ||= recipe.level || "Beginner";
   recipe.level ||= recipe.difficulty;
+  recipe.skill_level ||= recipe.path === "kid-chefs" ? "Kid Chef" : recipe.path === "professional-mode" ? "Professional" : "Amateur";
   recipe.directions ||= recipe.steps || [];
   recipe.steps ||= recipe.directions;
   recipe.tags ||= [recipe.category, recipe.cuisine, recipe.path].filter(Boolean);
+  recipe.cultural_variations ||= [];
   recipe.related_recipe_ids ||= recipe.relatedRecipeIds || [];
   recipe.video_url ||= recipe.videoUrl || "";
   recipe.videoUrl ||= recipe.video_url;
@@ -966,6 +969,32 @@ function normalizeRecipe(recipe) {
 }
 
 recipes = recipes.map(normalizeRecipe);
+
+function setShareMeta({ title = "Let's Cook Ya'll", description = "Warm recipes, cooking lessons, and kitchen confidence from Brent & Co.", image = "assets/logo.png" } = {}) {
+  const absoluteImage = image.startsWith("http") ? image : `${location.origin}/${image.replace(/^\/+/, "")}`;
+  const values = {
+    "description": description,
+    "og:title": title,
+    "og:description": description,
+    "og:image": absoluteImage,
+    "og:type": "article",
+    "twitter:card": "summary_large_image",
+    "twitter:title": title,
+    "twitter:description": description,
+    "twitter:image": absoluteImage
+  };
+  document.title = title;
+  Object.entries(values).forEach(([name, content]) => {
+    const selector = name.startsWith("og:") ? `meta[property="${name}"]` : `meta[name="${name}"]`;
+    let tag = document.querySelector(selector);
+    if (!tag) {
+      tag = document.createElement("meta");
+      tag.setAttribute(name.startsWith("og:") ? "property" : "name", name);
+      document.head.appendChild(tag);
+    }
+    tag.setAttribute("content", content);
+  });
+}
 
 function cuisineName(cuisineId) {
   return cuisines.find((item) => item.id === cuisineId)?.name || "Global Flavors";
@@ -1059,6 +1088,7 @@ function routeParts() {
 
 function render() {
   const { route, id } = routeParts();
+  if (route !== "recipes" || !id) setShareMeta();
   setActive(route);
   updateAppChrome(route);
   if (route === "home") return renderPlatformHome();
@@ -1178,6 +1208,10 @@ function renderPlatformHome() {
 }
 
 function renderLetsCookHome() {
+  const recipeOfWeek = recipes.find((recipe) => recipe.id === "yakamein") || recipes[0];
+  const kidPick = recipes.find((recipe) => recipe.id === "pb-and-j-sandwich") || recipes.find((recipe) => recipe.skill_level === "Kid Chef");
+  const southernClassic = recipes.find((recipe) => recipe.id === "oxtails") || recipes.find((recipe) => recipe.cuisine === "southern");
+  const globalFlavor = recipes.find((recipe) => recipe.id === "chicken-street-tacos") || recipes.find((recipe) => recipe.cuisine !== "southern");
   app.innerHTML = `
     ${hero(
       "Cook With Confidence",
@@ -1199,6 +1233,20 @@ function renderLetsCookHome() {
       </div>
       <div class="recipe-grid">${personalRecipes().slice(0, 6).map(recipeCard).join("")}</div>
       <div class="hero-actions"><a class="small-button" href="#kitchen">Open Shay's Kitchen</a><a class="small-button secondary" href="#kitchen">Upload Food Video</a></div>
+    </section>
+    <section class="cream-section rollout-section">
+      <div class="section-heading">
+        <p class="eyebrow">Share-ready picks</p>
+        <h2>Content made for the table and the timeline.</h2>
+      </div>
+      <div class="rollout-grid">
+        ${[
+          ["Recipe of the Week", recipeOfWeek],
+          ["Kid Chef Pick", kidPick],
+          ["Southern Classic", southernClassic],
+          ["Global Flavor", globalFlavor]
+        ].map(([label, recipe]) => recipe ? `<article><span>${label}</span>${recipeCard(recipe)}</article>` : "").join("")}
+      </div>
     </section>
     <section class="gold-section">
       <div class="section-heading">
@@ -1437,6 +1485,16 @@ function renderLesson(id) {
 }
 
 function renderRecipes() {
+  const quickFilters = [
+    ["Southern", "cuisine:southern"],
+    ["Mexican", "cuisine:mexican"],
+    ["Indian", "cuisine:indian"],
+    ["Mediterranean", "cuisine:mediterranean"],
+    ["Desserts", "category:Desserts"],
+    ["Kid Friendly", "skill:Kid Chef"],
+    ["Quick Meals", "category:Quick Meals"],
+    ["Professional", "skill:Professional"]
+  ];
   app.innerHTML = `
     ${hero("Recipes", "Southern classics, quick weeknight meals, global flavor, family dinners, beginner basics, party bites, and kid-friendly cooking.", "assets/editorial-kitchen-prep.jpg")}
     ${cookSubnav()}
@@ -1449,6 +1507,7 @@ function renderRecipes() {
         <select id="timeFilter" class="filter-select"><option value="">Any cook time</option><option value="15">15 min or less</option><option value="30">30 min or less</option><option value="45">45 min or less</option><option value="60">1 hour or less</option></select>
         <select id="levelFilter" class="filter-select"><option value="">All levels</option><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select>
       </div>
+      <div class="quick-filter-row">${quickFilters.map(([label, value]) => `<button class="quick-filter" type="button" data-quick-filter="${value}">${label}</button>`).join("")}</div>
     </section>
     <section class="cream-section"><div id="results" class="recipe-grid">${recipes.map(recipeCard).join("")}</div></section>
   `;
@@ -1456,6 +1515,11 @@ function renderRecipes() {
 
 function renderRecipe(id) {
   const recipe = recipes.find((item) => item.id === id) || recipes[0];
+  setShareMeta({
+    title: `${recipe.title} | Let's Cook Ya'll`,
+    description: recipe.description,
+    image: recipe.image_url || recipe.image
+  });
   const path = paths.find((item) => item.id === recipe.path);
   const cuisineLesson = cuisine101For(recipe.cuisine);
   const related = relatedRecipesFor(recipe);
@@ -1728,6 +1792,7 @@ function renderAccount() {
             <form class="profile-form" data-lets-logout-form>
               <button class="small-button secondary" type="submit">Log Out</button>
             </form>
+            ${user.isAdmin ? `<a class="small-button" href="/admin">Open Admin Dashboard</a>` : ""}
           ` : `
             <form class="profile-form" data-lets-signup-form>
               <label>Display name<input name="displayName" placeholder="Shay's Kitchen Fan" required /></label>
@@ -1740,6 +1805,12 @@ function renderAccount() {
               <label>Password<input name="password" type="password" required /></label>
               <button class="small-button secondary" type="submit">Log In</button>
             </form>
+            <div class="oauth-prep">
+              <p class="eyebrow">Future social login</p>
+              <button type="button" disabled>Continue with Google <span>Coming soon</span></button>
+              <button type="button" disabled>Continue with Facebook <span>Coming soon</span></button>
+              <button type="button" disabled>Continue with Apple <span>Coming soon</span></button>
+            </div>
           `}
         </article>
         <article class="account-panel">
@@ -1844,11 +1915,12 @@ function recipeCard(recipe) {
       <div class="recipe-content">
         <div class="recipe-card-topline">
           ${isPersonal ? `<span>Shay's Kitchen</span>` : `<span>${cuisineName(recipe.cuisine)}</span>`}
-          <span>${recipe.difficulty}</span>
+          <span>${recipe.skill_level}</span>
         </div>
         <h3>${recipe.title}</h3>
         <div class="recipe-mini-meta">
           <span>${recipeDuration(recipe)}</span>
+          <span>${recipe.difficulty}</span>
           <span>${recipe.servings} servings</span>
         </div>
         <p>${recipe.description}</p>
@@ -1876,6 +1948,7 @@ function applyRecipeDatabase(database) {
   const loadedRecipes = database.recipes.map((recipe) => ({
     id: recipe.id,
     title: recipe.title,
+    slug: recipe.slug,
     cuisine: recipe.cuisine,
     category: recipe.category,
     image: recipe.image || recipe.image_url || "assets/logo.png",
@@ -1884,6 +1957,7 @@ function applyRecipeDatabase(database) {
     cookTime: recipe.cookTime || recipe.cook_time,
     cook_time: recipe.cook_time || recipe.cookTime,
     cookTimeMinutes: recipe.cookTimeMinutes,
+    skill_level: recipe.skill_level || recipe.skillLevel,
     prepTime: recipe.prepTime || recipe.prep_time,
     prep_time: recipe.prep_time || recipe.prepTime,
     prepTimeMinutes: recipe.prepTimeMinutes,
@@ -1897,6 +1971,7 @@ function applyRecipeDatabase(database) {
     directions: recipe.directions || recipe.instructions || [],
     instructions: recipe.instructions || recipe.directions || [],
     tags: recipe.tags || [],
+    cultural_variations: recipe.cultural_variations || [],
     video_url: recipe.video_url || recipe.videoUrl || "",
     videoUrl: recipe.videoUrl || recipe.video_url || "",
     related_recipe_ids: recipe.related_recipe_ids || recipe.relatedRecipeIds || [],
@@ -1934,12 +2009,18 @@ function handleSearch(event) {
   const cuisine = document.querySelector("#cuisineFilter")?.value || "";
   const maxTime = Number(document.querySelector("#timeFilter")?.value || 0);
   const level = document.querySelector("#levelFilter")?.value || "";
+  const quick = document.querySelector(".quick-filter.active")?.dataset.quickFilter || "";
   const results = recipes.filter((recipe) => {
     const ingredientText = recipe.ingredients.join(" ").toLowerCase();
     const tagText = (recipe.tags || []).join(" ").toLowerCase();
     const haystack = `${recipe.title} ${recipe.category} ${recipe.level} ${recipe.difficulty || ""} ${recipe.description} ${ingredientText} ${tagText}`.toLowerCase();
     const hasPantryItems = !pantry.length || pantry.every((item) => ingredientText.includes(item));
-    return (!query || haystack.includes(query))
+    const quickMatch = !quick
+      || (quick.startsWith("cuisine:") && recipe.cuisine === quick.replace("cuisine:", ""))
+      || (quick.startsWith("category:") && (recipe.category === quick.replace("category:", "") || recipe.tags?.includes(quick.replace("category:", ""))))
+      || (quick.startsWith("skill:") && recipe.skill_level === quick.replace("skill:", ""));
+    return quickMatch
+      && (!query || haystack.includes(query))
       && hasPantryItems
       && (!category || recipe.category === category || recipe.tags?.includes(category))
       && (!cuisine || recipe.cuisine === cuisine)
@@ -1950,8 +2031,14 @@ function handleSearch(event) {
 }
 
 function handleClick(event) {
+  const quickFilter = event.target.closest("[data-quick-filter]");
   const saveButton = event.target.closest("[data-save]");
   const planButton = event.target.closest("[data-plan]");
+  if (quickFilter) {
+    document.querySelectorAll(".quick-filter").forEach((button) => button.classList.toggle("active", button === quickFilter && !button.classList.contains("active")));
+    handleSearch();
+    return;
+  }
   if (saveButton) {
     saved = toggleValue(saved, saveButton.dataset.save);
     persistLetsCookState();
