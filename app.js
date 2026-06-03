@@ -1767,7 +1767,7 @@ function renderAccount() {
   const status = letsCookSession.status ? `<div class="empty-state">${escapeHTML(letsCookSession.status)}</div>` : "";
   const officialBadges = (user.badges || []).map((badge) => `<span>${escapeHTML(badge)}</span>`).join("");
   app.innerHTML = `
-    ${hero("Your Let's Cook Account", "Save recipes, track lesson progress, keep your profile picture, and upload food videos from your own kitchen.", user.profilePic || "assets/logo.png")}
+    ${hero("Your Let's Cook Account", "Save recipes, track lesson progress, keep your profile picture, and upload food videos from your own kitchen.", "assets/logo.png")}
     ${cookSubnav()}
     <section class="cream-section">
       <div class="account-layout">
@@ -1777,7 +1777,7 @@ function renderAccount() {
           ${status}
           ${letsCookSession.authenticated ? `
             <div class="account-profile-head">
-              <img src="${user.profilePic || "assets/logo.png"}" alt="" />
+              ${accountAvatar(user)}
               <div>
                 <p class="eyebrow">${escapeHTML(user.role || "Home Cook")}</p>
                 <h2>${escapeHTML(user.displayName || "Home Cook")}</h2>
@@ -2208,7 +2208,19 @@ function readJSON(key, fallback) {
 }
 
 function escapeHTML(value) {
-  return value.toString().replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#039;");
+  return String(value ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#039;");
+}
+
+function userInitials(user = {}) {
+  const name = user.displayName || user.fullName || user.email || "SB";
+  return name.replace("/", " ").split(/\s+/).filter(Boolean).slice(0, 2).map((part) => part[0]).join("").toUpperCase() || "SB";
+}
+
+function accountAvatar(user = {}, className = "profile-avatar") {
+  const src = user.avatarUrl || user.profilePic || "";
+  return src
+    ? `<img class="${className}" src="${escapeHTML(src)}" alt="${escapeHTML(user.displayName || "Profile picture")}" />`
+    : `<div class="${className} initials-avatar" aria-label="${escapeHTML(user.displayName || "Profile")}">${escapeHTML(user.initials || userInitials(user))}</div>`;
 }
 
 Promise.all([loadRecipeDatabase(), loadLetsCookState()]).finally(render);

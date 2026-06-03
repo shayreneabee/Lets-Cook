@@ -3766,3 +3766,25 @@ body {
   border-color: #d9c29a;
   box-shadow: 0 22px 52px rgba(43, 26, 18, 0.16);
 }
+
+.profile-avatar,
+.initials-avatar {
+  width: 76px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 3px solid #e7d8bf;
+  object-fit: cover;
+  box-shadow: 0 12px 30px rgba(43, 26, 18, 0.14);
+}
+
+.initials-avatar {
+  display: grid;
+  place-items: center;
+  color: #2b1a12;
+  background:
+    radial-gradient(circle at 28% 24%, rgba(239, 189, 90, 0.46), transparent 38%),
+    #fff8ec;
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 800;
+}

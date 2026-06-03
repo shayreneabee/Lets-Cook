@@ -29,10 +29,19 @@ app.config["MAX_CONTENT_LENGTH"] = int(os.getenv("MAX_UPLOAD_MB", "250")) * 1024
 AUTH_PROVIDER = os.getenv("BRENT_AUTH_PROVIDER", "local")
 OWNER_AUTH_PROVIDER = os.getenv("BRENT_OWNER_AUTH_PROVIDER", "brent-core")
 OWNER_INITIAL_PASSWORD = os.getenv("BRENT_OWNER_INITIAL_PASSWORD", "")
+GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID", "")
+GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET", "")
+APPLE_CLIENT_ID = os.getenv("APPLE_CLIENT_ID", "")
+APPLE_TEAM_ID = os.getenv("APPLE_TEAM_ID", "")
+APPLE_KEY_ID = os.getenv("APPLE_KEY_ID", "")
+APPLE_PRIVATE_KEY = os.getenv("APPLE_PRIVATE_KEY", "")
+FACEBOOK_CLIENT_ID = os.getenv("FACEBOOK_CLIENT_ID", "")
+FACEBOOK_CLIENT_SECRET = os.getenv("FACEBOOK_CLIENT_SECRET", "")
 FOUNDER_PROFILES = [
     {
         "email": os.getenv("BRENT_OWNER_EMAIL", "shalanda.brent@gmail.com").strip().lower(),
-        "display_name": os.getenv("BRENT_OWNER_DISPLAY_NAME", "Shalanda Brent"),
+        "full_name": os.getenv("BRENT_OWNER_FULL_NAME", "Shalanda Brent"),
+        "display_name": os.getenv("BRENT_OWNER_DISPLAY_NAME", "Shay"),
     },
     {
         "email": os.getenv("BRENT_COFOUNDER_EMAIL", "jerod.l.cotton@gmail.com").strip().lower(),
@@ -58,15 +67,25 @@ def init_db():
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 email TEXT NOT NULL UNIQUE,
                 password_hash TEXT NOT NULL,
+                full_name TEXT DEFAULT '',
                 display_name TEXT NOT NULL,
+                username TEXT DEFAULT '',
+                avatar_url TEXT DEFAULT '',
+                bio TEXT DEFAULT '',
+                city TEXT DEFAULT '',
+                state TEXT DEFAULT '',
+                country TEXT DEFAULT '',
                 profile_pic TEXT DEFAULT '',
                 role TEXT DEFAULT 'user',
                 brent_account_id TEXT DEFAULT '',
+                provider TEXT DEFAULT 'local',
+                provider_id TEXT DEFAULT '',
                 auth_provider TEXT DEFAULT 'local',
                 is_admin INTEGER DEFAULT 0,
                 is_founder INTEGER DEFAULT 0,
                 is_verified INTEGER DEFAULT 0,
-                created_at INTEGER NOT NULL
+                created_at INTEGER NOT NULL,
+                updated_at INTEGER DEFAULT 0
             )
             """
         )
@@ -86,12 +105,22 @@ def init_db():
             row["name"] for row in conn.execute("PRAGMA table_info(users)").fetchall()
         }
         for column, definition in {
+            "full_name": "TEXT DEFAULT ''",
+            "username": "TEXT DEFAULT ''",
+            "avatar_url": "TEXT DEFAULT ''",
+            "bio": "TEXT DEFAULT ''",
+            "city": "TEXT DEFAULT ''",
+            "state": "TEXT DEFAULT ''",
+            "country": "TEXT DEFAULT ''",
             "role": "TEXT DEFAULT 'user'",
             "brent_account_id": "TEXT DEFAULT ''",
+            "provider": "TEXT DEFAULT 'local'",
+            "provider_id": "TEXT DEFAULT ''",
             "auth_provider": "TEXT DEFAULT 'local'",
             "is_admin": "INTEGER DEFAULT 0",
             "is_founder": "INTEGER DEFAULT 0",
             "is_verified": "INTEGER DEFAULT 0",
+            "updated_at": "INTEGER DEFAULT 0",
         }.items():
             if column not in existing_columns:
                 conn.execute(f"ALTER TABLE users ADD COLUMN {column} {definition}")
@@ -152,6 +181,9 @@ def current_user():
 def public_user(row):
     if not row:
         return None
+    display_name = row["display_name"] or row["full_name"] or row["email"].split("@")[0]
+    initials = "".join(part[:1] for part in display_name.replace("/", " ").split()[:2]).upper() or "SB"
+    avatar_url = row["avatar_url"] or row["profile_pic"] or ""
     official_badges = []
     if row["is_founder"]:
         official_badges.extend(["Founder", "Brent & Co"])
@@ -160,11 +192,21 @@ def public_user(row):
     return {
         "id": row["id"],
         "email": row["email"],
-        "displayName": row["display_name"],
+        "fullName": row["full_name"] or display_name,
+        "displayName": display_name,
+        "username": row["username"] or "",
+        "avatarUrl": avatar_url,
+        "profilePic": avatar_url,
+        "initials": initials,
+        "bio": row["bio"] or "",
+        "city": row["city"] or "",
+        "state": row["state"] or "",
+        "country": row["country"] or "",
         "role": row["role"] or "Home Cook",
-        "profilePic": row["profile_pic"] or "assets/logo.png",
         "brentAccountId": row["brent_account_id"] or brent_account_id(row["email"]),
-        "authProvider": row["auth_provider"] or AUTH_PROVIDER,
+        "provider": row["provider"] or row["auth_provider"] or AUTH_PROVIDER,
+        "providerId": row["provider_id"] or "",
+        "authProvider": row["auth_provider"] or row["provider"] or AUTH_PROVIDER,
         "isAdmin": bool(row["is_admin"]),
         "isFounder": bool(row["is_founder"]),
         "isVerified": bool(row["is_verified"]),
@@ -186,16 +228,19 @@ def seed_founder_profile():
                 conn.execute(
                     """
                     UPDATE users
-                    SET display_name = ?, role = ?, brent_account_id = ?,
-                        auth_provider = ?, is_admin = 1, is_founder = 1,
-                        is_verified = 1
+                    SET full_name = ?, display_name = ?, role = ?, brent_account_id = ?,
+                        provider = ?, auth_provider = ?, is_admin = 1, is_founder = 1,
+                        is_verified = 1, updated_at = ?
                     WHERE id = ?
                     """,
                     (
+                        founder["full_name"],
                         founder["display_name"],
                         "founder/admin",
                         brent_account_id(email),
                         OWNER_AUTH_PROVIDER,
+                        OWNER_AUTH_PROVIDER,
+                        int(time.time()),
                         existing["id"],
                     ),
                 )
@@ -203,19 +248,22 @@ def seed_founder_profile():
             conn.execute(
                 """
                 INSERT INTO users (
-                    email, password_hash, display_name, role, profile_pic,
-                    brent_account_id, auth_provider, is_admin, is_founder,
-                    is_verified, created_at
+                    email, password_hash, full_name, display_name, role, profile_pic,
+                    brent_account_id, provider, auth_provider, is_admin, is_founder,
+                    is_verified, created_at, updated_at
                 )
-                VALUES (?, ?, ?, ?, '', ?, ?, 1, 1, 1, ?)
+                VALUES (?, ?, ?, ?, ?, '', ?, ?, ?, 1, 1, 1, ?, ?)
                 """,
                 (
                     email,
                     generate_password_hash(OWNER_INITIAL_PASSWORD or secrets.token_urlsafe(32)),
+                    founder["full_name"],
                     founder["display_name"],
                     "founder/admin",
                     brent_account_id(email),
                     OWNER_AUTH_PROVIDER,
+                    OWNER_AUTH_PROVIDER,
+                    int(time.time()),
                     int(time.time()),
                 ),
             )
@@ -286,10 +334,23 @@ def api_signup():
         try:
             cursor = conn.execute(
                 """
-                INSERT INTO users (email, password_hash, display_name, role, brent_account_id, auth_provider, created_at)
-                VALUES (?, ?, ?, 'user', ?, ?, ?)
+                INSERT INTO users (
+                    email, password_hash, full_name, display_name, role,
+                    brent_account_id, provider, auth_provider, created_at, updated_at
+                )
+                VALUES (?, ?, ?, ?, 'user', ?, ?, ?, ?, ?)
                 """,
-                (email, generate_password_hash(password), display_name, brent_account_id(email), AUTH_PROVIDER, int(time.time())),
+                (
+                    email,
+                    generate_password_hash(password),
+                    display_name,
+                    display_name,
+                    brent_account_id(email),
+                    AUTH_PROVIDER,
+                    AUTH_PROVIDER,
+                    int(time.time()),
+                    int(time.time()),
+                ),
             )
         except sqlite3.IntegrityError:
             return jsonify({"error": "That email already has a Let's Cook account."}), 409
@@ -313,8 +374,15 @@ def api_login():
     session["user_id"] = user["id"]
     with db() as conn:
         conn.execute(
-            "UPDATE users SET brent_account_id = COALESCE(NULLIF(brent_account_id, ''), ?), auth_provider = COALESCE(NULLIF(auth_provider, ''), ?) WHERE id = ?",
-            (brent_account_id(user["email"]), AUTH_PROVIDER, user["id"]),
+            """
+            UPDATE users
+            SET brent_account_id = COALESCE(NULLIF(brent_account_id, ''), ?),
+                provider = COALESCE(NULLIF(provider, ''), ?),
+                auth_provider = COALESCE(NULLIF(auth_provider, ''), ?),
+                updated_at = ?
+            WHERE id = ?
+            """,
+            (brent_account_id(user["email"]), AUTH_PROVIDER, AUTH_PROVIDER, int(time.time()), user["id"]),
         )
         user = conn.execute("SELECT * FROM users WHERE id = ?", (user["id"],)).fetchone()
     return jsonify(load_state(user))
@@ -334,7 +402,10 @@ def api_profile():
     payload = request.get_json(silent=True) or {}
     display_name = (payload.get("displayName") or "").strip() or user["display_name"]
     with db() as conn:
-        conn.execute("UPDATE users SET display_name = ? WHERE id = ?", (display_name, user["id"]))
+        conn.execute(
+            "UPDATE users SET display_name = ?, full_name = COALESCE(NULLIF(full_name, ''), ?), updated_at = ? WHERE id = ?",
+            (display_name, display_name, int(time.time()), user["id"]),
+        )
         user = conn.execute("SELECT * FROM users WHERE id = ?", (user["id"],)).fetchone()
     return jsonify(load_state(user))
 
@@ -351,7 +422,10 @@ def api_profile_photo():
     if not profile_pic:
         return jsonify({"error": "Choose a profile picture to upload."}), 400
     with db() as conn:
-        conn.execute("UPDATE users SET profile_pic = ? WHERE id = ?", (profile_pic, user["id"]))
+        conn.execute(
+            "UPDATE users SET profile_pic = ?, avatar_url = ?, updated_at = ? WHERE id = ?",
+            (profile_pic, profile_pic, int(time.time()), user["id"]),
+        )
         user = conn.execute("SELECT * FROM users WHERE id = ?", (user["id"],)).fetchone()
     return jsonify(load_state(user))
 
