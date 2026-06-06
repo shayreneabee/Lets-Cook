@@ -11,6 +11,7 @@ let categories = [
   "Family Dinners",
   "Beginner Basics",
   "Party & Hosting",
+  "Party Cups",
   "Kid-Friendly Cooking"
 ];
 
@@ -946,6 +947,180 @@ const cuisine101 = {
   }
 };
 
+recipes.push(
+  {
+    id: "charcuterie-cups",
+    title: "Charcuterie Cups",
+    cuisine: "hosting",
+    category: "Party Cups",
+    image: "assets/editorial-kitchen-prep.jpg",
+    time: "25 min",
+    level: "Beginner",
+    servings: 12,
+    path: "professional-mode",
+    description: "Individual charcuterie cups with cheese, meat, crackers, fruit, and a little something briny for easy mingling.",
+    ingredients: ["12 clear 9 oz cups", "12 cheese cubes", "12 salami roses or folded slices", "12 breadsticks", "12 small clusters grapes", "12 olives or pickles", "Fresh herbs"],
+    steps: ["Set cups on a tray.", "Add grapes or fruit to the bottom.", "Tuck in cheese, salami, and olives.", "Stand a breadstick in each cup.", "Finish with herbs and chill until guests arrive."],
+    tags: ["party cups", "hosting", "charcuterie", "no-cook"],
+    partyCup: true,
+    cost_per_cup: 3.25,
+    cost_per_guest: 3.25,
+    cups_per_guest: 1,
+    shopping_items: [
+      { item: "clear 9 oz cups", amount: 1, unit: "cup" },
+      { item: "cheese cubes", amount: 1, unit: "piece" },
+      { item: "salami slices", amount: 1, unit: "piece" },
+      { item: "breadsticks", amount: 1, unit: "piece" },
+      { item: "grape clusters", amount: 1, unit: "small cluster" },
+      { item: "olives or pickles", amount: 1, unit: "piece" }
+    ],
+    makeAhead: "Assemble up to 4 hours ahead; add crackers or breadsticks closer to serving so they stay crisp."
+  },
+  {
+    id: "fruit-cups",
+    title: "Fruit Cups",
+    cuisine: "hosting",
+    category: "Party Cups",
+    image: "assets/ingredients.jpeg",
+    time: "20 min",
+    level: "Beginner",
+    servings: 12,
+    path: "kid-chefs",
+    description: "Bright individual fruit cups with melon, berries, grapes, citrus, and a honey-lime drizzle.",
+    ingredients: ["12 clear cups", "6 cups mixed fruit", "1 cup berries", "1 lime", "2 tbsp honey", "Mint leaves"],
+    steps: ["Wash and cut fruit into bite-size pieces.", "Whisk honey with lime juice.", "Layer fruit into cups.", "Drizzle lightly.", "Top with mint and keep chilled."],
+    tags: ["party cups", "fruit", "kid friendly", "no-cook"],
+    partyCup: true,
+    cost_per_cup: 1.85,
+    cost_per_guest: 1.85,
+    cups_per_guest: 1,
+    shopping_items: [
+      { item: "clear cups", amount: 1, unit: "cup" },
+      { item: "mixed fruit", amount: 0.5, unit: "cup" },
+      { item: "berries", amount: 0.08, unit: "cup" },
+      { item: "lime", amount: 0.08, unit: "each" },
+      { item: "honey", amount: 0.5, unit: "tsp" },
+      { item: "mint leaves", amount: 1, unit: "leaf" }
+    ],
+    makeAhead: "Cut firm fruit the night before; add bananas, apples, or mint the day of."
+  },
+  {
+    id: "dessert-cups",
+    title: "Dessert Cups",
+    cuisine: "hosting",
+    category: "Party Cups",
+    image: "assets/editorial-kitchen-prep.jpg",
+    time: "30 min",
+    level: "Beginner",
+    servings: 12,
+    path: "amateur-home-chef",
+    description: "Layered sweet cups with cookie crumbs, pudding or mousse, whipped topping, and berries.",
+    ingredients: ["12 dessert cups", "2 cups cookie crumbs", "4 cups pudding or mousse", "2 cups whipped topping", "1 cup berries", "Chocolate shavings"],
+    steps: ["Spoon cookie crumbs into each cup.", "Add pudding or mousse.", "Top with whipped topping.", "Finish with berries and chocolate.", "Chill until serving."],
+    tags: ["party cups", "dessert", "make ahead"],
+    partyCup: true,
+    cost_per_cup: 2.15,
+    cost_per_guest: 2.15,
+    cups_per_guest: 1,
+    shopping_items: [
+      { item: "dessert cups", amount: 1, unit: "cup" },
+      { item: "cookie crumbs", amount: 0.17, unit: "cup" },
+      { item: "pudding or mousse", amount: 0.33, unit: "cup" },
+      { item: "whipped topping", amount: 0.17, unit: "cup" },
+      { item: "berries", amount: 0.08, unit: "cup" },
+      { item: "chocolate shavings", amount: 1, unit: "pinch" }
+    ],
+    makeAhead: "Best made the morning of the party and held cold."
+  },
+  {
+    id: "brunch-cups",
+    title: "Brunch Cups",
+    cuisine: "hosting",
+    category: "Party Cups",
+    image: "assets/editorial-cooking-hero.jpg",
+    time: "35 min",
+    level: "Intermediate",
+    servings: 12,
+    path: "amateur-home-chef",
+    description: "Mini brunch cups layered with potatoes, eggs, cheese, herbs, and optional bacon or turkey sausage.",
+    ingredients: ["12 heat-safe cups or ramekins", "4 cups roasted breakfast potatoes", "12 scrambled eggs", "1 1/2 cups shredded cheese", "12 bacon pieces or sausage bites", "Chives"],
+    steps: ["Roast potatoes until tender.", "Scramble eggs softly.", "Layer potatoes, eggs, cheese, and protein.", "Warm gently before serving.", "Finish with chives."],
+    tags: ["party cups", "brunch", "breakfast", "warm"],
+    partyCup: true,
+    cost_per_cup: 2.75,
+    cost_per_guest: 2.75,
+    cups_per_guest: 1,
+    shopping_items: [
+      { item: "heat-safe cups", amount: 1, unit: "cup" },
+      { item: "roasted potatoes", amount: 0.33, unit: "cup" },
+      { item: "eggs", amount: 1, unit: "egg" },
+      { item: "shredded cheese", amount: 0.13, unit: "cup" },
+      { item: "bacon or sausage bites", amount: 1, unit: "piece" },
+      { item: "chives", amount: 1, unit: "pinch" }
+    ],
+    makeAhead: "Prep potatoes and toppings the night before; assemble and warm near brunch time."
+  },
+  {
+    id: "tailgate-cups",
+    title: "Tailgate Cups",
+    cuisine: "hosting",
+    category: "Party Cups",
+    image: "assets/american-food.jpeg",
+    time: "25 min",
+    level: "Beginner",
+    servings: 12,
+    path: "amateur-home-chef",
+    description: "Game-day cups with chips, dip, slider bites, pickles, and crunchy toppings so guests can grab and go.",
+    ingredients: ["12 sturdy cups", "6 cups tortilla chips or corn chips", "3 cups queso or bean dip", "12 slider bites or meatballs", "Pickles", "Jalapenos", "Green onions"],
+    steps: ["Add chips to each cup.", "Spoon dip into a small liner or cup insert.", "Add slider bite or meatball.", "Top with pickles, jalapenos, and green onion.", "Serve immediately for best crunch."],
+    tags: ["party cups", "tailgate", "game day", "hosting"],
+    partyCup: true,
+    cost_per_cup: 3.1,
+    cost_per_guest: 3.1,
+    cups_per_guest: 1,
+    shopping_items: [
+      { item: "sturdy cups", amount: 1, unit: "cup" },
+      { item: "chips", amount: 0.5, unit: "cup" },
+      { item: "queso or bean dip", amount: 0.25, unit: "cup" },
+      { item: "slider bites or meatballs", amount: 1, unit: "piece" },
+      { item: "pickle slices", amount: 2, unit: "slice" },
+      { item: "jalapenos", amount: 2, unit: "slice" }
+    ],
+    makeAhead: "Cook hot bites ahead; assemble chips right before guests arrive."
+  },
+  {
+    id: "holiday-cups",
+    title: "Holiday Cups",
+    cuisine: "hosting",
+    category: "Party Cups",
+    image: "assets/editorial-kitchen-prep.jpg",
+    time: "30 min",
+    level: "Beginner",
+    servings: 12,
+    path: "professional-mode",
+    description: "Festive cups with savory bites, fruit, sweets, and seasonal color for Christmas, Thanksgiving, showers, or family gatherings.",
+    ingredients: ["12 decorative cups", "12 cheese cubes", "12 turkey or ham roll-ups", "12 crackers", "1 cup cranberries or grapes", "12 mini cookies", "Rosemary sprigs"],
+    steps: ["Pick cups that match the holiday colors.", "Add fruit to anchor the bottom.", "Tuck in cheese, roll-ups, crackers, and a sweet bite.", "Add rosemary or a themed pick.", "Keep covered and chilled."],
+    tags: ["party cups", "holiday", "hosting", "make ahead"],
+    partyCup: true,
+    cost_per_cup: 3.45,
+    cost_per_guest: 3.45,
+    cups_per_guest: 1,
+    shopping_items: [
+      { item: "decorative cups", amount: 1, unit: "cup" },
+      { item: "cheese cubes", amount: 1, unit: "piece" },
+      { item: "turkey or ham roll-ups", amount: 1, unit: "piece" },
+      { item: "crackers", amount: 1, unit: "piece" },
+      { item: "cranberries or grapes", amount: 0.08, unit: "cup" },
+      { item: "mini cookies", amount: 1, unit: "cookie" },
+      { item: "rosemary sprigs", amount: 1, unit: "small sprig" }
+    ],
+    makeAhead: "Assemble cold items up to 6 hours ahead; add crackers last."
+  }
+);
+
+const partyCupIds = ["charcuterie-cups", "fruit-cups", "dessert-cups", "brunch-cups", "tailgate-cups", "holiday-cups"];
+
 function normalizeRecipe(recipe) {
   recipe.image_url ||= recipe.image;
   recipe.image ||= recipe.image_url;
@@ -965,10 +1140,111 @@ function normalizeRecipe(recipe) {
   recipe.video_url ||= recipe.videoUrl || "";
   recipe.videoUrl ||= recipe.video_url;
   recipe.source ||= { type: "internal", name: "Let's Cook Y'all" };
+  recipe.cost_per_cup ||= recipe.costPerCup || 0;
+  recipe.cost_per_guest ||= recipe.costPerGuest || recipe.cost_per_cup || 0;
+  recipe.cups_per_guest ||= recipe.cupsPerGuest || 1;
+  recipe.shopping_items ||= recipe.shoppingItems || [];
   return recipe;
 }
 
 recipes = recipes.map(normalizeRecipe);
+
+function partyCupRecipes() {
+  return partyCupIds.map((id) => recipes.find((recipe) => recipe.id === id)).filter(Boolean);
+}
+
+function money(value) {
+  return `$${Number(value || 0).toFixed(2)}`;
+}
+
+function formatAmount(value) {
+  const number = Number(value || 0);
+  if (!Number.isFinite(number)) return value;
+  if (Number.isInteger(number)) return String(number);
+  return number.toFixed(number < 10 ? 1 : 0).replace(/\.0$/, "");
+}
+
+function scaledPartyItems(recipe, guestCount, cupsPerGuest = recipe.cups_per_guest || 1) {
+  const totalCups = Math.max(1, Number(guestCount || 1) * Number(cupsPerGuest || 1));
+  return (recipe.shopping_items || []).map((item) => ({
+    ...item,
+    total: Number(item.amount || 0) * totalCups
+  }));
+}
+
+function partyPlanFor(guestCount = 12, selectedId = "all") {
+  const selectedRecipes = selectedId === "all"
+    ? partyCupRecipes()
+    : partyCupRecipes().filter((recipe) => recipe.id === selectedId);
+  const totalCost = selectedRecipes.reduce((sum, recipe) => {
+    return sum + Number(recipe.cost_per_guest || recipe.cost_per_cup || 0) * Number(guestCount || 0);
+  }, 0);
+  const items = new Map();
+  selectedRecipes.forEach((recipe) => {
+    scaledPartyItems(recipe, guestCount).forEach((item) => {
+      const key = `${item.item}|${item.unit}`;
+      const current = items.get(key) || { item: item.item, unit: item.unit, total: 0 };
+      current.total += item.total;
+      items.set(key, current);
+    });
+  });
+  return {
+    recipes: selectedRecipes,
+    totalCups: selectedRecipes.length * Number(guestCount || 0),
+    totalCost,
+    items: [...items.values()]
+  };
+}
+
+function partyRecipeResults(recipe, guestCount = 24, cupsPerGuest = 1) {
+  const totalCups = Math.max(1, Number(guestCount || 1) * Number(cupsPerGuest || 1));
+  const totalCost = totalCups * Number(recipe.cost_per_cup || 0);
+  const perGuest = Number(recipe.cost_per_cup || 0) * Number(cupsPerGuest || 1);
+  return `
+    <div class="party-result-summary">
+      <article><strong>${totalCups}</strong><span>Total cups</span></article>
+      <article><strong>${money(recipe.cost_per_cup)}</strong><span>Cost per cup</span></article>
+      <article><strong>${money(perGuest)}</strong><span>Cost per guest</span></article>
+      <article><strong>${money(totalCost)}</strong><span>Estimated total</span></article>
+    </div>
+    <div class="party-shopping-list">
+      <h3>Shopping list</h3>
+      <ul>${scaledPartyItems(recipe, guestCount, cupsPerGuest).map((item) => `<li><strong>${formatAmount(item.total)}</strong> ${item.unit} ${item.item}</li>`).join("")}</ul>
+    </div>
+    ${recipe.makeAhead ? `<p class="hosting-note"><strong>Make ahead:</strong> ${recipe.makeAhead}</p>` : ""}
+  `;
+}
+
+function renderPartyPlannerResults() {
+  const target = document.querySelector("#partyPlannerResults");
+  if (!target) return;
+  const guestCount = Math.max(1, Number(document.querySelector("#partyGuestCount")?.value || 12));
+  const selectedId = document.querySelector("#partyCupSelect")?.value || "all";
+  const plan = partyPlanFor(guestCount, selectedId);
+  target.innerHTML = `
+    <div class="party-result-summary">
+      <article><strong>${guestCount}</strong><span>Guests</span></article>
+      <article><strong>${plan.totalCups}</strong><span>Total cups</span></article>
+      <article><strong>${money(plan.totalCost)}</strong><span>Estimated total</span></article>
+      <article><strong>${money(plan.totalCost / Math.max(guestCount, 1))}</strong><span>Cost per guest</span></article>
+    </div>
+    <div class="party-shopping-list">
+      <h3>Generated shopping list</h3>
+      <ul>${plan.items.map((item) => `<li><strong>${formatAmount(item.total)}</strong> ${item.unit} ${item.item}</li>`).join("")}</ul>
+    </div>
+  `;
+}
+
+function renderRecipePartyResults() {
+  const target = document.querySelector("#recipePartyResults");
+  const recipeId = document.querySelector("[data-party-recipe]")?.dataset.partyRecipe;
+  if (!target || !recipeId) return;
+  const recipe = recipes.find((item) => item.id === recipeId);
+  if (!recipe) return;
+  const guestCount = Math.max(1, Number(document.querySelector("#recipePartyGuests")?.value || 24));
+  const cupsPerGuest = Math.max(1, Number(document.querySelector("#recipeCupsPerGuest")?.value || 1));
+  target.innerHTML = partyRecipeResults(recipe, guestCount, cupsPerGuest);
+}
 
 function setShareMeta({ title = "Let's Cook Ya'll", description = "Warm recipes, cooking lessons, and kitchen confidence from Brent & Co.", image = "assets/logo.png" } = {}) {
   const absoluteImage = image.startsWith("http") ? image : `${location.origin}/${image.replace(/^\/+/, "")}`;
@@ -1491,6 +1767,7 @@ function renderRecipes() {
     ["Indian", "cuisine:indian"],
     ["Mediterranean", "cuisine:mediterranean"],
     ["Desserts", "category:Desserts"],
+    ["Party Cups", "category:Party Cups"],
     ["Kid Friendly", "skill:Kid Chef"],
     ["Quick Meals", "category:Quick Meals"],
     ["Professional", "skill:Professional"]
@@ -1524,6 +1801,22 @@ function renderRecipe(id) {
   const cuisineLesson = cuisine101For(recipe.cuisine);
   const related = relatedRecipesFor(recipe);
   const otherCuisines = otherCuisinesFor(recipe.cuisine);
+  const partyRecipePanel = recipe.partyCup ? `
+    <section class="band party-cup-band">
+      <div class="section-heading">
+        <p class="eyebrow">Party Cups calculator</p>
+        <h2>Scale ${recipe.title} by guest count.</h2>
+        <p>Start with one cup per guest, then increase for long parties or light dinner replacements.</p>
+      </div>
+      <div class="party-calc-card" data-party-recipe="${recipe.id}">
+        <div class="party-calc-controls">
+          <label>Guests<input id="recipePartyGuests" type="number" min="1" max="500" value="24" /></label>
+          <label>Cups per guest<input id="recipeCupsPerGuest" type="number" min="1" max="4" value="${recipe.cups_per_guest || 1}" /></label>
+        </div>
+        <div id="recipePartyResults">${partyRecipeResults(recipe, 24, recipe.cups_per_guest || 1)}</div>
+      </div>
+    </section>
+  ` : "";
   app.innerHTML = `
     <section class="recipe-hero recipe-story-hero">
       <figure><img src="${recipe.image_url}" alt="${recipe.title}" /></figure>
@@ -1581,6 +1874,7 @@ function renderRecipe(id) {
         </article>
       </div>
     </section>
+    ${partyRecipePanel}
     <section class="cream-section related-section">
       <div class="section-heading">
         <p class="eyebrow">${cuisineName(recipe.cuisine)} recommendations</p>
@@ -1716,10 +2010,63 @@ function renderPlanner() {
 }
 
 function renderHosting() {
+  const cups = partyCupRecipes();
+  const initialPlan = partyPlanFor(24, "all");
   app.innerHTML = `
-    ${hero("Hosting Ideas", "Menus, boards, bites, and desserts for making people feel at home.", "assets/editorial-kitchen-prep.jpg")}
+    ${hero("Hosting & Entertaining", "Party cups, menu flow, shopping lists, and warm little details for making guests feel cared for.", "assets/editorial-kitchen-prep.jpg")}
     ${cookSubnav()}
     <section class="cream-section">
+      <div class="section-heading">
+        <p class="eyebrow">Party Cups</p>
+        <h2>Individual cups that make hosting easier.</h2>
+        <p>Build charcuterie, fruit, dessert, brunch, tailgate, or holiday cups and scale quantities automatically by guest count.</p>
+      </div>
+      <div class="party-cup-grid">${cups.map((recipe) => `
+        <article class="party-cup-card">
+          <a href="#recipes/${recipe.id}"><img src="${recipe.image_url || recipe.image}" alt="${recipe.title}" /></a>
+          <div>
+            <p class="eyebrow">${recipe.category}</p>
+            <h3>${recipe.title}</h3>
+            <p>${recipe.description}</p>
+            <div class="party-cost-row">
+              <span>${money(recipe.cost_per_cup)} per cup</span>
+              <span>${money(recipe.cost_per_guest)} per guest</span>
+            </div>
+            <a class="small-button" href="#recipes/${recipe.id}">View Cup Recipe</a>
+          </div>
+        </article>
+      `).join("")}</div>
+    </section>
+    <section class="band party-planner-band">
+      <div class="section-heading">
+        <p class="eyebrow">Party Planning</p>
+        <h2>Enter guest count. Get quantities.</h2>
+        <p>Choose one cup style or plan a mixed cup table. The calculator estimates total cups, cost, and a shopping list.</p>
+      </div>
+      <div class="party-planner-shell">
+        <div class="party-calc-controls">
+          <label>Guest count<input id="partyGuestCount" type="number" min="1" max="500" value="24" /></label>
+          <label>Cup style<select id="partyCupSelect"><option value="all">Mixed Party Cups</option>${cups.map((recipe) => `<option value="${recipe.id}">${recipe.title}</option>`).join("")}</select></label>
+        </div>
+        <div id="partyPlannerResults">
+          <div class="party-result-summary">
+            <article><strong>24</strong><span>Guests</span></article>
+            <article><strong>${initialPlan.totalCups}</strong><span>Total cups</span></article>
+            <article><strong>${money(initialPlan.totalCost)}</strong><span>Estimated total</span></article>
+            <article><strong>${money(initialPlan.totalCost / 24)}</strong><span>Cost per guest</span></article>
+          </div>
+          <div class="party-shopping-list">
+            <h3>Generated shopping list</h3>
+            <ul>${initialPlan.items.map((item) => `<li><strong>${formatAmount(item.total)}</strong> ${item.unit} ${item.item}</li>`).join("")}</ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="cream-section">
+      <div class="section-heading">
+        <p class="eyebrow">Hosting menus</p>
+        <h2>Keep the rest of the table calm too.</h2>
+      </div>
       <div class="hosting-grid">${hostingIdeas.map((idea) => `
         <article class="detail-panel">
           <p class="eyebrow">Hosting menu</p>
@@ -1944,6 +2291,7 @@ function applyRecipeDatabase(database) {
   if (!database?.recipes?.length) return;
   const bundledRecipes = recipes.map((recipe) => ({ ...recipe }));
   categories = database.categories || categories;
+  if (!categories.includes("Party Cups")) categories = [...categories, "Party Cups"];
   personalRecipeIds = database.collections?.shaysKitchen || personalRecipeIds;
   const loadedRecipes = database.recipes.map((recipe) => ({
     id: recipe.id,
@@ -1981,7 +2329,12 @@ function applyRecipeDatabase(database) {
     tips: recipe.tips || [],
     makeAhead: recipe.makeAhead || "",
     servingIdeas: recipe.servingIdeas || [],
-    source: recipe.source || { type: "internal" }
+    source: recipe.source || { type: "internal" },
+    partyCup: Boolean(recipe.partyCup),
+    cost_per_cup: recipe.cost_per_cup || recipe.costPerCup || 0,
+    cost_per_guest: recipe.cost_per_guest || recipe.costPerGuest || 0,
+    cups_per_guest: recipe.cups_per_guest || recipe.cupsPerGuest || 1,
+    shopping_items: recipe.shopping_items || recipe.shoppingItems || []
   }));
   const loadedIds = new Set(loadedRecipes.map((recipe) => recipe.id));
   const missingBundled = bundledRecipes.filter((recipe) => !loadedIds.has(recipe.id));
@@ -2003,6 +2356,8 @@ function submissionCard(submission) {
 }
 
 function handleSearch(event) {
+  renderPartyPlannerResults();
+  renderRecipePartyResults();
   const query = document.querySelector("#searchBox")?.value.toLowerCase().trim() || "";
   const pantry = document.querySelector("#pantryBox")?.value.toLowerCase().split(",").map((item) => item.trim()).filter(Boolean) || [];
   const category = document.querySelector("#categoryFilter")?.value || "";
@@ -2027,7 +2382,10 @@ function handleSearch(event) {
       && (!maxTime || (recipe.cookTimeMinutes || 999) <= maxTime)
       && (!level || recipe.level === level || recipe.difficulty === level);
   });
-  document.querySelector("#results").innerHTML = results.length ? results.map(recipeCard).join("") : `<div class="empty-state">No recipes found yet.</div>`;
+  const resultsNode = document.querySelector("#results");
+  if (resultsNode) {
+    resultsNode.innerHTML = results.length ? results.map(recipeCard).join("") : `<div class="empty-state">No recipes found yet.</div>`;
+  }
 }
 
 function handleClick(event) {
