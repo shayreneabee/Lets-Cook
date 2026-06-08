@@ -20,7 +20,7 @@ const ecosystemApps = [
     id: "lets-cook",
     title: "Let's Cook Ya'll",
     accent: "gold",
-    image: "assets/logo.png",
+    image: "assets/lc-fried-chicken.jpg",
     tagline: "Cooking confidence for real families, real kitchens, and warm tables.",
     description: "Southern fresh meets global flavor through recipes, Cook 101 lessons, Shay's Kitchen, hosting ideas, and meal planning.",
     route: "#lets-cook",
@@ -144,16 +144,16 @@ const paths = [
 ];
 
 const cuisines = [
-  { id: "southern", name: "Southern Classics", image: "assets/editorial-kitchen-prep.jpg", blurb: "Comforting dishes, porch-table sides, slow braises, and big hospitality." },
-  { id: "creole", name: "Creole & Cajun", image: "assets/editorial-cajun-pasta.jpg", blurb: "New Orleans flavor, seafood, spice, rice, roux, and soulful one-pot meals." },
-  { id: "indian", name: "Indian", image: "assets/indian-food.jpeg", blurb: "Layered spices, cozy curries, breads, rice dishes, and generous family-style meals." },
-  { id: "mexican", name: "Mexican", image: "assets/american-food.jpeg", blurb: "Chiles, tortillas, salsas, braises, bright toppings, and weeknight-friendly flavor." },
-  { id: "caribbean", name: "Caribbean", image: "assets/african-food.jpeg", blurb: "Warm spice, rice and peas, seafood, stews, grilling, and sunny island comfort." },
-  { id: "mediterranean", name: "Mediterranean", image: "assets/fresh-bread.jpeg", blurb: "Fresh herbs, olive oil, grilled proteins, breads, salads, and bright sauces." },
-  { id: "asian-inspired", name: "Asian Inspired", image: "assets/editorial-cooking-hero.jpg", blurb: "Crisp, saucy, family-friendly dinners with bold pantry flavor." },
-  { id: "italian", name: "Italian Comfort", image: "assets/editorial-cajun-pasta.jpg", blurb: "Pasta nights, red sauce, baked mains, and beginner-friendly classics." },
-  { id: "hosting", name: "Party & Hosting", image: "assets/editorial-kitchen-prep.jpg", blurb: "Boards, bites, desserts, and dinner-party helpers that make people feel cared for." },
-  { id: "global", name: "Global Flavors", image: "assets/editorial-culture-travel.jpg", blurb: "A warm bridge from Southern kitchens to flavors from everywhere." }
+  { id: "southern", name: "Southern Classics", image: "assets/lc-fried-chicken.jpg", blurb: "Comforting dishes, porch-table sides, slow braises, and big hospitality." },
+  { id: "creole", name: "Creole & Cajun", image: "assets/lc-seafood.jpg", blurb: "New Orleans flavor, seafood, spice, rice, roux, and soulful one-pot meals." },
+  { id: "indian", name: "Indian", image: "assets/lc-indian-food.jpg", blurb: "Layered spices, cozy curries, breads, rice dishes, and generous family-style meals." },
+  { id: "mexican", name: "Mexican", image: "assets/lc-birria-tacos.jpg", blurb: "Chiles, tortillas, salsas, braises, bright toppings, and weeknight-friendly flavor." },
+  { id: "caribbean", name: "Caribbean", image: "assets/lc-african-food.jpg", blurb: "Warm spice, rice and peas, seafood, stews, grilling, and sunny island comfort." },
+  { id: "mediterranean", name: "Mediterranean", image: "assets/lc-mediterranean-food.jpg", blurb: "Fresh herbs, olive oil, grilled proteins, breads, salads, and bright sauces." },
+  { id: "asian-inspired", name: "Asian Inspired", image: "assets/lc-asian-food.jpg", blurb: "Crisp, saucy, family-friendly dinners with bold pantry flavor." },
+  { id: "italian", name: "Italian Comfort", image: "assets/lc-pasta.jpg", blurb: "Pasta nights, red sauce, baked mains, and beginner-friendly classics." },
+  { id: "hosting", name: "Party & Hosting", image: "assets/lc-desserts.jpg", blurb: "Boards, bites, desserts, and dinner-party helpers that make people feel cared for." },
+  { id: "global", name: "Global Flavors", image: "assets/lc-african-food.jpg", blurb: "A warm bridge from Southern kitchens to flavors from everywhere." }
 ];
 
 let recipes = [
@@ -1121,7 +1121,46 @@ recipes.push(
 
 const partyCupIds = ["charcuterie-cups", "fruit-cups", "dessert-cups", "brunch-cups", "tailgate-cups", "holiday-cups"];
 
+const recipeImageOverrides = {
+  "orange-chicken": "assets/lc-orange-chicken.jpg",
+  "general-tso-chicken": "assets/lc-orange-chicken.jpg",
+  "cashew-chicken": "assets/lc-cashew-chicken.jpg",
+  "fried-rice": "assets/lc-fried-rice.jpg",
+  "pineapple-fried-rice": "assets/lc-fried-rice.jpg",
+  "shrimp-and-grits": "assets/lc-shrimp-and-grits.jpg",
+  "shrimp-and-grits-green-beans": "assets/lc-shrimp-and-grits.jpg",
+  "fried-chicken": "assets/lc-fried-chicken.jpg",
+  "garlic-wings": "assets/lc-fried-chicken.jpg",
+  "wings": "assets/lc-fried-chicken.jpg",
+  "cajun-cream-pasta": "assets/lc-pasta.jpg",
+  "cajun-cream-salmon-rotini": "assets/lc-pasta.jpg",
+  "cajun-cream-salmon-rotini-pasta": "assets/lc-pasta.jpg",
+  "chicken-piccata": "assets/lc-chicken-piccata.jpg",
+  "chicken-parmesan": "assets/lc-chicken-piccata.jpg",
+  "blackened-fish": "assets/lc-seafood.jpg",
+  "fried-catfish": "assets/lc-seafood.jpg",
+  "lemon-herb-salmon": "assets/lc-seafood.jpg",
+  "seafood-boil": "assets/lc-seafood.jpg",
+  "birria-tacos": "assets/lc-birria-tacos.jpg",
+  "chicken-street-tacos": "assets/lc-birria-tacos.jpg",
+  "tandoori-chicken": "assets/lc-indian-food.jpg",
+  "butter-chicken": "assets/lc-indian-food.jpg",
+  "chicken-tikka-masala": "assets/lc-indian-food.jpg",
+  "biryani": "assets/lc-indian-food.jpg",
+  "palak-paneer": "assets/lc-indian-food.jpg",
+  "chana-masala": "assets/lc-indian-food.jpg",
+  "dessert-charcuterie-board": "assets/lc-desserts.jpg",
+  "dessert-cups": "assets/lc-desserts.jpg",
+  "fruit-cups": "assets/lc-desserts.jpg",
+  "holiday-cups": "assets/lc-desserts.jpg"
+};
+
 function normalizeRecipe(recipe) {
+  const imageOverride = recipeImageOverrides[recipe.id];
+  if (imageOverride) {
+    recipe.image = imageOverride;
+    recipe.image_url = imageOverride;
+  }
   recipe.image_url ||= recipe.image;
   recipe.image ||= recipe.image_url;
   recipe.slug ||= recipe.title?.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || recipe.id;
@@ -1492,7 +1531,7 @@ function renderLetsCookHome() {
     ${hero(
       "Cook With Confidence",
       "A warm cooking-skills app for kid chefs, home cooks, and hosts who want food to feel welcoming, not intimidating.",
-      "assets/logo.png",
+      "assets/lc-fried-chicken.jpg",
       `<a class="small-button" href="#paths">Find Your Path</a><a class="small-button secondary" href="#recipes">Browse Recipes</a><a class="small-button secondary" href="#kitchen">Upload Food Video</a>`
     )}
     ${cookSubnav()}
@@ -1773,7 +1812,7 @@ function renderRecipes() {
     ["Professional", "skill:Professional"]
   ];
   app.innerHTML = `
-    ${hero("Recipes", "Southern classics, quick weeknight meals, global flavor, family dinners, beginner basics, party bites, and kid-friendly cooking.", "assets/editorial-kitchen-prep.jpg")}
+    ${hero("Recipes", "Southern classics, quick weeknight meals, global flavor, family dinners, beginner basics, party bites, and kid-friendly cooking.", "assets/lc-pasta.jpg")}
     ${cookSubnav()}
     <section class="band">
       <div class="toolbar search-toolbar">
@@ -1974,7 +2013,7 @@ function renderPlanner() {
   ];
   const featuredPlanRecipes = ["chicken-street-tacos", "caribbean-curry-chicken", "lemon-herb-salmon", "stovetop-mac-and-cheese"].map((id) => recipes.find((recipe) => recipe.id === id)).filter(Boolean);
   app.innerHTML = `
-    ${hero("Meal Planner", "Answer the classic question: what can I cook? Save meals, plan your week, and build a shopping list.", "assets/editorial-kitchen-prep.jpg")}
+    ${hero("Meal Planner", "Answer the classic question: what can I cook? Save meals, plan your week, and build a shopping list.", "assets/lc-orange-chicken.jpg")}
     ${cookSubnav()}
     <section class="cream-section">
       <div class="planner-summary">
@@ -2013,7 +2052,7 @@ function renderHosting() {
   const cups = partyCupRecipes();
   const initialPlan = partyPlanFor(24, "all");
   app.innerHTML = `
-    ${hero("Hosting & Entertaining", "Party cups, menu flow, shopping lists, and warm little details for making guests feel cared for.", "assets/editorial-kitchen-prep.jpg")}
+    ${hero("Hosting & Entertaining", "Party cups, menu flow, shopping lists, and warm little details for making guests feel cared for.", "assets/lc-desserts.jpg")}
     ${cookSubnav()}
     <section class="cream-section">
       <div class="section-heading">
@@ -2083,7 +2122,7 @@ function renderHosting() {
 
 function renderAbout() {
   app.innerHTML = `
-    ${hero("Brent & Co. Kitchen", "Let's Cook Ya'll is the cooking-skills corner of Brent & Co.: polished, practical, warm, and rooted in hospitality.", "assets/logo.png")}
+    ${hero("Brent & Co. Kitchen", "Let's Cook Ya'll is the cooking-skills corner of Brent & Co.: polished, practical, warm, and rooted in hospitality.", "assets/lc-mediterranean-food.jpg")}
     ${cookSubnav()}
     <section class="cream-section">
       <div class="about-layout">
@@ -2114,7 +2153,7 @@ function renderAccount() {
   const status = letsCookSession.status ? `<div class="empty-state">${escapeHTML(letsCookSession.status)}</div>` : "";
   const officialBadges = (user.badges || []).map((badge) => `<span>${escapeHTML(badge)}</span>`).join("");
   app.innerHTML = `
-    ${hero("Your Let's Cook Account", "Save recipes, track lesson progress, keep your profile picture, and upload food videos from your own kitchen.", "assets/logo.png")}
+    ${hero("Your Let's Cook Account", "Save recipes, track lesson progress, keep your profile picture, and upload food videos from your own kitchen.", "assets/lc-asian-food.jpg")}
     ${cookSubnav()}
     <section class="cream-section">
       <div class="account-layout">
@@ -2153,10 +2192,10 @@ function renderAccount() {
               <button class="small-button secondary" type="submit">Log In</button>
             </form>
             <div class="oauth-prep">
-              <p class="eyebrow">Future social login</p>
-              <button type="button" disabled>Continue with Google <span>Coming soon</span></button>
-              <button type="button" disabled>Continue with Facebook <span>Coming soon</span></button>
-              <button type="button" disabled>Continue with Apple <span>Coming soon</span></button>
+              <p class="eyebrow">Brent & Co single sign-on</p>
+              <a class="small-button" href="/sso/login?next=/#account">Continue with Google</a>
+              <a class="small-button secondary" href="/sso/login?next=/#account">Continue with Apple</a>
+              <a class="small-button secondary" href="/sso/login?next=/#account">Continue with Brent Account</a>
             </div>
           `}
         </article>

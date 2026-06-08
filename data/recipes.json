@@ -434,7 +434,7 @@
         "Turn leftovers into lettuce wraps.",
         "Make orange chicken bowls with cucumber, carrots, and green onion."
       ],
-      "image": "assets/editorial-cooking-hero.jpg",
+      "image": "assets/lc-orange-chicken.jpg",
       "tags": [
         "Chicken",
         "Quick Meals",
@@ -449,7 +449,7 @@
         "name": "Brent & Co. starter recipe"
       },
       "slug": "orange-chicken",
-      "image_url": "assets/editorial-cooking-hero.jpg",
+      "image_url": "assets/lc-orange-chicken.jpg",
       "prep_time": "10 min",
       "cook_time": "20 min",
       "skill_level": "Kid Chef",
@@ -502,7 +502,7 @@
         "Pair with fried rice or orange chicken.",
         "Add to a party board with dipping sauces."
       ],
-      "image": "assets/editorial-kitchen-prep.jpg",
+      "image": "assets/lc-asian-food.jpg",
       "tags": [
         "Party & Hosting",
         "Global Flavors",
@@ -516,7 +516,7 @@
         "name": "Brent & Co. starter recipe"
       },
       "slug": "crab-rangoon",
-      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "image_url": "assets/lc-asian-food.jpg",
       "prep_time": "15 min",
       "cook_time": "20 min",
       "skill_level": "Professional",
@@ -571,7 +571,7 @@
         "Add extra green onion and hot sauce for a New Orleans-style finish.",
         "Pair with simple greens or a small side salad."
       ],
-      "image": "assets/editorial-kitchen-prep.jpg",
+      "image": "assets/lc-seafood.jpg",
       "tags": [
         "Southern Comfort",
         "Global Flavors",
@@ -585,7 +585,7 @@
         "name": "Brent & Co. starter recipe"
       },
       "slug": "yakamein",
-      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "image_url": "assets/lc-seafood.jpg",
       "prep_time": "10 min",
       "cook_time": "40 min",
       "skill_level": "Professional",
@@ -619,7 +619,7 @@
         "Cook shrimp until just pink.",
         "Spoon shrimp and vegetables over creamy grits."
       ],
-      "image": "assets/editorial-cooking-hero.jpg",
+      "image": "assets/lc-shrimp-and-grits.jpg",
       "tags": [
         "Southern Comfort",
         "Seafood",
@@ -633,7 +633,7 @@
         "name": "Shay's Kitchen"
       },
       "slug": "shrimp-and-grits-with-green-beans",
-      "image_url": "assets/editorial-cooking-hero.jpg",
+      "image_url": "assets/lc-shrimp-and-grits.jpg",
       "prep_time": "10 min",
       "cook_time": "25 min",
       "skill_level": "Amateur",
@@ -712,7 +712,7 @@
         "Add pepper, cream, and parmesan.",
         "Toss pasta with sauce and flaked salmon."
       ],
-      "image": "assets/editorial-cajun-pasta.jpg",
+      "image": "assets/lc-pasta.jpg",
       "tags": [
         "Quick Meals",
         "Seafood",
@@ -726,7 +726,7 @@
         "name": "Shay's Kitchen"
       },
       "slug": "cajun-cream-salmon-rotini-pasta",
-      "image_url": "assets/editorial-cajun-pasta.jpg",
+      "image_url": "assets/lc-pasta.jpg",
       "prep_time": "10 min",
       "cook_time": "20 min",
       "skill_level": "Amateur",
@@ -853,7 +853,7 @@
         "Simmer sauce until glossy.",
         "Toss chicken in sauce and serve with rice."
       ],
-      "image": "assets/editorial-cooking-hero.jpg",
+      "image": "assets/lc-asian-food.jpg",
       "tags": [
         "Chicken",
         "Global Flavors",
@@ -867,7 +867,7 @@
         "name": "Shay's Kitchen"
       },
       "slug": "general-tso-style-chicken",
-      "image_url": "assets/editorial-cooking-hero.jpg",
+      "image_url": "assets/lc-asian-food.jpg",
       "prep_time": "10 min",
       "cook_time": "25 min",
       "skill_level": "Amateur",
@@ -900,7 +900,7 @@
         "Stir in sauce.",
         "Finish with cashews and serve over rice."
       ],
-      "image": "assets/editorial-cooking-hero.jpg",
+      "image": "assets/lc-cashew-chicken.jpg",
       "tags": [
         "Chicken",
         "Quick Meals",
@@ -914,7 +914,7 @@
         "name": "Shay's Kitchen"
       },
       "slug": "cashew-chicken",
-      "image_url": "assets/editorial-cooking-hero.jpg",
+      "image_url": "assets/lc-cashew-chicken.jpg",
       "prep_time": "10 min",
       "cook_time": "20 min",
       "skill_level": "Amateur",
@@ -946,7 +946,7 @@
         "Add cold rice and soy sauce.",
         "Fold eggs back in and finish with green onion."
       ],
-      "image": "assets/editorial-kitchen-prep.jpg",
+      "image": "assets/lc-fried-rice.jpg",
       "tags": [
         "Quick Meals",
         "Beginner Friendly",
@@ -960,7 +960,7 @@
         "name": "Shay's Kitchen"
       },
       "slug": "fried-rice",
-      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "image_url": "assets/lc-fried-rice.jpg",
       "prep_time": "5 min",
       "cook_time": "15 min",
       "skill_level": "Kid Chef",
@@ -992,7 +992,7 @@
         "Top with marinara and cheese.",
         "Bake until bubbly and cooked through."
       ],
-      "image": "assets/editorial-cooking-hero.jpg",
+      "image": "assets/lc-chicken-piccata.jpg",
       "tags": [
         "Chicken",
         "Family Dinners",
@@ -1006,7 +1006,7 @@
         "name": "Brent & Co. starter recipe"
       },
       "slug": "chicken-parmesan",
-      "image_url": "assets/editorial-cooking-hero.jpg",
+      "image_url": "assets/lc-chicken-piccata.jpg",
       "prep_time": "15 min",
       "cook_time": "30 min",
       "skill_level": "Amateur",
@@ -1082,7 +1082,7 @@
         "Stir everything together.",
         "Keep warm and serve with chips."
       ],
-      "image": "assets/editorial-kitchen-prep.jpg",
+      "image": "assets/lc-desserts.jpg",
       "tags": [
         "Party & Hosting",
         "Quick Meals",
@@ -1096,7 +1096,7 @@
         "name": "Shay's Kitchen"
       },
       "slug": "rotel-dip",
-      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "image_url": "assets/lc-desserts.jpg",
       "prep_time": "5 min",
       "cook_time": "15 min",
       "skill_level": "Kid Chef",
@@ -1127,7 +1127,7 @@
         "Simmer until glossy and hot.",
         "Serve with toothpicks."
       ],
-      "image": "assets/editorial-kitchen-prep.jpg",
+      "image": "assets/lc-desserts.jpg",
       "tags": [
         "Party & Hosting",
         "Holiday",
@@ -1141,7 +1141,7 @@
         "name": "Shay's Kitchen"
       },
       "slug": "party-meatballs",
-      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "image_url": "assets/lc-desserts.jpg",
       "prep_time": "5 min",
       "cook_time": "30 min",
       "skill_level": "Amateur",
@@ -1174,7 +1174,7 @@
         "Fill gaps with fruit and nuts.",
         "Finish with color and height."
       ],
-      "image": "assets/editorial-kitchen-prep.jpg",
+      "image": "assets/lc-desserts.jpg",
       "tags": [
         "Party & Hosting",
         "Date Night",
@@ -1188,7 +1188,7 @@
         "name": "Brent & Co. starter recipe"
       },
       "slug": "charcuterie-boards",
-      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "image_url": "assets/lc-desserts.jpg",
       "prep_time": "20 min",
       "cook_time": "0 min",
       "skill_level": "Kid Chef",
@@ -1220,7 +1220,7 @@
         "Add chocolate and salty bites.",
         "Fill gaps so the board feels abundant."
       ],
-      "image": "assets/editorial-kitchen-prep.jpg",
+      "image": "assets/lc-desserts.jpg",
       "tags": [
         "Desserts",
         "Party & Hosting",
@@ -1234,7 +1234,7 @@
         "name": "Shay's Kitchen"
       },
       "slug": "dessert-charcuterie-board",
-      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "image_url": "assets/lc-desserts.jpg",
       "prep_time": "25 min",
       "cook_time": "0 min",
       "skill_level": "Kid Chef",
@@ -1312,7 +1312,7 @@
         "Sear in a hot skillet.",
         "Finish with lemon and serve right away."
       ],
-      "image": "assets/editorial-kitchen-prep.jpg",
+      "image": "assets/lc-seafood.jpg",
       "tags": [
         "Seafood",
         "Quick Meals",
@@ -1326,7 +1326,7 @@
         "name": "Shay's Kitchen"
       },
       "slug": "blackened-fish",
-      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "image_url": "assets/lc-seafood.jpg",
       "prep_time": "10 min",
       "cook_time": "15 min",
       "skill_level": "Professional",
@@ -1358,7 +1358,7 @@
         "Add spinach.",
         "Return chicken and simmer until done."
       ],
-      "image": "assets/editorial-cooking-hero.jpg",
+      "image": "assets/lc-pasta.jpg",
       "tags": [
         "Chicken",
         "Date Night",
@@ -1372,7 +1372,7 @@
         "name": "Shay's Kitchen"
       },
       "slug": "tuscan-chicken",
-      "image_url": "assets/editorial-cooking-hero.jpg",
+      "image_url": "assets/lc-pasta.jpg",
       "prep_time": "10 min",
       "cook_time": "30 min",
       "skill_level": "Amateur",
@@ -1404,7 +1404,7 @@
         "Toss wings in garlic butter.",
         "Finish with parsley."
       ],
-      "image": "assets/editorial-cooking-hero.jpg",
+      "image": "assets/lc-fried-chicken.jpg",
       "tags": [
         "Chicken",
         "Party & Hosting",
@@ -1418,7 +1418,7 @@
         "name": "Shay's Kitchen"
       },
       "slug": "garlic-wings",
-      "image_url": "assets/editorial-cooking-hero.jpg",
+      "image_url": "assets/lc-fried-chicken.jpg",
       "prep_time": "10 min",
       "cook_time": "40 min",
       "skill_level": "Kid Chef",
@@ -1450,7 +1450,7 @@
         "Add rice and sauce.",
         "Fold eggs back in and serve."
       ],
-      "image": "assets/editorial-kitchen-prep.jpg",
+      "image": "assets/lc-fried-rice.jpg",
       "tags": [
         "Global Flavors",
         "Quick Meals",
@@ -1464,7 +1464,7 @@
         "name": "Shay's Kitchen"
       },
       "slug": "pineapple-fried-rice",
-      "image_url": "assets/editorial-kitchen-prep.jpg",
+      "image_url": "assets/lc-fried-rice.jpg",
       "prep_time": "5 min",
       "cook_time": "20 min",
       "skill_level": "Amateur",
@@ -1647,8 +1647,8 @@
         "Soften the tortillas by heating in the microwave for 5-10 seconds.",
         "Pile high with the avocado, lettuce and spring onion, add a spoonful of salsa, top with large flakes of fish and drizzle over the dressing."
       ],
-      "image": "https://www.themealdb.com/images/media/meals/uvuyxu1503067369.jpg",
-      "image_url": "https://www.themealdb.com/images/media/meals/uvuyxu1503067369.jpg",
+      "image": "assets/lc-seafood.jpg",
+      "image_url": "assets/lc-seafood.jpg",
       "video_url": "https://www.youtube.com/watch?v=N4EdUt0Ou48",
       "tags": [
         "Imported",
@@ -1881,8 +1881,8 @@
         "Cook for about a minute.",
         "Next, add callaloo, roma tomatoes, thyme, and black pepper."
       ],
-      "image": "https://www.themealdb.com/images/media/meals/73o3vq1765317873.jpg",
-      "image_url": "https://www.themealdb.com/images/media/meals/73o3vq1765317873.jpg",
+      "image": "assets/lc-seafood.jpg",
+      "image_url": "assets/lc-seafood.jpg",
       "video_url": "https://www.youtube.com/watch?v=n1fRCk-zTRM",
       "tags": [
         "Imported",
@@ -2807,8 +2807,8 @@
         "Add the oil, Pan-fry the salmon on both sides until it’s completely cooked inside and the glaze thickens.",
         "Garnish with sesame and serve immediately."
       ],
-      "image": "https://www.themealdb.com/images/media/meals/xxyupu1468262513.jpg",
-      "image_url": "https://www.themealdb.com/images/media/meals/xxyupu1468262513.jpg",
+      "image": "assets/lc-seafood.jpg",
+      "image_url": "assets/lc-seafood.jpg",
       "video_url": "https://www.youtube.com/watch?v=4MpYuaJsvRw",
       "tags": [
         "Imported",
@@ -3167,8 +3167,8 @@
       "tips": [],
       "makeAhead": "",
       "servingIdeas": [],
-      "image": "assets/editorial-cooking-hero.jpg",
-      "image_url": "assets/editorial-cooking-hero.jpg",
+      "image": "assets/lc-shrimp-and-grits.jpg",
+      "image_url": "assets/lc-shrimp-and-grits.jpg",
       "video_url": "",
       "related_recipe_ids": [],
       "tags": [
@@ -3218,8 +3218,8 @@
       "tips": [],
       "makeAhead": "",
       "servingIdeas": [],
-      "image": "assets/editorial-cajun-pasta.jpg",
-      "image_url": "assets/editorial-cajun-pasta.jpg",
+      "image": "assets/lc-pasta.jpg",
+      "image_url": "assets/lc-pasta.jpg",
       "video_url": "",
       "related_recipe_ids": [],
       "tags": [
@@ -3270,8 +3270,8 @@
       "tips": [],
       "makeAhead": "",
       "servingIdeas": [],
-      "image": "assets/editorial-cooking-hero.jpg",
-      "image_url": "assets/editorial-cooking-hero.jpg",
+      "image": "assets/lc-orange-chicken.jpg",
+      "image_url": "assets/lc-orange-chicken.jpg",
       "video_url": "",
       "related_recipe_ids": [],
       "tags": [
@@ -3326,8 +3326,8 @@
       ],
       "makeAhead": "",
       "servingIdeas": [],
-      "image": "assets/tandoori-chicken.jpeg",
-      "image_url": "assets/tandoori-chicken.jpeg",
+      "image": "assets/lc-indian-food.jpg",
+      "image_url": "assets/lc-indian-food.jpg",
       "video_url": "",
       "related_recipe_ids": [
         "butter-chicken",
@@ -3385,8 +3385,8 @@
       "tips": [],
       "makeAhead": "",
       "servingIdeas": [],
-      "image": "assets/indian-food.jpeg",
-      "image_url": "assets/indian-food.jpeg",
+      "image": "assets/lc-indian-food.jpg",
+      "image_url": "assets/lc-indian-food.jpg",
       "video_url": "",
       "related_recipe_ids": [],
       "tags": [
@@ -3439,8 +3439,8 @@
       "tips": [],
       "makeAhead": "",
       "servingIdeas": [],
-      "image": "assets/tandoori-chicken.jpeg",
-      "image_url": "assets/tandoori-chicken.jpeg",
+      "image": "assets/lc-indian-food.jpg",
+      "image_url": "assets/lc-indian-food.jpg",
       "video_url": "",
       "related_recipe_ids": [],
       "tags": [
@@ -3493,8 +3493,8 @@
       "tips": [],
       "makeAhead": "",
       "servingIdeas": [],
-      "image": "assets/indian-food.jpeg",
-      "image_url": "assets/indian-food.jpeg",
+      "image": "assets/lc-indian-food.jpg",
+      "image_url": "assets/lc-indian-food.jpg",
       "video_url": "",
       "related_recipe_ids": [],
       "tags": [
@@ -3547,8 +3547,8 @@
       "tips": [],
       "makeAhead": "",
       "servingIdeas": [],
-      "image": "assets/indian-food.jpeg",
-      "image_url": "assets/indian-food.jpeg",
+      "image": "assets/lc-indian-food.jpg",
+      "image_url": "assets/lc-indian-food.jpg",
       "video_url": "",
       "related_recipe_ids": [],
       "tags": [
@@ -3601,8 +3601,8 @@
       "tips": [],
       "makeAhead": "",
       "servingIdeas": [],
-      "image": "assets/indian-food.jpeg",
-      "image_url": "assets/indian-food.jpeg",
+      "image": "assets/lc-indian-food.jpg",
+      "image_url": "assets/lc-indian-food.jpg",
       "video_url": "",
       "related_recipe_ids": [],
       "tags": [
@@ -3655,8 +3655,8 @@
       "tips": [],
       "makeAhead": "",
       "servingIdeas": [],
-      "image": "assets/fresh-bread.jpeg",
-      "image_url": "assets/fresh-bread.jpeg",
+      "image": "assets/lc-indian-food.jpg",
+      "image_url": "assets/lc-indian-food.jpg",
       "video_url": "",
       "related_recipe_ids": [],
       "tags": [
@@ -3709,8 +3709,8 @@
       "tips": [],
       "makeAhead": "",
       "servingIdeas": [],
-      "image": "assets/beautiful-chicken.jpeg",
-      "image_url": "assets/beautiful-chicken.jpeg",
+      "image": "assets/lc-fried-chicken.jpg",
+      "image_url": "assets/lc-fried-chicken.jpg",
       "video_url": "",
       "related_recipe_ids": [],
       "tags": [
@@ -3978,8 +3978,8 @@
       "tips": [],
       "makeAhead": "",
       "servingIdeas": [],
-      "image": "assets/american-food.jpeg",
-      "image_url": "assets/american-food.jpeg",
+      "image": "assets/lc-seafood.jpg",
+      "image_url": "assets/lc-seafood.jpg",
       "video_url": "",
       "related_recipe_ids": [],
       "tags": [
@@ -4046,7 +4046,7 @@
         "Add avocado or crema.",
         "Set up a taco bar."
       ],
-      "image": "assets/american-food.jpeg",
+      "image": "assets/lc-birria-tacos.jpg",
       "tags": [
         "tacos",
         "chicken",
@@ -4054,7 +4054,7 @@
         "weeknight"
       ],
       "path": "amateur-home-chef",
-      "image_url": "assets/american-food.jpeg",
+      "image_url": "assets/lc-birria-tacos.jpg",
       "video_url": "",
       "related_recipe_ids": [],
       "featured": false,
@@ -4569,7 +4569,7 @@
         "Add roasted potatoes.",
         "Make rice bowls."
       ],
-      "image": "assets/fresh-bread.jpeg",
+      "image": "assets/lc-mediterranean-food.jpg",
       "tags": [
         "pita",
         "chicken",
@@ -4577,7 +4577,7 @@
         "lemon"
       ],
       "path": "amateur-home-chef",
-      "image_url": "assets/fresh-bread.jpeg",
+      "image_url": "assets/lc-mediterranean-food.jpg",
       "video_url": "",
       "related_recipe_ids": [],
       "featured": false,
@@ -4701,7 +4701,7 @@
         "Add to wraps.",
         "Use as a veggie dip."
       ],
-      "image": "assets/fresh-bread.jpeg",
+      "image": "assets/lc-mediterranean-food.jpg",
       "tags": [
         "hummus",
         "chickpeas",
@@ -4709,7 +4709,7 @@
         "no-cook"
       ],
       "path": "kid-chefs",
-      "image_url": "assets/fresh-bread.jpeg",
+      "image_url": "assets/lc-mediterranean-food.jpg",
       "video_url": "",
       "related_recipe_ids": [],
       "featured": false,
@@ -4768,7 +4768,7 @@
         "Add rice or potatoes.",
         "Pair with hummus and pita."
       ],
-      "image": "assets/editorial-cooking-hero.jpg",
+      "image": "assets/lc-seafood.jpg",
       "tags": [
         "salmon",
         "lemon",
@@ -4776,7 +4776,7 @@
         "seafood"
       ],
       "path": "amateur-home-chef",
-      "image_url": "assets/editorial-cooking-hero.jpg",
+      "image_url": "assets/lc-seafood.jpg",
       "video_url": "",
       "related_recipe_ids": [],
       "featured": false,

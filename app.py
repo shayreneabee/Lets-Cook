@@ -1,5 +1,7 @@
 import json
 import hashlib
+import base64
+import hmac
 import json
 import os
 import secrets
@@ -7,8 +9,9 @@ import sqlite3
 import time
 from html import escape
 from pathlib import Path
+from urllib.parse import urlencode
 
-from flask import Flask, abort, jsonify, request, send_from_directory, session
+from flask import Flask, abort, jsonify, redirect, request, send_from_directory, session
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
 
@@ -37,6 +40,9 @@ APPLE_KEY_ID = os.getenv("APPLE_KEY_ID", "")
 APPLE_PRIVATE_KEY = os.getenv("APPLE_PRIVATE_KEY", "")
 FACEBOOK_CLIENT_ID = os.getenv("FACEBOOK_CLIENT_ID", "")
 FACEBOOK_CLIENT_SECRET = os.getenv("FACEBOOK_CLIENT_SECRET", "")
+SSO_SHARED_SECRET = os.getenv("SSO_SHARED_SECRET", "dev-sso-change-me")
+BRENT_SSO_URL = os.getenv("BRENT_SSO_URL", "https://findthebeatmusic.com/sso/start")
+LETS_COOK_URL = os.getenv("LETS_COOK_URL", "https://letscookyall.com/")
 FOUNDER_PROFILES = [
     {
         "email": os.getenv("BRENT_OWNER_EMAIL", "shalanda.brent@gmail.com").strip().lower(),
@@ -81,11 +87,27 @@ def init_db():
                 provider TEXT DEFAULT 'local',
                 provider_id TEXT DEFAULT '',
                 auth_provider TEXT DEFAULT 'local',
+                authentication_provider TEXT DEFAULT 'local',
+                profile_photo TEXT DEFAULT '',
                 is_admin INTEGER DEFAULT 0,
                 is_founder INTEGER DEFAULT 0,
                 is_verified INTEGER DEFAULT 0,
                 created_at INTEGER NOT NULL,
+                last_login_at INTEGER DEFAULT 0,
                 updated_at INTEGER DEFAULT 0
+            )
+            """
+        )
+        conn.execute(
+            """
+            CREATE TABLE IF NOT EXISTS cook_profiles (
+                user_id INTEGER PRIMARY KEY,
+                skill_level TEXT DEFAULT '',
+                cooking_interests TEXT DEFAULT '',
+                settings_json TEXT DEFAULT '{}',
+                created_at INTEGER NOT NULL,
+                updated_at INTEGER NOT NULL,
+                FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
             )
             """
         )
@@ -117,9 +139,12 @@ def init_db():
             "provider": "TEXT DEFAULT 'local'",
             "provider_id": "TEXT DEFAULT ''",
             "auth_provider": "TEXT DEFAULT 'local'",
+            "authentication_provider": "TEXT DEFAULT 'local'",
+            "profile_photo": "TEXT DEFAULT ''",
             "is_admin": "INTEGER DEFAULT 0",
             "is_founder": "INTEGER DEFAULT 0",
             "is_verified": "INTEGER DEFAULT 0",
+            "last_login_at": "INTEGER DEFAULT 0",
             "updated_at": "INTEGER DEFAULT 0",
         }.items():
             if column not in existing_columns:
@@ -148,6 +173,24 @@ def ensure_database():
     seed_founder_profile()
 
 
+@app.get("/sso/login")
+def sso_login():
+    next_path = request.args.get("next") or "/#account"
+    query = urlencode({"app": "lets-cook", "next": next_path})
+    return redirect(f"{BRENT_SSO_URL}?{query}")
+
+
+@app.get("/sso/consume")
+def sso_consume():
+    payload = verify_sso_token(request.args.get("token", ""))
+    if not payload:
+        return "That Brent & Co sign-in link expired. Please try again.", 400
+    user = upsert_sso_user(payload)
+    session.clear()
+    session["user_id"] = user["id"]
+    return redirect(request.args.get("next") or "/#account")
+
+
 def allowed_file(filename, allowed):
     return "." in filename and filename.rsplit(".", 1)[1].lower() in allowed
 
@@ -168,6 +211,118 @@ def brent_account_id(email):
     normalized = (email or "").strip().lower()
     digest = hashlib.sha256(normalized.encode("utf-8")).hexdigest()[:24]
     return f"brent-local-{digest}"
+
+
+def sso_b64decode(value):
+    padding = "=" * (-len(value) % 4)
+    return base64.urlsafe_b64decode((value + padding).encode("utf-8"))
+
+
+def verify_sso_token(token):
+    try:
+        body, signature = token.split(".", 1)
+        expected = hmac.new(
+            SSO_SHARED_SECRET.encode("utf-8"),
+            body.encode("utf-8"),
+            hashlib.sha256,
+        ).digest()
+        if not hmac.compare_digest(sso_b64decode(signature), expected):
+            return None
+        payload = json.loads(sso_b64decode(body).decode("utf-8"))
+    except (ValueError, json.JSONDecodeError, TypeError):
+        return None
+    if payload.get("aud") != "lets-cook" or int(payload.get("exp", 0)) < int(time.time()):
+        return None
+    return payload
+
+
+def ensure_cook_profile(conn, user_id):
+    now = int(time.time())
+    conn.execute(
+        """
+        INSERT OR IGNORE INTO cook_profiles (user_id, created_at, updated_at)
+        VALUES (?, ?, ?)
+        """,
+        (user_id, now, now),
+    )
+    ensure_state(conn, user_id)
+
+
+def upsert_sso_user(payload):
+    email = (payload.get("email") or "").strip().lower()
+    if not email:
+        raise ValueError("Brent SSO did not include an email address.")
+    display_name = (payload.get("display_name") or "").strip() or email.split("@")[0]
+    profile_photo = (payload.get("profile_photo") or "").strip()
+    provider = (payload.get("authentication_provider") or "brent-sso").strip()
+    now = int(time.time())
+    with db() as conn:
+        row = conn.execute("SELECT * FROM users WHERE lower(email) = lower(?)", (email,)).fetchone()
+        if row:
+            conn.execute(
+                """
+                UPDATE users
+                SET full_name = COALESCE(NULLIF(full_name, ''), ?),
+                    display_name = COALESCE(NULLIF(display_name, ''), ?),
+                    avatar_url = COALESCE(NULLIF(avatar_url, ''), ?),
+                    profile_photo = COALESCE(NULLIF(profile_photo, ''), ?),
+                    brent_account_id = COALESCE(NULLIF(brent_account_id, ''), ?),
+                    provider = ?, auth_provider = ?, authentication_provider = ?,
+                    is_admin = MAX(is_admin, ?), is_founder = MAX(is_founder, ?),
+                    is_verified = MAX(is_verified, ?),
+                    last_login_at = ?, updated_at = ?
+                WHERE id = ?
+                """,
+                (
+                    display_name,
+                    display_name,
+                    profile_photo,
+                    profile_photo,
+                    payload.get("sub") or brent_account_id(email),
+                    provider,
+                    provider,
+                    provider,
+                    1 if payload.get("is_admin") else 0,
+                    1 if payload.get("is_founder") else 0,
+                    1 if payload.get("is_founder") else 0,
+                    now,
+                    now,
+                    row["id"],
+                ),
+            )
+            user_id = row["id"]
+        else:
+            cursor = conn.execute(
+                """
+                INSERT INTO users (
+                    email, password_hash, full_name, display_name, avatar_url, profile_photo,
+                    role, brent_account_id, provider, auth_provider, authentication_provider,
+                    is_admin, is_founder, is_verified, created_at, last_login_at, updated_at
+                )
+                VALUES (?, ?, ?, ?, ?, ?, 'user', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    email,
+                    generate_password_hash(secrets.token_urlsafe(32)),
+                    display_name,
+                    display_name,
+                    profile_photo,
+                    profile_photo,
+                    payload.get("sub") or brent_account_id(email),
+                    provider,
+                    provider,
+                    provider,
+                    1 if payload.get("is_admin") else 0,
+                    1 if payload.get("is_founder") else 0,
+                    1 if payload.get("is_founder") else 0,
+                    now,
+                    now,
+                    now,
+                ),
+            )
+            user_id = cursor.lastrowid
+        ensure_cook_profile(conn, user_id)
+        return conn.execute("SELECT * FROM users WHERE id = ?", (user_id,)).fetchone()
 
 
 def current_user():
@@ -220,6 +375,8 @@ def seed_founder_profile():
             email = founder["email"]
             if not email:
                 continue
+            founder_display_name = founder.get("display_name") or email.split("@")[0]
+            founder_full_name = founder.get("full_name") or founder_display_name
             existing = conn.execute(
                 "SELECT * FROM users WHERE lower(email) = lower(?)",
                 (email,),
@@ -234,8 +391,8 @@ def seed_founder_profile():
                     WHERE id = ?
                     """,
                     (
-                        founder["full_name"],
-                        founder["display_name"],
+                        founder_full_name,
+                        founder_display_name,
                         "founder/admin",
                         brent_account_id(email),
                         OWNER_AUTH_PROVIDER,
@@ -257,8 +414,8 @@ def seed_founder_profile():
                 (
                     email,
                     generate_password_hash(OWNER_INITIAL_PASSWORD or secrets.token_urlsafe(32)),
-                    founder["full_name"],
-                    founder["display_name"],
+                    founder_full_name,
+                    founder_display_name,
                     "founder/admin",
                     brent_account_id(email),
                     OWNER_AUTH_PROVIDER,
@@ -336,9 +493,10 @@ def api_signup():
                 """
                 INSERT INTO users (
                     email, password_hash, full_name, display_name, role,
-                    brent_account_id, provider, auth_provider, created_at, updated_at
+                    brent_account_id, provider, auth_provider, authentication_provider,
+                    created_at, last_login_at, updated_at
                 )
-                VALUES (?, ?, ?, ?, 'user', ?, ?, ?, ?, ?)
+                VALUES (?, ?, ?, ?, 'user', ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     email,
@@ -348,6 +506,8 @@ def api_signup():
                     brent_account_id(email),
                     AUTH_PROVIDER,
                     AUTH_PROVIDER,
+                    AUTH_PROVIDER,
+                    int(time.time()),
                     int(time.time()),
                     int(time.time()),
                 ),
@@ -357,7 +517,7 @@ def api_signup():
         session.clear()
         session["user_id"] = cursor.lastrowid
         user = conn.execute("SELECT * FROM users WHERE id = ?", (cursor.lastrowid,)).fetchone()
-        ensure_state(conn, user["id"])
+        ensure_cook_profile(conn, user["id"])
     return jsonify(load_state(user))
 
 
@@ -379,11 +539,22 @@ def api_login():
             SET brent_account_id = COALESCE(NULLIF(brent_account_id, ''), ?),
                 provider = COALESCE(NULLIF(provider, ''), ?),
                 auth_provider = COALESCE(NULLIF(auth_provider, ''), ?),
+                authentication_provider = COALESCE(NULLIF(authentication_provider, ''), ?),
+                last_login_at = ?,
                 updated_at = ?
             WHERE id = ?
             """,
-            (brent_account_id(user["email"]), AUTH_PROVIDER, AUTH_PROVIDER, int(time.time()), user["id"]),
+            (
+                brent_account_id(user["email"]),
+                AUTH_PROVIDER,
+                AUTH_PROVIDER,
+                AUTH_PROVIDER,
+                int(time.time()),
+                int(time.time()),
+                user["id"],
+            ),
         )
+        ensure_cook_profile(conn, user["id"])
         user = conn.execute("SELECT * FROM users WHERE id = ?", (user["id"],)).fetchone()
     return jsonify(load_state(user))
 

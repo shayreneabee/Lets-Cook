@@ -3089,9 +3089,11 @@ select {
   background: rgba(255, 248, 233, 0.72);
 }
 
-.oauth-prep button {
+.oauth-prep button,
+.oauth-prep a {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 10px;
   min-height: 46px;
   padding: 0 14px;
@@ -3100,6 +3102,7 @@ select {
   background: white;
   color: var(--ink);
   font-weight: 850;
+  text-decoration: none;
 }
 
 .oauth-prep span {
