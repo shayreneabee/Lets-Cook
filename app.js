@@ -2181,9 +2181,9 @@ function renderAccount() {
             ${user.isAdmin ? `<a class="small-button" href="/admin">Open Admin Dashboard</a>` : ""}
           ` : `
             <form class="profile-form" data-lets-signup-form>
-              <label>Display name<input name="displayName" placeholder="Shay's Kitchen Fan" required /></label>
               <label>Email<input name="email" type="email" placeholder="you@example.com" required /></label>
               <label>Password<input name="password" type="password" minlength="8" placeholder="At least 8 characters" required /></label>
+              <p class="helper-text">Create your account first. Cooking level, favorite cuisines, and dietary preferences can come later.</p>
               <button class="small-button" type="submit">Create Account</button>
             </form>
             <form class="profile-form" data-lets-login-form>
@@ -2195,6 +2195,7 @@ function renderAccount() {
               <p class="eyebrow">Brent & Co single sign-on</p>
               <a class="small-button" href="/sso/login?next=/#account">Continue with Google</a>
               <a class="small-button secondary" href="/sso/login?next=/#account">Continue with Apple</a>
+              <button class="small-button secondary" type="button" disabled>Continue with Facebook</button>
               <a class="small-button secondary" href="/sso/login?next=/#account">Continue with Brent Account</a>
             </div>
           `}
