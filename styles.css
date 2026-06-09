@@ -3960,3 +3960,269 @@ body {
   font-size: 1.35rem;
   font-weight: 800;
 }
+
+/* Let's Cook Y'all accessible premium color system */
+:root {
+  --green: #7d9270;
+  --green-dark: #4f6344;
+  --cream: #f7f2e9;
+  --paper: #ffffff;
+  --gold: #d9a441;
+  --gold-deep: #9a6f1f;
+  --ink: #232323;
+  --muted: #5d564d;
+  --terracotta: #b56b45;
+  --line: rgba(35, 35, 35, 0.14);
+  --shadow: 0 18px 44px rgba(35, 35, 35, 0.12);
+  --bc-card: #ffffff;
+  --bc-glass: rgba(255, 255, 255, 0.82);
+  --bc-shadow: 0 24px 58px rgba(35, 35, 35, 0.14);
+  --bc-lift: 0 12px 30px rgba(35, 35, 35, 0.1);
+  --app-accent: #d9a441;
+  --app-accent-soft: #f4e4bf;
+}
+
+html,
+body {
+  color: #232323;
+  background: #f7f2e9;
+}
+
+body {
+  background:
+    radial-gradient(circle at 12% 0%, rgba(217, 164, 65, 0.22), transparent 28rem),
+    radial-gradient(circle at 92% 16%, rgba(125, 146, 112, 0.18), transparent 24rem),
+    #f7f2e9;
+}
+
+.site-header {
+  background: rgba(247, 242, 233, 0.92);
+  border-bottom: 1px solid rgba(35, 35, 35, 0.12);
+  box-shadow: 0 14px 34px rgba(35, 35, 35, 0.1);
+}
+
+.main-nav a,
+.gold-button,
+.app-subnav a {
+  color: #232323;
+  background: #ffffff;
+  border: 1px solid rgba(35, 35, 35, 0.14);
+  box-shadow: 0 8px 20px rgba(35, 35, 35, 0.08);
+}
+
+.main-nav a:is(:hover, :focus-visible),
+.main-nav a.active,
+.gold-button:is(:hover, :focus-visible),
+.app-subnav a:is(:hover, :focus-visible),
+.app-subnav a.active {
+  color: #232323;
+  background: #f4e4bf;
+  border-color: #d9a441;
+}
+
+.hero,
+.platform-hero,
+.cook101-hero,
+.recipe-hero,
+.recipe-story-hero,
+.path-detail-hero {
+  color: #232323;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(247, 242, 233, 0.96)),
+    radial-gradient(circle at 80% 16%, rgba(217, 164, 65, 0.26), transparent 18rem);
+}
+
+.hero h1,
+.platform-hero h1,
+.cook101-hero h1,
+.recipe-hero h1,
+.recipe-hero-copy h1,
+.section-heading h2,
+.section-title,
+.recipe-card h3,
+.path-card h3,
+.cuisine-card h3,
+.lesson-card h3,
+.detail-panel h2,
+.account-panel h2,
+.planner-panel h2,
+.submission-card h2 {
+  color: #232323;
+}
+
+.hero p,
+.hero p:not(.eyebrow),
+.platform-hero p:not(.eyebrow),
+.cook101-hero p:not(.eyebrow),
+.recipe-hero-copy p:not(.eyebrow),
+.detail-copy,
+.recipe-card p,
+.path-card p,
+.cuisine-card p,
+.lesson-card p,
+.ingredient-preview,
+.profile-form label,
+.upload-form label {
+  color: #5d564d;
+}
+
+.cream-section,
+.app-subnav,
+.admin-dashboard {
+  background: #f7f2e9;
+}
+
+.hero-media,
+.recipe-card,
+.path-card,
+.cuisine-card,
+.lesson-card,
+.app-card,
+.direct-link-card,
+.beu-profile-card,
+.submission-card,
+.compact-recipe,
+.detail-panel,
+.planner-panel,
+.account-panel,
+.empty-state,
+.recipe-hero-copy,
+.path-detail-hero > div,
+.cook101-hero > div:first-child {
+  color: #232323;
+  background: #ffffff;
+  border: 1px solid rgba(35, 35, 35, 0.12);
+  box-shadow: 0 16px 38px rgba(35, 35, 35, 0.11);
+}
+
+.recipe-card:hover,
+.path-card:hover,
+.cuisine-card:hover,
+.lesson-card:hover,
+.app-card:hover,
+.direct-link-card:hover,
+.compact-recipe:hover {
+  background: #ffffff;
+  border-color: rgba(217, 164, 65, 0.48);
+  box-shadow: 0 24px 58px rgba(35, 35, 35, 0.15);
+}
+
+.recipe-card .recipe-photo,
+.hero-media,
+.recipe-hero figure,
+.cuisine-card figure,
+.lesson-card figure {
+  background: #ffffff;
+  border-color: rgba(217, 164, 65, 0.5);
+}
+
+.small-button,
+button.small-button,
+.recipe-card .small-button,
+.cuisine-card .small-button,
+.cuisine-card button,
+.cuisine-card a.small-button {
+  color: #232323;
+  background: #d9a441;
+  border: 1px solid #b9872c;
+  box-shadow: 0 10px 24px rgba(181, 107, 69, 0.16);
+}
+
+.small-button:is(:hover, :focus-visible),
+button.small-button:is(:hover, :focus-visible) {
+  color: #232323;
+  background: #e6b85f;
+}
+
+.small-button.secondary,
+.oauth-prep a,
+.oauth-prep button {
+  color: #232323;
+  background: #ffffff;
+  border: 1px solid rgba(125, 146, 112, 0.5);
+}
+
+.small-button.secondary:is(:hover, :focus-visible),
+.oauth-prep a:is(:hover, :focus-visible) {
+  background: #edf1e8;
+  border-color: #7d9270;
+}
+
+.filter-select,
+.quick-filter,
+.profile-form input,
+.profile-form select,
+.upload-form input,
+.upload-form select,
+.profile-form textarea,
+.upload-form textarea {
+  color: #232323;
+  background: #ffffff;
+  border: 1px solid rgba(35, 35, 35, 0.18);
+}
+
+.quick-filter {
+  color: #232323;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(35, 35, 35, 0.08);
+}
+
+.quick-filter.active,
+.quick-filter:is(:hover, :focus-visible) {
+  color: #232323;
+  background: #f4e4bf;
+  border-color: #d9a441;
+}
+
+.tag,
+.personal-tag,
+.recipe-card-topline span,
+.recipe-card-meta div,
+.lesson-skill-row span,
+.recipe-pill {
+  color: #232323;
+  background: #f4e4bf;
+  border-color: rgba(217, 164, 65, 0.46);
+}
+
+.chef-note {
+  color: #232323;
+  background: rgba(217, 164, 65, 0.18);
+  border-left-color: #b56b45;
+}
+
+.account-stats div {
+  color: #232323;
+  background: #edf1e8;
+}
+
+.account-stats strong,
+.eyebrow,
+.recipe-card-topline,
+.recipe-card-topline strong,
+.admin-dashboard h1 {
+  color: #4f6344;
+}
+
+.source-note,
+.recipe-card-meta small,
+.oauth-prep span {
+  color: #5d564d;
+}
+
+@media (max-width: 760px) {
+  .site-header,
+  .app-subnav {
+    background: rgba(247, 242, 233, 0.97);
+  }
+
+  .recipe-card,
+  .path-card,
+  .cuisine-card,
+  .lesson-card,
+  .detail-panel,
+  .planner-panel,
+  .account-panel {
+    border-radius: 18px;
+  }
+}
