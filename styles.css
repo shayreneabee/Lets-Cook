@@ -4253,6 +4253,38 @@ button.small-button:is(:hover, :focus-visible) {
   transform: translateY(-2px);
 }
 
+.cuisine-101-band .cook101-cuisine-grid article {
+  color: #232323;
+  background: #ffffff;
+  border: 1px solid rgba(35, 35, 35, 0.14);
+  box-shadow: 0 16px 36px rgba(35, 35, 35, 0.12);
+}
+
+.cuisine-101-band .cook101-cuisine-grid h3,
+.cuisine-101-band .cook101-cuisine-grid p {
+  color: #232323;
+  opacity: 1;
+}
+
+.cuisine-101-band .cook101-cuisine-grid h3 {
+  font-weight: 700;
+}
+
+.cuisine-101-band .cook101-cuisine-grid p {
+  color: #5d564d;
+}
+
+.cuisine-101-band .cook101-cuisine-grid .small-button.secondary {
+  color: #232323;
+  background: #f7f2e9;
+  border-color: rgba(125, 146, 112, 0.55);
+}
+
+.cuisine-101-band .cook101-cuisine-grid .small-button.secondary:is(:hover, :focus-visible) {
+  background: #f4e4bf;
+  border-color: #d9a441;
+}
+
 @media (max-width: 760px) {
   .site-header,
   .app-subnav {
