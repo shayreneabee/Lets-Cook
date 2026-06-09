@@ -4210,6 +4210,49 @@ button.small-button:is(:hover, :focus-visible) {
   color: #5d564d;
 }
 
+.cuisine-101-band {
+  color: #232323;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(217, 164, 65, 0.18), transparent 18rem),
+    #f7f2e9;
+  border-top: 1px solid rgba(35, 35, 35, 0.12);
+  border-bottom: 1px solid rgba(35, 35, 35, 0.12);
+}
+
+.cuisine-101-band .section-heading {
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid rgba(35, 35, 35, 0.12);
+  border-radius: 22px;
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(35, 35, 35, 0.1);
+}
+
+.cuisine-101-band .eyebrow,
+.cuisine-101-band .section-heading h2,
+.cuisine-101-band .section-heading p,
+.cuisine-101-band .lesson-chip {
+  color: #232323;
+  opacity: 1;
+}
+
+.cuisine-101-band .eyebrow {
+  color: #4f6344;
+}
+
+.cuisine-101-band .lesson-chip {
+  min-height: 76px;
+  background: #ffffff;
+  border: 1px solid rgba(217, 164, 65, 0.5);
+  box-shadow: 0 12px 28px rgba(35, 35, 35, 0.11);
+}
+
+.cuisine-101-band .lesson-chip:is(:hover, :focus-visible) {
+  color: #232323;
+  background: #f4e4bf;
+  border-color: #d9a441;
+  transform: translateY(-2px);
+}
+
 @media (max-width: 760px) {
   .site-header,
   .app-subnav {
@@ -4224,5 +4267,9 @@ button.small-button:is(:hover, :focus-visible) {
   .planner-panel,
   .account-panel {
     border-radius: 18px;
+  }
+
+  .cuisine-101-band .lesson-chip-grid {
+    grid-template-columns: 1fr;
   }
 }
