@@ -2125,6 +2125,18 @@ function renderAbout() {
     ${hero("Brent & Co. Kitchen", "Let's Cook Ya'll is the cooking-skills corner of Brent & Co.: polished, practical, warm, and rooted in hospitality.", "assets/lc-mediterranean-food.jpg")}
     ${cookSubnav()}
     <section class="cream-section">
+      <div class="founder-story-card">
+        <figure><img src="assets/founder-shalanda-brent.png" alt="Shalanda Brent, Founder and CEO of Brent & Co" /></figure>
+        <article>
+          <p class="eyebrow">Founder & CEO, Brent & Co</p>
+          <h2>Shalanda Brent</h2>
+          <h3>Veteran. Builder. Designer. Founder.</h3>
+          <p>Shalanda Brent is a U.S. Army veteran, software developer, UX designer, and founder of Brent & Co. She builds digital platforms that connect people to opportunity, creativity, and community through workforce development, music technology, and culinary education.</p>
+          <p>Shalanda Brent is the founder and CEO of Brent & Co, a venture studio focused on building practical technology that improves lives. A veteran, software developer, UX designer, and entrepreneur, she created Find The Beat, Let’s Cook Y’all, and Second Chance Careers to help people connect, create, learn, and grow. Her work combines technology, community, and real-world problem solving to create platforms that serve everyday people.</p>
+          <blockquote>I built Brent & Co because I know what it feels like to start over, rebuild, and create something from the ground up. These platforms were created for real people with real needs — people looking for work, people looking for creative connection, and people looking for community. I didn’t wait for permission. I built it. Now I’m focused on making sure it reaches the people it was built for.</blockquote>
+          <a class="small-button" ${linkAttrs("https://www.brentandco.org/about.html#about-founder")}>Learn More About Brent & Co</a>
+        </article>
+      </div>
       <div class="about-layout">
         <article class="detail-panel">
           <p class="eyebrow">Umbrella connection</p>

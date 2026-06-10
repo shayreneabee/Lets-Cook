@@ -77,6 +77,8 @@ def init_db():
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 email TEXT NOT NULL UNIQUE,
                 password_hash TEXT NOT NULL,
+                first_name TEXT DEFAULT '',
+                last_name TEXT DEFAULT '',
                 full_name TEXT DEFAULT '',
                 display_name TEXT NOT NULL,
                 username TEXT DEFAULT '',
@@ -87,11 +89,14 @@ def init_db():
                 country TEXT DEFAULT '',
                 profile_pic TEXT DEFAULT '',
                 role TEXT DEFAULT 'user',
+                account_type TEXT DEFAULT 'Home Cook',
+                phone TEXT DEFAULT '',
                 brent_account_id TEXT DEFAULT '',
                 provider TEXT DEFAULT 'local',
                 provider_id TEXT DEFAULT '',
                 auth_provider TEXT DEFAULT 'local',
                 authentication_provider TEXT DEFAULT 'local',
+                oauth_subject TEXT DEFAULT '',
                 profile_photo TEXT DEFAULT '',
                 is_admin INTEGER DEFAULT 0,
                 is_founder INTEGER DEFAULT 0,
@@ -99,6 +104,33 @@ def init_db():
                 created_at INTEGER NOT NULL,
                 last_login_at INTEGER DEFAULT 0,
                 updated_at INTEGER DEFAULT 0
+            )
+            """
+        )
+        conn.execute(
+            """
+            CREATE TABLE IF NOT EXISTS profiles (
+                user_id INTEGER PRIMARY KEY,
+                profile_completion_percentage INTEGER DEFAULT 0,
+                profile_visibility TEXT DEFAULT 'public',
+                social_links TEXT DEFAULT '{}',
+                interests TEXT DEFAULT '',
+                settings_json TEXT DEFAULT '{}',
+                created_at INTEGER NOT NULL,
+                updated_at INTEGER NOT NULL,
+                FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
+            )
+            """
+        )
+        conn.execute(
+            """
+            CREATE TABLE IF NOT EXISTS app_memberships (
+                user_id INTEGER NOT NULL,
+                app_name TEXT NOT NULL,
+                role TEXT DEFAULT 'user',
+                joined_at INTEGER NOT NULL,
+                PRIMARY KEY(user_id, app_name),
+                FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
             )
             """
         )
@@ -131,6 +163,8 @@ def init_db():
             row["name"] for row in conn.execute("PRAGMA table_info(users)").fetchall()
         }
         for column, definition in {
+            "first_name": "TEXT DEFAULT ''",
+            "last_name": "TEXT DEFAULT ''",
             "full_name": "TEXT DEFAULT ''",
             "username": "TEXT DEFAULT ''",
             "avatar_url": "TEXT DEFAULT ''",
@@ -139,11 +173,14 @@ def init_db():
             "state": "TEXT DEFAULT ''",
             "country": "TEXT DEFAULT ''",
             "role": "TEXT DEFAULT 'user'",
+            "account_type": "TEXT DEFAULT 'Home Cook'",
+            "phone": "TEXT DEFAULT ''",
             "brent_account_id": "TEXT DEFAULT ''",
             "provider": "TEXT DEFAULT 'local'",
             "provider_id": "TEXT DEFAULT ''",
             "auth_provider": "TEXT DEFAULT 'local'",
             "authentication_provider": "TEXT DEFAULT 'local'",
+            "oauth_subject": "TEXT DEFAULT ''",
             "profile_photo": "TEXT DEFAULT ''",
             "is_admin": "INTEGER DEFAULT 0",
             "is_founder": "INTEGER DEFAULT 0",
@@ -153,6 +190,20 @@ def init_db():
         }.items():
             if column not in existing_columns:
                 conn.execute(f"ALTER TABLE users ADD COLUMN {column} {definition}")
+        profile_columns = {
+            row["name"] for row in conn.execute("PRAGMA table_info(profiles)").fetchall()
+        }
+        for column, definition in {
+            "profile_completion_percentage": "INTEGER DEFAULT 0",
+            "profile_visibility": "TEXT DEFAULT 'public'",
+            "social_links": "TEXT DEFAULT '{}'",
+            "interests": "TEXT DEFAULT ''",
+            "settings_json": "TEXT DEFAULT '{}'",
+            "created_at": "INTEGER DEFAULT 0",
+            "updated_at": "INTEGER DEFAULT 0",
+        }.items():
+            if column not in profile_columns:
+                conn.execute(f"ALTER TABLE profiles ADD COLUMN {column} {definition}")
         conn.execute(
             """
             CREATE TABLE IF NOT EXISTS food_videos (
@@ -249,6 +300,47 @@ def ensure_cook_profile(conn, user_id):
         """,
         (user_id, now, now),
     )
+    user = conn.execute("SELECT * FROM users WHERE id = ?", (user_id,)).fetchone()
+    if user:
+        public = public_user(user)
+        completion_fields = [
+            public["displayName"],
+            public["avatarUrl"],
+            public["bio"],
+            public["city"],
+            public["state"],
+        ]
+        completion = int(sum(1 for value in completion_fields if value) / len(completion_fields) * 100)
+        interests = ", ".join(
+            item
+            for item in [
+                user["role"] or "",
+                user["account_type"] or "",
+                public.get("city") or "",
+            ]
+            if item
+        )
+        conn.execute(
+            """
+            INSERT INTO profiles (
+                user_id, profile_completion_percentage, profile_visibility,
+                social_links, interests, created_at, updated_at
+            )
+            VALUES (?, ?, 'public', '{}', ?, ?, ?)
+            ON CONFLICT(user_id) DO UPDATE SET
+                profile_completion_percentage = excluded.profile_completion_percentage,
+                interests = excluded.interests,
+                updated_at = excluded.updated_at
+            """,
+            (user_id, completion, interests, now, now),
+        )
+        conn.execute(
+            """
+            INSERT OR IGNORE INTO app_memberships (user_id, app_name, role, joined_at)
+            VALUES (?, 'lets-cook', ?, ?)
+            """,
+            (user_id, user["role"] or "user", now),
+        )
     ensure_state(conn, user_id)
 
 
@@ -362,6 +454,7 @@ def public_user(row):
         "state": row["state"] or "",
         "country": row["country"] or "",
         "role": row["role"] or "Home Cook",
+        "accountType": row["account_type"] or row["role"] or "Home Cook",
         "brentAccountId": row["brent_account_id"] or brent_account_id(row["email"]),
         "provider": row["provider"] or row["auth_provider"] or AUTH_PROVIDER,
         "providerId": row["provider_id"] or "",
@@ -594,11 +687,32 @@ def api_profile():
         return jsonify({"error": "Please log in to update your profile."}), 401
     payload = request.get_json(silent=True) or {}
     display_name = (payload.get("displayName") or "").strip() or user["display_name"]
+    bio = (payload.get("bio") or "").strip()
+    city = (payload.get("city") or "").strip()
+    state = (payload.get("state") or "").strip()
+    account_type = (payload.get("accountType") or payload.get("cookingLevel") or "").strip() or user["account_type"]
     with db() as conn:
         conn.execute(
-            "UPDATE users SET display_name = ?, full_name = COALESCE(NULLIF(full_name, ''), ?), updated_at = ? WHERE id = ?",
-            (display_name, display_name, int(time.time()), user["id"]),
+            """
+            UPDATE users
+            SET display_name = ?, full_name = COALESCE(NULLIF(full_name, ''), ?),
+                bio = ?, city = ?, state = ?, account_type = ?, role = ?,
+                updated_at = ?
+            WHERE id = ?
+            """,
+            (
+                display_name,
+                display_name,
+                bio or user["bio"],
+                city or user["city"],
+                state or user["state"],
+                account_type,
+                account_type,
+                int(time.time()),
+                user["id"],
+            ),
         )
+        ensure_cook_profile(conn, user["id"])
         user = conn.execute("SELECT * FROM users WHERE id = ?", (user["id"],)).fetchone()
     return jsonify(load_state(user))
 
@@ -687,6 +801,17 @@ def dashboard_html(user):
     recipes = load_recipe_data().get("recipes", [])
     with db() as conn:
         user_count = conn.execute("SELECT COUNT(*) FROM users").fetchone()[0]
+        profile_count = conn.execute("SELECT COUNT(*) FROM profiles").fetchone()[0]
+        video_count = conn.execute("SELECT COUNT(*) FROM food_videos").fetchone()[0]
+        latest_users = conn.execute(
+            """
+            SELECT u.*, p.profile_completion_percentage
+            FROM users u
+            LEFT JOIN profiles p ON p.user_id = u.id
+            ORDER BY u.created_at DESC
+            LIMIT 25
+            """
+        ).fetchall()
     apps = [
         ("Let’s Cook Y’all", "https://letscookyall.com/"),
         ("Find The Beat", "https://findthebeatmusic.com/"),
@@ -695,6 +820,17 @@ def dashboard_html(user):
         ("Brent & Co", "https://brentandco.org/"),
     ]
     app_links = "".join(f'<li><a href="{url}">{name}</a></li>' for name, url in apps)
+    user_rows = "".join(
+        "<tr>"
+        f"<td><a href='/profiles/{row['id']}'>{escape(row['display_name'] or row['full_name'] or row['email'])}</a></td>"
+        f"<td>{escape(row['email'])}</td>"
+        f"<td>{escape(row['account_type'] or row['role'] or 'Home Cook')}</td>"
+        f"<td>{escape(', '.join(part for part in [row['city'], row['state']] if part))}</td>"
+        f"<td>{row['profile_completion_percentage'] or 0}%</td>"
+        f"<td>{row['last_login_at'] or ''}</td>"
+        "</tr>"
+        for row in latest_users
+    )
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -710,17 +846,78 @@ def dashboard_html(user):
     <p>Signed in as {public_user(user)["displayName"]}. Admin and founder flags are set server-side only.</p>
     <section class="admin-stat-grid">
       <article><strong>{user_count}</strong><span>Users</span></article>
+      <article><strong>{profile_count}</strong><span>Profiles</span></article>
       <article><strong>{len(recipes)}</strong><span>Recipes</span></article>
-      <article><strong>5</strong><span>Connected apps</span></article>
+      <article><strong>{video_count}</strong><span>Food videos</span></article>
     </section>
     <section class="admin-panel-grid">
       <article><h2>Apps</h2><ul>{app_links}</ul></article>
       <article><h2>Manage</h2><ul><li><a href="/data/recipe-source.json">Recipe source</a></li><li><a href="/data/recipes.json">Recipe database</a></li><li><a href="/#account">Users/account area</a></li><li><a href="/#kitchen">Content uploads</a></li></ul></article>
     </section>
+    <section class="admin-panel-grid">
+      <article><h2>User directory</h2><table><thead><tr><th>Name</th><th>Email</th><th>Type</th><th>Location</th><th>Profile</th><th>Last login</th></tr></thead><tbody>{user_rows}</tbody></table></article>
+    </section>
     <a class="small-button" href="/#lets-cook">Back to Let’s Cook</a>
   </main>
 </body>
 </html>"""
+
+
+@app.get("/profiles/<int:user_id>")
+def public_profile_page(user_id):
+    with db() as conn:
+        row = conn.execute("SELECT * FROM users WHERE id = ?", (user_id,)).fetchone()
+        profile = conn.execute("SELECT * FROM profiles WHERE user_id = ?", (user_id,)).fetchone()
+    if not row:
+        return "<h1>Profile not found</h1><p>That Let's Cook profile does not exist yet.</p>", 404
+    person = public_user(row)
+    avatar = escape(person["avatarUrl"] or "")
+    avatar_html = f"<img src='/{avatar}' alt=''>" if avatar else f"<span>{escape(person['initials'])}</span>"
+    location = escape(", ".join(part for part in [person["city"], person["state"]] if part) or "Add city/state")
+    completion = profile["profile_completion_percentage"] if profile else 0
+    return f"""<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{escape(person['displayName'])} | Let’s Cook Y’all</title><link rel="stylesheet" href="/styles.css"></head>
+<body><main class="admin-dashboard">
+<p class="eyebrow">Let’s Cook Y’all profile</p><div class="identity-card"><div class="identity-avatar">{avatar_html}</div><div><h1>{escape(person['displayName'])}</h1><p>{escape(person['accountType'])} · {location}</p></div></div>
+<section class="admin-panel-grid"><article><h2>Bio</h2><p>{escape(person['bio'] or 'This cook is still adding their story.')}</p></article><article><h2>Profile</h2><p>{completion}% complete</p><p>Universal account: {escape(person['brentAccountId'])}</p></article></section>
+<a class="small-button" href="/#lets-cook">Back to Let’s Cook</a></main></body></html>"""
+
+
+@app.route("/settings", methods=["GET", "POST"])
+def settings_page():
+    user = current_user()
+    if not user:
+        return redirect("/#account")
+    if request.method == "POST":
+        visibility = request.form.get("profile_visibility", "public").strip()
+        if visibility not in {"public", "private"}:
+            visibility = "public"
+        settings_json = json.dumps(
+            {
+                "email_notifications": bool(request.form.get("email_notifications")),
+                "saved_recipe_reminders": bool(request.form.get("saved_recipe_reminders")),
+            }
+        )
+        with db() as conn:
+            ensure_cook_profile(conn, user["id"])
+            conn.execute(
+                "UPDATE profiles SET profile_visibility = ?, settings_json = ?, updated_at = ? WHERE user_id = ?",
+                (visibility, settings_json, int(time.time()), user["id"]),
+            )
+        return redirect("/settings")
+    with db() as conn:
+        profile = conn.execute("SELECT * FROM profiles WHERE user_id = ?", (user["id"],)).fetchone()
+    person = public_user(user)
+    visibility = profile["profile_visibility"] if profile else "public"
+    return f"""<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Settings | Let’s Cook Y’all</title><link rel="stylesheet" href="/styles.css"></head>
+<body><main class="admin-dashboard"><p class="eyebrow">Account settings</p><h1>{escape(person['displayName'])}</h1>
+<form method="post" class="recipe-form"><label>Profile visibility <select name="profile_visibility"><option value="public" {"selected" if visibility == "public" else ""}>Public</option><option value="private" {"selected" if visibility == "private" else ""}>Private</option></select></label>
+<label><input type="checkbox" name="email_notifications" checked> Email notifications</label>
+<label><input type="checkbox" name="saved_recipe_reminders" checked> Saved recipe reminders</label>
+<button class="small-button" type="submit">Save settings</button></form><p><a href="/profiles/{user['id']}">View profile</a></p></main></body></html>"""
 
 
 @app.get("/admin")
