@@ -856,18 +856,43 @@ def load_recipe_data():
 
 def dashboard_html(user):
     recipes = load_recipe_data().get("recipes", [])
+    platform_filter = request.args.get("app", "all").strip() or "all"
+    user_filter_sql = ""
+    params = []
+    if platform_filter != "all":
+        user_filter_sql = "WHERE EXISTS (SELECT 1 FROM app_memberships am WHERE am.user_id = u.id AND am.app_name = ?)"
+        params.append(platform_filter)
+    now = int(time.time())
+    today_start = now - (now % 86400)
     with db() as conn:
-        user_count = conn.execute("SELECT COUNT(*) FROM users").fetchone()[0]
-        profile_count = conn.execute("SELECT COUNT(*) FROM profiles").fetchone()[0]
+        user_count = conn.execute(f"SELECT COUNT(*) FROM users u {user_filter_sql}", params).fetchone()[0]
+        new_today = conn.execute(
+            f"SELECT COUNT(*) FROM users u {user_filter_sql} {'AND' if user_filter_sql else 'WHERE'} u.created_at >= ?",
+            [*params, today_start],
+        ).fetchone()[0]
+        active_users = conn.execute(
+            f"SELECT COUNT(*) FROM users u {user_filter_sql} {'AND' if user_filter_sql else 'WHERE'} u.last_login_at >= ?",
+            [*params, now - 30 * 24 * 60 * 60],
+        ).fetchone()[0]
+        profile_count = conn.execute(f"SELECT COUNT(*) FROM profiles p JOIN users u ON u.id = p.user_id {user_filter_sql}", params).fetchone()[0]
+        avg_completion = conn.execute(
+            f"SELECT COALESCE(ROUND(AVG(p.profile_completion_percentage)), 0) FROM profiles p JOIN users u ON u.id = p.user_id {user_filter_sql}",
+            params,
+        ).fetchone()[0]
         video_count = conn.execute("SELECT COUNT(*) FROM food_videos").fetchone()[0]
         latest_users = conn.execute(
-            """
+            f"""
             SELECT u.*, p.profile_completion_percentage
             FROM users u
             LEFT JOIN profiles p ON p.user_id = u.id
+            {user_filter_sql}
             ORDER BY u.created_at DESC
             LIMIT 25
-            """
+            """,
+            params,
+        ).fetchall()
+        platform_counts = conn.execute(
+            "SELECT app_name, COUNT(*) AS total FROM app_memberships GROUP BY app_name ORDER BY app_name"
         ).fetchall()
     apps = [
         ("Let’s Cook Y’all", "https://letscookyall.com/"),
@@ -877,6 +902,13 @@ def dashboard_html(user):
         ("Brent & Co", "https://brentandco.org/"),
     ]
     app_links = "".join(f'<li><a href="{url}">{name}</a></li>' for name, url in apps)
+    filter_links = '<a class="small-button secondary" href="/admin?app=all">All apps</a>' + "".join(
+        f'<a class="small-button secondary" href="/admin?app={escape(row["app_name"])}">{escape(row["app_name"])}</a>'
+        for row in platform_counts
+    )
+    platform_rows = "".join(
+        f"<tr><td>{escape(row['app_name'])}</td><td>{row['total']}</td></tr>" for row in platform_counts
+    ) or "<tr><td colspan='2'>No app memberships yet</td></tr>"
     user_rows = "".join(
         "<tr>"
         f"<td><a href='/profiles/{row['id']}'>{escape(row['display_name'] or row['full_name'] or row['email'])}</a></td>"
@@ -898,18 +930,27 @@ def dashboard_html(user):
 </head>
 <body>
   <main class="admin-dashboard">
-    <p class="eyebrow">Brent & Co founder/admin</p>
-    <h1>Let’s Cook Y’all Admin</h1>
+    <p class="eyebrow">Brent & Co founder control center</p>
+    <h1>Founder Dashboard</h1>
     <p>Signed in as {public_user(user)["displayName"]}. Admin and founder flags are set server-side only.</p>
+    <p>Filter: {escape(platform_filter)}</p>
+    <nav class="admin-panel-grid"><article>{filter_links}</article></nav>
     <section class="admin-stat-grid">
-      <article><strong>{user_count}</strong><span>Users</span></article>
-      <article><strong>{profile_count}</strong><span>Profiles</span></article>
-      <article><strong>{len(recipes)}</strong><span>Recipes</span></article>
-      <article><strong>{video_count}</strong><span>Food videos</span></article>
+      <article><strong>{user_count}</strong><span>Total users</span></article>
+      <article><strong>{new_today}</strong><span>New users today</span></article>
+      <article><strong>{active_users}</strong><span>Active users</span></article>
+      <article><strong>{avg_completion}%</strong><span>Avg profile completion</span></article>
+      <article><strong>0</strong><span>Messages sent</span></article>
+      <article><strong>{video_count}</strong><span>Showcases uploaded</span></article>
+      <article><strong>{len(recipes)}</strong><span>Recipes submitted</span></article>
+      <article><strong>0</strong><span>Resumes uploaded</span></article>
     </section>
     <section class="admin-panel-grid">
       <article><h2>Apps</h2><ul>{app_links}</ul></article>
       <article><h2>Manage</h2><ul><li><a href="/data/recipe-source.json">Recipe source</a></li><li><a href="/data/recipes.json">Recipe database</a></li><li><a href="/#account">Users/account area</a></li><li><a href="/#kitchen">Content uploads</a></li></ul></article>
+    </section>
+    <section class="admin-panel-grid">
+      <article><h2>Users by platform</h2><table><tbody>{platform_rows}</tbody></table></article>
     </section>
     <section class="admin-panel-grid">
       <article><h2>User directory</h2><table><thead><tr><th>Name</th><th>Email</th><th>Type</th><th>Location</th><th>Profile</th><th>Last login</th></tr></thead><tbody>{user_rows}</tbody></table></article>
