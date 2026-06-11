@@ -2184,7 +2184,14 @@ function renderAccount() {
             </div>
             <form class="profile-form" data-lets-profile-form>
               <label>Display name<input name="displayName" value="${escapeHTML(user.displayName || "")}" required /></label>
+              <label>Username<input name="username" value="${escapeHTML(user.username || "")}" placeholder="shay-kitchen" /></label>
+              <label>Bio<textarea name="bio" placeholder="Tell people what you love to cook.">${escapeHTML(user.bio || "")}</textarea></label>
+              <label>City<input name="city" value="${escapeHTML(user.city || "")}" /></label>
+              <label>State<input name="state" value="${escapeHTML(user.state || "")}" /></label>
+              <label>Account type<input name="accountType" value="${escapeHTML(user.accountType || "")}" placeholder="Home Cook" /></label>
               <label>Profile picture<input name="photo" type="file" accept="image/*" /></label>
+              <a class="small-button secondary" href="/profile/${encodeURIComponent(user.username || user.id || "")}">View Public Profile</a>
+              <a class="small-button secondary" href="/settings">Settings</a>
               <button class="small-button" type="submit">Save Profile</button>
             </form>
             <form class="profile-form" data-lets-logout-form>
@@ -2512,7 +2519,14 @@ async function handleSubmit(event) {
     const profileResponse = await fetch("/api/lets-cook/profile", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ displayName: formData.get("displayName")?.toString().trim() })
+      body: JSON.stringify({
+        displayName: formData.get("displayName")?.toString().trim(),
+        username: formData.get("username")?.toString().trim(),
+        bio: formData.get("bio")?.toString().trim(),
+        city: formData.get("city")?.toString().trim(),
+        state: formData.get("state")?.toString().trim(),
+        accountType: formData.get("accountType")?.toString().trim()
+      })
     });
     const profilePayload = await profileResponse.json().catch(() => ({}));
     applyLetsCookState(profilePayload, profileResponse.ok ? "Profile saved." : profilePayload.error || "Profile save failed.");

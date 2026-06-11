@@ -4,6 +4,7 @@ import base64
 import hmac
 import json
 import os
+import re
 import secrets
 import sqlite3
 import time
@@ -190,6 +191,8 @@ def init_db():
         }.items():
             if column not in existing_columns:
                 conn.execute(f"ALTER TABLE users ADD COLUMN {column} {definition}")
+        for row in conn.execute("SELECT id FROM users WHERE username = '' OR username IS NULL OR brent_account_id = '' OR brent_account_id IS NULL").fetchall():
+            ensure_user_identity(conn, row["id"])
         profile_columns = {
             row["name"] for row in conn.execute("PRAGMA table_info(profiles)").fetchall()
         }
@@ -268,6 +271,53 @@ def brent_account_id(email):
     return f"brent-local-{digest}"
 
 
+def username_slug(value, fallback="cook"):
+    base = re.sub(r"[^a-z0-9]+", "-", (value or "").strip().lower()).strip("-")
+    return base or fallback
+
+
+def unique_username(conn, preferred, email="", user_id=None):
+    base = username_slug(preferred or (email or "").split("@")[0], "cook")
+    candidate = base
+    suffix = 2
+    while True:
+        params = [candidate]
+        sql = "SELECT id FROM users WHERE lower(username) = lower(?)"
+        if user_id:
+            sql += " AND id != ?"
+            params.append(user_id)
+        row = conn.execute(sql, params).fetchone()
+        if not row:
+            return candidate
+        candidate = f"{base}-{suffix}"
+        suffix += 1
+
+
+def ensure_user_identity(conn, user_id):
+    user = conn.execute("SELECT * FROM users WHERE id = ?", (user_id,)).fetchone()
+    if not user:
+        return
+    username = user["username"] or unique_username(
+        conn,
+        user["display_name"] or user["full_name"],
+        user["email"],
+        user_id,
+    )
+    conn.execute(
+        """
+        UPDATE users
+        SET username = ?, brent_account_id = COALESCE(NULLIF(brent_account_id, ''), ?),
+            auth_provider = COALESCE(NULLIF(auth_provider, ''), ?),
+            authentication_provider = COALESCE(NULLIF(authentication_provider, ''), ?),
+            provider = COALESCE(NULLIF(provider, ''), ?),
+            profile_photo = COALESCE(NULLIF(profile_photo, ''), profile_pic, avatar_url, ''),
+            updated_at = ?
+        WHERE id = ?
+        """,
+        (username, brent_account_id(user["email"]), AUTH_PROVIDER, AUTH_PROVIDER, AUTH_PROVIDER, int(time.time()), user_id),
+    )
+
+
 def sso_b64decode(value):
     padding = "=" * (-len(value) % 4)
     return base64.urlsafe_b64decode((value + padding).encode("utf-8"))
@@ -292,6 +342,7 @@ def verify_sso_token(token):
 
 
 def ensure_cook_profile(conn, user_id):
+    ensure_user_identity(conn, user_id)
     now = int(time.time())
     conn.execute(
         """
@@ -459,6 +510,8 @@ def public_user(row):
         "provider": row["provider"] or row["auth_provider"] or AUTH_PROVIDER,
         "providerId": row["provider_id"] or "",
         "authProvider": row["auth_provider"] or row["provider"] or AUTH_PROVIDER,
+        "joinDate": row["created_at"] or "",
+        "createdAt": row["created_at"] or "",
         "isAdmin": bool(row["is_admin"]),
         "isFounder": bool(row["is_founder"]),
         "isVerified": bool(row["is_verified"]),
@@ -633,6 +686,7 @@ def api_signup():
         session["user_id"] = cursor.lastrowid
         user = conn.execute("SELECT * FROM users WHERE id = ?", (cursor.lastrowid,)).fetchone()
         ensure_cook_profile(conn, user["id"])
+        user = conn.execute("SELECT * FROM users WHERE id = ?", (cursor.lastrowid,)).fetchone()
     return jsonify(load_state(user))
 
 
@@ -687,22 +741,25 @@ def api_profile():
         return jsonify({"error": "Please log in to update your profile."}), 401
     payload = request.get_json(silent=True) or {}
     display_name = (payload.get("displayName") or "").strip() or user["display_name"]
+    username_input = (payload.get("username") or "").strip()
     bio = (payload.get("bio") or "").strip()
     city = (payload.get("city") or "").strip()
     state = (payload.get("state") or "").strip()
     account_type = (payload.get("accountType") or payload.get("cookingLevel") or "").strip() or user["account_type"]
     with db() as conn:
+        username = unique_username(conn, username_input or user["username"] or display_name, user["email"], user["id"])
         conn.execute(
             """
             UPDATE users
             SET display_name = ?, full_name = COALESCE(NULLIF(full_name, ''), ?),
-                bio = ?, city = ?, state = ?, account_type = ?, role = ?,
+                username = ?, bio = ?, city = ?, state = ?, account_type = ?, role = ?,
                 updated_at = ?
             WHERE id = ?
             """,
             (
                 display_name,
                 display_name,
+                username,
                 bio or user["bio"],
                 city or user["city"],
                 state or user["state"],
@@ -874,14 +931,30 @@ def public_profile_page(user_id):
     avatar = escape(person["avatarUrl"] or "")
     avatar_html = f"<img src='/{avatar}' alt=''>" if avatar else f"<span>{escape(person['initials'])}</span>"
     location = escape(", ".join(part for part in [person["city"], person["state"]] if part) or "Add city/state")
+    handle = escape(person["username"] or "")
+    join_date = escape(str(person["joinDate"])[:10]) if person.get("joinDate") else ""
+    handle_line = f"<p>@{handle}{' · Joined ' + join_date if join_date else ''}</p>" if handle else ""
     completion = profile["profile_completion_percentage"] if profile else 0
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{escape(person['displayName'])} | Let’s Cook Y’all</title><link rel="stylesheet" href="/styles.css"></head>
 <body><main class="admin-dashboard">
-<p class="eyebrow">Let’s Cook Y’all profile</p><div class="identity-card"><div class="identity-avatar">{avatar_html}</div><div><h1>{escape(person['displayName'])}</h1><p>{escape(person['accountType'])} · {location}</p></div></div>
+<p class="eyebrow">Let’s Cook Y’all profile</p><div class="identity-card"><div class="identity-avatar">{avatar_html}</div><div><h1>{escape(person['displayName'])}</h1>{handle_line}<p>{escape(person['accountType'])} · {location}</p></div></div>
 <section class="admin-panel-grid"><article><h2>Bio</h2><p>{escape(person['bio'] or 'This cook is still adding their story.')}</p></article><article><h2>Profile</h2><p>{completion}% complete</p><p>Universal account: {escape(person['brentAccountId'])}</p></article></section>
 <a class="small-button" href="/#lets-cook">Back to Let’s Cook</a></main></body></html>"""
+
+
+@app.get("/profile/<username>")
+def public_profile_by_username(username):
+    normalized = username_slug(username)
+    with db() as conn:
+        row = conn.execute(
+            "SELECT id FROM users WHERE lower(username) = lower(?)",
+            (normalized,),
+        ).fetchone()
+    if not row:
+        return "<h1>Profile not found</h1><p>That Let's Cook profile does not exist yet.</p>", 404
+    return public_profile_page(row["id"])
 
 
 @app.route("/settings", methods=["GET", "POST"])
