@@ -2182,6 +2182,11 @@ function renderAccount() {
                 ${officialBadges ? `<div class="founder-badges">${officialBadges}</div>` : ""}
               </div>
             </div>
+            <div class="empty-state">
+              <strong>Profile ${Number(user.profileCompletion || 0)}% Complete</strong>
+              <div class="completion-meter" aria-label="Profile completion"><span style="width:${Math.min(100, Number(user.profileCompletion || 0))}%"></span></div>
+              <p class="helper-text">${Number(user.profileCompletion || 0) >= 100 ? "Your kitchen profile is ready." : "Add your photo, bio, city/state, cook type, videos, and details when you are ready."}</p>
+            </div>
             <form class="profile-form" data-lets-profile-form>
               <label>Display name<input name="displayName" value="${escapeHTML(user.displayName || "")}" required /></label>
               <label>Username<input name="username" value="${escapeHTML(user.username || "")}" placeholder="shay-kitchen" /></label>

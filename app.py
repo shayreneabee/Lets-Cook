@@ -137,6 +137,20 @@ def init_db():
         )
         conn.execute(
             """
+            CREATE TABLE IF NOT EXISTS onboarding_events (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id INTEGER,
+                session_id TEXT DEFAULT '',
+                event_name TEXT NOT NULL,
+                app_name TEXT DEFAULT 'lets-cook',
+                metadata_json TEXT DEFAULT '{}',
+                created_at INTEGER NOT NULL,
+                FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE SET NULL
+            )
+            """
+        )
+        conn.execute(
+            """
             CREATE TABLE IF NOT EXISTS cook_profiles (
                 user_id INTEGER PRIMARY KEY,
                 skill_level TEXT DEFAULT '',
@@ -271,6 +285,78 @@ def brent_account_id(email):
     return f"brent-local-{digest}"
 
 
+ONBOARDING_STEPS = [
+    ("landing_page_view", "Landing Page Views"),
+    ("signup_click", "Signup Clicks"),
+    ("account_created", "Account Created"),
+    ("profile_started", "Profile Started"),
+    ("profile_completed", "Profile Completed"),
+    ("first_action_taken", "First Action Taken"),
+]
+
+
+def analytics_session_id():
+    if "analytics_session_id" not in session:
+        session["analytics_session_id"] = secrets.token_urlsafe(16)
+    return session["analytics_session_id"]
+
+
+def track_onboarding_event(event_name, user_id=None, metadata=None, conn=None):
+    def insert_event(active_conn):
+        active_conn.execute(
+            """
+            INSERT INTO onboarding_events (user_id, session_id, event_name, app_name, metadata_json, created_at)
+            VALUES (?, ?, ?, 'lets-cook', ?, ?)
+            """,
+            (user_id, analytics_session_id(), event_name, json.dumps(metadata or {}), int(time.time())),
+        )
+
+    if conn is not None:
+        insert_event(conn)
+    else:
+        with db() as event_conn:
+            insert_event(event_conn)
+
+
+def profile_completion_score(conn, user_id):
+    user = conn.execute("SELECT * FROM users WHERE id = ?", (user_id,)).fetchone()
+    if not user:
+        return 0
+    uploads = conn.execute("SELECT COUNT(*) FROM food_videos WHERE user_id = ?", (user_id,)).fetchone()[0]
+    checks = [
+        (15, bool(user["profile_pic"] or user["avatar_url"] or user["profile_photo"])),
+        (15, bool(user["bio"])),
+        (10, bool(user["city"] and user["state"])),
+        (10, bool(user["account_type"] or user["role"])),
+        (10, False),
+        (20, bool(uploads)),
+        (20, bool(user["username"] or user["country"] or user["phone"])),
+    ]
+    return min(sum(weight for weight, done in checks if done), 100)
+
+
+def funnel_metrics(conn, app_name="lets-cook"):
+    rows = conn.execute(
+        """
+        SELECT event_name, COUNT(DISTINCT COALESCE(CAST(user_id AS TEXT), session_id)) AS total
+        FROM onboarding_events
+        WHERE app_name = ?
+        GROUP BY event_name
+        """,
+        (app_name,),
+    ).fetchall()
+    counts = {row["event_name"]: int(row["total"] or 0) for row in rows}
+    previous = None
+    metrics = []
+    for event_name, label in ONBOARDING_STEPS:
+        total = counts.get(event_name, 0)
+        conversion = 100 if previous in (None, 0) else round((total / previous) * 100)
+        dropoff = 0 if previous in (None, 0) else max(previous - total, 0)
+        metrics.append({"event": event_name, "label": label, "total": total, "conversion": conversion, "dropoff": dropoff})
+        previous = total
+    return metrics
+
+
 def username_slug(value, fallback="cook"):
     base = re.sub(r"[^a-z0-9]+", "-", (value or "").strip().lower()).strip("-")
     return base or fallback
@@ -354,14 +440,7 @@ def ensure_cook_profile(conn, user_id):
     user = conn.execute("SELECT * FROM users WHERE id = ?", (user_id,)).fetchone()
     if user:
         public = public_user(user)
-        completion_fields = [
-            public["displayName"],
-            public["avatarUrl"],
-            public["bio"],
-            public["city"],
-            public["state"],
-        ]
-        completion = int(sum(1 for value in completion_fields if value) / len(completion_fields) * 100)
+        completion = profile_completion_score(conn, user_id)
         interests = ", ".join(
             item
             for item in [
@@ -512,6 +591,7 @@ def public_user(row):
         "authProvider": row["auth_provider"] or row["provider"] or AUTH_PROVIDER,
         "joinDate": row["created_at"] or "",
         "createdAt": row["created_at"] or "",
+        "profileCompletion": int(row["profile_completion_percentage"] or 0) if "profile_completion_percentage" in row.keys() else 0,
         "isAdmin": bool(row["is_admin"]),
         "isFounder": bool(row["is_founder"]),
         "isVerified": bool(row["is_verified"]),
@@ -617,13 +697,16 @@ def load_state(user):
         }
     with db() as conn:
         state = ensure_state(conn, user["id"])
+        profile_row = conn.execute("SELECT profile_completion_percentage FROM profiles WHERE user_id = ?", (user["id"],)).fetchone()
         videos = conn.execute(
             "SELECT * FROM food_videos WHERE user_id = ? ORDER BY created_at DESC",
             (user["id"],),
         ).fetchall()
+    public = public_user(user)
+    public["profileCompletion"] = int(profile_row["profile_completion_percentage"] or 0) if profile_row else 0
     return {
         "authenticated": True,
-        "user": public_user(user),
+        "user": public,
         "saved": json.loads(state["saved_json"] or "[]"),
         "planned": json.loads(state["planned_json"] or "[]"),
         "lessonProgress": json.loads(state["lesson_progress_json"] or "{}"),
@@ -649,6 +732,7 @@ def api_state():
 
 @app.post("/api/lets-cook/signup")
 def api_signup():
+    track_onboarding_event("signup_click")
     payload = request.get_json(silent=True) or {}
     email = (payload.get("email") or "").strip().lower()
     password = payload.get("password") or ""
@@ -687,6 +771,7 @@ def api_signup():
         user = conn.execute("SELECT * FROM users WHERE id = ?", (cursor.lastrowid,)).fetchone()
         ensure_cook_profile(conn, user["id"])
         user = conn.execute("SELECT * FROM users WHERE id = ?", (cursor.lastrowid,)).fetchone()
+        track_onboarding_event("account_created", user["id"], conn=conn)
     return jsonify(load_state(user))
 
 
@@ -725,6 +810,8 @@ def api_login():
         )
         ensure_cook_profile(conn, user["id"])
         user = conn.execute("SELECT * FROM users WHERE id = ?", (user["id"],)).fetchone()
+        completion = profile_completion_score(conn, user["id"])
+        track_onboarding_event("profile_completed" if completion >= 100 else "profile_started", user["id"], {"completion": completion}, conn)
     return jsonify(load_state(user))
 
 
@@ -771,6 +858,8 @@ def api_profile():
         )
         ensure_cook_profile(conn, user["id"])
         user = conn.execute("SELECT * FROM users WHERE id = ?", (user["id"],)).fetchone()
+        completion = profile_completion_score(conn, user["id"])
+        track_onboarding_event("profile_completed" if completion >= 100 else "profile_started", user["id"], {"completion": completion}, conn)
     return jsonify(load_state(user))
 
 
@@ -790,6 +879,8 @@ def api_profile_photo():
             "UPDATE users SET profile_pic = ?, avatar_url = ?, updated_at = ? WHERE id = ?",
             (profile_pic, profile_pic, int(time.time()), user["id"]),
         )
+        ensure_cook_profile(conn, user["id"])
+        track_onboarding_event("profile_started", user["id"], {"action": "profile_photo"}, conn)
         user = conn.execute("SELECT * FROM users WHERE id = ?", (user["id"],)).fetchone()
     return jsonify(load_state(user))
 
@@ -842,6 +933,8 @@ def api_food_video():
             """,
             (user["id"], recipe_id, recipe_title, title, youtube_url, video_filename, int(time.time())),
         )
+        ensure_cook_profile(conn, user["id"])
+        track_onboarding_event("first_action_taken", user["id"], {"action": "food_video"}, conn)
     return jsonify(load_state(user))
 
 
@@ -880,6 +973,7 @@ def dashboard_html(user):
             params,
         ).fetchone()[0]
         video_count = conn.execute("SELECT COUNT(*) FROM food_videos").fetchone()[0]
+        funnel = funnel_metrics(conn)
         latest_users = conn.execute(
             f"""
             SELECT u.*, p.profile_completion_percentage
@@ -909,6 +1003,11 @@ def dashboard_html(user):
     platform_rows = "".join(
         f"<tr><td>{escape(row['app_name'])}</td><td>{row['total']}</td></tr>" for row in platform_counts
     ) or "<tr><td colspan='2'>No app memberships yet</td></tr>"
+    max_funnel = max([step["total"] for step in funnel] or [1]) or 1
+    funnel_rows = "".join(
+        f"<tr><td>{escape(step['label'])}</td><td><div style='height:12px;border-radius:999px;background:#d9a441;width:{max(6, round((step['total'] / max_funnel) * 100))}%'></div></td><td>{step['total']}</td><td>{step['conversion']}%</td><td>{step['dropoff']}</td></tr>"
+        for step in funnel
+    )
     user_rows = "".join(
         "<tr>"
         f"<td><a href='/profiles/{row['id']}'>{escape(row['display_name'] or row['full_name'] or row['email'])}</a></td>"
@@ -944,6 +1043,9 @@ def dashboard_html(user):
       <article><strong>{video_count}</strong><span>Showcases uploaded</span></article>
       <article><strong>{len(recipes)}</strong><span>Recipes submitted</span></article>
       <article><strong>0</strong><span>Resumes uploaded</span></article>
+    </section>
+    <section class="admin-panel-grid">
+      <article><h2>Onboarding funnel</h2><table><thead><tr><th>Step</th><th>Visual</th><th>Users</th><th>Conversion</th><th>Drop-off</th></tr></thead><tbody>{funnel_rows}</tbody></table></article>
     </section>
     <section class="admin-panel-grid">
       <article><h2>Apps</h2><ul>{app_links}</ul></article>
@@ -1073,6 +1175,7 @@ def recipe_share_page(slug):
 
 @app.get("/")
 def index():
+    track_onboarding_event("landing_page_view")
     return send_from_directory(BASE_DIR, "index.html")
 
 
