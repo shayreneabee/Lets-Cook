@@ -161,10 +161,300 @@ const learningPillars = [
   { title: "Build A Meal", route: "#build-a-meal", text: "Start with one ingredient and learn how to turn it into a balanced plate." },
   { title: "Cuisine Explorer", route: "#cuisine-explorer", text: "See how different cultures season, sauce, serve, and teach the same ingredients." },
   { title: "Cooking Skills Academy", route: "#skills-academy", text: "Knife skills, heat control, sauces, grains, seasoning, prep, and hosting flow." },
+  { title: "Food Encyclopedia", route: "#food-encyclopedia", text: "Look up food terms, tools, ingredients, etiquette, history, and chef notes." },
+  { title: "Menu Intelligence", route: "#menu-intelligence", text: "Build culturally grounded menus with sides, sauces, drinks, desserts, and hosting notes." },
   { title: "What's In My Kitchen", route: "#kitchen-search/chicken%20strips", text: "Search by ingredients you already have and get meals, sides, and substitutions." },
   { title: "Meal Planning", route: "#planner", text: "Plan dinners, save recipes, build grocery lists, and keep the week calm." },
   { title: "Kids Cooking", route: "#kids-cooking", text: "PB&J, mac and cheese, wraps, snack boards, and safe beginner kitchen wins." },
   { title: "Culinary Pathways", route: "#pathways", text: "Grow from Kid Chef to home cook to professional-style prep and plating." }
+];
+
+const learningLevels = [
+  {
+    id: "kid-chef",
+    title: "Kid Chef",
+    depth: "Tiny wins, safety, language, and kitchen confidence.",
+    image: "assets/kid-friendly.jpeg",
+    topics: ["Hand washing", "No-heat snacks", "Measuring", "Spreading", "Mixing", "Cleaning up"],
+    supports: ["basic definitions", "tools and safety"]
+  },
+  {
+    id: "beginner-home-cook",
+    title: "Beginner Home Cook",
+    depth: "Simple meals, timing, seasoning, and knowing what goes together.",
+    image: "assets/lc-fried-chicken.jpg",
+    topics: ["Knife basics", "Heat control", "Pantry staples", "Easy sides", "Weeknight planning"],
+    supports: ["basic definitions", "tools and safety", "cultural context", "menu planning"]
+  },
+  {
+    id: "intermediate-cook",
+    title: "Intermediate Cook",
+    depth: "Layered flavor, cuisine foundations, sauces, meal prep, and hosting rhythm.",
+    image: "assets/lc-shrimp-and-grits.jpg",
+    topics: ["Sauces", "Braising", "Rice and grains", "Cuisine 101", "Balanced menus"],
+    supports: ["cultural context", "cooking techniques", "menu planning", "food science"]
+  },
+  {
+    id: "culinary-student",
+    title: "Culinary Student",
+    depth: "Technique, repetition, knife cuts, station setup, flavor systems, and food vocabulary.",
+    image: "assets/ingredients.jpeg",
+    topics: ["Mise en place", "Mother sauces", "Food safety", "Flavor families", "Prep lists"],
+    supports: ["cooking techniques", "food science", "professional operations"]
+  },
+  {
+    id: "professional-chef",
+    title: "Professional Chef",
+    depth: "Operations, cost, scaling, service flow, catering prep, plating, and hospitality systems.",
+    image: "assets/lc-desserts.jpg",
+    topics: ["Menu costing", "Batch prep", "Service timing", "Catering sheets", "Plating polish"],
+    supports: ["food science", "professional operations", "menu planning"]
+  }
+];
+
+const cuisineExplorerGroups = [
+  {
+    id: "african-cuisines",
+    title: "African Cuisines",
+    image: "assets/lc-african-food.jpg",
+    note: "Stews, grains, spice blends, grilled meats, vegetables, fermented foods, and regional hospitality.",
+    regions: ["Nigeria", "Ghana", "Ethiopia", "Senegal", "Morocco", "South Africa", "Kenya", "East Africa", "West Africa", "North Africa"]
+  },
+  {
+    id: "asian-cuisines",
+    title: "Asian Cuisines",
+    image: "assets/lc-asian-food.jpg",
+    note: "Rice, noodles, broths, stir-fries, fermented sauces, pickles, dumplings, heat, balance, and texture.",
+    regions: ["Japan", "China", "Korea", "Thailand", "Vietnam", "Philippines", "India"]
+  },
+  {
+    id: "mediterranean-cuisines",
+    title: "Mediterranean Cuisines",
+    image: "assets/lc-mediterranean-food.jpg",
+    note: "Olive oil, herbs, citrus, yogurt sauces, grilled proteins, mezze, breads, vegetables, and shared tables.",
+    regions: ["Greece", "Turkey", "Lebanon", "Egypt", "Morocco", "Italy-adjacent regions"]
+  },
+  {
+    id: "caribbean-cuisines",
+    title: "Caribbean Cuisines",
+    image: "assets/lc-african-food.jpg",
+    note: "Warm spice, plantains, rice and peas, seafood, curries, jerk seasoning, stews, and celebration food.",
+    regions: ["Jamaica", "Trinidad", "Haiti", "Puerto Rico", "Dominican Republic", "Bahamas", "Barbados"]
+  },
+  {
+    id: "european-cuisines",
+    title: "European Cuisines",
+    image: "assets/lc-pasta.jpg",
+    note: "Pasta, roasts, breads, sauces, preserved foods, pastry, soups, braises, and seasonal cooking.",
+    regions: ["Italy", "France", "Spain", "Portugal", "Germany", "United Kingdom", "Eastern Europe"]
+  },
+  {
+    id: "southern-soul-food",
+    title: "Southern / Soul Food",
+    image: "assets/lc-fried-chicken.jpg",
+    note: "Cast iron, greens, cornbread, fish fries, Sunday dinner, slow cooking, and hospitality at the center.",
+    regions: ["Mississippi", "Louisiana", "Georgia", "Alabama", "Carolinas", "Texas", "Tennessee"]
+  },
+  {
+    id: "cajun-creole",
+    title: "Cajun / Creole",
+    image: "assets/lc-seafood.jpg",
+    note: "Roux, seafood, rice, holy trinity, spice, gumbo, jambalaya, etouffee, and New Orleans table culture.",
+    regions: ["New Orleans", "Acadiana", "Louisiana Gulf Coast", "Creole", "Cajun"]
+  },
+  {
+    id: "latin-american",
+    title: "Mexican / Latin American",
+    image: "assets/lc-birria-tacos.jpg",
+    note: "Chiles, corn, beans, braises, salsas, tortillas, adobo, citrus, herbs, and family-style meals.",
+    regions: ["Mexico", "Peru", "Colombia", "Cuba", "Brazil", "Central America", "Tex-Mex"]
+  },
+  {
+    id: "bbq",
+    title: "BBQ",
+    image: "assets/lc-fried-chicken.jpg",
+    note: "Smoke, rubs, sauces, low-and-slow timing, sides, bread, pickles, and feeding a crowd.",
+    regions: ["Memphis", "Texas", "Kansas City", "Carolinas", "Mississippi", "Backyard BBQ"]
+  },
+  {
+    id: "vegetarian",
+    title: "Vegetarian",
+    image: "assets/lc-mediterranean-food.jpg",
+    note: "Beans, grains, vegetables, sauces, herbs, texture, protein balance, and satisfying plant-forward meals.",
+    regions: ["Southern vegetarian", "Indian vegetarian", "Mediterranean", "Asian vegetarian", "Meal prep"]
+  },
+  {
+    id: "holiday-sunday",
+    title: "Holiday / Sunday Dinner",
+    image: "assets/lc-desserts.jpg",
+    note: "Centerpiece mains, traditional sides, desserts, hosting rhythm, prep lists, and table memory.",
+    regions: ["Thanksgiving", "Christmas", "Easter", "Sunday dinner", "Church dinner", "Family reunion"]
+  }
+];
+
+const foodEncyclopedia = [
+  {
+    term: "Tzatziki",
+    pronunciation: "tsah-TZEE-kee",
+    origin: "Greek / Eastern Mediterranean",
+    purpose: "A cool yogurt, cucumber, garlic, lemon, and herb sauce served with grilled meats, vegetables, pita, or mezze.",
+    beginner: "Think of it as a fresh, creamy dip that cools spicy or grilled food.",
+    pro: "Salt and drain cucumber first so the sauce stays thick; finish with good olive oil.",
+    related: ["gyros", "grilled chicken", "pita", "Greek salad"]
+  },
+  {
+    term: "Chopsticks",
+    pronunciation: "",
+    origin: "East and Southeast Asian dining traditions",
+    purpose: "Eating utensils used across many cultures with different shapes, materials, etiquette, and table customs.",
+    beginner: "Use them gently like tongs. Do not stick them upright in rice because that can be disrespectful in some cultures.",
+    pro: "Respect local etiquette; serving chopsticks and personal chopsticks may be separate at shared meals.",
+    related: ["noodles", "rice bowls", "dumplings", "sushi"]
+  },
+  {
+    term: "Berbere",
+    pronunciation: "ber-BER-ay",
+    origin: "Ethiopia and Eritrea",
+    purpose: "A complex chile spice blend often used in stews, lentils, meats, and sauces.",
+    beginner: "It brings heat, warmth, and depth. Start small and taste.",
+    pro: "Bloom it in fat to wake up the spices before adding liquids.",
+    related: ["doro wat", "lentils", "injera", "stews"]
+  },
+  {
+    term: "Couscous",
+    pronunciation: "KOOS-koos",
+    origin: "North Africa",
+    purpose: "Tiny semolina granules served with stews, vegetables, herbs, or sauced meats.",
+    beginner: "It cooks fast and works like a fluffy grain side, even though it is pasta.",
+    pro: "Steam and fluff in stages for the lightest texture; finish with herbs, citrus, or broth.",
+    related: ["tagine", "roasted vegetables", "lamb", "chickpeas"]
+  },
+  {
+    term: "Plantain",
+    pronunciation: "PLAN-tin or plan-TAYN",
+    origin: "Tropical regions across Africa, the Caribbean, Latin America, and Southeast Asia",
+    purpose: "A starchy banana relative used green for savory dishes or ripe for sweet fried sides.",
+    beginner: "Green plantains are firm and savory; yellow-black plantains are sweeter.",
+    pro: "Choose ripeness by recipe: green for tostones, ripe for maduros or sweet fried plantains.",
+    related: ["rice and peas", "jerk chicken", "tostones", "maduros"]
+  },
+  {
+    term: "Umami",
+    pronunciation: "oo-MAH-mee",
+    origin: "Japanese food science term",
+    purpose: "A savory taste found in foods like mushrooms, soy sauce, tomatoes, aged cheese, seaweed, and cooked meats.",
+    beginner: "It is the deep savory taste that makes food feel satisfying.",
+    pro: "Layer umami with acid and fat so food tastes full without becoming heavy.",
+    related: ["mushrooms", "soy sauce", "parmesan", "tomatoes"]
+  },
+  {
+    term: "Curry",
+    pronunciation: "KUR-ee",
+    origin: "Broad global term with South Asian, Caribbean, Southeast Asian, British, and other uses",
+    purpose: "A family of sauced, spiced dishes or spice blends; the meaning changes by culture.",
+    beginner: "Curry is not one thing. Ask what region or style you are cooking.",
+    pro: "Build flavor with aromatics, toasted or bloomed spices, liquid, and a balanced finish.",
+    related: ["chana masala", "Thai curry", "Caribbean curry chicken", "rice"]
+  },
+  {
+    term: "Roux",
+    pronunciation: "roo",
+    origin: "French technique central to Creole, Cajun, Southern, and classic sauces",
+    purpose: "A cooked mixture of fat and flour used to thicken and flavor sauces, gravies, gumbo, and soups.",
+    beginner: "Cook flour and fat together until it smells nutty before adding liquid.",
+    pro: "Color controls flavor and thickening power: darker roux tastes deeper but thickens less.",
+    related: ["gumbo", "gravy", "mac and cheese", "bechamel"]
+  },
+  {
+    term: "Mise en place",
+    pronunciation: "meez ahn plahs",
+    origin: "French culinary practice",
+    purpose: "The habit of preparing ingredients, tools, and timing before cooking starts.",
+    beginner: "Read the recipe, set everything out, and chop before turning on the heat.",
+    pro: "Use prep lists, station setup, labels, and batch timing to cook calmly at scale.",
+    related: ["prep list", "knife skills", "service flow", "meal prep"]
+  }
+];
+
+const menuPairings = [
+  {
+    cuisine: "Southern / Soul Food",
+    country_or_region: "U.S. South",
+    occasion: "Fish fry",
+    main_dish: "Fried catfish",
+    traditional_sides: ["spaghetti", "potato salad", "coleslaw", "greens", "baked beans", "mac and cheese"],
+    breads: ["hushpuppies", "cornbread"],
+    sauces_condiments: ["tartar sauce", "hot sauce", "lemon", "pickles"],
+    drinks: ["sweet tea", "lemonade"],
+    desserts: ["peach cobbler", "banana pudding"],
+    cultural_notes: "Fish fries are often community meals where hot food, sides, and conversation matter as much as the main dish.",
+    beginner_level: "Use one fried main, two cold sides, one hot side, bread, and a store-bought dessert if needed.",
+    pro_level: "Hold fried fish on racks, batch sides ahead, keep sauce station clean, and stagger frying close to service.",
+    cook_time: "90-150 min",
+    hosting_notes: "Set condiments and napkins before frying starts; keep drinks self-serve."
+  },
+  {
+    cuisine: "Southern / Soul Food",
+    country_or_region: "U.S. South",
+    occasion: "Sunday dinner",
+    main_dish: "Smothered pork chops or oxtails",
+    traditional_sides: ["collard greens", "candied yams", "black-eyed peas", "mac and cheese"],
+    breads: ["cornbread", "dinner rolls"],
+    sauces_condiments: ["pepper vinegar", "hot sauce", "gravy"],
+    drinks: ["sweet tea", "iced water", "lemonade"],
+    desserts: ["bread pudding", "pound cake", "banana pudding"],
+    cultural_notes: "Sunday dinner is about abundance, leftovers, and gathering after church or family visits.",
+    beginner_level: "Choose one slow main, two sides, one bread, and one dessert.",
+    pro_level: "Create a prep timeline and use oven, stovetop, and holding space intentionally.",
+    cook_time: "2-4 hours",
+    hosting_notes: "Make dessert and greens ahead so the final hour is calmer."
+  },
+  {
+    cuisine: "Caribbean",
+    country_or_region: "Jamaica and broader Caribbean",
+    occasion: "Family plate",
+    main_dish: "Jerk chicken",
+    traditional_sides: ["rice and peas", "fried plantains", "cabbage", "cucumber salad"],
+    breads: ["coco bread", "festival"],
+    sauces_condiments: ["jerk sauce", "pepper sauce", "lime"],
+    drinks: ["sorrel", "ginger beer", "tropical punch"],
+    desserts: ["rum cake", "coconut drops"],
+    cultural_notes: "Heat, sweetness, citrus, and spice balance the plate.",
+    beginner_level: "Use baked jerk chicken with rice, plantains, and a fresh salad.",
+    pro_level: "Control smoke, marinade timing, and final glaze while keeping sides bright.",
+    cook_time: "90-180 min",
+    hosting_notes: "Serve sauces on the side so guests control heat."
+  },
+  {
+    cuisine: "Mediterranean",
+    country_or_region: "Greek / Levant-inspired",
+    occasion: "Lunch spread",
+    main_dish: "Chicken gyros or grilled salmon",
+    traditional_sides: ["Greek salad", "hummus", "roasted vegetables", "rice pilaf"],
+    breads: ["pita", "flatbread"],
+    sauces_condiments: ["tzatziki", "olive oil", "lemon", "herbs"],
+    drinks: ["mint lemonade", "sparkling water"],
+    desserts: ["baklava", "fruit with yogurt"],
+    cultural_notes: "Shared plates and bright sauces make the table feel generous without heaviness.",
+    beginner_level: "Buy pita, make one sauce, grill one protein, and assemble a salad.",
+    pro_level: "Balance acid, herbs, char, and creamy sauce across the full spread.",
+    cook_time: "45-90 min",
+    hosting_notes: "Serve in shallow bowls so the table feels abundant."
+  }
+];
+
+const hostingKnowledge = [
+  { title: "Fish Fry", text: "Crispy main, cold sides, hot sides, bread, sauce station, drinks, and a dessert people can scoop.", pairing: "Fried catfish" },
+  { title: "Sunday Dinner", text: "One slow-cooked centerpiece, two or three sides, bread, dessert, leftovers, and time to sit down.", pairing: "Smothered pork chops or oxtails" },
+  { title: "Church Dinner", text: "Portable pans, clear labels, allergy awareness, serving utensils, and foods that hold well.", pairing: "Baked chicken, greens, casseroles" },
+  { title: "Funeral Repast", text: "Comforting, easy-to-serve foods with quiet hospitality, drinks, paper goods, and extra help.", pairing: "Baked pasta, chicken, salads, desserts" },
+  { title: "Family Reunion", text: "Large-batch mains, grill items, nostalgic sides, kid foods, hydration, and labeled stations.", pairing: "BBQ, fried chicken, potluck sides" },
+  { title: "Brunch", text: "Eggs, breads, fruit, one savory main, one sweet item, coffee, juice, and make-ahead pacing.", pairing: "Brunch cups and fruit cups" },
+  { title: "Baby Shower", text: "Small bites, pretty cups, alcohol-free drinks, desserts, and food that stays neat.", pairing: "Party cups and dessert cups" },
+  { title: "Holiday Dinner", text: "A centerpiece, traditional sides, oven schedule, dessert plan, and a written prep timeline.", pairing: "Turkey, ham, dressing, yams" },
+  { title: "Date Night", text: "One impressive but calm main, one side, one dessert, and minimal last-minute cleanup.", pairing: "Seafood pasta or steakhouse-style plate" },
+  { title: "Meal Prep", text: "Proteins, grains, vegetables, sauces, labels, reheating notes, and flexible mix-and-match meals.", pairing: "Chicken bowls and rice bowls" },
+  { title: "Catering Prep", text: "Counts, portions, holding temps, service flow, packaging, backup utensils, and transport timing.", pairing: "Party cups, trays, and batch sides" }
 ];
 
 const ingredientPlaybooks = {
@@ -1455,6 +1745,8 @@ function render() {
   if (route === "build-a-meal") return renderBuildMeal(id);
   if (route === "kitchen-search") return renderKitchenSearch(id);
   if (route === "cuisine-explorer") return renderCuisineExplorer();
+  if (route === "food-encyclopedia") return renderFoodEncyclopedia(id);
+  if (route === "menu-intelligence") return renderMenuIntelligence();
   if (route === "kids-cooking") return renderKidsCooking();
   if (route === "recipes") return id ? renderRecipe(id) : renderRecipes();
   if (route === "paths") return id ? renderPath(id) : renderPaths();
@@ -1469,7 +1761,7 @@ function render() {
 }
 
 function setActive(route) {
-  const cookingRoutes = ["kitchen", "cook101", "skills-academy", "build-a-meal", "kitchen-search", "cuisine-explorer", "kids-cooking", "recipes", "paths", "pathways", "planner", "hosting", "about", "account", "search", "cuisine"];
+  const cookingRoutes = ["kitchen", "cook101", "skills-academy", "build-a-meal", "kitchen-search", "cuisine-explorer", "food-encyclopedia", "menu-intelligence", "kids-cooking", "recipes", "paths", "pathways", "planner", "hosting", "about", "account", "search", "cuisine"];
   const normalizedRoute = cookingRoutes.includes(route) ? "lets-cook" : route;
   document.querySelectorAll(".main-nav a").forEach((link) => {
     link.classList.toggle("active", link.dataset.route === normalizedRoute);
@@ -1750,6 +2042,8 @@ function cookSubnav() {
       <a href="#build-a-meal">Build A Meal</a>
       <a href="#cuisine-explorer">Cuisine Explorer</a>
       <a href="#skills-academy">Skills Academy</a>
+      <a href="#food-encyclopedia">Food Encyclopedia</a>
+      <a href="#menu-intelligence">Menu Builder</a>
       <a href="#kitchen-search/chicken%20strips">What's In My Kitchen</a>
       <a href="#planner">Meal Planning</a>
       <a href="#kids-cooking">Kids Cooking</a>
@@ -1919,14 +2213,26 @@ function renderKitchenSearch(id) {
 
 function renderCuisineExplorer() {
   app.innerHTML = `
-    ${hero("Cuisine Explorer", "Learn the flavor logic behind Southern comfort, Indian spices, Mexican sauces, Mediterranean freshness, Caribbean heat, and more.", "assets/lc-indian-food.jpg", `<a class="small-button" href="#recipes">Browse Recipes</a>`)}
+    ${hero("Cuisine Explorer", "A culinary rolodex for food culture, regional flavor, ingredients, traditions, and the way meals connect across the world.", "assets/lc-indian-food.jpg", `<a class="small-button" href="#food-encyclopedia">Open Food Encyclopedia</a><a class="small-button secondary" href="#menu-intelligence">Build A Menu</a>`)}
     ${cookSubnav()}
     <section class="cream-section">
       <div class="section-heading">
-        <p class="eyebrow">Flavor foundations</p>
-        <h2>Explore cuisines by ingredients, techniques, and tradition.</h2>
+        <p class="eyebrow">Cuisine rolodex</p>
+        <h2>Explore regions, countries, traditions, and flavor systems.</h2>
+        <p>These cards are the future structure for lessons, recipes, history, ingredients, etiquette, and traditional pairings.</p>
       </div>
-      <div class="cuisine-grid">${cuisines.map(cuisineCard).join("")}</div>
+      <div class="cuisine-rolodex">
+        ${cuisineExplorerGroups.map((group) => `
+          <article class="cuisine-region-card">
+            <figure><img src="${group.image}" alt="${group.title}" /></figure>
+            <div>
+              <h3>${group.title}</h3>
+              <p>${group.note}</p>
+              <div class="region-chip-row">${group.regions.map((region) => `<span>${region}</span>`).join("")}</div>
+            </div>
+          </article>
+        `).join("")}
+      </div>
     </section>
     <section class="gold-section">
       <div class="section-heading">
@@ -1938,10 +2244,112 @@ function renderCuisineExplorer() {
   `;
 }
 
+function renderFoodEncyclopedia(id) {
+  const query = id ? normalizeIngredientTerm(id) : "";
+  const entries = query
+    ? foodEncyclopedia.filter((entry) => [entry.term, entry.origin, entry.purpose, ...(entry.related || [])].join(" ").toLowerCase().includes(query))
+    : foodEncyclopedia;
+  app.innerHTML = `
+    ${hero("Food Encyclopedia", "Search food terms, tools, ingredients, culture, etiquette, and chef language in plain English.", "assets/ingredients.jpeg", `<a class="small-button" href="#skills-academy">Skills Academy</a>`)}
+    ${cookSubnav()}
+    <section class="cream-section">
+      <div class="section-heading">
+        <p class="eyebrow">Learn the language of food</p>
+        <h2>Definitions for beginners, context for culture, and notes for serious cooks.</h2>
+      </div>
+      <form class="ingredient-search-panel encyclopedia-search" data-encyclopedia-form>
+        <label for="encyclopediaSearchInput">Search the encyclopedia</label>
+        <div>
+          <input id="encyclopediaSearchInput" name="term" value="${query}" placeholder="roux, plantain, umami, chopsticks..." />
+          <button class="small-button" type="submit">Search</button>
+        </div>
+      </form>
+      <div class="encyclopedia-grid">
+        ${entries.map((entry) => `
+          <article class="encyclopedia-card">
+            <span>${entry.origin}</span>
+            <h3>${entry.term}</h3>
+            ${entry.pronunciation ? `<p class="pronunciation">${entry.pronunciation}</p>` : ""}
+            <p>${entry.purpose}</p>
+            <div class="chef-note-grid">
+              <section><strong>Beginner note</strong><p>${entry.beginner}</p></section>
+              <section><strong>Pro chef note</strong><p>${entry.pro}</p></section>
+            </div>
+            <div class="region-chip-row">${entry.related.map((item) => `<span>${item}</span>`).join("")}</div>
+          </article>
+        `).join("") || `<div class="empty-state">No encyclopedia entries found yet.</div>`}
+      </div>
+    </section>
+  `;
+}
+
+function renderMenuIntelligence() {
+  app.innerHTML = `
+    ${hero("Traditional Menu Intelligence", "Learn what goes together culturally and practically: mains, sides, breads, sauces, drinks, desserts, timing, and hosting notes.", "assets/lc-fried-chicken.jpg", `<a class="small-button" href="#hosting">Hosting Ideas</a><a class="small-button secondary" href="#build-a-meal">Build A Meal</a>`)}
+    ${cookSubnav()}
+    <section class="cream-section">
+      <div class="section-heading">
+        <p class="eyebrow">Menu pairings</p>
+        <h2>Build meals that make sense on the plate and at the table.</h2>
+      </div>
+      <div class="menu-pairing-grid">
+        ${menuPairings.map((menu) => `
+          <article class="menu-pairing-card">
+            <p class="eyebrow">${menu.cuisine} / ${menu.occasion}</p>
+            <h3>${menu.main_dish}</h3>
+            <p>${menu.cultural_notes}</p>
+            <div class="menu-columns">
+              <section><strong>Sides</strong><span>${menu.traditional_sides.join(", ")}</span></section>
+              <section><strong>Bread</strong><span>${menu.breads.join(", ")}</span></section>
+              <section><strong>Sauces</strong><span>${menu.sauces_condiments.join(", ")}</span></section>
+              <section><strong>Drinks</strong><span>${menu.drinks.join(", ")}</span></section>
+              <section><strong>Dessert</strong><span>${menu.desserts.join(", ")}</span></section>
+              <section><strong>Cook Time</strong><span>${menu.cook_time}</span></section>
+            </div>
+            <div class="chef-note-grid">
+              <section><strong>Beginner</strong><p>${menu.beginner_level}</p></section>
+              <section><strong>Professional</strong><p>${menu.pro_level}</p></section>
+            </div>
+            <p class="hosting-note">${menu.hosting_notes}</p>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+    <section class="gold-section">
+      <div class="section-heading">
+        <p class="eyebrow">Hospitality knowledge</p>
+        <h2>Hosting is a skill too.</h2>
+      </div>
+      <div class="hosting-knowledge-grid">
+        ${hostingKnowledge.map((item) => `<article><h3>${item.title}</h3><p>${item.text}</p><span>${item.pairing}</span></article>`).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderSkillsAcademy() {
   app.innerHTML = `
-    ${hero("Cooking Skills Academy", "Skill lessons connected to real recipes, so users learn why each step matters.", "assets/ingredients.jpeg", `<a class="small-button" href="#cook101">Open Cook 101</a>`)}
+    ${hero("Cooking Skills Academy", "Duolingo-style progression meets culinary school foundations: safety, vocabulary, culture, technique, science, hospitality, and operations.", "assets/ingredients.jpeg", `<a class="small-button" href="#food-encyclopedia">Study Food Terms</a><a class="small-button secondary" href="#menu-intelligence">Menu Intelligence</a>`)}
     ${cookSubnav()}
+    <section class="cream-section">
+      <div class="section-heading">
+        <p class="eyebrow">Learning levels</p>
+        <h2>From kid-level confidence to professional kitchen thinking.</h2>
+      </div>
+      <div class="learning-level-grid">
+        ${learningLevels.map((level) => `
+          <article class="learning-level-card">
+            <figure><img src="${level.image}" alt="${level.title}" /></figure>
+            <div>
+              <h3>${level.title}</h3>
+              <p>${level.depth}</p>
+              <div class="region-chip-row">${level.supports.map((item) => `<span>${item}</span>`).join("")}</div>
+              <ul>${level.topics.map((topic) => `<li>${topic}</li>`).join("")}</ul>
+            </div>
+          </article>
+        `).join("")}
+      </div>
+    </section>
     <section class="cream-section cook101-overview">
       <div class="section-heading">
         <p class="eyebrow">Beginner to confident</p>
@@ -2789,6 +3197,14 @@ function handleClick(event) {
 
 
 async function handleSubmit(event) {
+  if (event.target.matches("[data-encyclopedia-form]")) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const term = formData.get("term")?.toString().trim() || "";
+    window.location.hash = term ? `#food-encyclopedia/${encodeURIComponent(term)}` : "#food-encyclopedia";
+    return;
+  }
+
   if (event.target.matches("[data-ingredient-form]")) {
     event.preventDefault();
     const formData = new FormData(event.target);

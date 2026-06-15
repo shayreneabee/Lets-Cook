@@ -29,6 +29,7 @@ A working prototype for a warm Brent & Co. cooking-skills app inspired by the or
 - Personal sample content including orange chicken, crab rangoon, Yakamein, shrimp and grits with green beans, oxtails, Cajun cream salmon rotini pasta, roasted vegetables, white chicken chili, General Tso-style chicken, cashew chicken, fried rice, chicken parmesan, deviled eggs, Rotel dip, party meatballs, charcuterie boards, dessert charcuterie board, bourbon praline bread pudding, blackened fish, Tuscan chicken, garlic wings, pineapple fried rice, and lamb bone broth soup
 - Local JSON recipe database in `data/recipes.json`
 - Search/filter by keyword, pantry ingredients, cuisine, cook time, category, and difficulty
+- Phase 1 culinary education architecture for Learning Levels, Cuisine Explorer, Food Encyclopedia, and Traditional Menu Intelligence
 
 ## Database Tables
 
@@ -47,6 +48,17 @@ Use a Web Service:
 - Set `INSTANCE_DIR=/data/instance`
 - Set `DATABASE_PATH=/data/instance/lets_cook.sqlite`
 - Set `UPLOAD_DIR=/data/uploads`
+
+## Open Food Data Expansion Notes
+
+Let's Cook Y'all should use open data to expand metadata, not copy protected recipes.
+
+- TheMealDB: useful for meal names, categories, areas, and inspiration metadata. Do not copy copyrighted instructions as site-owned recipes.
+- Wikidata/Wikipedia cuisine metadata: useful for cuisine, ingredient, country, and culture relationships. Prefer Wikidata structured data where possible because it is CC0.
+- Open Food Facts: useful for packaged ingredient and product metadata. Respect Open Database License requirements and attribution/share-alike expectations.
+- USDA FoodData Central: useful for nutrition and ingredient data. Good fit for future nutrition lookups and food science lessons.
+
+Recipe instructions, personal stories, and educational lesson copy should remain original, licensed, contributed, or explicitly open.
 
 ## Next Product Steps
 
