@@ -42,7 +42,7 @@ APPLE_PRIVATE_KEY = os.getenv("APPLE_PRIVATE_KEY", "")
 FACEBOOK_CLIENT_ID = os.getenv("FACEBOOK_CLIENT_ID", "")
 FACEBOOK_CLIENT_SECRET = os.getenv("FACEBOOK_CLIENT_SECRET", "")
 SSO_SHARED_SECRET = os.getenv("SSO_SHARED_SECRET", "dev-sso-change-me")
-BRENT_SSO_URL = os.getenv("BRENT_SSO_URL", "https://findthebeatmusic.com/sso/start")
+BRENT_SSO_URL = os.getenv("BRENT_SSO_URL", "https://brentandco.org/sso/start")
 LETS_COOK_URL = os.getenv("LETS_COOK_URL", "https://letscookyall.com/")
 FOUNDER_PROFILES = [
     {

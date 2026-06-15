@@ -156,6 +156,44 @@ const cuisines = [
   { id: "global", name: "Global Flavors", image: "assets/lc-african-food.jpg", blurb: "A warm bridge from Southern kitchens to flavors from everywhere." }
 ];
 
+const learningPillars = [
+  { title: "Recipes", route: "#recipes", text: "Cookable recipes with photos, skill level, cuisine, timing, and practice notes." },
+  { title: "Build A Meal", route: "#build-a-meal", text: "Start with one ingredient and learn how to turn it into a balanced plate." },
+  { title: "Cuisine Explorer", route: "#cuisine-explorer", text: "See how different cultures season, sauce, serve, and teach the same ingredients." },
+  { title: "Cooking Skills Academy", route: "#skills-academy", text: "Knife skills, heat control, sauces, grains, seasoning, prep, and hosting flow." },
+  { title: "What's In My Kitchen", route: "#kitchen-search/chicken%20strips", text: "Search by ingredients you already have and get meals, sides, and substitutions." },
+  { title: "Meal Planning", route: "#planner", text: "Plan dinners, save recipes, build grocery lists, and keep the week calm." },
+  { title: "Kids Cooking", route: "#kids-cooking", text: "PB&J, mac and cheese, wraps, snack boards, and safe beginner kitchen wins." },
+  { title: "Culinary Pathways", route: "#pathways", text: "Grow from Kid Chef to home cook to professional-style prep and plating." }
+];
+
+const ingredientPlaybooks = {
+  chicken: {
+    techniques: ["Bread and bake or air-fry", "Pan-sear then sauce", "Grill and slice", "Stir-fry quickly over high heat", "Simmer gently in curry or chili"],
+    sides: ["Cilantro lime rice", "Mac and cheese", "Collard greens", "Greek salad", "Cornbread"],
+    substitutions: ["Turkey cutlets", "Shrimp", "Tofu strips", "Cauliflower florets", "Portobello strips"],
+    mealPlans: ["Weeknight chicken bowls", "Kid-friendly crispy strip tray", "Taco night with rice and toppings", "Meal-prep wraps and salads"]
+  },
+  "chicken strips": {
+    techniques: ["Season, bread, and bake until crisp", "Chop into quick stir-fry pieces", "Toss in orange, buffalo, barbecue, or garlic sauce", "Slice into wraps, salads, tacos, or pasta", "Reheat on a rack so they stay crisp"],
+    sides: ["Cilantro lime rice", "Stovetop mac and cheese", "Roasted vegetables", "Cornbread", "Simple salad"],
+    substitutions: ["Chicken thighs cut into strips", "Turkey tenders", "Fish strips", "Tofu strips", "Cauliflower florets"],
+    mealPlans: ["Monday: crispy chicken wraps", "Wednesday: orange chicken rice bowls", "Friday: chicken strip taco night", "Weekend: party platter with dips and sides"]
+  },
+  shrimp: {
+    techniques: ["Quick sear", "Saute in garlic butter", "Fold into grits", "Toss through fried rice", "Blacken with high heat"],
+    sides: ["Grits", "Fried rice", "Green beans", "Greek salad", "Garlic bread"],
+    substitutions: ["Chicken strips", "Fish chunks", "Scallops", "Mushrooms", "Firm tofu"],
+    mealPlans: ["Shrimp and grits supper", "Fried rice night", "Seafood pasta dinner", "Taco bowl with slaw"]
+  },
+  rice: {
+    techniques: ["Rinse before cooking", "Toast with aromatics", "Steam covered", "Fry day-old rice", "Season with herbs, citrus, or broth"],
+    sides: ["Black beans", "Curry chicken", "Orange chicken", "Seafood", "Roasted vegetables"],
+    substitutions: ["Quinoa", "Couscous", "Cauliflower rice", "Grits", "Pasta"],
+    mealPlans: ["Rice bowl week", "Curry night", "Fried rice lunch prep", "Taco rice skillet"]
+  }
+};
+
 let recipes = [
   {
     id: "pb-and-j-sandwich",
@@ -1413,8 +1451,14 @@ function render() {
   if (route === "community") return renderCommunity();
   if (route === "kitchen") return renderKitchen();
   if (route === "cook101") return id ? renderLesson(id) : renderCook101();
+  if (route === "skills-academy") return renderSkillsAcademy();
+  if (route === "build-a-meal") return renderBuildMeal(id);
+  if (route === "kitchen-search") return renderKitchenSearch(id);
+  if (route === "cuisine-explorer") return renderCuisineExplorer();
+  if (route === "kids-cooking") return renderKidsCooking();
   if (route === "recipes") return id ? renderRecipe(id) : renderRecipes();
   if (route === "paths") return id ? renderPath(id) : renderPaths();
+  if (route === "pathways") return renderPaths();
   if (route === "planner") return renderPlanner();
   if (route === "hosting") return renderHosting();
   if (route === "about") return renderAbout();
@@ -1425,7 +1469,7 @@ function render() {
 }
 
 function setActive(route) {
-  const cookingRoutes = ["kitchen", "cook101", "recipes", "paths", "planner", "hosting", "about", "account", "search", "cuisine"];
+  const cookingRoutes = ["kitchen", "cook101", "skills-academy", "build-a-meal", "kitchen-search", "cuisine-explorer", "kids-cooking", "recipes", "paths", "pathways", "planner", "hosting", "about", "account", "search", "cuisine"];
   const normalizedRoute = cookingRoutes.includes(route) ? "lets-cook" : route;
   document.querySelectorAll(".main-nav a").forEach((link) => {
     link.classList.toggle("active", link.dataset.route === normalizedRoute);
@@ -1530,11 +1574,13 @@ function renderLetsCookHome() {
   app.innerHTML = `
     ${hero(
       "Cook With Confidence",
-      "A warm cooking-skills app for kid chefs, home cooks, and hosts who want food to feel welcoming, not intimidating.",
+      "A warm culinary learning platform that helps you turn ingredients into meals, understand cuisines, build skills, plan ahead, and cook with confidence.",
       "assets/lc-fried-chicken.jpg",
-      `<a class="small-button" href="#paths">Find Your Path</a><a class="small-button secondary" href="#recipes">Browse Recipes</a><a class="small-button secondary" href="#kitchen">Upload Food Video</a>`
+      `<a class="small-button" href="#build-a-meal">Build A Meal</a><a class="small-button secondary" href="#kitchen-search/chicken%20strips">What's In My Kitchen</a><a class="small-button secondary" href="#recipes">Browse Recipes</a>`
     )}
     ${cookSubnav()}
+    ${learningArchitectureSection()}
+    ${ingredientDiscoverySection("chicken strips")}
     <section class="cream-section">
       <div class="feature-grid">
         ${paths.map(pathCard).join("")}
@@ -1700,13 +1746,280 @@ function renderCommunity() {
 function cookSubnav() {
   return `
     <section class="app-subnav" aria-label="Let's Cook Ya'll navigation">
-      <a href="#kitchen">Shay's Kitchen</a>
-      <a href="#cook101">Cook 101</a>
       <a href="#recipes">Recipes</a>
-      <a href="#paths">Cooking Paths</a>
-      <a href="#planner">Meal Planner</a>
+      <a href="#build-a-meal">Build A Meal</a>
+      <a href="#cuisine-explorer">Cuisine Explorer</a>
+      <a href="#skills-academy">Skills Academy</a>
+      <a href="#kitchen-search/chicken%20strips">What's In My Kitchen</a>
+      <a href="#planner">Meal Planning</a>
+      <a href="#kids-cooking">Kids Cooking</a>
+      <a href="#pathways">Pathways</a>
+      <a href="#kitchen">Shay's Kitchen</a>
       <a href="#hosting">Hosting Ideas</a>
       <a href="#about">About</a>
+    </section>
+  `;
+}
+
+function learningArchitectureSection() {
+  return `
+    <section class="cream-section learning-architecture">
+      <div class="section-heading">
+        <p class="eyebrow">Culinary learning platform</p>
+        <h2>Recipes are the start. The goal is learning how to cook.</h2>
+        <p>Let's Cook Y'all now has clear learning lanes for recipes, meal building, cuisine foundations, skills, ingredient search, planning, kids, and growth pathways.</p>
+      </div>
+      <div class="learning-pillar-grid">
+        ${learningPillars.map((pillar) => `
+          <a class="learning-pillar-card" href="${pillar.route}">
+            <span>${pillar.title}</span>
+            <p>${pillar.text}</p>
+          </a>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function ingredientDiscoverySection(seed = "chicken strips") {
+  return `
+    <section class="gold-section ingredient-discovery">
+      <div class="ingredient-discovery-copy">
+        <p class="eyebrow">Start with one ingredient</p>
+        <h2>Turn what you have into a whole cooking plan.</h2>
+        <p>Type an ingredient like chicken strips, shrimp, rice, pasta, or ground beef and learn what meals, cuisines, techniques, sides, substitutions, and weekly plans can come from it.</p>
+      </div>
+      <form class="ingredient-search-panel" data-ingredient-form>
+        <label for="ingredientSearchInput">What's in your kitchen?</label>
+        <div>
+          <input id="ingredientSearchInput" name="ingredient" value="${seed}" placeholder="chicken strips" />
+          <button class="small-button" type="submit">Explore Ideas</button>
+        </div>
+      </form>
+    </section>
+  `;
+}
+
+function normalizeIngredientTerm(term = "") {
+  return decodeURIComponent(term).toLowerCase().trim().replace(/\s+/g, " ");
+}
+
+function recipeSearchText(recipe) {
+  return [
+    recipe.title,
+    recipe.description,
+    recipe.category,
+    recipe.cuisine,
+    ...(recipe.ingredients || []),
+    ...(recipe.tags || [])
+  ].join(" ").toLowerCase();
+}
+
+function recipesForIngredient(term) {
+  const normalized = normalizeIngredientTerm(term);
+  const words = normalized.split(" ").filter((word) => word.length > 2);
+  const matches = recipes.filter((recipe) => {
+    const haystack = recipeSearchText(recipe);
+    return haystack.includes(normalized) || words.some((word) => haystack.includes(word));
+  });
+  return matches.length ? matches : recipes.slice(0, 8);
+}
+
+function ingredientGuideFor(term) {
+  const normalized = normalizeIngredientTerm(term || "chicken strips");
+  const playbookKey = Object.keys(ingredientPlaybooks).find((key) => normalized.includes(key));
+  const playbook = ingredientPlaybooks[playbookKey] || ingredientPlaybooks.chicken;
+  const matches = recipesForIngredient(normalized);
+  const cuisineIds = [...new Set(matches.map((recipe) => recipe.cuisine).filter(Boolean))].slice(0, 5);
+  const meals = matches.slice(0, 6);
+  return {
+    term: normalized,
+    meals,
+    cuisines: cuisineIds.length ? cuisineIds : ["southern", "mexican", "asian-inspired", "mediterranean"],
+    techniques: playbook.techniques,
+    sides: playbook.sides,
+    substitutions: playbook.substitutions,
+    mealPlans: playbook.mealPlans
+  };
+}
+
+function ingredientGuideMarkup(term) {
+  const guide = ingredientGuideFor(term);
+  return `
+    <section class="cream-section ingredient-results">
+      <div class="section-heading">
+        <p class="eyebrow">Ingredient thinking</p>
+        <h2>What you can do with ${guide.term}</h2>
+        <p>Use this as a cook's map: choose a meal, pick a cuisine lane, practice one technique, add a side, and keep a substitution ready.</p>
+      </div>
+      <div class="ingredient-results-grid">
+        <article class="ingredient-panel meal-panel">
+          <span>Meals</span>
+          <div class="mini-recipe-list">${guide.meals.map((recipe) => `<a href="#recipes/${recipe.id}">${recipe.title}<small>${cuisineName(recipe.cuisine)} / ${recipe.time || recipe.cook_time}</small></a>`).join("")}</div>
+        </article>
+        <article class="ingredient-panel">
+          <span>Cuisines</span>
+          <div class="learning-chip-row">${guide.cuisines.map((id) => `<a href="#cuisine/${id}">${cuisineName(id)}</a>`).join("")}</div>
+        </article>
+        <article class="ingredient-panel">
+          <span>Techniques</span>
+          <ul>${guide.techniques.map((item) => `<li>${item}</li>`).join("")}</ul>
+        </article>
+        <article class="ingredient-panel">
+          <span>Side Dishes</span>
+          <ul>${guide.sides.map((item) => `<li>${item}</li>`).join("")}</ul>
+        </article>
+        <article class="ingredient-panel">
+          <span>Substitutions</span>
+          <ul>${guide.substitutions.map((item) => `<li>${item}</li>`).join("")}</ul>
+        </article>
+        <article class="ingredient-panel">
+          <span>Meal Plans</span>
+          <ul>${guide.mealPlans.map((item) => `<li>${item}</li>`).join("")}</ul>
+        </article>
+      </div>
+    </section>
+  `;
+}
+
+function renderBuildMeal(id) {
+  const term = id ? normalizeIngredientTerm(id) : "chicken strips";
+  app.innerHTML = `
+    ${hero("Build A Meal", "Learn the rhythm of a balanced plate: main ingredient, flavor direction, side dish, sauce, texture, and timing.", "assets/lc-orange-chicken.jpg", `<a class="small-button" href="#kitchen-search/${encodeURIComponent(term)}">Search Ingredients</a>`)}
+    ${cookSubnav()}
+    ${ingredientDiscoverySection(term)}
+    <section class="cream-section meal-builder-section">
+      <div class="section-heading">
+        <p class="eyebrow">The plate framework</p>
+        <h2>Think like a cook before you follow a recipe.</h2>
+      </div>
+      <div class="meal-framework">
+        ${[
+          ["1", "Choose the anchor", "Pick your protein, vegetable, grain, or leftover ingredient."],
+          ["2", "Pick a cuisine lane", "Southern, Mexican, Indian, Mediterranean, Asian-inspired, Italian, or Caribbean."],
+          ["3", "Choose a technique", "Bake, sear, saute, simmer, grill, roast, stir-fry, or assemble."],
+          ["4", "Add balance", "Pair with starch, vegetable, sauce, crunch, acid, or something fresh."],
+          ["5", "Plan the timing", "Start slow items first, finish fresh items last, and keep the plate warm."]
+        ].map(([number, title, text]) => `<article><strong>${number}</strong><h3>${title}</h3><p>${text}</p></article>`).join("")}
+      </div>
+    </section>
+    ${ingredientGuideMarkup(term)}
+  `;
+}
+
+function renderKitchenSearch(id) {
+  const term = id ? normalizeIngredientTerm(id) : "chicken strips";
+  app.innerHTML = `
+    ${hero("What's In My Kitchen", "Search by what you already have, then discover recipes, cuisines, techniques, side dishes, substitutions, and meal plans.", "assets/ingredients.jpeg", `<a class="small-button" href="#build-a-meal/${encodeURIComponent(term)}">Build A Meal</a>`)}
+    ${cookSubnav()}
+    ${ingredientDiscoverySection(term)}
+    ${ingredientGuideMarkup(term)}
+  `;
+}
+
+function renderCuisineExplorer() {
+  app.innerHTML = `
+    ${hero("Cuisine Explorer", "Learn the flavor logic behind Southern comfort, Indian spices, Mexican sauces, Mediterranean freshness, Caribbean heat, and more.", "assets/lc-indian-food.jpg", `<a class="small-button" href="#recipes">Browse Recipes</a>`)}
+    ${cookSubnav()}
+    <section class="cream-section">
+      <div class="section-heading">
+        <p class="eyebrow">Flavor foundations</p>
+        <h2>Explore cuisines by ingredients, techniques, and tradition.</h2>
+      </div>
+      <div class="cuisine-grid">${cuisines.map(cuisineCard).join("")}</div>
+    </section>
+    <section class="gold-section">
+      <div class="section-heading">
+        <p class="eyebrow">Same ingredient, new direction</p>
+        <h2>Chicken can become tacos, curry, pasta, bowls, wraps, or Sunday dinner.</h2>
+      </div>
+      ${ingredientGuideMarkup("chicken").replace("cream-section ingredient-results", "ingredient-results embedded-results")}
+    </section>
+  `;
+}
+
+function renderSkillsAcademy() {
+  app.innerHTML = `
+    ${hero("Cooking Skills Academy", "Skill lessons connected to real recipes, so users learn why each step matters.", "assets/ingredients.jpeg", `<a class="small-button" href="#cook101">Open Cook 101</a>`)}
+    ${cookSubnav()}
+    <section class="cream-section cook101-overview">
+      <div class="section-heading">
+        <p class="eyebrow">Beginner to confident</p>
+        <h2>Core skills that make every recipe easier.</h2>
+      </div>
+      <div class="lesson-grid">${lessons.map(lessonCard).join("")}</div>
+    </section>
+    <section class="band cuisine-101-band">
+      <div class="section-heading">
+        <p class="eyebrow">Cuisine 101</p>
+        <h2>Learn the building blocks behind each cooking style.</h2>
+      </div>
+      <div class="cook101-cuisine-grid">
+        ${Object.entries(cuisine101).map(([id, lesson]) => `
+          <article>
+            <h3>${lesson.title}</h3>
+            <p>${lesson.items.slice(0, 3).join(", ")}</p>
+            <a class="small-button secondary" href="#cuisine/${id}">Explore Recipes</a>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderKidsCooking() {
+  const kidPath = paths.find((path) => path.id === "kid-chefs");
+  const kidRecipes = recipes.filter((recipe) => recipe.path === "kid-chefs" || recipe.skill_level === "Kid Chef" || recipe.tags?.includes("kid chefs"));
+  app.innerHTML = `
+    ${hero("Kids Cooking", "Simple, safe, joyful recipes that teach measuring, spreading, stirring, assembling, and cleaning up.", "assets/kid-friendly.jpeg", `<a class="small-button" href="#paths/kid-chefs">Open Kid Chef Path</a>`)}
+    ${cookSubnav()}
+    <section class="cream-section">
+      <div class="about-layout">
+        <article class="detail-panel">
+          <p class="eyebrow">Kid Chef pathway</p>
+          <h2>${kidPath?.title || "Start small. Build confidence."}</h2>
+          <p class="detail-copy">${kidPath?.description || "PB&J, mac and cheese, wraps, pizza bagels, and snack plates help kids learn real kitchen rhythm without pressure."}</p>
+          <ul>${(kidPath?.skills || ["Wash hands", "Measure ingredients", "Spread and assemble", "Stir carefully", "Clean as you go"]).map((item) => `<li>${item}</li>`).join("")}</ul>
+        </article>
+        <article class="detail-panel">
+          <p class="eyebrow">Grown-up guide</p>
+          <h2>Keep it safe and encouraging.</h2>
+          <p class="detail-copy">Let kids own one small job at a time. Teach hand washing, counter cleanup, measuring, and tasting before sharp knives or hot pans.</p>
+        </article>
+      </div>
+      <div class="recipe-grid">${kidRecipes.map(recipeCard).join("")}</div>
+    </section>
+  `;
+}
+
+function missionValuesSection() {
+  const values = ["Hospitality", "Learning", "Family flavor", "Confidence"];
+  return `
+    <section class="cream-section">
+      <div class="mission-values">
+        <div class="mv-header">
+          <p class="eyebrow">Mission, vision, values</p>
+          <h2>Cooking should feel welcoming, useful, and full of love.</h2>
+          <p class="mv-tagline">Cook. Learn. Grow.</p>
+        </div>
+        <div class="mv-grid">
+          <article class="mv-card">
+            <span>Mission</span>
+            <h3>Help home cooks build confidence.</h3>
+            <p>Let's Cook Y'all brings recipes, lessons, hosting tools, and food videos into one warm kitchen where people can learn at their own pace.</p>
+          </article>
+          <article class="mv-card">
+            <span>Vision</span>
+            <h3>A digital kitchen for every kind of cook.</h3>
+            <p>We are building a cozy learning space where families, beginners, and ambitious cooks can save recipes, plan meals, and grow their skills over time.</p>
+          </article>
+          <article class="mv-card values-card">
+            <span>Core Values</span>
+            <h3>Food with feeling.</h3>
+            <div class="value-list">${values.map((value) => `<span>${value}</span>`).join("")}</div>
+          </article>
+        </div>
+      </div>
     </section>
   `;
 }
@@ -2124,6 +2437,7 @@ function renderAbout() {
   app.innerHTML = `
     ${hero("Brent & Co. Kitchen", "Let's Cook Ya'll is the cooking-skills corner of Brent & Co.: polished, practical, warm, and rooted in hospitality.", "assets/lc-mediterranean-food.jpg")}
     ${cookSubnav()}
+    ${missionValuesSection()}
     <section class="cream-section">
       <div class="founder-story-card">
         <figure><img src="assets/founder-shalanda-brent.png" alt="Shalanda Brent, Founder and CEO of Brent & Co" /></figure>
@@ -2475,6 +2789,14 @@ function handleClick(event) {
 
 
 async function handleSubmit(event) {
+  if (event.target.matches("[data-ingredient-form]")) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const ingredient = formData.get("ingredient")?.toString().trim() || "chicken strips";
+    window.location.hash = `#kitchen-search/${encodeURIComponent(ingredient)}`;
+    return;
+  }
+
   if (event.target.matches("[data-lets-signup-form]")) {
     event.preventDefault();
     const formData = new FormData(event.target);
