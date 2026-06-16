@@ -3544,10 +3544,10 @@ function renderAccount() {
             </form>
             <div class="oauth-prep">
               <p class="eyebrow">Brent & Co single sign-on</p>
-              <a class="small-button" href="/sso/login?next=/#account">Continue with Google</a>
-              <a class="small-button secondary" href="/sso/login?next=/#account">Continue with Apple</a>
+              <a class="small-button" href="/sso/login?next=%2F%23account">Continue with Google</a>
+              <a class="small-button secondary" href="/sso/login?next=%2F%23account">Continue with Apple</a>
               <button class="small-button secondary" type="button" disabled>Continue with Facebook</button>
-              <a class="small-button secondary" href="/sso/login?next=/#account">Continue with Brent Account</a>
+              <a class="small-button secondary" href="/sso/login?next=%2F%23account">Continue with Brent Account</a>
             </div>
           `}
         </article>
