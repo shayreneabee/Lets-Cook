@@ -29,7 +29,60 @@ A working prototype for a warm Brent & Co. cooking-skills app inspired by the or
 - Personal sample content including orange chicken, crab rangoon, Yakamein, shrimp and grits with green beans, oxtails, Cajun cream salmon rotini pasta, roasted vegetables, white chicken chili, General Tso-style chicken, cashew chicken, fried rice, chicken parmesan, deviled eggs, Rotel dip, party meatballs, charcuterie boards, dessert charcuterie board, bourbon praline bread pudding, blackened fish, Tuscan chicken, garlic wings, pineapple fried rice, and lamb bone broth soup
 - Local JSON recipe database in `data/recipes.json`
 - Search/filter by keyword, pantry ingredients, cuisine, cook time, category, and difficulty
-- Phase 1 culinary education architecture for Learning Levels, Cuisine Explorer, Food Encyclopedia, and Traditional Menu Intelligence
+- Phase 1 culinary education architecture for Culinary Academy, Cuisine Explorer, Menu Builder, and Hospitality & Hosting
+- Centralized photography system with hero, skills, cuisine, and community image slots. Current pages use safe existing assets as fallbacks until final production photography is added.
+
+## Photography System
+
+The production image library lives in `images/`.
+
+Required style:
+
+- MasterClass culinary education quality
+- Food Network-level finished food and technique shots
+- Southern hospitality warmth
+- Bright natural daylight and warm color temperature
+- Clean modern kitchens
+- Diverse families, cooks, and skill levels
+- Real hands-on cooking process
+- Shallow depth of field and polished commercial framing
+
+Image folders:
+
+- `images/hero/`: `hero-01.jpg` through `hero-20.jpg`
+- `images/community/`: `community-01.jpg` through `community-50.jpg`
+- `images/skills/`: `knife-skills-01.jpg` through `knife-skills-25.jpg`
+- `images/skills/`: `baking-01.jpg` through `baking-25.jpg`
+- `images/skills/`: `grilling-01.jpg` through `grilling-25.jpg`
+- `images/skills/`: optional support lanes `measuring-01.jpg`, `sauce-prep-01.jpg`, and `plating-01.jpg` through `-25.jpg`
+- `images/cuisines/southern/`: `southern-01.jpg` through `southern-25.jpg`
+- `images/cuisines/mexican/`: `mexican-01.jpg` through `mexican-25.jpg`
+- `images/cuisines/italian/`: `italian-01.jpg` through `italian-25.jpg`
+- `images/cuisines/indian/`: `indian-01.jpg` through `indian-25.jpg`
+- `images/cuisines/asian/`: `asian-01.jpg` through `asian-25.jpg`
+- `images/cuisines/mediterranean/`: `mediterranean-01.jpg` through `mediterranean-25.jpg`
+
+Recommended dimensions:
+
+- Hero images: 2400x1600 or larger, landscape, under 500KB after compression when possible.
+- Card images: 1600x1200 or larger, landscape or 4:3 crop-safe.
+- Recipe detail images: 2000x1400 or larger, high detail, crop-safe center subject.
+- Profile/community moments: 1600x1600 or 1800x1200, crop-safe around faces and hands.
+
+Fallback behavior:
+
+- Page components call the centralized `photographyLibrary` in `app.js`.
+- The app tries the expected `/images/` slot first.
+- If that file is not present yet, a global image error handler swaps in the current safe `/assets/` fallback.
+- Recipe cards and recipe detail pages use `recipePhotoFor(recipe)` so recipe visuals are also connected to the centralized system.
+
+Missing image report:
+
+- Run `python scripts/report_missing_images.py` from the project root.
+- The script writes `images/missing-image-report.json`.
+- In the browser console, run `window.reportLetsCookMissingImages()` to print the expected slot list and fallback mapping.
+
+Avoid watermarked images, dark photos, empty kitchens, AI-looking faces, overly staged models, and repeated generic stock.
 
 ## Database Tables
 

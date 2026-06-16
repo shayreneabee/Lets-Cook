@@ -143,30 +143,283 @@ const paths = [
   }
 ];
 
+const imageFallbacks = new Map();
+
+function photoSlots(folder, prefix, count = 25) {
+  return Array.from({ length: count }, (_, index) => `images/${folder}/${prefix}-${String(index + 1).padStart(2, "0")}.jpg`);
+}
+
+function photoList(folder, prefix, count, fallbacks = []) {
+  return [...photoSlots(folder, prefix, count), ...fallbacks];
+}
+
+const photographyLibrary = {
+  hero: {
+    family: photoList("hero", "hero", 20, ["assets/cooking-family.jpeg", "assets/editorial-cooking-hero.jpg", "assets/editorial-kitchen-prep.jpg"]),
+    learning: photoList("hero", "hero", 20, ["assets/editorial-kitchen-prep.jpg", "assets/ingredients.jpeg"]),
+    hospitality: photoList("hero", "hero", 20, ["assets/lc-desserts.jpg", "assets/cooking-family.jpeg"])
+  },
+  skills: {
+    knife: photoList("skills", "knife-skills", 25, ["assets/editorial-kitchen-prep.jpg"]),
+    measuring: photoList("skills", "measuring", 25, ["assets/ingredients.jpeg"]),
+    baking: photoList("skills", "baking", 25, ["assets/lc-desserts.jpg"]),
+    sauces: photoList("skills", "sauce-prep", 25, ["assets/ingredients.jpeg"]),
+    grilling: photoList("skills", "grilling", 25, ["assets/lc-fried-chicken.jpg"]),
+    plating: photoList("skills", "plating", 25, ["assets/lc-shrimp-and-grits.jpg"])
+  },
+  cuisines: {
+    southern: photoList("cuisines/southern", "southern", 25, ["assets/lc-fried-chicken.jpg", "assets/lc-shrimp-and-grits.jpg", "assets/lc-seafood.jpg"]),
+    creole: photoList("cuisines/southern", "southern", 25, ["assets/lc-seafood.jpg", "assets/editorial-cajun-pasta.jpg"]),
+    mexican: photoList("cuisines/mexican", "mexican", 25, ["assets/lc-birria-tacos.jpg"]),
+    italian: photoList("cuisines/italian", "italian", 25, ["assets/lc-pasta.jpg", "assets/lc-chicken-piccata.jpg"]),
+    indian: photoList("cuisines/indian", "indian", 25, ["assets/lc-indian-food.jpg", "assets/indian-food.jpeg", "assets/tandoori-chicken.jpeg"]),
+    "asian-inspired": photoList("cuisines/asian", "asian", 25, ["assets/lc-asian-food.jpg", "assets/lc-fried-rice.jpg", "assets/lc-orange-chicken.jpg"]),
+    mediterranean: photoList("cuisines/mediterranean", "mediterranean", 25, ["assets/lc-mediterranean-food.jpg"]),
+    caribbean: photoList("cuisines/caribbean", "caribbean", 25, ["assets/lc-african-food.jpg"]),
+    global: photoList("community", "community", 50, ["assets/lc-african-food.jpg", "assets/lc-asian-food.jpg", "assets/lc-mediterranean-food.jpg"]),
+    hosting: photoList("community", "community", 50, ["assets/lc-desserts.jpg", "assets/cooking-family.jpeg"])
+  }
+};
+
+function photoFor(collection, key, index = 0, fallback = "assets/logo.png") {
+  const list = photographyLibrary[collection]?.[key] || photographyLibrary.cuisines?.[key] || [];
+  const source = list[index % list.length] || fallback;
+  const safeFallback = list.find((item) => item.startsWith("assets/")) || fallback;
+  if (source.startsWith("images/")) imageFallbacks.set(source, safeFallback);
+  return source;
+}
+
+function expectedImageSlots() {
+  return Object.values(photographyLibrary)
+    .flatMap((group) => Object.values(group))
+    .flat()
+    .filter((item) => item.startsWith("images/"));
+}
+
+function reportMissingImages() {
+  const slots = [...new Set(expectedImageSlots())];
+  console.table(slots.map((slot) => ({
+    slot,
+    fallback: imageFallbacks.get(slot) || "assets/logo.png",
+    status: "expected"
+  })));
+  return slots;
+}
+
+function stableIndex(value = "", modulo = 25) {
+  return [...String(value)].reduce((sum, char) => sum + char.charCodeAt(0), 0) % modulo;
+}
+
+function recipePhotoFor(recipe = {}) {
+  const cuisineKey = recipe.category === "Party Cups" ? "hosting" : recipe.cuisine || "global";
+  const fallback = recipe.image_url || recipe.image || recipeImageOverrides[recipe.id] || "assets/logo.png";
+  return photoFor("cuisines", cuisineKey, stableIndex(recipe.id || recipe.title, 25), fallback);
+}
+
+function pathPhotoFor(path = {}) {
+  const pathPhotos = {
+    "kid-chefs": photoFor("cuisines", "hosting", 1, path.image || "assets/kid-friendly.jpeg"),
+    "amateur-home-chef": photoFor("hero", "learning", 2, path.image || "assets/cooking-family.jpeg"),
+    "professional-mode": photoFor("skills", "plating", 2, path.image || "assets/ingredients.jpeg")
+  };
+  return pathPhotos[path.id] || photoFor("hero", "learning", 0, path.image || "assets/logo.png");
+}
+
 const cuisines = [
-  { id: "southern", name: "Southern Classics", image: "assets/lc-fried-chicken.jpg", blurb: "Comforting dishes, porch-table sides, slow braises, and big hospitality." },
-  { id: "creole", name: "Creole & Cajun", image: "assets/lc-seafood.jpg", blurb: "New Orleans flavor, seafood, spice, rice, roux, and soulful one-pot meals." },
-  { id: "indian", name: "Indian", image: "assets/lc-indian-food.jpg", blurb: "Layered spices, cozy curries, breads, rice dishes, and generous family-style meals." },
-  { id: "mexican", name: "Mexican", image: "assets/lc-birria-tacos.jpg", blurb: "Chiles, tortillas, salsas, braises, bright toppings, and weeknight-friendly flavor." },
-  { id: "caribbean", name: "Caribbean", image: "assets/lc-african-food.jpg", blurb: "Warm spice, rice and peas, seafood, stews, grilling, and sunny island comfort." },
-  { id: "mediterranean", name: "Mediterranean", image: "assets/lc-mediterranean-food.jpg", blurb: "Fresh herbs, olive oil, grilled proteins, breads, salads, and bright sauces." },
-  { id: "asian-inspired", name: "Asian Inspired", image: "assets/lc-asian-food.jpg", blurb: "Crisp, saucy, family-friendly dinners with bold pantry flavor." },
-  { id: "italian", name: "Italian Comfort", image: "assets/lc-pasta.jpg", blurb: "Pasta nights, red sauce, baked mains, and beginner-friendly classics." },
-  { id: "hosting", name: "Party & Hosting", image: "assets/lc-desserts.jpg", blurb: "Boards, bites, desserts, and dinner-party helpers that make people feel cared for." },
-  { id: "global", name: "Global Flavors", image: "assets/lc-african-food.jpg", blurb: "A warm bridge from Southern kitchens to flavors from everywhere." }
+  { id: "southern", name: "Southern Classics", image: photoFor("cuisines", "southern"), blurb: "Comforting dishes, porch-table sides, slow braises, and big hospitality." },
+  { id: "creole", name: "Creole & Cajun", image: photoFor("cuisines", "creole"), blurb: "New Orleans flavor, seafood, spice, rice, roux, and soulful one-pot meals." },
+  { id: "indian", name: "Indian", image: photoFor("cuisines", "indian"), blurb: "Layered spices, cozy curries, breads, rice dishes, and generous family-style meals." },
+  { id: "mexican", name: "Mexican", image: photoFor("cuisines", "mexican"), blurb: "Chiles, tortillas, salsas, braises, bright toppings, and weeknight-friendly flavor." },
+  { id: "caribbean", name: "Caribbean", image: photoFor("cuisines", "caribbean"), blurb: "Warm spice, rice and peas, seafood, stews, grilling, and sunny island comfort." },
+  { id: "mediterranean", name: "Mediterranean", image: photoFor("cuisines", "mediterranean"), blurb: "Fresh herbs, olive oil, grilled proteins, breads, salads, and bright sauces." },
+  { id: "asian-inspired", name: "Asian Inspired", image: photoFor("cuisines", "asian-inspired"), blurb: "Crisp, saucy, family-friendly dinners with bold pantry flavor." },
+  { id: "italian", name: "Italian Comfort", image: photoFor("cuisines", "italian"), blurb: "Pasta nights, red sauce, baked mains, and beginner-friendly classics." },
+  { id: "hosting", name: "Party & Hosting", image: photoFor("cuisines", "hosting"), blurb: "Boards, bites, desserts, and dinner-party helpers that make people feel cared for." },
+  { id: "global", name: "Global Flavors", image: photoFor("cuisines", "global"), blurb: "A warm bridge from Southern kitchens to flavors from everywhere." }
 ];
 
 const learningPillars = [
-  { title: "Recipes", route: "#recipes", text: "Cookable recipes with photos, skill level, cuisine, timing, and practice notes." },
-  { title: "Build A Meal", route: "#build-a-meal", text: "Start with one ingredient and learn how to turn it into a balanced plate." },
-  { title: "Cuisine Explorer", route: "#cuisine-explorer", text: "See how different cultures season, sauce, serve, and teach the same ingredients." },
-  { title: "Cooking Skills Academy", route: "#skills-academy", text: "Knife skills, heat control, sauces, grains, seasoning, prep, and hosting flow." },
-  { title: "Food Encyclopedia", route: "#food-encyclopedia", text: "Look up food terms, tools, ingredients, etiquette, history, and chef notes." },
-  { title: "Menu Intelligence", route: "#menu-intelligence", text: "Build culturally grounded menus with sides, sauces, drinks, desserts, and hosting notes." },
-  { title: "What's In My Kitchen", route: "#kitchen-search/chicken%20strips", text: "Search by ingredients you already have and get meals, sides, and substitutions." },
-  { title: "Meal Planning", route: "#planner", text: "Plan dinners, save recipes, build grocery lists, and keep the week calm." },
-  { title: "Kids Cooking", route: "#kids-cooking", text: "PB&J, mac and cheese, wraps, snack boards, and safe beginner kitchen wins." },
-  { title: "Culinary Pathways", route: "#pathways", text: "Grow from Kid Chef to home cook to professional-style prep and plating." }
+  { title: "Culinary Academy", route: "#culinary-academy", text: "A single learning hub for basics, ingredients, techniques, equipment, science, world foods, seasonings, and professional skills." },
+  { title: "Cuisine Explorer", route: "#cuisine-explorer", text: "A polished world-food rolodex for culture, regions, country-level cuisines, ingredients, and traditions." },
+  { title: "Menu Builder", route: "#menu-intelligence", text: "Build culturally grounded meals with mains, sides, breads, sauces, drinks, desserts, and timing." },
+  { title: "Hospitality & Hosting", route: "#hosting", text: "Plan fish fries, Sunday dinners, showers, brunch, catering prep, and warm gathering menus." }
+];
+
+const academyCategories = [
+  { id: "basics", title: "Basics", text: "Definitions, safety, measuring, reading recipes, tasting, timing, and kitchen confidence.", entries: ["kitchen-safety", "measurements"] },
+  { id: "ingredients", title: "Ingredients", text: "Produce, proteins, grains, spices, pantry staples, substitutions, and how ingredients behave.", entries: ["ingredients", "seasonings"] },
+  { id: "techniques", title: "Techniques", text: "Knife skills, sauteing, frying, braising, roasting, baking, simmering, and plating.", entries: ["knife-skills", "sauces"] },
+  { id: "equipment", title: "Equipment", text: "Pans, knives, cutting boards, thermometers, small appliances, serving tools, and care.", entries: ["equipment", "kitchen-safety"] },
+  { id: "food-science", title: "Food Science", text: "Heat, texture, browning, emulsions, thickening, acidity, salt, fat, and flavor balance.", entries: ["food-science", "sauces"] },
+  { id: "world-foods", title: "World Foods", text: "Culture, history, etiquette, ingredients, regional identity, and traditional dishes.", entries: ["world-foods", "ingredients"] },
+  { id: "sauces-seasonings", title: "Sauces & Seasonings", text: "Spice blends, marinades, gravies, dips, sauces, finishing herbs, and flavor bases.", entries: ["sauces", "seasonings"] },
+  { id: "professional-skills", title: "Professional Skills", text: "Prep lists, station setup, costing, batching, service flow, catering, and consistency.", entries: ["professional-skills", "measurements"] }
+];
+
+const academyModules = [
+  {
+    id: "knife-skills",
+    title: "Knife Skills",
+    category: "Techniques",
+    overview: "Knife skills are the foundation for safer prep, even cooking, and calmer meals.",
+    why: "Food cooks more evenly when pieces are similar sizes, and confident knife habits prevent rushing and slipping.",
+    beginner: "Start slow. Use a stable board, a sharp knife, and a tucked-finger claw grip before worrying about speed.",
+    keyConcepts: ["Stable cutting board", "Sharp knife safety", "Claw grip", "Even pieces", "Slow before fast"],
+    modules: [
+      { title: "Module 1: Knife Types", items: ["Chef knife: the everyday workhorse for chopping, slicing, and dicing.", "Paring knife: small detail cuts, peeling, and trimming.", "Serrated knife: bread, tomatoes, citrus, and delicate crusts."] },
+      { title: "Module 2: Knife Safety", items: ["Put a damp towel under the board.", "Keep fingertips tucked behind your knuckles.", "Carry knives pointed down.", "Never try to catch a falling knife."] },
+      { title: "Module 3: Basic Cuts", items: ["Dice: small cubes for even cooking.", "Mince: very small pieces for garlic, herbs, and aromatics.", "Julienne: thin matchsticks for vegetables.", "Chiffonade: rolled leafy herbs or greens sliced into ribbons."] },
+      { title: "Module 4: Practice Exercises", items: ["Dice one onion slowly.", "Mince one clove of garlic.", "Julienne one carrot.", "Chiffonade basil or spinach leaves."] },
+      { title: "Module 5: Knowledge Check", items: ["Which knife is best for bread?", "Why do even cuts matter?", "What should go under a slippery cutting board?"] },
+      { title: "Module 6: Next Recommended Skill", items: ["Practice heat control so your evenly cut ingredients cook the way you planned."] }
+    ],
+    related: ["kitchen-safety", "measurements", "heat-control"],
+    next: "kitchen-safety"
+  },
+  {
+    id: "kitchen-safety",
+    title: "Kitchen Safety",
+    category: "Basics",
+    overview: "Safety helps every cook move with confidence around heat, knives, water, and food storage.",
+    why: "A clean, calm kitchen prevents burns, slips, cross-contamination, and rushed mistakes.",
+    beginner: "Wash hands, clear the counter, stabilize the board, and ask for help with heat or sharp tools when needed.",
+    keyConcepts: ["Hand washing", "Cross-contamination", "Hot handles", "Clean-as-you-go", "Safe storage"],
+    modules: [
+      { title: "Setup", items: ["Wash hands for 20 seconds.", "Clear clutter before bringing food out.", "Keep towels dry around heat."] },
+      { title: "Heat Safety", items: ["Turn handles inward.", "Use dry oven mitts.", "Open lids away from your face."] },
+      { title: "Food Safety", items: ["Keep raw meat away from ready-to-eat foods.", "Chill leftovers quickly.", "Label food with dates."] }
+    ],
+    related: ["knife-skills", "equipment", "measurements"],
+    next: "measurements"
+  },
+  {
+    id: "measurements",
+    title: "Measurements",
+    category: "Basics",
+    overview: "Measurements help you repeat recipes, scale meals, and understand when precision matters.",
+    why: "Baking needs accuracy, while savory cooking teaches you how to measure, taste, and adjust.",
+    beginner: "Use dry cups for dry ingredients, liquid cups for liquids, and measuring spoons for small amounts.",
+    keyConcepts: ["Teaspoon vs tablespoon", "Dry vs liquid cups", "Scaling recipes", "Pinches and dashes", "Taste and adjust"],
+    modules: [
+      { title: "Core Tools", items: ["Measuring spoons", "Dry measuring cups", "Liquid measuring cups", "Kitchen scale"] },
+      { title: "Scaling", items: ["Double ingredients carefully.", "Keep spice increases gentle.", "Write down changes."] },
+      { title: "Practice", items: ["Measure 1 cup flour.", "Measure 1/2 cup liquid.", "Convert 3 teaspoons to 1 tablespoon."] }
+    ],
+    related: ["ingredients", "professional-skills", "food-science"],
+    next: "ingredients"
+  },
+  {
+    id: "equipment",
+    title: "Equipment",
+    category: "Equipment",
+    overview: "Equipment is about choosing the right tool for the job, not owning every gadget.",
+    why: "The right pan, knife, thermometer, or bowl makes cooking easier, safer, and more consistent.",
+    beginner: "Start with a chef knife, cutting board, skillet, pot, sheet pan, mixing bowl, spatula, tongs, and thermometer.",
+    keyConcepts: ["Tool purpose", "Pan size", "Heat-safe handles", "Thermometers", "Cleaning and care"],
+    modules: [
+      { title: "Starter Kit", items: ["Chef knife", "Cutting board", "Skillet", "Saucepan", "Sheet pan"] },
+      { title: "Helpful Extras", items: ["Tongs", "Fish spatula", "Thermometer", "Microplane", "Fine mesh strainer"] },
+      { title: "Care", items: ["Dry knives right away.", "Avoid overcrowding pans.", "Use the right board for the task."] }
+    ],
+    related: ["knife-skills", "kitchen-safety", "professional-skills"],
+    next: "food-science"
+  },
+  {
+    id: "food-science",
+    title: "Food Science",
+    category: "Food Science",
+    overview: "Food science explains what heat, salt, acid, fat, and time are doing to your food.",
+    why: "When you understand the why, you can fix bland food, prevent overcooking, and build better texture.",
+    beginner: "Browning creates flavor, acid brightens, salt wakes food up, and fat carries flavor.",
+    keyConcepts: ["Browning", "Moisture", "Emulsions", "Thickening", "Salt-fat-acid-heat"],
+    modules: [
+      { title: "Heat", items: ["Low heat softens.", "Medium heat cooks evenly.", "High heat browns quickly."] },
+      { title: "Texture", items: ["Starch thickens.", "Protein firms as it cooks.", "Resting helps juices settle."] },
+      { title: "Flavor Balance", items: ["Salt for clarity.", "Acid for brightness.", "Fat for roundness."] }
+    ],
+    related: ["sauces", "seasonings", "heat-control"],
+    next: "sauces"
+  },
+  {
+    id: "sauces",
+    title: "Sauces",
+    category: "Sauces & Seasonings",
+    overview: "Sauces turn simple food into complete meals by adding moisture, flavor, texture, and identity.",
+    why: "A sauce can connect a protein, grain, vegetable, and cuisine style into one plate.",
+    beginner: "Learn a pan sauce, a gravy or roux, a yogurt sauce, and a quick vinaigrette first.",
+    keyConcepts: ["Roux", "Reduction", "Emulsion", "Curry base", "Finishing acid"],
+    modules: [
+      { title: "Quick Sauces", items: ["Yogurt sauce", "Vinaigrette", "Garlic butter", "Pan sauce"] },
+      { title: "Comfort Sauces", items: ["Gravy", "Cheese sauce", "Cream sauce", "Tomato sauce"] },
+      { title: "Global Sauces", items: ["Curry base", "Salsa", "Tzatziki", "Jerk sauce"] }
+    ],
+    related: ["food-science", "seasonings", "roux"],
+    next: "seasonings"
+  },
+  {
+    id: "ingredients",
+    title: "Ingredients",
+    category: "Ingredients",
+    overview: "Ingredients are the building blocks of meals: proteins, vegetables, grains, fats, acids, herbs, and spices.",
+    why: "Knowing what an ingredient does helps you substitute, plan meals, and waste less food.",
+    beginner: "Ask: Is it protein, starch, vegetable, fat, acid, seasoning, or garnish?",
+    keyConcepts: ["Ingredient role", "Fresh vs pantry", "Substitutions", "Storage", "Seasonality"],
+    modules: [
+      { title: "Ingredient Roles", items: ["Protein anchors the meal.", "Starch fills and carries sauce.", "Vegetables bring color and texture."] },
+      { title: "Substitutions", items: ["Swap similar textures first.", "Match cooking time.", "Taste after changing ingredients."] },
+      { title: "Storage", items: ["Label leftovers.", "Keep herbs dry.", "Freeze proteins flat when possible."] }
+    ],
+    related: ["seasonings", "world-foods", "kitchen-search"],
+    next: "world-foods"
+  },
+  {
+    id: "seasonings",
+    title: "Seasonings",
+    category: "Sauces & Seasonings",
+    overview: "Seasonings build flavor through salt, spices, herbs, aromatics, acids, heat, sweetness, and smoke.",
+    why: "Seasoning is how food moves from plain to personal, cultural, and memorable.",
+    beginner: "Start with salt, pepper, garlic, onion, paprika, lemon or vinegar, and one herb you like.",
+    keyConcepts: ["Salt in layers", "Blooming spices", "Fresh herbs", "Acid finish", "Heat control"],
+    modules: [
+      { title: "Flavor Layers", items: ["Season early.", "Taste midway.", "Finish with acid or herbs."] },
+      { title: "Spice Care", items: ["Store away from heat.", "Smell spices before using.", "Bloom spices in oil for deeper flavor."] },
+      { title: "Practice", items: ["Season roasted vegetables three ways.", "Compare lemon vs vinegar.", "Make a small house blend."] }
+    ],
+    related: ["sauces", "food-science", "world-foods"],
+    next: "world-foods"
+  },
+  {
+    id: "world-foods",
+    title: "World Foods",
+    category: "World Foods",
+    overview: "World foods connect ingredients, language, traditions, geography, etiquette, and family memory.",
+    why: "Learning culture helps you cook with respect and build menus that actually make sense together.",
+    beginner: "Start with one cuisine, learn its pantry staples, then cook one beginner recipe and one traditional side.",
+    keyConcepts: ["Food culture", "Common pantry", "Traditional dishes", "Table etiquette", "Regional identity"],
+    modules: [
+      { title: "How To Explore", items: ["Pick a region.", "Learn 5 common ingredients.", "Study one menu.", "Cook one beginner recipe."] },
+      { title: "Respect", items: ["Notice names and origins.", "Avoid treating cuisines as one single dish.", "Learn table customs when serving."] },
+      { title: "Next Step", items: ["Open Cuisine Explorer and choose a country or region."] }
+    ],
+    related: ["ingredients", "seasonings", "cuisine-explorer"],
+    next: "professional-skills"
+  },
+  {
+    id: "professional-skills",
+    title: "Professional Skills",
+    category: "Professional Skills",
+    overview: "Professional skills turn cooking into a repeatable system for service, catering, meal prep, and consistency.",
+    why: "Prep lists, costing, timing, and station setup keep bigger meals from becoming chaos.",
+    beginner: "Write a prep list and timeline before cooking for anyone besides yourself.",
+    keyConcepts: ["Mise en place", "Prep lists", "Batching", "Costing", "Service flow"],
+    modules: [
+      { title: "Prep List", items: ["List every task.", "Mark what can be done ahead.", "Group tasks by station."] },
+      { title: "Costing", items: ["Estimate portions.", "Track ingredient cost.", "Add a buffer for waste."] },
+      { title: "Service Flow", items: ["Know what must be hot.", "Set serving tools early.", "Create a refill plan."] }
+    ],
+    related: ["measurements", "hosting-flow", "menu-intelligence"],
+    next: "hosting-flow"
+  }
 ];
 
 const learningLevels = [
@@ -216,81 +469,128 @@ const cuisineExplorerGroups = [
   {
     id: "african-cuisines",
     title: "African Cuisines",
-    image: "assets/lc-african-food.jpg",
+    image: photoFor("cuisines", "global"),
     note: "Stews, grains, spice blends, grilled meats, vegetables, fermented foods, and regional hospitality.",
     regions: ["Nigeria", "Ghana", "Ethiopia", "Senegal", "Morocco", "South Africa", "Kenya", "East Africa", "West Africa", "North Africa"]
   },
   {
     id: "asian-cuisines",
     title: "Asian Cuisines",
-    image: "assets/lc-asian-food.jpg",
+    image: photoFor("cuisines", "asian-inspired"),
     note: "Rice, noodles, broths, stir-fries, fermented sauces, pickles, dumplings, heat, balance, and texture.",
     regions: ["Japan", "China", "Korea", "Thailand", "Vietnam", "Philippines", "India"]
   },
   {
     id: "mediterranean-cuisines",
     title: "Mediterranean Cuisines",
-    image: "assets/lc-mediterranean-food.jpg",
+    image: photoFor("cuisines", "mediterranean"),
     note: "Olive oil, herbs, citrus, yogurt sauces, grilled proteins, mezze, breads, vegetables, and shared tables.",
     regions: ["Greece", "Turkey", "Lebanon", "Egypt", "Morocco", "Italy-adjacent regions"]
   },
   {
     id: "caribbean-cuisines",
     title: "Caribbean Cuisines",
-    image: "assets/lc-african-food.jpg",
+    image: photoFor("cuisines", "caribbean"),
     note: "Warm spice, plantains, rice and peas, seafood, curries, jerk seasoning, stews, and celebration food.",
     regions: ["Jamaica", "Trinidad", "Haiti", "Puerto Rico", "Dominican Republic", "Bahamas", "Barbados"]
   },
   {
     id: "european-cuisines",
     title: "European Cuisines",
-    image: "assets/lc-pasta.jpg",
+    image: photoFor("cuisines", "italian"),
     note: "Pasta, roasts, breads, sauces, preserved foods, pastry, soups, braises, and seasonal cooking.",
     regions: ["Italy", "France", "Spain", "Portugal", "Germany", "United Kingdom", "Eastern Europe"]
   },
   {
     id: "southern-soul-food",
     title: "Southern / Soul Food",
-    image: "assets/lc-fried-chicken.jpg",
+    image: photoFor("cuisines", "southern"),
     note: "Cast iron, greens, cornbread, fish fries, Sunday dinner, slow cooking, and hospitality at the center.",
     regions: ["Mississippi", "Louisiana", "Georgia", "Alabama", "Carolinas", "Texas", "Tennessee"]
   },
   {
     id: "cajun-creole",
     title: "Cajun / Creole",
-    image: "assets/lc-seafood.jpg",
+    image: photoFor("cuisines", "creole"),
     note: "Roux, seafood, rice, holy trinity, spice, gumbo, jambalaya, etouffee, and New Orleans table culture.",
     regions: ["New Orleans", "Acadiana", "Louisiana Gulf Coast", "Creole", "Cajun"]
   },
   {
     id: "latin-american",
     title: "Mexican / Latin American",
-    image: "assets/lc-birria-tacos.jpg",
+    image: photoFor("cuisines", "mexican"),
     note: "Chiles, corn, beans, braises, salsas, tortillas, adobo, citrus, herbs, and family-style meals.",
     regions: ["Mexico", "Peru", "Colombia", "Cuba", "Brazil", "Central America", "Tex-Mex"]
   },
   {
     id: "bbq",
     title: "BBQ",
-    image: "assets/lc-fried-chicken.jpg",
+    image: photoFor("cuisines", "southern", 1),
     note: "Smoke, rubs, sauces, low-and-slow timing, sides, bread, pickles, and feeding a crowd.",
     regions: ["Memphis", "Texas", "Kansas City", "Carolinas", "Mississippi", "Backyard BBQ"]
   },
   {
     id: "vegetarian",
     title: "Vegetarian",
-    image: "assets/lc-mediterranean-food.jpg",
+    image: photoFor("cuisines", "mediterranean"),
     note: "Beans, grains, vegetables, sauces, herbs, texture, protein balance, and satisfying plant-forward meals.",
     regions: ["Southern vegetarian", "Indian vegetarian", "Mediterranean", "Asian vegetarian", "Meal prep"]
   },
   {
     id: "holiday-sunday",
     title: "Holiday / Sunday Dinner",
-    image: "assets/lc-desserts.jpg",
+    image: photoFor("cuisines", "hosting"),
     note: "Centerpiece mains, traditional sides, desserts, hosting rhythm, prep lists, and table memory.",
     regions: ["Thanksgiving", "Christmas", "Easter", "Sunday dinner", "Church dinner", "Family reunion"]
   }
 ];
+
+const countryCuisineProfiles = {
+  nigeria: {
+    title: "Nigeria",
+    region: "West Africa",
+    overview: "Nigerian cooking is bold, layered, and deeply regional, with rice dishes, stews, soups, grilled foods, peppers, tomatoes, onions, and palm oil showing up often.",
+    culture: "Meals are generous and often shared, with food connected to celebrations, family gatherings, markets, and regional identity.",
+    ingredients: ["rice", "tomatoes", "peppers", "onions", "palm oil", "egusi", "okra", "plantains", "beans"],
+    dishes: ["jollof rice", "egusi soup", "suya", "moi moi", "pepper soup", "fried plantains"],
+    techniques: ["stew bases", "pepper blending", "grilling", "simmering soups", "rice steaming"],
+    menu: ["jollof rice", "grilled chicken or suya", "fried plantains", "cabbage slaw", "zobo or ginger drink"],
+    beginnerRecipes: ["jollof-style rice", "fried plantains", "pepper chicken"]
+  },
+  ghana: {
+    title: "Ghana",
+    region: "West Africa",
+    overview: "Ghanaian food is warm, hearty, and centered around stews, rice, plantains, beans, soups, fish, and spice.",
+    culture: "Food often carries family history and regional pride, especially around rice dishes, soups, and shared bowls.",
+    ingredients: ["rice", "beans", "plantains", "tomatoes", "peppers", "fish", "groundnuts", "cassava"],
+    dishes: ["waakye", "red red", "kelewele", "groundnut soup", "banku", "light soup"],
+    techniques: ["slow stews", "spiced frying", "soup simmering", "fermented dough cooking"],
+    menu: ["waakye", "spiced chicken", "kelewele", "shito", "ginger drink"],
+    beginnerRecipes: ["red red-inspired beans", "kelewele-style plantains", "tomato stew"]
+  },
+  ethiopia: {
+    title: "Ethiopia",
+    region: "East Africa",
+    overview: "Ethiopian cuisine is famous for injera, spice-rich stews, lentils, vegetables, and communal eating.",
+    culture: "Meals are often served on injera and eaten together, making hospitality and sharing part of the food experience.",
+    ingredients: ["berbere", "niter kibbeh", "lentils", "teff", "chickpeas", "collards", "onions"],
+    dishes: ["doro wat", "misir wat", "shiro", "injera", "gomen", "tibs"],
+    techniques: ["spice blooming", "slow stewing", "lentil simmering", "injera-style flatbread service"],
+    menu: ["misir wat", "gomen", "shiro", "injera", "spiced tea"],
+    beginnerRecipes: ["berbere lentils", "spiced greens", "chickpea stew"]
+  },
+  morocco: {
+    title: "Morocco",
+    region: "North Africa",
+    overview: "Moroccan cooking layers warm spices, citrus, herbs, preserved foods, couscous, tagines, vegetables, lamb, chicken, and seafood.",
+    culture: "Meals are often fragrant and shared, with tea, bread, stews, and hospitality carrying strong meaning.",
+    ingredients: ["couscous", "chickpeas", "preserved lemon", "olives", "cumin", "cinnamon", "mint", "harissa"],
+    dishes: ["tagine", "couscous", "harira", "zaalouk", "briouats", "mint tea"],
+    techniques: ["slow braising", "steaming couscous", "spice layering", "preserved lemon finishing"],
+    menu: ["chicken tagine", "couscous", "carrot salad", "flatbread", "mint tea"],
+    beginnerRecipes: ["chickpea couscous bowl", "lemon olive chicken", "spiced carrot salad"]
+  }
+};
 
 const foodEncyclopedia = [
   {
@@ -1723,6 +2023,18 @@ document.addEventListener("click", handleClick);
 document.addEventListener("submit", handleSubmit);
 document.addEventListener("input", handleSearch);
 document.addEventListener("change", handleSearch);
+document.addEventListener("error", handleImageFallback, true);
+window.reportLetsCookMissingImages = reportMissingImages;
+
+function handleImageFallback(event) {
+  const image = event.target;
+  if (!(image instanceof HTMLImageElement)) return;
+  const path = image.getAttribute("src") || "";
+  const fallback = imageFallbacks.get(path);
+  if (!fallback || image.dataset.fallbackApplied === "true") return;
+  image.dataset.fallbackApplied = "true";
+  image.src = fallback;
+}
 
 function routeParts() {
   const [route, id] = (window.location.hash.replace("#", "") || "lets-cook").split("/");
@@ -1742,17 +2054,18 @@ function render() {
   if (route === "kitchen") return renderKitchen();
   if (route === "cook101") return id ? renderLesson(id) : renderCook101();
   if (route === "skills-academy") return renderSkillsAcademy();
+  if (route === "culinary-academy") return renderCulinaryAcademy(id);
   if (route === "build-a-meal") return renderBuildMeal(id);
   if (route === "kitchen-search") return renderKitchenSearch(id);
-  if (route === "cuisine-explorer") return renderCuisineExplorer();
-  if (route === "food-encyclopedia") return renderFoodEncyclopedia(id);
-  if (route === "menu-intelligence") return renderMenuIntelligence();
+  if (route === "cuisine-explorer") return renderCuisineExplorer(id);
+  if (route === "food-encyclopedia") return renderCulinaryAcademy(id);
+  if (route === "menu-intelligence") return renderMenuIntelligence(id);
   if (route === "kids-cooking") return renderKidsCooking();
   if (route === "recipes") return id ? renderRecipe(id) : renderRecipes();
   if (route === "paths") return id ? renderPath(id) : renderPaths();
   if (route === "pathways") return renderPaths();
   if (route === "planner") return renderPlanner();
-  if (route === "hosting") return renderHosting();
+  if (route === "hosting") return renderHosting(id);
   if (route === "about") return renderAbout();
   if (route === "account") return renderAccount();
   if (route === "search") return renderRecipes();
@@ -1761,7 +2074,7 @@ function render() {
 }
 
 function setActive(route) {
-  const cookingRoutes = ["kitchen", "cook101", "skills-academy", "build-a-meal", "kitchen-search", "cuisine-explorer", "food-encyclopedia", "menu-intelligence", "kids-cooking", "recipes", "paths", "pathways", "planner", "hosting", "about", "account", "search", "cuisine"];
+  const cookingRoutes = ["kitchen", "cook101", "skills-academy", "culinary-academy", "build-a-meal", "kitchen-search", "cuisine-explorer", "food-encyclopedia", "menu-intelligence", "kids-cooking", "recipes", "paths", "pathways", "planner", "hosting", "about", "account", "search", "cuisine"];
   const normalizedRoute = cookingRoutes.includes(route) ? "lets-cook" : route;
   document.querySelectorAll(".main-nav a").forEach((link) => {
     link.classList.toggle("active", link.dataset.route === normalizedRoute);
@@ -1769,7 +2082,7 @@ function setActive(route) {
 }
 
 function activeAppForRoute(route) {
-  const cookingRoutes = ["lets-cook", "kitchen", "cook101", "recipes", "paths", "planner", "hosting", "about", "account", "search", "cuisine"];
+  const cookingRoutes = ["lets-cook", "kitchen", "cook101", "skills-academy", "culinary-academy", "build-a-meal", "kitchen-search", "cuisine-explorer", "food-encyclopedia", "menu-intelligence", "kids-cooking", "recipes", "paths", "pathways", "planner", "hosting", "about", "account", "search", "cuisine"];
   if (cookingRoutes.includes(route)) return ecosystemApps.find((item) => item.id === "lets-cook");
   if (route === "find-the-beat") return ecosystemApps.find((item) => item.id === "find-the-beat");
   if (route === "second-chance") return ecosystemApps.find((item) => item.id === "second-chance");
@@ -1790,6 +2103,63 @@ function linkAttrs(href) {
   return `href="${safeHref}"${external ? ' target="_blank" rel="noreferrer"' : ""}`;
 }
 
+function slugify(value = "") {
+  return String(value)
+    .toLowerCase()
+    .trim()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function titleizeSlug(value = "") {
+  return String(value)
+    .split("-")
+    .filter(Boolean)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
+function academyModuleById(id) {
+  const normalized = slugify(decodeURIComponent(id || ""));
+  return academyModules.find((module) => module.id === normalized);
+}
+
+function lessonLinkFor(id) {
+  const lesson = lessons.find((item) => item.id === id);
+  if (lesson) return { href: `#cook101/${lesson.id}`, title: lesson.title };
+  const module = academyModules.find((item) => item.id === id);
+  if (module) return { href: `#culinary-academy/${module.id}`, title: module.title };
+  if (id === "cuisine-explorer") return { href: "#cuisine-explorer", title: "Cuisine Explorer" };
+  if (id === "menu-intelligence") return { href: "#menu-intelligence", title: "Menu Builder" };
+  if (id === "kitchen-search") return { href: "#kitchen-search", title: "What's In My Kitchen" };
+  return { href: "#culinary-academy", title: titleizeSlug(id) || "Culinary Academy" };
+}
+
+function knownAcademyHref(item) {
+  const normalized = slugify(item);
+  if (academyModules.some((module) => module.id === normalized)) return `#culinary-academy/${normalized}`;
+  if (foodEncyclopedia.some((entry) => slugify(entry.term) === normalized)) return `#culinary-academy/${normalized}`;
+  if (cuisineExplorerGroups.some((group) => group.id === normalized || group.regions.some((region) => slugify(region) === normalized))) return `#cuisine-explorer/${normalized}`;
+  return "";
+}
+
+function academyPhotoFor(id) {
+  const photos = {
+    "knife-skills": photoFor("skills", "knife"),
+    "kitchen-safety": photoFor("hero", "learning"),
+    measurements: photoFor("skills", "measuring"),
+    equipment: photoFor("skills", "knife"),
+    "food-science": photoFor("skills", "sauces"),
+    sauces: photoFor("skills", "sauces"),
+    ingredients: photoFor("skills", "measuring"),
+    seasonings: photoFor("skills", "sauces"),
+    "world-foods": photoFor("cuisines", "global"),
+    "professional-skills": photoFor("skills", "plating")
+  };
+  return photos[id] || photoFor("hero", "learning");
+}
+
 function hero(title, text, image = "assets/logo.png", actions = "") {
   return `
     <section class="hero">
@@ -1800,6 +2170,23 @@ function hero(title, text, image = "assets/logo.png", actions = "") {
         ${actions ? `<div class="hero-actions">${actions}</div>` : ""}
       </div>
       <figure class="hero-media"><img src="${image}" alt="" /></figure>
+    </section>
+  `;
+}
+
+function heroRotator(title, text, images = [], actions = "") {
+  const rotationImages = images.length ? images : [photoFor("hero", "family", 0, "assets/cooking-family.jpeg")];
+  return `
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Brent & Co. / Let's Cook Ya'll</p>
+        <h1>${title}</h1>
+        <p>${text}</p>
+        ${actions ? `<div class="hero-actions">${actions}</div>` : ""}
+      </div>
+      <figure class="hero-media hero-rotator">
+        ${rotationImages.map((image, index) => `<img src="${image}" alt="" style="--slide: ${index};" />`).join("")}
+      </figure>
     </section>
   `;
 }
@@ -1863,11 +2250,12 @@ function renderLetsCookHome() {
   const kidPick = recipes.find((recipe) => recipe.id === "pb-and-j-sandwich") || recipes.find((recipe) => recipe.skill_level === "Kid Chef");
   const southernClassic = recipes.find((recipe) => recipe.id === "oxtails") || recipes.find((recipe) => recipe.cuisine === "southern");
   const globalFlavor = recipes.find((recipe) => recipe.id === "chicken-street-tacos") || recipes.find((recipe) => recipe.cuisine !== "southern");
+  const heroImages = Array.from({ length: 10 }, (_, index) => photoFor("hero", "family", index, "assets/cooking-family.jpeg"));
   app.innerHTML = `
-    ${hero(
+    ${heroRotator(
       "Cook With Confidence",
       "A warm culinary learning platform that helps you turn ingredients into meals, understand cuisines, build skills, plan ahead, and cook with confidence.",
-      "assets/lc-fried-chicken.jpg",
+      heroImages,
       `<a class="small-button" href="#build-a-meal">Build A Meal</a><a class="small-button secondary" href="#kitchen-search/chicken%20strips">What's In My Kitchen</a><a class="small-button secondary" href="#recipes">Browse Recipes</a>`
     )}
     ${cookSubnav()}
@@ -2038,19 +2426,12 @@ function renderCommunity() {
 function cookSubnav() {
   return `
     <section class="app-subnav" aria-label="Let's Cook Ya'll navigation">
-      <a href="#recipes">Recipes</a>
-      <a href="#build-a-meal">Build A Meal</a>
+      <a href="#culinary-academy">Culinary Academy</a>
       <a href="#cuisine-explorer">Cuisine Explorer</a>
-      <a href="#skills-academy">Skills Academy</a>
-      <a href="#food-encyclopedia">Food Encyclopedia</a>
       <a href="#menu-intelligence">Menu Builder</a>
-      <a href="#kitchen-search/chicken%20strips">What's In My Kitchen</a>
-      <a href="#planner">Meal Planning</a>
-      <a href="#kids-cooking">Kids Cooking</a>
-      <a href="#pathways">Pathways</a>
-      <a href="#kitchen">Shay's Kitchen</a>
-      <a href="#hosting">Hosting Ideas</a>
-      <a href="#about">About</a>
+      <a href="#hosting">Hospitality & Hosting</a>
+      <a href="#recipes">Recipes</a>
+      <a href="#account">Account</a>
     </section>
   `;
 }
@@ -2095,7 +2476,7 @@ function ingredientDiscoverySection(seed = "chicken strips") {
 }
 
 function normalizeIngredientTerm(term = "") {
-  return decodeURIComponent(term).toLowerCase().trim().replace(/\s+/g, " ");
+  return decodeURIComponent(term).toLowerCase().trim().replace(/[-_]+/g, " ").replace(/\s+/g, " ");
 }
 
 function recipeSearchText(recipe) {
@@ -2179,7 +2560,7 @@ function ingredientGuideMarkup(term) {
 function renderBuildMeal(id) {
   const term = id ? normalizeIngredientTerm(id) : "chicken strips";
   app.innerHTML = `
-    ${hero("Build A Meal", "Learn the rhythm of a balanced plate: main ingredient, flavor direction, side dish, sauce, texture, and timing.", "assets/lc-orange-chicken.jpg", `<a class="small-button" href="#kitchen-search/${encodeURIComponent(term)}">Search Ingredients</a>`)}
+    ${hero("Build A Meal", "Learn the rhythm of a balanced plate: main ingredient, flavor direction, side dish, sauce, texture, and timing.", photoFor("hero", "learning"), `<a class="small-button" href="#kitchen-search/${encodeURIComponent(term)}">Search Ingredients</a>`)}
     ${cookSubnav()}
     ${ingredientDiscoverySection(term)}
     <section class="cream-section meal-builder-section">
@@ -2204,16 +2585,54 @@ function renderBuildMeal(id) {
 function renderKitchenSearch(id) {
   const term = id ? normalizeIngredientTerm(id) : "chicken strips";
   app.innerHTML = `
-    ${hero("What's In My Kitchen", "Search by what you already have, then discover recipes, cuisines, techniques, side dishes, substitutions, and meal plans.", "assets/ingredients.jpeg", `<a class="small-button" href="#build-a-meal/${encodeURIComponent(term)}">Build A Meal</a>`)}
+    ${hero("What's In My Kitchen", "Search by what you already have, then discover recipes, cuisines, techniques, side dishes, substitutions, and meal plans.", photoFor("skills", "measuring"), `<a class="small-button" href="#build-a-meal/${encodeURIComponent(term)}">Build A Meal</a>`)}
     ${cookSubnav()}
     ${ingredientDiscoverySection(term)}
     ${ingredientGuideMarkup(term)}
   `;
 }
 
-function renderCuisineExplorer() {
+function renderCuisineExplorerDetail(id) {
+  const normalized = slugify(decodeURIComponent(id || ""));
+  const group = cuisineExplorerGroups.find((item) => item.id === normalized);
+  const profile = countryCuisineProfiles[normalized];
+  const parentGroup = cuisineExplorerGroups.find((item) => item.regions.some((region) => slugify(region) === normalized));
+  const title = profile?.title || group?.title || titleizeSlug(normalized);
+  const image = profile ? parentGroup?.image : group?.image;
+  const overview = profile?.overview || group?.note || "Explore the ingredients, dishes, techniques, and hosting traditions that shape this food culture.";
+  const ingredients = profile?.ingredients || ["regional staples", "fresh herbs", "spices", "grains", "seasonal produce"];
+  const dishes = profile?.dishes || group?.regions || ["traditional mains", "family sides", "shared breads", "celebration dishes"];
+  const techniques = profile?.techniques || ["building flavor bases", "seasoning in layers", "balancing texture", "serving family-style"];
+  const menu = profile?.menu || ["main dish", "starch or bread", "vegetable side", "sauce or condiment", "drink"];
+  const beginnerRecipes = profile?.beginnerRecipes || recipes.filter((recipe) => recipe.cuisine === "global").slice(0, 3).map((recipe) => recipe.title);
+  const regions = group?.regions || [];
   app.innerHTML = `
-    ${hero("Cuisine Explorer", "A culinary rolodex for food culture, regional flavor, ingredients, traditions, and the way meals connect across the world.", "assets/lc-indian-food.jpg", `<a class="small-button" href="#food-encyclopedia">Open Food Encyclopedia</a><a class="small-button secondary" href="#menu-intelligence">Build A Menu</a>`)}
+    ${hero(title, overview, image || photoFor("cuisines", "mediterranean"), `<a class="small-button" href="#cuisine-explorer">All Cuisines</a><a class="small-button secondary" href="#menu-intelligence">Build A Menu</a>`)}
+    ${cookSubnav()}
+    <section class="cream-section cuisine-detail-page">
+      <div class="section-heading">
+        <p class="eyebrow">${profile?.region || group?.title || "Cuisine Explorer"}</p>
+        <h2>${title} food culture, ingredients, dishes, and beginner paths.</h2>
+      </div>
+      <div class="academy-module-grid">
+        <article class="academy-module-card"><h3>Overview</h3><p>${overview}</p></article>
+        <article class="academy-module-card"><h3>Food Culture</h3><p>${profile?.culture || "This food lane is shaped by geography, family memory, ingredients, migration, celebration, and everyday hospitality."}</p></article>
+        <article class="academy-module-card"><h3>Common Ingredients</h3><ul>${ingredients.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article class="academy-module-card"><h3>Traditional Dishes</h3><ul>${dishes.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article class="academy-module-card"><h3>Cooking Techniques</h3><ul>${techniques.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article class="academy-module-card"><h3>Menu Example</h3><ul>${menu.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article class="academy-module-card"><h3>Beginner Recipes</h3><ul>${beginnerRecipes.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+      </div>
+      ${regions.length ? `<div class="section-heading compact-heading"><p class="eyebrow">Country paths</p><h2>Choose a country or region next.</h2></div><div class="region-chip-row linked-chip-row">${regions.map((region) => `<a href="#cuisine-explorer/${slugify(region)}">${region}</a>`).join("")}</div>` : ""}
+      ${progressionNav("#cuisine-explorer", "All Cuisines", "#culinary-academy/world-foods", "World Foods Lesson", ["#menu-intelligence", "#hosting"])}
+    </section>
+  `;
+}
+
+function renderCuisineExplorer(id) {
+  if (id) return renderCuisineExplorerDetail(id);
+  app.innerHTML = `
+    ${hero("Cuisine Explorer", "A culinary rolodex for food culture, regional flavor, ingredients, traditions, and the way meals connect across the world.", photoFor("cuisines", "indian"), `<a class="small-button" href="#culinary-academy">Open Culinary Academy</a><a class="small-button secondary" href="#menu-intelligence">Build A Menu</a>`)}
     ${cookSubnav()}
     <section class="cream-section">
       <div class="section-heading">
@@ -2226,9 +2645,9 @@ function renderCuisineExplorer() {
           <article class="cuisine-region-card">
             <figure><img src="${group.image}" alt="${group.title}" /></figure>
             <div>
-              <h3>${group.title}</h3>
+              <h3><a href="#cuisine-explorer/${group.id}">${group.title}</a></h3>
               <p>${group.note}</p>
-              <div class="region-chip-row">${group.regions.map((region) => `<span>${region}</span>`).join("")}</div>
+              <div class="region-chip-row linked-chip-row">${group.regions.map((region) => `<a href="#cuisine-explorer/${slugify(region)}">${region}</a>`).join("")}</div>
             </div>
           </article>
         `).join("")}
@@ -2244,26 +2663,114 @@ function renderCuisineExplorer() {
   `;
 }
 
-function renderFoodEncyclopedia(id) {
+function academySearchMarkup(query) {
+  if (!query) return "";
+  const normalized = query.toLowerCase();
+  const moduleMatches = academyModules.filter((module) => [module.title, module.category, module.overview, module.why, module.beginner, ...module.keyConcepts].join(" ").toLowerCase().includes(normalized));
+  const entryMatches = foodEncyclopedia.filter((entry) => [entry.term, entry.origin, entry.purpose, ...(entry.related || [])].join(" ").toLowerCase().includes(normalized));
+  const cuisineMatches = cuisineExplorerGroups.filter((group) => [group.title, group.note, ...group.regions].join(" ").toLowerCase().includes(normalized));
+  const menuMatches = menuPairings.filter((menu) => [menu.cuisine, menu.occasion, menu.main_dish, menu.cultural_notes, ...menu.traditional_sides].join(" ").toLowerCase().includes(normalized));
+  return `
+    <div class="academy-search-results">
+      <h3>Learning paths for "${query}"</h3>
+      <div class="academy-result-grid">
+        ${moduleMatches.map((module) => `<a href="#culinary-academy/${module.id}"><span>Lesson</span><strong>${module.title}</strong><p>${module.overview}</p></a>`).join("")}
+        ${entryMatches.map((entry) => `<a href="#culinary-academy/${slugify(entry.term)}"><span>Food term</span><strong>${entry.term}</strong><p>${entry.purpose}</p></a>`).join("")}
+        ${cuisineMatches.map((group) => `<a href="#cuisine-explorer/${group.id}"><span>Cuisine</span><strong>${group.title}</strong><p>${group.note}</p></a>`).join("")}
+        ${menuMatches.map((menu, index) => `<a href="#menu-intelligence/${index}"><span>Menu guide</span><strong>${menu.main_dish}</strong><p>${menu.cuisine} / ${menu.occasion}</p></a>`).join("")}
+      </div>
+    </div>
+  `;
+}
+
+function renderAcademyModule(module) {
+  const relatedLinks = module.related.map(lessonLinkFor);
+  app.innerHTML = `
+    ${hero(module.title, module.overview, academyPhotoFor(module.id), `<a class="small-button" href="#culinary-academy">All Academy</a><a class="small-button secondary" href="#cuisine-explorer">Explore Cuisines</a>`)}
+    ${cookSubnav()}
+    <section class="cream-section academy-detail-page">
+      <article class="detail-panel lesson-detail">
+        <p class="eyebrow">${module.category} / Culinary Academy</p>
+        <h2>${module.title}</h2>
+        <p class="detail-copy">${module.overview}</p>
+        <div class="chef-note-grid">
+          <section><strong>Why it matters</strong><p>${module.why}</p></section>
+          <section><strong>Beginner explanation</strong><p>${module.beginner}</p></section>
+        </div>
+        <div class="region-chip-row">${module.keyConcepts.map((concept) => `<span>${concept}</span>`).join("")}</div>
+      </article>
+      <div class="academy-module-grid">
+        ${module.modules.map((part) => `
+          <article class="academy-module-card">
+            <h3>${part.title}</h3>
+            <ul>${part.items.map((item) => `<li>${item}</li>`).join("")}</ul>
+          </article>
+        `).join("")}
+      </div>
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Continue learning</p>
+        <h2>This lesson connects to real recipes, techniques, and menu planning.</h2>
+      </div>
+      <div class="academy-result-grid">
+        ${relatedLinks.map((link) => `<a href="${link.href}"><span>Related</span><strong>${link.title}</strong><p>Open the next useful step.</p></a>`).join("")}
+      </div>
+      ${progressionNav("#culinary-academy", "Culinary Academy", lessonLinkFor(module.next).href, lessonLinkFor(module.next).title, relatedLinks.map((link) => link.href))}
+    </section>
+  `;
+}
+
+function progressionNav(previousHref, previousLabel, nextHref, nextLabel, relatedHrefs = []) {
+  const related = relatedHrefs.map((href) => `<a href="${href}">${href.replace("#", "").replace("/", " / ")}</a>`).join("");
+  return `
+    <nav class="progression-nav" aria-label="Lesson progression">
+      <a href="${previousHref}"><span>Previous</span><strong>${previousLabel}</strong></a>
+      <a href="${nextHref}"><span>Next</span><strong>${nextLabel}</strong></a>
+      ${related ? `<div><span>Related</span>${related}</div>` : ""}
+    </nav>
+  `;
+}
+
+function renderCulinaryAcademy(id) {
   const query = id ? normalizeIngredientTerm(id) : "";
+  const module = academyModuleById(id);
+  if (module) return renderAcademyModule(module);
   const entries = query
     ? foodEncyclopedia.filter((entry) => [entry.term, entry.origin, entry.purpose, ...(entry.related || [])].join(" ").toLowerCase().includes(query))
     : foodEncyclopedia;
   app.innerHTML = `
-    ${hero("Food Encyclopedia", "Search food terms, tools, ingredients, culture, etiquette, and chef language in plain English.", "assets/ingredients.jpeg", `<a class="small-button" href="#skills-academy">Skills Academy</a>`)}
+    ${hero("Culinary Academy", "One learning home for food terms, ingredients, techniques, equipment, food science, world foods, seasonings, and professional kitchen skills.", photoFor("hero", "learning"), `<a class="small-button" href="#cuisine-explorer">Explore Cuisines</a><a class="small-button secondary" href="#menu-intelligence">Build A Menu</a>`)}
     ${cookSubnav()}
     <section class="cream-section">
       <div class="section-heading">
-        <p class="eyebrow">Learn the language of food</p>
+        <p class="eyebrow">Academy categories</p>
+        <h2>Everything food learners need, organized into clear study lanes.</h2>
+      </div>
+      <div class="academy-category-grid">
+        ${academyCategories.map((category) => `
+          <article class="academy-category-card">
+            <h3>${category.title}</h3>
+            <p>${category.text}</p>
+            <div class="region-chip-row linked-chip-row">${category.entries.map((entry) => {
+              const linkedModule = academyModuleById(entry);
+              return `<a href="#culinary-academy/${entry}">${linkedModule?.title || titleizeSlug(entry)}</a>`;
+            }).join("")}</div>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+    <section class="cream-section">
+      <div class="section-heading">
+        <p class="eyebrow">Search the academy</p>
         <h2>Definitions for beginners, context for culture, and notes for serious cooks.</h2>
       </div>
-      <form class="ingredient-search-panel encyclopedia-search" data-encyclopedia-form>
-        <label for="encyclopediaSearchInput">Search the encyclopedia</label>
+      <form class="ingredient-search-panel encyclopedia-search" data-academy-form>
+        <label for="academySearchInput">Search food terms, ingredients, equipment, and techniques</label>
         <div>
-          <input id="encyclopediaSearchInput" name="term" value="${query}" placeholder="roux, plantain, umami, chopsticks..." />
+          <input id="academySearchInput" name="term" value="${query}" placeholder="roux, plantain, umami, chopsticks..." />
           <button class="small-button" type="submit">Search</button>
         </div>
       </form>
+      ${academySearchMarkup(query)}
       <div class="encyclopedia-grid">
         ${entries.map((entry) => `
           <article class="encyclopedia-card">
@@ -2275,7 +2782,10 @@ function renderFoodEncyclopedia(id) {
               <section><strong>Beginner note</strong><p>${entry.beginner}</p></section>
               <section><strong>Pro chef note</strong><p>${entry.pro}</p></section>
             </div>
-            <div class="region-chip-row">${entry.related.map((item) => `<span>${item}</span>`).join("")}</div>
+            <div class="region-chip-row linked-chip-row">${entry.related.map((item) => {
+              const href = knownAcademyHref(item);
+              return href ? `<a href="${href}">${item}</a>` : `<span>${item}</span>`;
+            }).join("")}</div>
           </article>
         `).join("") || `<div class="empty-state">No encyclopedia entries found yet.</div>`}
       </div>
@@ -2283,36 +2793,62 @@ function renderFoodEncyclopedia(id) {
   `;
 }
 
-function renderMenuIntelligence() {
+const renderFoodEncyclopedia = renderCulinaryAcademy;
+
+function menuPairingCard(menu) {
+  return `
+    <article class="menu-pairing-card">
+      <p class="eyebrow">${menu.cuisine} / ${menu.occasion}</p>
+      <h3>${menu.main_dish}</h3>
+      <p>${menu.cultural_notes}</p>
+      <div class="menu-columns">
+        <section><strong>Sides</strong><span>${menu.traditional_sides.join(", ")}</span></section>
+        <section><strong>Bread</strong><span>${menu.breads.join(", ")}</span></section>
+        <section><strong>Sauces</strong><span>${menu.sauces_condiments.join(", ")}</span></section>
+        <section><strong>Drinks</strong><span>${menu.drinks.join(", ")}</span></section>
+        <section><strong>Dessert</strong><span>${menu.desserts.join(", ")}</span></section>
+        <section><strong>Cook Time</strong><span>${menu.cook_time}</span></section>
+      </div>
+      <div class="chef-note-grid">
+        <section><strong>Beginner</strong><p>${menu.beginner_level}</p></section>
+        <section><strong>Professional</strong><p>${menu.pro_level}</p></section>
+      </div>
+      <p class="hosting-note">${menu.hosting_notes}</p>
+    </article>
+  `;
+}
+
+function renderMenuIntelligence(id) {
+  const selectedIndex = Number.isFinite(Number(id)) ? Math.max(0, Math.min(menuPairings.length - 1, Number(id))) : 0;
+  const selectedMenu = menuPairings[selectedIndex];
+  const cuisinesList = [...new Set(menuPairings.map((menu) => menu.cuisine))];
+  const occasionsList = [...new Set(menuPairings.map((menu) => menu.occasion))];
   app.innerHTML = `
-    ${hero("Traditional Menu Intelligence", "Learn what goes together culturally and practically: mains, sides, breads, sauces, drinks, desserts, timing, and hosting notes.", "assets/lc-fried-chicken.jpg", `<a class="small-button" href="#hosting">Hosting Ideas</a><a class="small-button secondary" href="#build-a-meal">Build A Meal</a>`)}
+    ${hero("Traditional Menu Intelligence", "Learn what goes together culturally and practically: mains, sides, breads, sauces, drinks, desserts, timing, and hosting notes.", photoFor("hero", "hospitality"), `<a class="small-button" href="#hosting">Hosting Ideas</a><a class="small-button secondary" href="#build-a-meal">Build A Meal</a>`)}
     ${cookSubnav()}
+    <section class="cream-section menu-builder-section">
+      <div class="section-heading">
+        <p class="eyebrow">Menu Builder</p>
+        <h2>Select a cuisine, occasion, and main dish. We'll suggest the rest of the table.</h2>
+      </div>
+      <form class="menu-builder-form" data-menu-builder-form>
+        <label>Cuisine<select name="cuisine">${cuisinesList.map((item) => `<option${item === selectedMenu.cuisine ? " selected" : ""}>${item}</option>`).join("")}</select></label>
+        <label>Occasion<select name="occasion">${occasionsList.map((item) => `<option${item === selectedMenu.occasion ? " selected" : ""}>${item}</option>`).join("")}</select></label>
+        <label>Main Dish<select name="main">${menuPairings.map((menu, index) => `<option value="${index}"${index === selectedIndex ? " selected" : ""}>${menu.main_dish}</option>`).join("")}</select></label>
+        <button class="small-button" type="submit">Build Menu</button>
+      </form>
+      <div class="menu-builder-result">
+        ${menuPairingCard(selectedMenu)}
+        ${progressionNav("#cuisine-explorer", "Cuisine Explorer", "#hosting", "Hospitality & Hosting", ["#culinary-academy/world-foods", "#build-a-meal"])}
+      </div>
+    </section>
     <section class="cream-section">
       <div class="section-heading">
         <p class="eyebrow">Menu pairings</p>
         <h2>Build meals that make sense on the plate and at the table.</h2>
       </div>
       <div class="menu-pairing-grid">
-        ${menuPairings.map((menu) => `
-          <article class="menu-pairing-card">
-            <p class="eyebrow">${menu.cuisine} / ${menu.occasion}</p>
-            <h3>${menu.main_dish}</h3>
-            <p>${menu.cultural_notes}</p>
-            <div class="menu-columns">
-              <section><strong>Sides</strong><span>${menu.traditional_sides.join(", ")}</span></section>
-              <section><strong>Bread</strong><span>${menu.breads.join(", ")}</span></section>
-              <section><strong>Sauces</strong><span>${menu.sauces_condiments.join(", ")}</span></section>
-              <section><strong>Drinks</strong><span>${menu.drinks.join(", ")}</span></section>
-              <section><strong>Dessert</strong><span>${menu.desserts.join(", ")}</span></section>
-              <section><strong>Cook Time</strong><span>${menu.cook_time}</span></section>
-            </div>
-            <div class="chef-note-grid">
-              <section><strong>Beginner</strong><p>${menu.beginner_level}</p></section>
-              <section><strong>Professional</strong><p>${menu.pro_level}</p></section>
-            </div>
-            <p class="hosting-note">${menu.hosting_notes}</p>
-          </article>
-        `).join("")}
+        ${menuPairings.map((menu, index) => `<a class="menu-pairing-link" href="#menu-intelligence/${index}">${menuPairingCard(menu)}</a>`).join("")}
       </div>
     </section>
     <section class="gold-section">
@@ -2329,7 +2865,7 @@ function renderMenuIntelligence() {
 
 function renderSkillsAcademy() {
   app.innerHTML = `
-    ${hero("Cooking Skills Academy", "Duolingo-style progression meets culinary school foundations: safety, vocabulary, culture, technique, science, hospitality, and operations.", "assets/ingredients.jpeg", `<a class="small-button" href="#food-encyclopedia">Study Food Terms</a><a class="small-button secondary" href="#menu-intelligence">Menu Intelligence</a>`)}
+    ${hero("Cooking Skills Academy", "Duolingo-style progression meets culinary school foundations: safety, vocabulary, culture, technique, science, hospitality, and operations.", photoFor("skills", "knife"), `<a class="small-button" href="#culinary-academy">Open Culinary Academy</a><a class="small-button secondary" href="#menu-intelligence">Menu Intelligence</a>`)}
     ${cookSubnav()}
     <section class="cream-section">
       <div class="section-heading">
@@ -2379,7 +2915,7 @@ function renderKidsCooking() {
   const kidPath = paths.find((path) => path.id === "kid-chefs");
   const kidRecipes = recipes.filter((recipe) => recipe.path === "kid-chefs" || recipe.skill_level === "Kid Chef" || recipe.tags?.includes("kid chefs"));
   app.innerHTML = `
-    ${hero("Kids Cooking", "Simple, safe, joyful recipes that teach measuring, spreading, stirring, assembling, and cleaning up.", "assets/kid-friendly.jpeg", `<a class="small-button" href="#paths/kid-chefs">Open Kid Chef Path</a>`)}
+    ${hero("Kids Cooking", "Simple, safe, joyful recipes that teach measuring, spreading, stirring, assembling, and cleaning up.", photoFor("cuisines", "hosting", 2, "assets/kid-friendly.jpeg"), `<a class="small-button" href="#paths/kid-chefs">Open Kid Chef Path</a>`)}
     ${cookSubnav()}
     <section class="cream-section">
       <div class="about-layout">
@@ -2497,9 +3033,12 @@ function renderCook101() {
 
 function renderLesson(id) {
   const lesson = lessons.find((item) => item.id === id) || lessons[0];
+  const lessonIndex = lessons.findIndex((item) => item.id === lesson.id);
+  const previousLesson = lessons[(lessonIndex - 1 + lessons.length) % lessons.length];
+  const nextLesson = lessons[(lessonIndex + 1) % lessons.length];
   const linkedRecipes = lesson.recipes.map((recipeId) => recipes.find((recipe) => recipe.id === recipeId)).filter(Boolean);
   app.innerHTML = `
-    ${hero(lesson.title, lesson.text, lesson.image, `<a class="small-button" href="#cook101">All Basics</a>`)}
+    ${hero(lesson.title, lesson.text, academyPhotoFor(lesson.id) || lesson.image, `<a class="small-button" href="#cook101">All Basics</a>`)}
     ${cookSubnav()}
     <section class="cream-section">
       <article class="detail-panel lesson-detail">
@@ -2516,6 +3055,7 @@ function renderLesson(id) {
         <h2>Try the skill in a real kitchen moment.</h2>
       </div>
       <div class="recipe-grid">${linkedRecipes.map(recipeCard).join("")}</div>
+      ${progressionNav(`#cook101/${previousLesson.id}`, previousLesson.title, `#cook101/${nextLesson.id}`, nextLesson.title, ["#culinary-academy", "#menu-intelligence"])}
     </section>
   `;
 }
@@ -2533,7 +3073,7 @@ function renderRecipes() {
     ["Professional", "skill:Professional"]
   ];
   app.innerHTML = `
-    ${hero("Recipes", "Southern classics, quick weeknight meals, global flavor, family dinners, beginner basics, party bites, and kid-friendly cooking.", "assets/lc-pasta.jpg")}
+    ${hero("Recipes", "Southern classics, quick weeknight meals, global flavor, family dinners, beginner basics, party bites, and kid-friendly cooking.", photoFor("hero", "learning", 3, "assets/lc-pasta.jpg"))}
     ${cookSubnav()}
     <section class="band">
       <div class="toolbar search-toolbar">
@@ -2545,6 +3085,7 @@ function renderRecipes() {
         <select id="levelFilter" class="filter-select"><option value="">All levels</option><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select>
       </div>
       <div class="quick-filter-row">${quickFilters.map(([label, value]) => `<button class="quick-filter" type="button" data-quick-filter="${value}">${label}</button>`).join("")}</div>
+      <div id="learningResults" class="learning-search-results"></div>
     </section>
     <section class="cream-section"><div id="results" class="recipe-grid">${recipes.map(recipeCard).join("")}</div></section>
   `;
@@ -2555,7 +3096,7 @@ function renderRecipe(id) {
   setShareMeta({
     title: `${recipe.title} | Let's Cook Ya'll`,
     description: recipe.description,
-    image: recipe.image_url || recipe.image
+    image: recipePhotoFor(recipe)
   });
   const path = paths.find((item) => item.id === recipe.path);
   const cuisineLesson = cuisine101For(recipe.cuisine);
@@ -2579,7 +3120,7 @@ function renderRecipe(id) {
   ` : "";
   app.innerHTML = `
     <section class="recipe-hero recipe-story-hero">
-      <figure><img src="${recipe.image_url}" alt="${recipe.title}" /></figure>
+      <figure><img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" /></figure>
       <div class="recipe-hero-copy">
         <p class="eyebrow">Let's Make</p>
         <h1>${recipe.title}</h1>
@@ -2662,7 +3203,7 @@ function renderRecipe(id) {
 
 function renderPaths() {
   app.innerHTML = `
-    ${hero("Cooking Paths", "Choose the pace that fits your kitchen today: Kid Chefs, Amateur Home Chef, or Professional Mode.", "assets/cooking-family.jpeg")}
+    ${hero("Cooking Paths", "Choose the pace that fits your kitchen today: Kid Chefs, Amateur Home Chef, or Professional Mode.", photoFor("hero", "learning", 4, "assets/cooking-family.jpeg"))}
     ${cookSubnav()}
     <section class="cream-section path-intro-section">
       <div class="section-heading">
@@ -2680,7 +3221,7 @@ function renderPath(id) {
   const starterRecipes = path.recipes.map((recipeId) => recipes.find((recipe) => recipe.id === recipeId)).filter(Boolean);
   const moreRecipes = pathRecipes.filter((recipe) => !starterRecipes.some((starter) => starter.id === recipe.id));
   app.innerHTML = `
-    ${hero(path.title, path.description, path.image, `<a class="small-button" href="#paths">All Paths</a>`)}
+    ${hero(path.title, path.description, pathPhotoFor(path), `<a class="small-button" href="#paths">All Paths</a>`)}
     ${cookSubnav()}
     <section class="cream-section path-detail-section">
       <div class="path-detail-hero">
@@ -2734,7 +3275,7 @@ function renderPlanner() {
   ];
   const featuredPlanRecipes = ["chicken-street-tacos", "caribbean-curry-chicken", "lemon-herb-salmon", "stovetop-mac-and-cheese"].map((id) => recipes.find((recipe) => recipe.id === id)).filter(Boolean);
   app.innerHTML = `
-    ${hero("Meal Planner", "Answer the classic question: what can I cook? Save meals, plan your week, and build a shopping list.", "assets/lc-orange-chicken.jpg")}
+    ${hero("Meal Planner", "Answer the classic question: what can I cook? Save meals, plan your week, and build a shopping list.", photoFor("hero", "learning", 5, "assets/lc-orange-chicken.jpg"))}
     ${cookSubnav()}
     <section class="cream-section">
       <div class="planner-summary">
@@ -2769,11 +3310,65 @@ function renderPlanner() {
   `;
 }
 
-function renderHosting() {
+function hostingGuideFor(id) {
+  const normalized = slugify(decodeURIComponent(id || ""));
+  const idea = hostingIdeas.find((item) => slugify(item.title) === normalized)
+    || hostingKnowledge.find((item) => slugify(item.title) === normalized)
+    || hostingIdeas[0];
+  const recipeIds = idea.recipes || menuPairings[0].traditional_sides.map((name) => recipes.find((recipe) => recipe.title.toLowerCase().includes(name.split(" ")[0]))?.id).filter(Boolean);
+  const guideRecipes = recipeIds.map((recipeId) => recipes.find((recipe) => recipe.id === recipeId)).filter(Boolean);
+  const shopping = [...new Set(guideRecipes.flatMap((recipe) => recipe.ingredients || []).slice(0, 18))];
+  return {
+    title: idea.title,
+    text: idea.text,
+    timing: idea.timing || "Write the menu first, prep what can be chilled or held, then save hot/fresh items for last.",
+    setup: idea.setup || ["Label dishes clearly", "Set serving utensils early", "Create drink and trash stations", "Keep one helper assigned to refills"],
+    recipes: guideRecipes,
+    shopping,
+    serving: ["Use shallow serving dishes so food looks generous.", "Group sauces and condiments together.", "Keep hot foods hot and cold foods cold.", "Place napkins, cups, plates, and trash bags before guests arrive."]
+  };
+}
+
+function renderHostingDetail(id) {
+  const guide = hostingGuideFor(id);
+  app.innerHTML = `
+    ${hero(guide.title, guide.text, photoFor("cuisines", "hosting", 3, "assets/lc-desserts.jpg"), `<a class="small-button" href="#hosting">All Hosting</a><a class="small-button secondary" href="#menu-intelligence">Build A Menu</a>`)}
+    ${cookSubnav()}
+    <section class="cream-section hosting-detail-page">
+      <div class="academy-module-grid">
+        <article class="academy-module-card">
+          <h3>Sample Menu</h3>
+          <div class="stack-list">${guide.recipes.length ? guide.recipes.map(compactRecipe).join("") : `<p>${guide.text}</p>`}</div>
+        </article>
+        <article class="academy-module-card">
+          <h3>Shopping List</h3>
+          <ul>${guide.shopping.length ? guide.shopping.map((item) => `<li>${item}</li>`).join("") : ["paper goods", "ice", "drinks", "main dish ingredients", "side dish ingredients", "dessert"].map((item) => `<li>${item}</li>`).join("")}</ul>
+        </article>
+        <article class="academy-module-card">
+          <h3>Prep Timeline</h3>
+          <p>${guide.timing}</p>
+          <ul><li>Two days before: shop and check serving pieces.</li><li>Day before: prep sauces, desserts, cold sides, and labels.</li><li>Day of: cook hot dishes, set drink station, warm breads last.</li></ul>
+        </article>
+        <article class="academy-module-card">
+          <h3>Serving Suggestions</h3>
+          <ul>${guide.serving.map((item) => `<li>${item}</li>`).join("")}</ul>
+        </article>
+        <article class="academy-module-card">
+          <h3>Setup Checklist</h3>
+          <ul>${guide.setup.map((item) => `<li>${item}</li>`).join("")}</ul>
+        </article>
+      </div>
+      ${progressionNav("#hosting", "All Hosting Guides", "#menu-intelligence", "Menu Builder", ["#culinary-academy/professional-skills", "#recipes"])}
+    </section>
+  `;
+}
+
+function renderHosting(id) {
+  if (id) return renderHostingDetail(id);
   const cups = partyCupRecipes();
   const initialPlan = partyPlanFor(24, "all");
   app.innerHTML = `
-    ${hero("Hosting & Entertaining", "Party cups, menu flow, shopping lists, and warm little details for making guests feel cared for.", "assets/lc-desserts.jpg")}
+    ${hero("Hosting & Entertaining", "Party cups, menu flow, shopping lists, and warm little details for making guests feel cared for.", photoFor("cuisines", "hosting", 4, "assets/lc-desserts.jpg"))}
     ${cookSubnav()}
     <section class="cream-section">
       <div class="section-heading">
@@ -2783,7 +3378,7 @@ function renderHosting() {
       </div>
       <div class="party-cup-grid">${cups.map((recipe) => `
         <article class="party-cup-card">
-          <a href="#recipes/${recipe.id}"><img src="${recipe.image_url || recipe.image}" alt="${recipe.title}" /></a>
+          <a href="#recipes/${recipe.id}"><img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" /></a>
           <div>
             <p class="eyebrow">${recipe.category}</p>
             <h3>${recipe.title}</h3>
@@ -2835,15 +3430,25 @@ function renderHosting() {
           <div class="hosting-note"><strong>Timing:</strong> ${idea.timing}</div>
           <ul class="hosting-checklist">${idea.setup.map((item) => `<li>${item}</li>`).join("")}</ul>
           <div class="stack-list">${idea.recipes.map((id) => compactRecipe(recipes.find((recipe) => recipe.id === id))).join("")}</div>
+          <a class="small-button secondary" href="#hosting/${slugify(idea.title)}">Open Hosting Guide</a>
         </article>
       `).join("")}</div>
+    </section>
+    <section class="gold-section">
+      <div class="section-heading">
+        <p class="eyebrow">More hosting situations</p>
+        <h2>Every gathering gets a guide, not a dead end.</h2>
+      </div>
+      <div class="hosting-knowledge-grid">
+        ${hostingKnowledge.map((item) => `<a href="#hosting/${slugify(item.title)}"><article><h3>${item.title}</h3><p>${item.text}</p><span>${item.pairing}</span></article></a>`).join("")}
+      </div>
     </section>
   `;
 }
 
 function renderAbout() {
   app.innerHTML = `
-    ${hero("Brent & Co. Kitchen", "Let's Cook Ya'll is the cooking-skills corner of Brent & Co.: polished, practical, warm, and rooted in hospitality.", "assets/lc-mediterranean-food.jpg")}
+    ${hero("Brent & Co. Kitchen", "Let's Cook Ya'll is the cooking-skills corner of Brent & Co.: polished, practical, warm, and rooted in hospitality.", photoFor("hero", "hospitality", 6, "assets/lc-mediterranean-food.jpg"))}
     ${cookSubnav()}
     ${missionValuesSection()}
     <section class="cream-section">
@@ -2887,7 +3492,7 @@ function renderAccount() {
   const status = letsCookSession.status ? `<div class="empty-state">${escapeHTML(letsCookSession.status)}</div>` : "";
   const officialBadges = (user.badges || []).map((badge) => `<span>${escapeHTML(badge)}</span>`).join("");
   app.innerHTML = `
-    ${hero("Your Let's Cook Account", "Save recipes, track lesson progress, keep your profile picture, and upload food videos from your own kitchen.", "assets/lc-asian-food.jpg")}
+    ${hero("Your Let's Cook Account", "Save recipes, track lesson progress, keep your profile picture, and upload food videos from your own kitchen.", photoFor("hero", "learning", 7, "assets/lc-asian-food.jpg"))}
     ${cookSubnav()}
     <section class="cream-section">
       <div class="account-layout">
@@ -3011,7 +3616,7 @@ function platformLinkCard(item) {
 function pathCard(path) {
   return `
     <article class="path-card">
-      <img src="${path.image}" alt="" />
+      <img src="${pathPhotoFor(path)}" alt="" />
       <div class="path-card-body">
         <p class="eyebrow">${path.eyebrow}</p>
         <h3>${path.title}</h3>
@@ -3029,7 +3634,7 @@ function cuisineCard(cuisine) {
 function lessonCard(lesson) {
   return `
     <article class="lesson-card">
-      <figure><img src="${lesson.image}" alt="" /></figure>
+      <figure><img src="${academyPhotoFor(lesson.id)}" alt="" /></figure>
       <div>
         <p class="eyebrow">${lesson.level}</p>
         <h3>${lesson.title}</h3>
@@ -3044,7 +3649,7 @@ function recipeCard(recipe) {
   const isPersonal = personalRecipeIds.includes(recipe.id);
   return `
     <article class="recipe-card">
-      <a class="recipe-photo" href="#recipes/${recipe.id}"><img src="${recipe.image_url || recipe.image}" alt="${recipe.title}" /></a>
+      <a class="recipe-photo" href="#recipes/${recipe.id}"><img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" /></a>
       <div class="recipe-content">
         <div class="recipe-card-topline">
           ${isPersonal ? `<span>Shay's Kitchen</span>` : `<span>${cuisineName(recipe.cuisine)}</span>`}
@@ -3070,7 +3675,7 @@ function personalRecipes() {
 
 function compactRecipe(recipe) {
   if (!recipe) return "";
-  return `<div class="compact-recipe"><img src="${recipe.image}" alt="" /><div><strong>${recipe.title}</strong><span>${recipe.time} / ${recipe.level}</span></div><button class="small-button secondary" data-plan="${recipe.id}">${planned.includes(recipe.id) ? "Remove" : "Plan"}</button></div>`;
+  return `<div class="compact-recipe"><img src="${recipePhotoFor(recipe)}" alt="" /><div><strong>${recipe.title}</strong><span>${recipe.time} / ${recipe.level}</span></div><button class="small-button secondary" data-plan="${recipe.id}">${planned.includes(recipe.id) ? "Remove" : "Plan"}</button></div>`;
 }
 
 function applyRecipeDatabase(database) {
@@ -3141,6 +3746,42 @@ function submissionCard(submission) {
   return `<article class="submission-card"><strong>${escapeHTML(submission.title)}</strong><span>${escapeHTML(submission.recipeTitle)} / ${escapeHTML(submission.type)}</span></article>`;
 }
 
+function learningSearchResults(query) {
+  if (!query) return "";
+  const normalized = query.toLowerCase();
+  const results = [
+    ...academyModules
+      .filter((module) => [module.title, module.category, module.overview, ...module.keyConcepts].join(" ").toLowerCase().includes(normalized))
+      .slice(0, 3)
+      .map((module) => ({ type: "Lesson", title: module.title, text: module.overview, href: `#culinary-academy/${module.id}` })),
+    ...foodEncyclopedia
+      .filter((entry) => [entry.term, entry.origin, entry.purpose, ...(entry.related || [])].join(" ").toLowerCase().includes(normalized))
+      .slice(0, 3)
+      .map((entry) => ({ type: "Food Term", title: entry.term, text: entry.purpose, href: `#culinary-academy/${slugify(entry.term)}` })),
+    ...cuisineExplorerGroups
+      .filter((group) => [group.title, group.note, ...group.regions].join(" ").toLowerCase().includes(normalized))
+      .slice(0, 2)
+      .map((group) => ({ type: "Cuisine", title: group.title, text: group.note, href: `#cuisine-explorer/${group.id}` })),
+    ...menuPairings
+      .filter((menu) => [menu.cuisine, menu.occasion, menu.main_dish, menu.cultural_notes, ...menu.traditional_sides].join(" ").toLowerCase().includes(normalized))
+      .slice(0, 2)
+      .map((menu) => ({ type: "Menu Guide", title: menu.main_dish, text: `${menu.cuisine} / ${menu.occasion}`, href: `#menu-intelligence/${menuPairings.indexOf(menu)}` })),
+    ...hostingIdeas
+      .filter((idea) => [idea.title, idea.text, ...(idea.setup || [])].join(" ").toLowerCase().includes(normalized))
+      .slice(0, 2)
+      .map((idea) => ({ type: "Hosting", title: idea.title, text: idea.text, href: `#hosting/${slugify(idea.title)}` }))
+  ];
+  if (!results.length) return "";
+  return `
+    <div class="academy-search-results">
+      <h3>Learning results</h3>
+      <div class="academy-result-grid">
+        ${results.map((item) => `<a href="${item.href}"><span>${item.type}</span><strong>${item.title}</strong><p>${item.text}</p></a>`).join("")}
+      </div>
+    </div>
+  `;
+}
+
 function handleSearch(event) {
   renderPartyPlannerResults();
   renderRecipePartyResults();
@@ -3172,6 +3813,8 @@ function handleSearch(event) {
   if (resultsNode) {
     resultsNode.innerHTML = results.length ? results.map(recipeCard).join("") : `<div class="empty-state">No recipes found yet.</div>`;
   }
+  const learningNode = document.querySelector("#learningResults");
+  if (learningNode) learningNode.innerHTML = learningSearchResults(query || pantry[0] || "");
 }
 
 function handleClick(event) {
@@ -3197,11 +3840,11 @@ function handleClick(event) {
 
 
 async function handleSubmit(event) {
-  if (event.target.matches("[data-encyclopedia-form]")) {
+  if (event.target.matches("[data-encyclopedia-form], [data-academy-form]")) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const term = formData.get("term")?.toString().trim() || "";
-    window.location.hash = term ? `#food-encyclopedia/${encodeURIComponent(term)}` : "#food-encyclopedia";
+    window.location.hash = term ? `#culinary-academy/${encodeURIComponent(term)}` : "#culinary-academy";
     return;
   }
 
@@ -3210,6 +3853,14 @@ async function handleSubmit(event) {
     const formData = new FormData(event.target);
     const ingredient = formData.get("ingredient")?.toString().trim() || "chicken strips";
     window.location.hash = `#kitchen-search/${encodeURIComponent(ingredient)}`;
+    return;
+  }
+
+  if (event.target.matches("[data-menu-builder-form]")) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const selected = Number(formData.get("main"));
+    window.location.hash = `#menu-intelligence/${Number.isFinite(selected) ? selected : 0}`;
     return;
   }
 

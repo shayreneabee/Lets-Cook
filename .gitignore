@@ -3,3 +3,4 @@ instance/
 *.sqlite
 *.sqlite3
 __pycache__/
+images/hero/*.jpg.png

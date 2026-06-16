@@ -1,0 +1,29 @@
+{
+  "hero": {
+    "folder": "images/hero",
+    "slots": "hero-01.jpg through hero-20.jpg",
+    "recommended_use": "Homepage, academy, menu builder, account, about, and broad learning hero sections"
+  },
+  "community": {
+    "folder": "images/community",
+    "slots": "community-01.jpg through community-50.jpg",
+    "recommended_use": "Hospitality, hosting, family cooking, kids cooking, community table, and gathering moments"
+  },
+  "skills": {
+    "knife_skills": "images/skills/knife-skills-01.jpg through knife-skills-25.jpg",
+    "measuring": "images/skills/measuring-01.jpg through measuring-25.jpg",
+    "baking": "images/skills/baking-01.jpg through baking-25.jpg",
+    "sauce_prep": "images/skills/sauce-prep-01.jpg through sauce-prep-25.jpg",
+    "grilling": "images/skills/grilling-01.jpg through grilling-25.jpg",
+    "plating": "images/skills/plating-01.jpg through plating-25.jpg"
+  },
+  "cuisines": {
+    "southern": "images/cuisines/southern/southern-01.jpg through southern-25.jpg",
+    "mexican": "images/cuisines/mexican/mexican-01.jpg through mexican-25.jpg",
+    "italian": "images/cuisines/italian/italian-01.jpg through italian-25.jpg",
+    "indian": "images/cuisines/indian/indian-01.jpg through indian-25.jpg",
+    "asian": "images/cuisines/asian/asian-01.jpg through asian-25.jpg",
+    "mediterranean": "images/cuisines/mediterranean/mediterranean-01.jpg through mediterranean-25.jpg"
+  },
+  "fallback_behavior": "App image helpers try the /images slot first. If the file is missing, the global image error handler swaps in the registered safe /assets fallback."
+}
