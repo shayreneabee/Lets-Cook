@@ -4379,7 +4379,11 @@
         "rice",
         "peas",
         "coconut",
-        "side dish"
+        "side dish",
+        "haiti",
+        "haitian",
+        "diri kole",
+        "rice and beans"
       ],
       "path": "amateur-home-chef",
       "image_url": "assets/ingredients.jpeg",
@@ -4441,7 +4445,9 @@
         "plantains",
         "sweet",
         "side dish",
-        "skillet"
+        "skillet",
+        "haiti",
+        "haitian"
       ],
       "path": "kid-chefs",
       "image_url": "assets/african-food.jpeg",
@@ -4507,7 +4513,10 @@
         "curry",
         "chicken",
         "potatoes",
-        "stew"
+        "stew",
+        "haiti",
+        "haitian",
+        "poule en sauce"
       ],
       "path": "amateur-home-chef",
       "image_url": "assets/african-food.jpeg",

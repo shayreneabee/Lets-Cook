@@ -146,7 +146,10 @@ const paths = [
 const imageFallbacks = new Map();
 
 function photoSlots(folder, prefix, count = 25) {
-  return Array.from({ length: count }, (_, index) => `images/${folder}/${prefix}-${String(index + 1).padStart(2, "0")}.jpg`);
+  return Array.from({ length: count }, (_, index) => {
+    const slot = String(index + 1).padStart(2, "0");
+    return [`images/${folder}/${prefix}-${slot}.png`, `images/${folder}/${prefix}-${slot}.jpg`, `images/${folder}/${prefix}-${slot}.jpeg`];
+  }).flat();
 }
 
 function photoList(folder, prefix, count, fallbacks = []) {
@@ -211,8 +214,10 @@ function stableIndex(value = "", modulo = 25) {
 }
 
 function recipePhotoFor(recipe = {}) {
+  const explicitImage = recipe.image_url || recipe.image || recipeImageOverrides[recipe.id];
+  if (explicitImage?.startsWith("images/")) return explicitImage;
   const cuisineKey = recipe.category === "Party Cups" ? "hosting" : recipe.cuisine || "global";
-  const fallback = recipe.image_url || recipe.image || recipeImageOverrides[recipe.id] || "assets/logo.png";
+  const fallback = explicitImage || "assets/logo.png";
   return photoFor("cuisines", cuisineKey, stableIndex(recipe.id || recipe.title, 25), fallback);
 }
 
@@ -227,7 +232,12 @@ function pathPhotoFor(path = {}) {
 
 const cuisines = [
   { id: "southern", name: "Southern Classics", image: photoFor("cuisines", "southern"), blurb: "Comforting dishes, porch-table sides, slow braises, and big hospitality." },
-  { id: "creole", name: "Creole & Cajun", image: photoFor("cuisines", "creole"), blurb: "New Orleans flavor, seafood, spice, rice, roux, and soulful one-pot meals." },
+  { id: "creole", name: "Creole", image: photoFor("cuisines", "creole"), blurb: "New Orleans flavor, seafood, spice, rice, roux, and soulful one-pot meals." },
+  { id: "cajun", name: "Cajun", image: photoFor("cuisines", "creole", 1), blurb: "Roux, rice, seafood, sausage, one-pot meals, and Louisiana country-kitchen rhythm." },
+  { id: "soul-food", name: "Soul Food", image: photoFor("cuisines", "southern", 2), blurb: "Food memory, Sunday dinner, greens, cornbread, beans, slow meats, and celebration." },
+  { id: "bbq", name: "BBQ", image: photoFor("cuisines", "southern", 3), blurb: "Smoke, rubs, sauces, pickles, bread, beans, slaw, and feeding a crowd." },
+  { id: "low-country", name: "Low Country", image: photoFor("cuisines", "southern", 4), blurb: "Seafood, rice, okra, boils, coastal flavor, and generous shared tables." },
+  { id: "mississippi-favorites", name: "Mississippi Favorites", image: photoFor("cuisines", "southern", 5), blurb: "Catfish, comeback sauce, tamales, pound cake, greens, and hometown comfort." },
   { id: "indian", name: "Indian", image: photoFor("cuisines", "indian"), blurb: "Layered spices, cozy curries, breads, rice dishes, and generous family-style meals." },
   { id: "mexican", name: "Mexican", image: photoFor("cuisines", "mexican"), blurb: "Chiles, tortillas, salsas, braises, bright toppings, and weeknight-friendly flavor." },
   { id: "caribbean", name: "Caribbean", image: photoFor("cuisines", "caribbean"), blurb: "Warm spice, rice and peas, seafood, stews, grilling, and sunny island comfort." },
@@ -248,11 +258,11 @@ const learningPillars = [
 const academyCategories = [
   { id: "basics", title: "Basics", text: "Definitions, safety, measuring, reading recipes, tasting, timing, and kitchen confidence.", entries: ["kitchen-safety", "measurements"] },
   { id: "ingredients", title: "Ingredients", text: "Produce, proteins, grains, spices, pantry staples, substitutions, and how ingredients behave.", entries: ["ingredients", "seasonings"] },
-  { id: "techniques", title: "Techniques", text: "Knife skills, sauteing, frying, braising, roasting, baking, simmering, and plating.", entries: ["knife-skills", "sauces"] },
+  { id: "techniques", title: "Techniques", text: "Knife skills, sauteing, frying, braising, roasting, baking, simmering, and plating.", entries: ["knife-skills", "braising", "frying", "baking-basics"] },
   { id: "equipment", title: "Equipment", text: "Pans, knives, cutting boards, thermometers, small appliances, serving tools, and care.", entries: ["equipment", "kitchen-safety"] },
   { id: "food-science", title: "Food Science", text: "Heat, texture, browning, emulsions, thickening, acidity, salt, fat, and flavor balance.", entries: ["food-science", "sauces"] },
   { id: "world-foods", title: "World Foods", text: "Culture, history, etiquette, ingredients, regional identity, and traditional dishes.", entries: ["world-foods", "ingredients"] },
-  { id: "sauces-seasonings", title: "Sauces & Seasonings", text: "Spice blends, marinades, gravies, dips, sauces, finishing herbs, and flavor bases.", entries: ["sauces", "seasonings"] },
+  { id: "sauces-seasonings", title: "Sauces & Seasonings", text: "Spice blends, marinades, gravies, dips, sauces, finishing herbs, and flavor bases.", entries: ["sauces", "gravy", "roux", "pan-sauce", "bechamel", "tomato-sauce", "reduction-sauce", "marinades", "seasonings"] },
   { id: "professional-skills", title: "Professional Skills", text: "Prep lists, station setup, costing, batching, service flow, catering, and consistency.", entries: ["professional-skills", "measurements"] }
 ];
 
@@ -422,6 +432,39 @@ const academyModules = [
   }
 ];
 
+const techniqueAcademyModules = [
+  ["gravy", "Gravy", "Sauces & Seasonings", "Gravy is a savory sauce made from drippings, fat, flour or starch, and liquid.", ["Pan drippings or butter", "Flour or cornstarch", "Stock, broth, or milk", "Whisk", "Skillet or saucepan"], ["Start with fat and flavor.", "Whisk in flour or slurry until smooth.", "Add liquid slowly while whisking.", "Simmer until it coats a spoon.", "Taste for salt, pepper, and acid."], ["Adding liquid too fast", "Letting flour stay raw", "Walking away from the pan"], ["If lumpy, strain or blend briefly.", "If too thick, whisk in warm liquid.", "If bland, add salt, pepper, herbs, or a tiny splash of vinegar."], ["smothered-pork-chops", "fried-chicken", "shrimp-and-grits-green-beans"]],
+  ["roux", "Roux", "Sauces & Seasonings", "Roux is cooked fat and flour used to thicken gravy, gumbo, cheese sauce, and creamy sauces.", ["Butter, oil, or drippings", "All-purpose flour", "Wooden spoon or whisk", "Heavy-bottom pan"], ["Melt fat over medium heat.", "Stir in equal parts flour.", "Cook until pale, blonde, brown, or dark depending on the dish.", "Add liquid slowly while stirring.", "Keep stirring until smooth."], ["Using high heat too fast", "Stopping before raw flour flavor cooks out", "Adding cold liquid all at once"], ["Lower heat if it smells burnt.", "Start over if black specks appear.", "Use warm liquid for smoother sauce."], ["gumbo", "mac-and-cheese", "smothered-pork-chops"]],
+  ["pan-sauce", "Pan Sauce", "Sauces & Seasonings", "Pan sauce uses browned bits left in the skillet to make a quick sauce for meat, fish, or vegetables.", ["Skillet drippings", "Stock or wine", "Butter", "Lemon or vinegar", "Herbs"], ["Cook protein and remove it to rest.", "Pour off excess fat.", "Add liquid and scrape browned bits.", "Reduce slightly.", "Finish with butter and acid."], ["Burning the fond", "Adding too much liquid", "Skipping the final taste"], ["If salty, add unsalted stock.", "If thin, reduce longer.", "If flat, add lemon or vinegar."], ["chicken-piccata", "lemon-herb-salmon", "tuscan-chicken"]],
+  ["bechamel", "Bechamel", "Sauces & Seasonings", "Bechamel is a creamy white sauce made from roux and milk, useful for mac and cheese, casseroles, and gratins.", ["Butter", "Flour", "Milk", "Whisk", "Salt", "Nutmeg optional"], ["Make a pale roux.", "Warm milk separately if possible.", "Whisk milk in gradually.", "Simmer until smooth and thick.", "Season gently."], ["Browning the roux too much", "Boiling too hard", "Not whisking the corners of the pan"], ["Whisk vigorously for small lumps.", "Strain for a silky sauce.", "Thin with milk if too heavy."], ["mac-and-cheese", "chicken-parmesan", "tuscan-chicken"]],
+  ["tomato-sauce", "Tomato Sauce", "Sauces & Seasonings", "Tomato sauce builds flavor from tomatoes, aromatics, herbs, salt, time, and balance.", ["Tomatoes", "Onion or garlic", "Olive oil", "Herbs", "Salt", "Sugar optional"], ["Soften aromatics in oil.", "Add tomatoes and seasoning.", "Simmer until the sauce thickens.", "Taste for acid, sweetness, and salt.", "Finish with herbs or olive oil."], ["Scorching the bottom", "Over-sugaring", "Not simmering long enough"], ["Add water if too thick.", "Add tomato paste if thin.", "Add butter or olive oil if sharp."], ["chicken-parmesan", "spaghetti", "mini-pizza-bagels"]],
+  ["reduction-sauce", "Reduction Sauce", "Sauces & Seasonings", "Reduction concentrates liquid by simmering until flavor and texture become stronger.", ["Stock, juice, wine, or pan liquid", "Wide saucepan", "Spoon", "Butter optional"], ["Choose a flavorful liquid.", "Simmer uncovered.", "Skim if needed.", "Stop when it coats the spoon.", "Finish with butter, herbs, or acid."], ["Reducing salty liquids too far", "Boiling violently", "Leaving the pan unattended"], ["Dilute with unsalted liquid if too intense.", "Whisk in butter for shine.", "Add acid if heavy."], ["oxtails", "lemon-herb-salmon", "chicken-piccata"]],
+  ["marinades", "Marinades", "Sauces & Seasonings", "Marinades season food before cooking with salt, aromatics, acid, oil, herbs, and spices.", ["Salt", "Oil", "Acid", "Garlic or onion", "Herbs and spices", "Covered container"], ["Build salt, fat, acid, and flavor.", "Coat food evenly.", "Chill while marinating.", "Pat dry before searing.", "Discard used marinade or boil it before serving."], ["Too much acid for too long", "Reusing raw marinade", "Not drying before browning"], ["If too acidic, add oil or sweetness.", "If bland, add salt.", "If wet, pat dry before cooking."], ["jerk-chicken", "orange-chicken", "chicken-gyros"]],
+  ["braising", "Braising", "Techniques", "Braising cooks tougher foods gently with moisture until tender and flavorful.", ["Heavy pot", "Protein or vegetables", "Aromatics", "Liquid", "Lid"], ["Season and brown the food.", "Cook aromatics.", "Add liquid partway up the food.", "Cover and simmer low.", "Cook until fork-tender."], ["Boiling too hard", "Not browning first", "Using too much liquid"], ["Lower heat for tenderness.", "Cook longer if tough.", "Reduce liquid for sauce."], ["oxtails", "smothered-pork-chops", "caribbean-curry-chicken"]],
+  ["frying", "Frying", "Techniques", "Frying uses hot fat to create crisp texture while cooking food through safely.", ["Heavy pot or skillet", "Oil", "Thermometer", "Rack", "Tongs"], ["Dry food well.", "Heat oil to the right temperature.", "Fry in small batches.", "Drain on a rack.", "Season while hot."], ["Crowding the pan", "Oil too cool", "Draining on paper until soggy"], ["Raise heat between batches.", "Use a rack for crispness.", "Cut food evenly for even cooking."], ["fried-chicken", "fried-catfish", "fried-sweet-plantains"]],
+  ["baking-basics", "Baking Basics", "Techniques", "Baking rewards measuring, oven temperature, pan prep, timing, and patience.", ["Measuring cups or scale", "Mixing bowls", "Sheet pan or baking dish", "Oven thermometer optional"], ["Read the recipe first.", "Measure carefully.", "Preheat fully.", "Prepare pans.", "Check doneness before removing."], ["Opening the oven too often", "Overmixing batter", "Guessing measurements"], ["Rotate pans if browning unevenly.", "Tent with foil if top browns too fast.", "Cool as directed before slicing."], ["cornbread", "bourbon-praline-bread-pudding", "pecan-pie"]]
+].map(([id, title, category, overview, tools, steps, mistakes, troubleshooting, relatedRecipes], index) => ({
+  id,
+  title,
+  category,
+  overview,
+  why: `${title} gives cooks a repeatable foundation they can use across family meals, hosting menus, and professional prep.`,
+  beginner: `Start with the basic method, keep the heat controlled, and taste or check texture before moving on.`,
+  keyConcepts: tools.slice(0, 5),
+  modules: [
+    { title: "Overview", items: [overview] },
+    { title: "Ingredients & Tools", items: tools },
+    { title: "Step-by-step", items: steps },
+    { title: "Common Mistakes", items: mistakes },
+    { title: "Troubleshooting", items: troubleshooting },
+    { title: "Related Recipes", items: relatedRecipes }
+  ],
+  related: relatedRecipes,
+  next: ["gravy", "roux", "pan-sauce", "bechamel", "tomato-sauce", "reduction-sauce", "marinades", "braising", "frying", "baking-basics"][(index + 1) % 10]
+}));
+
+academyModules.push(...techniqueAcademyModules);
+
 const learningLevels = [
   {
     id: "kid-chef",
@@ -589,6 +632,17 @@ const countryCuisineProfiles = {
     techniques: ["slow braising", "steaming couscous", "spice layering", "preserved lemon finishing"],
     menu: ["chicken tagine", "couscous", "carrot salad", "flatbread", "mint tea"],
     beginnerRecipes: ["chickpea couscous bowl", "lemon olive chicken", "spiced carrot salad"]
+  },
+  haiti: {
+    title: "Haiti",
+    region: "Caribbean",
+    overview: "Haitian cuisine is bold, generous, and deeply rooted in African, French, Indigenous Taino, and Caribbean foodways, with rice, beans, epis, pikliz, plantains, stews, seafood, and slow-cooked meats showing up often.",
+    culture: "Haitian meals are full of seasoning, family memory, celebration, and care. Flavor often starts with epis, a green seasoning base, and finishes with bright heat from pikliz.",
+    ingredients: ["epis", "scotch bonnet peppers", "thyme", "garlic", "green onion", "rice", "beans", "plantains", "cabbage", "lime", "seafood"],
+    dishes: ["griot", "diri kole ak pwa", "soup joumou", "poule en sauce", "fried plantains", "pikliz", "legim"],
+    techniques: ["marinating with citrus and epis", "slow braising", "frying plantains", "rice and bean cooking", "pickling vegetables"],
+    menu: ["griot or poule en sauce", "diri kole ak pwa", "fried plantains", "pikliz", "avocado or cabbage salad", "ginger drink"],
+    beginnerRecipes: ["Haitian-style rice and beans", "fried sweet plantains", "Caribbean curry chicken", "pikliz-style slaw"]
   }
 };
 
@@ -673,6 +727,51 @@ const foodEncyclopedia = [
     beginner: "Read the recipe, set everything out, and chop before turning on the heat.",
     pro: "Use prep lists, station setup, labels, and batch timing to cook calmly at scale.",
     related: ["prep list", "knife skills", "service flow", "meal prep"]
+  },
+  {
+    term: "Black-Eyed Peas Tradition",
+    pronunciation: "",
+    origin: "Southern and African American New Year's foodways",
+    purpose: "Black-eyed peas are often served for luck, resilience, and a strong start to the year, usually with greens, cornbread, and pork or smoked seasoning.",
+    beginner: "Start with canned or soaked peas, season them well, and serve with rice or cornbread.",
+    pro: "Build the pot with aromatics, smoked meat or vegetables, bay leaf, broth, and a bright vinegar finish.",
+    related: ["black-eyed peas", "collard greens", "cornbread", "New Year's Day"]
+  },
+  {
+    term: "History of Grits",
+    pronunciation: "",
+    origin: "Indigenous corn traditions and Southern cooking",
+    purpose: "Grits come from ground corn and became a foundational Southern starch served at breakfast, with seafood, or as a creamy side.",
+    beginner: "Cook low and slow, stir often, and season with salt, butter, and cheese if you like.",
+    pro: "Use stone-ground grits, hydrate them patiently, and finish with cream, stock, or cheese depending on the plate.",
+    related: ["shrimp and grits", "corn", "breakfast", "Low Country"]
+  },
+  {
+    term: "Cornbread Traditions",
+    pronunciation: "",
+    origin: "Southern, Indigenous, and African American table traditions",
+    purpose: "Cornbread is a skillet bread, side, dressing base, and potlikker partner that changes by family, region, and occasion.",
+    beginner: "Preheat the skillet so the crust gets crisp.",
+    pro: "Balance cornmeal grind, fat, heat, and liquid for the texture you want, from crumbly to tender.",
+    related: ["greens", "dressing", "fish fry", "Sunday dinner"]
+  },
+  {
+    term: "Soul Food Origins",
+    pronunciation: "",
+    origin: "African American foodways shaped by African roots, Southern agriculture, survival, migration, and celebration",
+    purpose: "Soul food honors resourcefulness, seasoning, family tables, and cultural memory through dishes like greens, beans, cornbread, yams, fried chicken, and slow-cooked meats.",
+    beginner: "Learn the story of the dish while you learn the technique.",
+    pro: "Respect origin, balance richness with acid and vegetables, and cook with intention rather than shortcuts alone.",
+    related: ["collard greens", "candied yams", "mac and cheese", "Sunday dinner"]
+  },
+  {
+    term: "Mississippi Food Heritage",
+    pronunciation: "",
+    origin: "Mississippi Delta, Gulf Coast, Black Southern, Indigenous, and immigrant food traditions",
+    purpose: "Mississippi food connects catfish, tamales, biscuits, greens, seafood, barbecue, farm tables, church dinners, and family reunion cooking.",
+    beginner: "Start with one local plate and learn why the sides belong with it.",
+    pro: "Use place-based ingredients, season with restraint and depth, and tell the story of the menu.",
+    related: ["catfish", "hot tamales", "sweet tea", "family reunion"]
   }
 ];
 
@@ -752,7 +851,13 @@ const hostingKnowledge = [
   { title: "Brunch", text: "Eggs, breads, fruit, one savory main, one sweet item, coffee, juice, and make-ahead pacing.", pairing: "Brunch cups and fruit cups" },
   { title: "Baby Shower", text: "Small bites, pretty cups, alcohol-free drinks, desserts, and food that stays neat.", pairing: "Party cups and dessert cups" },
   { title: "Holiday Dinner", text: "A centerpiece, traditional sides, oven schedule, dessert plan, and a written prep timeline.", pairing: "Turkey, ham, dressing, yams" },
+  { title: "Holiday Menus", text: "Plan the centerpiece, oven schedule, classic sides, make-ahead desserts, drinks, and leftover storage before the holiday rush starts.", pairing: "Ham, turkey, dressing, greens, yams, pies" },
   { title: "Date Night", text: "One impressive but calm main, one side, one dessert, and minimal last-minute cleanup.", pairing: "Seafood pasta or steakhouse-style plate" },
+  { title: "Sunday Dinner Menus", text: "Build around a comforting main, greens or beans, a starch, bread, dessert, and time for people to linger.", pairing: "Oxtails, pork chops, fried chicken, collards, cornbread" },
+  { title: "Church Potluck Menus", text: "Choose portable pans, labeled dishes, allergy notes, serving spoons, and foods that hold safely on a table.", pairing: "Baked chicken, casseroles, greens, pasta salad, sheet cake" },
+  { title: "Family Reunion Menus", text: "Use large-batch mains, grill stations, kid-friendly sides, hydration, desserts, and clear food station flow.", pairing: "BBQ, fried chicken, baked beans, potato salad, banana pudding" },
+  { title: "Tailgate Menus", text: "Keep it handheld, sturdy, and easy to refill with hot dips, wings, sliders, cups, drinks, and trash bags close by.", pairing: "Wings, tailgate cups, sliders, chips, dips" },
+  { title: "Cookout Menus", text: "Balance grilled mains with cold sides, fresh fruit, bread, sauces, drinks, and desserts that tolerate heat.", pairing: "Burgers, ribs, hot dogs, coleslaw, baked beans, cobbler" },
   { title: "Meal Prep", text: "Proteins, grains, vegetables, sauces, labels, reheating notes, and flexible mix-and-match meals.", pairing: "Chicken bowls and rice bowls" },
   { title: "Catering Prep", text: "Counts, portions, holding temps, service flow, packaging, backup utensils, and transport timing.", pairing: "Party cups, trays, and batch sides" }
 ];
@@ -775,6 +880,12 @@ const ingredientPlaybooks = {
     sides: ["Grits", "Fried rice", "Green beans", "Greek salad", "Garlic bread"],
     substitutions: ["Chicken strips", "Fish chunks", "Scallops", "Mushrooms", "Firm tofu"],
     mealPlans: ["Shrimp and grits supper", "Fried rice night", "Seafood pasta dinner", "Taco bowl with slaw"]
+  },
+  swordfish: {
+    techniques: ["Grill thick steaks over medium-high heat", "Blacken in a hot skillet", "Sear and finish with lemon butter", "Cube for tacos", "Marinate briefly with citrus and herbs"],
+    sides: ["Citrus slaw", "Rice pilaf", "Roasted vegetables", "Greek salad", "Cornbread or hushpuppies"],
+    substitutions: ["Mahi mahi", "Tuna steaks", "Salmon", "Halibut", "Firm tofu steaks"],
+    mealPlans: ["Grilled swordfish Mediterranean plate", "Blackened swordfish Southern supper", "Swordfish taco night", "Seafood meal-prep bowls"]
   },
   rice: {
     techniques: ["Rinse before cooking", "Toast with aromatics", "Steam covered", "Fry day-old rice", "Season with herbs, citrus, or broth"],
@@ -1449,6 +1560,62 @@ recipes.push(
   }
 );
 
+const nextFeatureRecipes = [
+  ["southern-crispy-fried-chicken", "Crispy Fried Chicken", "southern", "Soul Food", "images/cuisines/southern/southern-01.png", "20 min", "35 min", "Intermediate", 6, "Buttermilk-marinated chicken fried crisp with a seasoned crust and juicy center.", ["Chicken pieces", "Buttermilk", "Hot sauce", "Flour", "Cornstarch", "Seasoned salt", "Paprika", "Oil"], ["Marinate chicken in buttermilk, hot sauce, and seasoning.", "Dredge in seasoned flour and cornstarch.", "Rest coated chicken for 10 minutes.", "Fry in batches until deeply golden.", "Drain on a rack and season while hot."], ["southern", "soul food", "fried", "chicken"]],
+  ["southern-baked-mac-cheese", "Baked Mac and Cheese", "southern", "Soul Food", "images/cuisines/southern/southern-02.png", "15 min", "35 min", "Beginner", 8, "Creamy baked macaroni with sharp cheddar, a custardy center, and a golden top.", ["Elbow macaroni", "Sharp cheddar", "Evaporated milk", "Eggs", "Butter", "Mustard powder", "Paprika"], ["Boil macaroni just shy of tender.", "Whisk milk, eggs, seasoning, and melted butter.", "Layer pasta with cheese.", "Pour custard over the top.", "Bake until bubbly and golden."], ["southern", "soul food", "mac and cheese", "holiday"]],
+  ["southern-collard-greens", "Slow-Cooked Collard Greens", "southern", "Soul Food", "images/cuisines/southern/southern-03.png", "20 min", "1 hr 30 min", "Beginner", 8, "Tender greens simmered with smoky flavor, garlic, pepper vinegar, and Sunday dinner patience.", ["Collard greens", "Smoked turkey", "Onion", "Garlic", "Chicken stock", "Vinegar", "Red pepper flakes"], ["Wash greens well.", "Simmer smoked turkey with aromatics.", "Add greens by the handful.", "Cook until tender.", "Finish with vinegar and seasoning."], ["southern", "greens", "soul food", "slow cooking"]],
+  ["southern-black-eyed-peas", "Black-Eyed Peas", "southern", "Soul Food", "images/cuisines/southern/southern-04.png", "10 min", "1 hr", "Beginner", 6, "Comforting peas simmered with onion, garlic, smoked meat, and a little good-luck tradition.", ["Black-eyed peas", "Smoked turkey or ham", "Onion", "Garlic", "Bay leaf", "Stock", "Hot sauce"], ["Rinse peas.", "Cook aromatics and smoked meat.", "Add peas, bay, and stock.", "Simmer until tender.", "Season and serve with greens."], ["southern", "black-eyed peas", "tradition", "new year"]],
+  ["southern-cornbread-dressing", "Cornbread Dressing", "southern", "Holiday", "images/cuisines/southern/southern-05.png", "25 min", "45 min", "Intermediate", 10, "Savory holiday dressing with crumbled cornbread, herbs, onion, celery, and rich stock.", ["Cornbread", "Celery", "Onion", "Sage", "Poultry seasoning", "Eggs", "Chicken stock"], ["Crumble day-old cornbread.", "Cook celery and onion.", "Mix with herbs, eggs, and stock.", "Spread in a baking dish.", "Bake until set and golden."], ["southern", "holiday", "cornbread", "dressing"]],
+  ["southern-meatloaf", "Southern Meatloaf", "southern", "Family Dinners", "images/cuisines/southern/southern-06.png", "15 min", "55 min", "Beginner", 6, "Tender meatloaf with a sweet-tangy glaze and Sunday plate energy.", ["Ground beef", "Breadcrumbs", "Egg", "Onion", "Bell pepper", "Worcestershire", "Ketchup", "Brown sugar"], ["Mix meatloaf gently.", "Shape into a loaf.", "Stir ketchup glaze.", "Bake until cooked through.", "Rest before slicing."], ["southern", "meatloaf", "family dinner", "comfort food"]],
+  ["southern-stone-ground-grits", "Creamy Stone-Ground Grits", "southern", "Beginner Basics", "images/cuisines/southern/southern-07.png", "5 min", "35 min", "Beginner", 4, "Slow-simmered grits finished with butter, cheese, and a little patience.", ["Stone-ground grits", "Water or stock", "Milk", "Butter", "Cheddar", "Salt"], ["Whisk grits into simmering liquid.", "Cook low and slow.", "Stir often.", "Finish with butter and cheese.", "Taste for salt."], ["southern", "grits", "breakfast", "low country"]],
+  ["southern-pecan-pie", "Pecan Pie", "southern", "Desserts", "images/cuisines/southern/southern-08.png", "15 min", "55 min", "Intermediate", 8, "A glossy pecan pie with a buttery crust, toasted nuts, and classic Southern sweetness.", ["Pie crust", "Pecans", "Eggs", "Corn syrup", "Brown sugar", "Butter", "Vanilla"], ["Toast pecans lightly.", "Whisk filling.", "Fill crust with pecans.", "Pour filling over top.", "Bake until just set."], ["southern", "dessert", "pecan pie", "holiday"]],
+  ["southern-shrimp-and-grits", "Low Country Shrimp and Grits", "southern", "Seafood", "images/cuisines/southern/southern-09.png", "15 min", "30 min", "Intermediate", 4, "Creamy grits topped with seasoned shrimp, peppers, and a quick skillet sauce.", ["Shrimp", "Grits", "Butter", "Cheddar", "Bell pepper", "Garlic", "Stock", "Lemon"], ["Cook grits low and slow.", "Season shrimp.", "Saute peppers and garlic.", "Cook shrimp quickly.", "Spoon shrimp and sauce over grits."], ["southern", "low country", "shrimp", "grits"]],
+  ["asian-garlic-fried-rice", "Garlic Fried Rice", "asian-inspired", "Asian Inspired", "images/cuisines/asian/asian-01.png", "10 min", "12 min", "Beginner", 4, "Day-old rice stir-fried with garlic, egg, scallions, and pantry seasoning.", ["Cooked rice", "Garlic", "Eggs", "Scallions", "Soy sauce", "Oil"], ["Break up cold rice.", "Scramble eggs and set aside.", "Fry garlic in oil.", "Add rice and sauce.", "Fold eggs and scallions back in."], ["asian", "fried rice", "rice", "quick meals"]],
+  ["asian-orange-chicken", "Orange Chicken", "asian-inspired", "Quick Meals", "images/cuisines/asian/asian-02.png", "15 min", "25 min", "Intermediate", 4, "Crisp chicken bites tossed in a bright orange glaze with garlic and ginger.", ["Chicken breast", "Cornstarch", "Orange juice", "Soy sauce", "Garlic", "Ginger", "Rice vinegar"], ["Coat chicken in cornstarch.", "Cook until crisp.", "Simmer orange sauce.", "Toss chicken in glaze.", "Serve over rice."], ["asian", "orange chicken", "chicken", "takeout style"]],
+  ["asian-cashew-chicken", "Cashew Chicken", "asian-inspired", "Family Dinners", "images/cuisines/asian/asian-03.png", "15 min", "20 min", "Beginner", 4, "Tender chicken, vegetables, cashews, and glossy sauce in a fast skillet dinner.", ["Chicken", "Cashews", "Bell pepper", "Soy sauce", "Hoisin", "Garlic", "Ginger"], ["Mix sauce.", "Cook chicken.", "Add vegetables.", "Return chicken with sauce.", "Finish with cashews."], ["asian", "cashew", "chicken", "stir fry"]],
+  ["asian-beef-broccoli", "Beef and Broccoli", "asian-inspired", "Family Dinners", "images/cuisines/asian/asian-04.png", "20 min", "15 min", "Beginner", 4, "Thin beef and broccoli in a savory sauce with garlic, ginger, and rice-ready flavor.", ["Beef strips", "Broccoli", "Soy sauce", "Oyster sauce", "Garlic", "Ginger", "Cornstarch"], ["Marinate beef briefly.", "Steam or blanch broccoli.", "Sear beef quickly.", "Add sauce.", "Fold broccoli back in."], ["asian", "beef", "broccoli", "quick meals"]],
+  ["asian-lo-mein", "Vegetable Lo Mein", "asian-inspired", "Vegetarian", "images/cuisines/asian/asian-05.png", "15 min", "15 min", "Beginner", 4, "Noodles tossed with vegetables, soy-based sauce, sesame, and weeknight speed.", ["Noodles", "Cabbage", "Carrots", "Scallions", "Soy sauce", "Sesame oil", "Garlic"], ["Cook noodles.", "Stir-fry vegetables.", "Add noodles and sauce.", "Toss until glossy.", "Finish with scallions."], ["asian", "noodles", "vegetarian", "lo mein"]],
+  ["asian-dumpling-bowls", "Dumpling Bowl", "asian-inspired", "Quick Meals", "images/cuisines/asian/asian-06.png", "10 min", "15 min", "Beginner", 4, "Pan-seared dumplings served over greens, rice, chili crunch, and a quick dipping sauce.", ["Frozen dumplings", "Rice", "Cabbage", "Soy sauce", "Rice vinegar", "Chili crunch", "Sesame seeds"], ["Cook rice.", "Pan-sear dumplings.", "Mix dipping sauce.", "Layer rice and cabbage.", "Top with dumplings and sauce."], ["asian", "dumplings", "rice bowl", "quick meals"]],
+  ["asian-teriyaki-salmon", "Teriyaki Salmon", "asian-inspired", "Seafood", "images/cuisines/asian/asian-07.png", "10 min", "15 min", "Beginner", 4, "Salmon glazed with soy, ginger, garlic, and honey for a glossy dinner plate.", ["Salmon", "Soy sauce", "Honey", "Ginger", "Garlic", "Rice vinegar", "Sesame oil"], ["Mix glaze.", "Sear salmon.", "Brush with glaze.", "Cook until just flaky.", "Serve with rice and vegetables."], ["asian", "salmon", "teriyaki", "seafood"]],
+  ["asian-thai-basil-chicken", "Thai Basil Chicken", "asian-inspired", "Quick Meals", "images/cuisines/asian/asian-08.png", "10 min", "15 min", "Intermediate", 4, "Ground chicken cooked hot and fast with garlic, chiles, basil, and savory sauce.", ["Ground chicken", "Garlic", "Chile", "Basil", "Soy sauce", "Fish sauce", "Sugar"], ["Mix sauce.", "Cook garlic and chile.", "Brown chicken.", "Add sauce.", "Fold in basil at the end."], ["asian", "thai", "basil", "quick meals"]],
+  ["asian-miso-noodles", "Miso Butter Noodles", "asian-inspired", "Beginner Basics", "images/cuisines/asian/asian-09.png", "10 min", "12 min", "Beginner", 3, "Cozy noodles with miso, butter, garlic, scallions, and an umami-rich finish.", ["Noodles", "Miso", "Butter", "Garlic", "Scallions", "Reserved pasta water"], ["Cook noodles.", "Soften garlic in butter.", "Whisk miso with pasta water.", "Toss noodles in sauce.", "Finish with scallions."], ["asian", "miso", "noodles", "umami"]],
+  ["asian-crab-rangoon", "Crab Rangoon", "asian-inspired", "Party & Hosting", "images/cuisines/asian/asian-10.png", "20 min", "15 min", "Intermediate", 24, "Crisp wontons filled with creamy crab, scallion, and garlic for party trays.", ["Wonton wrappers", "Cream cheese", "Crab", "Scallions", "Garlic powder", "Oil"], ["Mix filling.", "Fill wonton wrappers.", "Seal edges with water.", "Fry or bake until crisp.", "Serve with sweet chili sauce."], ["asian", "crab rangoon", "party", "appetizer"]],
+  ["grilled-swordfish-lemon-herb", "Grilled Swordfish with Lemon Herbs", "mediterranean", "Seafood", "images/cuisines/mediterranean/mediterranean-01.png", "10 min", "12 min", "Intermediate", 4, "Meaty swordfish steaks grilled with lemon, olive oil, garlic, and fresh herbs.", ["Swordfish steaks", "Olive oil", "Lemon", "Garlic", "Parsley", "Oregano", "Salt"], ["Pat swordfish dry.", "Season with oil, lemon, garlic, and herbs.", "Grill over medium-high heat.", "Rest briefly.", "Serve with salad or rice."], ["swordfish", "seafood", "grilling", "mediterranean"]],
+  ["blackened-swordfish", "Blackened Swordfish", "southern", "Seafood", "images/cuisines/southern/southern-09.png", "10 min", "10 min", "Intermediate", 4, "Firm swordfish coated in bold blackening spice and seared hot for a smoky crust.", ["Swordfish steaks", "Blackening seasoning", "Butter", "Lemon", "Oil"], ["Dry fish well.", "Coat with seasoning.", "Heat skillet until hot.", "Sear both sides.", "Finish with lemon butter."], ["swordfish", "blackened", "seafood", "southern"]],
+  ["swordfish-tacos", "Swordfish Tacos with Citrus Slaw", "mexican", "Seafood", "images/cuisines/mexican/mexican-01.png", "20 min", "12 min", "Beginner", 4, "Seared swordfish tucked into tortillas with crunchy citrus slaw and creamy sauce.", ["Swordfish", "Tortillas", "Cabbage", "Lime", "Cilantro", "Crema", "Chili powder"], ["Season and sear swordfish.", "Toss cabbage with lime and cilantro.", "Warm tortillas.", "Flake fish into pieces.", "Build tacos with slaw and crema."], ["swordfish", "tacos", "seafood", "mexican"]]
+].map(([id, title, cuisine, category, image, prep_time, cook_time, difficulty, servings, description, ingredients, instructions, tags]) => ({
+  id,
+  title,
+  slug: id,
+  cuisine,
+  category,
+  image,
+  image_url: image,
+  prep_time,
+  prepTime: prep_time,
+  cook_time,
+  cookTime: cook_time,
+  time: cook_time,
+  cookTimeMinutes: Number(cook_time.match(/\d+/)?.[0] || 30),
+  skill_level: difficulty === "Beginner" ? "Amateur" : "Professional",
+  difficulty,
+  level: difficulty,
+  servings,
+  path: difficulty === "Beginner" ? "amateur-home-chef" : "professional-mode",
+  description,
+  ingredients,
+  directions: instructions,
+  instructions,
+  steps: instructions,
+  tags,
+  cultural_variations: [],
+  source: { type: "original", name: "Brent & Co. starter recipe" },
+  featured: cuisine === "southern" || cuisine === "asian-inspired"
+}));
+
+const existingRecipeIds = new Set(recipes.map((recipe) => recipe.id));
+recipes = [...recipes, ...nextFeatureRecipes.filter((recipe) => !existingRecipeIds.has(recipe.id))];
+
 const lessons = [
   {
     id: "kitchen-safety",
@@ -1882,6 +2049,39 @@ function partyRecipeResults(recipe, guestCount = 24, cupsPerGuest = 1) {
   `;
 }
 
+function scaledRecipeList(recipe, targetServings) {
+  const baseServings = Math.max(1, Number(recipe.servings || 1));
+  const multiplier = targetServings / baseServings;
+  return recipe.ingredients.map((ingredient) => `<li>${multiplier === 1 ? "" : `<strong>${multiplier.toFixed(1).replace(/\.0$/, "")}x</strong> `}${ingredient}</li>`).join("");
+}
+
+function recipeUtilityPanel(recipe) {
+  const scales = [2, 4, 6, 8];
+  return `
+    <article class="detail-panel recipe-tools-panel">
+      <p class="eyebrow">Cook tools</p>
+      <h2>Save, print, shop, and scale.</h2>
+      <div class="recipe-tool-actions">
+        <button class="small-button" data-save="${recipe.id}">${saved.includes(recipe.id) ? "Saved" : "Save Recipe"}</button>
+        <button class="small-button secondary" data-print-recipe>Print Recipe</button>
+        <button class="small-button secondary" data-plan="${recipe.id}">${planned.includes(recipe.id) ? "Planned" : "Add to Meal Plan"}</button>
+      </div>
+      <div class="recipe-scale-grid">
+        ${scales.map((servings) => `
+          <section>
+            <h3>${servings} servings</h3>
+            <ul>${scaledRecipeList(recipe, servings)}</ul>
+          </section>
+        `).join("")}
+      </div>
+      <div class="party-shopping-list">
+        <h3>Shopping List</h3>
+        <ul>${[...new Set([...(recipe.ingredients || []), ...(recipe.shopping_items || []).map((item) => item.item || item)])].map((item) => `<li>${item}</li>`).join("")}</ul>
+      </div>
+    </article>
+  `;
+}
+
 function renderPartyPlannerResults() {
   const target = document.querySelector("#partyPlannerResults");
   if (!target) return;
@@ -2061,10 +2261,13 @@ function render() {
   if (route === "food-encyclopedia") return renderCulinaryAcademy(id);
   if (route === "menu-intelligence") return renderMenuIntelligence(id);
   if (route === "kids-cooking") return renderKidsCooking();
-  if (route === "recipes") return id ? renderRecipe(id) : renderRecipes();
+  if (route === "recipes") {
+    if (id) requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: "auto" }));
+    return id ? renderRecipe(id) : renderRecipes();
+  }
   if (route === "paths") return id ? renderPath(id) : renderPaths();
   if (route === "pathways") return renderPaths();
-  if (route === "planner") return renderPlanner();
+  if (route === "planner") return renderPlanner(id);
   if (route === "hosting") return renderHosting(id);
   if (route === "about") return renderAbout();
   if (route === "account") return renderAccount();
@@ -2259,8 +2462,15 @@ function renderLetsCookHome() {
       `<a class="small-button" href="#build-a-meal">Build A Meal</a><a class="small-button secondary" href="#kitchen-search/chicken%20strips">What's In My Kitchen</a><a class="small-button secondary" href="#recipes">Browse Recipes</a>`
     )}
     ${cookSubnav()}
-    ${learningArchitectureSection()}
     ${ingredientDiscoverySection("chicken strips")}
+    <section class="cream-section homepage-photo-strip">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Learn by looking, tasting, and doing</p>
+        <h2>Real meals, real technique, real confidence.</h2>
+      </div>
+      <div class="hero-photo-grid">${heroImages.slice(0, 6).map((image, index) => `<figure><img src="${image}" alt="Let's Cook Y'all kitchen moment ${index + 1}" /></figure>`).join("")}</div>
+    </section>
+    ${learningArchitectureSection()}
     <section class="cream-section">
       <div class="feature-grid">
         ${paths.map(pathCard).join("")}
@@ -2605,6 +2815,11 @@ function renderCuisineExplorerDetail(id) {
   const techniques = profile?.techniques || ["building flavor bases", "seasoning in layers", "balancing texture", "serving family-style"];
   const menu = profile?.menu || ["main dish", "starch or bread", "vegetable side", "sauce or condiment", "drink"];
   const beginnerRecipes = profile?.beginnerRecipes || recipes.filter((recipe) => recipe.cuisine === "global").slice(0, 3).map((recipe) => recipe.title);
+  const profileRecipeMatches = profile ? recipes.filter((recipe) => {
+    const titleMatch = beginnerRecipes.some((name) => recipe.title.toLowerCase().includes(name.toLowerCase()) || name.toLowerCase().includes(recipe.title.toLowerCase()));
+    const tagMatch = (recipe.tags || []).some((tag) => normalizeIngredientTerm(tag).includes(normalized));
+    return titleMatch || tagMatch;
+  }).slice(0, 6) : [];
   const regions = group?.regions || [];
   app.innerHTML = `
     ${hero(title, overview, image || photoFor("cuisines", "mediterranean"), `<a class="small-button" href="#cuisine-explorer">All Cuisines</a><a class="small-button secondary" href="#menu-intelligence">Build A Menu</a>`)}
@@ -2623,6 +2838,7 @@ function renderCuisineExplorerDetail(id) {
         <article class="academy-module-card"><h3>Menu Example</h3><ul>${menu.map((item) => `<li>${item}</li>`).join("")}</ul></article>
         <article class="academy-module-card"><h3>Beginner Recipes</h3><ul>${beginnerRecipes.map((item) => `<li>${item}</li>`).join("")}</ul></article>
       </div>
+      ${profileRecipeMatches.length ? `<div class="section-heading compact-heading"><p class="eyebrow">Recipes to try</p><h2>${title} starter recipes.</h2></div><div class="recipe-grid">${profileRecipeMatches.map(recipeCard).join("")}</div>` : ""}
       ${regions.length ? `<div class="section-heading compact-heading"><p class="eyebrow">Country paths</p><h2>Choose a country or region next.</h2></div><div class="region-chip-row linked-chip-row">${regions.map((region) => `<a href="#cuisine-explorer/${slugify(region)}">${region}</a>`).join("")}</div>` : ""}
       ${progressionNav("#cuisine-explorer", "All Cuisines", "#culinary-academy/world-foods", "World Foods Lesson", ["#menu-intelligence", "#hosting"])}
     </section>
@@ -3159,6 +3375,7 @@ function renderRecipe(id) {
           <h2>Gather everything first.</h2>
           <ul class="ingredient-checklist">${recipe.ingredients.map((item) => `<li><span>&#10003;</span>${item}</li>`).join("")}</ul>
         </article>
+        ${recipeUtilityPanel(recipe)}
         <article class="detail-panel directions-panel recipe-steps-panel">
           <p class="eyebrow">How to make it</p>
           <h2>Cook it one calm step at a time.</h2>
@@ -3265,9 +3482,19 @@ function renderPath(id) {
   `;
 }
 
-function renderPlanner() {
+function renderPlanner(id) {
   const plannedRecipes = recipes.filter((recipe) => planned.includes(recipe.id));
   const shoppingItems = [...new Set(plannedRecipes.flatMap((recipe) => recipe.ingredients))];
+  const selectedIndex = Number.isFinite(Number(id)) ? Math.max(0, Math.min(menuPairings.length - 1, Number(id))) : 0;
+  const selectedMenu = menuPairings[selectedIndex];
+  const menuShoppingItems = [
+    selectedMenu.main_dish,
+    ...selectedMenu.traditional_sides,
+    ...selectedMenu.breads,
+    ...selectedMenu.sauces_condiments,
+    ...selectedMenu.drinks,
+    ...selectedMenu.desserts
+  ];
   const quickPlan = [
     { title: "Kid-friendly start", ids: ["pb-and-j-sandwich", "stovetop-mac-and-cheese", "fruit-kabobs"] },
     { title: "Weeknight dinner", ids: ["chicken-street-tacos", "cilantro-lime-rice", "greek-salad"] },
@@ -3275,14 +3502,29 @@ function renderPlanner() {
   ];
   const featuredPlanRecipes = ["chicken-street-tacos", "caribbean-curry-chicken", "lemon-herb-salmon", "stovetop-mac-and-cheese"].map((id) => recipes.find((recipe) => recipe.id === id)).filter(Boolean);
   app.innerHTML = `
-    ${hero("Meal Planner", "Answer the classic question: what can I cook? Save meals, plan your week, and build a shopping list.", photoFor("hero", "learning", 5, "assets/lc-orange-chicken.jpg"))}
+    ${hero("Meal Planner", "Answer the classic question: what can I cook? Choose a cuisine, occasion, and main dish, then get sides, bread, dessert, drinks, sauces, shopping list, prep timeline, and hosting notes.", photoFor("hero", "learning", 5, "assets/lc-orange-chicken.jpg"))}
     ${cookSubnav()}
     <section class="cream-section">
       <div class="planner-summary">
         <article><strong>${plannedRecipes.length}</strong><span>Meals planned</span></article>
-        <article><strong>${shoppingItems.length}</strong><span>Ingredients listed</span></article>
+        <article><strong>${shoppingItems.length + menuShoppingItems.length}</strong><span>Ingredients listed</span></article>
         <article><strong>${saved.length}</strong><span>Saved recipes</span></article>
       </div>
+      <article class="detail-panel menu-builder-section">
+        <p class="eyebrow">Menu Planner</p>
+        <h2>Build a full table from one main dish.</h2>
+        <form class="menu-builder-form" data-menu-planner-form>
+          <label>Cuisine<select name="cuisine">${[...new Set(menuPairings.map((menu) => menu.cuisine))].map((item) => `<option${item === selectedMenu.cuisine ? " selected" : ""}>${item}</option>`).join("")}</select></label>
+          <label>Occasion<select name="occasion">${[...new Set(menuPairings.map((menu) => menu.occasion))].map((item) => `<option${item === selectedMenu.occasion ? " selected" : ""}>${item}</option>`).join("")}</select></label>
+          <label>Main Dish<select name="main">${menuPairings.map((menu, index) => `<option value="${index}"${index === selectedIndex ? " selected" : ""}>${menu.main_dish}</option>`).join("")}</select></label>
+          <button class="small-button" type="submit">Generate Menu</button>
+        </form>
+        ${menuPairingCard(selectedMenu)}
+        <div class="planner-layout compact-planner-layout">
+          <section class="academy-module-card"><h3>Shopping List</h3><ul>${menuShoppingItems.map((item) => `<li>${item}</li>`).join("")}</ul></section>
+          <section class="academy-module-card"><h3>Prep Timeline</h3><p>${selectedMenu.hosting_notes}</p><ul><li>Two days before: choose menu and shop shelf-stable goods.</li><li>Day before: prep sauces, desserts, and cold sides.</li><li>Day of: cook the main, warm breads, finish fresh sides, and set drinks.</li></ul></section>
+        </div>
+      </article>
       <div class="planner-layout">
         <article class="detail-panel">
           <p class="eyebrow">Start fast</p>
@@ -3303,7 +3545,7 @@ function renderPlanner() {
         <article class="detail-panel">
           <p class="eyebrow">Shop once</p>
           <h2>Shopping List</h2>
-          <ul class="shopping-list">${shoppingItems.length ? shoppingItems.map((item) => `<li>${item}</li>`).join("") : featuredPlanRecipes.slice(0, 2).flatMap((recipe) => recipe.ingredients.slice(0, 4)).map((item) => `<li>${item}</li>`).join("")}</ul>
+          <ul class="shopping-list">${shoppingItems.length ? shoppingItems.map((item) => `<li>${item}</li>`).join("") : menuShoppingItems.map((item) => `<li>${item}</li>`).join("")}</ul>
         </article>
       </div>
     </section>
@@ -3570,12 +3812,26 @@ function renderAccount() {
 }
 
 function renderCuisine(id) {
-  const cuisine = cuisines.find((item) => item.id === id) || cuisines[0];
+  const aliases = { asian: "asian-inspired", "soul": "soul-food", "lowcountry": "low-country", "mississippi": "mississippi-favorites" };
+  const cuisineId = aliases[id] || id;
+  const cuisine = cuisines.find((item) => item.id === cuisineId) || cuisines[0];
   const cuisineRecipes = recipes.filter((recipe) => recipe.cuisine === cuisine.id);
   app.innerHTML = `
     ${hero(cuisine.name, cuisine.blurb, cuisine.image)}
     ${cookSubnav()}
-    <section class="cream-section"><div class="recipe-grid">${cuisineRecipes.map(recipeCard).join("")}</div></section>
+    <section class="cream-section">
+      ${cuisineRecipes.length ? `<div class="recipe-grid">${cuisineRecipes.map(recipeCard).join("")}</div>` : `
+        <div class="empty-state rich-empty-state">
+          <h2>${cuisine.name} recipes are being built.</h2>
+          <p>Start with the cuisine guide, menu builder, or Culinary Academy while this recipe lane fills out.</p>
+          <div class="hero-actions">
+            <a class="small-button" href="#cuisine-explorer/${cuisine.id}">Open Cuisine Guide</a>
+            <a class="small-button secondary" href="#menu-intelligence">Build A Menu</a>
+            <a class="small-button secondary" href="#culinary-academy/world-foods">World Foods Lesson</a>
+          </div>
+        </div>
+      `}
+    </section>
   `;
 }
 
@@ -3821,6 +4077,7 @@ function handleClick(event) {
   const quickFilter = event.target.closest("[data-quick-filter]");
   const saveButton = event.target.closest("[data-save]");
   const planButton = event.target.closest("[data-plan]");
+  const printButton = event.target.closest("[data-print-recipe]");
   if (quickFilter) {
     document.querySelectorAll(".quick-filter").forEach((button) => button.classList.toggle("active", button === quickFilter && !button.classList.contains("active")));
     handleSearch();
@@ -3835,6 +4092,9 @@ function handleClick(event) {
     planned = toggleValue(planned, planButton.dataset.plan);
     persistLetsCookState();
     render();
+  }
+  if (printButton) {
+    window.print();
   }
 }
 
@@ -3861,6 +4121,14 @@ async function handleSubmit(event) {
     const formData = new FormData(event.target);
     const selected = Number(formData.get("main"));
     window.location.hash = `#menu-intelligence/${Number.isFinite(selected) ? selected : 0}`;
+    return;
+  }
+
+  if (event.target.matches("[data-menu-planner-form]")) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const selected = Number(formData.get("main"));
+    window.location.hash = `#planner/${Number.isFinite(selected) ? selected : 0}`;
     return;
   }
 

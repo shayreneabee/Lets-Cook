@@ -1,6 +1,7 @@
 import json
 import hashlib
 import base64
+import binascii
 import hmac
 import json
 import os
@@ -273,11 +274,74 @@ def sso_consume():
     log_sso_debug("consume", callback_url=f"{request.url_root.rstrip('/')}/sso/consume")
     payload = verify_sso_token(request.args.get("token", ""))
     if not payload:
-        return "That Brent & Co sign-in link expired. Please try again.", 400
+        return sso_error_page("That Brent & Co sign-in link expired or could not be verified. Please start sign-in again."), 400
     user = upsert_sso_user(payload)
     session.clear()
     session["user_id"] = user["id"]
     return redirect(request.args.get("next") or "/#account")
+
+
+def sso_error_page(message):
+    retry_url = "/sso/login?next=%2F%23account"
+    safe_message = escape(message)
+    return f"""
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Brent & Co Sign In</title>
+        <style>
+          body {{
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            background: #f7f2e9;
+            color: #232323;
+            font-family: Inter, Arial, sans-serif;
+          }}
+          main {{
+            width: min(92vw, 520px);
+            background: #fff;
+            border: 1px solid #e7d8bf;
+            border-radius: 24px;
+            box-shadow: 0 24px 70px rgba(43, 26, 18, 0.14);
+            padding: 32px;
+            text-align: center;
+          }}
+          h1 {{
+            margin: 0 0 12px;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+          }}
+          p {{
+            margin: 0 auto 24px;
+            color: #5f4a3f;
+            line-height: 1.6;
+          }}
+          a {{
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 0 22px;
+            border-radius: 999px;
+            background: #d9a441;
+            color: #232323;
+            font-weight: 800;
+            text-decoration: none;
+          }}
+        </style>
+      </head>
+      <body>
+        <main>
+          <h1>Sign-in link expired</h1>
+          <p>{safe_message}</p>
+          <a href="{retry_url}">Start sign in again</a>
+        </main>
+      </body>
+    </html>
+    """
 
 
 def allowed_file(filename, allowed):
@@ -437,7 +501,7 @@ def verify_sso_token(token):
         if not hmac.compare_digest(sso_b64decode(signature), expected):
             return None
         payload = json.loads(sso_b64decode(body).decode("utf-8"))
-    except (ValueError, json.JSONDecodeError, TypeError):
+    except (ValueError, json.JSONDecodeError, TypeError, binascii.Error):
         return None
     if payload.get("aud") != "lets-cook" or int(payload.get("exp", 0)) < int(time.time()):
         return None
