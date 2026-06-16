@@ -42,7 +42,8 @@ APPLE_PRIVATE_KEY = os.getenv("APPLE_PRIVATE_KEY", "")
 FACEBOOK_CLIENT_ID = os.getenv("FACEBOOK_CLIENT_ID", "")
 FACEBOOK_CLIENT_SECRET = os.getenv("FACEBOOK_CLIENT_SECRET", "")
 SSO_SHARED_SECRET = os.getenv("SSO_SHARED_SECRET", "dev-sso-change-me")
-BRENT_SSO_URL = os.getenv("BRENT_SSO_URL", "https://brentandco.org/sso/start")
+BRENT_SSO_URL = os.getenv("BRENT_SSO_URL", "https://www.brentandco.org/sso/start")
+DEBUG_SSO = os.getenv("DEBUG_SSO", "").strip().lower() in {"1", "true", "yes", "on"}
 LETS_COOK_URL = os.getenv("LETS_COOK_URL", "https://letscookyall.com/")
 FOUNDER_PROFILES = [
     {
@@ -68,6 +69,19 @@ def db():
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
+
+
+def log_sso_debug(event, app_name="lets-cook", callback_url=""):
+    if not DEBUG_SSO:
+        return
+    app.logger.info(
+        "SSO %s app=%s BRENT_SSO_URL=%s SSO_SHARED_SECRET_PRESENT=%s callback=%s",
+        event,
+        app_name,
+        BRENT_SSO_URL,
+        bool(SSO_SHARED_SECRET),
+        callback_url,
+    )
 
 
 def init_db():
@@ -249,11 +263,14 @@ def ensure_database():
 def sso_login():
     next_path = request.args.get("next") or "/#account"
     query = urlencode({"app": "lets-cook", "next": next_path})
+    log_sso_debug("login_redirect", callback_url=f"{request.url_root.rstrip('/')}/sso/consume")
     return redirect(f"{BRENT_SSO_URL}?{query}")
 
 
+@app.get("/sso/callback")
 @app.get("/sso/consume")
 def sso_consume():
+    log_sso_debug("consume", callback_url=f"{request.url_root.rstrip('/')}/sso/consume")
     payload = verify_sso_token(request.args.get("token", ""))
     if not payload:
         return "That Brent & Co sign-in link expired. Please try again.", 400

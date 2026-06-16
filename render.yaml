@@ -13,6 +13,12 @@ services:
         value: /data/instance/lets_cook.sqlite
       - key: UPLOAD_DIR
         value: /data/uploads
+      - key: BRENT_SSO_URL
+        value: https://www.brentandco.org/sso/start
+      - key: SSO_SHARED_SECRET
+        sync: false
+      - key: DEBUG_SSO
+        value: "0"
     disk:
       name: lets-cook-data
       mountPath: /data
