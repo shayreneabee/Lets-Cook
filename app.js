@@ -1035,6 +1035,13 @@ const menuPairings = [
     country_or_region: "U.S. South",
     occasion: "Fish fry",
     main_dish: "Fried catfish",
+    main_recipe_ids: ["fried-catfish"],
+    side_recipe_ids: ["southern-potato-salad", "creamy-coleslaw", "southern-collard-greens", "bbq-baked-beans", "southern-baked-mac-cheese"],
+    bread_recipe_ids: ["hushpuppies", "cornbread"],
+    sauce_recipe_ids: ["tartar-sauce"],
+    drink_recipe_ids: ["sweet-tea", "lemonade"],
+    dessert_recipe_ids: ["peach-cobbler", "banana-pudding"],
+    alternate_recipe_ids: ["blackened-swordfish", "southern-shrimp-and-grits", "fried-chicken"],
     traditional_sides: ["spaghetti", "potato salad", "coleslaw", "greens", "baked beans", "mac and cheese"],
     breads: ["hushpuppies", "cornbread"],
     sauces_condiments: ["tartar sauce", "hot sauce", "lemon", "pickles"],
@@ -1051,6 +1058,13 @@ const menuPairings = [
     country_or_region: "U.S. South",
     occasion: "Sunday dinner",
     main_dish: "Smothered pork chops or oxtails",
+    main_recipe_ids: ["smothered-pork-chops", "oxtails"],
+    side_recipe_ids: ["southern-collard-greens", "candied-yams", "southern-black-eyed-peas", "southern-baked-mac-cheese"],
+    bread_recipe_ids: ["cornbread", "dinner-rolls"],
+    sauce_recipe_ids: ["southern-gravy"],
+    drink_recipe_ids: ["sweet-tea", "lemonade"],
+    dessert_recipe_ids: ["bourbon-praline-bread-pudding", "pound-cake", "banana-pudding"],
+    alternate_recipe_ids: ["fried-chicken", "southern-meatloaf", "southern-cornbread-dressing"],
     traditional_sides: ["collard greens", "candied yams", "black-eyed peas", "mac and cheese"],
     breads: ["cornbread", "dinner rolls"],
     sauces_condiments: ["pepper vinegar", "hot sauce", "gravy"],
@@ -1067,6 +1081,13 @@ const menuPairings = [
     country_or_region: "Jamaica and broader Caribbean",
     occasion: "Family plate",
     main_dish: "Jerk chicken",
+    main_recipe_ids: ["jerk-chicken"],
+    side_recipe_ids: ["rice-and-peas", "fried-sweet-plantains", "cabbage-saute", "cucumber-salad"],
+    bread_recipe_ids: ["coco-bread"],
+    sauce_recipe_ids: ["jerk-sauce"],
+    drink_recipe_ids: ["sorrel-drink", "lemonade"],
+    dessert_recipe_ids: ["rum-cake"],
+    alternate_recipe_ids: ["caribbean-curry-chicken", "ghanaian-kelewele", "nigerian-suya-skewers"],
     traditional_sides: ["rice and peas", "fried plantains", "cabbage", "cucumber salad"],
     breads: ["coco bread", "festival"],
     sauces_condiments: ["jerk sauce", "pepper sauce", "lime"],
@@ -1083,6 +1104,13 @@ const menuPairings = [
     country_or_region: "Greek / Levant-inspired",
     occasion: "Lunch spread",
     main_dish: "Chicken gyros or grilled salmon",
+    main_recipe_ids: ["chicken-gyros", "lemon-herb-salmon"],
+    side_recipe_ids: ["greek-salad", "creamy-hummus", "roasted-vegetables", "rice-pilaf"],
+    bread_recipe_ids: ["pita-flatbread"],
+    sauce_recipe_ids: ["tzatziki-sauce"],
+    drink_recipe_ids: ["mint-lemonade"],
+    dessert_recipe_ids: ["baklava-cups"],
+    alternate_recipe_ids: ["grilled-swordfish-lemon-herb", "mediterranean-swordfish", "moroccan-carrot-salad"],
     traditional_sides: ["Greek salad", "hummus", "roasted vegetables", "rice pilaf"],
     breads: ["pita", "flatbread"],
     sauces_condiments: ["tzatziki", "olive oil", "lemon", "herbs"],
@@ -1099,6 +1127,13 @@ const menuPairings = [
     country_or_region: "U.S. regional barbecue",
     occasion: "Cookout",
     main_dish: "Smoked ribs or pulled pork",
+    main_recipe_ids: ["bbq-smoked-ribs", "bbq-pulled-pork"],
+    side_recipe_ids: ["bbq-baked-beans", "creamy-coleslaw", "southern-potato-salad", "corn-on-the-cob"],
+    bread_recipe_ids: ["cornbread", "slider-buns"],
+    sauce_recipe_ids: ["bbq-sauce-trio"],
+    drink_recipe_ids: ["sweet-tea", "lemonade"],
+    dessert_recipe_ids: ["peach-cobbler", "banana-pudding"],
+    alternate_recipe_ids: ["bbq-chicken-quarters", "bbq-brisket-basics", "fried-chicken"],
     traditional_sides: ["baked beans", "coleslaw", "potato salad", "corn on the cob", "pickles"],
     breads: ["white bread", "cornbread", "slider buns"],
     sauces_condiments: ["vinegar sauce", "sweet barbecue sauce", "mustard sauce", "pickles"],
@@ -1115,6 +1150,13 @@ const menuPairings = [
     country_or_region: "Louisiana",
     occasion: "One-pot supper",
     main_dish: "Chicken and sausage jambalaya",
+    main_recipe_ids: ["cajun-jambalaya"],
+    side_recipe_ids: ["green-salad", "smothered-green-beans", "southern-potato-salad", "corn-maque-choux"],
+    bread_recipe_ids: ["french-bread"],
+    sauce_recipe_ids: ["creole-seasoning-blend"],
+    drink_recipe_ids: ["sweet-tea", "lemonade"],
+    dessert_recipe_ids: ["bourbon-praline-bread-pudding"],
+    alternate_recipe_ids: ["cajun-chicken-sausage-gumbo", "cajun-shrimp-etouffee", "cajun-dirty-rice"],
     traditional_sides: ["green salad", "smothered green beans", "potato salad", "corn maque choux"],
     breads: ["French bread"],
     sauces_condiments: ["hot sauce", "green onions", "parsley"],
@@ -1131,6 +1173,13 @@ const menuPairings = [
     country_or_region: "New Orleans / Gulf South",
     occasion: "Celebration supper",
     main_dish: "Shrimp Creole",
+    main_recipe_ids: ["creole-shrimp-creole"],
+    side_recipe_ids: ["white-rice", "okra-tomato-stew", "green-salad", "buttered-vegetables"],
+    bread_recipe_ids: ["french-bread"],
+    sauce_recipe_ids: ["creole-seasoning-blend"],
+    drink_recipe_ids: ["sweet-tea", "mint-lemonade"],
+    dessert_recipe_ids: ["creole-bananas-foster", "bourbon-praline-bread-pudding"],
+    alternate_recipe_ids: ["creole-seafood-gumbo", "creole-courtbouillon", "cajun-shrimp-etouffee"],
     traditional_sides: ["white rice", "okra", "green salad", "buttered vegetables"],
     breads: ["French bread"],
     sauces_condiments: ["Creole seasoning", "hot sauce", "lemon"],
@@ -1147,6 +1196,13 @@ const menuPairings = [
     country_or_region: "South Asia",
     occasion: "Family curry night",
     main_dish: "Chana masala or butter chicken",
+    main_recipe_ids: ["chana-masala", "butter-chicken"],
+    side_recipe_ids: ["indian-dal-tadka", "cucumber-raita", "kachumber-salad"],
+    bread_recipe_ids: ["garlic-naan"],
+    sauce_recipe_ids: ["mint-chutney", "cucumber-raita"],
+    drink_recipe_ids: ["mango-lassi"],
+    dessert_recipe_ids: ["kheer"],
+    alternate_recipe_ids: ["chicken-tikka-masala", "biryani", "palak-paneer"],
     traditional_sides: ["dal", "cucumber raita", "sauteed greens", "kachumber salad"],
     breads: ["naan", "roti"],
     sauces_condiments: ["mint chutney", "mango chutney", "yogurt"],
@@ -1163,6 +1219,13 @@ const menuPairings = [
     country_or_region: "Mexico / Mexican American table",
     occasion: "Taco night",
     main_dish: "Birria tacos or chicken street tacos",
+    main_recipe_ids: ["birria-style-tacos", "chicken-street-tacos"],
+    side_recipe_ids: ["black-bean-side", "cilantro-lime-rice", "elote-corn", "mexican-slaw"],
+    bread_recipe_ids: ["corn-tortillas"],
+    sauce_recipe_ids: ["salsa-roja", "salsa-verde", "pickled-red-onions"],
+    drink_recipe_ids: ["agua-fresca", "lemonade"],
+    dessert_recipe_ids: ["churro-bites", "flan-cups"],
+    alternate_recipe_ids: ["swordfish-tacos", "cheese-quesadillas", "black-bean-enchiladas"],
     traditional_sides: ["beans", "cilantro lime rice", "elote-style corn", "slaw"],
     breads: ["corn tortillas", "flour tortillas"],
     sauces_condiments: ["salsa roja", "salsa verde", "lime", "pickled onions", "crema"],
@@ -1195,6 +1258,53 @@ const hostingKnowledge = [
   { title: "Meal Prep", text: "Proteins, grains, vegetables, sauces, labels, reheating notes, and flexible mix-and-match meals.", pairing: "Chicken bowls and rice bowls" },
   { title: "Catering Prep", text: "Counts, portions, holding temps, service flow, packaging, backup utensils, and transport timing.", pairing: "Party cups, trays, and batch sides" }
 ];
+
+const menuRecipeSections = [
+  ["Main dishes", "main_recipe_ids"],
+  ["Sides", "side_recipe_ids"],
+  ["Bread", "bread_recipe_ids"],
+  ["Sauces", "sauce_recipe_ids"],
+  ["Drinks", "drink_recipe_ids"],
+  ["Dessert", "dessert_recipe_ids"]
+];
+
+function recipeById(id) {
+  return recipes.find((recipe) => recipe.id === id);
+}
+
+function recipeLinksFor(ids = []) {
+  return ids
+    .map((id) => recipeById(id))
+    .filter(Boolean)
+    .map((recipe) => `<a href="#recipes/${recipe.id}">${recipe.title}</a>`);
+}
+
+function recipesForMenu(menu) {
+  const ids = menuRecipeSections.flatMap(([, key]) => menu[key] || []);
+  return [...new Set(ids)].map((id) => recipeById(id)).filter(Boolean);
+}
+
+function menuShoppingList(menu) {
+  return [...new Set(recipesForMenu(menu).flatMap((recipe) => recipe.ingredients || []))];
+}
+
+function menuMissingRecipeIds() {
+  return menuPairings.flatMap((menu) =>
+    [...menuRecipeSections.map(([, key]) => key), "alternate_recipe_ids"].flatMap((key) =>
+      (menu[key] || []).filter((id) => !recipeById(id)).map((id) => ({ menu: `${menu.cuisine} / ${menu.occasion}`, section: key, id }))
+    )
+  );
+}
+
+window.auditLetsCookMenuIntelligence = () => ({
+  totalMenus: menuPairings.length,
+  missingRecipeLinks: menuMissingRecipeIds(),
+  menus: menuPairings.map((menu) => ({
+    menu: `${menu.cuisine} / ${menu.occasion}`,
+    recipeCount: recipesForMenu(menu).length,
+    linkedRecipes: recipesForMenu(menu).map((recipe) => recipe.id)
+  }))
+});
 
 const ingredientPlaybooks = {
   chicken: {
@@ -1984,8 +2094,95 @@ const nextFeatureRecipes = [
   featured: cuisine === "southern" || cuisine === "asian-inspired"
 }));
 
+const menuIntelligenceRecipes = [
+  ["southern-potato-salad", "Southern Potato Salad", "southern", "Sides", "images/cuisines/southern/southern-04.png", "20 min", "20 min", "Beginner", 8, "Tender potatoes folded with eggs, mustard, mayo, celery, onion, and a little pickle brightness.", ["3 lb Yukon gold potatoes", "4 large eggs", "1 cup mayonnaise", "2 tbsp yellow mustard", "1/2 cup diced celery", "1/4 cup diced onion", "1/3 cup sweet pickle relish", "1 tsp seasoned salt"], ["Boil potatoes until tender, then cool and cube.", "Boil eggs, peel, and chop.", "Whisk mayonnaise, mustard, relish, and seasoning.", "Fold potatoes, eggs, celery, and onion into dressing.", "Chill at least 1 hour before serving."], ["southern", "side dish", "fish fry", "cookout"]],
+  ["candied-yams", "Candied Yams", "southern", "Sides", "images/cuisines/southern/southern-04.png", "15 min", "45 min", "Beginner", 8, "Tender sweet potatoes baked in a buttery brown sugar glaze with cinnamon and vanilla.", ["4 lb sweet potatoes", "1/2 cup butter", "3/4 cup brown sugar", "1/2 cup orange juice", "1 tsp cinnamon", "1 tsp vanilla", "1/2 tsp salt"], ["Peel and slice sweet potatoes.", "Melt butter with brown sugar, orange juice, cinnamon, vanilla, and salt.", "Layer potatoes in a baking dish.", "Pour glaze over top and cover.", "Bake until tender, then uncover to thicken the syrup."], ["southern", "soul food", "holiday", "side dish"]],
+  ["creamy-coleslaw", "Creamy Coleslaw", "southern", "Sides", "images/cuisines/southern/southern-03.png", "15 min", "0 min", "Beginner", 8, "Crunchy cabbage slaw with a creamy, tangy dressing that balances fried fish and barbecue plates.", ["6 cups shredded cabbage", "1 cup shredded carrot", "1/2 cup mayonnaise", "2 tbsp apple cider vinegar", "1 tbsp sugar", "1 tsp Dijon mustard", "1/2 tsp celery seed", "1/2 tsp salt"], ["Whisk mayonnaise, vinegar, sugar, mustard, celery seed, and salt.", "Toss cabbage and carrot with dressing.", "Rest 15 minutes.", "Taste and adjust vinegar or salt.", "Serve chilled."], ["southern", "bbq", "side dish", "fish fry"]],
+  ["bbq-baked-beans", "BBQ Baked Beans", "bbq", "Sides", "assets/american-food.jpeg", "10 min", "45 min", "Beginner", 8, "Smoky-sweet beans baked with onion, molasses, mustard, and barbecue sauce.", ["3 cans navy beans", "1/2 cup diced onion", "1/2 cup barbecue sauce", "1/4 cup molasses", "2 tbsp brown sugar", "1 tbsp yellow mustard", "1 tsp smoked paprika", "4 strips bacon optional"], ["Saute onion until soft.", "Stir beans, sauce, molasses, sugar, mustard, and paprika together.", "Pour into a baking dish.", "Top with bacon if using.", "Bake until bubbly and thick."], ["bbq", "beans", "cookout", "side dish"]],
+  ["hushpuppies", "Golden Hushpuppies", "southern", "Breads", "assets/fresh-bread.jpeg", "10 min", "15 min", "Intermediate", 8, "Crisp cornmeal fritters with tender centers, perfect beside fried catfish.", ["1 cup cornmeal", "1/2 cup flour", "1 tbsp sugar", "1 tsp baking powder", "1/2 tsp salt", "1/2 cup buttermilk", "1 egg", "1/4 cup minced onion", "4 cups frying oil"], ["Whisk dry ingredients.", "Stir in buttermilk, egg, and onion.", "Rest batter 5 minutes.", "Drop spoonfuls into 350 F oil.", "Fry until deep golden and drain on a rack."], ["southern", "fish fry", "bread", "fried"]],
+  ["dinner-rolls", "Soft Dinner Rolls", "southern", "Breads", "assets/fresh-bread.jpeg", "20 min", "18 min", "Intermediate", 12, "Tender pull-apart rolls for Sunday dinner and holiday tables.", ["3 cups flour", "2 1/4 tsp instant yeast", "1 cup warm milk", "3 tbsp sugar", "4 tbsp melted butter", "1 egg", "1 tsp salt"], ["Mix flour, yeast, sugar, and salt.", "Add milk, butter, and egg.", "Knead until smooth.", "Rise until doubled, shape rolls, and rise again.", "Bake until golden and brush with butter."], ["southern", "holiday", "bread", "sunday dinner"]],
+  ["tartar-sauce", "Fish Fry Tartar Sauce", "southern", "Sauces", "assets/editorial-kitchen-prep.jpg", "10 min", "0 min", "Beginner", 8, "A creamy pickle-forward sauce for catfish, shrimp, and fish sandwiches.", ["1 cup mayonnaise", "1/3 cup dill pickle relish", "1 tbsp lemon juice", "1 tbsp minced onion", "1 tsp Dijon mustard", "1 tbsp chopped parsley", "1/4 tsp black pepper"], ["Stir all ingredients together.", "Taste for lemon and pickle balance.", "Chill 20 minutes if possible.", "Serve cold with fried fish."], ["sauce", "fish fry", "southern", "seafood"]],
+  ["southern-gravy", "Onion Pan Gravy", "southern", "Sauces", "assets/editorial-kitchen-prep.jpg", "10 min", "15 min", "Beginner", 6, "A skillet gravy built from onions, flour, stock, and pan flavor for smothered meats.", ["2 tbsp oil or drippings", "1 onion sliced", "2 tbsp flour", "2 cups chicken stock", "1/2 tsp garlic powder", "1/2 tsp black pepper", "Salt to taste"], ["Cook onion in drippings until soft.", "Sprinkle flour over onion and stir 2 minutes.", "Whisk in stock gradually.", "Simmer until thick.", "Season and spoon over chops or rice."], ["gravy", "sauce", "southern", "smothered"]],
+  ["sweet-tea", "Southern Sweet Tea", "southern", "Drinks", "assets/editorial-cooking-hero.jpg", "5 min", "10 min", "Beginner", 8, "Strong black tea sweetened while warm and poured over ice.", ["8 cups water", "6 black tea bags", "3/4 cup sugar", "1 lemon optional", "Ice"], ["Boil 4 cups water.", "Steep tea bags 8 minutes.", "Stir in sugar while warm.", "Add remaining cold water.", "Chill and serve over ice with lemon."], ["drink", "southern", "fish fry", "cookout"]],
+  ["lemonade", "Fresh Lemonade", "southern", "Drinks", "assets/editorial-cooking-hero.jpg", "10 min", "5 min", "Beginner", 8, "Bright lemonade balanced with simple syrup and fresh lemon juice.", ["1 cup lemon juice", "3/4 cup sugar", "1 cup water for syrup", "5 cups cold water", "Ice"], ["Simmer sugar and 1 cup water until dissolved.", "Cool syrup.", "Combine lemon juice, syrup, and cold water.", "Taste and adjust.", "Serve over ice."], ["drink", "lemon", "hosting", "kid-friendly"]],
+  ["peach-cobbler", "Peach Cobbler", "southern", "Desserts", "assets/lc-desserts.jpg", "15 min", "45 min", "Beginner", 8, "Warm peaches baked under a buttery golden crust for Sunday tables and cookouts.", ["6 cups sliced peaches", "1 cup sugar", "1 tbsp lemon juice", "1 cup flour", "1 cup milk", "1 stick butter", "2 tsp baking powder", "1 tsp cinnamon"], ["Melt butter in a baking dish.", "Toss peaches with sugar and lemon.", "Whisk flour, milk, baking powder, and cinnamon.", "Pour batter over butter, then add peaches.", "Bake until browned and bubbling."], ["dessert", "southern", "cookout", "holiday"]],
+  ["banana-pudding", "Banana Pudding", "southern", "Desserts", "assets/lc-desserts.jpg", "20 min", "0 min", "Beginner", 10, "Layers of vanilla pudding, bananas, wafers, and whipped topping chilled until spoonable.", ["2 boxes vanilla pudding mix", "4 cups cold milk", "5 bananas", "1 box vanilla wafers", "2 cups whipped topping"], ["Whisk pudding with milk.", "Slice bananas.", "Layer wafers, bananas, and pudding.", "Repeat layers.", "Top with whipped topping and chill."], ["dessert", "soul food", "potluck", "kid-friendly"]],
+  ["pound-cake", "Vanilla Pound Cake", "southern", "Desserts", "assets/lc-desserts.jpg", "20 min", "1 hr 10 min", "Intermediate", 12, "A buttery sliceable cake for Sunday dinner, holidays, and repast tables.", ["3 cups flour", "3 cups sugar", "1 cup butter", "6 eggs", "1 cup sour cream", "1 tbsp vanilla", "1/2 tsp salt"], ["Cream butter and sugar well.", "Add eggs one at a time.", "Mix in flour, sour cream, vanilla, and salt.", "Pour into greased tube pan.", "Bake until a tester comes out clean."], ["dessert", "southern", "holiday", "sunday dinner"]],
+  ["rice-and-peas", "Caribbean Rice and Peas", "caribbean", "Sides", "assets/lc-african-food.jpg", "10 min", "35 min", "Beginner", 6, "Rice cooked with kidney beans, coconut milk, thyme, scallion, and allspice warmth.", ["2 cups long-grain rice", "1 can kidney beans", "1 can coconut milk", "1 cup water", "2 scallions", "2 thyme sprigs", "1 tsp allspice", "1 Scotch bonnet whole optional"], ["Rinse rice.", "Combine coconut milk, water, beans, scallion, thyme, and allspice.", "Bring to a simmer.", "Add rice, cover, and cook low.", "Rest 10 minutes and fluff."], ["caribbean", "rice", "side dish", "family plate"]],
+  ["cabbage-saute", "Caribbean Cabbage Saute", "caribbean", "Sides", "assets/ingredients.jpeg", "10 min", "15 min", "Beginner", 6, "Tender-crisp cabbage with peppers, carrot, thyme, and a light buttery finish.", ["6 cups sliced cabbage", "1 carrot shredded", "1 bell pepper sliced", "2 tbsp butter", "1 tsp thyme", "1/2 tsp allspice", "Salt to taste"], ["Melt butter in a wide skillet.", "Add cabbage, carrot, pepper, thyme, and allspice.", "Cook until crisp-tender.", "Season with salt.", "Serve warm."], ["caribbean", "vegetable", "side dish", "quick"]],
+  ["cucumber-salad", "Cucumber Lime Salad", "caribbean", "Sides", "assets/ingredients.jpeg", "10 min", "0 min", "Beginner", 4, "Cool cucumbers tossed with lime, herbs, onion, and a touch of chile.", ["2 cucumbers sliced", "1/4 red onion sliced", "2 tbsp lime juice", "1 tbsp olive oil", "1 tbsp cilantro", "1/4 tsp salt", "Pinch chile flakes"], ["Slice cucumbers and onion.", "Whisk lime, oil, salt, and chile.", "Toss with cucumbers.", "Finish with cilantro.", "Chill briefly."], ["caribbean", "salad", "cooling", "quick"]],
+  ["coco-bread", "Coco Bread", "caribbean", "Breads", "assets/fresh-bread.jpeg", "25 min", "18 min", "Intermediate", 8, "Soft folded Caribbean bread with coconut milk richness.", ["3 cups flour", "2 tsp yeast", "1 cup coconut milk", "2 tbsp sugar", "4 tbsp butter", "1 tsp salt"], ["Mix dough ingredients.", "Knead until smooth.", "Rise until doubled.", "Roll and fold with butter.", "Bake until lightly golden."], ["caribbean", "bread", "coconut", "family plate"]],
+  ["jerk-sauce", "Jerk Sauce", "caribbean", "Sauces", "assets/editorial-kitchen-prep.jpg", "15 min", "0 min", "Intermediate", 12, "A bold sauce of scallion, thyme, allspice, chile, garlic, ginger, and lime.", ["6 scallions", "2 Scotch bonnets", "4 garlic cloves", "1 tbsp thyme", "1 tbsp allspice", "1 tbsp brown sugar", "2 tbsp lime juice", "2 tbsp vinegar"], ["Blend all ingredients until saucy.", "Taste carefully for heat.", "Use as marinade or table sauce.", "Refrigerate leftovers."], ["caribbean", "jerk", "sauce", "spicy"]],
+  ["sorrel-drink", "Sorrel Drink", "caribbean", "Drinks", "assets/editorial-cooking-hero.jpg", "10 min", "20 min", "Beginner", 8, "Hibiscus drink steeped with ginger, cloves, citrus, and sweetened to taste.", ["2 cups dried sorrel hibiscus", "8 cups water", "2 inch ginger sliced", "6 cloves", "1 orange peel", "1/2 cup sugar"], ["Boil water with ginger and cloves.", "Add sorrel and orange peel.", "Steep 20 minutes.", "Strain and sweeten.", "Chill well."], ["caribbean", "drink", "holiday", "hibiscus"]],
+  ["rum-cake", "Caribbean Rum Cake", "caribbean", "Desserts", "assets/lc-desserts.jpg", "20 min", "55 min", "Intermediate", 12, "A moist bundt cake brushed with buttery rum syrup for celebrations.", ["1 box yellow cake mix", "1 box vanilla pudding mix", "4 eggs", "1/2 cup oil", "1/2 cup rum or rum syrup", "1/2 cup water", "1 cup sugar", "1/2 cup butter"], ["Mix cake batter with pudding, eggs, oil, rum, and water.", "Bake in a bundt pan.", "Simmer butter, sugar, and a splash of rum or extract.", "Brush warm cake with syrup.", "Cool before slicing."], ["caribbean", "dessert", "holiday", "celebration"]],
+  ["greek-salad", "Greek Salad", "mediterranean", "Salads", "images/cuisines/mediterranean/mediterranean-04.png", "15 min", "0 min", "Beginner", 4, "Tomato, cucumber, olives, feta, herbs, and lemony olive oil dressing.", ["2 cups tomatoes", "1 cucumber", "1/2 red onion", "1/2 cup olives", "1/2 cup feta", "3 tbsp olive oil", "1 tbsp lemon juice", "1 tsp oregano"], ["Chop vegetables.", "Whisk oil, lemon, oregano, salt, and pepper.", "Toss vegetables and olives.", "Top with feta.", "Serve fresh."], ["mediterranean", "salad", "vegetarian", "quick"]],
+  ["creamy-hummus", "Creamy Hummus", "mediterranean", "Dips", "images/cuisines/mediterranean/mediterranean-05.png", "10 min", "0 min", "Beginner", 8, "Chickpeas blended with tahini, lemon, garlic, and olive oil until smooth.", ["2 cans chickpeas", "1/3 cup tahini", "1/4 cup lemon juice", "2 garlic cloves", "3 tbsp olive oil", "1/2 tsp cumin", "Salt to taste"], ["Drain chickpeas.", "Blend tahini, lemon, garlic, and oil.", "Add chickpeas and cumin.", "Blend with water until smooth.", "Finish with olive oil."], ["mediterranean", "dip", "vegetarian", "party"]],
+  ["roasted-vegetables", "Roasted Vegetables", "mediterranean", "Sides", "images/cuisines/mediterranean/mediterranean-06.png", "15 min", "30 min", "Beginner", 6, "Seasonal vegetables roasted with olive oil, herbs, lemon, and browned edges.", ["6 cups mixed vegetables", "3 tbsp olive oil", "1 tsp oregano", "1 tsp garlic powder", "1 lemon", "1 tsp salt"], ["Cut vegetables evenly.", "Toss with oil and seasoning.", "Spread on a sheet pan.", "Roast until browned.", "Finish with lemon."], ["mediterranean", "vegetables", "side dish", "roasting"]],
+  ["rice-pilaf", "Herbed Rice Pilaf", "mediterranean", "Sides", "images/cuisines/mediterranean/mediterranean-07.png", "10 min", "20 min", "Beginner", 6, "Fluffy rice toasted with aromatics, simmered in stock, and finished with herbs.", ["2 cups rice", "2 tbsp olive oil", "1/2 onion minced", "3 cups stock", "1 bay leaf", "2 tbsp parsley", "Salt"], ["Toast rice in oil with onion.", "Add stock and bay leaf.", "Cover and simmer.", "Rest 10 minutes.", "Fluff with herbs."], ["mediterranean", "rice", "side dish", "pilaf"]],
+  ["pita-flatbread", "Skillet Pita Flatbread", "mediterranean", "Breads", "assets/fresh-bread.jpeg", "25 min", "10 min", "Intermediate", 8, "Soft flatbread cooked in a skillet for gyros, dips, and spreads.", ["3 cups flour", "2 tsp yeast", "1 cup warm water", "2 tbsp olive oil", "1 tsp sugar", "1 tsp salt"], ["Mix dough and knead.", "Rise until puffy.", "Divide and roll thin.", "Cook in a hot skillet.", "Keep warm under a towel."], ["mediterranean", "bread", "pita", "flatbread"]],
+  ["tzatziki-sauce", "Tzatziki Sauce", "mediterranean", "Sauces", "assets/editorial-kitchen-prep.jpg", "15 min", "0 min", "Beginner", 8, "Greek yogurt sauce with cucumber, garlic, lemon, dill, and olive oil.", ["1 cup Greek yogurt", "1/2 cucumber grated", "1 tbsp lemon juice", "1 garlic clove", "1 tbsp dill", "1 tbsp olive oil", "1/2 tsp salt"], ["Squeeze liquid from cucumber.", "Stir yogurt, cucumber, lemon, garlic, dill, oil, and salt.", "Chill 10 minutes.", "Serve with grilled foods or pita."], ["mediterranean", "sauce", "yogurt", "cooling"]],
+  ["mint-lemonade", "Mint Lemonade", "mediterranean", "Drinks", "assets/editorial-cooking-hero.jpg", "10 min", "5 min", "Beginner", 6, "Fresh lemonade blended or stirred with mint for a bright table drink.", ["1 cup lemon juice", "1/2 cup sugar", "5 cups water", "1 cup mint leaves", "Ice"], ["Make simple syrup with sugar and 1 cup water.", "Blend or steep mint with syrup.", "Combine with lemon juice and cold water.", "Strain if desired.", "Serve over ice."], ["mediterranean", "drink", "mint", "hosting"]],
+  ["baklava-cups", "Baklava Cups", "mediterranean", "Desserts", "assets/lc-desserts.jpg", "15 min", "12 min", "Beginner", 24, "Mini phyllo cups filled with spiced nuts and honey syrup.", ["24 phyllo cups", "1 cup chopped walnuts", "1/2 cup pistachios", "1/4 cup honey", "2 tbsp butter", "1/2 tsp cinnamon"], ["Mix nuts with cinnamon.", "Fill phyllo cups.", "Bake until fragrant.", "Warm honey with butter.", "Spoon syrup over cups."], ["mediterranean", "dessert", "party", "baklava"]],
+  ["corn-on-the-cob", "Buttery Corn on the Cob", "bbq", "Sides", "assets/ingredients.jpeg", "5 min", "12 min", "Beginner", 6, "Sweet corn boiled or grilled and finished with butter, salt, and pepper.", ["6 ears corn", "4 tbsp butter", "1 tsp salt", "1/2 tsp black pepper", "Parsley optional"], ["Shuck corn.", "Boil or grill until tender.", "Brush with butter.", "Season with salt and pepper.", "Serve hot."], ["bbq", "side dish", "cookout", "kid-friendly"]],
+  ["slider-buns", "Soft Slider Buns", "bbq", "Breads", "assets/fresh-bread.jpeg", "20 min", "15 min", "Intermediate", 12, "Small soft buns for pulled pork, burgers, and party sandwiches.", ["3 cups flour", "2 tsp yeast", "1 cup warm milk", "2 tbsp sugar", "3 tbsp butter", "1 egg", "1 tsp salt"], ["Mix dough.", "Knead until smooth.", "Rise until doubled.", "Shape small buns.", "Bake until golden."], ["bbq", "bread", "party", "sandwiches"]],
+  ["bbq-sauce-trio", "BBQ Sauce Trio", "bbq", "Sauces", "assets/editorial-kitchen-prep.jpg", "15 min", "15 min", "Beginner", 12, "Three simple table sauces: sweet tomato, vinegar pepper, and mustard barbecue.", ["1 cup ketchup", "1/2 cup apple cider vinegar", "1/4 cup brown sugar", "2 tbsp mustard", "1 tbsp Worcestershire", "1 tsp black pepper", "1 tsp smoked paprika"], ["Simmer ketchup, sugar, vinegar, Worcestershire, and paprika for sweet sauce.", "Mix vinegar, pepper, and salt for vinegar sauce.", "Stir mustard, vinegar, and honey for mustard sauce.", "Label each sauce.", "Serve warm or room temperature."], ["bbq", "sauce", "cookout", "hosting"]],
+  ["smothered-green-beans", "Smothered Green Beans", "cajun", "Sides", "assets/ingredients.jpeg", "10 min", "35 min", "Beginner", 6, "Green beans cooked down with onion, garlic, smoked sausage or turkey, and Cajun seasoning.", ["1 1/2 lb green beans", "1/2 lb smoked sausage optional", "1 onion", "2 garlic cloves", "1 cup stock", "1 tsp Cajun seasoning", "1 tbsp oil"], ["Brown sausage if using.", "Cook onion and garlic.", "Add green beans, stock, and seasoning.", "Cover and simmer until tender.", "Taste and adjust seasoning."], ["cajun", "side dish", "green beans", "one-pot"]],
+  ["corn-maque-choux", "Corn Maque Choux", "cajun", "Sides", "assets/ingredients.jpeg", "15 min", "20 min", "Beginner", 6, "Cajun corn sauteed with trinity, cream, and gentle spice.", ["4 cups corn kernels", "1/2 onion diced", "1/2 bell pepper diced", "1 celery stalk diced", "1/2 cup cream", "1 tsp Cajun seasoning", "2 tbsp butter"], ["Cook trinity in butter.", "Add corn and Cajun seasoning.", "Cook until corn is tender.", "Stir in cream.", "Simmer until lightly thickened."], ["cajun", "corn", "side dish", "maque choux"]],
+  ["french-bread", "Warm French Bread", "cajun", "Breads", "assets/fresh-bread.jpeg", "5 min", "8 min", "Beginner", 8, "A simple warm loaf served with gumbo, Creole sauce, or jambalaya.", ["1 French bread loaf", "3 tbsp butter", "1 garlic clove optional", "1 tbsp parsley optional"], ["Slice bread almost through.", "Mix butter with garlic and parsley.", "Spread into cuts.", "Wrap loosely in foil.", "Warm until soft and fragrant."], ["cajun", "creole", "bread", "hosting"]],
+  ["white-rice", "Steamed White Rice", "creole", "Sides", "assets/lc-fried-rice.jpg", "5 min", "18 min", "Beginner", 6, "Fluffy rice for gumbo, Creole sauces, curries, and stews.", ["2 cups long-grain rice", "3 cups water", "1 tsp salt", "1 tbsp butter optional"], ["Rinse rice until water runs mostly clear.", "Bring water, rice, and salt to a boil.", "Cover and reduce heat.", "Cook until water is absorbed.", "Rest 10 minutes and fluff."], ["rice", "side dish", "beginner", "creole"]],
+  ["okra-tomato-stew", "Okra and Tomato Stew", "creole", "Sides", "assets/ingredients.jpeg", "15 min", "25 min", "Beginner", 6, "Tender okra simmered with tomatoes, onion, garlic, and Creole seasoning.", ["1 lb okra sliced", "1 can diced tomatoes", "1 onion", "2 garlic cloves", "1 tsp Creole seasoning", "1 tbsp oil", "1/2 cup stock"], ["Cook onion and garlic in oil.", "Add okra and seasoning.", "Add tomatoes and stock.", "Simmer until okra is tender.", "Serve over or beside rice."], ["creole", "okra", "side dish", "tomato"]],
+  ["green-salad", "Simple Green Salad", "creole", "Salads", "assets/ingredients.jpeg", "10 min", "0 min", "Beginner", 4, "Crisp greens with a light vinaigrette to balance rich dishes.", ["6 cups mixed greens", "1 cucumber", "1/4 red onion", "3 tbsp olive oil", "1 tbsp vinegar", "1 tsp Dijon mustard", "Salt and pepper"], ["Wash and dry greens.", "Slice cucumber and onion.", "Whisk oil, vinegar, mustard, salt, and pepper.", "Toss lightly before serving."], ["salad", "side dish", "hosting", "quick"]],
+  ["buttered-vegetables", "Buttered Vegetables", "creole", "Sides", "assets/ingredients.jpeg", "10 min", "12 min", "Beginner", 6, "Tender vegetables tossed with butter, herbs, lemon, and salt.", ["4 cups mixed vegetables", "3 tbsp butter", "1 tbsp lemon juice", "1 tbsp parsley", "1/2 tsp salt", "1/4 tsp black pepper"], ["Steam or simmer vegetables until tender.", "Drain well.", "Toss with butter.", "Add lemon, parsley, salt, and pepper.", "Serve warm."], ["vegetables", "side dish", "beginner", "hosting"]],
+  ["creole-seasoning-blend", "Creole Seasoning Blend", "creole", "Seasonings", "assets/editorial-kitchen-prep.jpg", "5 min", "0 min", "Beginner", 16, "A pantry seasoning for Creole sauces, seafood, rice, and vegetables.", ["2 tbsp paprika", "1 tbsp garlic powder", "1 tbsp onion powder", "1 tbsp dried oregano", "1 tbsp dried thyme", "1 tsp cayenne", "1 tbsp black pepper", "1 tbsp salt"], ["Measure spices into a bowl.", "Whisk until even.", "Store in a labeled jar.", "Use lightly and adjust salt in recipes."], ["creole", "seasoning", "pantry", "sauce"]],
+  ["cucumber-raita", "Cucumber Raita", "indian", "Sauces", "assets/indian-food.jpeg", "10 min", "0 min", "Beginner", 6, "Cooling yogurt sauce with cucumber, cumin, cilantro, and salt.", ["1 cup yogurt", "1/2 cucumber grated", "1/2 tsp cumin", "1 tbsp cilantro", "1 tsp lemon juice", "1/4 tsp salt"], ["Squeeze cucumber dry.", "Stir yogurt, cucumber, cumin, cilantro, lemon, and salt.", "Chill briefly.", "Serve with curry or rice."], ["indian", "sauce", "yogurt", "cooling"]],
+  ["kachumber-salad", "Kachumber Salad", "indian", "Salads", "assets/indian-food.jpeg", "10 min", "0 min", "Beginner", 4, "Fresh chopped cucumber, tomato, onion, herbs, lemon, and chile.", ["1 cucumber", "2 tomatoes", "1/4 red onion", "1 tbsp cilantro", "1 tbsp lemon juice", "Pinch chile", "Salt"], ["Dice vegetables.", "Toss with cilantro, lemon, chile, and salt.", "Rest 5 minutes.", "Serve fresh."], ["indian", "salad", "fresh", "quick"]],
+  ["mint-chutney", "Mint Chutney", "indian", "Sauces", "assets/indian-food.jpeg", "10 min", "0 min", "Beginner", 8, "Bright herb chutney with mint, cilantro, chile, lemon, and yogurt or water.", ["1 cup mint", "1 cup cilantro", "1 green chile", "1 tbsp lemon juice", "1/4 cup yogurt or water", "1/2 tsp cumin", "Salt"], ["Blend herbs, chile, lemon, yogurt, cumin, and salt.", "Thin with water if needed.", "Taste for lemon and salt.", "Chill until serving."], ["indian", "chutney", "sauce", "herbs"]],
+  ["mango-lassi", "Mango Lassi", "indian", "Drinks", "assets/indian-food.jpeg", "5 min", "0 min", "Beginner", 4, "Creamy yogurt drink blended with mango, milk, and a little cardamom.", ["2 cups mango", "1 cup yogurt", "1/2 cup milk", "2 tbsp honey", "Pinch cardamom", "Ice optional"], ["Blend mango, yogurt, milk, honey, and cardamom.", "Add ice if desired.", "Taste for sweetness.", "Serve cold."], ["indian", "drink", "mango", "cooling"]],
+  ["kheer", "Rice Kheer", "indian", "Desserts", "assets/lc-desserts.jpg", "5 min", "35 min", "Beginner", 6, "Creamy rice pudding simmered with milk, sugar, cardamom, and nuts.", ["1/2 cup rice", "4 cups milk", "1/3 cup sugar", "1/2 tsp cardamom", "2 tbsp almonds or pistachios", "1 tbsp raisins optional"], ["Rinse rice.", "Simmer rice in milk, stirring often.", "Cook until creamy.", "Add sugar and cardamom.", "Top with nuts."], ["indian", "dessert", "rice pudding", "holiday"]],
+  ["birria-style-tacos", "Birria-Style Tacos", "mexican", "Main Dishes", "assets/lc-birria-tacos.jpg", "30 min", "3 hr", "Advanced", 6, "Slow-braised chile beef tucked into tortillas with consomme for dipping.", ["3 lb chuck roast", "4 dried guajillo chiles", "2 ancho chiles", "1 onion", "4 garlic cloves", "4 cups beef stock", "12 corn tortillas", "2 cups shredded cheese optional"], ["Toast and soak chiles.", "Blend chiles with onion, garlic, and stock.", "Brown beef.", "Braise beef in chile sauce until tender.", "Shred meat and crisp in tortillas with consomme for dipping."], ["mexican", "tacos", "braising", "party"]],
+  ["black-bean-side", "Seasoned Black Beans", "mexican", "Sides", "assets/ingredients.jpeg", "10 min", "20 min", "Beginner", 6, "Black beans simmered with onion, garlic, cumin, and lime.", ["2 cans black beans", "1/2 onion diced", "2 garlic cloves", "1 tsp cumin", "1/2 cup stock", "1 tbsp lime juice", "Salt"], ["Cook onion and garlic.", "Add cumin and beans.", "Simmer with stock.", "Mash some beans for body.", "Finish with lime."], ["mexican", "beans", "side dish", "vegetarian"]],
+  ["cilantro-lime-rice", "Cilantro Lime Rice", "mexican", "Sides", "assets/lc-fried-rice.jpg", "5 min", "20 min", "Beginner", 6, "Fluffy rice finished with lime, cilantro, and a little oil.", ["2 cups rice", "3 cups water", "1 tsp salt", "1 tbsp oil", "1 lime", "1/2 cup cilantro"], ["Cook rice with water, salt, and oil.", "Rest and fluff.", "Add lime zest and juice.", "Fold in cilantro.", "Taste for salt."], ["mexican", "rice", "side dish", "taco night"]],
+  ["elote-corn", "Elote-Style Corn", "mexican", "Sides", "assets/ingredients.jpeg", "10 min", "15 min", "Beginner", 6, "Corn coated with creamy lime sauce, chile, cheese, and cilantro.", ["6 ears corn", "1/3 cup mayonnaise", "1/3 cup crema", "1 lime", "1/2 cup cotija", "1 tsp chile powder", "2 tbsp cilantro"], ["Cook corn by grilling or boiling.", "Mix mayo, crema, and lime.", "Brush corn with sauce.", "Sprinkle cheese and chile.", "Finish with cilantro."], ["mexican", "corn", "side dish", "cookout"]],
+  ["mexican-slaw", "Citrus Taco Slaw", "mexican", "Sides", "assets/ingredients.jpeg", "10 min", "0 min", "Beginner", 6, "Crunchy cabbage slaw with lime, cilantro, and a touch of honey.", ["4 cups shredded cabbage", "1 carrot", "1/4 cup cilantro", "2 tbsp lime juice", "1 tbsp honey", "1 tbsp oil", "1/2 tsp salt"], ["Whisk lime, honey, oil, and salt.", "Toss cabbage, carrot, and cilantro.", "Rest 10 minutes.", "Serve with tacos."], ["mexican", "slaw", "side dish", "tacos"]],
+  ["corn-tortillas", "Warm Corn Tortillas", "mexican", "Breads", "assets/fresh-bread.jpeg", "5 min", "5 min", "Beginner", 12, "A simple method for warming tortillas so taco night tastes intentional.", ["12 corn tortillas", "1 tsp oil optional", "Clean towel"], ["Heat a dry skillet.", "Warm tortillas 20 to 30 seconds per side.", "Stack in a clean towel.", "Keep covered until serving."], ["mexican", "tortillas", "bread", "taco night"]],
+  ["salsa-roja", "Salsa Roja", "mexican", "Sauces", "assets/editorial-kitchen-prep.jpg", "10 min", "15 min", "Beginner", 10, "Red salsa made with tomatoes, chile, onion, garlic, cilantro, and lime.", ["4 tomatoes", "2 dried or fresh chiles", "1/4 onion", "2 garlic cloves", "1/4 cup cilantro", "1 lime", "Salt"], ["Char or simmer tomatoes and chiles.", "Blend with onion and garlic.", "Add cilantro and lime.", "Season with salt.", "Chill or serve warm."], ["mexican", "salsa", "sauce", "tacos"]],
+  ["salsa-verde", "Salsa Verde", "mexican", "Sauces", "assets/editorial-kitchen-prep.jpg", "10 min", "12 min", "Beginner", 10, "Tangy green salsa with tomatillos, chile, onion, cilantro, and lime.", ["1 lb tomatillos", "1 jalapeno", "1/4 onion", "1 garlic clove", "1/4 cup cilantro", "1 lime", "Salt"], ["Remove tomatillo husks.", "Simmer tomatillos and jalapeno until softened.", "Blend with onion, garlic, cilantro, and lime.", "Season with salt."], ["mexican", "salsa", "sauce", "tomatillo"]],
+  ["pickled-red-onions", "Pickled Red Onions", "mexican", "Sauces", "assets/editorial-kitchen-prep.jpg", "10 min", "5 min", "Beginner", 12, "Quick onions pickled with vinegar, lime, salt, and sugar for tacos and bowls.", ["1 red onion sliced", "1/2 cup vinegar", "1/2 cup water", "1 tbsp sugar", "1 tsp salt", "1 lime"], ["Slice onion thin.", "Warm vinegar, water, sugar, and salt.", "Pour over onions.", "Add lime juice.", "Rest 30 minutes."], ["mexican", "pickle", "topping", "tacos"]],
+  ["agua-fresca", "Watermelon Agua Fresca", "mexican", "Drinks", "assets/editorial-cooking-hero.jpg", "10 min", "0 min", "Beginner", 6, "Fresh fruit drink blended with water, lime, and light sweetness.", ["4 cups watermelon", "3 cups water", "2 tbsp lime juice", "1 tbsp sugar optional", "Ice"], ["Blend watermelon, water, lime, and sugar.", "Strain if desired.", "Chill.", "Serve over ice."], ["mexican", "drink", "fruit", "kid-friendly"]],
+  ["churro-bites", "Churro Bites", "mexican", "Desserts", "assets/lc-desserts.jpg", "15 min", "15 min", "Intermediate", 6, "Small fried dough bites tossed in cinnamon sugar.", ["1 cup water", "4 tbsp butter", "1 cup flour", "2 eggs", "1/2 cup sugar", "1 tsp cinnamon", "Oil for frying"], ["Boil water and butter.", "Stir in flour to form dough.", "Beat in eggs one at a time.", "Pipe or spoon into hot oil.", "Toss in cinnamon sugar."], ["mexican", "dessert", "party", "fried"]],
+  ["flan-cups", "Vanilla Flan Cups", "mexican", "Desserts", "assets/lc-desserts.jpg", "20 min", "45 min", "Intermediate", 6, "Creamy custard cups with caramel sauce.", ["1 cup sugar", "1 can evaporated milk", "1 can sweetened condensed milk", "4 eggs", "1 tbsp vanilla", "Hot water for bath"], ["Melt sugar into caramel and pour into cups.", "Blend milks, eggs, and vanilla.", "Pour custard over caramel.", "Bake in a water bath until set.", "Chill before unmolding."], ["mexican", "dessert", "custard", "holiday"]]
+].map(([id, title, cuisine, category, image, prep_time, cook_time, difficulty, servings, description, ingredients, instructions, tags]) => ({
+  id,
+  title,
+  slug: id,
+  cuisine,
+  category,
+  image,
+  image_url: image,
+  prep_time,
+  prepTime: prep_time,
+  cook_time,
+  cookTime: cook_time,
+  time: cook_time,
+  cookTimeMinutes: Number(cook_time.match(/\d+/)?.[0] || 30),
+  skill_level: difficulty === "Beginner" ? "Amateur" : "Professional",
+  difficulty,
+  level: difficulty,
+  servings,
+  path: difficulty === "Beginner" ? "amateur-home-chef" : "professional-mode",
+  description,
+  ingredients,
+  directions: instructions,
+  instructions,
+  steps: instructions,
+  tags,
+  cultural_variations: [],
+  source: { type: "original", name: "Let's Cook Y'all menu intelligence recipe" },
+  featured: false
+}));
+
 const existingRecipeIds = new Set(recipes.map((recipe) => recipe.id));
-recipes = [...recipes, ...nextFeatureRecipes.filter((recipe) => !existingRecipeIds.has(recipe.id))];
+recipes = [...recipes, ...[...nextFeatureRecipes, ...menuIntelligenceRecipes].filter((recipe) => !existingRecipeIds.has(recipe.id))];
 
 const lessons = [
   {
@@ -3957,19 +4154,25 @@ function renderCulinaryAcademy(id) {
 const renderFoodEncyclopedia = renderCulinaryAcademy;
 
 function menuPairingCard(menu) {
+  const mainLinks = recipeLinksFor(menu.main_recipe_ids);
+  const sectionHtml = menuRecipeSections
+    .filter(([label]) => label !== "Main dishes")
+    .map(([label, key]) => {
+      const links = recipeLinksFor(menu[key]);
+      return links.length ? `<section><strong>${label}</strong><span class="recipe-link-list">${links.join("")}</span></section>` : "";
+    })
+    .join("");
+  const alternateLinks = recipeLinksFor(menu.alternate_recipe_ids);
   return `
     <article class="menu-pairing-card">
       <p class="eyebrow">${menu.cuisine} / ${menu.occasion}</p>
-      <h3>${menu.main_dish}</h3>
+      <h3>${mainLinks.length ? mainLinks.join(" or ") : menu.main_dish}</h3>
       <p>${menu.cultural_notes}</p>
       <div class="menu-columns">
-        <section><strong>Sides</strong><span>${menu.traditional_sides.join(", ")}</span></section>
-        <section><strong>Bread</strong><span>${menu.breads.join(", ")}</span></section>
-        <section><strong>Sauces</strong><span>${menu.sauces_condiments.join(", ")}</span></section>
-        <section><strong>Drinks</strong><span>${menu.drinks.join(", ")}</span></section>
-        <section><strong>Dessert</strong><span>${menu.desserts.join(", ")}</span></section>
+        ${sectionHtml}
         <section><strong>Cook Time</strong><span>${menu.cook_time}</span></section>
       </div>
+      ${alternateLinks.length ? `<div class="alternate-menu-links"><strong>Alternate ideas</strong><span class="recipe-link-list">${alternateLinks.join("")}</span></div>` : ""}
       <div class="chef-note-grid">
         <section><strong>Beginner</strong><p>${menu.beginner_level}</p></section>
         <section><strong>Professional</strong><p>${menu.pro_level}</p></section>
@@ -3995,7 +4198,7 @@ function renderMenuIntelligence(id) {
       <form class="menu-builder-form" data-menu-builder-form>
         <label>Cuisine<select name="cuisine">${cuisinesList.map((item) => `<option${item === selectedMenu.cuisine ? " selected" : ""}>${item}</option>`).join("")}</select></label>
         <label>Occasion<select name="occasion">${occasionsList.map((item) => `<option${item === selectedMenu.occasion ? " selected" : ""}>${item}</option>`).join("")}</select></label>
-        <label>Main Dish<select name="main">${menuPairings.map((menu, index) => `<option value="${index}"${index === selectedIndex ? " selected" : ""}>${menu.main_dish}</option>`).join("")}</select></label>
+        <label>Main Dish<select name="main">${menuPairings.map((menu, index) => `<option value="${index}"${index === selectedIndex ? " selected" : ""}>${recipeLinksFor(menu.main_recipe_ids).map((link) => link.replace(/<[^>]+>/g, "")).join(" or ") || menu.main_dish}</option>`).join("")}</select></label>
         <button class="small-button" type="submit">Build Menu</button>
       </form>
       <div class="menu-builder-result">
@@ -4466,14 +4669,8 @@ function renderPlanner(id) {
   const shoppingItems = [...new Set(plannedRecipes.flatMap((recipe) => recipe.ingredients))];
   const selectedIndex = Number.isFinite(Number(id)) ? Math.max(0, Math.min(menuPairings.length - 1, Number(id))) : 0;
   const selectedMenu = menuPairings[selectedIndex];
-  const menuShoppingItems = [
-    selectedMenu.main_dish,
-    ...selectedMenu.traditional_sides,
-    ...selectedMenu.breads,
-    ...selectedMenu.sauces_condiments,
-    ...selectedMenu.drinks,
-    ...selectedMenu.desserts
-  ];
+  const menuShoppingItems = menuShoppingList(selectedMenu);
+  const menuRecipeCount = recipesForMenu(selectedMenu).length;
   const quickPlan = [
     { title: "Kid-friendly start", ids: ["pb-and-j-sandwich", "stovetop-mac-and-cheese", "fruit-kabobs"] },
     { title: "Weeknight dinner", ids: ["chicken-street-tacos", "cilantro-lime-rice", "greek-salad"] },
@@ -4487,6 +4684,7 @@ function renderPlanner(id) {
       <div class="planner-summary">
         <article><strong>${plannedRecipes.length}</strong><span>Meals planned</span></article>
         <article><strong>${shoppingItems.length + menuShoppingItems.length}</strong><span>Ingredients listed</span></article>
+        <article><strong>${menuRecipeCount}</strong><span>Linked menu recipes</span></article>
         <article><strong>${saved.length}</strong><span>Saved recipes</span></article>
       </div>
       <article class="detail-panel menu-builder-section">
@@ -4495,13 +4693,14 @@ function renderPlanner(id) {
         <form class="menu-builder-form" data-menu-planner-form>
           <label>Cuisine<select name="cuisine">${[...new Set(menuPairings.map((menu) => menu.cuisine))].map((item) => `<option${item === selectedMenu.cuisine ? " selected" : ""}>${item}</option>`).join("")}</select></label>
           <label>Occasion<select name="occasion">${[...new Set(menuPairings.map((menu) => menu.occasion))].map((item) => `<option${item === selectedMenu.occasion ? " selected" : ""}>${item}</option>`).join("")}</select></label>
-          <label>Main Dish<select name="main">${menuPairings.map((menu, index) => `<option value="${index}"${index === selectedIndex ? " selected" : ""}>${menu.main_dish}</option>`).join("")}</select></label>
+          <label>Main Dish<select name="main">${menuPairings.map((menu, index) => `<option value="${index}"${index === selectedIndex ? " selected" : ""}>${recipeLinksFor(menu.main_recipe_ids).map((link) => link.replace(/<[^>]+>/g, "")).join(" or ") || menu.main_dish}</option>`).join("")}</select></label>
           <button class="small-button" type="submit">Generate Menu</button>
         </form>
         ${menuPairingCard(selectedMenu)}
         <div class="planner-layout compact-planner-layout">
           <section class="academy-module-card"><h3>Shopping List</h3><ul>${menuShoppingItems.map((item) => `<li>${item}</li>`).join("")}</ul></section>
           <section class="academy-module-card"><h3>Prep Timeline</h3><p>${selectedMenu.hosting_notes}</p><ul><li>Two days before: choose menu and shop shelf-stable goods.</li><li>Day before: prep sauces, desserts, and cold sides.</li><li>Day of: cook the main, warm breads, finish fresh sides, and set drinks.</li></ul></section>
+          <section class="academy-module-card"><h3>Alternate Recipes</h3><div class="recipe-link-list">${recipeLinksFor(selectedMenu.alternate_recipe_ids).join("") || "<span>Try another menu for alternates.</span>"}</div></section>
         </div>
       </article>
       <div class="planner-layout">
@@ -4536,8 +4735,8 @@ function hostingGuideFor(id) {
   const idea = hostingIdeas.find((item) => slugify(item.title) === normalized)
     || hostingKnowledge.find((item) => slugify(item.title) === normalized)
     || hostingIdeas[0];
-  const recipeIds = idea.recipes || menuPairings[0].traditional_sides.map((name) => recipes.find((recipe) => recipe.title.toLowerCase().includes(name.split(" ")[0]))?.id).filter(Boolean);
-  const guideRecipes = recipeIds.map((recipeId) => recipes.find((recipe) => recipe.id === recipeId)).filter(Boolean);
+  const recipeIds = idea.recipes || recipesForMenu(menuPairings[0]).map((recipe) => recipe.id);
+  const guideRecipes = recipeIds.map((recipeId) => recipeById(recipeId)).filter(Boolean);
   const shopping = [...new Set(guideRecipes.flatMap((recipe) => recipe.ingredients || []).slice(0, 18))];
   return {
     title: idea.title,
