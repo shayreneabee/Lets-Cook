@@ -857,6 +857,96 @@ const foodEncyclopedia = [
     related: ["prep list", "knife skills", "service flow", "meal prep"]
   },
   {
+    term: "Gravy",
+    pronunciation: "GRAY-vee",
+    origin: "Southern, British, French, and home-cooking traditions",
+    purpose: "A savory sauce made from drippings, fat, flour or starch, and liquid; used for biscuits, rice, potatoes, chops, turkey, and smothered dishes.",
+    beginner: "Start with equal parts fat and flour, cook until it smells nutty, then whisk in warm liquid slowly.",
+    pro: "Control thickness with roux color, liquid temperature, reduction time, and final seasoning.",
+    related: ["biscuits", "smothered pork chops", "turkey", "rice"]
+  },
+  {
+    term: "Mirepoix",
+    pronunciation: "meer-PWAH",
+    origin: "French cooking",
+    purpose: "A flavor base of onion, carrot, and celery used to start soups, stocks, braises, and sauces.",
+    beginner: "Dice the vegetables small and cook them until softened before adding liquid.",
+    pro: "Adjust cut size to cooking time; small dice for quick sauces, larger pieces for long stocks.",
+    related: ["stock", "soup", "braising", "tomato sauce"]
+  },
+  {
+    term: "Holy Trinity",
+    pronunciation: "",
+    origin: "Cajun and Creole cooking",
+    purpose: "A Louisiana flavor base of onion, celery, and bell pepper used in gumbo, jambalaya, dirty rice, and etouffee.",
+    beginner: "Cook it slowly enough to soften and sweeten before adding spices or liquid.",
+    pro: "Pair it with roux, garlic, bay, thyme, and cayenne for deeper Louisiana flavor.",
+    related: ["gumbo", "jambalaya", "dirty rice", "etouffee"]
+  },
+  {
+    term: "Braising",
+    pronunciation: "BRAY-zing",
+    origin: "Global slow-cooking technique",
+    purpose: "A method that browns food first, then cooks it gently with a small amount of liquid until tender.",
+    beginner: "Brown the meat, add aromatics and liquid, cover, and cook low until fork-tender.",
+    pro: "Use the right pot, avoid too much liquid, skim fat, and reduce the braising liquid into sauce.",
+    related: ["oxtails", "pot roast", "tagine", "greens"]
+  },
+  {
+    term: "Searing",
+    pronunciation: "SEER-ing",
+    origin: "Foundational dry-heat technique",
+    purpose: "Browning food in a hot pan to create flavor, crust, and color before serving or further cooking.",
+    beginner: "Dry the food, preheat the pan, and do not move it too soon.",
+    pro: "Manage surface moisture, pan crowding, and fat smoke point for even browning.",
+    related: ["steak", "tibs", "pan sauce", "blackened fish"]
+  },
+  {
+    term: "Folding",
+    pronunciation: "FOHL-ding",
+    origin: "Baking and pastry technique",
+    purpose: "A gentle mixing method that combines ingredients without knocking out air.",
+    beginner: "Use a spatula to scoop from the bottom and turn the batter over itself.",
+    pro: "Rotate the bowl and stop as soon as streaks disappear to protect volume.",
+    related: ["cakes", "mousse", "whipped cream", "souffle"]
+  },
+  {
+    term: "Proofing",
+    pronunciation: "PROOF-ing",
+    origin: "Bread baking",
+    purpose: "Letting yeast dough rest and rise so flavor and structure develop.",
+    beginner: "Let dough rise until puffy, usually about doubled, in a warm draft-free spot.",
+    pro: "Use temperature, time, dough strength, and fermentation cues instead of the clock alone.",
+    related: ["bread", "rolls", "pizza dough", "naan"]
+  },
+  {
+    term: "Tempering",
+    pronunciation: "TEM-per-ing",
+    origin: "Sauce, custard, chocolate, and spice techniques",
+    purpose: "Gradually adjusting temperature so ingredients combine smoothly without scrambling, splitting, or seizing.",
+    beginner: "Whisk a little hot liquid into eggs or dairy before adding everything back to the pot.",
+    pro: "Use tempering for custards, chocolate, yogurt sauces, and spice blooming with careful heat control.",
+    related: ["custard", "pudding", "yogurt sauce", "chocolate"]
+  },
+  {
+    term: "Deglazing",
+    pronunciation: "dee-GLAY-zing",
+    origin: "Sauce-making technique",
+    purpose: "Adding liquid to a hot pan to dissolve browned bits into a flavorful sauce base.",
+    beginner: "After searing, pour in stock, wine, citrus, or water and scrape the pan gently.",
+    pro: "Choose liquid that matches the dish, reduce for concentration, then finish with butter or herbs.",
+    related: ["pan sauce", "gravy", "chicken piccata", "braised meats"]
+  },
+  {
+    term: "Simmering",
+    pronunciation: "SIM-er-ing",
+    origin: "Universal moist-heat technique",
+    purpose: "Cooking liquid just below a boil with small steady bubbles for soups, sauces, beans, and braises.",
+    beginner: "Look for gentle bubbles, not a rolling boil.",
+    pro: "Use simmering to control tenderness, clarity, reduction, and seasoning concentration.",
+    related: ["beans", "soup", "tomato sauce", "greens"]
+  },
+  {
     term: "Black-Eyed Peas Tradition",
     pronunciation: "",
     origin: "Southern and African American New Year's foodways",
@@ -967,6 +1057,86 @@ const menuPairings = [
     pro_level: "Balance acid, herbs, char, and creamy sauce across the full spread.",
     cook_time: "45-90 min",
     hosting_notes: "Serve in shallow bowls so the table feels abundant."
+  },
+  {
+    cuisine: "BBQ",
+    country_or_region: "U.S. regional barbecue",
+    occasion: "Cookout",
+    main_dish: "Smoked ribs or pulled pork",
+    traditional_sides: ["baked beans", "coleslaw", "potato salad", "corn on the cob", "pickles"],
+    breads: ["white bread", "cornbread", "slider buns"],
+    sauces_condiments: ["vinegar sauce", "sweet barbecue sauce", "mustard sauce", "pickles"],
+    drinks: ["sweet tea", "lemonade", "cold water"],
+    desserts: ["peach cobbler", "banana pudding"],
+    cultural_notes: "BBQ menus are built around smoke, patience, sauce choice, and sides that can sit on a table without falling apart.",
+    beginner_level: "Start with oven-baked or grilled chicken, one sauce, slaw, beans, and dessert.",
+    pro_level: "Track smoker temperature, rest meat properly, and set separate sauce and slicing stations.",
+    cook_time: "3-12 hours",
+    hosting_notes: "Hold cooked meat wrapped in a cooler, label sauces, and keep wet wipes near the serving line."
+  },
+  {
+    cuisine: "Cajun",
+    country_or_region: "Louisiana",
+    occasion: "One-pot supper",
+    main_dish: "Chicken and sausage jambalaya",
+    traditional_sides: ["green salad", "smothered green beans", "potato salad", "corn maque choux"],
+    breads: ["French bread"],
+    sauces_condiments: ["hot sauce", "green onions", "parsley"],
+    drinks: ["iced tea", "lemonade"],
+    desserts: ["bread pudding"],
+    cultural_notes: "Cajun meals often use rice, smoked meats, seafood, trinity, and layered seasoning to feed a crowd from one pot.",
+    beginner_level: "Use measured seasoning and cook rice gently so it steams instead of turns mushy.",
+    pro_level: "Build fond, use stock, control rice absorption, and rest the pot before serving.",
+    cook_time: "60-90 min",
+    hosting_notes: "Jambalaya holds well; keep garnish fresh and hot sauce nearby."
+  },
+  {
+    cuisine: "Creole",
+    country_or_region: "New Orleans / Gulf South",
+    occasion: "Celebration supper",
+    main_dish: "Shrimp Creole",
+    traditional_sides: ["white rice", "okra", "green salad", "buttered vegetables"],
+    breads: ["French bread"],
+    sauces_condiments: ["Creole seasoning", "hot sauce", "lemon"],
+    drinks: ["iced tea", "sparkling water"],
+    desserts: ["bananas Foster", "bread pudding"],
+    cultural_notes: "Creole menus often layer tomato, seafood, trinity, herbs, butter, and city-style hospitality.",
+    beginner_level: "Make the sauce first, cook seafood gently, and serve over rice.",
+    pro_level: "Use seafood stock, finish with herbs, and avoid overcooking shrimp.",
+    cook_time: "45-75 min",
+    hosting_notes: "Keep rice warm separately and add seafood close to service."
+  },
+  {
+    cuisine: "Indian",
+    country_or_region: "South Asia",
+    occasion: "Family curry night",
+    main_dish: "Chana masala or butter chicken",
+    traditional_sides: ["dal", "cucumber raita", "sauteed greens", "kachumber salad"],
+    breads: ["naan", "roti"],
+    sauces_condiments: ["mint chutney", "mango chutney", "yogurt"],
+    drinks: ["lassi", "tea", "lime water"],
+    desserts: ["kheer", "fruit"],
+    cultural_notes: "Indian menus balance spice, starch, cooling yogurt, pickles or chutneys, and lentils or vegetables.",
+    beginner_level: "Cook one curry, one rice or bread, and one cooling side.",
+    pro_level: "Bloom whole spices, manage oil separation, and finish with acid, herbs, or ghee.",
+    cook_time: "45-120 min",
+    hosting_notes: "Keep rice warm and offer chutneys so guests can adjust heat and brightness."
+  },
+  {
+    cuisine: "Mexican",
+    country_or_region: "Mexico / Mexican American table",
+    occasion: "Taco night",
+    main_dish: "Birria tacos or chicken street tacos",
+    traditional_sides: ["beans", "cilantro lime rice", "elote-style corn", "slaw"],
+    breads: ["corn tortillas", "flour tortillas"],
+    sauces_condiments: ["salsa roja", "salsa verde", "lime", "pickled onions", "crema"],
+    drinks: ["agua fresca", "limeade"],
+    desserts: ["churro bites", "flan"],
+    cultural_notes: "A good taco table is about warm tortillas, bright salsa, acid, texture, and enough toppings for choice.",
+    beginner_level: "Warm tortillas last and keep toppings in small bowls.",
+    pro_level: "Toast chiles, build salsa, and hold braised meat in its juices.",
+    cook_time: "35 min-3 hours",
+    hosting_notes: "Use a tortilla warmer and refill garnishes often."
   }
 ];
 
@@ -1027,7 +1197,7 @@ let recipes = [
   {
     id: "pb-and-j-sandwich",
     title: "Classic PB&J Sandwich",
-    cuisine: "southern",
+    cuisine: "global",
     category: "Kid-Friendly Cooking",
     image: "assets/kid-friendly.jpeg",
     time: "10 min",
@@ -1057,7 +1227,7 @@ let recipes = [
   {
     id: "mini-pizza-bagels",
     title: "Mini Pizza Bagels",
-    cuisine: "italian",
+    cuisine: "global",
     category: "Kid-Friendly Cooking",
     image: "assets/american-food.jpeg",
     time: "15 min",
@@ -1708,6 +1878,18 @@ const nextFeatureRecipes = [
   ["asian-thai-basil-chicken", "Thai Basil Chicken", "asian-inspired", "Quick Meals", "images/cuisines/asian/asian-08.png", "10 min", "15 min", "Intermediate", 4, "Ground chicken cooked hot and fast with garlic, chiles, basil, and savory sauce.", ["Ground chicken", "Garlic", "Chile", "Basil", "Soy sauce", "Fish sauce", "Sugar"], ["Mix sauce.", "Cook garlic and chile.", "Brown chicken.", "Add sauce.", "Fold in basil at the end."], ["asian", "thai", "basil", "quick meals"]],
   ["asian-miso-noodles", "Miso Butter Noodles", "asian-inspired", "Beginner Basics", "images/cuisines/asian/asian-09.png", "10 min", "12 min", "Beginner", 3, "Cozy noodles with miso, butter, garlic, scallions, and an umami-rich finish.", ["Noodles", "Miso", "Butter", "Garlic", "Scallions", "Reserved pasta water"], ["Cook noodles.", "Soften garlic in butter.", "Whisk miso with pasta water.", "Toss noodles in sauce.", "Finish with scallions."], ["asian", "miso", "noodles", "umami"]],
   ["asian-crab-rangoon", "Crab Rangoon", "asian-inspired", "Party & Hosting", "images/cuisines/asian/asian-10.png", "20 min", "15 min", "Intermediate", 24, "Crisp wontons filled with creamy crab, scallion, and garlic for party trays.", ["Wonton wrappers", "Cream cheese", "Crab", "Scallions", "Garlic powder", "Oil"], ["Mix filling.", "Fill wonton wrappers.", "Seal edges with water.", "Fry or bake until crisp.", "Serve with sweet chili sauce."], ["asian", "crab rangoon", "party", "appetizer"]],
+  ["bbq-smoked-ribs", "Sticky BBQ Ribs", "bbq", "BBQ", "assets/beautiful-chicken.jpeg", "20 min", "3 hr", "Intermediate", 6, "Tender ribs seasoned with a dry rub, cooked low, then glazed until sticky and ready for a cookout plate.", ["Pork ribs", "Brown sugar", "Paprika", "Garlic powder", "Mustard", "BBQ sauce", "Apple juice"], ["Remove membrane from ribs.", "Rub with mustard and spice blend.", "Cook covered low until tender.", "Brush with sauce.", "Finish uncovered until glaze sets."], ["bbq", "ribs", "cookout", "smoking basics"]],
+  ["bbq-pulled-pork", "Pulled Pork Shoulder", "bbq", "BBQ", "assets/american-food.jpeg", "20 min", "6 hr", "Advanced", 10, "Slow-cooked pork shoulder seasoned with rub, cooked until shreddable, and finished with vinegar or sweet sauce.", ["Pork shoulder", "Dry rub", "Apple cider vinegar", "Stock", "BBQ sauce", "Buns", "Pickles"], ["Season pork generously.", "Cook low and slow until fork-tender.", "Rest the meat.", "Shred and moisten with juices.", "Serve with sauce, pickles, and buns."], ["bbq", "pulled pork", "low and slow", "cookout"]],
+  ["bbq-brisket-basics", "Brisket Basics", "bbq", "BBQ", "assets/american-food.jpeg", "30 min", "8 hr", "Advanced", 10, "A beginner-friendly brisket guide focused on seasoning, low heat, resting, and slicing across the grain.", ["Beef brisket", "Kosher salt", "Black pepper", "Garlic powder", "Wood smoke or oven setup", "Stock"], ["Trim excess hard fat.", "Season heavily.", "Cook low until tender.", "Rest wrapped before slicing.", "Slice across the grain and serve with sauce."], ["bbq", "brisket", "smoking", "meat science"]],
+  ["bbq-chicken-quarters", "BBQ Chicken Quarters", "bbq", "BBQ", "assets/beautiful-chicken.jpeg", "15 min", "50 min", "Beginner", 4, "Juicy chicken quarters seasoned, cooked gently, and sauced at the end so the glaze does not burn.", ["Chicken leg quarters", "Dry rub", "Oil", "BBQ sauce", "Apple cider vinegar"], ["Pat chicken dry.", "Season under and over the skin.", "Cook over indirect heat or bake.", "Brush with sauce near the end.", "Rest before serving."], ["bbq", "chicken", "grilling", "sauce"]],
+  ["cajun-chicken-sausage-gumbo", "Chicken and Sausage Gumbo", "cajun", "Cajun", "assets/lc-seafood.jpg", "30 min", "1 hr 45 min", "Advanced", 8, "A dark-roux gumbo with chicken, smoked sausage, trinity, stock, and rice.", ["Chicken thighs", "Andouille sausage", "Oil", "Flour", "Onion", "Celery", "Bell pepper", "Chicken stock", "Rice"], ["Cook oil and flour into a dark roux.", "Add trinity and stir until softened.", "Add sausage, chicken, and stock.", "Simmer until chicken is tender.", "Serve over rice with green onion."], ["cajun", "gumbo", "roux", "rice"]],
+  ["cajun-jambalaya", "Chicken and Sausage Jambalaya", "cajun", "Cajun", "assets/lc-fried-rice.jpg", "20 min", "45 min", "Intermediate", 6, "A seasoned rice pot with chicken, sausage, trinity, tomatoes optional, and Cajun flavor in every spoonful.", ["Chicken", "Smoked sausage", "Rice", "Onion", "Celery", "Bell pepper", "Stock", "Cajun seasoning"], ["Brown sausage and chicken.", "Cook trinity in the drippings.", "Toast rice with seasoning.", "Add stock.", "Cover and steam until rice is tender."], ["cajun", "jambalaya", "rice", "one pot"]],
+  ["cajun-shrimp-etouffee", "Shrimp Etouffee", "cajun", "Cajun", "assets/lc-seafood.jpg", "20 min", "35 min", "Intermediate", 4, "Shrimp smothered in a buttery roux-based sauce with trinity, seafood stock, and rice.", ["Shrimp", "Butter", "Flour", "Onion", "Celery", "Bell pepper", "Seafood stock", "Cajun seasoning", "Rice"], ["Make a blond roux with butter and flour.", "Cook trinity until soft.", "Whisk in stock.", "Simmer until sauce thickens.", "Add shrimp just until cooked."], ["cajun", "etouffee", "shrimp", "roux"]],
+  ["cajun-dirty-rice", "Dirty Rice", "cajun", "Cajun", "assets/lc-fried-rice.jpg", "15 min", "35 min", "Beginner", 6, "Rice cooked with browned meat, trinity, seasoning, and herbs for a savory Louisiana side or main.", ["Cooked rice", "Ground beef or turkey", "Chicken livers optional", "Onion", "Celery", "Bell pepper", "Cajun seasoning", "Green onion"], ["Brown meat well.", "Add trinity and seasoning.", "Fold in rice.", "Steam together briefly.", "Finish with green onion."], ["cajun", "dirty rice", "rice", "side dish"]],
+  ["creole-shrimp-creole", "Shrimp Creole", "creole", "Creole", "assets/lc-seafood.jpg", "20 min", "35 min", "Intermediate", 4, "Shrimp simmered briefly in a tomato, trinity, herb, and seafood sauce served over rice.", ["Shrimp", "Tomatoes", "Onion", "Celery", "Bell pepper", "Garlic", "Seafood stock", "Rice"], ["Cook trinity until soft.", "Add garlic, tomatoes, and stock.", "Simmer into a sauce.", "Add shrimp at the end.", "Serve over rice."], ["creole", "shrimp", "tomato sauce", "rice"]],
+  ["creole-seafood-gumbo", "Creole Seafood Gumbo", "creole", "Creole", "assets/lc-seafood.jpg", "30 min", "1 hr 20 min", "Advanced", 8, "A seafood gumbo with roux, okra or file, trinity, shrimp, crab, and rice.", ["Shrimp", "Crab", "Oil", "Flour", "Okra", "Onion", "Celery", "Bell pepper", "Seafood stock", "Rice"], ["Make a medium roux.", "Cook trinity and okra.", "Add seafood stock and simmer.", "Add seafood near the end.", "Serve with rice and file if using."], ["creole", "gumbo", "seafood", "roux"]],
+  ["creole-courtbouillon", "Fish Courtbouillon", "creole", "Creole", "assets/lc-seafood.jpg", "20 min", "35 min", "Intermediate", 4, "Fish gently cooked in a Creole tomato-herb sauce with lemon, trinity, and rice.", ["Firm white fish", "Tomatoes", "Onion", "Celery", "Bell pepper", "Garlic", "Lemon", "Seafood stock"], ["Build tomato sauce with trinity.", "Add stock and simmer.", "Season fish.", "Nestle fish into sauce.", "Cook gently until flaky."], ["creole", "courtbouillon", "fish", "tomato"]],
+  ["creole-bananas-foster", "Bananas Foster", "creole", "Desserts", "assets/lc-desserts.jpg", "10 min", "8 min", "Intermediate", 4, "A New Orleans dessert of bananas cooked in butter, brown sugar, cinnamon, and served over ice cream.", ["Bananas", "Butter", "Brown sugar", "Cinnamon", "Vanilla ice cream", "Rum extract or rum optional"], ["Melt butter and sugar.", "Add sliced bananas.", "Cook until glossy.", "Add cinnamon and optional rum carefully.", "Serve warm over ice cream."], ["creole", "dessert", "bananas foster", "new orleans"]],
   ["nigerian-jollof-rice", "Nigerian Jollof Rice", "nigerian", "West African", "assets/lc-african-food.jpg", "20 min", "45 min", "Intermediate", 6, "Long-grain rice cooked in a blended tomato, pepper, onion, and spice base until smoky and deeply seasoned.", ["Long-grain parboiled rice", "Tomatoes", "Red bell peppers", "Scotch bonnet", "Onion", "Tomato paste", "Stock", "Thyme", "Curry powder"], ["Blend tomatoes, peppers, Scotch bonnet, and onion.", "Fry tomato paste in oil until darkened.", "Cook the blended base until reduced.", "Add stock, seasoning, and washed rice.", "Cover tightly and steam on low until rice is tender."], ["nigeria", "jollof", "rice", "west african"]],
   ["nigerian-egusi-soup", "Egusi Soup", "nigerian", "West African", "assets/lc-african-food.jpg", "20 min", "45 min", "Intermediate", 6, "A rich Nigerian melon-seed soup simmered with palm oil, pepper base, leafy greens, and meat or fish.", ["Ground egusi", "Palm oil", "Pepper blend", "Stock", "Spinach or bitter leaf", "Smoked fish or beef", "Crayfish powder"], ["Heat palm oil gently.", "Cook pepper base until thick.", "Stir egusi with a little stock to form a paste.", "Add egusi paste in spoonfuls and simmer.", "Add protein and greens; cook until thick and seasoned."], ["nigeria", "egusi", "soup", "melon seed"]],
   ["nigerian-suya-skewers", "Suya Skewers", "nigerian", "West African", "assets/lc-african-food.jpg", "25 min", "12 min", "Intermediate", 4, "Thin beef skewers coated in peanut-chile suya spice and grilled hot for smoky street-food flavor.", ["Thin beef strips", "Ground peanuts", "Paprika", "Cayenne", "Ginger", "Garlic powder", "Onion powder", "Oil"], ["Soak skewers if wooden.", "Mix peanut spice blend.", "Thread beef onto skewers.", "Brush lightly with oil and coat with spice.", "Grill or broil until charred at the edges."], ["nigeria", "suya", "grilled", "street food"]],
@@ -1733,7 +1915,9 @@ const nextFeatureRecipes = [
   ["indian-dal-tadka", "Dal Tadka", "indian", "Indian", "images/cuisines/indian/indian-07.png", "10 min", "35 min", "Beginner", 4, "Yellow lentils simmered until soft, then finished with a hot spiced oil of cumin, garlic, chile, and ghee.", ["Yellow lentils", "Turmeric", "Cumin seeds", "Garlic", "Ghee or oil", "Chile", "Cilantro"], ["Rinse lentils.", "Simmer with turmeric and water until soft.", "Mash lightly for texture.", "Heat ghee with cumin, garlic, and chile.", "Pour tadka over dal and finish with cilantro."], ["indian", "dal", "lentils", "tadka"]],
   ["grilled-swordfish-lemon-herb", "Grilled Swordfish with Lemon Herbs", "mediterranean", "Seafood", "images/cuisines/mediterranean/mediterranean-01.png", "10 min", "12 min", "Intermediate", 4, "Meaty swordfish steaks grilled with lemon, olive oil, garlic, and fresh herbs.", ["Swordfish steaks", "Olive oil", "Lemon", "Garlic", "Parsley", "Oregano", "Salt"], ["Pat swordfish dry.", "Season with oil, lemon, garlic, and herbs.", "Grill over medium-high heat.", "Rest briefly.", "Serve with salad or rice."], ["swordfish", "seafood", "grilling", "mediterranean"]],
   ["blackened-swordfish", "Blackened Swordfish", "southern", "Seafood", "images/cuisines/southern/southern-09.png", "10 min", "10 min", "Intermediate", 4, "Firm swordfish coated in bold blackening spice and seared hot for a smoky crust.", ["Swordfish steaks", "Blackening seasoning", "Butter", "Lemon", "Oil"], ["Dry fish well.", "Coat with seasoning.", "Heat skillet until hot.", "Sear both sides.", "Finish with lemon butter."], ["swordfish", "blackened", "seafood", "southern"]],
-  ["swordfish-tacos", "Swordfish Tacos with Citrus Slaw", "mexican", "Seafood", "images/cuisines/mexican/mexican-01.png", "20 min", "12 min", "Beginner", 4, "Seared swordfish tucked into tortillas with crunchy citrus slaw and creamy sauce.", ["Swordfish", "Tortillas", "Cabbage", "Lime", "Cilantro", "Crema", "Chili powder"], ["Season and sear swordfish.", "Toss cabbage with lime and cilantro.", "Warm tortillas.", "Flake fish into pieces.", "Build tacos with slaw and crema."], ["swordfish", "tacos", "seafood", "mexican"]]
+  ["swordfish-tacos", "Swordfish Tacos with Citrus Slaw", "mexican", "Seafood", "images/cuisines/mexican/mexican-01.png", "20 min", "12 min", "Beginner", 4, "Seared swordfish tucked into tortillas with crunchy citrus slaw and creamy sauce.", ["Swordfish", "Tortillas", "Cabbage", "Lime", "Cilantro", "Crema", "Chili powder"], ["Season and sear swordfish.", "Toss cabbage with lime and cilantro.", "Warm tortillas.", "Flake fish into pieces.", "Build tacos with slaw and crema."], ["swordfish", "tacos", "seafood", "mexican"]],
+  ["mediterranean-swordfish", "Mediterranean Swordfish with Tomatoes and Olives", "mediterranean", "Seafood", "images/cuisines/mediterranean/mediterranean-02.png", "15 min", "18 min", "Intermediate", 4, "Swordfish simmered with cherry tomatoes, olives, garlic, lemon, herbs, and olive oil.", ["Swordfish steaks", "Cherry tomatoes", "Olives", "Garlic", "Lemon", "Olive oil", "Parsley"], ["Season swordfish.", "Sear briefly on both sides.", "Cook tomatoes, olives, garlic, and oil.", "Return fish and simmer gently.", "Finish with lemon and parsley."], ["swordfish", "mediterranean", "olives", "seafood"]],
+  ["garlic-butter-swordfish", "Swordfish with Garlic Butter", "mediterranean", "Seafood", "images/cuisines/mediterranean/mediterranean-03.png", "10 min", "12 min", "Beginner", 4, "Pan-seared swordfish finished with garlic butter, lemon, and herbs for a fast seafood dinner.", ["Swordfish steaks", "Butter", "Garlic", "Lemon", "Parsley", "Salt", "Black pepper"], ["Pat swordfish dry.", "Season both sides.", "Sear in a hot pan.", "Add butter and garlic.", "Spoon garlic butter over fish and finish with lemon."], ["swordfish", "garlic butter", "seafood", "pan sauce"]]
 ].map(([id, title, cuisine, category, image, prep_time, cook_time, difficulty, servings, description, ingredients, instructions, tags]) => ({
   id,
   title,
@@ -2144,6 +2328,9 @@ function normalizeRecipe(recipe) {
   recipe.directions ||= recipe.steps || [];
   recipe.steps ||= recipe.directions;
   recipe.tags ||= [recipe.category, recipe.cuisine, recipe.path].filter(Boolean);
+  recipe.skills_learned ||= recipe.skillsLearned || (recipe.tags || []).slice(0, 4).map((tag) => `${tag} cooking`);
+  recipe.storage ||= "Cool leftovers within 2 hours, store covered in the refrigerator, and use within 3 to 4 days unless the dish notes say otherwise.";
+  recipe.reheating ||= "Reheat gently until hot all the way through. Add a splash of water, stock, milk, or sauce if the dish needs moisture.";
   recipe.cultural_variations ||= [];
   recipe.related_recipe_ids ||= recipe.relatedRecipeIds || [];
   recipe.video_url ||= recipe.videoUrl || "";
@@ -2379,6 +2566,26 @@ const cuisineRecipeAliases = {
   global: ["southern", "asian-inspired", "mediterranean", "mexican", "indian", "caribbean", "italian"]
 };
 
+const strictCuisineIds = new Set([
+  "southern",
+  "asian-inspired",
+  "nigerian",
+  "ghanaian",
+  "ethiopian",
+  "moroccan",
+  "indian",
+  "italian",
+  "mexican",
+  "mediterranean",
+  "cajun",
+  "creole",
+  "bbq",
+  "soul-food",
+  "low-country",
+  "mississippi-favorites",
+  "caribbean"
+]);
+
 function canonicalCuisineId(id = "") {
   const normalized = slugify(decodeURIComponent(id || ""));
   return cuisineAliases[normalized] || normalized;
@@ -2404,7 +2611,7 @@ function recipesForCuisine(cuisineId, limit = 12) {
       return tokens.some((token) => haystack.includes(token));
     }));
   }
-  if (picked.length < Math.min(4, limit)) {
+  if (!strictCuisineIds.has(canonical) && picked.length < Math.min(4, limit)) {
     add(recipes.filter((recipe) => recipe.ingredients?.length && (recipe.directions?.length || recipe.steps?.length)));
   }
   return picked.slice(0, limit);
@@ -2474,13 +2681,151 @@ function cuisine101For(cuisineId) {
   return cuisine101[cuisineId] || cuisine101.global;
 }
 
+const cuisineEducationProfiles = {
+  southern: {
+    culture: "Southern cooking is built around seasonality, preservation, family tables, church meals, cast iron, slow pots, and using every ingredient with care.",
+    ingredients: ["cornmeal", "buttermilk", "greens", "sweet potatoes", "beans", "smoked turkey", "catfish", "pecans"],
+    techniques: ["cast-iron frying", "slow simmering", "buttermilk marinating", "gravy making", "biscuit handling"],
+    menus: ["fried chicken, mac and cheese, greens, cornbread, banana pudding", "catfish, slaw, hushpuppies, hot sauce, sweet tea"]
+  },
+  "asian-inspired": {
+    culture: "This lane introduces Asian cooking foundations while respecting that China, Japan, Korea, Thailand, Vietnam, the Philippines, India, and many other places each have their own foodways.",
+    ingredients: ["rice", "noodles", "soy sauce", "ginger", "garlic", "scallions", "sesame", "chiles"],
+    techniques: ["stir-frying", "steaming", "sauce balancing", "rice timing", "quick searing"],
+    menus: ["garlic fried rice with dumplings and greens", "teriyaki salmon with rice and cucumber salad"]
+  },
+  nigerian: {
+    culture: "Nigerian food is regional, bold, pepper-forward, and generous, with stews, rice dishes, soups, beans, grilled meats, and swallow foods anchoring many meals.",
+    ingredients: ["scotch bonnet", "red bell pepper", "tomato", "palm oil", "egusi", "crayfish", "stockfish", "plantain"],
+    techniques: ["pepper-base reduction", "rice steaming", "soup thickening", "spice grilling", "bean steaming"],
+    menus: ["jollof rice, suya, moi moi, fried plantains", "egusi soup with greens and swallow"]
+  },
+  ghanaian: {
+    culture: "Ghanaian tables often center hearty stews, rice, beans, plantains, groundnuts, fish, and sauces with heat, depth, and comfort.",
+    ingredients: ["cowpeas", "rice", "plantains", "peanuts", "palm oil", "tomato", "ginger", "shito"],
+    techniques: ["rice-and-bean steaming", "tomato stew building", "plantain frying", "groundnut soup simmering"],
+    menus: ["waakye with stew, egg, shito, and plantains", "red red with fried plantains"]
+  },
+  ethiopian: {
+    culture: "Ethiopian meals are often shared from one platter with injera, layered stews, lentils, vegetables, berbere, and spiced butter.",
+    ingredients: ["teff", "berbere", "niter kibbeh", "lentils", "split peas", "onions", "garlic", "ginger"],
+    techniques: ["onion reduction", "spice blooming", "lentil simmering", "injera fermentation", "shared plating"],
+    menus: ["doro wat, misir wat, shiro, greens, injera", "tibs with injera and lentils"]
+  },
+  moroccan: {
+    culture: "Moroccan cooking layers sweet, savory, citrus, herbs, warm spices, olives, preserved lemon, couscous, tagines, and mint tea hospitality.",
+    ingredients: ["preserved lemon", "olives", "cumin", "cinnamon", "ginger", "chickpeas", "couscous", "mint"],
+    techniques: ["tagine braising", "couscous steaming", "herb marinade making", "spice layering"],
+    menus: ["chicken tagine, couscous, carrot salad, mint tea", "harira, chermoula fish, bread, oranges"]
+  },
+  indian: {
+    culture: "Indian food changes by region, religion, season, and home tradition, but many dishes build flavor through aromatics, spices, lentils, breads, rice, and chutneys.",
+    ingredients: ["garam masala", "turmeric", "cumin", "coriander", "lentils", "ginger", "garlic", "ghee"],
+    techniques: ["spice blooming", "tadka", "curry base building", "rice steaming", "flatbread cooking"],
+    menus: ["chana masala, dal tadka, rice, naan, cucumber raita", "butter chicken, biryani, greens, chutney"]
+  },
+  italian: {
+    culture: "Italian cooking values good ingredients, seasonal simplicity, pasta water, olive oil, herbs, sauces, and meal structure.",
+    ingredients: ["pasta", "tomatoes", "olive oil", "garlic", "basil", "parmesan", "lemon", "beans"],
+    techniques: ["pasta water emulsifying", "sauce simmering", "cutlet breading", "risotto stirring"],
+    menus: ["chicken parmesan, pasta, salad, garlic bread", "piccata, roasted vegetables, tiramisu-style cups"]
+  },
+  mexican: {
+    culture: "Mexican food is deeply regional and rooted in corn, chiles, beans, salsas, masa, herbs, slow meats, and bright acidity.",
+    ingredients: ["corn tortillas", "chiles", "beans", "tomatillos", "cilantro", "lime", "masa", "avocado"],
+    techniques: ["salsa roasting", "tortilla warming", "adobo marinating", "braising", "taco assembly"],
+    menus: ["birria tacos, consommé, rice, beans, pickled onions", "fish tacos, slaw, salsa, limeade"]
+  },
+  mediterranean: {
+    culture: "Mediterranean cooking is broad, including Greek, Turkish, Levantine, North African, and coastal traditions with olive oil, herbs, grains, beans, seafood, and shared plates.",
+    ingredients: ["olive oil", "lemon", "yogurt", "chickpeas", "cucumber", "herbs", "pita", "seafood"],
+    techniques: ["grilling", "mezze assembly", "yogurt sauce making", "bean pureeing", "fish roasting"],
+    menus: ["hummus, Greek salad, grilled fish, pita, fruit", "gyros, tzatziki, roasted vegetables, mint lemonade"]
+  },
+  cajun: {
+    culture: "Cajun cooking comes from Louisiana country traditions with rice, roux, smoked meats, seafood, seasoning, and one-pot meals that feed groups.",
+    ingredients: ["holy trinity", "roux", "rice", "andouille", "crawfish", "chicken", "cayenne", "green onion"],
+    techniques: ["dark roux", "rice absorption", "stewing", "smothering", "seasoning in layers"],
+    menus: ["jambalaya, green salad, French bread, bread pudding", "gumbo, rice, potato salad, sweet tea"]
+  },
+  creole: {
+    culture: "Creole cooking reflects New Orleans and Gulf influences, blending African, French, Spanish, Caribbean, and Indigenous foodways.",
+    ingredients: ["tomatoes", "holy trinity", "seafood", "okra", "roux", "rice", "Creole seasoning", "butter"],
+    techniques: ["roux making", "sauce simmering", "seafood timing", "court-bouillon poaching"],
+    menus: ["shrimp Creole, rice, salad, French bread", "Creole gumbo, potato salad, bread pudding"]
+  },
+  bbq: {
+    culture: "BBQ is regional and patience-driven, focused on smoke, seasoning, sauce, fire management, and sides that hold up outdoors.",
+    ingredients: ["pork ribs", "brisket", "chicken", "dry rub", "wood smoke", "vinegar", "molasses", "mustard"],
+    techniques: ["dry rubs", "low-and-slow smoking", "sauce glazing", "resting meat", "temperature control"],
+    menus: ["ribs, baked beans, slaw, cornbread, peach cobbler", "pulled pork, pickles, buns, potato salad"]
+  },
+  "soul-food": {
+    culture: "Soul food honors African American survival, migration, celebration, seasoning, Sunday tables, and making beauty from practical ingredients.",
+    ingredients: ["greens", "beans", "cornmeal", "sweet potatoes", "smoked seasoning", "chicken", "hot sauce", "buttermilk"],
+    techniques: ["slow greens", "deep frying", "smothering", "baking casseroles", "seasoning with acid and smoke"],
+    menus: ["fried chicken, yams, greens, mac and cheese, cornbread", "oxtails, rice, cabbage, pound cake"]
+  },
+  "low-country": {
+    culture: "Low Country food connects coastal Carolina and Georgia Geechee/Gullah foodways with rice, seafood, okra, crab, shrimp, and communal boils.",
+    ingredients: ["shrimp", "rice", "okra", "crab", "corn", "sausage", "grits", "hot sauce"],
+    techniques: ["seafood boiling", "rice steaming", "grits simmering", "okra stewing", "shellfish timing"],
+    menus: ["shrimp and grits, greens, cornbread", "seafood boil, corn, potatoes, slaw, lemon butter"]
+  },
+  "mississippi-favorites": {
+    culture: "Mississippi food blends Delta, Gulf Coast, Black Southern, church supper, family reunion, and fish fry traditions.",
+    ingredients: ["catfish", "cornmeal", "comeback sauce", "Gulf shrimp", "greens", "pecans", "buttermilk", "hot sauce"],
+    techniques: ["cornmeal dredging", "cast iron frying", "grits whisking", "sauce station setup", "large-batch sides"],
+    menus: ["fried catfish, spaghetti, slaw, hushpuppies, sweet tea", "shrimp and grits, greens, cornbread, pound cake"]
+  }
+};
+
 const hostingIdeas = [
   { title: "Sunday Comfort Supper", text: "A warm table with braised meat, greens, cornbread, and dessert.", timing: "Start the braise early; finish sides in the last hour.", setup: ["Set serving spoons out first", "Keep one dish oven-safe", "Make dessert ahead"], recipes: ["oxtails", "collard-greens", "cornbread", "bourbon-praline-bread-pudding"] },
   { title: "Game Night Bites", text: "Finger foods, dips, wings, boards, and one sweet bite so people can graze.", timing: "Build the board first; keep hot bites rotating.", setup: ["Use small plates", "Keep napkins everywhere", "Make a refill tray"], recipes: ["crab-rangoon", "charcuterie-boards", "garlic-wings", "rotel-dip"] },
   { title: "Beginner Dinner Party", text: "A simple starter, one main, one side, and one dessert without too many moving parts.", timing: "Choose one hot main and make the starter ahead.", setup: ["Pick serving bowls early", "Prep garnish before guests arrive", "Use a written timeline"], recipes: ["shrimp-and-grits-green-beans", "greek-salad", "charcuterie-boards", "bourbon-praline-bread-pudding"] },
   { title: "Taco Night", text: "A build-your-own spread with protein, rice, salsa, and easy toppings.", timing: "Cook the chicken and rice first; warm tortillas last.", setup: ["Put toppings in small bowls", "Keep limes cut", "Use foil to hold tortillas"], recipes: ["chicken-street-tacos", "cilantro-lime-rice", "black-bean-enchiladas", "cheese-quesadillas"] },
   { title: "Caribbean Family Plate", text: "Big flavor with curry, rice and peas, plantains, and something bright on the side.", timing: "Start curry first, then rice, then plantains right before serving.", setup: ["Serve sauces on the side", "Use a platter for plantains", "Keep drinks cold"], recipes: ["caribbean-curry-chicken", "rice-and-peas", "fried-sweet-plantains", "jerk-chicken"] },
-  { title: "Mediterranean Lunch Spread", text: "Fresh, bright, and easy to set out with pita, dips, salad, and protein.", timing: "Make hummus and salad ahead; cook protein close to serving.", setup: ["Slice pita last", "Set olive oil and lemon out", "Use shallow bowls"], recipes: ["creamy-hummus", "greek-salad", "chicken-gyros", "lemon-herb-salmon"] }
+  { title: "Mediterranean Lunch Spread", text: "Fresh, bright, and easy to set out with pita, dips, salad, and protein.", timing: "Make hummus and salad ahead; cook protein close to serving.", setup: ["Slice pita last", "Set olive oil and lemon out", "Use shallow bowls"], recipes: ["creamy-hummus", "greek-salad", "chicken-gyros", "lemon-herb-salmon"] },
+  { title: "Holiday Hosting", text: "A centerpiece meal with make-ahead sides, dessert, drinks, and a written oven schedule.", timing: "Shop three days ahead, prep desserts and casseroles the day before, and reserve oven space on paper.", setup: ["Label serving dishes", "Stage foil and storage containers", "Create a drink station"], recipes: ["southern-cornbread-dressing", "southern-collard-greens", "southern-pecan-pie", "holiday-cups"] },
+  { title: "Church Potluck", text: "Portable pans, clear labels, allergy notes, foods that hold well, and generous serving utensils.", timing: "Choose dishes that travel well and pack them with serving spoons, foil, and labels.", setup: ["Write ingredient cards", "Use lidded pans", "Pack extra serving spoons"], recipes: ["southern-baked-mac-cheese", "cajun-dirty-rice", "dessert-cups", "fruit-cups"] },
+  { title: "Repast Table", text: "Quiet comfort food, simple drinks, easy service, and enough help so grieving family members do not carry the work.", timing: "Use make-ahead casseroles, salads, fruit, bread, and desserts; assign helpers for refills and cleanup.", setup: ["Keep table flow simple", "Set water and tea first", "Use disposable containers for leftovers"], recipes: ["southern-baked-mac-cheese", "southern-collard-greens", "southern-cornbread-dressing", "dessert-cups"] },
+  { title: "Family Reunion", text: "Large-batch mains, grill foods, nostalgic sides, kid-friendly choices, hydration, and station-style service.", timing: "Assign families by category: grill, sides, desserts, drinks, paper goods, and cleanup.", setup: ["Create shade for cold foods", "Label family dishes", "Put trash stations in sight"], recipes: ["bbq-pulled-pork", "southern-crispy-fried-chicken", "southern-black-eyed-peas", "fruit-cups"] },
+  { title: "Cookout", text: "Grilled or smoked mains with cold sides, sauces, bread, fruit, and desserts that can handle outdoor serving.", timing: "Season meat the night before, make cold sides early, and sauce grilled foods near the end.", setup: ["Separate raw and cooked trays", "Set sauce station", "Keep ice for drinks and cold sides"], recipes: ["bbq-smoked-ribs", "bbq-chicken-quarters", "southern-black-eyed-peas", "charcuterie-cups"] },
+  { title: "Tailgate", text: "Handheld foods, dips, wings, cups, sliders, and a cleanup plan that works from a trunk or tent.", timing: "Cook hot items before leaving, pack sauces separately, and assemble crunchy items on site.", setup: ["Bring wipes and trash bags", "Use sturdy cups", "Keep dips insulated"], recipes: ["tailgate-cups", "garlic-wings", "crab-rangoon", "rotel-dip"] },
+  { title: "Graduation Party", text: "A celebratory open-house menu with trays, cups, finger foods, cake, drinks, and refill-friendly stations.", timing: "Use food that can be replenished in waves and keep a backup tray chilled.", setup: ["Set photo table away from food", "Use small plates", "Create a refill schedule"], recipes: ["charcuterie-cups", "brunch-cups", "dessert-cups", "fruit-cups"] },
+  { title: "Baby Shower", text: "Pretty small bites, alcohol-free drinks, fruit, dessert cups, and gentle foods that stay neat.", timing: "Make dessert and fruit cups early, then assemble savory cups close to guest arrival.", setup: ["Use soft colors", "Keep drinks self-serve", "Label common allergens"], recipes: ["fruit-cups", "dessert-cups", "brunch-cups", "charcuterie-cups"] },
+  { title: "Brunch Hosting", text: "Eggs, fruit, breads, one savory main, one sweet bite, coffee, juice, and a calm make-ahead rhythm.", timing: "Prep fruit and baked items the night before; cook eggs or warm dishes just before serving.", setup: ["Set coffee first", "Use tiered trays", "Keep butter and condiments together"], recipes: ["brunch-cups", "soft-scrambled-eggs", "fruit-cups", "chicken-salad-croissants"] }
+];
+
+const kidsKitchenLevels = [
+  {
+    title: "Junior Chef",
+    ages: "Ages 5-8",
+    focus: "Washing, spreading, counting, stirring cold foods, and building snack plates.",
+    safety: ["Wash hands before touching food", "Use butter knives or kid-safe tools only", "Keep grown-ups in charge of heat and sharp knives"],
+    recipes: ["pb-and-j-sandwich", "fruit-kabobs", "mini-pizza-bagels"],
+    badges: ["Clean Hands", "Great Spreader", "Pattern Builder"],
+    challenge: "Build a colorful snack plate with one fruit, one protein, and one crunchy item."
+  },
+  {
+    title: "Young Chef",
+    ages: "Ages 9-12",
+    focus: "Measuring, mixing, reading recipes, simple stovetop awareness, and assembling family snacks.",
+    safety: ["Ask before using heat", "Turn pan handles inward", "Use measuring cups and spoons before free-pouring"],
+    recipes: ["stovetop-mac-and-cheese", "soft-scrambled-eggs", "turkey-pinwheels"],
+    badges: ["Measuring Pro", "Stirring Star", "Recipe Reader"],
+    challenge: "Cook one supervised breakfast or lunch and explain every safety step out loud."
+  },
+  {
+    title: "Teen Chef",
+    ages: "Ages 13-17",
+    focus: "Knife basics, simple hot meals, timing sides, seasoning, and cleaning as a cook.",
+    safety: ["Use a stable cutting board", "Know where the fire extinguisher is", "Check food temperature when cooking meat"],
+    recipes: ["chicken-salad-croissants", "wraps", "orange-chicken"],
+    badges: ["Knife Ready", "Heat Manager", "Meal Builder"],
+    challenge: "Plan and cook a simple dinner with one main, one side, and one cleanup plan."
+  }
 ];
 
 const app = document.querySelector("#app");
@@ -3424,7 +3769,7 @@ function renderKidsCooking() {
   const kidPath = paths.find((path) => path.id === "kid-chefs");
   const kidRecipes = recipes.filter((recipe) => recipe.path === "kid-chefs" || recipe.skill_level === "Kid Chef" || recipe.tags?.includes("kid chefs"));
   app.innerHTML = `
-    ${hero("Kids Cooking", "Simple, safe, joyful recipes that teach measuring, spreading, stirring, assembling, and cleaning up.", photoFor("cuisines", "hosting", 2, "assets/kid-friendly.jpeg"), `<a class="small-button" href="#paths/kid-chefs">Open Kid Chef Path</a>`)}
+    ${hero("Kids Kitchen", "A safe, joyful cooking space for Junior Chefs, Young Chefs, and Teen Chefs to build real kitchen confidence one small skill at a time.", photoFor("cuisines", "hosting", 2, "assets/kid-friendly.jpeg"), `<a class="small-button" href="#paths/kid-chefs">Open Kid Chef Path</a>`)}
     ${cookSubnav()}
     <section class="cream-section">
       <div class="about-layout">
@@ -3439,6 +3784,32 @@ function renderKidsCooking() {
           <h2>Keep it safe and encouraging.</h2>
           <p class="detail-copy">Let kids own one small job at a time. Teach hand washing, counter cleanup, measuring, and tasting before sharp knives or hot pans.</p>
         </article>
+      </div>
+      <div class="section-heading">
+        <p class="eyebrow">Age-based learning</p>
+        <h2>Choose the lane that fits the child, not just the recipe.</h2>
+      </div>
+      <div class="academy-module-grid kids-level-grid">
+        ${kidsKitchenLevels.map((level) => {
+          const levelRecipes = level.recipes.map((recipeId) => recipes.find((recipe) => recipe.id === recipeId)).filter(Boolean);
+          return `
+            <article class="academy-module-card">
+              <p class="eyebrow">${level.ages}</p>
+              <h3>${level.title}</h3>
+              <p>${level.focus}</p>
+              <h4>Safety first</h4>
+              <ul>${level.safety.map((item) => `<li>${item}</li>`).join("")}</ul>
+              <h4>Skill badges</h4>
+              <div class="path-badges">${level.badges.map((badge) => `<span>${badge}</span>`).join("")}</div>
+              <p><strong>Challenge:</strong> ${level.challenge}</p>
+              <div class="stack-list">${levelRecipes.map(compactRecipe).join("")}</div>
+            </article>
+          `;
+        }).join("")}
+      </div>
+      <div class="section-heading">
+        <p class="eyebrow">Kid-friendly recipes</p>
+        <h2>Simple recipes with a clear grown-up safety role.</h2>
       </div>
       <div class="recipe-grid">${kidRecipes.map(recipeCard).join("")}</div>
     </section>
@@ -3682,6 +4053,14 @@ function renderRecipe(id) {
         <article class="detail-panel momma-panel">
           <p class="eyebrow">Tips from Momma</p>
           <ul>${(recipe.tips?.length ? recipe.tips : ["Taste as you go. A recipe is a guide, but your kitchen gets the final say.", "Set everything out before the heat comes on so cooking feels calm.", "Let cooked meat rest before serving so the juices stay where they belong."]).map((item) => `<li>${item}</li>`).join("")}</ul>
+        </article>
+        <article class="detail-panel recipe-learning-panel">
+          <p class="eyebrow">What this teaches</p>
+          <h2>Skills, storage, and reheating.</h2>
+          <div class="detail-columns">
+            <section><h3>Skills learned</h3><ul>${(recipe.skills_learned || []).map((item) => `<li>${item}</li>`).join("")}</ul></section>
+            <section><h3>Storage</h3><p>${recipe.storage}</p><h3>Reheating</h3><p>${recipe.reheating}</p></section>
+          </div>
         </article>
       </div>
     </section>
@@ -4108,14 +4487,29 @@ function renderCuisine(id) {
   const cuisineId = canonicalCuisineId(id);
   const cuisine = cuisines.find((item) => item.id === cuisineId) || cuisines[0];
   const cuisineRecipes = recipesForCuisine(cuisine.id, 18);
+  const education = cuisineEducationProfiles[cuisine.id] || cuisineEducationProfiles.global || {
+    culture: cuisine.blurb,
+    ingredients: ["salt", "acid", "fat", "heat", "fresh herbs"],
+    techniques: ["taste as you go", "prep before cooking", "balance texture", "season in layers"],
+    menus: ["one main, one vegetable, one starch, one sauce, one drink"]
+  };
   app.innerHTML = `
     ${hero(cuisine.name, cuisine.blurb, cuisine.image)}
     ${cookSubnav()}
     <section class="cream-section">
       <div class="section-heading">
         <p class="eyebrow">${cuisine.name}</p>
-        <h2>Recipes you can cook in this lane.</h2>
-        <p>Start with one dish, then use the cuisine guide and menu builder to choose sides, sauces, breads, drinks, and desserts that belong with it.</p>
+        <h2>Learn the culture, ingredients, techniques, and recipes.</h2>
+        <p>${education.culture}</p>
+      </div>
+      <div class="academy-module-grid cuisine-learning-grid">
+        <article class="academy-module-card"><h3>Key Ingredients</h3><ul>${education.ingredients.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article class="academy-module-card"><h3>Core Techniques</h3><ul>${education.techniques.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article class="academy-module-card"><h3>Menu Ideas</h3><ul>${education.menus.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+      </div>
+      <div class="section-heading">
+        <p class="eyebrow">Cook this cuisine</p>
+        <h2>Recipe choices that belong here.</h2>
       </div>
       <div class="recipe-grid">${cuisineRecipes.map(recipeCard).join("")}</div>
       <div class="next-step-strip">
