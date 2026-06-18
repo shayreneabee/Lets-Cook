@@ -8,6 +8,8 @@
     "global fallback image"
   ],
   "consoleHelper": "window.reportLetsCookRecipeImages()",
+  "contentAuditHelper": "window.auditLetsCookImageContent()",
+  "contentRule": "Every cuisine or recipe image must attach to at least one real recipe, lesson, cuisine guide, hosting guide, or menu planner route. No orphaned photos. No orphaned recipes.",
   "auditedMappings": [
     {
       "recipe": "Southern Fried Chicken",
@@ -68,6 +70,8 @@
     "Do not use fried chicken images for non-fried-chicken recipes.",
     "Do not use grits images for macaroni and cheese.",
     "Do not use dessert images for entrees.",
-    "Do not use entree images for desserts."
+    "Do not use entree images for desserts.",
+    "If a cuisine image is added, register it in imageContentRegistry with a matching recipe, lesson, or menu route.",
+    "If a recipe is added, give it a recipe-specific image or intentionally mapped cuisine/category image."
   ]
 }

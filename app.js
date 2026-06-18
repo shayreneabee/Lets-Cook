@@ -271,6 +271,7 @@ function resolveRecipeImage(recipe = {}) {
 function recipeImageReport() {
   const rows = recipes.map((recipe) => {
     const resolved = resolveRecipeImage(recipe);
+    const content = imageContentRegistry[resolved.image];
     return {
       recipe: recipe.title,
       id: recipe.id,
@@ -278,12 +279,47 @@ function recipeImageReport() {
       category: recipe.category,
       assignedImage: resolved.image,
       source: resolved.source,
+      attachedContent: content?.title || recipe.title,
+      contentRoute: content?.href || `#recipes/${recipe.id}`,
       missingRecipeImage: resolved.missingImage,
       fallbackUsed: resolved.fallbackUsed
     };
   });
   console.table(rows);
   return rows;
+}
+
+function imageContentAudit() {
+  const recipeIds = new Set(recipes.map((recipe) => recipe.id));
+  const usedImages = new Set(recipes.map((recipe) => resolveRecipeImage(recipe).image));
+  const registryRows = Object.entries(imageContentRegistry).map(([image, content]) => {
+    const recipeId = content.href?.startsWith("#recipes/") ? content.href.replace("#recipes/", "") : "";
+    return {
+      image,
+      attachedContent: content.title,
+      type: content.type,
+      primaryRoute: content.href,
+      lessonRoute: content.lesson,
+      menuRoute: content.menu,
+      usedByRecipe: usedImages.has(image),
+      targetRecipeExists: recipeId ? recipeIds.has(recipeId) : true
+    };
+  });
+  const unregisteredRecipeImages = [...usedImages]
+    .filter((image) => !imageContentRegistry[image] && !image.startsWith("assets/logo"))
+    .map((image) => ({
+      image,
+      recipes: recipes.filter((recipe) => resolveRecipeImage(recipe).image === image).map((recipe) => recipe.title).join(", ")
+    }));
+  const result = {
+    registeredImages: registryRows,
+    unregisteredRecipeImages,
+    missingRecipeTargets: registryRows.filter((row) => row.targetRecipeExists === false),
+    unusedRegisteredImages: registryRows.filter((row) => row.usedByRecipe === false && row.image.startsWith("images/cuisines/"))
+  };
+  console.table(registryRows);
+  if (unregisteredRecipeImages.length) console.table(unregisteredRecipeImages);
+  return result;
 }
 
 function contentQualityReport() {
@@ -2309,6 +2345,191 @@ const recipeImageOverrides = {
   "holiday-cups": "assets/lc-desserts.jpg"
 };
 
+const imageContentRegistry = {
+  "images/cuisines/southern/southern-01.png": {
+    title: "Southern Fried Chicken",
+    type: "recipe",
+    href: "#recipes/southern-crispy-fried-chicken",
+    lesson: "#culinary-academy/frying",
+    menu: "#menu-intelligence/1"
+  },
+  "images/cuisines/southern/southern-02.png": {
+    title: "Baked Mac and Cheese",
+    type: "recipe",
+    href: "#recipes/southern-baked-mac-cheese",
+    lesson: "#culinary-academy/bechamel",
+    menu: "#menu-intelligence/1"
+  },
+  "images/cuisines/southern/southern-03.png": {
+    title: "Slow-Cooked Collard Greens",
+    type: "recipe",
+    href: "#recipes/southern-collard-greens",
+    lesson: "#culinary-academy/braising",
+    menu: "#cuisine/soul-food"
+  },
+  "images/cuisines/southern/southern-04.png": {
+    title: "Black-Eyed Peas",
+    type: "recipe",
+    href: "#recipes/southern-black-eyed-peas",
+    lesson: "#culinary-academy/black-eyed-peas-tradition",
+    menu: "#cuisine/mississippi-favorites"
+  },
+  "images/cuisines/southern/southern-05.png": {
+    title: "Cornbread Dressing / Biscuits",
+    type: "recipe",
+    href: "#recipes/southern-cornbread-dressing",
+    lesson: "#culinary-academy/cornbread-traditions",
+    menu: "#hosting/holiday-hosting"
+  },
+  "images/cuisines/southern/southern-06.png": {
+    title: "Southern Meatloaf",
+    type: "recipe",
+    href: "#recipes/southern-meatloaf",
+    lesson: "#culinary-academy/kitchen-safety",
+    menu: "#cuisine/southern"
+  },
+  "images/cuisines/southern/southern-07.png": {
+    title: "Creamy Stone-Ground Grits",
+    type: "recipe",
+    href: "#recipes/southern-stone-ground-grits",
+    lesson: "#culinary-academy/history-of-grits",
+    menu: "#cuisine/low-country"
+  },
+  "images/cuisines/southern/southern-08.png": {
+    title: "Pecan Pie / Bread Pudding",
+    type: "recipe",
+    href: "#recipes/southern-pecan-pie",
+    lesson: "#culinary-academy/baking-basics",
+    menu: "#hosting/sunday-comfort-supper"
+  },
+  "images/cuisines/southern/southern-09.png": {
+    title: "Low Country Shrimp and Grits",
+    type: "recipe",
+    href: "#recipes/southern-shrimp-and-grits",
+    lesson: "#culinary-academy/rice-grits-pasta",
+    menu: "#cuisine/low-country"
+  },
+  "images/cuisines/asian/asian-01.png": {
+    title: "Garlic Fried Rice",
+    type: "recipe",
+    href: "#recipes/asian-garlic-fried-rice",
+    lesson: "#culinary-academy/world-foods",
+    menu: "#cuisine/asian-inspired"
+  },
+  "images/cuisines/asian/asian-02.png": {
+    title: "Orange Chicken",
+    type: "recipe",
+    href: "#recipes/asian-orange-chicken",
+    lesson: "#culinary-academy/sauces",
+    menu: "#cuisine/asian-inspired"
+  },
+  "images/cuisines/asian/asian-03.png": {
+    title: "Cashew Chicken",
+    type: "recipe",
+    href: "#recipes/asian-cashew-chicken",
+    lesson: "#culinary-academy/world-foods",
+    menu: "#cuisine/asian-inspired"
+  },
+  "images/cuisines/asian/asian-04.png": {
+    title: "Beef and Broccoli",
+    type: "recipe",
+    href: "#recipes/asian-beef-broccoli",
+    lesson: "#culinary-academy/searing",
+    menu: "#cuisine/asian-inspired"
+  },
+  "images/cuisines/asian/asian-05.png": {
+    title: "Vegetable Lo Mein",
+    type: "recipe",
+    href: "#recipes/asian-lo-mein",
+    lesson: "#culinary-academy/rice-grits-pasta",
+    menu: "#cuisine/asian-inspired"
+  },
+  "images/cuisines/asian/asian-06.png": {
+    title: "Dumpling Bowl",
+    type: "recipe",
+    href: "#recipes/asian-dumpling-bowls",
+    lesson: "#culinary-academy/world-foods",
+    menu: "#cuisine/asian-inspired"
+  },
+  "images/cuisines/asian/asian-07.png": {
+    title: "Teriyaki Salmon",
+    type: "recipe",
+    href: "#recipes/asian-teriyaki-salmon",
+    lesson: "#culinary-academy/pan-sauce",
+    menu: "#cuisine/asian-inspired"
+  },
+  "images/cuisines/asian/asian-08.png": {
+    title: "Thai Basil Chicken",
+    type: "recipe",
+    href: "#recipes/asian-thai-basil-chicken",
+    lesson: "#culinary-academy/world-foods",
+    menu: "#cuisine-explorer/thailand"
+  },
+  "images/cuisines/asian/asian-09.png": {
+    title: "Miso Butter Noodles",
+    type: "recipe",
+    href: "#recipes/asian-miso-noodles",
+    lesson: "#culinary-academy/umami",
+    menu: "#cuisine-explorer/japan"
+  },
+  "images/cuisines/asian/asian-10.png": {
+    title: "Crab Rangoon",
+    type: "recipe",
+    href: "#recipes/asian-crab-rangoon",
+    lesson: "#hosting/tailgate",
+    menu: "#cuisine/asian-inspired"
+  },
+  "assets/lc-african-food.jpg": {
+    title: "West and East African recipe set",
+    type: "cuisine collection",
+    href: "#cuisine-explorer/african-cuisines",
+    lesson: "#culinary-academy/world-foods",
+    menu: "#cuisine/nigerian"
+  },
+  "assets/lc-indian-food.jpg": {
+    title: "Indian curry and bread lessons",
+    type: "cuisine collection",
+    href: "#cuisine/indian",
+    lesson: "#culinary-academy/curry",
+    menu: "#menu-intelligence/7"
+  },
+  "assets/lc-birria-tacos.jpg": {
+    title: "Mexican taco night",
+    type: "recipe/menu",
+    href: "#recipes/chicken-street-tacos",
+    lesson: "#culinary-academy/world-foods",
+    menu: "#menu-intelligence/8"
+  },
+  "assets/lc-mediterranean-food.jpg": {
+    title: "Mediterranean lunch spread",
+    type: "menu",
+    href: "#cuisine/mediterranean",
+    lesson: "#culinary-academy/tzatziki",
+    menu: "#menu-intelligence/3"
+  },
+  "assets/lc-desserts.jpg": {
+    title: "Desserts and party cups",
+    type: "hosting",
+    href: "#hosting",
+    lesson: "#culinary-academy/baking-basics",
+    menu: "#hosting/holiday-hosting"
+  },
+  "assets/lc-seafood.jpg": {
+    title: "Seafood cooking",
+    type: "recipe collection",
+    href: "#kitchen-search/seafood",
+    lesson: "#culinary-academy/searing",
+    menu: "#cuisine/low-country"
+  },
+  "assets/lc-pasta.jpg": {
+    title: "Pasta and sauce lessons",
+    type: "recipe collection",
+    href: "#cuisine/italian",
+    lesson: "#culinary-academy/tomato-sauce",
+    menu: "#cuisine/italian"
+  }
+};
+
 function normalizeRecipe(recipe) {
   const imageOverride = recipeImageOverrides[recipe.id];
   if (imageOverride) {
@@ -2328,6 +2549,7 @@ function normalizeRecipe(recipe) {
   recipe.directions ||= recipe.steps || [];
   recipe.steps ||= recipe.directions;
   recipe.tags ||= [recipe.category, recipe.cuisine, recipe.path].filter(Boolean);
+  recipe.structured_ingredients = structuredIngredientsFor(recipe);
   recipe.skills_learned ||= recipe.skillsLearned || (recipe.tags || []).slice(0, 4).map((tag) => `${tag} cooking`);
   recipe.storage ||= "Cool leftovers within 2 hours, store covered in the refrigerator, and use within 3 to 4 days unless the dish notes say otherwise.";
   recipe.reheating ||= "Reheat gently until hot all the way through. Add a splash of water, stock, milk, or sauce if the dish needs moisture.";
@@ -2358,6 +2580,87 @@ function formatAmount(value) {
   if (!Number.isFinite(number)) return value;
   if (Number.isInteger(number)) return String(number);
   return number.toFixed(number < 10 ? 1 : 0).replace(/\.0$/, "");
+}
+
+const ingredientUnits = new Set([
+  "cup", "cups", "tbsp", "tbsps", "tablespoon", "tablespoons", "tsp", "tsps", "teaspoon", "teaspoons",
+  "oz", "ounce", "ounces", "lb", "lbs", "pound", "pounds", "g", "gram", "grams", "kg", "ml", "l",
+  "clove", "cloves", "slice", "slices", "piece", "pieces", "can", "cans", "egg", "eggs", "bunch",
+  "bunches", "sprig", "sprigs", "stalk", "stalks", "fillet", "fillets", "steak", "steaks"
+]);
+
+function parseQuantityToken(token = "") {
+  const clean = String(token).trim();
+  if (!clean) return null;
+  if (/^\d+(\.\d+)?$/.test(clean)) return Number(clean);
+  const fraction = clean.match(/^(\d+)\/(\d+)$/);
+  if (fraction) return Number(fraction[1]) / Number(fraction[2]);
+  return null;
+}
+
+function parseIngredientLine(line = "") {
+  if (typeof line === "object" && line.name) {
+    const quantity = Number(line.quantity ?? line.amount ?? 0);
+    return {
+      quantity: Number.isFinite(quantity) && quantity > 0 ? quantity : null,
+      unit: line.unit || "",
+      name: line.name,
+      note: line.note || "",
+      original: line.original || `${line.quantity || ""} ${line.unit || ""} ${line.name}`.trim()
+    };
+  }
+  const original = String(line || "").trim();
+  const match = original.match(/^(\d+(?:\.\d+)?|\d+\/\d+)(?:\s+(\d+\/\d+))?\s+(.+)$/);
+  if (!match) return { quantity: null, unit: "", name: original, note: "", original };
+  const whole = parseQuantityToken(match[1]);
+  const fraction = parseQuantityToken(match[2]);
+  const quantity = Number(whole || 0) + Number(fraction || 0);
+  let remainder = match[3].trim();
+  const words = remainder.split(/\s+/);
+  let unit = "";
+  if (words.length && ingredientUnits.has(words[0].toLowerCase().replace(/[,.]/g, ""))) {
+    unit = words.shift().replace(/[,.]/g, "");
+    remainder = words.join(" ");
+  }
+  return {
+    quantity: quantity > 0 ? quantity : null,
+    unit,
+    name: remainder.trim(),
+    note: "",
+    original
+  };
+}
+
+function formatFraction(value) {
+  const number = Number(value);
+  if (!Number.isFinite(number)) return "";
+  const whole = Math.floor(number);
+  const fraction = number - whole;
+  const common = [
+    [1 / 8, "1/8"], [1 / 6, "1/6"], [1 / 4, "1/4"], [1 / 3, "1/3"],
+    [1 / 2, "1/2"], [2 / 3, "2/3"], [3 / 4, "3/4"], [5 / 6, "5/6"]
+  ];
+  const closest = common.reduce((best, item) => Math.abs(item[0] - fraction) < Math.abs(best[0] - fraction) ? item : best, [0, ""]);
+  if (fraction < 0.05) return String(whole);
+  if (1 - fraction < 0.05) return String(whole + 1);
+  return `${whole ? `${whole} ` : ""}${closest[1]}`.trim();
+}
+
+function singularizeUnit(unit = "", quantity = 1) {
+  if (!unit || Math.abs(quantity - 1) > 0.05) return unit;
+  const units = { cups: "cup", tablespoons: "tablespoon", teaspoons: "teaspoon", ounces: "ounce", pounds: "pound", cloves: "clove", slices: "slice", pieces: "piece", cans: "can", eggs: "egg", bunches: "bunch", sprigs: "sprig", stalks: "stalk", fillets: "fillet", steaks: "steak" };
+  return units[unit.toLowerCase()] || unit;
+}
+
+function formatScaledIngredient(ingredient, multiplier) {
+  const quantity = Number(ingredient.quantity || 0) * multiplier;
+  if (!quantity) return ingredient.original || ingredient.name;
+  const unit = singularizeUnit(ingredient.unit || "", quantity);
+  return `${formatFraction(quantity)} ${unit} ${ingredient.name}`.replace(/\s+/g, " ").trim();
+}
+
+function structuredIngredientsFor(recipe = {}) {
+  return (recipe.structured_ingredients || recipe.ingredients_structured || recipe.ingredients || []).map(parseIngredientLine);
 }
 
 function scaledPartyItems(recipe, guestCount, cupsPerGuest = recipe.cups_per_guest || 1) {
@@ -2414,28 +2717,31 @@ function partyRecipeResults(recipe, guestCount = 24, cupsPerGuest = 1) {
 function scaledRecipeList(recipe, targetServings) {
   const baseServings = Math.max(1, Number(recipe.servings || 1));
   const multiplier = targetServings / baseServings;
-  return recipe.ingredients.map((ingredient) => `<li>${multiplier === 1 ? "" : `<strong>${multiplier.toFixed(1).replace(/\.0$/, "")}x</strong> `}${ingredient}</li>`).join("");
+  const scalable = (recipe.structured_ingredients || []).filter((ingredient) => ingredient.quantity && ingredient.name);
+  if (!scalable.length) return "";
+  return scalable.map((ingredient) => `<li>${formatScaledIngredient(ingredient, multiplier)}</li>`).join("");
 }
 
 function recipeUtilityPanel(recipe) {
   const scales = [2, 4, 6, 8];
+  const scalable = (recipe.structured_ingredients || []).filter((ingredient) => ingredient.quantity && ingredient.name);
   return `
     <article class="detail-panel recipe-tools-panel">
       <p class="eyebrow">Cook tools</p>
-      <h2>Save, print, shop, and scale.</h2>
+      <h2>Save, print, shop${scalable.length ? ", and scale" : ""}.</h2>
       <div class="recipe-tool-actions">
         <button class="small-button" data-save="${recipe.id}">${saved.includes(recipe.id) ? "Saved" : "Save Recipe"}</button>
         <button class="small-button secondary" data-print-recipe>Print Recipe</button>
         <button class="small-button secondary" data-plan="${recipe.id}">${planned.includes(recipe.id) ? "Planned" : "Add to Meal Plan"}</button>
       </div>
-      <div class="recipe-scale-grid">
+      ${scalable.length ? `<div class="recipe-scale-grid">
         ${scales.map((servings) => `
           <section>
             <h3>${servings} servings</h3>
             <ul>${scaledRecipeList(recipe, servings)}</ul>
           </section>
         `).join("")}
-      </div>
+      </div>` : `<p class="hosting-note">Scaling is available when this recipe has measured ingredient quantities.</p>`}
       <div class="party-shopping-list">
         <h3>Shopping List</h3>
         <ul>${[...new Set([...(recipe.ingredients || []), ...(recipe.shopping_items || []).map((item) => item.item || item)])].map((item) => `<li>${item}</li>`).join("")}</ul>
@@ -2860,6 +3166,7 @@ document.addEventListener("change", handleSearch);
 document.addEventListener("error", handleImageFallback, true);
 window.reportLetsCookMissingImages = reportMissingImages;
 window.reportLetsCookRecipeImages = recipeImageReport;
+window.auditLetsCookImageContent = imageContentAudit;
 
 function handleImageFallback(event) {
   const image = event.target;
@@ -4648,6 +4955,8 @@ function applyRecipeDatabase(database) {
     path: recipe.path || "amateur-home-chef",
     description: recipe.description,
     ingredients: recipe.ingredients || [],
+    structured_ingredients: recipe.structured_ingredients || recipe.ingredients_structured || [],
+    ingredients_structured: recipe.ingredients_structured || recipe.structured_ingredients || [],
     steps: recipe.instructions || recipe.directions || [],
     directions: recipe.directions || recipe.instructions || [],
     instructions: recipe.instructions || recipe.directions || [],
