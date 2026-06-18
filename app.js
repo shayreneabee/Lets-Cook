@@ -341,7 +341,11 @@ const cuisines = [
   { id: "asian-inspired", name: "Asian Inspired", image: cuisineCoverImages["asian-inspired"], blurb: "Crisp, saucy, family-friendly dinners with bold pantry flavor." },
   { id: "italian", name: "Italian Comfort", image: cuisineCoverImages.italian, blurb: "Pasta nights, red sauce, baked mains, and beginner-friendly classics." },
   { id: "hosting", name: "Party & Hosting", image: cuisineCoverImages.hosting, blurb: "Boards, bites, desserts, and dinner-party helpers that make people feel cared for." },
-  { id: "global", name: "Global Flavors", image: cuisineCoverImages.global, blurb: "Practical recipes and flavor lessons that help cooks move between regional food traditions with respect." }
+  { id: "global", name: "Global Flavors", image: cuisineCoverImages.global, blurb: "Practical recipes and flavor lessons that help cooks move between regional food traditions with respect." },
+  { id: "nigerian", name: "Nigerian", image: photoFor("cuisines", "global"), blurb: "Jollof rice, egusi, suya, moi moi, pepper soup, and layered tomato-pepper stew bases." },
+  { id: "ghanaian", name: "Ghanaian", image: photoFor("cuisines", "global", 1), blurb: "Waakye, red red, kelewele, groundnut soup, jollof, shito, and generous rice-and-bean plates." },
+  { id: "ethiopian", name: "Ethiopian", image: photoFor("cuisines", "global", 2), blurb: "Injera, berbere, lentil stews, shiro, tibs, doro wat, and shared platter hospitality." },
+  { id: "moroccan", name: "Moroccan", image: cuisineCoverImages.mediterranean, blurb: "Tagines, couscous, harira, preserved lemon, olives, mint tea, and warm spice layering." }
 ];
 
 const learningPillars = [
@@ -688,46 +692,62 @@ const countryCuisineProfiles = {
   nigeria: {
     title: "Nigeria",
     region: "West Africa",
+    cuisine: "nigerian",
     overview: "Nigerian cooking is bold, layered, and deeply regional, with rice dishes, stews, soups, grilled foods, peppers, tomatoes, onions, and palm oil showing up often.",
     culture: "Meals are generous and often shared, with food connected to celebrations, family gatherings, markets, and regional identity.",
     ingredients: ["rice", "tomatoes", "peppers", "onions", "palm oil", "egusi", "okra", "plantains", "beans"],
     dishes: ["jollof rice", "egusi soup", "suya", "moi moi", "pepper soup", "fried plantains"],
     techniques: ["stew bases", "pepper blending", "grilling", "simmering soups", "rice steaming"],
     menu: ["jollof rice", "grilled chicken or suya", "fried plantains", "cabbage slaw", "zobo or ginger drink"],
-    beginnerRecipes: ["jollof-style rice", "fried plantains", "pepper chicken"]
+    beginnerRecipes: ["Nigerian Jollof Rice", "Egusi Soup", "Suya Skewers", "Nigerian Fried Rice", "Pepper Soup", "Moi Moi"]
   },
   ghana: {
     title: "Ghana",
     region: "West Africa",
+    cuisine: "ghanaian",
     overview: "Ghanaian food is warm, hearty, and centered around stews, rice, plantains, beans, soups, fish, and spice.",
     culture: "Food often carries family history and regional pride, especially around rice dishes, soups, and shared bowls.",
     ingredients: ["rice", "beans", "plantains", "tomatoes", "peppers", "fish", "groundnuts", "cassava"],
     dishes: ["waakye", "red red", "kelewele", "groundnut soup", "banku", "light soup"],
     techniques: ["slow stews", "spiced frying", "soup simmering", "fermented dough cooking"],
     menu: ["waakye", "spiced chicken", "kelewele", "shito", "ginger drink"],
-    beginnerRecipes: ["red red-inspired beans", "kelewele-style plantains", "tomato stew"]
+    beginnerRecipes: ["Waakye", "Ghanaian Jollof Rice", "Kelewele", "Groundnut Soup", "Red Red"]
   },
   ethiopia: {
     title: "Ethiopia",
     region: "East Africa",
+    cuisine: "ethiopian",
     overview: "Ethiopian cuisine is famous for injera, spice-rich stews, lentils, vegetables, and communal eating.",
     culture: "Meals are often served on injera and eaten together, making hospitality and sharing part of the food experience.",
     ingredients: ["berbere", "niter kibbeh", "lentils", "teff", "chickpeas", "collards", "onions"],
     dishes: ["doro wat", "misir wat", "shiro", "injera", "gomen", "tibs"],
     techniques: ["spice blooming", "slow stewing", "lentil simmering", "injera-style flatbread service"],
     menu: ["misir wat", "gomen", "shiro", "injera", "spiced tea"],
-    beginnerRecipes: ["berbere lentils", "spiced greens", "chickpea stew"]
+    beginnerRecipes: ["Doro Wat", "Misir Wat", "Shiro Wat", "Tibs", "Injera", "Kik Alicha"]
   },
   morocco: {
     title: "Morocco",
     region: "North Africa",
+    cuisine: "moroccan",
     overview: "Moroccan cooking layers warm spices, citrus, herbs, preserved foods, couscous, tagines, vegetables, lamb, chicken, and seafood.",
     culture: "Meals are often fragrant and shared, with tea, bread, stews, and hospitality carrying strong meaning.",
     ingredients: ["couscous", "chickpeas", "preserved lemon", "olives", "cumin", "cinnamon", "mint", "harissa"],
     dishes: ["tagine", "couscous", "harira", "zaalouk", "briouats", "mint tea"],
     techniques: ["slow braising", "steaming couscous", "spice layering", "preserved lemon finishing"],
     menu: ["chicken tagine", "couscous", "carrot salad", "flatbread", "mint tea"],
-    beginnerRecipes: ["chickpea couscous bowl", "lemon olive chicken", "spiced carrot salad"]
+    beginnerRecipes: ["Chicken Tagine", "Couscous with Vegetables", "Harira Soup", "Chermoula Fish", "Moroccan Carrot Salad"]
+  },
+  india: {
+    title: "India",
+    region: "South Asia",
+    cuisine: "indian",
+    overview: "Indian cooking is highly regional, but many beginner paths start with learning spice blooming, lentils, rice, flatbreads, yogurt marinades, and tomato-onion curry bases.",
+    culture: "Meals often balance rice or bread, dal or legumes, vegetables, pickles or chutneys, yogurt, and a main dish. Spices are usually layered in fat before liquids are added.",
+    ingredients: ["basmati rice", "lentils", "chickpeas", "garam masala", "cumin", "coriander", "turmeric", "ginger", "garlic", "ghee", "yogurt"],
+    dishes: ["butter chicken", "chana masala", "dal", "biryani", "palak paneer", "naan"],
+    techniques: ["blooming spices", "building curry bases", "simmering lentils", "steaming rice", "marinating with yogurt", "finishing with ghee or cream"],
+    menu: ["butter chicken or chana masala", "dal tadka", "basmati rice or biryani", "naan", "cucumber raita", "mango lassi"],
+    beginnerRecipes: ["Butter Chicken", "Chana Masala", "Dal Tadka", "Beginner Chicken Biryani"]
   },
   haiti: {
     title: "Haiti",
@@ -1688,6 +1708,29 @@ const nextFeatureRecipes = [
   ["asian-thai-basil-chicken", "Thai Basil Chicken", "asian-inspired", "Quick Meals", "images/cuisines/asian/asian-08.png", "10 min", "15 min", "Intermediate", 4, "Ground chicken cooked hot and fast with garlic, chiles, basil, and savory sauce.", ["Ground chicken", "Garlic", "Chile", "Basil", "Soy sauce", "Fish sauce", "Sugar"], ["Mix sauce.", "Cook garlic and chile.", "Brown chicken.", "Add sauce.", "Fold in basil at the end."], ["asian", "thai", "basil", "quick meals"]],
   ["asian-miso-noodles", "Miso Butter Noodles", "asian-inspired", "Beginner Basics", "images/cuisines/asian/asian-09.png", "10 min", "12 min", "Beginner", 3, "Cozy noodles with miso, butter, garlic, scallions, and an umami-rich finish.", ["Noodles", "Miso", "Butter", "Garlic", "Scallions", "Reserved pasta water"], ["Cook noodles.", "Soften garlic in butter.", "Whisk miso with pasta water.", "Toss noodles in sauce.", "Finish with scallions."], ["asian", "miso", "noodles", "umami"]],
   ["asian-crab-rangoon", "Crab Rangoon", "asian-inspired", "Party & Hosting", "images/cuisines/asian/asian-10.png", "20 min", "15 min", "Intermediate", 24, "Crisp wontons filled with creamy crab, scallion, and garlic for party trays.", ["Wonton wrappers", "Cream cheese", "Crab", "Scallions", "Garlic powder", "Oil"], ["Mix filling.", "Fill wonton wrappers.", "Seal edges with water.", "Fry or bake until crisp.", "Serve with sweet chili sauce."], ["asian", "crab rangoon", "party", "appetizer"]],
+  ["nigerian-jollof-rice", "Nigerian Jollof Rice", "nigerian", "West African", "assets/lc-african-food.jpg", "20 min", "45 min", "Intermediate", 6, "Long-grain rice cooked in a blended tomato, pepper, onion, and spice base until smoky and deeply seasoned.", ["Long-grain parboiled rice", "Tomatoes", "Red bell peppers", "Scotch bonnet", "Onion", "Tomato paste", "Stock", "Thyme", "Curry powder"], ["Blend tomatoes, peppers, Scotch bonnet, and onion.", "Fry tomato paste in oil until darkened.", "Cook the blended base until reduced.", "Add stock, seasoning, and washed rice.", "Cover tightly and steam on low until rice is tender."], ["nigeria", "jollof", "rice", "west african"]],
+  ["nigerian-egusi-soup", "Egusi Soup", "nigerian", "West African", "assets/lc-african-food.jpg", "20 min", "45 min", "Intermediate", 6, "A rich Nigerian melon-seed soup simmered with palm oil, pepper base, leafy greens, and meat or fish.", ["Ground egusi", "Palm oil", "Pepper blend", "Stock", "Spinach or bitter leaf", "Smoked fish or beef", "Crayfish powder"], ["Heat palm oil gently.", "Cook pepper base until thick.", "Stir egusi with a little stock to form a paste.", "Add egusi paste in spoonfuls and simmer.", "Add protein and greens; cook until thick and seasoned."], ["nigeria", "egusi", "soup", "melon seed"]],
+  ["nigerian-suya-skewers", "Suya Skewers", "nigerian", "West African", "assets/lc-african-food.jpg", "25 min", "12 min", "Intermediate", 4, "Thin beef skewers coated in peanut-chile suya spice and grilled hot for smoky street-food flavor.", ["Thin beef strips", "Ground peanuts", "Paprika", "Cayenne", "Ginger", "Garlic powder", "Onion powder", "Oil"], ["Soak skewers if wooden.", "Mix peanut spice blend.", "Thread beef onto skewers.", "Brush lightly with oil and coat with spice.", "Grill or broil until charred at the edges."], ["nigeria", "suya", "grilled", "street food"]],
+  ["nigerian-fried-rice", "Nigerian Fried Rice", "nigerian", "West African", "assets/lc-african-food.jpg", "20 min", "25 min", "Beginner", 6, "Curried rice stir-fried with mixed vegetables, liver or shrimp optional, and Nigerian party-rice seasoning.", ["Parboiled rice", "Mixed vegetables", "Curry powder", "Thyme", "Stock", "Onion", "Bell pepper", "Oil"], ["Parboil rice in seasoned stock.", "Saute onion and vegetables.", "Add curry powder and thyme.", "Fold in rice and stir-fry in batches.", "Taste and adjust salt before serving."], ["nigeria", "fried rice", "party rice", "west african"]],
+  ["nigerian-pepper-soup", "Pepper Soup", "nigerian", "West African", "assets/lc-african-food.jpg", "15 min", "45 min", "Beginner", 4, "A clear, spicy broth simmered with meat or fish, pepper soup spice, scent leaf or basil, and fresh chile.", ["Goat meat, chicken, or fish", "Pepper soup spice", "Onion", "Scotch bonnet", "Ginger", "Stock or water", "Scent leaf or basil"], ["Season protein with salt, onion, and ginger.", "Simmer until nearly tender.", "Add pepper soup spice and chile.", "Cook until broth is fragrant.", "Finish with herbs and serve hot."], ["nigeria", "pepper soup", "broth", "spicy"]],
+  ["nigerian-moi-moi", "Moi Moi", "nigerian", "West African", "assets/lc-african-food.jpg", "30 min", "45 min", "Intermediate", 8, "Steamed bean pudding made from peeled black-eyed peas blended with peppers, onion, oil, and seasoning.", ["Peeled black-eyed peas", "Red bell pepper", "Onion", "Scotch bonnet", "Oil", "Stock", "Salt", "Boiled egg optional"], ["Soak and peel beans or use peeled beans.", "Blend beans with peppers and onion.", "Whisk in oil, stock, and seasoning.", "Pour into cups or leaves.", "Steam until firm and set."], ["nigeria", "moi moi", "beans", "steamed"]],
+  ["ghanaian-waakye", "Waakye", "ghanaian", "West African", "assets/lc-african-food.jpg", "15 min", "55 min", "Intermediate", 6, "Ghanaian rice and beans cooked together, traditionally colored with sorghum leaves and served with sauces and sides.", ["Rice", "Black-eyed peas or cowpeas", "Waakye leaves optional", "Salt", "Water", "Shito or stew for serving"], ["Parcook soaked beans until nearly tender.", "Add washed rice and salt.", "Add waakye leaves if using.", "Steam until rice and beans are tender.", "Serve with stew, shito, egg, or plantains."], ["ghana", "waakye", "rice and beans", "west african"]],
+  ["ghanaian-jollof-rice", "Ghanaian Jollof Rice", "ghanaian", "West African", "assets/lc-african-food.jpg", "20 min", "45 min", "Intermediate", 6, "Perfumed jollof rice cooked in a tomato stew base with ginger, garlic, curry powder, and stock.", ["Jasmine or long-grain rice", "Tomatoes", "Tomato paste", "Onion", "Ginger", "Garlic", "Curry powder", "Stock"], ["Cook onion, ginger, garlic, and tomato paste.", "Add blended tomato and simmer into stew.", "Season with curry powder and stock.", "Add washed rice.", "Cover and steam gently until tender."], ["ghana", "jollof", "rice", "tomato stew"]],
+  ["ghanaian-kelewele", "Kelewele", "ghanaian", "West African", "assets/lc-african-food.jpg", "15 min", "10 min", "Beginner", 4, "Ripe plantains tossed with ginger, chile, and warm spices, then fried until caramelized.", ["Ripe plantains", "Fresh ginger", "Cayenne or chile", "Salt", "Nutmeg optional", "Oil"], ["Cut ripe plantains into chunks.", "Blend or grate ginger with chile and salt.", "Toss plantains with seasoning.", "Fry until browned and soft inside.", "Drain and serve warm."], ["ghana", "kelewele", "plantains", "snack"]],
+  ["ghanaian-groundnut-soup", "Groundnut Soup", "ghanaian", "West African", "assets/lc-african-food.jpg", "20 min", "1 hr", "Intermediate", 6, "A Ghanaian peanut-based soup simmered with tomato, onion, chile, stock, and chicken or vegetables.", ["Peanut butter or ground peanuts", "Chicken or vegetables", "Tomatoes", "Onion", "Scotch bonnet", "Stock", "Ginger"], ["Simmer chicken or vegetables with onion and seasoning.", "Blend tomatoes, onion, chile, and ginger.", "Stir peanut butter with warm stock until smooth.", "Add peanut mixture and tomato blend.", "Simmer until rich and slightly thick."], ["ghana", "groundnut soup", "peanut", "soup"]],
+  ["ghanaian-red-red", "Red Red", "ghanaian", "West African", "assets/lc-african-food.jpg", "15 min", "45 min", "Beginner", 4, "Black-eyed peas stewed in red palm oil with tomato, onion, chile, and served with fried plantains.", ["Black-eyed peas", "Palm oil", "Tomatoes", "Onion", "Scotch bonnet", "Garlic", "Ripe plantains"], ["Cook peas until tender.", "Make a tomato and onion stew in palm oil.", "Add peas and simmer until saucy.", "Fry ripe plantains separately.", "Serve beans with plantains."], ["ghana", "red red", "beans", "plantains"]],
+  ["ethiopian-doro-wat", "Doro Wat", "ethiopian", "East African", "assets/lc-african-food.jpg", "25 min", "1 hr 15 min", "Advanced", 6, "Ethiopian chicken stew built with slow-cooked onions, berbere, spiced butter, chicken, and boiled eggs.", ["Chicken pieces", "Onions", "Berbere", "Niter kibbeh or butter", "Garlic", "Ginger", "Stock", "Boiled eggs"], ["Cook chopped onions slowly until reduced and sweet.", "Add spiced butter, garlic, ginger, and berbere.", "Add chicken and coat in the spice base.", "Simmer with a little stock until tender.", "Add boiled eggs near the end."], ["ethiopia", "doro wat", "berbere", "stew"]],
+  ["ethiopian-misir-wat", "Misir Wat", "ethiopian", "East African", "assets/lc-african-food.jpg", "10 min", "35 min", "Beginner", 4, "Red lentils simmered with berbere, onions, garlic, and spiced butter until creamy and deeply seasoned.", ["Red lentils", "Onion", "Berbere", "Garlic", "Ginger", "Niter kibbeh or oil", "Stock or water"], ["Rinse lentils.", "Cook onions until soft.", "Bloom berbere in fat.", "Add lentils and liquid.", "Simmer until thick and tender."], ["ethiopia", "misir wat", "lentils", "berbere"]],
+  ["ethiopian-shiro-wat", "Shiro Wat", "ethiopian", "East African", "assets/lc-african-food.jpg", "10 min", "25 min", "Beginner", 4, "A silky chickpea-flour stew seasoned with onions, garlic, berbere, and warm spice.", ["Shiro powder or chickpea flour", "Onion", "Garlic", "Berbere", "Oil", "Water or stock"], ["Cook onions in oil until soft.", "Add garlic and berbere.", "Whisk shiro powder with water.", "Add gradually while stirring.", "Simmer until smooth and thick."], ["ethiopia", "shiro", "chickpea", "stew"]],
+  ["ethiopian-tibs", "Tibs", "ethiopian", "East African", "assets/lc-african-food.jpg", "15 min", "15 min", "Intermediate", 4, "Quick-seared beef or lamb with onion, peppers, garlic, rosemary, and Ethiopian spice.", ["Beef or lamb strips", "Onion", "Jalapeno", "Garlic", "Rosemary", "Berbere optional", "Oil"], ["Slice meat thin.", "Heat pan until hot.", "Sear meat in batches.", "Add onion, pepper, garlic, and rosemary.", "Season and serve with injera."], ["ethiopia", "tibs", "seared meat", "injera"]],
+  ["ethiopian-injera", "Injera", "ethiopian", "East African", "assets/lc-african-food.jpg", "10 min", "20 min", "Advanced", 6, "A spongy fermented flatbread traditionally made with teff flour and used as both bread and utensil.", ["Teff flour", "Water", "Starter or fermentation time", "Salt", "Oil for pan"], ["Mix teff flour and water into a thin batter.", "Ferment until lightly sour and bubbly.", "Thin batter as needed.", "Cook on one side in a covered nonstick skillet.", "Cool stacked under a towel."], ["ethiopia", "injera", "teff", "flatbread"]],
+  ["ethiopian-kik-alicha", "Kik Alicha", "ethiopian", "East African", "assets/lc-african-food.jpg", "10 min", "40 min", "Beginner", 4, "Mild yellow split peas cooked with turmeric, onion, garlic, ginger, and spiced butter or oil.", ["Yellow split peas", "Onion", "Garlic", "Ginger", "Turmeric", "Niter kibbeh or oil", "Water"], ["Rinse split peas.", "Cook onions until soft.", "Add garlic, ginger, and turmeric.", "Add peas and water.", "Simmer until tender and creamy."], ["ethiopia", "kik alicha", "split peas", "vegetarian"]],
+  ["moroccan-chicken-tagine", "Chicken Tagine", "moroccan", "North African", "images/cuisines/mediterranean/mediterranean-11.png", "20 min", "1 hr", "Intermediate", 4, "Chicken braised with onions, preserved lemon, olives, ginger, turmeric, and warm Moroccan spices.", ["Chicken pieces", "Onions", "Preserved lemon", "Green olives", "Ginger", "Turmeric", "Cumin", "Stock"], ["Season chicken with spices.", "Brown lightly if desired.", "Cook onions until soft.", "Add chicken, lemon, olives, and stock.", "Cover and braise until tender."], ["morocco", "tagine", "preserved lemon", "braise"]],
+  ["moroccan-couscous-vegetables", "Couscous with Vegetables", "moroccan", "North African", "images/cuisines/mediterranean/mediterranean-12.png", "20 min", "35 min", "Beginner", 6, "Fluffy couscous served with spiced vegetables, chickpeas, herbs, and broth.", ["Couscous", "Carrots", "Zucchini", "Chickpeas", "Onion", "Cumin", "Cinnamon", "Stock"], ["Cook vegetables with onion and spices.", "Add chickpeas and stock.", "Steam or hydrate couscous.", "Fluff couscous with a fork.", "Spoon vegetables and broth over the top."], ["morocco", "couscous", "vegetables", "chickpeas"]],
+  ["moroccan-harira", "Harira Soup", "moroccan", "North African", "images/cuisines/mediterranean/mediterranean-13.png", "20 min", "1 hr", "Intermediate", 6, "A tomato-based Moroccan soup with lentils, chickpeas, herbs, warm spices, and optional lamb.", ["Tomatoes", "Lentils", "Chickpeas", "Onion", "Celery", "Cilantro", "Parsley", "Ginger", "Cinnamon"], ["Cook onion and celery.", "Add spices, tomatoes, lentils, and chickpeas.", "Simmer until lentils are tender.", "Add herbs near the end.", "Adjust thickness with broth."], ["morocco", "harira", "lentils", "soup"]],
+  ["moroccan-chermoula-fish", "Chermoula Fish", "moroccan", "North African", "images/cuisines/mediterranean/mediterranean-14.png", "20 min", "15 min", "Beginner", 4, "Fish marinated with cilantro, parsley, garlic, lemon, cumin, paprika, and olive oil.", ["White fish", "Cilantro", "Parsley", "Garlic", "Lemon", "Cumin", "Paprika", "Olive oil"], ["Blend or chop herbs with garlic, lemon, spices, and oil.", "Coat fish with chermoula.", "Marinate briefly.", "Bake, grill, or pan-cook until flaky.", "Serve with couscous or salad."], ["morocco", "chermoula", "fish", "seafood"]],
+  ["moroccan-carrot-salad", "Moroccan Carrot Salad", "moroccan", "North African", "images/cuisines/mediterranean/mediterranean-15.png", "15 min", "10 min", "Beginner", 4, "Tender carrots tossed with cumin, lemon, olive oil, herbs, and a little chile.", ["Carrots", "Cumin", "Lemon juice", "Olive oil", "Parsley", "Paprika", "Harissa optional"], ["Slice carrots.", "Simmer until just tender.", "Whisk lemon, oil, cumin, paprika, and salt.", "Toss carrots with dressing.", "Finish with herbs."], ["morocco", "carrot salad", "cumin", "side dish"]],
+  ["indian-dal-tadka", "Dal Tadka", "indian", "Indian", "images/cuisines/indian/indian-07.png", "10 min", "35 min", "Beginner", 4, "Yellow lentils simmered until soft, then finished with a hot spiced oil of cumin, garlic, chile, and ghee.", ["Yellow lentils", "Turmeric", "Cumin seeds", "Garlic", "Ghee or oil", "Chile", "Cilantro"], ["Rinse lentils.", "Simmer with turmeric and water until soft.", "Mash lightly for texture.", "Heat ghee with cumin, garlic, and chile.", "Pour tadka over dal and finish with cilantro."], ["indian", "dal", "lentils", "tadka"]],
   ["grilled-swordfish-lemon-herb", "Grilled Swordfish with Lemon Herbs", "mediterranean", "Seafood", "images/cuisines/mediterranean/mediterranean-01.png", "10 min", "12 min", "Intermediate", 4, "Meaty swordfish steaks grilled with lemon, olive oil, garlic, and fresh herbs.", ["Swordfish steaks", "Olive oil", "Lemon", "Garlic", "Parsley", "Oregano", "Salt"], ["Pat swordfish dry.", "Season with oil, lemon, garlic, and herbs.", "Grill over medium-high heat.", "Rest briefly.", "Serve with salad or rice."], ["swordfish", "seafood", "grilling", "mediterranean"]],
   ["blackened-swordfish", "Blackened Swordfish", "southern", "Seafood", "images/cuisines/southern/southern-09.png", "10 min", "10 min", "Intermediate", 4, "Firm swordfish coated in bold blackening spice and seared hot for a smoky crust.", ["Swordfish steaks", "Blackening seasoning", "Butter", "Lemon", "Oil"], ["Dry fish well.", "Coat with seasoning.", "Heat skillet until hot.", "Sear both sides.", "Finish with lemon butter."], ["swordfish", "blackened", "seafood", "southern"]],
   ["swordfish-tacos", "Swordfish Tacos with Citrus Slaw", "mexican", "Seafood", "images/cuisines/mexican/mexican-01.png", "20 min", "12 min", "Beginner", 4, "Seared swordfish tucked into tortillas with crunchy citrus slaw and creamy sauce.", ["Swordfish", "Tortillas", "Cabbage", "Lime", "Cilantro", "Crema", "Chili powder"], ["Season and sear swordfish.", "Toss cabbage with lime and cilantro.", "Warm tortillas.", "Flake fish into pieces.", "Build tacos with slaw and crema."], ["swordfish", "tacos", "seafood", "mexican"]]
@@ -2292,11 +2335,11 @@ const cuisineAliases = {
   "holiday-sunday": "hosting",
   "african-cuisines": "global",
   african: "global",
-  nigeria: "global",
-  ghana: "global",
-  ethiopia: "global",
+  nigeria: "nigerian",
+  ghana: "ghanaian",
+  ethiopia: "ethiopian",
   senegal: "global",
-  morocco: "mediterranean",
+  morocco: "moroccan",
   haiti: "caribbean",
   jamaica: "caribbean",
   trinidad: "caribbean",
@@ -2306,6 +2349,7 @@ const cuisineAliases = {
   thailand: "asian-inspired",
   vietnam: "asian-inspired",
   philippines: "asian-inspired",
+  india: "indian",
   greece: "mediterranean",
   turkey: "mediterranean",
   lebanon: "mediterranean",
@@ -2324,6 +2368,10 @@ const cuisineRecipeAliases = {
   "mississippi-favorites": ["southern", "soul-food", "creole"],
   "asian-inspired": ["global"],
   indian: ["mediterranean", "global"],
+  nigerian: [],
+  ghanaian: [],
+  ethiopian: [],
+  moroccan: [],
   caribbean: ["global"],
   mediterranean: ["italian", "global"],
   italian: ["mediterranean"],
@@ -2418,7 +2466,8 @@ function relatedRecipesFor(recipe, limit = 6) {
 }
 
 function otherCuisinesFor(activeCuisine) {
-  return cuisines.filter((item) => item.id !== activeCuisine && !["hosting", "global"].includes(item.id)).slice(0, 7);
+  const hiddenExplorerOnly = ["hosting", "global", "nigerian", "ghanaian", "ethiopian", "moroccan"];
+  return cuisines.filter((item) => item.id !== activeCuisine && !hiddenExplorerOnly.includes(item.id)).slice(0, 7);
 }
 
 function cuisine101For(cuisineId) {
