@@ -286,6 +286,37 @@ function recipeImageReport() {
   return rows;
 }
 
+function contentQualityReport() {
+  const recipeIssues = recipes.map((recipe) => {
+    const issues = [];
+    if (!recipe.title || !recipe.description) issues.push("missing title or description");
+    if (!recipe.ingredients?.length) issues.push("missing ingredients");
+    if (!(recipe.directions?.length || recipe.steps?.length)) issues.push("missing cooking steps");
+    if (!(recipe.prep_time || recipe.prepTime)) issues.push("missing prep time");
+    if (!(recipe.cook_time || recipe.cookTime || recipe.time)) issues.push("missing cook time");
+    if (!recipe.servings) issues.push("missing servings");
+    return { recipe: recipe.title || recipe.id, cuisine: recipe.cuisine, issues };
+  }).filter((row) => row.issues.length);
+  const lessonIssues = academyModules.map((lesson) => {
+    const hasSteps = lesson.modules?.some((module) => /step|practice|how/i.test(module.title) && module.items?.length);
+    const issues = [];
+    if (!lesson.overview || !lesson.why) issues.push("missing purpose");
+    if (!hasSteps) issues.push("missing practice or step-by-step module");
+    return { lesson: lesson.title, issues };
+  }).filter((row) => row.issues.length);
+  const cuisineIssues = cuisines.map((cuisine) => ({
+    cuisine: cuisine.name,
+    recipeCount: recipesForCuisine(cuisine.id, 20).length
+  })).filter((row) => row.recipeCount === 0);
+  const report = { recipeIssues, lessonIssues, cuisineIssues };
+  console.table(recipeIssues);
+  console.table(lessonIssues);
+  console.table(cuisineIssues);
+  return report;
+}
+
+window.reportLetsCookContentQuality = contentQualityReport;
+
 function pathPhotoFor(path = {}) {
   const pathPhotos = {
     "kid-chefs": photoFor("cuisines", "hosting", 1, path.image || "assets/kid-friendly.jpeg"),
@@ -310,7 +341,7 @@ const cuisines = [
   { id: "asian-inspired", name: "Asian Inspired", image: cuisineCoverImages["asian-inspired"], blurb: "Crisp, saucy, family-friendly dinners with bold pantry flavor." },
   { id: "italian", name: "Italian Comfort", image: cuisineCoverImages.italian, blurb: "Pasta nights, red sauce, baked mains, and beginner-friendly classics." },
   { id: "hosting", name: "Party & Hosting", image: cuisineCoverImages.hosting, blurb: "Boards, bites, desserts, and dinner-party helpers that make people feel cared for." },
-  { id: "global", name: "Global Flavors", image: cuisineCoverImages.global, blurb: "A warm bridge from Southern kitchens to flavors from everywhere." }
+  { id: "global", name: "Global Flavors", image: cuisineCoverImages.global, blurb: "Practical recipes and flavor lessons that help cooks move between regional food traditions with respect." }
 ];
 
 const learningPillars = [
@@ -708,6 +739,18 @@ const countryCuisineProfiles = {
     techniques: ["marinating with citrus and epis", "slow braising", "frying plantains", "rice and bean cooking", "pickling vegetables"],
     menu: ["griot or poule en sauce", "diri kole ak pwa", "fried plantains", "pikliz", "avocado or cabbage salad", "ginger drink"],
     beginnerRecipes: ["Haitian-style rice and beans", "fried sweet plantains", "Caribbean curry chicken", "pikliz-style slaw"]
+  },
+  mississippi: {
+    title: "Mississippi Food Heritage",
+    region: "U.S. South",
+    cuisine: "mississippi-favorites",
+    overview: "Mississippi cooking connects Delta, Gulf Coast, Black Southern, Indigenous, immigrant, church supper, fish fry, and family reunion traditions.",
+    culture: "A Mississippi plate usually teaches balance: fried or braised mains, something creamy, something green, bread for the pot liquor or sauce, a bright condiment, and a dessert people recognize.",
+    ingredients: ["catfish", "cornmeal", "comeback sauce", "greens", "sweet potatoes", "buttermilk", "hot sauce", "Gulf shrimp", "pecans", "Delta-style tamales"],
+    dishes: ["fried catfish", "comeback sauce", "collard greens", "macaroni and cheese", "cornbread", "shrimp and grits", "black-eyed peas", "pound cake"],
+    techniques: ["cornmeal dredging", "cast iron frying", "slow simmering greens", "grits whisking", "buttermilk marinating", "building a Sunday plate"],
+    menu: ["fried catfish", "spaghetti or potato salad", "collard greens", "hushpuppies or cornbread", "comeback sauce and hot sauce", "sweet tea", "peach cobbler"],
+    beginnerRecipes: ["Southern Fried Chicken", "Shrimp and Grits with Green Beans", "Creamy Stone-Ground Grits", "Collard Greens", "Black-Eyed Peas", "Cornbread"]
   }
 };
 
@@ -1046,7 +1089,7 @@ let recipes = [
     level: "Intermediate",
     servings: 4,
     path: "professional-mode",
-    description: "A New Orleans-style beef noodle bowl with broth, egg, green onion, and cozy spice.",
+    description: "A New Orleans-style beef noodle bowl with seasoned broth, tender beef, spaghetti, boiled egg, and green onion.",
     ingredients: ["Beef chuck or stew meat", "Spaghetti noodles", "Beef broth", "Boiled eggs", "Green onions", "Creole seasoning"],
     steps: ["Simmer beef with broth and seasoning until tender.", "Boil noodles separately.", "Build bowls with noodles, broth, beef, egg, and green onion.", "Taste and adjust seasoning before serving."]
   },
@@ -1060,7 +1103,7 @@ let recipes = [
     level: "Beginner",
     servings: 4,
     path: "amateur-home-chef",
-    description: "Creamy grits, juicy shrimp, peppers, and green beans for the kind of plate that feels cooked with care.",
+    description: "Creamy stone-ground grits topped with quick-sauteed shrimp, peppers, garlic, lemon, and green beans.",
     ingredients: ["Shrimp", "Stone-ground grits", "Green beans", "Chicken stock", "Butter", "Bell pepper", "Garlic", "Lemon"],
     steps: ["Cook grits low and slow with stock.", "Saute peppers, garlic, and green beans.", "Cook shrimp until just pink.", "Spoon shrimp and vegetables over creamy grits."]
   },
@@ -1229,7 +1272,7 @@ recipes.push(
     level: "Beginner",
     servings: 6,
     path: "amateur-home-chef",
-    description: "A cozy planned soup with chicken, beans, corn, green chiles, and southwest flavor.",
+    description: "A creamy one-pot chili with chicken, white beans, corn, green chiles, cumin, and a gentle broth base.",
     ingredients: ["Chicken", "White beans", "Corn", "Green chiles", "Chicken broth", "Cream cheese", "Cumin"],
     steps: ["Simmer chicken with broth, beans, corn, and chiles.", "Season with cumin and salt.", "Shred chicken.", "Stir in cream cheese until creamy."]
   },
@@ -1383,7 +1426,7 @@ recipes.push(
     level: "Advanced",
     servings: 6,
     path: "professional-mode",
-    description: "A planned soup idea built from lamb bones, aromatics, herbs, and slow simmered broth.",
+    description: "A slow-simmered lamb broth with bones, aromatics, herbs, and vegetables for a rich soup base.",
     ingredients: ["Lamb bones", "Onion", "Carrots", "Celery", "Garlic", "Bay leaf", "Herbs"],
     steps: ["Roast or brown bones for flavor.", "Simmer with aromatics.", "Strain broth.", "Build soup with vegetables, meat, or noodles."]
   },
@@ -1546,7 +1589,7 @@ recipes.push(
     difficulty: "Beginner",
     servings: 8,
     path: "amateur-home-chef",
-    description: "Creamy baked macaroni with a golden cheese top and holiday-table energy.",
+    description: "Baked elbow macaroni folded into a cheddar-rich sauce and finished with a browned cheese top.",
     ingredients: ["Macaroni", "Cheddar", "Evaporated milk", "Eggs", "Butter", "Seasoning"],
     steps: ["Boil pasta just shy of tender.", "Mix cheese custard.", "Fold pasta and cheese together.", "Bake until bubbly and golden."],
     tags: ["cheese", "side dish", "holiday", "soul food"]
@@ -1674,7 +1717,7 @@ const nextFeatureRecipes = [
   steps: instructions,
   tags,
   cultural_variations: [],
-  source: { type: "original", name: "Brent & Co. starter recipe" },
+  source: { type: "original", name: "Let's Cook Y'all kitchen recipe" },
   featured: cuisine === "southern" || cuisine === "asian-inspired"
 }));
 
@@ -2230,6 +2273,114 @@ function setShareMeta({ title = "Let's Cook Ya'll", description = "Warm recipes,
 
 function cuisineName(cuisineId) {
   return cuisines.find((item) => item.id === cuisineId)?.name || "Global Flavors";
+}
+
+const cuisineAliases = {
+  asian: "asian-inspired",
+  "asian-cuisines": "asian-inspired",
+  soul: "soul-food",
+  "southern-soul-food": "southern",
+  lowcountry: "low-country",
+  mississippi: "mississippi-favorites",
+  louisiana: "creole",
+  "cajun-creole": "creole",
+  "latin-american": "mexican",
+  "mexican-latin-american": "mexican",
+  "mediterranean-cuisines": "mediterranean",
+  "caribbean-cuisines": "caribbean",
+  "european-cuisines": "italian",
+  "holiday-sunday": "hosting",
+  "african-cuisines": "global",
+  african: "global",
+  nigeria: "global",
+  ghana: "global",
+  ethiopia: "global",
+  senegal: "global",
+  morocco: "mediterranean",
+  haiti: "caribbean",
+  jamaica: "caribbean",
+  trinidad: "caribbean",
+  china: "asian-inspired",
+  japan: "asian-inspired",
+  korea: "asian-inspired",
+  thailand: "asian-inspired",
+  vietnam: "asian-inspired",
+  philippines: "asian-inspired",
+  greece: "mediterranean",
+  turkey: "mediterranean",
+  lebanon: "mediterranean",
+  egypt: "mediterranean",
+  italy: "italian",
+  france: "italian",
+  spain: "mediterranean"
+};
+
+const cuisineRecipeAliases = {
+  creole: ["cajun", "southern"],
+  cajun: ["creole", "southern"],
+  "soul-food": ["southern", "mississippi-favorites"],
+  bbq: ["southern", "mississippi-favorites"],
+  "low-country": ["southern", "seafood"],
+  "mississippi-favorites": ["southern", "soul-food", "creole"],
+  "asian-inspired": ["global"],
+  indian: ["mediterranean", "global"],
+  caribbean: ["global"],
+  mediterranean: ["italian", "global"],
+  italian: ["mediterranean"],
+  hosting: ["southern", "global"],
+  global: ["southern", "asian-inspired", "mediterranean", "mexican", "indian", "caribbean", "italian"]
+};
+
+function canonicalCuisineId(id = "") {
+  const normalized = slugify(decodeURIComponent(id || ""));
+  return cuisineAliases[normalized] || normalized;
+}
+
+function recipesForCuisine(cuisineId, limit = 12) {
+  const canonical = canonicalCuisineId(cuisineId || "global");
+  const relatedIds = [canonical, ...(cuisineRecipeAliases[canonical] || [])];
+  const wanted = new Set(relatedIds);
+  const picked = [];
+  const add = (items) => {
+    items.forEach((item) => {
+      if (item && !picked.some((existing) => existing.id === item.id) && picked.length < limit) {
+        picked.push(item);
+      }
+    });
+  };
+  add(recipes.filter((recipe) => wanted.has(recipe.cuisine)));
+  if (picked.length < limit) {
+    const tokens = relatedIds.flatMap((id) => id.split("-")).filter((word) => word.length > 2);
+    add(recipes.filter((recipe) => {
+      const haystack = recipeSearchText(recipe);
+      return tokens.some((token) => haystack.includes(token));
+    }));
+  }
+  if (picked.length < Math.min(4, limit)) {
+    add(recipes.filter((recipe) => recipe.ingredients?.length && (recipe.directions?.length || recipe.steps?.length)));
+  }
+  return picked.slice(0, limit);
+}
+
+function cuisineGuideRoute(cuisineId) {
+  const guideIds = {
+    southern: "southern-soul-food",
+    creole: "cajun-creole",
+    cajun: "cajun-creole",
+    "soul-food": "southern-soul-food",
+    bbq: "bbq",
+    "low-country": "southern-soul-food",
+    "mississippi-favorites": "mississippi",
+    indian: "india",
+    mexican: "latin-american",
+    caribbean: "caribbean-cuisines",
+    mediterranean: "mediterranean-cuisines",
+    "asian-inspired": "asian-cuisines",
+    italian: "european-cuisines",
+    hosting: "holiday-sunday",
+    global: "world-foods"
+  };
+  return `#cuisine-explorer/${guideIds[cuisineId] || cuisineId}`;
 }
 
 function recipeDuration(recipe) {
@@ -2793,11 +2944,10 @@ function recipeSearchText(recipe) {
 function recipesForIngredient(term) {
   const normalized = normalizeIngredientTerm(term);
   const words = normalized.split(" ").filter((word) => word.length > 2);
-  const matches = recipes.filter((recipe) => {
+  return recipes.filter((recipe) => {
     const haystack = recipeSearchText(recipe);
     return haystack.includes(normalized) || words.some((word) => haystack.includes(word));
   });
-  return matches.length ? matches : recipes.slice(0, 8);
 }
 
 function ingredientGuideFor(term) {
@@ -2805,10 +2955,11 @@ function ingredientGuideFor(term) {
   const playbookKey = Object.keys(ingredientPlaybooks).find((key) => normalized.includes(key));
   const playbook = ingredientPlaybooks[playbookKey] || ingredientPlaybooks.chicken;
   const matches = recipesForIngredient(normalized);
-  const cuisineIds = [...new Set(matches.map((recipe) => recipe.cuisine).filter(Boolean))].slice(0, 5);
-  const meals = matches.slice(0, 6);
+  const meals = (matches.length ? matches : recipesForCuisine("global", 6)).slice(0, 6);
+  const cuisineIds = [...new Set(meals.map((recipe) => recipe.cuisine).filter(Boolean))].slice(0, 5);
   return {
     term: normalized,
+    exactMatch: matches.length > 0,
     meals,
     cuisines: cuisineIds.length ? cuisineIds : ["southern", "mexican", "asian-inspired", "mediterranean"],
     techniques: playbook.techniques,
@@ -2826,6 +2977,7 @@ function ingredientGuideMarkup(term) {
         <p class="eyebrow">Ingredient thinking</p>
         <h2>What you can do with ${guide.term}</h2>
         <p>Use this as a cook's map: choose a meal, pick a cuisine lane, practice one technique, add a side, and keep a substitution ready.</p>
+        ${guide.exactMatch ? "" : `<p class="content-note">No exact ${guide.term} recipe is saved yet. Use these cookable recipes to practice the same method, then swap in ${guide.term} when the protein or vegetable cooks similarly.</p>`}
       </div>
       <div class="ingredient-results-grid">
         <article class="ingredient-panel meal-panel">
@@ -2899,17 +3051,18 @@ function renderCuisineExplorerDetail(id) {
   const parentGroup = cuisineExplorerGroups.find((item) => item.regions.some((region) => slugify(region) === normalized));
   const title = profile?.title || group?.title || titleizeSlug(normalized);
   const image = profile ? parentGroup?.image : group?.image;
+  const recipeCuisineId = canonicalCuisineId(profile?.cuisine || group?.id || parentGroup?.id || normalized);
   const overview = profile?.overview || group?.note || "Explore the ingredients, dishes, techniques, and hosting traditions that shape this food culture.";
   const ingredients = profile?.ingredients || ["regional staples", "fresh herbs", "spices", "grains", "seasonal produce"];
   const dishes = profile?.dishes || group?.regions || ["traditional mains", "family sides", "shared breads", "celebration dishes"];
   const techniques = profile?.techniques || ["building flavor bases", "seasoning in layers", "balancing texture", "serving family-style"];
   const menu = profile?.menu || ["main dish", "starch or bread", "vegetable side", "sauce or condiment", "drink"];
-  const beginnerRecipes = profile?.beginnerRecipes || recipes.filter((recipe) => recipe.cuisine === "global").slice(0, 3).map((recipe) => recipe.title);
-  const profileRecipeMatches = profile ? recipes.filter((recipe) => {
+  const beginnerRecipes = profile?.beginnerRecipes || recipesForCuisine(recipeCuisineId, 4).map((recipe) => recipe.title);
+  const profileRecipeMatches = (profile ? recipes.filter((recipe) => {
     const titleMatch = beginnerRecipes.some((name) => recipe.title.toLowerCase().includes(name.toLowerCase()) || name.toLowerCase().includes(recipe.title.toLowerCase()));
     const tagMatch = (recipe.tags || []).some((tag) => normalizeIngredientTerm(tag).includes(normalized));
     return titleMatch || tagMatch;
-  }).slice(0, 6) : [];
+  }).slice(0, 6) : []).concat(recipesForCuisine(recipeCuisineId, 6)).filter((recipe, index, list) => list.findIndex((item) => item.id === recipe.id) === index).slice(0, 6);
   const regions = group?.regions || [];
   app.innerHTML = `
     ${hero(title, overview, image || photoFor("cuisines", "mediterranean"), `<a class="small-button" href="#cuisine-explorer">All Cuisines</a><a class="small-button secondary" href="#menu-intelligence">Build A Menu</a>`)}
@@ -2928,7 +3081,8 @@ function renderCuisineExplorerDetail(id) {
         <article class="academy-module-card"><h3>Menu Example</h3><ul>${menu.map((item) => `<li>${item}</li>`).join("")}</ul></article>
         <article class="academy-module-card"><h3>Beginner Recipes</h3><ul>${beginnerRecipes.map((item) => `<li>${item}</li>`).join("")}</ul></article>
       </div>
-      ${profileRecipeMatches.length ? `<div class="section-heading compact-heading"><p class="eyebrow">Recipes to try</p><h2>${title} starter recipes.</h2></div><div class="recipe-grid">${profileRecipeMatches.map(recipeCard).join("")}</div>` : ""}
+      <div class="section-heading compact-heading"><p class="eyebrow">Recipes to try</p><h2>Practice recipes for ${title}.</h2></div>
+      <div class="recipe-grid">${profileRecipeMatches.map(recipeCard).join("")}</div>
       ${regions.length ? `<div class="section-heading compact-heading"><p class="eyebrow">Country paths</p><h2>Choose a country or region next.</h2></div><div class="region-chip-row linked-chip-row">${regions.map((region) => `<a href="#cuisine-explorer/${slugify(region)}">${region}</a>`).join("")}</div>` : ""}
       ${progressionNav("#cuisine-explorer", "All Cuisines", "#culinary-academy/world-foods", "World Foods Lesson", ["#menu-intelligence", "#hosting"])}
     </section>
@@ -2944,7 +3098,7 @@ function renderCuisineExplorer(id) {
       <div class="section-heading">
         <p class="eyebrow">Cuisine rolodex</p>
         <h2>Explore regions, countries, traditions, and flavor systems.</h2>
-        <p>These cards are the future structure for lessons, recipes, history, ingredients, etiquette, and traditional pairings.</p>
+        <p>Choose a region to learn its ingredients, table traditions, beginner dishes, cooking techniques, and menus that make sense together.</p>
       </div>
       <div class="cuisine-rolodex">
         ${cuisineExplorerGroups.map((group) => `
@@ -3287,8 +3441,8 @@ function renderKitchen() {
     <section class="band">
       <div class="kitchen-note">
         <p class="eyebrow">From My Kitchen</p>
-        <h2>Not generic filler. Real table energy.</h2>
-        <p>These recipes are starter cards for meals connected to your actual cooking life: orange chicken, crab rangoon, yakamein, shrimp and grits, oxtails, party foods, soups, pastas, wings, boards, and more.</p>
+        <h2>Cookable recipes with clear steps.</h2>
+        <p>Use these cards for meals you can actually make: orange chicken, crab rangoon, yakamein, shrimp and grits, oxtails, wings, pasta, party boards, soups, and hosting dishes with ingredients, timing, and directions.</p>
       </div>
     </section>
     <section class="cream-section">
@@ -3558,7 +3712,7 @@ function renderPath(id) {
     <section class="cream-section path-recipe-section">
       <div class="section-heading">
         <p class="eyebrow">Start here</p>
-        <h2>First recipes for ${path.title}.</h2>
+        <h2>Practice recipes for ${path.title}.</h2>
       </div>
       <div class="recipe-grid path-recipes">${starterRecipes.map(recipeCard).join("")}</div>
       ${moreRecipes.length ? `
@@ -3902,25 +4056,24 @@ function renderAccount() {
 }
 
 function renderCuisine(id) {
-  const aliases = { asian: "asian-inspired", "soul": "soul-food", "lowcountry": "low-country", "mississippi": "mississippi-favorites" };
-  const cuisineId = aliases[id] || id;
+  const cuisineId = canonicalCuisineId(id);
   const cuisine = cuisines.find((item) => item.id === cuisineId) || cuisines[0];
-  const cuisineRecipes = recipes.filter((recipe) => recipe.cuisine === cuisine.id);
+  const cuisineRecipes = recipesForCuisine(cuisine.id, 18);
   app.innerHTML = `
     ${hero(cuisine.name, cuisine.blurb, cuisine.image)}
     ${cookSubnav()}
     <section class="cream-section">
-      ${cuisineRecipes.length ? `<div class="recipe-grid">${cuisineRecipes.map(recipeCard).join("")}</div>` : `
-        <div class="empty-state rich-empty-state">
-          <h2>${cuisine.name} recipes are being built.</h2>
-          <p>Start with the cuisine guide, menu builder, or Culinary Academy while this recipe lane fills out.</p>
-          <div class="hero-actions">
-            <a class="small-button" href="#cuisine-explorer/${cuisine.id}">Open Cuisine Guide</a>
-            <a class="small-button secondary" href="#menu-intelligence">Build A Menu</a>
-            <a class="small-button secondary" href="#culinary-academy/world-foods">World Foods Lesson</a>
-          </div>
-        </div>
-      `}
+      <div class="section-heading">
+        <p class="eyebrow">${cuisine.name}</p>
+        <h2>Recipes you can cook in this lane.</h2>
+        <p>Start with one dish, then use the cuisine guide and menu builder to choose sides, sauces, breads, drinks, and desserts that belong with it.</p>
+      </div>
+      <div class="recipe-grid">${cuisineRecipes.map(recipeCard).join("")}</div>
+      <div class="next-step-strip">
+        <a class="small-button secondary" href="${cuisineGuideRoute(cuisine.id)}">Open Cuisine Guide</a>
+        <a class="small-button secondary" href="#menu-intelligence">Build A Menu</a>
+        <a class="small-button secondary" href="#culinary-academy/world-foods">World Foods Lesson</a>
+      </div>
     </section>
   `;
 }

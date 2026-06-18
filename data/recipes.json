@@ -5,7 +5,7 @@
     "allowedSources": [
       "Original Brent & Co. recipes",
       "Family-style recipes",
-      "AI-assisted original recipes reviewed by the owner",
+      "Original Let's Cook Y'all recipes reviewed by the owner",
       "Public-domain or open-license recipes with attribution",
       "User-submitted recipes",
       "Free/public recipe APIs such as TheMealDB, Spoonacular, Edamam, DummyJSON, and Open Food Facts"
@@ -119,7 +119,7 @@
       "path": "kid-chefs",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "classic-pb-j-sandwich",
       "image_url": "assets/kid-friendly.jpeg",
@@ -184,7 +184,7 @@
       "path": "kid-chefs",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "easy-stovetop-mac-and-cheese",
       "image_url": "assets/pasta.jpeg",
@@ -247,7 +247,7 @@
       "path": "kid-chefs",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "mini-pizza-bagels",
       "image_url": "assets/american-food.jpeg",
@@ -311,7 +311,7 @@
       "path": "kid-chefs",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "rainbow-fruit-kabobs",
       "image_url": "assets/ingredients.jpeg",
@@ -375,7 +375,7 @@
       "path": "kid-chefs",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "soft-scrambled-eggs",
       "image_url": "assets/editorial-kitchen-prep.jpg",
@@ -446,7 +446,7 @@
       "path": "kid-chefs",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "orange-chicken",
       "image_url": "assets/lc-orange-chicken.jpg",
@@ -513,7 +513,7 @@
       "path": "professional-mode",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "crab-rangoon",
       "image_url": "assets/lc-asian-food.jpg",
@@ -525,7 +525,7 @@
     {
       "id": "yakamein",
       "title": "Yakamein",
-      "description": "A New Orleans-style beef noodle bowl with broth, egg, green onion, and cozy spice.",
+      "description": "A New Orleans-style beef noodle bowl with seasoned broth, tender beef, spaghetti, boiled egg, and green onion.",
       "cuisine": "creole",
       "category": "Southern Comfort",
       "cookTime": "40 min",
@@ -582,7 +582,7 @@
       "path": "professional-mode",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "yakamein",
       "image_url": "assets/lc-seafood.jpg",
@@ -594,7 +594,7 @@
     {
       "id": "shrimp-and-grits-green-beans",
       "title": "Shrimp and Grits with Green Beans",
-      "description": "Creamy grits, juicy shrimp, peppers, and green beans for the kind of plate that feels cooked with care.",
+      "description": "Creamy stone-ground grits topped with quick-sauteed shrimp, peppers, garlic, lemon, and green beans.",
       "cuisine": "southern",
       "category": "Southern Comfort",
       "cookTime": "25 min",
@@ -782,7 +782,7 @@
     {
       "id": "white-chicken-chili",
       "title": "White Chicken Chili / Southwest Chicken Soup",
-      "description": "A cozy planned soup with chicken, beans, corn, green chiles, and southwest flavor.",
+      "description": "A creamy one-pot chili with chicken, white beans, corn, green chiles, cumin, and a gentle broth base.",
       "cuisine": "southern",
       "category": "Meal Prep",
       "cookTime": "35 min",
@@ -1003,7 +1003,7 @@
       "path": "amateur-home-chef",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "chicken-parmesan",
       "image_url": "assets/lc-chicken-piccata.jpg",
@@ -1049,7 +1049,7 @@
       "path": "kid-chefs",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "deviled-eggs",
       "image_url": "assets/editorial-kitchen-prep.jpg",
@@ -1185,7 +1185,7 @@
       "path": "kid-chefs",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "charcuterie-boards",
       "image_url": "assets/lc-desserts.jpg",
@@ -1278,7 +1278,7 @@
       "path": "professional-mode",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "bourbon-praline-bread-pudding",
       "image_url": "assets/editorial-kitchen-prep.jpg",
@@ -1365,7 +1365,7 @@
         "Family Dinners"
       ],
       "featured": false,
-      "chefNotes": "A cozy restaurant-at-home dinner idea.",
+      "chefNotes": "Serve this as a restaurant-style dinner with a crisp salad and a warm side of bread.",
       "path": "amateur-home-chef",
       "source": {
         "type": "original",
@@ -1473,7 +1473,7 @@
     {
       "id": "lamb-bone-broth-soup",
       "title": "Lamb Bone Broth / Soup Idea",
-      "description": "A planned soup idea built from lamb bones, aromatics, herbs, and slow simmered broth.",
+      "description": "A slow-simmered lamb broth with bones, aromatics, herbs, and vegetables for a rich soup base.",
       "cuisine": "global",
       "category": "Meal Prep",
       "cookTime": "2 hr",
@@ -3138,7 +3138,7 @@
     {
       "id": "shrimp-and-grits",
       "title": "Shrimp and Grits with Green Beans",
-      "description": "Creamy grits, juicy shrimp, peppers, and green beans for the kind of plate that feels cooked with care.",
+      "description": "Creamy stone-ground grits topped with quick-sauteed shrimp, peppers, garlic, lemon, and green beans.",
       "cuisine": "southern",
       "category": "Southern Comfort",
       "cookTime": "35 min",
@@ -3176,11 +3176,11 @@
         "southern"
       ],
       "featured": false,
-      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "chefNotes": "Original Let's Cook Y'all recipe with complete ingredients and cooking steps.",
       "path": "amateur-home-chef",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "shrimp-and-grits-with-green-beans",
       "prep_time": "15 min",
@@ -3227,11 +3227,11 @@
         "creole"
       ],
       "featured": false,
-      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "chefNotes": "Original Let's Cook Y'all recipe with complete ingredients and cooking steps.",
       "path": "amateur-home-chef",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "cajun-cream-salmon-rotini-pasta",
       "prep_time": "15 min",
@@ -3279,11 +3279,11 @@
         "asian-inspired"
       ],
       "featured": false,
-      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "chefNotes": "Original Let's Cook Y'all recipe with complete ingredients and cooking steps.",
       "path": "amateur-home-chef",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "general-tso-style-chicken",
       "prep_time": "15 min",
@@ -3342,11 +3342,11 @@
         "naan"
       ],
       "featured": false,
-      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "chefNotes": "Original Let's Cook Y'all recipe with complete ingredients and cooking steps.",
       "path": "amateur-home-chef",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "tandoori-style-chicken",
       "prep_time": "20 min",
@@ -3396,11 +3396,11 @@
         "cream"
       ],
       "featured": false,
-      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "chefNotes": "Original Let's Cook Y'all recipe with complete ingredients and cooking steps.",
       "path": "amateur-home-chef",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "butter-chicken",
       "prep_time": "15 min",
@@ -3450,11 +3450,11 @@
         "rice"
       ],
       "featured": false,
-      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "chefNotes": "Original Let's Cook Y'all recipe with complete ingredients and cooking steps.",
       "path": "amateur-home-chef",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "chicken-tikka-masala",
       "prep_time": "20 min",
@@ -3504,11 +3504,11 @@
         "family dinner"
       ],
       "featured": false,
-      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "chefNotes": "Original Let's Cook Y'all recipe with complete ingredients and cooking steps.",
       "path": "professional-mode",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "beginner-chicken-biryani",
       "prep_time": "25 min",
@@ -3558,11 +3558,11 @@
         "curry"
       ],
       "featured": false,
-      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "chefNotes": "Original Let's Cook Y'all recipe with complete ingredients and cooking steps.",
       "path": "amateur-home-chef",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "palak-paneer",
       "prep_time": "15 min",
@@ -3612,11 +3612,11 @@
         "quick"
       ],
       "featured": false,
-      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "chefNotes": "Original Let's Cook Y'all recipe with complete ingredients and cooking steps.",
       "path": "kid-chefs",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "chana-masala",
       "prep_time": "10 min",
@@ -3666,11 +3666,11 @@
         "basics"
       ],
       "featured": false,
-      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "chefNotes": "Original Let's Cook Y'all recipe with complete ingredients and cooking steps.",
       "path": "kid-chefs",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "garlic-naan",
       "prep_time": "20 min",
@@ -3720,11 +3720,11 @@
         "fried"
       ],
       "featured": false,
-      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "chefNotes": "Original Let's Cook Y'all recipe with complete ingredients and cooking steps.",
       "path": "professional-mode",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "southern-fried-chicken",
       "prep_time": "20 min",
@@ -3735,7 +3735,7 @@
     {
       "id": "mac-and-cheese",
       "title": "Baked Mac and Cheese",
-      "description": "Creamy baked macaroni with a golden cheese top and holiday-table energy.",
+      "description": "Baked elbow macaroni folded into a cheddar-rich sauce and finished with a browned cheese top.",
       "cuisine": "southern",
       "category": "Southern Comfort",
       "cookTime": "35 min",
@@ -3773,11 +3773,11 @@
         "soul food"
       ],
       "featured": false,
-      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "chefNotes": "Original Let's Cook Y'all recipe with complete ingredients and cooking steps.",
       "path": "amateur-home-chef",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "baked-mac-and-cheese",
       "prep_time": "15 min",
@@ -3827,11 +3827,11 @@
         "slow cooking"
       ],
       "featured": false,
-      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "chefNotes": "Original Let's Cook Y'all recipe with complete ingredients and cooking steps.",
       "path": "amateur-home-chef",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "collard-greens",
       "prep_time": "20 min",
@@ -3881,11 +3881,11 @@
         "soul food"
       ],
       "featured": false,
-      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "chefNotes": "Original Let's Cook Y'all recipe with complete ingredients and cooking steps.",
       "path": "kid-chefs",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "skillet-cornbread",
       "prep_time": "10 min",
@@ -3935,11 +3935,11 @@
         "skillet"
       ],
       "featured": false,
-      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "chefNotes": "Original Let's Cook Y'all recipe with complete ingredients and cooking steps.",
       "path": "professional-mode",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "smothered-pork-chops",
       "prep_time": "15 min",
@@ -3989,11 +3989,11 @@
         "soul food"
       ],
       "featured": false,
-      "chefNotes": "Original Let's Cook Y'all starter recipe.",
+      "chefNotes": "Original Let's Cook Y'all recipe with complete ingredients and cooking steps.",
       "path": "amateur-home-chef",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "fried-catfish",
       "prep_time": "15 min",
@@ -4058,10 +4058,10 @@
       "video_url": "",
       "related_recipe_ids": [],
       "featured": false,
-      "chefNotes": "Original Let's Cook Y'all starter recipe for building out this cuisine section.",
+      "chefNotes": "Original Let's Cook Y'all recipe with complete ingredients and cooking steps.",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "chicken-street-tacos",
       "prep_time": "12 min",
@@ -4121,10 +4121,10 @@
       "video_url": "",
       "related_recipe_ids": [],
       "featured": false,
-      "chefNotes": "Original Let's Cook Y'all starter recipe for building out this cuisine section.",
+      "chefNotes": "Original Let's Cook Y'all recipe with complete ingredients and cooking steps.",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "cheese-quesadillas",
       "prep_time": "5 min",
@@ -4186,10 +4186,10 @@
       "video_url": "",
       "related_recipe_ids": [],
       "featured": false,
-      "chefNotes": "Original Let's Cook Y'all starter recipe for building out this cuisine section.",
+      "chefNotes": "Original Let's Cook Y'all recipe with complete ingredients and cooking steps.",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "cilantro-lime-rice",
       "prep_time": "5 min",
@@ -4200,7 +4200,7 @@
     {
       "id": "black-bean-enchiladas",
       "title": "Black Bean Enchiladas",
-      "description": "Soft tortillas filled with seasoned black beans, sauce, and cheese for a cozy vegetarian dinner.",
+      "description": "Soft tortillas filled with seasoned black beans, enchilada sauce, and cheese for a vegetarian dinner.",
       "cuisine": "mexican",
       "category": "Vegetarian",
       "cookTime": "25 min",
@@ -4253,10 +4253,10 @@
       "video_url": "",
       "related_recipe_ids": [],
       "featured": false,
-      "chefNotes": "Original Let's Cook Y'all starter recipe for building out this cuisine section.",
+      "chefNotes": "Original Let's Cook Y'all recipe with complete ingredients and cooking steps.",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "black-bean-enchiladas",
       "prep_time": "15 min",
@@ -4320,10 +4320,10 @@
       "video_url": "",
       "related_recipe_ids": [],
       "featured": false,
-      "chefNotes": "Original Let's Cook Y'all starter recipe for building out this cuisine section.",
+      "chefNotes": "Original Let's Cook Y'all recipe with complete ingredients and cooking steps.",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "jerk-chicken",
       "prep_time": "20 min",
@@ -4390,10 +4390,10 @@
       "video_url": "",
       "related_recipe_ids": [],
       "featured": false,
-      "chefNotes": "Original Let's Cook Y'all starter recipe for building out this cuisine section.",
+      "chefNotes": "Original Let's Cook Y'all recipe with complete ingredients and cooking steps.",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "caribbean-rice-and-peas",
       "prep_time": "10 min",
@@ -4454,10 +4454,10 @@
       "video_url": "",
       "related_recipe_ids": [],
       "featured": false,
-      "chefNotes": "Original Let's Cook Y'all starter recipe for building out this cuisine section.",
+      "chefNotes": "Original Let's Cook Y'all recipe with complete ingredients and cooking steps.",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "fried-sweet-plantains",
       "prep_time": "5 min",
@@ -4468,7 +4468,7 @@
     {
       "id": "caribbean-curry-chicken",
       "title": "Caribbean Curry Chicken",
-      "description": "Tender chicken simmered in curry, garlic, thyme, potatoes, and a cozy golden gravy.",
+      "description": "Tender chicken simmered with curry powder, garlic, thyme, potatoes, and a golden gravy.",
       "cuisine": "caribbean",
       "category": "Family Dinners",
       "cookTime": "45 min",
@@ -4523,10 +4523,10 @@
       "video_url": "",
       "related_recipe_ids": [],
       "featured": false,
-      "chefNotes": "Original Let's Cook Y'all starter recipe for building out this cuisine section.",
+      "chefNotes": "Original Let's Cook Y'all recipe with complete ingredients and cooking steps.",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "caribbean-curry-chicken",
       "prep_time": "15 min",
@@ -4590,10 +4590,10 @@
       "video_url": "",
       "related_recipe_ids": [],
       "featured": false,
-      "chefNotes": "Original Let's Cook Y'all starter recipe for building out this cuisine section.",
+      "chefNotes": "Original Let's Cook Y'all recipe with complete ingredients and cooking steps.",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "chicken-gyros",
       "prep_time": "20 min",
@@ -4657,10 +4657,10 @@
       "video_url": "",
       "related_recipe_ids": [],
       "featured": false,
-      "chefNotes": "Original Let's Cook Y'all starter recipe for building out this cuisine section.",
+      "chefNotes": "Original Let's Cook Y'all recipe with complete ingredients and cooking steps.",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "greek-salad",
       "prep_time": "15 min",
@@ -4722,10 +4722,10 @@
       "video_url": "",
       "related_recipe_ids": [],
       "featured": false,
-      "chefNotes": "Original Let's Cook Y'all starter recipe for building out this cuisine section.",
+      "chefNotes": "Original Let's Cook Y'all recipe with complete ingredients and cooking steps.",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "creamy-hummus",
       "prep_time": "12 min",
@@ -4789,10 +4789,10 @@
       "video_url": "",
       "related_recipe_ids": [],
       "featured": false,
-      "chefNotes": "Original Let's Cook Y'all starter recipe for building out this cuisine section.",
+      "chefNotes": "Original Let's Cook Y'all recipe with complete ingredients and cooking steps.",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       },
       "slug": "lemon-herb-salmon",
       "prep_time": "10 min",
@@ -4846,7 +4846,7 @@
       "path": "amateur-home-chef",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       }
     },
     {
@@ -4893,7 +4893,7 @@
       "path": "kid-chefs",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       }
     },
     {
@@ -4940,7 +4940,7 @@
       "path": "kid-chefs",
       "source": {
         "type": "original",
-        "name": "Brent & Co. starter recipe"
+        "name": "Let's Cook Y'all kitchen recipe"
       }
     }
   ],
@@ -4959,7 +4959,7 @@
       "id": "dummyjson",
       "name": "DummyJSON Recipes",
       "useFor": [
-        "Development placeholders",
+        "Development image slots",
         "Testing search and filters"
       ],
       "notes": "Useful for test data while original Brent & Co. recipes are being written."
