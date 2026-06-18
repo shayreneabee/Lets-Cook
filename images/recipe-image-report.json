@@ -1,0 +1,73 @@
+{
+  "purpose": "Developer-facing recipe image validation report for Let's Cook Y'all.",
+  "priority": [
+    "recipe-specific image mapping",
+    "recipe data image_url or image",
+    "cuisine cover image",
+    "category cover image",
+    "global fallback image"
+  ],
+  "consoleHelper": "window.reportLetsCookRecipeImages()",
+  "auditedMappings": [
+    {
+      "recipe": "Southern Fried Chicken",
+      "ids": ["southern-fried-chicken", "southern-crispy-fried-chicken", "fried-chicken"],
+      "assignedImage": "images/cuisines/southern/southern-01.png",
+      "fallbackUsed": false
+    },
+    {
+      "recipe": "Baked Macaroni and Cheese",
+      "ids": ["southern-baked-mac-cheese", "mac-and-cheese", "stovetop-mac-and-cheese"],
+      "assignedImage": "images/cuisines/southern/southern-02.png",
+      "fallbackUsed": false
+    },
+    {
+      "recipe": "Slow-Cooked Collard Greens",
+      "ids": ["southern-collard-greens", "collard-greens"],
+      "assignedImage": "images/cuisines/southern/southern-03.png",
+      "fallbackUsed": false
+    },
+    {
+      "recipe": "Black-Eyed Peas",
+      "ids": ["southern-black-eyed-peas", "black-eyed-peas"],
+      "assignedImage": "images/cuisines/southern/southern-04.png",
+      "fallbackUsed": false
+    },
+    {
+      "recipe": "Buttermilk Biscuits",
+      "ids": ["southern-buttermilk-biscuits", "buttermilk-biscuits", "biscuits"],
+      "assignedImage": "images/cuisines/southern/southern-05.png",
+      "fallbackUsed": false
+    },
+    {
+      "recipe": "Southern Meatloaf",
+      "ids": ["southern-meatloaf", "meatloaf"],
+      "assignedImage": "images/cuisines/southern/southern-06.png",
+      "fallbackUsed": false
+    },
+    {
+      "recipe": "Creamy Stone-Ground Grits",
+      "ids": ["southern-stone-ground-grits", "creamy-stone-ground-grits", "stone-ground-grits", "grits"],
+      "assignedImage": "images/cuisines/southern/southern-07.png",
+      "fallbackUsed": false
+    },
+    {
+      "recipe": "Pecan Pie",
+      "ids": ["southern-pecan-pie", "pecan-pie", "bourbon-praline-bread-pudding"],
+      "assignedImage": "images/cuisines/southern/southern-08.png",
+      "fallbackUsed": false
+    },
+    {
+      "recipe": "Shrimp and Grits",
+      "ids": ["southern-shrimp-and-grits", "shrimp-and-grits", "shrimp-and-grits-green-beans"],
+      "assignedImage": "images/cuisines/southern/southern-09.png",
+      "fallbackUsed": false
+    }
+  ],
+  "guardrails": [
+    "Do not use fried chicken images for non-fried-chicken recipes.",
+    "Do not use grits images for macaroni and cheese.",
+    "Do not use dessert images for entrees.",
+    "Do not use entree images for desserts."
+  ]
+}

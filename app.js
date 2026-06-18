@@ -213,12 +213,77 @@ function stableIndex(value = "", modulo = 25) {
   return [...String(value)].reduce((sum, char) => sum + char.charCodeAt(0), 0) % modulo;
 }
 
+const cuisineCoverImages = {
+  southern: "images/cuisines/southern/southern-01.png",
+  "soul-food": "images/cuisines/southern/southern-02.png",
+  creole: "assets/editorial-cajun-pasta.jpg",
+  cajun: "assets/editorial-cajun-pasta.jpg",
+  bbq: "images/cuisines/southern/southern-06.png",
+  "low-country": "images/cuisines/southern/southern-09.png",
+  "mississippi-favorites": "images/cuisines/southern/southern-05.png",
+  mexican: "assets/lc-birria-tacos.jpg",
+  indian: "assets/lc-indian-food.jpg",
+  caribbean: "assets/lc-african-food.jpg",
+  mediterranean: "assets/lc-mediterranean-food.jpg",
+  "asian-inspired": "assets/lc-asian-food.jpg",
+  italian: "assets/lc-pasta.jpg",
+  hosting: "assets/lc-desserts.jpg",
+  global: "assets/lc-african-food.jpg"
+};
+
+const categoryCoverImages = {
+  "Kid-Friendly Cooking": "assets/kid-friendly.jpeg",
+  "Party Cups": "assets/lc-desserts.jpg",
+  Desserts: "assets/lc-desserts.jpg",
+  Seafood: "assets/lc-seafood.jpg",
+  Chicken: "assets/beautiful-chicken.jpeg",
+  Vegetarian: "assets/ingredients.jpeg",
+  "Party & Hosting": "assets/lc-desserts.jpg",
+  "Family Dinners": "assets/cooking-family.jpeg"
+};
+
 function recipePhotoFor(recipe = {}) {
-  const explicitImage = recipe.image_url || recipe.image || recipeImageOverrides[recipe.id];
-  if (explicitImage?.startsWith("images/")) return explicitImage;
+  return resolveRecipeImage(recipe).image;
+}
+
+function resolveRecipeImage(recipe = {}) {
+  const mappedImage = recipeImageOverrides[recipe.id];
+  const explicitImage = recipe.image_url || recipe.image;
   const cuisineKey = recipe.category === "Party Cups" ? "hosting" : recipe.cuisine || "global";
-  const fallback = explicitImage || "assets/logo.png";
-  return photoFor("cuisines", cuisineKey, stableIndex(recipe.id || recipe.title, 25), fallback);
+  const image = mappedImage
+    || explicitImage
+    || cuisineCoverImages[cuisineKey]
+    || categoryCoverImages[recipe.category]
+    || "assets/logo.png";
+  const source = mappedImage ? "recipe" : explicitImage ? "recipe-data" : cuisineCoverImages[cuisineKey] ? "cuisine" : categoryCoverImages[recipe.category] ? "category" : "fallback";
+  if (image.startsWith("images/")) {
+    imageFallbacks.set(image, cuisineCoverImages[cuisineKey] || categoryCoverImages[recipe.category] || "assets/logo.png");
+  }
+  return {
+    image,
+    source,
+    fallbackUsed: source !== "recipe" && source !== "recipe-data",
+    missingImage: !mappedImage && !explicitImage,
+    recipe: recipe.title || recipe.id || "Untitled recipe"
+  };
+}
+
+function recipeImageReport() {
+  const rows = recipes.map((recipe) => {
+    const resolved = resolveRecipeImage(recipe);
+    return {
+      recipe: recipe.title,
+      id: recipe.id,
+      cuisine: recipe.cuisine,
+      category: recipe.category,
+      assignedImage: resolved.image,
+      source: resolved.source,
+      missingRecipeImage: resolved.missingImage,
+      fallbackUsed: resolved.fallbackUsed
+    };
+  });
+  console.table(rows);
+  return rows;
 }
 
 function pathPhotoFor(path = {}) {
@@ -231,21 +296,21 @@ function pathPhotoFor(path = {}) {
 }
 
 const cuisines = [
-  { id: "southern", name: "Southern Classics", image: photoFor("cuisines", "southern"), blurb: "Comforting dishes, porch-table sides, slow braises, and big hospitality." },
-  { id: "creole", name: "Creole", image: photoFor("cuisines", "creole"), blurb: "New Orleans flavor, seafood, spice, rice, roux, and soulful one-pot meals." },
-  { id: "cajun", name: "Cajun", image: photoFor("cuisines", "creole", 1), blurb: "Roux, rice, seafood, sausage, one-pot meals, and Louisiana country-kitchen rhythm." },
-  { id: "soul-food", name: "Soul Food", image: photoFor("cuisines", "southern", 2), blurb: "Food memory, Sunday dinner, greens, cornbread, beans, slow meats, and celebration." },
-  { id: "bbq", name: "BBQ", image: photoFor("cuisines", "southern", 3), blurb: "Smoke, rubs, sauces, pickles, bread, beans, slaw, and feeding a crowd." },
-  { id: "low-country", name: "Low Country", image: photoFor("cuisines", "southern", 4), blurb: "Seafood, rice, okra, boils, coastal flavor, and generous shared tables." },
-  { id: "mississippi-favorites", name: "Mississippi Favorites", image: photoFor("cuisines", "southern", 5), blurb: "Catfish, comeback sauce, tamales, pound cake, greens, and hometown comfort." },
-  { id: "indian", name: "Indian", image: photoFor("cuisines", "indian"), blurb: "Layered spices, cozy curries, breads, rice dishes, and generous family-style meals." },
-  { id: "mexican", name: "Mexican", image: photoFor("cuisines", "mexican"), blurb: "Chiles, tortillas, salsas, braises, bright toppings, and weeknight-friendly flavor." },
-  { id: "caribbean", name: "Caribbean", image: photoFor("cuisines", "caribbean"), blurb: "Warm spice, rice and peas, seafood, stews, grilling, and sunny island comfort." },
-  { id: "mediterranean", name: "Mediterranean", image: photoFor("cuisines", "mediterranean"), blurb: "Fresh herbs, olive oil, grilled proteins, breads, salads, and bright sauces." },
-  { id: "asian-inspired", name: "Asian Inspired", image: photoFor("cuisines", "asian-inspired"), blurb: "Crisp, saucy, family-friendly dinners with bold pantry flavor." },
-  { id: "italian", name: "Italian Comfort", image: photoFor("cuisines", "italian"), blurb: "Pasta nights, red sauce, baked mains, and beginner-friendly classics." },
-  { id: "hosting", name: "Party & Hosting", image: photoFor("cuisines", "hosting"), blurb: "Boards, bites, desserts, and dinner-party helpers that make people feel cared for." },
-  { id: "global", name: "Global Flavors", image: photoFor("cuisines", "global"), blurb: "A warm bridge from Southern kitchens to flavors from everywhere." }
+  { id: "southern", name: "Southern Classics", image: cuisineCoverImages.southern, blurb: "Comforting dishes, porch-table sides, slow braises, and big hospitality." },
+  { id: "creole", name: "Creole", image: cuisineCoverImages.creole, blurb: "New Orleans flavor, seafood, spice, rice, roux, and soulful one-pot meals." },
+  { id: "cajun", name: "Cajun", image: cuisineCoverImages.cajun, blurb: "Roux, rice, seafood, sausage, one-pot meals, and Louisiana country-kitchen rhythm." },
+  { id: "soul-food", name: "Soul Food", image: cuisineCoverImages["soul-food"], blurb: "Food memory, Sunday dinner, greens, cornbread, beans, slow meats, and celebration." },
+  { id: "bbq", name: "BBQ", image: cuisineCoverImages.bbq, blurb: "Smoke, rubs, sauces, pickles, bread, beans, slaw, and feeding a crowd." },
+  { id: "low-country", name: "Low Country", image: cuisineCoverImages["low-country"], blurb: "Seafood, rice, okra, boils, coastal flavor, and generous shared tables." },
+  { id: "mississippi-favorites", name: "Mississippi Favorites", image: cuisineCoverImages["mississippi-favorites"], blurb: "Catfish, comeback sauce, tamales, pound cake, greens, and hometown comfort." },
+  { id: "indian", name: "Indian", image: cuisineCoverImages.indian, blurb: "Layered spices, cozy curries, breads, rice dishes, and generous family-style meals." },
+  { id: "mexican", name: "Mexican", image: cuisineCoverImages.mexican, blurb: "Chiles, tortillas, salsas, braises, bright toppings, and weeknight-friendly flavor." },
+  { id: "caribbean", name: "Caribbean", image: cuisineCoverImages.caribbean, blurb: "Warm spice, rice and peas, seafood, stews, grilling, and sunny island comfort." },
+  { id: "mediterranean", name: "Mediterranean", image: cuisineCoverImages.mediterranean, blurb: "Fresh herbs, olive oil, grilled proteins, breads, salads, and bright sauces." },
+  { id: "asian-inspired", name: "Asian Inspired", image: cuisineCoverImages["asian-inspired"], blurb: "Crisp, saucy, family-friendly dinners with bold pantry flavor." },
+  { id: "italian", name: "Italian Comfort", image: cuisineCoverImages.italian, blurb: "Pasta nights, red sauce, baked mains, and beginner-friendly classics." },
+  { id: "hosting", name: "Party & Hosting", image: cuisineCoverImages.hosting, blurb: "Boards, bites, desserts, and dinner-party helpers that make people feel cared for." },
+  { id: "global", name: "Global Flavors", image: cuisineCoverImages.global, blurb: "A warm bridge from Southern kitchens to flavors from everywhere." }
 ];
 
 const learningPillars = [
@@ -1917,16 +1982,40 @@ recipes.push(
 const partyCupIds = ["charcuterie-cups", "fruit-cups", "dessert-cups", "brunch-cups", "tailgate-cups", "holiday-cups"];
 
 const recipeImageOverrides = {
+  "southern-fried-chicken": "images/cuisines/southern/southern-01.png",
+  "southern-crispy-fried-chicken": "images/cuisines/southern/southern-01.png",
+  "fried-chicken": "images/cuisines/southern/southern-01.png",
+  "southern-baked-mac-cheese": "images/cuisines/southern/southern-02.png",
+  "mac-and-cheese": "images/cuisines/southern/southern-02.png",
+  "stovetop-mac-and-cheese": "images/cuisines/southern/southern-02.png",
+  "southern-collard-greens": "images/cuisines/southern/southern-03.png",
+  "collard-greens": "images/cuisines/southern/southern-03.png",
+  "southern-black-eyed-peas": "images/cuisines/southern/southern-04.png",
+  "black-eyed-peas": "images/cuisines/southern/southern-04.png",
+  "southern-buttermilk-biscuits": "images/cuisines/southern/southern-05.png",
+  "buttermilk-biscuits": "images/cuisines/southern/southern-05.png",
+  "biscuits": "images/cuisines/southern/southern-05.png",
+  "southern-cornbread-dressing": "images/cuisines/southern/southern-05.png",
+  "cornbread": "images/cuisines/southern/southern-05.png",
+  "southern-meatloaf": "images/cuisines/southern/southern-06.png",
+  "meatloaf": "images/cuisines/southern/southern-06.png",
+  "southern-stone-ground-grits": "images/cuisines/southern/southern-07.png",
+  "creamy-stone-ground-grits": "images/cuisines/southern/southern-07.png",
+  "stone-ground-grits": "images/cuisines/southern/southern-07.png",
+  "grits": "images/cuisines/southern/southern-07.png",
+  "southern-pecan-pie": "images/cuisines/southern/southern-08.png",
+  "pecan-pie": "images/cuisines/southern/southern-08.png",
+  "bourbon-praline-bread-pudding": "images/cuisines/southern/southern-08.png",
+  "southern-shrimp-and-grits": "images/cuisines/southern/southern-09.png",
+  "shrimp-and-grits": "images/cuisines/southern/southern-09.png",
+  "shrimp-and-grits-green-beans": "images/cuisines/southern/southern-09.png",
   "orange-chicken": "assets/lc-orange-chicken.jpg",
   "general-tso-chicken": "assets/lc-orange-chicken.jpg",
   "cashew-chicken": "assets/lc-cashew-chicken.jpg",
   "fried-rice": "assets/lc-fried-rice.jpg",
   "pineapple-fried-rice": "assets/lc-fried-rice.jpg",
-  "shrimp-and-grits": "assets/lc-shrimp-and-grits.jpg",
-  "shrimp-and-grits-green-beans": "assets/lc-shrimp-and-grits.jpg",
-  "fried-chicken": "assets/lc-fried-chicken.jpg",
-  "garlic-wings": "assets/lc-fried-chicken.jpg",
-  "wings": "assets/lc-fried-chicken.jpg",
+  "garlic-wings": "assets/beautiful-chicken.jpeg",
+  "wings": "assets/beautiful-chicken.jpeg",
   "cajun-cream-pasta": "assets/lc-pasta.jpg",
   "cajun-cream-salmon-rotini": "assets/lc-pasta.jpg",
   "cajun-cream-salmon-rotini-pasta": "assets/lc-pasta.jpg",
@@ -2225,6 +2314,7 @@ document.addEventListener("input", handleSearch);
 document.addEventListener("change", handleSearch);
 document.addEventListener("error", handleImageFallback, true);
 window.reportLetsCookMissingImages = reportMissingImages;
+window.reportLetsCookRecipeImages = recipeImageReport;
 
 function handleImageFallback(event) {
   const image = event.target;

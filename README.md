@@ -81,6 +81,8 @@ Missing image report:
 - Run `python scripts/report_missing_images.py` from the project root.
 - The script writes `images/missing-image-report.json`.
 - In the browser console, run `window.reportLetsCookMissingImages()` to print the expected slot list and fallback mapping.
+- In the browser console, run `window.reportLetsCookRecipeImages()` to audit each recipe's assigned image, source, and fallback status.
+- Recipe images are resolved in this order: recipe-specific mapping, recipe `image_url`/`image`, cuisine cover, category cover, then global fallback. The audited Southern image assignments live in `images/recipe-image-report.json`.
 
 Avoid watermarked images, dark photos, empty kitchens, AI-looking faces, overly staged models, and repeated generic stock.
 
