@@ -2727,6 +2727,13 @@ const imageContentRegistry = {
   }
 };
 
+const ingredientUnits = new Set([
+  "cup", "cups", "tbsp", "tbsps", "tablespoon", "tablespoons", "tsp", "tsps", "teaspoon", "teaspoons",
+  "oz", "ounce", "ounces", "lb", "lbs", "pound", "pounds", "g", "gram", "grams", "kg", "ml", "l",
+  "clove", "cloves", "slice", "slices", "piece", "pieces", "can", "cans", "egg", "eggs", "bunch",
+  "bunches", "sprig", "sprigs", "stalk", "stalks", "fillet", "fillets", "steak", "steaks"
+]);
+
 function normalizeRecipe(recipe) {
   const imageOverride = recipeImageOverrides[recipe.id];
   if (imageOverride) {
@@ -2778,13 +2785,6 @@ function formatAmount(value) {
   if (Number.isInteger(number)) return String(number);
   return number.toFixed(number < 10 ? 1 : 0).replace(/\.0$/, "");
 }
-
-const ingredientUnits = new Set([
-  "cup", "cups", "tbsp", "tbsps", "tablespoon", "tablespoons", "tsp", "tsps", "teaspoon", "teaspoons",
-  "oz", "ounce", "ounces", "lb", "lbs", "pound", "pounds", "g", "gram", "grams", "kg", "ml", "l",
-  "clove", "cloves", "slice", "slices", "piece", "pieces", "can", "cans", "egg", "eggs", "bunch",
-  "bunches", "sprig", "sprigs", "stalk", "stalks", "fillet", "fillets", "steak", "steaks"
-]);
 
 function parseQuantityToken(token = "") {
   const clean = String(token).trim();
