@@ -19240,6 +19240,661 @@
         "If it cooks too quickly, lower the heat and give it time.",
         "If texture is off, check moisture, heat, and cook time before changing ingredients."
       ]
+    },
+    {
+      "id": "mississippi-buffalo-fish",
+      "title": "Mississippi Buffalo Fish Fry",
+      "slug": "mississippi-buffalo-fish",
+      "cuisine": "mississippi-favorites",
+      "category": "Main Dishes",
+      "skill_level": "Professional",
+      "image": "images/regional/mississippi-buffalo-fish.png",
+      "image_url": "images/regional/mississippi-buffalo-fish.png",
+      "prep_time": "20 min",
+      "cook_time": "20 min",
+      "difficulty": "Intermediate",
+      "servings": 6,
+      "description": "Cornmeal-crusted buffalo fish fried hot and crisp for a Mississippi fish fry plate.",
+      "ingredients": [
+        "2 lb buffalo fish steaks or fillets",
+        "1 cup buttermilk",
+        "1 tbsp hot sauce",
+        "1 cup yellow cornmeal",
+        "1/2 cup all-purpose flour",
+        "2 tsp seasoned salt",
+        "1 tsp paprika",
+        "1/2 tsp black pepper",
+        "6 cups peanut or vegetable oil",
+        "Lemon wedges and hot sauce for serving"
+      ],
+      "directions": [
+        "Pat fish dry and check for bones.",
+        "Stir buttermilk and hot sauce together, then soak fish 15 minutes.",
+        "Whisk cornmeal, flour, seasoned salt, paprika, and pepper.",
+        "Heat oil to 350 F in a heavy pot.",
+        "Dredge fish well and fry in batches until golden and cooked through, 4 to 6 minutes per side.",
+        "Drain on a rack, season lightly, and serve with lemon and hot sauce."
+      ],
+      "instructions": [
+        "Pat fish dry and check for bones.",
+        "Stir buttermilk and hot sauce together, then soak fish 15 minutes.",
+        "Whisk cornmeal, flour, seasoned salt, paprika, and pepper.",
+        "Heat oil to 350 F in a heavy pot.",
+        "Dredge fish well and fry in batches until golden and cooked through, 4 to 6 minutes per side.",
+        "Drain on a rack, season lightly, and serve with lemon and hot sauce."
+      ],
+      "tags": [
+        "mississippi",
+        "fish fry",
+        "buffalo fish",
+        "soul food",
+        "cornmeal",
+        "family reunion"
+      ],
+      "cultural_variations": [],
+      "featured": false,
+      "source": {
+        "type": "original",
+        "name": "Let's Cook Y'all regional authenticity recipe"
+      }
+    },
+    {
+      "id": "shrimp-poboy",
+      "title": "Louisiana Shrimp Po'Boy",
+      "slug": "shrimp-poboy",
+      "cuisine": "louisiana",
+      "category": "Sandwiches",
+      "skill_level": "Professional",
+      "image": "images/regional/shrimp-poboy.png",
+      "image_url": "images/regional/shrimp-poboy.png",
+      "prep_time": "25 min",
+      "cook_time": "15 min",
+      "difficulty": "Intermediate",
+      "servings": 4,
+      "description": "Crisp fried shrimp tucked into French bread with lettuce, tomato, pickles, and remoulade.",
+      "ingredients": [
+        "1 1/2 lb peeled shrimp",
+        "1 cup buttermilk",
+        "1 tbsp hot sauce",
+        "1 cup cornmeal",
+        "1/2 cup flour",
+        "2 tsp Creole seasoning",
+        "4 French bread rolls",
+        "1 cup shredded lettuce",
+        "2 tomatoes sliced",
+        "1/2 cup pickle slices",
+        "1/2 cup remoulade or tartar sauce",
+        "Oil for frying"
+      ],
+      "directions": [
+        "Soak shrimp in buttermilk and hot sauce for 10 minutes.",
+        "Mix cornmeal, flour, and Creole seasoning.",
+        "Heat oil to 350 F.",
+        "Dredge shrimp and fry until crisp, 2 to 3 minutes.",
+        "Split rolls and spread with sauce.",
+        "Layer lettuce, tomato, pickles, and hot shrimp, then serve right away."
+      ],
+      "instructions": [
+        "Soak shrimp in buttermilk and hot sauce for 10 minutes.",
+        "Mix cornmeal, flour, and Creole seasoning.",
+        "Heat oil to 350 F.",
+        "Dredge shrimp and fry until crisp, 2 to 3 minutes.",
+        "Split rolls and spread with sauce.",
+        "Layer lettuce, tomato, pickles, and hot shrimp, then serve right away."
+      ],
+      "tags": [
+        "louisiana",
+        "po boy",
+        "seafood",
+        "fried",
+        "sandwich"
+      ],
+      "cultural_variations": [],
+      "featured": false,
+      "source": {
+        "type": "original",
+        "name": "Let's Cook Y'all regional authenticity recipe"
+      }
+    },
+    {
+      "id": "muffuletta",
+      "title": "New Orleans Muffuletta",
+      "slug": "muffuletta",
+      "cuisine": "louisiana",
+      "category": "Sandwiches",
+      "skill_level": "Amateur",
+      "image": "images/regional/muffuletta.png",
+      "image_url": "images/regional/muffuletta.png",
+      "prep_time": "20 min",
+      "cook_time": "0 min",
+      "difficulty": "Beginner",
+      "servings": 6,
+      "description": "A New Orleans round-loaf sandwich layered with olive salad, salami, ham, mortadella, and provolone.",
+      "ingredients": [
+        "1 round sesame Italian loaf",
+        "1 cup olive salad",
+        "1/4 lb salami",
+        "1/4 lb ham",
+        "1/4 lb mortadella",
+        "1/4 lb provolone",
+        "1/4 lb mozzarella",
+        "2 tbsp olive oil"
+      ],
+      "directions": [
+        "Slice bread horizontally.",
+        "Brush cut sides lightly with olive oil.",
+        "Spread olive salad on both sides.",
+        "Layer meats and cheeses evenly.",
+        "Close sandwich, press gently, and rest 20 minutes.",
+        "Cut into wedges for serving."
+      ],
+      "instructions": [
+        "Slice bread horizontally.",
+        "Brush cut sides lightly with olive oil.",
+        "Spread olive salad on both sides.",
+        "Layer meats and cheeses evenly.",
+        "Close sandwich, press gently, and rest 20 minutes.",
+        "Cut into wedges for serving."
+      ],
+      "tags": [
+        "louisiana",
+        "new orleans",
+        "muffuletta",
+        "sandwich",
+        "party"
+      ],
+      "cultural_variations": [],
+      "featured": false,
+      "source": {
+        "type": "original",
+        "name": "Let's Cook Y'all regional authenticity recipe"
+      }
+    },
+    {
+      "id": "beignets",
+      "title": "New Orleans Beignets",
+      "slug": "beignets",
+      "cuisine": "louisiana",
+      "category": "Desserts",
+      "skill_level": "Professional",
+      "image": "images/regional/beignets.png",
+      "image_url": "images/regional/beignets.png",
+      "prep_time": "20 min",
+      "cook_time": "20 min",
+      "difficulty": "Intermediate",
+      "servings": 8,
+      "description": "Pillowy fried dough squares dusted generously with powdered sugar.",
+      "ingredients": [
+        "3/4 cup warm water",
+        "1/4 cup sugar",
+        "2 1/4 tsp yeast",
+        "1/2 cup evaporated milk",
+        "1 egg",
+        "3 tbsp melted butter",
+        "3 1/2 cups flour",
+        "1/2 tsp salt",
+        "Oil for frying",
+        "1 cup powdered sugar"
+      ],
+      "directions": [
+        "Bloom yeast in warm water with sugar for 5 minutes.",
+        "Mix in milk, egg, butter, flour, and salt to make a soft dough.",
+        "Rest until puffy, about 1 hour.",
+        "Roll dough and cut into squares.",
+        "Fry at 350 F until golden on both sides.",
+        "Drain briefly and cover with powdered sugar."
+      ],
+      "instructions": [
+        "Bloom yeast in warm water with sugar for 5 minutes.",
+        "Mix in milk, egg, butter, flour, and salt to make a soft dough.",
+        "Rest until puffy, about 1 hour.",
+        "Roll dough and cut into squares.",
+        "Fry at 350 F until golden on both sides.",
+        "Drain briefly and cover with powdered sugar."
+      ],
+      "tags": [
+        "louisiana",
+        "beignets",
+        "dessert",
+        "new orleans",
+        "fried dough"
+      ],
+      "cultural_variations": [],
+      "featured": false,
+      "source": {
+        "type": "original",
+        "name": "Let's Cook Y'all regional authenticity recipe"
+      }
+    },
+    {
+      "id": "texas-beef-ribs",
+      "title": "Texas Smoked Beef Ribs",
+      "slug": "texas-beef-ribs",
+      "cuisine": "texas",
+      "category": "BBQ",
+      "skill_level": "Professional",
+      "image": "images/regional/texas-beef-ribs.png",
+      "image_url": "images/regional/texas-beef-ribs.png",
+      "prep_time": "20 min",
+      "cook_time": "6 hr",
+      "difficulty": "Advanced",
+      "servings": 6,
+      "description": "Peppery, low-and-slow beef ribs smoked until tender with a bark that tastes like Texas barbecue.",
+      "ingredients": [
+        "4 to 5 lb beef plate ribs",
+        "2 tbsp kosher salt",
+        "3 tbsp coarse black pepper",
+        "1 tbsp garlic powder",
+        "1 tbsp mustard or hot sauce binder",
+        "1 cup beef stock for spritzing"
+      ],
+      "directions": [
+        "Trim loose fat and silver skin.",
+        "Rub ribs with binder, then season with salt, pepper, and garlic.",
+        "Smoke at 250 F bone-side down.",
+        "Spritz lightly after 3 hours if the surface looks dry.",
+        "Cook until probe-tender around 200 to 205 F internal.",
+        "Rest 45 minutes before slicing between bones."
+      ],
+      "instructions": [
+        "Trim loose fat and silver skin.",
+        "Rub ribs with binder, then season with salt, pepper, and garlic.",
+        "Smoke at 250 F bone-side down.",
+        "Spritz lightly after 3 hours if the surface looks dry.",
+        "Cook until probe-tender around 200 to 205 F internal.",
+        "Rest 45 minutes before slicing between bones."
+      ],
+      "tags": [
+        "texas",
+        "bbq",
+        "beef ribs",
+        "smoked",
+        "pitmaster"
+      ],
+      "cultural_variations": [],
+      "featured": false,
+      "source": {
+        "type": "original",
+        "name": "Let's Cook Y'all regional authenticity recipe"
+      }
+    },
+    {
+      "id": "texas-chili",
+      "title": "Texas No-Bean Chili",
+      "slug": "texas-chili",
+      "cuisine": "texas",
+      "category": "Main Dishes",
+      "skill_level": "Professional",
+      "image": "images/regional/texas-chili.png",
+      "image_url": "images/regional/texas-chili.png",
+      "prep_time": "25 min",
+      "cook_time": "2 hr",
+      "difficulty": "Intermediate",
+      "servings": 6,
+      "description": "A rich Texas chili built from beef, toasted chiles, spices, and slow simmered gravy without beans.",
+      "ingredients": [
+        "2 1/2 lb beef chuck cubed",
+        "2 tbsp oil",
+        "1 onion diced",
+        "4 garlic cloves",
+        "3 tbsp chili powder",
+        "1 tbsp cumin",
+        "2 tbsp tomato paste",
+        "3 cups beef stock",
+        "1 tsp oregano",
+        "1 tsp salt",
+        "1 tbsp masa harina optional"
+      ],
+      "directions": [
+        "Brown beef in batches.",
+        "Cook onion and garlic in the same pot.",
+        "Bloom chili powder, cumin, oregano, and tomato paste.",
+        "Return beef with stock and simmer covered until tender.",
+        "Uncover to thicken; stir in masa if desired.",
+        "Taste for salt and serve with onions or cornbread."
+      ],
+      "instructions": [
+        "Brown beef in batches.",
+        "Cook onion and garlic in the same pot.",
+        "Bloom chili powder, cumin, oregano, and tomato paste.",
+        "Return beef with stock and simmer covered until tender.",
+        "Uncover to thicken; stir in masa if desired.",
+        "Taste for salt and serve with onions or cornbread."
+      ],
+      "tags": [
+        "texas",
+        "chili",
+        "beef",
+        "no beans",
+        "comfort food"
+      ],
+      "cultural_variations": [],
+      "featured": false,
+      "source": {
+        "type": "original",
+        "name": "Let's Cook Y'all regional authenticity recipe"
+      }
+    },
+    {
+      "id": "alabama-white-sauce-chicken",
+      "title": "Alabama White Sauce Chicken",
+      "slug": "alabama-white-sauce-chicken",
+      "cuisine": "alabama",
+      "category": "BBQ",
+      "skill_level": "Professional",
+      "image": "images/regional/alabama-white-sauce-chicken.png",
+      "image_url": "images/regional/alabama-white-sauce-chicken.png",
+      "prep_time": "20 min",
+      "cook_time": "45 min",
+      "difficulty": "Intermediate",
+      "servings": 6,
+      "description": "Grilled chicken finished with tangy Alabama white barbecue sauce.",
+      "ingredients": [
+        "6 chicken leg quarters or thighs",
+        "2 tbsp oil",
+        "2 tsp kosher salt",
+        "1 tsp black pepper",
+        "1 tsp paprika",
+        "1 cup mayonnaise",
+        "1/4 cup apple cider vinegar",
+        "1 tbsp horseradish",
+        "1 tbsp lemon juice",
+        "1 tsp sugar",
+        "1 tsp Worcestershire sauce"
+      ],
+      "directions": [
+        "Season chicken with oil, salt, pepper, and paprika.",
+        "Grill over medium indirect heat until the thickest part reaches 165 F.",
+        "Whisk mayonnaise, vinegar, horseradish, lemon, sugar, and Worcestershire for white sauce.",
+        "Brush chicken lightly with sauce during the last few minutes.",
+        "Rest 10 minutes and serve extra sauce on the side."
+      ],
+      "instructions": [
+        "Season chicken with oil, salt, pepper, and paprika.",
+        "Grill over medium indirect heat until the thickest part reaches 165 F.",
+        "Whisk mayonnaise, vinegar, horseradish, lemon, sugar, and Worcestershire for white sauce.",
+        "Brush chicken lightly with sauce during the last few minutes.",
+        "Rest 10 minutes and serve extra sauce on the side."
+      ],
+      "tags": [
+        "alabama",
+        "white sauce",
+        "bbq chicken",
+        "grilling",
+        "cookout"
+      ],
+      "cultural_variations": [],
+      "featured": false,
+      "source": {
+        "type": "original",
+        "name": "Let's Cook Y'all regional authenticity recipe"
+      }
+    },
+    {
+      "id": "frogmore-stew",
+      "title": "Frogmore Stew",
+      "slug": "frogmore-stew",
+      "cuisine": "low-country",
+      "category": "Seafood",
+      "skill_level": "Amateur",
+      "image": "images/regional/frogmore-stew.png",
+      "image_url": "images/regional/frogmore-stew.png",
+      "prep_time": "20 min",
+      "cook_time": "30 min",
+      "difficulty": "Beginner",
+      "servings": 8,
+      "description": "A Lowcountry boil of shrimp, sausage, corn, and potatoes served family-style.",
+      "ingredients": [
+        "3 lb small red potatoes",
+        "1/2 cup seafood boil seasoning",
+        "1 lb smoked sausage sliced",
+        "6 ears corn halved",
+        "3 lb large shrimp",
+        "2 lemons halved",
+        "1 stick melted butter",
+        "Hot sauce for serving"
+      ],
+      "directions": [
+        "Bring a large pot of water to a boil with seafood seasoning and lemons.",
+        "Add potatoes and cook until almost tender.",
+        "Add sausage and corn and cook 8 minutes.",
+        "Add shrimp and cook just until pink.",
+        "Drain carefully and spread on a lined table or large platter.",
+        "Serve with melted butter and hot sauce."
+      ],
+      "instructions": [
+        "Bring a large pot of water to a boil with seafood seasoning and lemons.",
+        "Add potatoes and cook until almost tender.",
+        "Add sausage and corn and cook 8 minutes.",
+        "Add shrimp and cook just until pink.",
+        "Drain carefully and spread on a lined table or large platter.",
+        "Serve with melted butter and hot sauce."
+      ],
+      "tags": [
+        "south carolina",
+        "lowcountry",
+        "frogmore stew",
+        "seafood boil",
+        "family gathering"
+      ],
+      "cultural_variations": [],
+      "featured": false,
+      "source": {
+        "type": "original",
+        "name": "Let's Cook Y'all regional authenticity recipe"
+      }
+    },
+    {
+      "id": "hoppin-john",
+      "title": "Hoppin' John",
+      "slug": "hoppin-john",
+      "cuisine": "low-country",
+      "category": "Sides",
+      "skill_level": "Amateur",
+      "image": "images/regional/hoppin-john.png",
+      "image_url": "images/regional/hoppin-john.png",
+      "prep_time": "15 min",
+      "cook_time": "1 hr",
+      "difficulty": "Beginner",
+      "servings": 6,
+      "description": "Black-eyed peas and rice cooked with aromatics and smoked meat for a South Carolina table.",
+      "ingredients": [
+        "1 lb dried black-eyed peas soaked",
+        "1 smoked turkey wing or ham hock",
+        "1 onion diced",
+        "2 celery stalks diced",
+        "1 bell pepper diced",
+        "3 garlic cloves",
+        "1 bay leaf",
+        "1 1/2 cups long-grain rice",
+        "Salt and pepper"
+      ],
+      "directions": [
+        "Simmer peas with smoked meat and bay leaf until nearly tender.",
+        "Cook onion, celery, pepper, and garlic in a little oil.",
+        "Add vegetables and rice to peas with enough broth to cook the rice.",
+        "Cover and simmer until rice is tender.",
+        "Rest 10 minutes and fluff.",
+        "Season to taste and serve with greens."
+      ],
+      "instructions": [
+        "Simmer peas with smoked meat and bay leaf until nearly tender.",
+        "Cook onion, celery, pepper, and garlic in a little oil.",
+        "Add vegetables and rice to peas with enough broth to cook the rice.",
+        "Cover and simmer until rice is tender.",
+        "Rest 10 minutes and fluff.",
+        "Season to taste and serve with greens."
+      ],
+      "tags": [
+        "south carolina",
+        "gullah geechee",
+        "black eyed peas",
+        "rice",
+        "new year"
+      ],
+      "cultural_variations": [],
+      "featured": false,
+      "source": {
+        "type": "original",
+        "name": "Let's Cook Y'all regional authenticity recipe"
+      }
+    },
+    {
+      "id": "key-lime-pie",
+      "title": "Florida Key Lime Pie",
+      "slug": "key-lime-pie",
+      "cuisine": "florida",
+      "category": "Desserts",
+      "skill_level": "Amateur",
+      "image": "images/regional/key-lime-pie.png",
+      "image_url": "images/regional/key-lime-pie.png",
+      "prep_time": "20 min",
+      "cook_time": "15 min",
+      "difficulty": "Beginner",
+      "servings": 8,
+      "description": "A tart-sweet Florida pie with key lime filling, graham crust, and whipped cream.",
+      "ingredients": [
+        "1 1/2 cups graham cracker crumbs",
+        "6 tbsp melted butter",
+        "1/4 cup sugar",
+        "4 egg yolks",
+        "1 can sweetened condensed milk",
+        "1/2 cup key lime juice",
+        "1 tsp lime zest",
+        "Whipped cream for serving"
+      ],
+      "directions": [
+        "Mix crumbs, butter, and sugar; press into a pie pan.",
+        "Bake crust at 350 F for 8 minutes.",
+        "Whisk yolks, condensed milk, lime juice, and zest.",
+        "Pour into crust and bake 12 to 15 minutes until set.",
+        "Cool, then chill at least 3 hours.",
+        "Serve with whipped cream."
+      ],
+      "instructions": [
+        "Mix crumbs, butter, and sugar; press into a pie pan.",
+        "Bake crust at 350 F for 8 minutes.",
+        "Whisk yolks, condensed milk, lime juice, and zest.",
+        "Pour into crust and bake 12 to 15 minutes until set.",
+        "Cool, then chill at least 3 hours.",
+        "Serve with whipped cream."
+      ],
+      "tags": [
+        "florida",
+        "key lime",
+        "pie",
+        "dessert",
+        "coastal"
+      ],
+      "cultural_variations": [],
+      "featured": false,
+      "source": {
+        "type": "original",
+        "name": "Let's Cook Y'all regional authenticity recipe"
+      }
+    },
+    {
+      "id": "stone-crab-claws",
+      "title": "Florida Stone Crab Claws",
+      "slug": "stone-crab-claws",
+      "cuisine": "florida",
+      "category": "Seafood",
+      "skill_level": "Amateur",
+      "image": "images/regional/stone-crab.png",
+      "image_url": "images/regional/stone-crab.png",
+      "prep_time": "15 min",
+      "cook_time": "0 min",
+      "difficulty": "Beginner",
+      "servings": 4,
+      "description": "Chilled stone crab claws served with a classic mustard sauce.",
+      "ingredients": [
+        "2 lb cooked stone crab claws",
+        "1/2 cup mayonnaise",
+        "2 tbsp Dijon mustard",
+        "1 tbsp yellow mustard",
+        "1 tbsp lemon juice",
+        "1 tsp Worcestershire sauce",
+        "1 tsp prepared horseradish",
+        "Lemon wedges"
+      ],
+      "directions": [
+        "Keep cooked claws chilled over ice.",
+        "Whisk mayonnaise, Dijon, yellow mustard, lemon, Worcestershire, and horseradish.",
+        "Taste and adjust lemon or mustard.",
+        "Crack claws gently if needed.",
+        "Serve cold with sauce and lemon wedges."
+      ],
+      "instructions": [
+        "Keep cooked claws chilled over ice.",
+        "Whisk mayonnaise, Dijon, yellow mustard, lemon, Worcestershire, and horseradish.",
+        "Taste and adjust lemon or mustard.",
+        "Crack claws gently if needed.",
+        "Serve cold with sauce and lemon wedges."
+      ],
+      "tags": [
+        "florida",
+        "stone crab",
+        "seafood",
+        "coastal",
+        "no cook"
+      ],
+      "cultural_variations": [],
+      "featured": false,
+      "source": {
+        "type": "original",
+        "name": "Let's Cook Y'all regional authenticity recipe"
+      }
+    },
+    {
+      "id": "cuban-sandwich",
+      "title": "Florida Cuban Sandwich",
+      "slug": "cuban-sandwich",
+      "cuisine": "florida",
+      "category": "Sandwiches",
+      "skill_level": "Amateur",
+      "image": "images/regional/cuban-sandwich.png",
+      "image_url": "images/regional/cuban-sandwich.png",
+      "prep_time": "15 min",
+      "cook_time": "8 min",
+      "difficulty": "Beginner",
+      "servings": 4,
+      "description": "Pressed Cuban bread layered with roast pork, ham, Swiss, pickles, and mustard.",
+      "ingredients": [
+        "1 Cuban bread loaf",
+        "1/2 lb roast pork sliced",
+        "1/2 lb ham sliced",
+        "1/4 lb Swiss cheese",
+        "1/2 cup dill pickle slices",
+        "3 tbsp yellow mustard",
+        "2 tbsp butter"
+      ],
+      "directions": [
+        "Split bread lengthwise and spread mustard.",
+        "Layer pork, ham, Swiss, and pickles.",
+        "Close sandwich and butter the outside lightly.",
+        "Press in a sandwich press or skillet with weight until crisp and melted.",
+        "Slice diagonally and serve hot."
+      ],
+      "instructions": [
+        "Split bread lengthwise and spread mustard.",
+        "Layer pork, ham, Swiss, and pickles.",
+        "Close sandwich and butter the outside lightly.",
+        "Press in a sandwich press or skillet with weight until crisp and melted.",
+        "Slice diagonally and serve hot."
+      ],
+      "tags": [
+        "florida",
+        "cuban",
+        "sandwich",
+        "pressed",
+        "miami"
+      ],
+      "cultural_variations": [],
+      "featured": false,
+      "source": {
+        "type": "original",
+        "name": "Let's Cook Y'all regional authenticity recipe"
+      }
     }
   ],
   "apiAdapters": [

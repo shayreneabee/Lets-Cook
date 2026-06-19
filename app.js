@@ -1280,6 +1280,38 @@ const menuPairings = [
   }
 ];
 
+const menuAudienceOptions = [
+  { id: "single", title: "Single Person", serves: "1", focus: "Quick meals, pantry cooking, meal prep, and leftovers you will actually eat.", scale: "Cook once, eat twice. Keep sauces separate and choose recipes that reheat cleanly.", prep: ["Pick one main and one flexible side.", "Portion leftovers before you sit down.", "Freeze one serving if the dish holds well."] },
+  { id: "date-night", title: "Couple Date Night", serves: "2", focus: "Appetizer, entree, side, dessert, and a beverage pairing without turning the kitchen into a restaurant shift.", scale: "Choose one showpiece dish, one easy side, one make-ahead dessert, and a drink that matches the mood.", prep: ["Prep dessert first.", "Set the table before cooking the entree.", "Keep the appetizer simple and shareable."] },
+  { id: "family", title: "Family Dinner (4-6)", serves: "4-6", focus: "Weeknight meals, comfort food, Sunday dinner energy, and family favorites.", scale: "One main, two sides, bread if it belongs, and a dessert only when it helps the meal feel complete.", prep: ["Start starches and slow sides first.", "Use one oven dish and one stovetop dish.", "Save leftovers for lunch."] },
+  { id: "large-family", title: "Large Family Dinner (8-12)", serves: "8-12", focus: "Bigger pans, stronger shopping lists, and a serving plan that keeps food hot.", scale: "Double sides before doubling mains; add bread, drinks, and one sturdy dessert.", prep: ["Shop by category.", "Use foil pans and labels.", "Hold hot sides covered until serving."] },
+  { id: "sunday-dinner", title: "Sunday Dinner", serves: "6-10", focus: "Comfort, leftovers, a slower main, greens or beans, bread, and dessert.", scale: "Choose dishes that reward patience and can sit family-style.", prep: ["Cook dessert early.", "Start greens first.", "Finish bread close to service."] },
+  { id: "family-reunion", title: "Family Reunion", serves: "25-100", focus: "Stations, foil pans, drink tubs, potluck assignments, and room for people to sit and talk.", scale: "Think in pans and gallons, not portions. Assign families by category.", prep: ["Make a station map.", "Assign ice and paper goods.", "Plan leftovers before food hits the table."] },
+  { id: "church-homecoming", title: "Church Homecoming", serves: "25-75", focus: "Travel-friendly pans, clear labels, serving spoons, and elders served first.", scale: "Favor sturdy dishes that hold heat and reheat gently.", prep: ["Label allergens.", "Bring extra foil and serving utensils.", "Set drinks before the food line opens."] },
+  { id: "fish-fry", title: "Fish Fry", serves: "8-50", focus: "Hot batches, cold sides, sauces, bread, drinks, and a safe frying station.", scale: "Fry in waves and keep sides cold. Do not overcrowd the fryer.", prep: ["Set racks before heating oil.", "Keep raw fish separate.", "Put sauce and lemon at the end of the line."] },
+  { id: "backyard-bbq", title: "Backyard BBQ", serves: "8-50", focus: "Smoked or grilled mains, cold sides, beans, fruit, bread, sauce, and drink tubs.", scale: "Start smoke early and finish grilled items last.", prep: ["Use raw and cooked trays.", "Hold smoked meat wrapped.", "Keep cold sides over ice."] },
+  { id: "juneteenth", title: "Juneteenth Celebration", serves: "10-100", focus: "Freedom, family, smoke, red drinks, watermelon, cake, music, and a table with room for everybody.", scale: "Build around one smoked/grilled main, red drinks, make-ahead sides, fruit, and dessert.", prep: ["Chill drinks the day before.", "Start smoked meats early.", "Set shade, chairs, trash bags, and handwashing."] },
+  { id: "thanksgiving", title: "Thanksgiving", serves: "6-30", focus: "Oven schedules, make-ahead sides, dressing, desserts, and a calm serving plan.", scale: "Write the oven timeline before shopping.", prep: ["Bake desserts ahead.", "Prep casseroles the day before.", "Assign reheating windows."] },
+  { id: "christmas", title: "Christmas", serves: "6-30", focus: "Special mains, warm sides, breakfast/brunch options, desserts, and leftovers.", scale: "Plan one centerpiece and two dishes that can be made ahead.", prep: ["Stage serving dishes.", "Make desserts early.", "Save containers for take-home plates."] },
+  { id: "graduation", title: "Graduation Party", serves: "15-75", focus: "Open-house food, refillable trays, handheld portions, drinks, and photo-table flow.", scale: "Use small plates and refill trays instead of putting everything out at once.", prep: ["Keep food away from photo displays.", "Refill in waves.", "Set drinks near the entrance."] },
+  { id: "baby-shower", title: "Baby Shower", serves: "10-40", focus: "Brunch bites, pretty drinks, small plates, desserts, and gentle pacing.", scale: "Choose foods that look good at room temperature and are easy to hold.", prep: ["Prep fruit and cups early.", "Use labels.", "Keep one warm dish covered."] },
+  { id: "tailgate", title: "Tailgate", serves: "6-30", focus: "Portable food, dips, grilled mains, cooler drinks, and easy cleanup.", scale: "Pack in containers that can serve and store.", prep: ["Pre-chill everything.", "Pack trash bags.", "Keep sauces sealed until serving."] },
+  { id: "potluck", title: "Potluck", serves: "10-60", focus: "Assignments, duplicate prevention, serving utensils, labels, and a balanced table.", scale: "Assign mains, sides, desserts, drinks, ice, paper goods, and serving tools.", prep: ["Create a sign-up list.", "Ask for allergen notes.", "Have backup serving spoons."] }
+];
+
+function menuAudienceCard(audience = menuAudienceOptions[0]) {
+  return `
+    <article class="academy-module-card audience-menu-card">
+      <p class="eyebrow">Who are you feeding?</p>
+      <h3>${audience.title}</h3>
+      <p><strong>Serves:</strong> ${audience.serves}</p>
+      <p>${audience.focus}</p>
+      <p><strong>Scaling:</strong> ${audience.scale}</p>
+      <ul>${audience.prep.map((item) => `<li>${item}</li>`).join("")}</ul>
+    </article>
+  `;
+}
+
 const hostingKnowledge = [
   { title: "Fish Fry", text: "Crispy main, cold sides, hot sides, bread, sauce station, drinks, and a dessert people can scoop.", pairing: "Fried catfish" },
   { title: "Sunday Dinner", text: "One slow-cooked centerpiece, two or three sides, bread, dessert, leftovers, and time to sit down.", pairing: "Smothered pork chops or oxtails" },
@@ -2257,8 +2289,51 @@ const menuIntelligenceRecipes = [
   featured: false
 }));
 
+const regionalAuthenticityRecipes = [
+  ["mississippi-buffalo-fish", "Mississippi Buffalo Fish Fry", "mississippi-favorites", "Main Dishes", "images/regional/mississippi-buffalo-fish.png", "20 min", "20 min", "Intermediate", 6, "Cornmeal-crusted buffalo fish fried hot and crisp for a Mississippi fish fry plate.", ["2 lb buffalo fish steaks or fillets", "1 cup buttermilk", "1 tbsp hot sauce", "1 cup yellow cornmeal", "1/2 cup all-purpose flour", "2 tsp seasoned salt", "1 tsp paprika", "1/2 tsp black pepper", "6 cups peanut or vegetable oil", "Lemon wedges and hot sauce for serving"], ["Pat fish dry and check for bones.", "Stir buttermilk and hot sauce together, then soak fish 15 minutes.", "Whisk cornmeal, flour, seasoned salt, paprika, and pepper.", "Heat oil to 350 F in a heavy pot.", "Dredge fish well and fry in batches until golden and cooked through, 4 to 6 minutes per side.", "Drain on a rack, season lightly, and serve with lemon and hot sauce."], ["mississippi", "fish fry", "buffalo fish", "soul food", "cornmeal", "family reunion"]],
+  ["shrimp-poboy", "Louisiana Shrimp Po'Boy", "louisiana", "Sandwiches", "images/regional/shrimp-poboy.png", "25 min", "15 min", "Intermediate", 4, "Crisp fried shrimp tucked into French bread with lettuce, tomato, pickles, and remoulade.", ["1 1/2 lb peeled shrimp", "1 cup buttermilk", "1 tbsp hot sauce", "1 cup cornmeal", "1/2 cup flour", "2 tsp Creole seasoning", "4 French bread rolls", "1 cup shredded lettuce", "2 tomatoes sliced", "1/2 cup pickle slices", "1/2 cup remoulade or tartar sauce", "Oil for frying"], ["Soak shrimp in buttermilk and hot sauce for 10 minutes.", "Mix cornmeal, flour, and Creole seasoning.", "Heat oil to 350 F.", "Dredge shrimp and fry until crisp, 2 to 3 minutes.", "Split rolls and spread with sauce.", "Layer lettuce, tomato, pickles, and hot shrimp, then serve right away."], ["louisiana", "po boy", "seafood", "fried", "sandwich"]],
+  ["muffuletta", "New Orleans Muffuletta", "louisiana", "Sandwiches", "images/regional/muffuletta.png", "20 min", "0 min", "Beginner", 6, "A New Orleans round-loaf sandwich layered with olive salad, salami, ham, mortadella, and provolone.", ["1 round sesame Italian loaf", "1 cup olive salad", "1/4 lb salami", "1/4 lb ham", "1/4 lb mortadella", "1/4 lb provolone", "1/4 lb mozzarella", "2 tbsp olive oil"], ["Slice bread horizontally.", "Brush cut sides lightly with olive oil.", "Spread olive salad on both sides.", "Layer meats and cheeses evenly.", "Close sandwich, press gently, and rest 20 minutes.", "Cut into wedges for serving."], ["louisiana", "new orleans", "muffuletta", "sandwich", "party"]],
+  ["beignets", "New Orleans Beignets", "louisiana", "Desserts", "images/regional/beignets.png", "20 min", "20 min", "Intermediate", 8, "Pillowy fried dough squares dusted generously with powdered sugar.", ["3/4 cup warm water", "1/4 cup sugar", "2 1/4 tsp yeast", "1/2 cup evaporated milk", "1 egg", "3 tbsp melted butter", "3 1/2 cups flour", "1/2 tsp salt", "Oil for frying", "1 cup powdered sugar"], ["Bloom yeast in warm water with sugar for 5 minutes.", "Mix in milk, egg, butter, flour, and salt to make a soft dough.", "Rest until puffy, about 1 hour.", "Roll dough and cut into squares.", "Fry at 350 F until golden on both sides.", "Drain briefly and cover with powdered sugar."], ["louisiana", "beignets", "dessert", "new orleans", "fried dough"]],
+  ["texas-beef-ribs", "Texas Smoked Beef Ribs", "texas", "BBQ", "images/regional/texas-beef-ribs.png", "20 min", "6 hr", "Advanced", 6, "Peppery, low-and-slow beef ribs smoked until tender with a bark that tastes like Texas barbecue.", ["4 to 5 lb beef plate ribs", "2 tbsp kosher salt", "3 tbsp coarse black pepper", "1 tbsp garlic powder", "1 tbsp mustard or hot sauce binder", "1 cup beef stock for spritzing"], ["Trim loose fat and silver skin.", "Rub ribs with binder, then season with salt, pepper, and garlic.", "Smoke at 250 F bone-side down.", "Spritz lightly after 3 hours if the surface looks dry.", "Cook until probe-tender around 200 to 205 F internal.", "Rest 45 minutes before slicing between bones."], ["texas", "bbq", "beef ribs", "smoked", "pitmaster"]],
+  ["texas-chili", "Texas No-Bean Chili", "texas", "Main Dishes", "images/regional/texas-chili.png", "25 min", "2 hr", "Intermediate", 6, "A rich Texas chili built from beef, toasted chiles, spices, and slow simmered gravy without beans.", ["2 1/2 lb beef chuck cubed", "2 tbsp oil", "1 onion diced", "4 garlic cloves", "3 tbsp chili powder", "1 tbsp cumin", "2 tbsp tomato paste", "3 cups beef stock", "1 tsp oregano", "1 tsp salt", "1 tbsp masa harina optional"], ["Brown beef in batches.", "Cook onion and garlic in the same pot.", "Bloom chili powder, cumin, oregano, and tomato paste.", "Return beef with stock and simmer covered until tender.", "Uncover to thicken; stir in masa if desired.", "Taste for salt and serve with onions or cornbread."], ["texas", "chili", "beef", "no beans", "comfort food"]],
+  ["alabama-white-sauce-chicken", "Alabama White Sauce Chicken", "alabama", "BBQ", "images/regional/alabama-white-sauce-chicken.png", "20 min", "45 min", "Intermediate", 6, "Grilled chicken finished with tangy Alabama white barbecue sauce.", ["6 chicken leg quarters or thighs", "2 tbsp oil", "2 tsp kosher salt", "1 tsp black pepper", "1 tsp paprika", "1 cup mayonnaise", "1/4 cup apple cider vinegar", "1 tbsp horseradish", "1 tbsp lemon juice", "1 tsp sugar", "1 tsp Worcestershire sauce"], ["Season chicken with oil, salt, pepper, and paprika.", "Grill over medium indirect heat until the thickest part reaches 165 F.", "Whisk mayonnaise, vinegar, horseradish, lemon, sugar, and Worcestershire for white sauce.", "Brush chicken lightly with sauce during the last few minutes.", "Rest 10 minutes and serve extra sauce on the side."], ["alabama", "white sauce", "bbq chicken", "grilling", "cookout"]],
+  ["frogmore-stew", "Frogmore Stew", "low-country", "Seafood", "images/regional/frogmore-stew.png", "20 min", "30 min", "Beginner", 8, "A Lowcountry boil of shrimp, sausage, corn, and potatoes served family-style.", ["3 lb small red potatoes", "1/2 cup seafood boil seasoning", "1 lb smoked sausage sliced", "6 ears corn halved", "3 lb large shrimp", "2 lemons halved", "1 stick melted butter", "Hot sauce for serving"], ["Bring a large pot of water to a boil with seafood seasoning and lemons.", "Add potatoes and cook until almost tender.", "Add sausage and corn and cook 8 minutes.", "Add shrimp and cook just until pink.", "Drain carefully and spread on a lined table or large platter.", "Serve with melted butter and hot sauce."], ["south carolina", "lowcountry", "frogmore stew", "seafood boil", "family gathering"]],
+  ["hoppin-john", "Hoppin' John", "low-country", "Sides", "images/regional/hoppin-john.png", "15 min", "1 hr", "Beginner", 6, "Black-eyed peas and rice cooked with aromatics and smoked meat for a South Carolina table.", ["1 lb dried black-eyed peas soaked", "1 smoked turkey wing or ham hock", "1 onion diced", "2 celery stalks diced", "1 bell pepper diced", "3 garlic cloves", "1 bay leaf", "1 1/2 cups long-grain rice", "Salt and pepper"], ["Simmer peas with smoked meat and bay leaf until nearly tender.", "Cook onion, celery, pepper, and garlic in a little oil.", "Add vegetables and rice to peas with enough broth to cook the rice.", "Cover and simmer until rice is tender.", "Rest 10 minutes and fluff.", "Season to taste and serve with greens."], ["south carolina", "gullah geechee", "black eyed peas", "rice", "new year"]],
+  ["key-lime-pie", "Florida Key Lime Pie", "florida", "Desserts", "images/regional/key-lime-pie.png", "20 min", "15 min", "Beginner", 8, "A tart-sweet Florida pie with key lime filling, graham crust, and whipped cream.", ["1 1/2 cups graham cracker crumbs", "6 tbsp melted butter", "1/4 cup sugar", "4 egg yolks", "1 can sweetened condensed milk", "1/2 cup key lime juice", "1 tsp lime zest", "Whipped cream for serving"], ["Mix crumbs, butter, and sugar; press into a pie pan.", "Bake crust at 350 F for 8 minutes.", "Whisk yolks, condensed milk, lime juice, and zest.", "Pour into crust and bake 12 to 15 minutes until set.", "Cool, then chill at least 3 hours.", "Serve with whipped cream."], ["florida", "key lime", "pie", "dessert", "coastal"]],
+  ["stone-crab-claws", "Florida Stone Crab Claws", "florida", "Seafood", "images/regional/stone-crab.png", "15 min", "0 min", "Beginner", 4, "Chilled stone crab claws served with a classic mustard sauce.", ["2 lb cooked stone crab claws", "1/2 cup mayonnaise", "2 tbsp Dijon mustard", "1 tbsp yellow mustard", "1 tbsp lemon juice", "1 tsp Worcestershire sauce", "1 tsp prepared horseradish", "Lemon wedges"], ["Keep cooked claws chilled over ice.", "Whisk mayonnaise, Dijon, yellow mustard, lemon, Worcestershire, and horseradish.", "Taste and adjust lemon or mustard.", "Crack claws gently if needed.", "Serve cold with sauce and lemon wedges."], ["florida", "stone crab", "seafood", "coastal", "no cook"]],
+  ["cuban-sandwich", "Florida Cuban Sandwich", "florida", "Sandwiches", "images/regional/cuban-sandwich.png", "15 min", "8 min", "Beginner", 4, "Pressed Cuban bread layered with roast pork, ham, Swiss, pickles, and mustard.", ["1 Cuban bread loaf", "1/2 lb roast pork sliced", "1/2 lb ham sliced", "1/4 lb Swiss cheese", "1/2 cup dill pickle slices", "3 tbsp yellow mustard", "2 tbsp butter"], ["Split bread lengthwise and spread mustard.", "Layer pork, ham, Swiss, and pickles.", "Close sandwich and butter the outside lightly.", "Press in a sandwich press or skillet with weight until crisp and melted.", "Slice diagonally and serve hot."], ["florida", "cuban", "sandwich", "pressed", "miami"]]
+].map(([id, title, cuisine, category, image, prep_time, cook_time, difficulty, servings, description, ingredients, instructions, tags]) => ({
+  id,
+  title,
+  slug: id,
+  cuisine,
+  category,
+  image,
+  image_url: image,
+  prep_time,
+  prepTime: prep_time,
+  cook_time,
+  cookTime: cook_time,
+  time: cook_time,
+  cookTimeMinutes: Number(cook_time.match(/\d+/)?.[0] || 30),
+  skill_level: difficulty === "Beginner" ? "Amateur" : "Professional",
+  difficulty,
+  level: difficulty,
+  servings,
+  path: difficulty === "Beginner" ? "amateur-home-chef" : "professional-mode",
+  description,
+  ingredients,
+  directions: instructions,
+  instructions,
+  steps: instructions,
+  tags,
+  cultural_variations: [],
+  source: { type: "original", name: "Let's Cook Y'all regional authenticity recipe" },
+  featured: false
+}));
+
 const existingRecipeIds = new Set(recipes.map((recipe) => recipe.id));
-recipes = [...recipes, ...[...nextFeatureRecipes, ...menuIntelligenceRecipes].filter((recipe) => !existingRecipeIds.has(recipe.id))];
+recipes = [...recipes, ...[...nextFeatureRecipes, ...menuIntelligenceRecipes, ...regionalAuthenticityRecipes].filter((recipe) => !existingRecipeIds.has(recipe.id))];
 
 const lessons = [
   {
@@ -2575,6 +2650,18 @@ const recipeImageOverrides = {
   "hibiscus-red-punch": "images/juneteenth/hibiscus-red-punch.png",
   "lemonade": "images/juneteenth/fresh-lemonade.png",
   "bbq-pulled-pork": "images/juneteenth/pulled-pork-shoulder.png",
+  "mississippi-buffalo-fish": "images/regional/mississippi-buffalo-fish.png",
+  "shrimp-poboy": "images/regional/shrimp-poboy.png",
+  "muffuletta": "images/regional/muffuletta.png",
+  "beignets": "images/regional/beignets.png",
+  "texas-beef-ribs": "images/regional/texas-beef-ribs.png",
+  "texas-chili": "images/regional/texas-chili.png",
+  "alabama-white-sauce-chicken": "images/regional/alabama-white-sauce-chicken.png",
+  "frogmore-stew": "images/regional/frogmore-stew.png",
+  "hoppin-john": "images/regional/hoppin-john.png",
+  "key-lime-pie": "images/regional/key-lime-pie.png",
+  "stone-crab-claws": "images/regional/stone-crab.png",
+  "cuban-sandwich": "images/regional/cuban-sandwich.png",
   "southern-fried-chicken": "images/cuisines/southern/southern-01.png",
   "southern-crispy-fried-chicken": "images/cuisines/southern/southern-01.png",
   "fried-chicken": "images/cuisines/southern/southern-01.png",
@@ -3755,9 +3842,9 @@ const regionalSoulFoodPages = {
     history: "Black Mississippi cooks shaped American music and American food through necessity, skill, faith, and hospitality. Catfish, greens, cornmeal, pork, sweet potatoes, Gulf shrimp, and pecans show up because they are tied to land, labor, rivers, and memory.",
     hospitality: "The table is generous: one fried or smothered main, greens with pot liquor, cornbread, something creamy, something sweet, and tea cold enough for a hot day.",
     music: "Mississippi is the birthplace of America's music. Blues, gospel, soul food, BBQ smoke, fish fries, and Sunday dinner all share the same community rhythm.",
-    signatureRecipeIds: ["fried-catfish", "fried-chicken", "southern-collard-greens", "cornbread", "hot-water-cornbread", "smothered-pork-chops", "mississippi-pot-roast", "peach-cobbler", "caramel-cake"],
+    signatureRecipeIds: ["fried-catfish", "mississippi-buffalo-fish", "fried-chicken", "hot-water-cornbread", "southern-collard-greens", "cornbread", "smothered-pork-chops", "mississippi-pot-roast", "peach-cobbler", "caramel-cake"],
     skills: [["Cast-Iron Frying", "#culinary-academy/frying"], ["Fish Fry Basics", "#culinary-academy/frying"], ["Greens + Pot Liquor", "#culinary-academy/greens"], ["Cornbread", "#culinary-academy/cornbread"], ["Seasoning", "#culinary-academy/seasonings"]],
-    traditions: ["Fish fries bring neighbors together around hot oil, cornmeal, slaw, sauce, and cold drinks.", "Church homecomings lean on dishes that travel, hold heat, and feed people with dignity.", "Sunday dinner is a weekly reset: gospel, greens, cornbread, a main dish, dessert, and time to sit down."],
+    traditions: ["Fish fries bring neighbors together around catfish, buffalo fish, white perch, crappie, bream, hot oil, cornmeal, slaw, sauce, and cold drinks.", "Church homecomings lean on dishes that travel, hold heat, and feed people with dignity.", "Sunday dinner is a weekly reset: gospel, greens, cornbread, a main dish, dessert, and time to sit down."],
     features: [["Blues & BBQ", "Pit smoke, Delta blues, ribs, pulled pork, baked beans, and family reunion plates."], ["Gospel & Sunday Dinner", "Greens, cornbread, fried chicken, smothered pork chops, tea, and a table that feels like home."]],
     menus: []
   },
@@ -3769,9 +3856,9 @@ const regionalSoulFoodPages = {
     history: "African, French, Spanish, Caribbean, Indigenous, Cajun, and Creole foodways meet through rice, roux, seafood, smoked meats, vegetables, and celebration.",
     hospitality: "A Louisiana table feeds the room from one big pot: gumbo, jambalaya, etouffee, rice, bread, potato salad, tea, and something sweet.",
     music: "Jazz, brass bands, zydeco, gospel, and second lines shape the way Louisiana eats: communal, rhythmic, loud with love.",
-    signatureRecipeIds: ["cajun-chicken-sausage-gumbo", "cajun-jambalaya", "cajun-shrimp-etouffee", "cajun-dirty-rice", "creole-shrimp-creole", "creole-seafood-gumbo", "bourbon-praline-bread-pudding", "french-bread"],
+    signatureRecipeIds: ["cajun-chicken-sausage-gumbo", "cajun-shrimp-etouffee", "cajun-jambalaya", "shrimp-poboy", "muffuletta", "cajun-dirty-rice", "creole-seafood-gumbo", "beignets", "bourbon-praline-bread-pudding"],
     skills: [["Roux", "#culinary-academy/roux"], ["Holy Trinity", "#culinary-academy/holy-trinity"], ["Rice Timing", "#culinary-academy/rice-grits-pasta"], ["Seafood Timing", "#culinary-academy/seafood"], ["Feeding a Crowd", "#culinary-academy/professional-skills"]],
-    traditions: ["Gumbo is a gathering pot: a dish that changes by home, parish, season, and family.", "Jambalaya and dirty rice are practical rice dishes built to stretch flavor.", "Second-line energy shows up in food that is portable, generous, and celebratory."],
+    traditions: ["Gumbo is a gathering pot: a dish that changes by home, parish, season, and family.", "Po'boys, muffulettas, oysters, and beignets carry New Orleans street, cafe, and celebration food into everyday life.", "Second-line energy shows up in food that is portable, generous, and celebratory."],
     features: [["Jazz & Gumbo", "A shared bowl, rice, roux, brass-band energy, and a kitchen that smells like trinity."], ["Cajun Country Table", "Smoked sausage, chicken, seafood, rice, spice, and long-simmered flavor."]],
     menus: []
   },
@@ -3797,9 +3884,9 @@ const regionalSoulFoodPages = {
     history: "Alabama food reflects Black Belt agriculture, civil rights history, church networks, pit cooking, and practical dishes made to feed families and neighbors.",
     hospitality: "A good Alabama plate has something smoky or fried, a green, a starch, bread, dessert, and plenty of tea.",
     music: "Gospel, blues, Muscle Shoals soul, and church choirs sit close to Sunday dinners and community plates.",
-    signatureRecipeIds: ["bbq-pulled-pork", "fried-chicken", "southern-collard-greens", "cornbread", "banana-pudding", "peach-cobbler", "southern-baked-mac-cheese"],
+    signatureRecipeIds: ["alabama-white-sauce-chicken", "bbq-pulled-pork", "fried-chicken", "southern-collard-greens", "cornbread", "banana-pudding", "peach-cobbler", "southern-baked-mac-cheese"],
     skills: [["Pulled Pork", "#culinary-academy/grilling"], ["Frying", "#culinary-academy/frying"], ["Casseroles", "#culinary-academy/baking-basics"], ["Feeding a Crowd", "#culinary-academy/professional-skills"]],
-    traditions: ["Church dinners favor pans that carry well and feed many.", "Pulled pork belongs with slaw, beans, bread, and sauce.", "Banana pudding is a comfort dessert with Sunday-table energy."],
+    traditions: ["Church dinners favor pans that carry well and feed many.", "White sauce chicken and pulled pork belong with slaw, beans, bread, and sauce.", "Banana pudding is a comfort dessert with Sunday-table energy."],
     features: [["Smoke + Soul", "Pulled pork, chicken, slaw, beans, and banana pudding."], ["Church Supper", "Carry-in pans, tea, dessert, and everybody helping."]],
     menus: []
   },
@@ -3811,9 +3898,9 @@ const regionalSoulFoodPages = {
     history: "Rice, seafood, okra, field peas, and preserved traditions connect South Carolina food to West African skill, coastal ecology, and Gullah Geechee culture.",
     hospitality: "Lowcountry tables often balance seafood, rice or grits, greens, cornbread, sauce, tea, and a dessert that travels.",
     music: "Spirituals, praise houses, beach music, gospel, and community gatherings frame food as heritage and welcome.",
-    signatureRecipeIds: ["shrimp-and-grits", "fried-catfish", "southern-collard-greens", "cornbread", "bbq-pulled-pork", "red-velvet-cake", "sweet-tea"],
+    signatureRecipeIds: ["shrimp-and-grits", "hoppin-john", "frogmore-stew", "southern-collard-greens", "cornbread", "bbq-pulled-pork", "red-velvet-cake", "sweet-tea"],
     skills: [["Grits", "#culinary-academy/rice-grits-pasta"], ["Seafood", "#culinary-academy/seafood"], ["Greens", "#culinary-academy/greens"], ["Sauces", "#culinary-academy/sauces"]],
-    traditions: ["Rice culture is central to the region's food history.", "Shrimp and grits can be breakfast, supper, or celebration.", "Family tables carry Gullah Geechee memory through seafood, rice, okra, and greens."],
+    traditions: ["Rice culture is central to the region's food history.", "Shrimp and grits, Hoppin' John, and Frogmore Stew each tell a different part of Lowcountry food life.", "Family tables carry Gullah Geechee memory through seafood, rice, okra, and greens."],
     features: [["Gullah Geechee Roots", "Rice, seafood, okra, greens, and food knowledge held through generations."], ["Lowcountry Sunday", "Shrimp and grits, greens, bread, tea, and cake."]],
     menus: []
   },
@@ -3839,10 +3926,24 @@ const regionalSoulFoodPages = {
     history: "Texas food carries Black cowboy history, barbecue skill, Gulf Coast influence, Mexican and Southern crossings, and Juneteenth food traditions.",
     hospitality: "The table is outdoors when it can be: brisket, chicken, beans, cornbread, red velvet cake, red drink, watermelon, and shade.",
     music: "Blues, gospel, zydeco, country, hip-hop, and Juneteenth gatherings all bring food into public celebration.",
-    signatureRecipeIds: ["bbq-brisket-basics", "bbq-baked-beans", "bbq-chicken-quarters", "cornbread", "watermelon-platter", "red-velvet-cake", "strawberry-soda"],
+    signatureRecipeIds: ["bbq-brisket-basics", "texas-beef-ribs", "texas-chili", "bbq-chicken-quarters", "bbq-baked-beans", "cornbread", "watermelon-platter", "red-velvet-cake", "strawberry-soda"],
     skills: [["Brisket", "#culinary-academy/grilling"], ["BBQ Sauce", "#culinary-academy/sauces"], ["Cookout Safety", "#culinary-academy/kitchen-safety"], ["Hosting Outside", "#hosting/cookout"]],
-    traditions: ["Juneteenth tables often include red foods and drinks to honor resilience and freedom.", "Pitmasters carry skill through fire control, seasoning, patience, and slicing.", "Cookouts are family, music, shade, cold drinks, and plates passed with care."],
+    traditions: ["Juneteenth tables often include red foods and drinks to honor resilience and freedom.", "Pitmasters carry skill through fire control, seasoning, patience, slicing brisket, and smoking beef ribs.", "Cookouts are family, music, shade, cold drinks, chili pots, and plates passed with care."],
     features: [["Juneteenth Table", "Brisket, BBQ chicken, red velvet cake, strawberry soda, watermelon, and freedom memory."], ["Pitmaster Plate", "Low-and-slow brisket, beans, cornbread, and sauce."]],
+    menus: []
+  },
+  "florida-soul-food": {
+    state: "Florida",
+    title: "Florida Soul Food",
+    image: "images/regional/stone-crab.png",
+    intro: "Florida soul food moves between Gulf seafood, Atlantic seafood, citrus, Caribbean influence, Cuban sandwiches, fish fries, family cookouts, and bright coastal tables.",
+    history: "Florida food carries Black coastal communities, migrant foodways, Caribbean and Cuban influence, fishing traditions, citrus groves, and church tables that know how to feed people in the heat.",
+    hospitality: "A Florida table should feel breezy and generous: seafood, citrus, rice or bread, cold drinks, something crisp, and a dessert that tastes like sunshine.",
+    music: "Gospel, Miami bass, Caribbean rhythms, blues, and cookout playlists meet around seafood boils, sandwiches, and summer tables.",
+    signatureRecipeIds: ["stone-crab-claws", "cuban-sandwich", "key-lime-pie", "shrimp-poboy", "lemonade", "cucumber-salad", "watermelon-platter"],
+    skills: [["Seafood Timing", "#culinary-academy/seafood"], ["Sandwich Pressing", "#culinary-academy/techniques"], ["Citrus Desserts", "#culinary-academy/baking-basics"], ["Hot Weather Hosting", "#hosting/cookout"]],
+    traditions: ["Stone crab and Gulf seafood point to coastal Florida tables.", "Cuban sandwiches show how Florida food carries migration, neighborhood cafes, and pressed-bread comfort.", "Key lime pie belongs to citrus, heat, and cold dessert hospitality."],
+    features: [["Coastal Seafood Table", "Stone crab, shrimp, lemon, cold salads, and iced drinks."], ["Miami Cafe Plate", "Cuban sandwich, pickles, plantain chips, and key lime pie."]],
     menus: []
   },
   "north-carolina-soul-food": {
@@ -3941,8 +4042,37 @@ const regionalSoulFoodMenuTemplates = [
   }
 ];
 
-Object.values(regionalSoulFoodPages).forEach((page) => {
-  page.menus = regionalSoulFoodMenuTemplates.map((menu) => ({ ...menu }));
+const regionalMenuOverrides = {
+  "mississippi-soul-food": [
+    { id: "fish-fry", title: "Mississippi Fish Fry", recipeIds: ["fried-catfish", "mississippi-buffalo-fish", "hot-water-cornbread", "creamy-coleslaw", "southern-potato-salad", "sweet-tea", "peach-cobbler"], timeline: ["Morning: cut fish, mix slaw, and chill drinks.", "One hour before: season fish, heat oil, and set racks.", "Serve: fry fish in batches and keep sides cold."], notes: "Build the plate around hot cornmeal-crusted fish, cold sides, hot sauce, lemon, bread, and plenty of napkins." },
+    { id: "sunday-dinner", title: "Mississippi Sunday Dinner", recipeIds: ["fried-chicken", "smothered-pork-chops", "southern-collard-greens", "cornbread", "southern-baked-mac-cheese", "sweet-tea", "caramel-cake"], timeline: ["Morning: season meat and wash greens.", "Two hours before: start greens and dessert table.", "Last hour: fry chicken, finish gravy, bake cornbread, and set tea."], notes: "This table should feel like gospel after church: greens, cornbread, gravy, dessert, and time to sit down." },
+    { id: "family-reunion", title: "Delta Family Reunion", recipeIds: ["bbq-pulled-pork", "fried-chicken", "southern-potato-salad", "cornbread", "watermelon-platter", "strawberry-soda", "red-velvet-cake"], timeline: ["Two days before: assign families by station.", "Day before: make salads and desserts.", "Day of: grill, ice drinks, set shade, and label tables."], notes: "Think foil pans, folding tables, music, kids, cold drinks, and somebody watching the grill." }
+  ],
+  "louisiana-soul-food": [
+    { id: "gumbo-night", title: "Gumbo Night", recipeIds: ["cajun-chicken-sausage-gumbo", "white-rice", "french-bread", "green-salad", "sweet-tea", "beignets"], timeline: ["Morning: chop trinity and make dessert dough.", "Two hours before: build roux and simmer gumbo.", "Serve: keep rice separate and bread warm."], notes: "Let the gumbo pot lead. Rice, bread, and something sweet make it feel complete." },
+    { id: "new-orleans-table", title: "New Orleans Table", recipeIds: ["shrimp-poboy", "muffuletta", "creamy-coleslaw", "beignets", "lemonade"], timeline: ["Day before: make olive salad and sauces.", "One hour before: prep shrimp and sandwich fillings.", "Serve: fry shrimp last and cut muffuletta into wedges."], notes: "This menu should feel portable, festive, and good for second-line energy." },
+    { id: "cajun-rice-supper", title: "Cajun Rice Supper", recipeIds: ["cajun-jambalaya", "cajun-dirty-rice", "smothered-green-beans", "corn-maque-choux", "french-bread", "bourbon-praline-bread-pudding"], timeline: ["Morning: prep trinity and sausage.", "Afternoon: cook dessert and side vegetables.", "Last hour: finish rice dishes and hold covered."], notes: "Rice dishes need timing and rest. Keep bread nearby and do not rush the pot." }
+  ],
+  "alabama-soul-food": [
+    { id: "white-sauce-bbq", title: "White Sauce BBQ Plate", recipeIds: ["alabama-white-sauce-chicken", "bbq-pulled-pork", "creamy-coleslaw", "bbq-baked-beans", "cornbread", "banana-pudding"], timeline: ["Morning: season chicken and pork.", "Two hours before: prep sides and sauce.", "Serve: grill chicken last and pass extra white sauce."], notes: "Alabama flavor shows up in tangy white sauce, smoke, slaw, beans, and a cool dessert." },
+    { id: "church-supper", title: "Alabama Church Supper", recipeIds: ["fried-chicken", "southern-collard-greens", "southern-baked-mac-cheese", "cornbread", "sweet-tea", "peach-cobbler"], timeline: ["Day before: bake dessert and prep greens.", "Morning: cook sides in travel pans.", "Before serving: fry chicken or warm covered trays."], notes: "Choose sturdy pans, clear labels, and foods that hold with dignity." }
+  ],
+  "south-carolina-soul-food": [
+    { id: "lowcountry-boil", title: "Lowcountry Boil", recipeIds: ["frogmore-stew", "hoppin-john", "southern-collard-greens", "cornbread", "sweet-tea", "red-velvet-cake"], timeline: ["Morning: clean shrimp and cut sausage.", "One hour before: boil potatoes, corn, and sausage.", "Serve: add shrimp last and spread the table family-style."], notes: "Frogmore Stew should be communal: seafood, sausage, corn, potatoes, sauce, and lots of hands." },
+    { id: "gullah-geechee-supper", title: "Gullah Geechee Supper", recipeIds: ["shrimp-and-grits", "hoppin-john", "okra-tomato-stew", "southern-collard-greens", "cornbread", "sweet-tea"], timeline: ["Morning: prep rice, peas, and greens.", "Two hours before: start Hoppin' John.", "Last hour: cook shrimp and grits close to service."], notes: "Rice, seafood, okra, greens, and grits should tell the Lowcountry story." }
+  ],
+  "texas-soul-food": [
+    { id: "pitmaster-plate", title: "Texas Pitmaster Plate", recipeIds: ["bbq-brisket-basics", "texas-beef-ribs", "bbq-baked-beans", "cornbread", "watermelon-platter", "strawberry-soda"], timeline: ["Day before: season brisket and ribs.", "Sunrise: start the smoker.", "Before serving: rest meat, slice brisket, and set drinks in ice."], notes: "Texas barbecue is patience: smoke, bark, rest, slicing, beans, bread, and shade." },
+    { id: "juneteenth-cookout", title: "Texas Juneteenth Cookout", recipeIds: ["bbq-brisket-basics", "bbq-chicken-quarters", "texas-chili", "cornbread", "red-velvet-cake", "strawberry-soda", "watermelon-platter"], timeline: ["Day before: bake cake and chill red drinks.", "Morning: start brisket and chili.", "Afternoon: grill chicken, slice watermelon, and set the table."], notes: "Keep the Juneteenth table family-centered: smoke, red foods, watermelon, music, and room to gather." }
+  ],
+  "florida-soul-food": [
+    { id: "coastal-seafood-table", title: "Florida Coastal Seafood Table", recipeIds: ["stone-crab-claws", "shrimp-poboy", "cucumber-salad", "lemonade", "key-lime-pie"], timeline: ["Morning: chill crab and make sauce.", "One hour before: prep salad and drinks.", "Serve: keep seafood cold and dessert chilled."], notes: "Florida seafood menus need cold holding, citrus, crisp sides, and light desserts." },
+    { id: "miami-cafe-plate", title: "Miami Cafe Plate", recipeIds: ["cuban-sandwich", "stone-crab-claws", "cucumber-salad", "mint-lemonade", "key-lime-pie"], timeline: ["Morning: make dessert and chill drinks.", "One hour before: assemble sandwiches.", "Serve: press sandwiches hot and keep seafood cold."], notes: "Cuban bread, citrus, seafood, and cold drinks give this table its Florida identity." }
+  ]
+};
+
+Object.entries(regionalSoulFoodPages).forEach(([id, page]) => {
+  page.menus = (regionalMenuOverrides[id] || regionalSoulFoodMenuTemplates).map((menu) => ({ ...menu }));
 });
 
 function regionalSoulFoodHub() {
@@ -4909,6 +5039,7 @@ function menuPairingCard(menu) {
 function renderMenuIntelligence(id) {
   const selectedIndex = Number.isFinite(Number(id)) ? Math.max(0, Math.min(menuPairings.length - 1, Number(id))) : 0;
   const selectedMenu = menuPairings[selectedIndex];
+  const selectedAudience = menuAudienceOptions[0];
   const cuisinesList = [...new Set(menuPairings.map((menu) => menu.cuisine))];
   const occasionsList = [...new Set(menuPairings.map((menu) => menu.occasion))];
   app.innerHTML = `
@@ -4920,12 +5051,17 @@ function renderMenuIntelligence(id) {
         <h2>Select a cuisine, occasion, and main dish. We'll suggest the rest of the table.</h2>
       </div>
       <form class="menu-builder-form" data-menu-builder-form>
+        <label>Audience<select name="audience">${menuAudienceOptions.map((item) => `<option value="${item.id}">${item.title}</option>`).join("")}</select></label>
         <label>Cuisine<select name="cuisine">${cuisinesList.map((item) => `<option${item === selectedMenu.cuisine ? " selected" : ""}>${item}</option>`).join("")}</select></label>
         <label>Occasion<select name="occasion">${occasionsList.map((item) => `<option${item === selectedMenu.occasion ? " selected" : ""}>${item}</option>`).join("")}</select></label>
         <label>Main Dish<select name="main">${menuPairings.map((menu, index) => `<option value="${index}"${index === selectedIndex ? " selected" : ""}>${recipeLinksFor(menu.main_recipe_ids).map((link) => link.replace(/<[^>]+>/g, "")).join(" or ") || menu.main_dish}</option>`).join("")}</select></label>
         <button class="small-button" type="submit">Build Menu</button>
       </form>
+      <div class="audience-option-grid">
+        ${menuAudienceOptions.map(menuAudienceCard).join("")}
+      </div>
       <div class="menu-builder-result">
+        ${menuAudienceCard(selectedAudience)}
         ${menuPairingCard(selectedMenu)}
         ${progressionNav("#cuisine-explorer", "Cuisine Explorer", "#hosting", "Hospitality & Hosting", ["#culinary-academy/world-foods", "#build-a-meal"])}
       </div>
@@ -5413,6 +5549,7 @@ function renderPlanner(id) {
   const shoppingItems = [...new Set(plannedRecipes.flatMap((recipe) => recipe.ingredients))];
   const selectedIndex = Number.isFinite(Number(id)) ? Math.max(0, Math.min(menuPairings.length - 1, Number(id))) : 0;
   const selectedMenu = menuPairings[selectedIndex];
+  const selectedAudience = menuAudienceOptions[0];
   const menuShoppingItems = menuShoppingList(selectedMenu);
   const menuRecipeCount = recipesForMenu(selectedMenu).length;
   const quickPlan = [
@@ -5435,11 +5572,13 @@ function renderPlanner(id) {
         <p class="eyebrow">Menu Planner</p>
         <h2>Build a full table from one main dish.</h2>
         <form class="menu-builder-form" data-menu-planner-form>
+          <label>Audience<select name="audience">${menuAudienceOptions.map((item) => `<option value="${item.id}">${item.title}</option>`).join("")}</select></label>
           <label>Cuisine<select name="cuisine">${[...new Set(menuPairings.map((menu) => menu.cuisine))].map((item) => `<option${item === selectedMenu.cuisine ? " selected" : ""}>${item}</option>`).join("")}</select></label>
           <label>Occasion<select name="occasion">${[...new Set(menuPairings.map((menu) => menu.occasion))].map((item) => `<option${item === selectedMenu.occasion ? " selected" : ""}>${item}</option>`).join("")}</select></label>
           <label>Main Dish<select name="main">${menuPairings.map((menu, index) => `<option value="${index}"${index === selectedIndex ? " selected" : ""}>${recipeLinksFor(menu.main_recipe_ids).map((link) => link.replace(/<[^>]+>/g, "")).join(" or ") || menu.main_dish}</option>`).join("")}</select></label>
           <button class="small-button" type="submit">Generate Menu</button>
         </form>
+        ${menuAudienceCard(selectedAudience)}
         ${menuPairingCard(selectedMenu)}
         <div class="planner-layout compact-planner-layout">
           <section class="academy-module-card"><h3>Shopping List</h3><ul>${menuShoppingItems.map((item) => `<li>${item}</li>`).join("")}</ul></section>
