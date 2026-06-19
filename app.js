@@ -3678,11 +3678,11 @@ function renderPlatformHome() {
 const monthlySpotlight = {
   month: "June",
   headline: "Juneteenth: Food. Family. Freedom.",
-  subhead: "This month we celebrate freedom, family traditions, good food, great music, and the people we love most.",
+  subhead: "Pull into the yard, hear the music, smell the smoke, and find your people. This month is freedom remembered through family, food, laughter, and a table with room for everybody.",
   doodleImage: "images/hero/juneteenth-family-reunion-doodle.png",
   heroImages: ["images/hero/hero-01.jpg", "images/hero/hero-02.jpg", "images/hero/hero-03.jpg", "images/hero/hero-04.jpg", "images/hero/hero-05.jpg", "images/hero/hero-06.jpg", "images/hero/hero-07.jpg", "images/hero/hero-08.jpg", "images/hero/hero-09.jpg", "images/hero/hero-10.jpg"],
   aboveFoldRecipeIds: ["bbq-brisket-basics", "bbq-chicken-quarters", "bbq-baked-beans", "southern-collard-greens", "cornbread", "strawberry-soda", "watermelon-platter", "red-velvet-cake"],
-  gatheringNotes: ["Brisket smoking since sunrise", "Aunties carrying foil pans", "Dominoes on the card table", "Kids running through the yard"],
+  gatheringNotes: ["Brisket smoking since sunrise", "Aunties carrying foil pans", "Dominoes on the card table", "Kids running through the yard", "Strawberry soda on ice", "Somebody saving you a seat"],
   features: [
     { title: "Family Reunion Season", text: "Tents, folding chairs, matching shirts, coolers, cousins, and somebody telling you to eat before you leave." },
     { title: "Black Music Month", text: "Blues, gospel, jazz, soul, R&B, and hip-hop playing while the grill works and the aunties talk." },
@@ -4098,7 +4098,7 @@ function monthlySpotlightBanner() {
           <div>
             <p class="eyebrow">You just pulled up</p>
             <h2>The grill is going and the table is filling up.</h2>
-            <p>Uncle has brisket on the smoker, somebody just brought baked beans, the kids found the watermelon, and the red velvet cake is already covered so nobody sneaks a slice.</p>
+            <p>Uncle has brisket on the smoker, somebody just brought baked beans, the kids found the watermelon, and the red velvet cake is covered so nobody sneaks a slice before the blessing.</p>
           </div>
           <div class="cookout-plate-links">
             ${gatheringRecipes.map((recipe) => `<a href="#recipes/${recipe.id}"><img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" /><span>${recipe.title}</span></a>`).join("")}
@@ -4129,8 +4129,8 @@ function thisMonthsTableSection() {
     <section class="cream-section reunion-table-section">
       <div class="section-heading">
         <p class="eyebrow">This Month's Table</p>
-        <h2>A whole Juneteenth spread, not just a list of recipes.</h2>
-        <p>Build the kind of table people circle back to: smoked meat, BBQ chicken, greens, beans, cornbread, cold red drinks, watermelon, and dessert waiting under foil.</p>
+        <h2>The plate people circle back for.</h2>
+        <p>Smoked meat, BBQ chicken, greens, beans, skillet cornbread, cold red drinks, watermelon, and dessert waiting under foil. It should feel like somebody made enough because they hoped you would come.</p>
       </div>
       <div class="reunion-table-spread">
         ${tableRecipes.map((recipe, index) => `
@@ -4163,7 +4163,7 @@ function familyReunionSeasonSection() {
       <div class="section-heading">
         <p class="eyebrow">Family Reunion Season</p>
         <h2>Plan like the whole family is pulling up.</h2>
-        <p>Feed 25, 50, or 100 without losing the warmth: menu flow, potluck assignments, shopping lists, prep timelines, drink stations, and room for the kids to run around.</p>
+        <p>Feed 25, 50, or 100 without losing the warmth: menu flow, potluck assignments, shopping lists, prep timelines, drink stations, shade for the elders, and room for the kids to run around.</p>
       </div>
       <div class="reunion-planner-grid">
         ${plans.map(([title, href, text]) => `<a href="${href}"><span>${title}</span><p>${text}</p></a>`).join("")}
@@ -4267,8 +4267,8 @@ function pullUpAChairSection() {
     <section class="cream-section pull-up-chair-section" id="pull-up-chair">
       <div class="section-heading">
         <p class="eyebrow">Pull Up A Chair</p>
-        <h2>Stories, traditions, Sunday dinners, church homecomings, and food memories.</h2>
-        <p>This is the part where people hug, ask who made the potato salad, remember who used to bring the cake, and tell the kids why this day matters.</p>
+        <h2>The porch-talk part of the table.</h2>
+        <p>This is where people hug, ask who made the potato salad, remember who used to bring the cake, tell the kids why this day matters, and send somebody home with a covered plate.</p>
       </div>
       <div class="chair-story-grid">
         ${[
