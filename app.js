@@ -4137,6 +4137,28 @@ const regionalSoulFoodPages = {
   }
 };
 
+const regionalSoulFoodAliases = {
+  mississippi: "mississippi-soul-food",
+  "mississippi-favorites": "mississippi-soul-food",
+  louisiana: "louisiana-soul-food",
+  "new-orleans": "louisiana-soul-food",
+  acadiana: "louisiana-soul-food",
+  georgia: "georgia-soul-food",
+  atlanta: "georgia-soul-food",
+  alabama: "alabama-soul-food",
+  "south-carolina": "south-carolina-soul-food",
+  carolinas: "south-carolina-soul-food",
+  tennessee: "tennessee-soul-food",
+  memphis: "tennessee-soul-food",
+  texas: "texas-soul-food",
+  "north-carolina": "north-carolina-soul-food",
+  virginia: "virginia-soul-food",
+  arkansas: "arkansas-soul-food",
+  florida: "florida-soul-food",
+  "low-country": "south-carolina-soul-food",
+  lowcountry: "south-carolina-soul-food"
+};
+
 const regionalSoulFoodMenuTemplates = [
   {
     id: "sunday-dinner",
@@ -4988,7 +5010,8 @@ function renderCuisineExplorerDetail(id) {
 }
 
 function renderCuisineExplorer(id) {
-  if (id && regionalSoulFoodPages[id]) return renderRegionalSoulFoodPage(id);
+  const regionalId = id ? regionalSoulFoodAliases[id] || id : "";
+  if (regionalId && regionalSoulFoodPages[regionalId]) return renderRegionalSoulFoodPage(regionalId);
   if (id) return renderCuisineExplorerDetail(id);
   app.innerHTML = `
     ${hero("Cuisine Explorer", "A culinary rolodex for food culture, regional flavor, ingredients, traditions, and the way meals connect across the world.", photoFor("cuisines", "indian"), `<a class="small-button" href="#culinary-academy">Open Culinary Academy</a><a class="small-button secondary" href="#menu-intelligence">Build A Menu</a>`)}
