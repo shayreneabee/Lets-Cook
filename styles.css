@@ -5417,3 +5417,276 @@ button.small-button:is(:hover, :focus-visible) {
     grid-template-columns: 1fr;
   }
 }
+
+/* Monthly Spotlight homepage */
+.monthly-spotlight-banner {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.75fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: center;
+  min-height: min(760px, calc(100svh - 86px));
+  padding: clamp(2rem, 5vw, 5rem);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(191, 31, 48, 0.34), transparent 34%),
+    radial-gradient(circle at 86% 18%, rgba(255, 255, 255, 0.22), transparent 28%),
+    linear-gradient(135deg, #071a33 0%, #0e2d57 48%, #b21f35 100%);
+  color: #fffaf3;
+}
+
+.monthly-spotlight-banner::before {
+  content: "";
+  position: absolute;
+  inset: auto -8% -18% -8%;
+  height: 44%;
+  background: linear-gradient(90deg, rgba(191, 31, 48, 0.92), rgba(255, 255, 255, 0.92), rgba(20, 65, 126, 0.92));
+  opacity: 0.2;
+  transform: rotate(-3deg);
+}
+
+.monthly-copy,
+.monthly-visual {
+  position: relative;
+  z-index: 1;
+}
+
+.monthly-copy h1 {
+  max-width: 880px;
+  margin: 0;
+  color: #fffaf3;
+  font-size: clamp(3rem, 8vw, 7.8rem);
+  line-height: 0.92;
+}
+
+.monthly-copy > p:not(.eyebrow) {
+  max-width: 780px;
+  color: rgba(255, 250, 243, 0.9);
+  font-size: clamp(1.05rem, 1.7vw, 1.35rem);
+}
+
+.monthly-visual {
+  display: grid;
+  gap: 1rem;
+}
+
+.juneteenth-flag-mark {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: min(100%, 420px);
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.13);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(18px);
+}
+
+.juneteenth-flag-mark span {
+  width: 96px;
+  height: 40px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #b21f35 0 33%, #fff 33% 66%, #123c73 66%);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.38);
+}
+
+.juneteenth-flag-mark strong {
+  color: #fff;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.monthly-photo-stack {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.monthly-photo-stack figure {
+  min-height: 210px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 28px;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.28);
+  background: #fffaf3;
+}
+
+.monthly-photo-stack figure:nth-child(1) {
+  transform: translateY(22px);
+}
+
+.monthly-photo-stack figure:nth-child(4) {
+  transform: translateY(-22px);
+}
+
+.monthly-photo-stack img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.this-month-section,
+.red-foods-section,
+.coming-up-section {
+  background: #f7f2e9;
+}
+
+.month-feature-grid,
+.red-food-grid,
+.music-culture-grid,
+.upcoming-chip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1rem;
+}
+
+.month-feature-grid article,
+.red-food-grid article,
+.music-culture-grid article {
+  min-height: 180px;
+  padding: 1.2rem;
+  border: 1px solid #e7d8bf;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 18px 42px rgba(43, 26, 18, 0.08);
+}
+
+.month-feature-grid h3,
+.red-food-grid h3,
+.music-culture-grid span {
+  margin: 0 0 0.6rem;
+  color: #232323;
+  font-size: 1.2rem;
+}
+
+.red-food-grid a,
+.upcoming-chip-grid a {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 0.5rem;
+  color: #7a1723;
+  font-weight: 900;
+}
+
+.navy-section {
+  padding: clamp(2.5rem, 5vw, 5rem) clamp(1rem, 4vw, 4rem);
+  background:
+    radial-gradient(circle at 12% 12%, rgba(217, 164, 65, 0.16), transparent 30%),
+    linear-gradient(135deg, #071a33, #102a4e 58%, #261514);
+  color: #fffaf3;
+}
+
+.navy-section .section-heading h2,
+.navy-section .section-heading p,
+.navy-section .eyebrow {
+  color: #fffaf3;
+}
+
+.juneteenth-favorites .recipe-card {
+  background: #fffaf3;
+}
+
+.juneteenth-menu-builder {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(217, 164, 65, 0.28)),
+    #f7f2e9;
+}
+
+.juneteenth-menu-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.juneteenth-menu-output {
+  display: grid;
+  gap: 1.25rem;
+  padding: clamp(1rem, 3vw, 1.6rem);
+  border: 1px solid #e7d8bf;
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 22px 55px rgba(43, 26, 18, 0.1);
+}
+
+.juneteenth-menu-output h3 {
+  margin: 0;
+  color: #232323;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+}
+
+.juneteenth-menu-output .recipe-link-list {
+  margin: 0.75rem 0;
+}
+
+.music-culture-grid article {
+  min-height: 150px;
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fffaf3;
+  backdrop-filter: blur(14px);
+}
+
+.music-culture-grid article p {
+  color: rgba(255, 250, 243, 0.82);
+}
+
+.music-culture-grid span {
+  display: block;
+  color: #ffd166;
+  font-weight: 950;
+  letter-spacing: 0.02em;
+}
+
+.upcoming-chip-grid a {
+  justify-content: center;
+  min-height: 54px;
+  padding: 0.95rem 1rem;
+  border: 1px solid #e7d8bf;
+  border-radius: 999px;
+  background: #fff;
+  color: #232323;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 14px 30px rgba(43, 26, 18, 0.07);
+}
+
+.upcoming-chip-grid a:hover {
+  border-color: #d9a441;
+  color: #7a1723;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 980px) {
+  .monthly-spotlight-banner {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .monthly-photo-stack figure {
+    min-height: 170px;
+  }
+}
+
+@media (max-width: 640px) {
+  .monthly-spotlight-banner {
+    padding: 1.5rem;
+  }
+
+  .monthly-photo-stack {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .monthly-photo-stack figure {
+    min-height: 120px;
+    border-radius: 18px;
+    transform: none !important;
+  }
+
+  .monthly-copy h1 {
+    font-size: clamp(2.8rem, 17vw, 4rem);
+  }
+}

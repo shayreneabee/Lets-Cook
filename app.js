@@ -568,6 +568,24 @@ const academyModules = [
   }
 ];
 
+academyModules.push({
+  id: "juneteenth-food-history",
+  title: "Juneteenth Food History",
+  category: "World Foods",
+  overview: "Juneteenth food honors freedom, family, memory, survival, and the joy of gathering around a table after generations of struggle.",
+  why: "The holiday began in Texas on June 19, 1865, when enslaved people in Galveston learned they were free. Food traditions help families teach that history through celebration, remembrance, and hospitality.",
+  beginner: "Start with the meaning: Juneteenth is an American freedom holiday. Red foods and drinks often symbolize resilience, sacrifice, joy, and celebration.",
+  keyConcepts: ["American freedom holiday", "Red foods", "Family gathering", "Barbecue and cookouts", "Oral history", "Hospitality"],
+  modules: [
+    { title: "Freedom at the Table", items: ["Talk about why June 19 matters before the meal starts.", "Make space for elders, kids, music, and memory.", "Serve food generously, but keep the story present."] },
+    { title: "Red Foods, Rich History", items: ["Red drinks like strawberry soda, red punch, and hibiscus tea are common celebration symbols.", "Red velvet cake, watermelon, and red fruit show up at many tables.", "The tradition connects joy, remembrance, and celebration."] },
+    { title: "Cookout Foundations", items: ["Build around smoked or grilled mains.", "Add beans, greens, cornbread, fresh fruit, and a red dessert.", "Keep drinks cold and service easy for a long outdoor day."] },
+    { title: "Hosting With Love", items: ["Set shade and cold drinks early.", "Label dishes and allergens.", "Plan kid-friendly food, cleanup, and leftovers before guests arrive."] }
+  ],
+  related: ["bbq", "black-eyed-peas-tradition", "cornbread-traditions", "soul-food-origins", "mississippi-food-heritage"],
+  next: "soul-food-origins"
+});
+
 const techniqueAcademyModules = [
   ["gravy", "Gravy", "Sauces & Seasonings", "Gravy is a savory sauce made from drippings, fat, flour or starch, and liquid.", ["Pan drippings or butter", "Flour or cornstarch", "Stock, broth, or milk", "Whisk", "Skillet or saucepan"], ["Start with fat and flavor.", "Whisk in flour or slurry until smooth.", "Add liquid slowly while whisking.", "Simmer until it coats a spoon.", "Taste for salt, pepper, and acid."], ["Adding liquid too fast", "Letting flour stay raw", "Walking away from the pan"], ["If lumpy, strain or blend briefly.", "If too thick, whisk in warm liquid.", "If bland, add salt, pepper, herbs, or a tiny splash of vinegar."], ["smothered-pork-chops", "fried-chicken", "shrimp-and-grits-green-beans"]],
   ["roux", "Roux", "Sauces & Seasonings", "Roux is cooked fat and flour used to thicken gravy, gumbo, cheese sauce, and creamy sauces.", ["Butter, oil, or drippings", "All-purpose flour", "Wooden spoon or whisk", "Heavy-bottom pan"], ["Melt fat over medium heat.", "Stir in equal parts flour.", "Cook until pale, blonde, brown, or dark depending on the dish.", "Add liquid slowly while stirring.", "Keep stirring until smooth."], ["Using high heat too fast", "Stopping before raw flour flavor cooks out", "Adding cold liquid all at once"], ["Lower heat if it smells burnt.", "Start over if black specks appear.", "Use warm liquid for smoother sauce."], ["gumbo", "mac-and-cheese", "smothered-pork-chops"]],
@@ -3622,6 +3640,203 @@ function renderPlatformHome() {
   `;
 }
 
+const monthlySpotlight = {
+  month: "June",
+  headline: "Juneteenth: Food. Family. Freedom.",
+  subhead: "A June table filled with smoked brisket, BBQ chicken, beans, greens, cornbread, red velvet cake, strawberry soda, watermelon, music, memory, and everybody getting a plate.",
+  heroImages: ["images/hero/hero-01.jpg", "images/hero/hero-02.jpg", "images/hero/hero-03.jpg", "images/hero/hero-04.jpg", "images/hero/hero-05.jpg", "images/hero/hero-06.jpg", "images/hero/hero-07.jpg", "images/hero/hero-08.jpg", "images/hero/hero-09.jpg", "images/hero/hero-10.jpg"],
+  features: [
+    { title: "Juneteenth", text: "Freedom food, family cookouts, red drinks, storytelling, and a table that remembers." },
+    { title: "Black Music Month", text: "Blues, gospel, jazz, soul, R&B, and hip-hop playing while the grill works." },
+    { title: "Summer Cookouts", text: "Smoke, sauce, cold drinks, easy sides, and enough shade for the aunties." },
+    { title: "Peach Season", text: "Cobblers, shortcakes, preserves, grilled peaches, and Sunday dessert energy." },
+    { title: "Family Reunions", text: "Card tables, cousins, matching shirts, coolers, foil pans, and love overflowing." }
+  ],
+  favoriteRecipeIds: ["bbq-brisket-basics", "bbq-chicken-quarters", "bbq-baked-beans", "southern-collard-greens", "cornbread", "red-velvet-cake", "strawberry-soda", "watermelon-platter", "peach-cobbler"],
+  redFoods: [
+    { title: "Strawberry soda", recipeId: "strawberry-soda", text: "A bright red, kid-loved drink that keeps the celebration cold and joyful." },
+    { title: "Red punch", recipeId: "hibiscus-red-punch", text: "Hibiscus, fruit, and citrus make a deep red drink for big pitchers and long tables." },
+    { title: "Red velvet cake", recipeId: "red-velvet-cake", text: "A celebration cake that brings color, tenderness, and a little drama to dessert." },
+    { title: "Watermelon", recipeId: "watermelon-platter", text: "Cold watermelon is summer relief, cookout memory, and a fruit platter that disappears fast." },
+    { title: "Hibiscus tea", recipeId: "hibiscus-red-punch", text: "Hibiscus connects red drink traditions across the African diaspora and the American South." }
+  ],
+  menus: [
+    {
+      id: "backyard",
+      title: "Backyard Cookout",
+      recipeIds: ["bbq-brisket-basics", "bbq-chicken-quarters", "bbq-baked-beans", "creamy-coleslaw", "cornbread", "red-velvet-cake", "strawberry-soda"],
+      notes: "Start the pit early, hold cold sides in the cooler, set drinks in tubs, and keep sauce on the side."
+    },
+    {
+      id: "reunion",
+      title: "Family Reunion",
+      recipeIds: ["bbq-pulled-pork", "fried-chicken", "southern-collard-greens", "southern-baked-mac-cheese", "southern-black-eyed-peas", "watermelon-platter", "peach-cobbler"],
+      notes: "Use foil pans, label family dishes, assign drink duty, and plan leftovers before the first plate is made."
+    },
+    {
+      id: "church",
+      title: "Church Gathering",
+      recipeIds: ["smothered-pork-chops", "southern-cornbread-dressing", "collard-greens", "cornbread", "banana-pudding", "hibiscus-red-punch"],
+      notes: "Choose dishes that hold well, bring serving spoons, label allergens, and keep traffic moving down the table."
+    },
+    {
+      id: "community",
+      title: "Community Celebration",
+      recipeIds: ["bbq-smoked-ribs", "cajun-jambalaya", "bbq-baked-beans", "southern-potato-salad", "watermelon-platter", "red-velvet-cake", "strawberry-soda"],
+      notes: "Build stations for mains, sides, drinks, and desserts so guests can move without crowding."
+    },
+    {
+      id: "small-family",
+      title: "Small Family Dinner",
+      recipeIds: ["bbq-chicken-quarters", "southern-collard-greens", "cornbread", "watermelon-platter", "peach-cobbler", "strawberry-soda"],
+      notes: "Keep it simple: one main, two sides, one red drink, one dessert, and time to sit down together."
+    }
+  ],
+  upcoming: ["4th of July", "Summer Cookout Season", "Peach Season", "Family Reunion Season", "Hispanic Heritage Month", "Thanksgiving", "Christmas"]
+};
+
+function recipeByIdSafe(id) {
+  return recipes.find((recipe) => recipe.id === id);
+}
+
+function recipeLinkList(ids = []) {
+  return ids.map((id) => recipeByIdSafe(id)).filter(Boolean).map((recipe) => `<a href="#recipes/${recipe.id}">${recipe.title}</a>`).join("");
+}
+
+function monthlySpotlightBanner() {
+  const images = monthlySpotlight.heroImages.map((image, index) => image || photoFor("hero", "family", index, "assets/cooking-family.jpeg"));
+  return `
+    <section class="monthly-spotlight-banner juneteenth-banner">
+      <div class="monthly-copy">
+        <p class="eyebrow">${monthlySpotlight.month} Monthly Spotlight</p>
+        <h1>${monthlySpotlight.headline}</h1>
+        <p>${monthlySpotlight.subhead}</p>
+        <div class="hero-actions">
+          <a class="small-button" href="#culinary-academy/juneteenth-food-history">Learn the History</a>
+          <a class="small-button secondary" href="#recipes">Explore Recipes</a>
+          <a class="small-button secondary" href="#menu-intelligence">Build a Celebration Menu</a>
+          <a class="small-button secondary" href="#hosting">Host With Love</a>
+        </div>
+      </div>
+      <div class="monthly-visual" aria-label="Juneteenth cooking and gathering inspiration">
+        <div class="juneteenth-flag-mark"><span></span><strong>June 19</strong></div>
+        <div class="monthly-photo-stack">
+          ${images.slice(0, 4).map((image, index) => `<figure><img src="${image}" alt="June food and family gathering ${index + 1}" onerror="this.src='${photoFor("hero", "family", index, "assets/cooking-family.jpeg")}'" /></figure>`).join("")}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function thisMonthSection() {
+  return `
+    <section class="cream-section this-month-section">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">This Month at Let's Cook Y'all</p>
+        <h2>June tastes like freedom, music, smoke, peaches, and everybody coming through.</h2>
+      </div>
+      <div class="month-feature-grid">
+        ${monthlySpotlight.features.map((feature) => `<article><h3>${feature.title}</h3><p>${feature.text}</p></article>`).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function juneteenthFavoritesSection() {
+  const cards = monthlySpotlight.favoriteRecipeIds.map(recipeByIdSafe).filter(Boolean);
+  return `
+    <section class="navy-section juneteenth-favorites">
+      <div class="section-heading">
+        <p class="eyebrow">Juneteenth Favorites</p>
+        <h2>Smoke, sides, red drinks, cold fruit, and dessert worth saving room for.</h2>
+      </div>
+      <div class="recipe-grid">${cards.map(recipeCard).join("")}</div>
+    </section>
+  `;
+}
+
+function redFoodsHistorySection() {
+  return `
+    <section class="cream-section red-foods-section">
+      <div class="section-heading">
+        <p class="eyebrow">Red Foods, Rich History</p>
+        <h2>Red drinks and red desserts carry celebration, remembrance, and joy.</h2>
+        <p>Across Juneteenth tables, red food traditions can honor resilience and the long road to freedom while keeping the gathering bright, generous, and deeply human.</p>
+      </div>
+      <div class="red-food-grid">
+        ${monthlySpotlight.redFoods.map((item) => {
+          const recipe = recipeByIdSafe(item.recipeId);
+          return `<article><h3>${item.title}</h3><p>${item.text}</p>${recipe ? `<a href="#recipes/${recipe.id}">Open ${recipe.title}</a>` : `<a href="#culinary-academy/juneteenth-food-history">Learn more</a>`}</article>`;
+        }).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function juneteenthMenuSection() {
+  const active = monthlySpotlight.menus[0];
+  return `
+    <section class="gold-section juneteenth-menu-builder" data-juneteenth-menu-section>
+      <div class="section-heading">
+        <p class="eyebrow">Build a Juneteenth Menu</p>
+        <h2>Choose the kind of table you're setting.</h2>
+      </div>
+      <div class="juneteenth-menu-tabs">
+        ${monthlySpotlight.menus.map((menu, index) => `<button class="small-button ${index ? "secondary" : ""}" type="button" data-juneteenth-menu="${menu.id}">${menu.title}</button>`).join("")}
+      </div>
+      <article class="juneteenth-menu-output" data-juneteenth-output>
+        ${juneteenthMenuOutput(active)}
+      </article>
+    </section>
+  `;
+}
+
+function juneteenthMenuOutput(menu) {
+  const menuRecipes = menu.recipeIds.map(recipeByIdSafe).filter(Boolean);
+  const shopping = [...new Set(menuRecipes.flatMap((recipe) => recipe.ingredients || []))].slice(0, 18);
+  return `
+    <div>
+      <p class="eyebrow">${menu.title}</p>
+      <h3>${menu.title} Menu</h3>
+      <div class="recipe-link-list">${recipeLinkList(menu.recipeIds)}</div>
+      <p>${menu.notes}</p>
+    </div>
+    <div class="academy-module-grid">
+      <article class="academy-module-card"><h3>Main + Sides</h3><ul>${menuRecipes.slice(0, 4).map((recipe) => `<li><a href="#recipes/${recipe.id}">${recipe.title}</a></li>`).join("")}</ul></article>
+      <article class="academy-module-card"><h3>Desserts + Drinks</h3><ul>${menuRecipes.slice(4).map((recipe) => `<li><a href="#recipes/${recipe.id}">${recipe.title}</a></li>`).join("")}</ul></article>
+      <article class="academy-module-card"><h3>Shopping List</h3><ul>${shopping.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+      <article class="academy-module-card"><h3>Prep Timeline</h3><ul><li>Two days before: choose recipes, shop pantry items, and assign helpers.</li><li>Day before: prep desserts, drinks, sauces, and cold sides.</li><li>Day of: cook mains, warm breads, set drinks first, and serve with love.</li></ul></article>
+    </div>
+  `;
+}
+
+function musicCultureSection() {
+  return `
+    <section class="navy-section music-culture-section">
+      <div class="section-heading">
+        <p class="eyebrow">Black Music Month</p>
+        <h2>Put the record on while the grill is going.</h2>
+        <p>Blues, gospel, jazz, soul, R&B, and hip-hop all carry food memories: church plates, porch songs, block parties, cookouts, and kitchens where somebody is stirring while somebody else is singing.</p>
+      </div>
+      <div class="music-culture-grid">
+        ${["Blues", "Gospel", "Jazz", "Soul", "R&B", "Hip-Hop"].map((genre) => `<article><span>${genre}</span><p>Build a playlist, tell the story, and let the meal become part of the memory.</p></article>`).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function comingUpNextSection() {
+  return `
+    <section class="cream-section coming-up-section">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Coming Up Next</p>
+        <h2>Keep planning the season.</h2>
+      </div>
+      <div class="upcoming-chip-grid">${monthlySpotlight.upcoming.map((item) => `<a href="#hosting">${item}</a>`).join("")}</div>
+    </section>
+  `;
+}
+
 function renderLetsCookHome() {
   const recipeOfWeek = recipes.find((recipe) => recipe.id === "yakamein") || recipes[0];
   const kidPick = recipes.find((recipe) => recipe.id === "pb-and-j-sandwich") || recipes.find((recipe) => recipe.skill_level === "Kid Chef");
@@ -3629,14 +3844,21 @@ function renderLetsCookHome() {
   const globalFlavor = recipes.find((recipe) => recipe.id === "chicken-street-tacos") || recipes.find((recipe) => recipe.cuisine !== "southern");
   const heroImages = Array.from({ length: 10 }, (_, index) => photoFor("hero", "family", index, "assets/cooking-family.jpeg"));
   app.innerHTML = `
-    ${heroRotator(
-      "Cook With Confidence",
-      "A warm culinary learning platform that helps you turn ingredients into meals, understand cuisines, build skills, plan ahead, and cook with confidence.",
-      heroImages,
-      `<a class="small-button" href="#build-a-meal">Build A Meal</a><a class="small-button secondary" href="#kitchen-search/chicken%20strips">What's In My Kitchen</a><a class="small-button secondary" href="#recipes">Browse Recipes</a>`
-    )}
+    ${monthlySpotlightBanner()}
     ${cookSubnav()}
+    <section class="cream-section kitchen-flagship-intro">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Flagship kitchen tool</p>
+        <h2>What's In My Kitchen</h2>
+        <p>Start with what you already have, then find real recipes, cuisines, techniques, sides, substitutions, and meal ideas.</p>
+      </div>
+    </section>
     ${ingredientDiscoverySection("chicken strips")}
+    ${thisMonthSection()}
+    ${juneteenthFavoritesSection()}
+    ${redFoodsHistorySection()}
+    ${juneteenthMenuSection()}
+    ${musicCultureSection()}
     <section class="cream-section homepage-photo-strip">
       <div class="section-heading compact-heading">
         <p class="eyebrow">Learn by looking, tasting, and doing</p>
@@ -3644,6 +3866,7 @@ function renderLetsCookHome() {
       </div>
       <div class="hero-photo-grid">${heroImages.slice(0, 6).map((image, index) => `<figure><img src="${image}" alt="Let's Cook Y'all kitchen moment ${index + 1}" /></figure>`).join("")}</div>
     </section>
+    ${comingUpNextSection()}
     ${learningArchitectureSection()}
     <section class="cream-section">
       <div class="feature-grid">
@@ -5307,6 +5530,15 @@ function handleClick(event) {
   const saveButton = event.target.closest("[data-save]");
   const planButton = event.target.closest("[data-plan]");
   const printButton = event.target.closest("[data-print-recipe]");
+  const juneteenthMenuButton = event.target.closest("[data-juneteenth-menu]");
+  if (juneteenthMenuButton) {
+    const section = juneteenthMenuButton.closest("[data-juneteenth-menu-section]");
+    const output = section?.querySelector("[data-juneteenth-output]");
+    const menu = monthlySpotlight.menus.find((item) => item.id === juneteenthMenuButton.dataset.juneteenthMenu) || monthlySpotlight.menus[0];
+    section?.querySelectorAll("[data-juneteenth-menu]").forEach((button) => button.classList.toggle("secondary", button !== juneteenthMenuButton));
+    if (output) output.innerHTML = juneteenthMenuOutput(menu);
+    return;
+  }
   if (quickFilter) {
     document.querySelectorAll(".quick-filter").forEach((button) => button.classList.toggle("active", button === quickFilter && !button.classList.contains("active")));
     handleSearch();

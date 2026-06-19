@@ -13332,9 +13332,9 @@
     },
     {
       "id": "bbq-brisket-basics",
-      "title": "Brisket Basics",
-      "slug": "brisket-basics",
-      "description": "A cookable Let's Cook Y'all guide for brisket basics with measured ingredients and practical steps.",
+      "title": "Smoked Brisket Basics",
+      "slug": "smoked-brisket-basics",
+      "description": "A beginner-friendly smoked brisket guide for Juneteenth, cookouts, and family reunion plates: season well, cook low, rest long, slice correctly.",
       "cuisine": "bbq",
       "category": "BBQ",
       "course": "Main Dish",
@@ -13459,13 +13459,18 @@
       "storage": "Refrigerate leftovers in a covered container up to 3 days.",
       "reheating": "Reheat gently until hot throughout.",
       "tags": [
-        "bbq",
+        "low and slow",
+        "cookout",
         "brisket",
-        "low and slow"
+        "bbq",
+        "smoked brisket",
+        "juneteenth"
       ],
       "occasion_tags": [
         "Cookout",
-        "Holiday"
+        "Holiday",
+        "Family Reunion",
+        "Juneteenth"
       ],
       "technique_tags": [
         "low and slow",
@@ -14586,6 +14591,1270 @@
       "related_pairings": [
         "cilantro-lime-rice",
         "lemonade"
+      ],
+      "featured": false,
+      "source": "Let's Cook Y'all original kitchen data",
+      "source_url": ""
+    },
+    {
+      "id": "red-velvet-cake",
+      "title": "Red Velvet Cake",
+      "slug": "red-velvet-cake",
+      "description": "A tender red celebration cake with cocoa, buttermilk, cream cheese frosting, and Juneteenth table presence.",
+      "cuisine": "southern",
+      "category": "Desserts",
+      "course": "Dessert",
+      "meal_type": "Dessert",
+      "skill_level": "Beginner Home Cook",
+      "image": "assets/lc-desserts.jpg",
+      "image_url": "assets/lc-desserts.jpg",
+      "prep_time": "30 min",
+      "cook_time": "35 min",
+      "prepTime": "30 min",
+      "cookTime": "35 min",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 35,
+      "servings": 12,
+      "difficulty": "Intermediate",
+      "ingredients": [
+        "2 1/2 cups all-purpose flour",
+        "1 1/2 cups sugar",
+        "1 cup buttermilk",
+        "1 cup vegetable oil",
+        "2 large eggs",
+        "2 tbsp cocoa powder",
+        "1 tbsp red food coloring",
+        "1 tsp vanilla extract",
+        "1 tsp baking soda",
+        "1 tsp vinegar",
+        "1/2 tsp salt",
+        "8 oz cream cheese",
+        "1/2 cup butter",
+        "3 cups powdered sugar"
+      ],
+      "ingredients_structured": [
+        {
+          "quantity": 2.5,
+          "unit": "cups",
+          "name": "all-purpose flour",
+          "original": "2 1/2 cups all-purpose flour"
+        },
+        {
+          "quantity": 1.5,
+          "unit": "cups",
+          "name": "sugar",
+          "original": "1 1/2 cups sugar"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "cup",
+          "name": "buttermilk",
+          "original": "1 cup buttermilk"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "cup",
+          "name": "vegetable oil",
+          "original": "1 cup vegetable oil"
+        },
+        {
+          "quantity": 2.0,
+          "unit": "large",
+          "name": "eggs",
+          "original": "2 large eggs"
+        },
+        {
+          "quantity": 2.0,
+          "unit": "tbsp",
+          "name": "cocoa powder",
+          "original": "2 tbsp cocoa powder"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "tbsp",
+          "name": "red food coloring",
+          "original": "1 tbsp red food coloring"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "tsp",
+          "name": "vanilla extract",
+          "original": "1 tsp vanilla extract"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "tsp",
+          "name": "baking soda",
+          "original": "1 tsp baking soda"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "tsp",
+          "name": "vinegar",
+          "original": "1 tsp vinegar"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "tsp",
+          "name": "salt",
+          "original": "1/2 tsp salt"
+        },
+        {
+          "quantity": 8.0,
+          "unit": "oz",
+          "name": "cream cheese",
+          "original": "8 oz cream cheese"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "cup",
+          "name": "butter",
+          "original": "1/2 cup butter"
+        },
+        {
+          "quantity": 3.0,
+          "unit": "cups",
+          "name": "powdered sugar",
+          "original": "3 cups powdered sugar"
+        }
+      ],
+      "structured_ingredients": [
+        {
+          "quantity": 2.5,
+          "unit": "cups",
+          "name": "all-purpose flour",
+          "original": "2 1/2 cups all-purpose flour"
+        },
+        {
+          "quantity": 1.5,
+          "unit": "cups",
+          "name": "sugar",
+          "original": "1 1/2 cups sugar"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "cup",
+          "name": "buttermilk",
+          "original": "1 cup buttermilk"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "cup",
+          "name": "vegetable oil",
+          "original": "1 cup vegetable oil"
+        },
+        {
+          "quantity": 2.0,
+          "unit": "large",
+          "name": "eggs",
+          "original": "2 large eggs"
+        },
+        {
+          "quantity": 2.0,
+          "unit": "tbsp",
+          "name": "cocoa powder",
+          "original": "2 tbsp cocoa powder"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "tbsp",
+          "name": "red food coloring",
+          "original": "1 tbsp red food coloring"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "tsp",
+          "name": "vanilla extract",
+          "original": "1 tsp vanilla extract"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "tsp",
+          "name": "baking soda",
+          "original": "1 tsp baking soda"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "tsp",
+          "name": "vinegar",
+          "original": "1 tsp vinegar"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "tsp",
+          "name": "salt",
+          "original": "1/2 tsp salt"
+        },
+        {
+          "quantity": 8.0,
+          "unit": "oz",
+          "name": "cream cheese",
+          "original": "8 oz cream cheese"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "cup",
+          "name": "butter",
+          "original": "1/2 cup butter"
+        },
+        {
+          "quantity": 3.0,
+          "unit": "cups",
+          "name": "powdered sugar",
+          "original": "3 cups powdered sugar"
+        }
+      ],
+      "instructions": [
+        "Heat oven to 350 F and grease two cake pans.",
+        "Whisk flour, cocoa, baking soda, and salt.",
+        "Beat sugar, oil, eggs, buttermilk, vanilla, vinegar, and red coloring.",
+        "Mix dry ingredients into wet just until smooth.",
+        "Bake until a tester comes out clean and cool completely.",
+        "Beat cream cheese, butter, and powdered sugar into frosting, then fill and frost the cake."
+      ],
+      "directions": [
+        "Heat oven to 350 F and grease two cake pans.",
+        "Whisk flour, cocoa, baking soda, and salt.",
+        "Beat sugar, oil, eggs, buttermilk, vanilla, vinegar, and red coloring.",
+        "Mix dry ingredients into wet just until smooth.",
+        "Bake until a tester comes out clean and cool completely.",
+        "Beat cream cheese, butter, and powdered sugar into frosting, then fill and frost the cake."
+      ],
+      "tips": [
+        "Keep cold foods cold and hot foods hot for outdoor gatherings.",
+        "Taste and adjust sweetness, salt, and acid before serving."
+      ],
+      "skills_learned": [
+        "Baking",
+        "Frosting"
+      ],
+      "storage": "Refrigerate leftovers in a covered container up to 3 days.",
+      "reheating": "Serve chilled or reheat gently depending on the dish.",
+      "tags": [
+        "juneteenth",
+        "red food",
+        "cake",
+        "southern"
+      ],
+      "occasion_tags": [
+        "Juneteenth",
+        "Family Reunion",
+        "Holiday"
+      ],
+      "technique_tags": [
+        "baking",
+        "frosting"
+      ],
+      "related_recipe_ids": [
+        "strawberry-soda",
+        "watermelon-platter",
+        "bbq-chicken-quarters"
+      ],
+      "related_pairings": [
+        "strawberry-soda",
+        "watermelon-platter",
+        "bbq-chicken-quarters"
+      ],
+      "featured": true,
+      "source": "Let's Cook Y'all original kitchen data",
+      "source_url": ""
+    },
+    {
+      "id": "strawberry-soda",
+      "title": "Strawberry Soda",
+      "slug": "strawberry-soda",
+      "description": "A bright red Juneteenth drink made with strawberry syrup, citrus, and sparkling water for a cold family table.",
+      "cuisine": "southern",
+      "category": "Drinks",
+      "course": "Drink",
+      "meal_type": "Drink",
+      "skill_level": "Beginner Home Cook",
+      "image": "assets/editorial-cooking-hero.jpg",
+      "image_url": "assets/editorial-cooking-hero.jpg",
+      "prep_time": "15 min",
+      "cook_time": "10 min",
+      "prepTime": "15 min",
+      "cookTime": "10 min",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 10,
+      "servings": 8,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "2 cups strawberries",
+        "1/2 cup sugar",
+        "1/2 cup water",
+        "2 tbsp lemon juice",
+        "6 cups sparkling water",
+        "4 cups ice"
+      ],
+      "ingredients_structured": [
+        {
+          "quantity": 2.0,
+          "unit": "cups",
+          "name": "strawberries",
+          "original": "2 cups strawberries"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "cup",
+          "name": "sugar",
+          "original": "1/2 cup sugar"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "cup",
+          "name": "water",
+          "original": "1/2 cup water"
+        },
+        {
+          "quantity": 2.0,
+          "unit": "tbsp",
+          "name": "lemon juice",
+          "original": "2 tbsp lemon juice"
+        },
+        {
+          "quantity": 6.0,
+          "unit": "cups",
+          "name": "sparkling water",
+          "original": "6 cups sparkling water"
+        },
+        {
+          "quantity": 4.0,
+          "unit": "cups",
+          "name": "ice",
+          "original": "4 cups ice"
+        }
+      ],
+      "structured_ingredients": [
+        {
+          "quantity": 2.0,
+          "unit": "cups",
+          "name": "strawberries",
+          "original": "2 cups strawberries"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "cup",
+          "name": "sugar",
+          "original": "1/2 cup sugar"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "cup",
+          "name": "water",
+          "original": "1/2 cup water"
+        },
+        {
+          "quantity": 2.0,
+          "unit": "tbsp",
+          "name": "lemon juice",
+          "original": "2 tbsp lemon juice"
+        },
+        {
+          "quantity": 6.0,
+          "unit": "cups",
+          "name": "sparkling water",
+          "original": "6 cups sparkling water"
+        },
+        {
+          "quantity": 4.0,
+          "unit": "cups",
+          "name": "ice",
+          "original": "4 cups ice"
+        }
+      ],
+      "instructions": [
+        "Simmer strawberries, sugar, and water until berries soften.",
+        "Mash and strain into a syrup.",
+        "Stir in lemon juice and chill.",
+        "Pour syrup over ice and top with sparkling water.",
+        "Taste and add more syrup if guests like it sweeter."
+      ],
+      "directions": [
+        "Simmer strawberries, sugar, and water until berries soften.",
+        "Mash and strain into a syrup.",
+        "Stir in lemon juice and chill.",
+        "Pour syrup over ice and top with sparkling water.",
+        "Taste and add more syrup if guests like it sweeter."
+      ],
+      "tips": [
+        "Keep cold foods cold and hot foods hot for outdoor gatherings.",
+        "Taste and adjust sweetness, salt, and acid before serving."
+      ],
+      "skills_learned": [
+        "Syrup",
+        "Drink Station"
+      ],
+      "storage": "Refrigerate leftovers in a covered container up to 3 days.",
+      "reheating": "Serve chilled or reheat gently depending on the dish.",
+      "tags": [
+        "juneteenth",
+        "red drink",
+        "strawberry",
+        "summer"
+      ],
+      "occasion_tags": [
+        "Juneteenth",
+        "Cookout",
+        "Kids Table"
+      ],
+      "technique_tags": [
+        "syrup",
+        "drink station"
+      ],
+      "related_recipe_ids": [
+        "red-velvet-cake",
+        "watermelon-platter",
+        "bbq-smoked-ribs"
+      ],
+      "related_pairings": [
+        "red-velvet-cake",
+        "watermelon-platter",
+        "bbq-smoked-ribs"
+      ],
+      "featured": true,
+      "source": "Let's Cook Y'all original kitchen data",
+      "source_url": ""
+    },
+    {
+      "id": "hibiscus-red-punch",
+      "title": "Hibiscus Red Punch",
+      "slug": "hibiscus-red-punch",
+      "description": "A deep red hibiscus punch with ginger, citrus, and fruit for Juneteenth pitchers and celebration tables.",
+      "cuisine": "southern",
+      "category": "Drinks",
+      "course": "Drink",
+      "meal_type": "Drink",
+      "skill_level": "Beginner Home Cook",
+      "image": "assets/editorial-cooking-hero.jpg",
+      "image_url": "assets/editorial-cooking-hero.jpg",
+      "prep_time": "10 min",
+      "cook_time": "20 min",
+      "prepTime": "10 min",
+      "cookTime": "20 min",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "servings": 10,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "2 cups dried hibiscus",
+        "8 cups water",
+        "1 inch fresh ginger",
+        "1/2 cup sugar",
+        "1 orange",
+        "1 lime",
+        "2 cups pineapple juice"
+      ],
+      "ingredients_structured": [
+        {
+          "quantity": 2.0,
+          "unit": "cups",
+          "name": "dried hibiscus",
+          "original": "2 cups dried hibiscus"
+        },
+        {
+          "quantity": 8.0,
+          "unit": "cups",
+          "name": "water",
+          "original": "8 cups water"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "",
+          "name": "inch fresh ginger",
+          "original": "1 inch fresh ginger"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "cup",
+          "name": "sugar",
+          "original": "1/2 cup sugar"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "",
+          "name": "orange",
+          "original": "1 orange"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "",
+          "name": "lime",
+          "original": "1 lime"
+        },
+        {
+          "quantity": 2.0,
+          "unit": "cups",
+          "name": "pineapple juice",
+          "original": "2 cups pineapple juice"
+        }
+      ],
+      "structured_ingredients": [
+        {
+          "quantity": 2.0,
+          "unit": "cups",
+          "name": "dried hibiscus",
+          "original": "2 cups dried hibiscus"
+        },
+        {
+          "quantity": 8.0,
+          "unit": "cups",
+          "name": "water",
+          "original": "8 cups water"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "",
+          "name": "inch fresh ginger",
+          "original": "1 inch fresh ginger"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "cup",
+          "name": "sugar",
+          "original": "1/2 cup sugar"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "",
+          "name": "orange",
+          "original": "1 orange"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "",
+          "name": "lime",
+          "original": "1 lime"
+        },
+        {
+          "quantity": 2.0,
+          "unit": "cups",
+          "name": "pineapple juice",
+          "original": "2 cups pineapple juice"
+        }
+      ],
+      "instructions": [
+        "Boil water with sliced ginger.",
+        "Add hibiscus, cover, and steep 20 minutes.",
+        "Strain and stir in sugar while warm.",
+        "Add orange juice, lime juice, and pineapple juice.",
+        "Chill and serve over ice."
+      ],
+      "directions": [
+        "Boil water with sliced ginger.",
+        "Add hibiscus, cover, and steep 20 minutes.",
+        "Strain and stir in sugar while warm.",
+        "Add orange juice, lime juice, and pineapple juice.",
+        "Chill and serve over ice."
+      ],
+      "tips": [
+        "Keep cold foods cold and hot foods hot for outdoor gatherings.",
+        "Taste and adjust sweetness, salt, and acid before serving."
+      ],
+      "skills_learned": [
+        "Steeping",
+        "Drink Station"
+      ],
+      "storage": "Refrigerate leftovers in a covered container up to 3 days.",
+      "reheating": "Serve chilled or reheat gently depending on the dish.",
+      "tags": [
+        "juneteenth",
+        "red punch",
+        "hibiscus",
+        "drink"
+      ],
+      "occasion_tags": [
+        "Juneteenth",
+        "Community Celebration",
+        "Church Gathering"
+      ],
+      "technique_tags": [
+        "steeping",
+        "drink station"
+      ],
+      "related_recipe_ids": [
+        "red-velvet-cake",
+        "smothered-pork-chops",
+        "cornbread"
+      ],
+      "related_pairings": [
+        "red-velvet-cake",
+        "smothered-pork-chops",
+        "cornbread"
+      ],
+      "featured": false,
+      "source": "Let's Cook Y'all original kitchen data",
+      "source_url": ""
+    },
+    {
+      "id": "watermelon-platter",
+      "title": "Cold Watermelon Platter",
+      "slug": "cold-watermelon-platter",
+      "description": "Cold watermelon wedges dressed simply with lime and mint for a hot Juneteenth cookout or family reunion.",
+      "cuisine": "southern",
+      "category": "Fruit",
+      "course": "Side Dish",
+      "meal_type": "Side Dish",
+      "skill_level": "Beginner Home Cook",
+      "image": "assets/editorial-cooking-hero.jpg",
+      "image_url": "assets/editorial-cooking-hero.jpg",
+      "prep_time": "15 min",
+      "cook_time": "0 min",
+      "prepTime": "15 min",
+      "cookTime": "0 min",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 0,
+      "servings": 12,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "1 large watermelon",
+        "2 limes",
+        "1/4 cup fresh mint",
+        "1/2 tsp flaky salt"
+      ],
+      "ingredients_structured": [
+        {
+          "quantity": 1.0,
+          "unit": "large",
+          "name": "watermelon",
+          "original": "1 large watermelon"
+        },
+        {
+          "quantity": 2.0,
+          "unit": "",
+          "name": "limes",
+          "original": "2 limes"
+        },
+        {
+          "quantity": 0.25,
+          "unit": "cup",
+          "name": "fresh mint",
+          "original": "1/4 cup fresh mint"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "tsp",
+          "name": "flaky salt",
+          "original": "1/2 tsp flaky salt"
+        }
+      ],
+      "structured_ingredients": [
+        {
+          "quantity": 1.0,
+          "unit": "large",
+          "name": "watermelon",
+          "original": "1 large watermelon"
+        },
+        {
+          "quantity": 2.0,
+          "unit": "",
+          "name": "limes",
+          "original": "2 limes"
+        },
+        {
+          "quantity": 0.25,
+          "unit": "cup",
+          "name": "fresh mint",
+          "original": "1/4 cup fresh mint"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "tsp",
+          "name": "flaky salt",
+          "original": "1/2 tsp flaky salt"
+        }
+      ],
+      "instructions": [
+        "Chill watermelon before cutting.",
+        "Slice into wedges or cubes.",
+        "Arrange on a large platter.",
+        "Squeeze lime over the fruit.",
+        "Sprinkle with mint and a tiny pinch of flaky salt."
+      ],
+      "directions": [
+        "Chill watermelon before cutting.",
+        "Slice into wedges or cubes.",
+        "Arrange on a large platter.",
+        "Squeeze lime over the fruit.",
+        "Sprinkle with mint and a tiny pinch of flaky salt."
+      ],
+      "tips": [
+        "Keep cold foods cold and hot foods hot for outdoor gatherings.",
+        "Taste and adjust sweetness, salt, and acid before serving."
+      ],
+      "skills_learned": [
+        "Knife Skills",
+        "Platter"
+      ],
+      "storage": "Refrigerate leftovers in a covered container up to 3 days.",
+      "reheating": "Serve chilled or reheat gently depending on the dish.",
+      "tags": [
+        "juneteenth",
+        "watermelon",
+        "summer",
+        "fruit"
+      ],
+      "occasion_tags": [
+        "Juneteenth",
+        "Cookout",
+        "Family Reunion"
+      ],
+      "technique_tags": [
+        "knife skills",
+        "platter"
+      ],
+      "related_recipe_ids": [
+        "bbq-chicken-quarters",
+        "peach-cobbler",
+        "strawberry-soda"
+      ],
+      "related_pairings": [
+        "bbq-chicken-quarters",
+        "peach-cobbler",
+        "strawberry-soda"
+      ],
+      "featured": false,
+      "source": "Let's Cook Y'all original kitchen data",
+      "source_url": ""
+    },
+    {
+      "id": "bbq-baked-beans",
+      "title": "BBQ Baked Beans",
+      "slug": "bbq-baked-beans",
+      "description": "Smoky-sweet baked beans with onion, molasses, mustard, brown sugar, and barbecue sauce for cookouts and Juneteenth plates.",
+      "cuisine": "bbq",
+      "category": "Sides",
+      "course": "Side Dish",
+      "meal_type": "Side Dish",
+      "skill_level": "Beginner Home Cook",
+      "image": "assets/american-food.jpeg",
+      "image_url": "assets/american-food.jpeg",
+      "prep_time": "10 min",
+      "cook_time": "45 min",
+      "prepTime": "10 min",
+      "cookTime": "45 min",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 45,
+      "servings": 8,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "3 cans navy beans",
+        "1/2 cup diced onion",
+        "1/2 cup barbecue sauce",
+        "1/4 cup molasses",
+        "2 tbsp brown sugar",
+        "1 tbsp yellow mustard",
+        "1 tsp smoked paprika",
+        "4 strips bacon"
+      ],
+      "ingredients_structured": [
+        {
+          "quantity": 3.0,
+          "unit": "cans",
+          "name": "navy beans",
+          "original": "3 cans navy beans"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "cup",
+          "name": "diced onion",
+          "original": "1/2 cup diced onion"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "cup",
+          "name": "barbecue sauce",
+          "original": "1/2 cup barbecue sauce"
+        },
+        {
+          "quantity": 0.25,
+          "unit": "cup",
+          "name": "molasses",
+          "original": "1/4 cup molasses"
+        },
+        {
+          "quantity": 2.0,
+          "unit": "tbsp",
+          "name": "brown sugar",
+          "original": "2 tbsp brown sugar"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "tbsp",
+          "name": "yellow mustard",
+          "original": "1 tbsp yellow mustard"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "tsp",
+          "name": "smoked paprika",
+          "original": "1 tsp smoked paprika"
+        },
+        {
+          "quantity": 4.0,
+          "unit": "",
+          "name": "strips bacon",
+          "original": "4 strips bacon"
+        }
+      ],
+      "structured_ingredients": [
+        {
+          "quantity": 3.0,
+          "unit": "cans",
+          "name": "navy beans",
+          "original": "3 cans navy beans"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "cup",
+          "name": "diced onion",
+          "original": "1/2 cup diced onion"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "cup",
+          "name": "barbecue sauce",
+          "original": "1/2 cup barbecue sauce"
+        },
+        {
+          "quantity": 0.25,
+          "unit": "cup",
+          "name": "molasses",
+          "original": "1/4 cup molasses"
+        },
+        {
+          "quantity": 2.0,
+          "unit": "tbsp",
+          "name": "brown sugar",
+          "original": "2 tbsp brown sugar"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "tbsp",
+          "name": "yellow mustard",
+          "original": "1 tbsp yellow mustard"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "tsp",
+          "name": "smoked paprika",
+          "original": "1 tsp smoked paprika"
+        },
+        {
+          "quantity": 4.0,
+          "unit": "",
+          "name": "strips bacon",
+          "original": "4 strips bacon"
+        }
+      ],
+      "instructions": [
+        "Heat oven to 350 F.",
+        "Saute onion until soft.",
+        "Stir beans, barbecue sauce, molasses, brown sugar, mustard, and paprika together.",
+        "Pour into a baking dish and top with bacon if using.",
+        "Bake until bubbly and thick."
+      ],
+      "directions": [
+        "Heat oven to 350 F.",
+        "Saute onion until soft.",
+        "Stir beans, barbecue sauce, molasses, brown sugar, mustard, and paprika together.",
+        "Pour into a baking dish and top with bacon if using.",
+        "Bake until bubbly and thick."
+      ],
+      "tips": [
+        "Make ahead when possible for easier hosting."
+      ],
+      "skills_learned": [
+        "Baking",
+        "Sauteing"
+      ],
+      "storage": "Refrigerate leftovers in a covered container up to 3 days.",
+      "reheating": "Serve chilled or reheat gently depending on the dish.",
+      "tags": [
+        "bbq",
+        "beans",
+        "cookout",
+        "juneteenth"
+      ],
+      "occasion_tags": [
+        "Juneteenth",
+        "Cookout",
+        "Family Reunion"
+      ],
+      "technique_tags": [
+        "baking",
+        "sauteing"
+      ],
+      "related_recipe_ids": [
+        "bbq-brisket-basics",
+        "bbq-chicken-quarters",
+        "cornbread"
+      ],
+      "related_pairings": [
+        "bbq-brisket-basics",
+        "bbq-chicken-quarters",
+        "cornbread"
+      ],
+      "featured": false,
+      "source": "Let's Cook Y'all original kitchen data",
+      "source_url": ""
+    },
+    {
+      "id": "creamy-coleslaw",
+      "title": "Creamy Coleslaw",
+      "slug": "creamy-coleslaw",
+      "description": "Cool, crunchy cabbage slaw with a creamy tangy dressing for barbecue, fish fries, and summer tables.",
+      "cuisine": "southern",
+      "category": "Sides",
+      "course": "Side Dish",
+      "meal_type": "Side Dish",
+      "skill_level": "Beginner Home Cook",
+      "image": "assets/editorial-cooking-hero.jpg",
+      "image_url": "assets/editorial-cooking-hero.jpg",
+      "prep_time": "15 min",
+      "cook_time": "0 min",
+      "prepTime": "15 min",
+      "cookTime": "0 min",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 0,
+      "servings": 8,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "1 head green cabbage",
+        "2 carrots",
+        "1 cup mayonnaise",
+        "2 tbsp apple cider vinegar",
+        "1 tbsp sugar",
+        "1 tsp salt",
+        "1/2 tsp black pepper"
+      ],
+      "ingredients_structured": [
+        {
+          "quantity": 1.0,
+          "unit": "head",
+          "name": "green cabbage",
+          "original": "1 head green cabbage"
+        },
+        {
+          "quantity": 2.0,
+          "unit": "",
+          "name": "carrots",
+          "original": "2 carrots"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "cup",
+          "name": "mayonnaise",
+          "original": "1 cup mayonnaise"
+        },
+        {
+          "quantity": 2.0,
+          "unit": "tbsp",
+          "name": "apple cider vinegar",
+          "original": "2 tbsp apple cider vinegar"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "tbsp",
+          "name": "sugar",
+          "original": "1 tbsp sugar"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "tsp",
+          "name": "salt",
+          "original": "1 tsp salt"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "tsp",
+          "name": "black pepper",
+          "original": "1/2 tsp black pepper"
+        }
+      ],
+      "structured_ingredients": [
+        {
+          "quantity": 1.0,
+          "unit": "head",
+          "name": "green cabbage",
+          "original": "1 head green cabbage"
+        },
+        {
+          "quantity": 2.0,
+          "unit": "",
+          "name": "carrots",
+          "original": "2 carrots"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "cup",
+          "name": "mayonnaise",
+          "original": "1 cup mayonnaise"
+        },
+        {
+          "quantity": 2.0,
+          "unit": "tbsp",
+          "name": "apple cider vinegar",
+          "original": "2 tbsp apple cider vinegar"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "tbsp",
+          "name": "sugar",
+          "original": "1 tbsp sugar"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "tsp",
+          "name": "salt",
+          "original": "1 tsp salt"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "tsp",
+          "name": "black pepper",
+          "original": "1/2 tsp black pepper"
+        }
+      ],
+      "instructions": [
+        "Shred cabbage and carrots.",
+        "Whisk mayonnaise, vinegar, sugar, salt, and pepper.",
+        "Toss vegetables with dressing.",
+        "Chill 30 minutes before serving."
+      ],
+      "directions": [
+        "Shred cabbage and carrots.",
+        "Whisk mayonnaise, vinegar, sugar, salt, and pepper.",
+        "Toss vegetables with dressing.",
+        "Chill 30 minutes before serving."
+      ],
+      "tips": [
+        "Make ahead when possible for easier hosting."
+      ],
+      "skills_learned": [
+        "Knife Skills",
+        "Dressing"
+      ],
+      "storage": "Refrigerate leftovers in a covered container up to 3 days.",
+      "reheating": "Serve chilled or reheat gently depending on the dish.",
+      "tags": [
+        "slaw",
+        "bbq",
+        "summer",
+        "side"
+      ],
+      "occasion_tags": [
+        "Cookout",
+        "Fish Fry",
+        "Juneteenth"
+      ],
+      "technique_tags": [
+        "knife skills",
+        "dressing"
+      ],
+      "related_recipe_ids": [
+        "bbq-smoked-ribs",
+        "fried-catfish",
+        "bbq-baked-beans"
+      ],
+      "related_pairings": [
+        "bbq-smoked-ribs",
+        "fried-catfish",
+        "bbq-baked-beans"
+      ],
+      "featured": false,
+      "source": "Let's Cook Y'all original kitchen data",
+      "source_url": ""
+    },
+    {
+      "id": "southern-potato-salad",
+      "title": "Southern Potato Salad",
+      "slug": "southern-potato-salad",
+      "description": "Creamy Southern potato salad with eggs, mustard, relish, and paprika for cold-side cookout service.",
+      "cuisine": "southern",
+      "category": "Sides",
+      "course": "Side Dish",
+      "meal_type": "Side Dish",
+      "skill_level": "Beginner Home Cook",
+      "image": "assets/american-food.jpeg",
+      "image_url": "assets/american-food.jpeg",
+      "prep_time": "20 min",
+      "cook_time": "20 min",
+      "prepTime": "20 min",
+      "cookTime": "20 min",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 20,
+      "servings": 8,
+      "difficulty": "Beginner",
+      "ingredients": [
+        "3 lb potatoes",
+        "4 large eggs",
+        "1 cup mayonnaise",
+        "2 tbsp yellow mustard",
+        "1/3 cup pickle relish",
+        "1/2 cup diced celery",
+        "1/2 cup diced onion",
+        "1 tsp salt",
+        "1/2 tsp paprika"
+      ],
+      "ingredients_structured": [
+        {
+          "quantity": 3.0,
+          "unit": "lb",
+          "name": "potatoes",
+          "original": "3 lb potatoes"
+        },
+        {
+          "quantity": 4.0,
+          "unit": "large",
+          "name": "eggs",
+          "original": "4 large eggs"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "cup",
+          "name": "mayonnaise",
+          "original": "1 cup mayonnaise"
+        },
+        {
+          "quantity": 2.0,
+          "unit": "tbsp",
+          "name": "yellow mustard",
+          "original": "2 tbsp yellow mustard"
+        },
+        {
+          "quantity": 0.3333333333333333,
+          "unit": "cup",
+          "name": "pickle relish",
+          "original": "1/3 cup pickle relish"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "cup",
+          "name": "diced celery",
+          "original": "1/2 cup diced celery"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "cup",
+          "name": "diced onion",
+          "original": "1/2 cup diced onion"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "tsp",
+          "name": "salt",
+          "original": "1 tsp salt"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "tsp",
+          "name": "paprika",
+          "original": "1/2 tsp paprika"
+        }
+      ],
+      "structured_ingredients": [
+        {
+          "quantity": 3.0,
+          "unit": "lb",
+          "name": "potatoes",
+          "original": "3 lb potatoes"
+        },
+        {
+          "quantity": 4.0,
+          "unit": "large",
+          "name": "eggs",
+          "original": "4 large eggs"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "cup",
+          "name": "mayonnaise",
+          "original": "1 cup mayonnaise"
+        },
+        {
+          "quantity": 2.0,
+          "unit": "tbsp",
+          "name": "yellow mustard",
+          "original": "2 tbsp yellow mustard"
+        },
+        {
+          "quantity": 0.3333333333333333,
+          "unit": "cup",
+          "name": "pickle relish",
+          "original": "1/3 cup pickle relish"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "cup",
+          "name": "diced celery",
+          "original": "1/2 cup diced celery"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "cup",
+          "name": "diced onion",
+          "original": "1/2 cup diced onion"
+        },
+        {
+          "quantity": 1.0,
+          "unit": "tsp",
+          "name": "salt",
+          "original": "1 tsp salt"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "tsp",
+          "name": "paprika",
+          "original": "1/2 tsp paprika"
+        }
+      ],
+      "instructions": [
+        "Boil potatoes until tender, then cool and dice.",
+        "Boil eggs, peel, and chop.",
+        "Stir mayonnaise, mustard, relish, celery, onion, salt, and paprika.",
+        "Fold dressing with potatoes and eggs.",
+        "Chill before serving."
+      ],
+      "directions": [
+        "Boil potatoes until tender, then cool and dice.",
+        "Boil eggs, peel, and chop.",
+        "Stir mayonnaise, mustard, relish, celery, onion, salt, and paprika.",
+        "Fold dressing with potatoes and eggs.",
+        "Chill before serving."
+      ],
+      "tips": [
+        "Make ahead when possible for easier hosting."
+      ],
+      "skills_learned": [
+        "Boiling",
+        "Mixing"
+      ],
+      "storage": "Refrigerate leftovers in a covered container up to 3 days.",
+      "reheating": "Serve chilled or reheat gently depending on the dish.",
+      "tags": [
+        "potato salad",
+        "southern",
+        "cookout"
+      ],
+      "occasion_tags": [
+        "Juneteenth",
+        "Fish Fry",
+        "Family Reunion"
+      ],
+      "technique_tags": [
+        "boiling",
+        "mixing"
+      ],
+      "related_recipe_ids": [
+        "fried-chicken",
+        "bbq-baked-beans",
+        "watermelon-platter"
+      ],
+      "related_pairings": [
+        "fried-chicken",
+        "bbq-baked-beans",
+        "watermelon-platter"
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
