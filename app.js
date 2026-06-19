@@ -1296,6 +1296,17 @@ function menuMissingRecipeIds() {
   );
 }
 
+function recipeHasMeasuredIngredients(recipe = {}) {
+  return structuredIngredientsFor(recipe).some((ingredient) => Number(ingredient.quantity) && ingredient.name);
+}
+
+function recipeImageAuditSource(recipe = {}) {
+  if (recipeImageOverrides[recipe.id]) return "recipe override";
+  if (recipe.image || recipe.image_url || recipe.thumbnail_url) return "recipe image";
+  if (photographyLibrary?.recipes?.fallback) return "fallback";
+  return "missing";
+}
+
 window.auditLetsCookMenuIntelligence = () => ({
   totalMenus: menuPairings.length,
   missingRecipeLinks: menuMissingRecipeIds(),
@@ -1305,6 +1316,30 @@ window.auditLetsCookMenuIntelligence = () => ({
     linkedRecipes: recipesForMenu(menu).map((recipe) => recipe.id)
   }))
 });
+
+window.auditLetsCookRecipeData = () => {
+  const menuRecipeIds = [...new Set(menuPairings.flatMap((menu) =>
+    [...menuRecipeSections.map(([, key]) => key), "alternate_recipe_ids"].flatMap((key) => menu[key] || [])
+  ))];
+  const menuRecipes = menuRecipeIds.map((id) => recipeById(id)).filter(Boolean);
+  return {
+    totalRecipes: recipes.length,
+    totalMenus: menuPairings.length,
+    missingMenuRecipes: menuMissingRecipeIds(),
+    unscalableMenuRecipes: menuRecipes
+      .filter((recipe) => !recipeHasMeasuredIngredients(recipe))
+      .map((recipe) => ({ id: recipe.id, title: recipe.title })),
+    menuImageSources: menuRecipes.map((recipe) => ({
+      id: recipe.id,
+      title: recipe.title,
+      image: recipe.image || recipe.image_url || recipe.thumbnail_url || "",
+      source: recipeImageAuditSource(recipe)
+    })),
+    recipesWithIngredientNamesOnly: recipes
+      .filter((recipe) => !recipeHasMeasuredIngredients(recipe))
+      .map((recipe) => ({ id: recipe.id, title: recipe.title, cuisine: recipe.cuisine }))
+  };
+};
 
 const ingredientPlaybooks = {
   chicken: {
@@ -2844,7 +2879,7 @@ function formatFraction(value) {
 }
 
 function singularizeUnit(unit = "", quantity = 1) {
-  if (!unit || Math.abs(quantity - 1) > 0.05) return unit;
+  if (!unit || quantity > 1.05) return unit;
   const units = { cups: "cup", tablespoons: "tablespoon", teaspoons: "teaspoon", ounces: "ounce", pounds: "pound", cloves: "clove", slices: "slice", pieces: "piece", cans: "can", eggs: "egg", bunches: "bunch", sprigs: "sprig", stalks: "stalk", fillets: "fillet", steaks: "steak" };
   return units[unit.toLowerCase()] || unit;
 }
