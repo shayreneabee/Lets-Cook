@@ -3703,6 +3703,329 @@ function recipeLinkList(ids = []) {
   return ids.map((id) => recipeByIdSafe(id)).filter(Boolean).map((recipe) => `<a href="#recipes/${recipe.id}">${recipe.title}</a>`).join("");
 }
 
+const regionalSoulFoodPages = {
+  "mississippi-soul-food": {
+    state: "Mississippi",
+    title: "Mississippi Soul Food",
+    image: cuisineCoverImages["mississippi-favorites"],
+    intro: "Mississippi soul food is Delta fields, Gulf water, church kitchens, porch tables, and family reunions all speaking at once.",
+    history: "Black Mississippi cooks shaped American music and American food through necessity, skill, faith, and hospitality. Catfish, greens, cornmeal, pork, sweet potatoes, Gulf shrimp, and pecans show up because they are tied to land, labor, rivers, and memory.",
+    hospitality: "The table is generous: one fried or smothered main, greens with pot liquor, cornbread, something creamy, something sweet, and tea cold enough for a hot day.",
+    music: "Mississippi is the birthplace of America's music. Blues, gospel, soul food, BBQ smoke, fish fries, and Sunday dinner all share the same community rhythm.",
+    signatureRecipeIds: ["fried-catfish", "fried-chicken", "southern-collard-greens", "cornbread", "hot-water-cornbread", "smothered-pork-chops", "mississippi-pot-roast", "peach-cobbler", "caramel-cake"],
+    skills: [["Cast-Iron Frying", "#culinary-academy/frying"], ["Fish Fry Basics", "#culinary-academy/frying"], ["Greens + Pot Liquor", "#culinary-academy/greens"], ["Cornbread", "#culinary-academy/cornbread"], ["Seasoning", "#culinary-academy/seasonings"]],
+    traditions: ["Fish fries bring neighbors together around hot oil, cornmeal, slaw, sauce, and cold drinks.", "Church homecomings lean on dishes that travel, hold heat, and feed people with dignity.", "Sunday dinner is a weekly reset: gospel, greens, cornbread, a main dish, dessert, and time to sit down."],
+    features: [["Blues & BBQ", "Pit smoke, Delta blues, ribs, pulled pork, baked beans, and family reunion plates."], ["Gospel & Sunday Dinner", "Greens, cornbread, fried chicken, smothered pork chops, tea, and a table that feels like home."]],
+    menus: []
+  },
+  "louisiana-soul-food": {
+    state: "Louisiana",
+    title: "Louisiana Soul Food",
+    image: cuisineCoverImages.cajun,
+    intro: "Louisiana soul food carries jazz, second lines, bayou kitchens, gumbo pots, Creole sauce, Cajun rice, seafood, and deep hospitality.",
+    history: "African, French, Spanish, Caribbean, Indigenous, Cajun, and Creole foodways meet through rice, roux, seafood, smoked meats, vegetables, and celebration.",
+    hospitality: "A Louisiana table feeds the room from one big pot: gumbo, jambalaya, etouffee, rice, bread, potato salad, tea, and something sweet.",
+    music: "Jazz, brass bands, zydeco, gospel, and second lines shape the way Louisiana eats: communal, rhythmic, loud with love.",
+    signatureRecipeIds: ["cajun-chicken-sausage-gumbo", "cajun-jambalaya", "cajun-shrimp-etouffee", "cajun-dirty-rice", "creole-shrimp-creole", "creole-seafood-gumbo", "bourbon-praline-bread-pudding", "french-bread"],
+    skills: [["Roux", "#culinary-academy/roux"], ["Holy Trinity", "#culinary-academy/holy-trinity"], ["Rice Timing", "#culinary-academy/rice-grits-pasta"], ["Seafood Timing", "#culinary-academy/seafood"], ["Feeding a Crowd", "#culinary-academy/professional-skills"]],
+    traditions: ["Gumbo is a gathering pot: a dish that changes by home, parish, season, and family.", "Jambalaya and dirty rice are practical rice dishes built to stretch flavor.", "Second-line energy shows up in food that is portable, generous, and celebratory."],
+    features: [["Jazz & Gumbo", "A shared bowl, rice, roux, brass-band energy, and a kitchen that smells like trinity."], ["Cajun Country Table", "Smoked sausage, chicken, seafood, rice, spice, and long-simmered flavor."]],
+    menus: []
+  },
+  "georgia-soul-food": {
+    state: "Georgia",
+    title: "Georgia Soul Food",
+    image: cuisineCoverImages.southern,
+    intro: "Georgia soul food is peach country, church suppers, coastal rice, backyard smoke, fried chicken, greens, and dessert plates people remember.",
+    history: "Georgia food carries Black farming traditions, coastal Gullah Geechee influence, city soul food, and family tables built around seasonal produce.",
+    hospitality: "The plate is balanced with fried or smoked meat, greens, cornbread, fruit desserts, tea, and a welcome that does not rush people away.",
+    music: "Gospel, soul, hip-hop, blues, and Atlanta creativity all live near the same tables where families pass pans and stories.",
+    signatureRecipeIds: ["fried-chicken", "southern-collard-greens", "cornbread", "peach-cobbler", "bbq-smoked-ribs", "banana-pudding", "southern-potato-salad"],
+    skills: [["Frying", "#culinary-academy/frying"], ["Greens", "#culinary-academy/greens"], ["BBQ Basics", "#culinary-academy/grilling"], ["Fruit Desserts", "#culinary-academy/baking-basics"]],
+    traditions: ["Peach desserts are seasonal hospitality.", "Church suppers rely on sturdy casseroles, greens, salads, and desserts.", "Coastal Georgia connects rice, seafood, okra, and Gullah Geechee heritage."],
+    features: [["Atlanta Sunday Table", "Fried chicken, greens, mac, cornbread, peach cobbler, and music after church."], ["Coastal Roots", "Rice, shrimp, crab, okra, and Lowcountry influence."]],
+    menus: []
+  },
+  "alabama-soul-food": {
+    state: "Alabama",
+    title: "Alabama Soul Food",
+    image: cuisineCoverImages.bbq,
+    intro: "Alabama soul food is smoke, church dinners, fried chicken, greens, banana pudding, white sauce traditions, and tables built for community.",
+    history: "Alabama food reflects Black Belt agriculture, civil rights history, church networks, pit cooking, and practical dishes made to feed families and neighbors.",
+    hospitality: "A good Alabama plate has something smoky or fried, a green, a starch, bread, dessert, and plenty of tea.",
+    music: "Gospel, blues, Muscle Shoals soul, and church choirs sit close to Sunday dinners and community plates.",
+    signatureRecipeIds: ["bbq-pulled-pork", "fried-chicken", "southern-collard-greens", "cornbread", "banana-pudding", "peach-cobbler", "southern-baked-mac-cheese"],
+    skills: [["Pulled Pork", "#culinary-academy/grilling"], ["Frying", "#culinary-academy/frying"], ["Casseroles", "#culinary-academy/baking-basics"], ["Feeding a Crowd", "#culinary-academy/professional-skills"]],
+    traditions: ["Church dinners favor pans that carry well and feed many.", "Pulled pork belongs with slaw, beans, bread, and sauce.", "Banana pudding is a comfort dessert with Sunday-table energy."],
+    features: [["Smoke + Soul", "Pulled pork, chicken, slaw, beans, and banana pudding."], ["Church Supper", "Carry-in pans, tea, dessert, and everybody helping."]],
+    menus: []
+  },
+  "south-carolina-soul-food": {
+    state: "South Carolina",
+    title: "South Carolina Soul Food",
+    image: cuisineCoverImages["low-country"],
+    intro: "South Carolina soul food is Gullah Geechee rice culture, seafood, mustard BBQ, greens, shrimp and grits, okra, and coastal hospitality.",
+    history: "Rice, seafood, okra, field peas, and preserved traditions connect South Carolina food to West African skill, coastal ecology, and Gullah Geechee culture.",
+    hospitality: "Lowcountry tables often balance seafood, rice or grits, greens, cornbread, sauce, tea, and a dessert that travels.",
+    music: "Spirituals, praise houses, beach music, gospel, and community gatherings frame food as heritage and welcome.",
+    signatureRecipeIds: ["shrimp-and-grits", "fried-catfish", "southern-collard-greens", "cornbread", "bbq-pulled-pork", "red-velvet-cake", "sweet-tea"],
+    skills: [["Grits", "#culinary-academy/rice-grits-pasta"], ["Seafood", "#culinary-academy/seafood"], ["Greens", "#culinary-academy/greens"], ["Sauces", "#culinary-academy/sauces"]],
+    traditions: ["Rice culture is central to the region's food history.", "Shrimp and grits can be breakfast, supper, or celebration.", "Family tables carry Gullah Geechee memory through seafood, rice, okra, and greens."],
+    features: [["Gullah Geechee Roots", "Rice, seafood, okra, greens, and food knowledge held through generations."], ["Lowcountry Sunday", "Shrimp and grits, greens, bread, tea, and cake."]],
+    menus: []
+  },
+  "tennessee-soul-food": {
+    state: "Tennessee",
+    title: "Tennessee Soul Food",
+    image: cuisineCoverImages.bbq,
+    intro: "Tennessee soul food moves between Memphis smoke, Nashville hot kitchens, church suppers, music history, and family plates.",
+    history: "Memphis BBQ, rural gardens, church cooking, civil rights history, and music scenes all shape the state's food identity.",
+    hospitality: "Bring ribs or pulled pork, slaw, potato salad, beans, bread, banana pudding, and enough napkins for everybody.",
+    music: "Memphis soul, blues, gospel, country, and Nashville stages make food and music feel inseparable.",
+    signatureRecipeIds: ["bbq-smoked-ribs", "bbq-pulled-pork", "fried-chicken", "southern-potato-salad", "creamy-coleslaw", "banana-pudding", "sweet-tea"],
+    skills: [["Ribs", "#culinary-academy/grilling"], ["Slaw Balance", "#culinary-academy/sauces"], ["Potato Salad", "#culinary-academy/ingredients"], ["Crowd Service", "#culinary-academy/professional-skills"]],
+    traditions: ["Memphis BBQ is about smoke, rub, sauce choices, and patient cooking.", "Church suppers stretch comfort food into community care.", "Music nights call for handheld plates and food that holds."],
+    features: [["Memphis BBQ", "Ribs, pulled pork, slaw, beans, sauce, and soul music."], ["Gospel Supper", "Fried chicken, potato salad, greens, tea, and banana pudding."]],
+    menus: []
+  },
+  "texas-soul-food": {
+    state: "Texas",
+    title: "Texas Soul Food",
+    image: cuisineCoverImages.bbq,
+    intro: "Texas soul food is brisket smoke, Juneteenth tables, pitmasters, red drinks, beans, cornbread, watermelon, and cookouts that last all day.",
+    history: "Texas food carries Black cowboy history, barbecue skill, Gulf Coast influence, Mexican and Southern crossings, and Juneteenth food traditions.",
+    hospitality: "The table is outdoors when it can be: brisket, chicken, beans, cornbread, red velvet cake, red drink, watermelon, and shade.",
+    music: "Blues, gospel, zydeco, country, hip-hop, and Juneteenth gatherings all bring food into public celebration.",
+    signatureRecipeIds: ["bbq-brisket-basics", "bbq-baked-beans", "bbq-chicken-quarters", "cornbread", "watermelon-platter", "red-velvet-cake", "strawberry-soda"],
+    skills: [["Brisket", "#culinary-academy/grilling"], ["BBQ Sauce", "#culinary-academy/sauces"], ["Cookout Safety", "#culinary-academy/kitchen-safety"], ["Hosting Outside", "#hosting/cookout"]],
+    traditions: ["Juneteenth tables often include red foods and drinks to honor resilience and freedom.", "Pitmasters carry skill through fire control, seasoning, patience, and slicing.", "Cookouts are family, music, shade, cold drinks, and plates passed with care."],
+    features: [["Juneteenth Table", "Brisket, BBQ chicken, red velvet cake, strawberry soda, watermelon, and freedom memory."], ["Pitmaster Plate", "Low-and-slow brisket, beans, cornbread, and sauce."]],
+    menus: []
+  },
+  "north-carolina-soul-food": {
+    state: "North Carolina",
+    title: "North Carolina Soul Food",
+    image: cuisineCoverImages.bbq,
+    intro: "North Carolina soul food is whole-hog tradition, vinegar sauce, pulled pork, slaw, greens, cornbread, fish camps, and church tables.",
+    history: "Eastern and Piedmont barbecue traditions, coastal fish camps, rural gardens, and Black church meals shape the food identity.",
+    hospitality: "Serve pulled pork with slaw, cornbread, greens, beans, tea, and a dessert that can sit on the table without fuss.",
+    music: "Gospel, blues, beach music, and family reunion playlists live beside pit smoke and covered dishes.",
+    signatureRecipeIds: ["bbq-pulled-pork", "creamy-coleslaw", "cornbread", "fried-chicken", "southern-collard-greens", "banana-pudding", "sweet-tea"],
+    skills: [["Pulled Pork", "#culinary-academy/grilling"], ["Vinegar Sauce", "#culinary-academy/sauces"], ["Greens", "#culinary-academy/greens"], ["Menu Planning", "#menu-intelligence"]],
+    traditions: ["Vinegar sauce cuts through rich pork.", "Slaw belongs on the plate or the sandwich depending on the table.", "Church and reunion meals rely on food that travels well."],
+    features: [["Carolina BBQ", "Pulled pork, vinegar sauce, slaw, cornbread, and tea."], ["Fish Camp Roots", "Fried fish, slaw, hushpuppy-style bread, and family plates."]],
+    menus: []
+  },
+  "virginia-soul-food": {
+    state: "Virginia",
+    title: "Virginia Soul Food",
+    image: cuisineCoverImages.southern,
+    intro: "Virginia soul food connects Tidewater, mountain, farm, seafood, ham, greens, biscuits, church meals, and Black Southern home cooking.",
+    history: "Virginia food carries deep American food history, including coastal seafood, preserved meats, garden vegetables, enslaved cooks' skill, and family-table survival.",
+    hospitality: "A Virginia plate is steady and comforting: smothered meat, greens, cornbread or biscuits, tea, and cobbler.",
+    music: "Gospel, blues, go-go neighbors, folk, and church music all show up around family and community tables.",
+    signatureRecipeIds: ["smothered-pork-chops", "fried-chicken", "southern-collard-greens", "cornbread", "peach-cobbler", "buttermilk-biscuits", "sweet-tea"],
+    skills: [["Gravy", "#culinary-academy/gravy"], ["Biscuits", "#culinary-academy/baking-basics"], ["Braising", "#culinary-academy/braising"], ["Greens", "#culinary-academy/greens"]],
+    traditions: ["Smothered dishes turn pan drippings into comfort.", "Biscuits and cornbread carry sauces, pot liquor, and memory.", "Coastal tables bring seafood when the season allows."],
+    features: [["Tidewater Table", "Seafood influence, garden sides, bread, and tea."], ["Smothered Supper", "Pork chops, gravy, greens, cornbread, and cobbler."]],
+    menus: []
+  },
+  "arkansas-soul-food": {
+    state: "Arkansas",
+    title: "Arkansas Soul Food",
+    image: cuisineCoverImages["mississippi-favorites"],
+    intro: "Arkansas soul food is Delta catfish, fried chicken, greens, cornbread, garden vegetables, BBQ, church suppers, and reunion tables.",
+    history: "Arkansas food is shaped by Delta agriculture, river towns, Black Southern home cooking, hunting/fishing traditions, gardens, and community meals.",
+    hospitality: "The plate is familiar and filling: catfish or chicken, greens, cornbread, beans or potato salad, tea, and cobbler.",
+    music: "Delta blues, gospel, and family reunion songs meet fish fries, BBQ pits, and Sunday plates.",
+    signatureRecipeIds: ["fried-catfish", "fried-chicken", "southern-collard-greens", "cornbread", "bbq-pulled-pork", "peach-cobbler", "sweet-tea"],
+    skills: [["Fish Fry", "#culinary-academy/frying"], ["Seasoning", "#culinary-academy/seasonings"], ["Cornbread", "#culinary-academy/cornbread"], ["Crowd Prep", "#culinary-academy/professional-skills"]],
+    traditions: ["Catfish fries bring together cornmeal, hot sauce, slaw, bread, and community.", "Delta cooking values practical ingredients with deep seasoning.", "Reunion tables need large-batch sides and a clear serving flow."],
+    features: [["Delta Fish Fry", "Catfish, cornmeal, slaw, tea, cobbler, and everybody checking in."], ["Reunion Table", "Pulled pork, fried chicken, greens, cornbread, and peach cobbler."]],
+    menus: []
+  }
+};
+
+const regionalSoulFoodMenuTemplates = [
+  {
+    id: "sunday-dinner",
+    title: "Sunday Dinner",
+    recipeIds: ["fried-chicken", "smothered-pork-chops", "southern-collard-greens", "southern-baked-mac-cheese", "cornbread", "sweet-tea", "peach-cobbler"],
+    timeline: ["Morning: season meat and wash greens.", "Two hours before: start greens and dessert.", "Last hour: fry or smother the main, bake bread, and set tea."],
+    notes: "Serve family-style with hot sauce, extra napkins, and a quiet minute before everybody fixes a plate."
+  },
+  {
+    id: "church-homecoming",
+    title: "Church Homecoming",
+    recipeIds: ["fried-chicken", "southern-collard-greens", "southern-baked-mac-cheese", "southern-black-eyed-peas", "cornbread", "sweet-tea", "banana-pudding"],
+    timeline: ["Day before: bake desserts and prep greens.", "Morning: cook sides in pans that travel.", "Before service ends: stage drinks, serving spoons, labels, and foil."],
+    notes: "Choose dishes that hold heat, travel cleanly, and can be served by helpers without confusion."
+  },
+  {
+    id: "family-reunion",
+    title: "Family Reunion",
+    recipeIds: ["bbq-pulled-pork", "bbq-smoked-ribs", "southern-potato-salad", "creamy-coleslaw", "cornbread", "watermelon-platter", "strawberry-soda", "red-velvet-cake"],
+    timeline: ["Two days before: assign families by station.", "Day before: make cold sides and desserts.", "Day of: smoke/grill mains, ice drinks, and label tables."],
+    notes: "Use stations for mains, cold sides, desserts, drinks, and kids so the line keeps moving."
+  },
+  {
+    id: "fish-fry",
+    title: "Fish Fry",
+    recipeIds: ["fried-catfish", "creamy-coleslaw", "southern-potato-salad", "cornbread", "sweet-tea", "lemonade", "peach-cobbler"],
+    timeline: ["Morning: cut fish and prep slaw.", "One hour before: heat oil, set racks, and mix dredge.", "Serve: fry in batches and keep sides cold."],
+    notes: "Keep raw fish separate from cooked trays, use a rack for crisp fish, and put sauces where people can reach them."
+  },
+  {
+    id: "backyard-bbq",
+    title: "Backyard BBQ",
+    recipeIds: ["bbq-brisket-basics", "bbq-chicken-quarters", "bbq-baked-beans", "creamy-coleslaw", "cornbread", "watermelon-platter", "sweet-tea"],
+    timeline: ["Day before: season meat and prep beans.", "Morning: start low-and-slow items.", "Last hour: grill chicken, chill fruit, and set sauce station."],
+    notes: "Separate raw/cooked trays, keep cold sides over ice, and slice smoked meat after it rests."
+  },
+  {
+    id: "holiday-table",
+    title: "Holiday Table",
+    recipeIds: ["smothered-pork-chops", "southern-cornbread-dressing", "southern-collard-greens", "southern-baked-mac-cheese", "buttermilk-biscuits", "sweet-tea", "caramel-cake"],
+    timeline: ["Two days before: shop and bake cake layers.", "Day before: prep dressing, greens, and serving dishes.", "Day of: cook main, warm sides, and slice dessert last."],
+    notes: "Write the oven schedule down and label serving dishes before food starts coming out."
+  },
+  {
+    id: "graduation-party",
+    title: "Graduation Party",
+    recipeIds: ["bbq-pulled-pork", "fried-chicken", "southern-potato-salad", "creamy-coleslaw", "cornbread", "strawberry-soda", "red-velvet-cake"],
+    timeline: ["Day before: prep salads and dessert.", "Morning: cook proteins and set trays.", "Party time: refill in waves and keep drinks close to the entrance."],
+    notes: "Use small plates, refill trays from the kitchen, and set a photo table away from the food line."
+  }
+];
+
+Object.values(regionalSoulFoodPages).forEach((page) => {
+  page.menus = regionalSoulFoodMenuTemplates.map((menu) => ({ ...menu }));
+});
+
+function regionalSoulFoodHub() {
+  return `
+    <section class="regional-soul-section">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Soul Food by place</p>
+        <h2>Choose a state or region and pull up a chair.</h2>
+        <p>Each stop connects food identity, history, music, menus, skills, and real recipes that belong to the place.</p>
+      </div>
+      <div class="regional-soul-grid">
+        ${Object.entries(regionalSoulFoodPages).map(([id, page]) => `
+          <a class="regional-soul-card" href="#cuisine-explorer/${id}">
+            <img src="${page.image || cuisineCoverImages["soul-food"]}" alt="${page.title}" />
+            <span>${page.state}</span>
+            <h3>${page.title}</h3>
+            <p>${page.intro}</p>
+          </a>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function regionalRecipeCards(ids = []) {
+  return ids.map((id) => recipeByIdSafe(id)).filter(Boolean).map(recipeCard).join("");
+}
+
+function regionalRecipeList(ids = []) {
+  return ids.map((id) => recipeByIdSafe(id)).filter(Boolean).map((recipe) => `<li><a href="#recipes/${recipe.id}">${recipe.title}</a></li>`).join("");
+}
+
+function regionalShoppingList(ids = []) {
+  const items = ids.map((id) => recipeByIdSafe(id)).filter(Boolean).flatMap((recipe) => recipe.structured_ingredients || recipe.ingredients_structured || recipe.ingredients || []);
+  const names = items.map((item) => {
+    if (typeof item === "string") return item.replace(/^\d+(\s+\d+\/\d+|\/\d+)?\s*(cups?|tbsp|tsp|lb|lbs|oz|cloves?|large|small|medium|cans?|bunches?)?\s*/i, "").trim();
+    return item.name || item.ingredient || item.original || "";
+  }).filter(Boolean);
+  return [...new Set(names)].slice(0, 14);
+}
+
+function regionalMenuOutput(page, menu) {
+  const recipesForThisMenu = menu.recipeIds.map((id) => recipeByIdSafe(id)).filter(Boolean);
+  const list = regionalShoppingList(menu.recipeIds);
+  return `
+    <div class="regional-menu-output">
+      <div>
+        <p class="eyebrow">${page.state} gathering</p>
+        <h3>${menu.title}</h3>
+        <p>${menu.notes}</p>
+        <div class="mini-recipe-list">${recipesForThisMenu.map((recipe) => `<a href="#recipes/${recipe.id}">${recipe.title}<small>${recipe.category || recipe.course || cuisineName(recipe.cuisine)}</small></a>`).join("")}</div>
+      </div>
+      <article>
+        <h4>Shopping List Starter</h4>
+        <ul>${list.map((item) => `<li>${item}</li>`).join("")}</ul>
+      </article>
+      <article>
+        <h4>Prep Timeline</h4>
+        <ul>${menu.timeline.map((item) => `<li>${item}</li>`).join("")}</ul>
+      </article>
+    </div>
+  `;
+}
+
+function renderRegionalSoulFoodPage(id) {
+  const page = regionalSoulFoodPages[id] || regionalSoulFoodPages["mississippi-soul-food"];
+  const firstMenu = page.menus[0];
+  app.innerHTML = `
+    ${hero(page.title, page.intro, page.image || cuisineCoverImages["soul-food"], `<a class="small-button" href="#cuisine/soul-food">Soul Food Hub</a><a class="small-button secondary" href="#menu-intelligence">Build A Menu</a>`)}
+    ${cookSubnav()}
+    <section class="cream-section regional-soul-detail">
+      <div class="section-heading">
+        <p class="eyebrow">${page.state} table</p>
+        <h2>Food, history, hospitality, music, and recipes that belong together.</h2>
+      </div>
+      <div class="regional-identity-grid">
+        <article><h3>Food Identity</h3><p>${page.intro}</p></article>
+        <article><h3>Cultural Background</h3><p>${page.history}</p></article>
+        <article><h3>Hospitality Traditions</h3><p>${page.hospitality}</p></article>
+        <article><h3>Music + Community</h3><p>${page.music}</p></article>
+      </div>
+
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Signature dishes</p>
+        <h2>Recipes tied to ${page.state} food memory.</h2>
+      </div>
+      <div class="recipe-grid">${regionalRecipeCards(page.signatureRecipeIds)}</div>
+
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Gatherings + menus</p>
+        <h2>Choose the kind of table you are building.</h2>
+      </div>
+      <div class="regional-menu-panel" data-regional-menu-section>
+        <div class="regional-menu-tabs">
+          ${page.menus.map((menu, index) => `<button class="small-button ${index ? "secondary" : ""}" type="button" data-regional-menu="${menu.id}" data-region-id="${id}">${menu.title}</button>`).join("")}
+        </div>
+        <div data-regional-output>${regionalMenuOutput(page, firstMenu)}</div>
+      </div>
+
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Skills + lessons</p>
+        <h2>Practice the techniques behind the plate.</h2>
+      </div>
+      <div class="regional-skill-grid">
+        ${page.skills.map(([title, href]) => `<a href="${href}"><span>${title}</span><small>Open lesson</small></a>`).join("")}
+      </div>
+
+      <div class="regional-story-grid">
+        <article>
+          <p class="eyebrow">Traditions + heritage</p>
+          <h3>Why these dishes matter</h3>
+          <ul>${page.traditions.map((item) => `<li>${item}</li>`).join("")}</ul>
+        </article>
+        <article>
+          <p class="eyebrow">Music + food</p>
+          <h3>Community features</h3>
+          ${page.features.map(([title, text]) => `<div class="feature-note"><strong>${title}</strong><span>${text}</span></div>`).join("")}
+        </article>
+      </div>
+
+      ${regionalSoulFoodHub()}
+      ${progressionNav("#cuisine/soul-food", "Soul Food Hub", "#culinary-academy/world-foods", "World Foods Lesson", ["#hosting", "#menu-intelligence"])}
+    </section>
+  `;
+}
+
 function monthlySpotlightBanner() {
   const images = monthlySpotlight.heroImages.map((image, index) => image || photoFor("hero", "family", index, "assets/cooking-family.jpeg"));
   return `
@@ -3719,7 +4042,10 @@ function monthlySpotlightBanner() {
         </div>
       </div>
       <div class="monthly-visual" aria-label="Juneteenth cooking and gathering inspiration">
-        <div class="juneteenth-flag-mark"><span></span><strong>June 19</strong></div>
+        <div class="juneteenth-flag-mark">
+          <img src="assets/juneteenth-flag.png" alt="Juneteenth flag" />
+          <strong>June 19</strong>
+        </div>
         <div class="monthly-photo-stack">
           ${images.slice(0, 4).map((image, index) => `<figure><img src="${image}" alt="June food and family gathering ${index + 1}" onerror="this.src='${photoFor("hero", "family", index, "assets/cooking-family.jpeg")}'" /></figure>`).join("")}
         </div>
@@ -4246,6 +4572,7 @@ function renderCuisineExplorerDetail(id) {
 }
 
 function renderCuisineExplorer(id) {
+  if (id && regionalSoulFoodPages[id]) return renderRegionalSoulFoodPage(id);
   if (id) return renderCuisineExplorerDetail(id);
   app.innerHTML = `
     ${hero("Cuisine Explorer", "A culinary rolodex for food culture, regional flavor, ingredients, traditions, and the way meals connect across the world.", photoFor("cuisines", "indian"), `<a class="small-button" href="#culinary-academy">Open Culinary Academy</a><a class="small-button secondary" href="#menu-intelligence">Build A Menu</a>`)}
@@ -5276,6 +5603,7 @@ function renderCuisine(id) {
         <h2>Recipe choices that belong here.</h2>
       </div>
       <div class="recipe-grid">${cuisineRecipes.map(recipeCard).join("")}</div>
+      ${cuisine.id === "soul-food" ? regionalSoulFoodHub() : ""}
       <div class="next-step-strip">
         <a class="small-button secondary" href="${cuisineGuideRoute(cuisine.id)}">Open Cuisine Guide</a>
         <a class="small-button secondary" href="#menu-intelligence">Build A Menu</a>
@@ -5531,6 +5859,16 @@ function handleClick(event) {
   const planButton = event.target.closest("[data-plan]");
   const printButton = event.target.closest("[data-print-recipe]");
   const juneteenthMenuButton = event.target.closest("[data-juneteenth-menu]");
+  const regionalMenuButton = event.target.closest("[data-regional-menu]");
+  if (regionalMenuButton) {
+    const section = regionalMenuButton.closest("[data-regional-menu-section]");
+    const output = section?.querySelector("[data-regional-output]");
+    const page = regionalSoulFoodPages[regionalMenuButton.dataset.regionId] || regionalSoulFoodPages["mississippi-soul-food"];
+    const menu = page.menus.find((item) => item.id === regionalMenuButton.dataset.regionalMenu) || page.menus[0];
+    section?.querySelectorAll("[data-regional-menu]").forEach((button) => button.classList.toggle("secondary", button !== regionalMenuButton));
+    if (output) output.innerHTML = regionalMenuOutput(page, menu);
+    return;
+  }
   if (juneteenthMenuButton) {
     const section = juneteenthMenuButton.closest("[data-juneteenth-menu-section]");
     const output = section?.querySelector("[data-juneteenth-output]");

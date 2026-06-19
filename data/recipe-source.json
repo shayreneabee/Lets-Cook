@@ -14376,6 +14376,1160 @@
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
       "source_url": ""
+    },
+    {
+      "id": "hot-water-cornbread",
+      "title": "Hot Water Cornbread",
+      "description": "Crisp-edged cornmeal patties mixed with boiling water and fried until golden, a classic Southern fish fry and greens-table bread.",
+      "cuisine": "southern",
+      "category": "Breads",
+      "course": "bread",
+      "meal_type": "side",
+      "cookTime": "12 min",
+      "cookTimeMinutes": 12,
+      "prepTime": "10 min",
+      "prepTimeMinutes": 10,
+      "prep_time": "10 min",
+      "cook_time": "12 min",
+      "servings": 8,
+      "difficulty": "Beginner",
+      "skill_level": "Beginner Home Cook",
+      "ingredients": [
+        "2 cups yellow cornmeal",
+        "1 tsp salt",
+        "1 tsp sugar optional",
+        "1 1/2 cups boiling water",
+        "1/4 cup finely chopped onion optional",
+        "1 cup neutral oil for frying"
+      ],
+      "ingredients_structured": [
+        {
+          "quantity": 2,
+          "unit": "cups",
+          "name": "yellow cornmeal",
+          "original": "2 cups yellow cornmeal"
+        },
+        {
+          "quantity": 1,
+          "unit": "tsp",
+          "name": "salt",
+          "original": "1 tsp salt"
+        },
+        {
+          "quantity": 1,
+          "unit": "tsp",
+          "name": "sugar optional",
+          "original": "1 tsp sugar optional"
+        },
+        {
+          "quantity": 1.5,
+          "unit": "cups",
+          "name": "boiling water",
+          "original": "1 1/2 cups boiling water"
+        },
+        {
+          "quantity": 0.25,
+          "unit": "cup",
+          "name": "finely chopped onion optional",
+          "original": "1/4 cup finely chopped onion optional"
+        },
+        {
+          "quantity": 1,
+          "unit": "cup",
+          "name": "neutral oil for frying",
+          "original": "1 cup neutral oil for frying"
+        }
+      ],
+      "structured_ingredients": [
+        {
+          "quantity": 2,
+          "unit": "cups",
+          "name": "yellow cornmeal",
+          "original": "2 cups yellow cornmeal"
+        },
+        {
+          "quantity": 1,
+          "unit": "tsp",
+          "name": "salt",
+          "original": "1 tsp salt"
+        },
+        {
+          "quantity": 1,
+          "unit": "tsp",
+          "name": "sugar optional",
+          "original": "1 tsp sugar optional"
+        },
+        {
+          "quantity": 1.5,
+          "unit": "cups",
+          "name": "boiling water",
+          "original": "1 1/2 cups boiling water"
+        },
+        {
+          "quantity": 0.25,
+          "unit": "cup",
+          "name": "finely chopped onion optional",
+          "original": "1/4 cup finely chopped onion optional"
+        },
+        {
+          "quantity": 1,
+          "unit": "cup",
+          "name": "neutral oil for frying",
+          "original": "1 cup neutral oil for frying"
+        }
+      ],
+      "instructions": [
+        "Whisk cornmeal, salt, and sugar in a heat-safe bowl.",
+        "Pour in boiling water a little at a time, stirring until a thick scoopable dough forms.",
+        "Fold in onion if using and let the mixture rest 5 minutes so the cornmeal hydrates.",
+        "Heat 1/2 inch oil in a cast iron skillet over medium heat until shimmering.",
+        "Shape small patties with wet hands and fry 2 to 3 minutes per side until deep golden.",
+        "Drain on a rack, sprinkle lightly with salt, and serve hot with greens, catfish, or beans."
+      ],
+      "directions": [
+        "Whisk cornmeal, salt, and sugar in a heat-safe bowl.",
+        "Pour in boiling water a little at a time, stirring until a thick scoopable dough forms.",
+        "Fold in onion if using and let the mixture rest 5 minutes so the cornmeal hydrates.",
+        "Heat 1/2 inch oil in a cast iron skillet over medium heat until shimmering.",
+        "Shape small patties with wet hands and fry 2 to 3 minutes per side until deep golden.",
+        "Drain on a rack, sprinkle lightly with salt, and serve hot with greens, catfish, or beans."
+      ],
+      "equipment": [
+        "heat-safe bowl",
+        "cast iron skillet",
+        "rack",
+        "spatula"
+      ],
+      "tips": [
+        "Use boiling water so the cornmeal softens before frying.",
+        "Wet your hands before shaping to prevent sticking."
+      ],
+      "makeAhead": "Best fried right before serving; mix dry ingredients ahead.",
+      "servingIdeas": [
+        "Serve with fried catfish",
+        "Use to soak up pot liquor from greens"
+      ],
+      "image": "images/cuisines/southern/southern-05.png",
+      "image_url": "images/cuisines/southern/southern-05.png",
+      "video_url": "",
+      "related_recipe_ids": [
+        "fried-catfish",
+        "southern-collard-greens",
+        "southern-black-eyed-peas",
+        "cornbread"
+      ],
+      "tags": [
+        "southern",
+        "soul food",
+        "cornbread",
+        "fish fry",
+        "mississippi",
+        "bread"
+      ],
+      "featured": false,
+      "chefNotes": "The dough should be thick enough to hold shape but moist enough to fry tender inside.",
+      "path": "beginner-home-cook",
+      "source": "Lets Cook Yall original educational recipe",
+      "slug": "hot-water-cornbread",
+      "cultural_variations": [
+        "Some families add onion or a pinch of sugar; others keep it cornmeal, salt, and water only."
+      ],
+      "skills_learned": [
+        "hydrating cornmeal",
+        "shallow frying",
+        "cast iron heat control"
+      ],
+      "storage": "Refrigerate leftovers up to 3 days.",
+      "reheating": "Reheat in a 375 F oven or air fryer until crisp.",
+      "occasion_tags": [
+        "fish fry",
+        "Sunday dinner",
+        "church homecoming"
+      ],
+      "technique_tags": [
+        "frying",
+        "cornmeal",
+        "cast iron"
+      ],
+      "related_pairings": [
+        "fried-catfish",
+        "southern-collard-greens",
+        "sweet-tea"
+      ],
+      "source_url": ""
+    },
+    {
+      "id": "mississippi-pot-roast",
+      "title": "Mississippi Pot Roast",
+      "description": "A slow-braised chuck roast with pepperoncini, butter, and savory seasoning, served tender over rice, potatoes, or rolls.",
+      "cuisine": "mississippi-favorites",
+      "category": "Mains",
+      "course": "main",
+      "meal_type": "dinner",
+      "cookTime": "4 hr",
+      "cookTimeMinutes": 240,
+      "prepTime": "15 min",
+      "prepTimeMinutes": 15,
+      "prep_time": "15 min",
+      "cook_time": "4 hr",
+      "servings": 8,
+      "difficulty": "Beginner",
+      "skill_level": "Beginner Home Cook",
+      "ingredients": [
+        "3 lb chuck roast",
+        "1 tbsp neutral oil",
+        "1 tsp kosher salt",
+        "1 tsp black pepper",
+        "1 packet ranch-style seasoning or 2 tbsp homemade blend",
+        "1 packet au jus-style gravy mix or 2 tbsp brown gravy base",
+        "6 pepperoncini peppers",
+        "1/2 cup pepperoncini brine",
+        "4 tbsp unsalted butter",
+        "1/2 cup beef stock"
+      ],
+      "ingredients_structured": [
+        {
+          "quantity": 3,
+          "unit": "lb",
+          "name": "chuck roast",
+          "original": "3 lb chuck roast"
+        },
+        {
+          "quantity": 1,
+          "unit": "tbsp",
+          "name": "neutral oil",
+          "original": "1 tbsp neutral oil"
+        },
+        {
+          "quantity": 1,
+          "unit": "tsp",
+          "name": "kosher salt",
+          "original": "1 tsp kosher salt"
+        },
+        {
+          "quantity": 1,
+          "unit": "tsp",
+          "name": "black pepper",
+          "original": "1 tsp black pepper"
+        },
+        {
+          "quantity": 2,
+          "unit": "tbsp",
+          "name": "ranch-style seasoning",
+          "original": "1 packet ranch-style seasoning or 2 tbsp homemade blend"
+        },
+        {
+          "quantity": 2,
+          "unit": "tbsp",
+          "name": "brown gravy base",
+          "original": "1 packet au jus-style gravy mix or 2 tbsp brown gravy base"
+        },
+        {
+          "quantity": 6,
+          "unit": "",
+          "name": "pepperoncini peppers",
+          "original": "6 pepperoncini peppers"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "cup",
+          "name": "pepperoncini brine",
+          "original": "1/2 cup pepperoncini brine"
+        },
+        {
+          "quantity": 4,
+          "unit": "tbsp",
+          "name": "unsalted butter",
+          "original": "4 tbsp unsalted butter"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "cup",
+          "name": "beef stock",
+          "original": "1/2 cup beef stock"
+        }
+      ],
+      "structured_ingredients": [
+        {
+          "quantity": 3,
+          "unit": "lb",
+          "name": "chuck roast",
+          "original": "3 lb chuck roast"
+        },
+        {
+          "quantity": 1,
+          "unit": "tbsp",
+          "name": "neutral oil",
+          "original": "1 tbsp neutral oil"
+        },
+        {
+          "quantity": 1,
+          "unit": "tsp",
+          "name": "kosher salt",
+          "original": "1 tsp kosher salt"
+        },
+        {
+          "quantity": 1,
+          "unit": "tsp",
+          "name": "black pepper",
+          "original": "1 tsp black pepper"
+        },
+        {
+          "quantity": 2,
+          "unit": "tbsp",
+          "name": "ranch-style seasoning",
+          "original": "1 packet ranch-style seasoning or 2 tbsp homemade blend"
+        },
+        {
+          "quantity": 2,
+          "unit": "tbsp",
+          "name": "brown gravy base",
+          "original": "1 packet au jus-style gravy mix or 2 tbsp brown gravy base"
+        },
+        {
+          "quantity": 6,
+          "unit": "",
+          "name": "pepperoncini peppers",
+          "original": "6 pepperoncini peppers"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "cup",
+          "name": "pepperoncini brine",
+          "original": "1/2 cup pepperoncini brine"
+        },
+        {
+          "quantity": 4,
+          "unit": "tbsp",
+          "name": "unsalted butter",
+          "original": "4 tbsp unsalted butter"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "cup",
+          "name": "beef stock",
+          "original": "1/2 cup beef stock"
+        }
+      ],
+      "instructions": [
+        "Pat roast dry and season with salt and pepper.",
+        "Sear roast in oil in a Dutch oven until browned on both sides.",
+        "Sprinkle ranch-style seasoning and gravy base over the roast.",
+        "Add pepperoncini, brine, butter, and beef stock.",
+        "Cover and braise at 300 F for 3 1/2 to 4 hours, or cook on low in a slow cooker 8 hours.",
+        "Shred or slice, spoon juices over the meat, and serve with rice, potatoes, rolls, or greens."
+      ],
+      "directions": [
+        "Pat roast dry and season with salt and pepper.",
+        "Sear roast in oil in a Dutch oven until browned on both sides.",
+        "Sprinkle ranch-style seasoning and gravy base over the roast.",
+        "Add pepperoncini, brine, butter, and beef stock.",
+        "Cover and braise at 300 F for 3 1/2 to 4 hours, or cook on low in a slow cooker 8 hours.",
+        "Shred or slice, spoon juices over the meat, and serve with rice, potatoes, rolls, or greens."
+      ],
+      "equipment": [
+        "Dutch oven or slow cooker",
+        "tongs",
+        "cutting board"
+      ],
+      "tips": [
+        "Browning the roast first gives deeper flavor.",
+        "Taste before adding extra salt because seasoning packets vary."
+      ],
+      "makeAhead": "Cook one day ahead; chill in juices and reheat gently.",
+      "servingIdeas": [
+        "Serve with cornbread and greens",
+        "Make sliders for a graduation party"
+      ],
+      "image": "images/cuisines/southern/southern-06.png",
+      "image_url": "images/cuisines/southern/southern-06.png",
+      "video_url": "",
+      "related_recipe_ids": [
+        "southern-collard-greens",
+        "cornbread",
+        "southern-potato-salad",
+        "sweet-tea"
+      ],
+      "tags": [
+        "mississippi",
+        "soul food",
+        "pot roast",
+        "braising",
+        "slow cooker",
+        "family dinner"
+      ],
+      "featured": false,
+      "chefNotes": "Use the brine for tang; it cuts through the richness of the roast.",
+      "path": "beginner-home-cook",
+      "source": "Lets Cook Yall original educational recipe",
+      "slug": "mississippi-pot-roast",
+      "cultural_variations": [
+        "Some homes use jarred gravy mix, some use homemade brown gravy base; both aim for tender meat and savory pan juices."
+      ],
+      "skills_learned": [
+        "searing",
+        "braising",
+        "slow cooking",
+        "seasoning adjustment"
+      ],
+      "storage": "Refrigerate up to 4 days or freeze up to 3 months.",
+      "reheating": "Reheat covered with juices over low heat or in a 300 F oven.",
+      "occasion_tags": [
+        "Sunday dinner",
+        "family reunion",
+        "graduation party"
+      ],
+      "technique_tags": [
+        "braising",
+        "slow cooker",
+        "searing"
+      ],
+      "related_pairings": [
+        "cornbread",
+        "southern-collard-greens",
+        "sweet-tea"
+      ],
+      "source_url": ""
+    },
+    {
+      "id": "caramel-cake",
+      "title": "Southern Caramel Cake",
+      "description": "Tender yellow cake layers covered with cooked caramel icing for holidays, church tables, and family celebrations.",
+      "cuisine": "southern",
+      "category": "Desserts",
+      "course": "dessert",
+      "meal_type": "dessert",
+      "cookTime": "35 min",
+      "cookTimeMinutes": 35,
+      "prepTime": "30 min",
+      "prepTimeMinutes": 30,
+      "prep_time": "30 min",
+      "cook_time": "35 min",
+      "servings": 12,
+      "difficulty": "Intermediate",
+      "skill_level": "Intermediate Cook",
+      "ingredients": [
+        "2 1/2 cups all-purpose flour",
+        "2 tsp baking powder",
+        "1/2 tsp salt",
+        "1 cup unsalted butter softened",
+        "2 cups sugar",
+        "4 large eggs",
+        "1 cup whole milk",
+        "2 tsp vanilla extract",
+        "1 cup brown sugar",
+        "1/2 cup evaporated milk",
+        "4 tbsp butter for icing",
+        "2 cups powdered sugar"
+      ],
+      "ingredients_structured": [
+        {
+          "quantity": 2.5,
+          "unit": "cups",
+          "name": "all-purpose flour",
+          "original": "2 1/2 cups all-purpose flour"
+        },
+        {
+          "quantity": 2,
+          "unit": "tsp",
+          "name": "baking powder",
+          "original": "2 tsp baking powder"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "tsp",
+          "name": "salt",
+          "original": "1/2 tsp salt"
+        },
+        {
+          "quantity": 1,
+          "unit": "cup",
+          "name": "unsalted butter softened",
+          "original": "1 cup unsalted butter softened"
+        },
+        {
+          "quantity": 2,
+          "unit": "cups",
+          "name": "sugar",
+          "original": "2 cups sugar"
+        },
+        {
+          "quantity": 4,
+          "unit": "large",
+          "name": "eggs",
+          "original": "4 large eggs"
+        },
+        {
+          "quantity": 1,
+          "unit": "cup",
+          "name": "whole milk",
+          "original": "1 cup whole milk"
+        },
+        {
+          "quantity": 2,
+          "unit": "tsp",
+          "name": "vanilla extract",
+          "original": "2 tsp vanilla extract"
+        },
+        {
+          "quantity": 1,
+          "unit": "cup",
+          "name": "brown sugar",
+          "original": "1 cup brown sugar"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "cup",
+          "name": "evaporated milk",
+          "original": "1/2 cup evaporated milk"
+        },
+        {
+          "quantity": 4,
+          "unit": "tbsp",
+          "name": "butter for icing",
+          "original": "4 tbsp butter for icing"
+        },
+        {
+          "quantity": 2,
+          "unit": "cups",
+          "name": "powdered sugar",
+          "original": "2 cups powdered sugar"
+        }
+      ],
+      "structured_ingredients": [
+        {
+          "quantity": 2.5,
+          "unit": "cups",
+          "name": "all-purpose flour",
+          "original": "2 1/2 cups all-purpose flour"
+        },
+        {
+          "quantity": 2,
+          "unit": "tsp",
+          "name": "baking powder",
+          "original": "2 tsp baking powder"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "tsp",
+          "name": "salt",
+          "original": "1/2 tsp salt"
+        },
+        {
+          "quantity": 1,
+          "unit": "cup",
+          "name": "unsalted butter softened",
+          "original": "1 cup unsalted butter softened"
+        },
+        {
+          "quantity": 2,
+          "unit": "cups",
+          "name": "sugar",
+          "original": "2 cups sugar"
+        },
+        {
+          "quantity": 4,
+          "unit": "large",
+          "name": "eggs",
+          "original": "4 large eggs"
+        },
+        {
+          "quantity": 1,
+          "unit": "cup",
+          "name": "whole milk",
+          "original": "1 cup whole milk"
+        },
+        {
+          "quantity": 2,
+          "unit": "tsp",
+          "name": "vanilla extract",
+          "original": "2 tsp vanilla extract"
+        },
+        {
+          "quantity": 1,
+          "unit": "cup",
+          "name": "brown sugar",
+          "original": "1 cup brown sugar"
+        },
+        {
+          "quantity": 0.5,
+          "unit": "cup",
+          "name": "evaporated milk",
+          "original": "1/2 cup evaporated milk"
+        },
+        {
+          "quantity": 4,
+          "unit": "tbsp",
+          "name": "butter for icing",
+          "original": "4 tbsp butter for icing"
+        },
+        {
+          "quantity": 2,
+          "unit": "cups",
+          "name": "powdered sugar",
+          "original": "2 cups powdered sugar"
+        }
+      ],
+      "instructions": [
+        "Heat oven to 350 F and grease two 9-inch cake pans.",
+        "Whisk flour, baking powder, and salt.",
+        "Cream butter and sugar until fluffy, then beat in eggs one at a time.",
+        "Alternate dry ingredients and milk into the batter; stir in vanilla.",
+        "Bake 28 to 35 minutes until the layers spring back, then cool completely.",
+        "For icing, simmer brown sugar, evaporated milk, and butter 3 to 4 minutes.",
+        "Beat in powdered sugar until spreadable, then frost the cake while icing is warm."
+      ],
+      "directions": [
+        "Heat oven to 350 F and grease two 9-inch cake pans.",
+        "Whisk flour, baking powder, and salt.",
+        "Cream butter and sugar until fluffy, then beat in eggs one at a time.",
+        "Alternate dry ingredients and milk into the batter; stir in vanilla.",
+        "Bake 28 to 35 minutes until the layers spring back, then cool completely.",
+        "For icing, simmer brown sugar, evaporated milk, and butter 3 to 4 minutes.",
+        "Beat in powdered sugar until spreadable, then frost the cake while icing is warm."
+      ],
+      "equipment": [
+        "two 9-inch cake pans",
+        "mixer",
+        "saucepan",
+        "offset spatula"
+      ],
+      "tips": [
+        "Cool cake layers before icing so the crumb stays neat.",
+        "Caramel icing sets fast, so have the cake ready before cooking it."
+      ],
+      "makeAhead": "Bake layers one day ahead and wrap tightly; make icing the day you serve.",
+      "servingIdeas": [
+        "Serve with coffee after Sunday dinner",
+        "Slice small pieces for a holiday dessert table"
+      ],
+      "image": "images/cuisines/southern/southern-08.png",
+      "image_url": "images/cuisines/southern/southern-08.png",
+      "video_url": "",
+      "related_recipe_ids": [
+        "peach-cobbler",
+        "banana-pudding",
+        "red-velvet-cake",
+        "sweet-tea"
+      ],
+      "tags": [
+        "southern",
+        "soul food",
+        "caramel cake",
+        "dessert",
+        "holiday",
+        "church homecoming"
+      ],
+      "featured": false,
+      "chefNotes": "Cooked icing should be pourable but thick enough to cling to the cake. Work quickly once it is ready.",
+      "path": "intermediate-cook",
+      "source": "Lets Cook Yall original educational recipe",
+      "slug": "southern-caramel-cake",
+      "cultural_variations": [
+        "Some families make a denser yellow cake; others focus on the cooked caramel icing as the signature."
+      ],
+      "skills_learned": [
+        "cake mixing",
+        "cooked icing",
+        "layer cake assembly"
+      ],
+      "storage": "Cover and keep at room temperature 2 days or refrigerate up to 5 days.",
+      "reheating": "Serve room temperature; do not microwave frosted slices unless briefly warming only 5 to 8 seconds.",
+      "occasion_tags": [
+        "holiday table",
+        "church homecoming",
+        "Sunday dinner",
+        "graduation party"
+      ],
+      "technique_tags": [
+        "baking",
+        "icing",
+        "dessert"
+      ],
+      "related_pairings": [
+        "fried-chicken",
+        "southern-collard-greens",
+        "sweet-tea"
+      ],
+      "source_url": ""
+    },
+    {
+      "id": "sweet-tea",
+      "title": "Southern Sweet Tea",
+      "description": "Strong black tea sweetened while warm, chilled, and served over ice for fish fries, cookouts, church tables, and Sunday dinner.",
+      "cuisine": "southern",
+      "category": "Drinks",
+      "course": "drink",
+      "meal_type": "drink",
+      "cookTime": "10 min",
+      "cookTimeMinutes": 10,
+      "prepTime": "5 min",
+      "prepTimeMinutes": 5,
+      "prep_time": "5 min",
+      "cook_time": "10 min",
+      "servings": 8,
+      "difficulty": "Beginner",
+      "skill_level": "Beginner Home Cook",
+      "ingredients": [
+        "8 cups water",
+        "6 black tea bags",
+        "3/4 cup sugar",
+        "1 lemon optional",
+        "4 cups ice"
+      ],
+      "ingredients_structured": [
+        {
+          "quantity": 8,
+          "unit": "cups",
+          "name": "water",
+          "original": "8 cups water"
+        },
+        {
+          "quantity": 6,
+          "unit": "",
+          "name": "black tea bags",
+          "original": "6 black tea bags"
+        },
+        {
+          "quantity": 0.75,
+          "unit": "cup",
+          "name": "sugar",
+          "original": "3/4 cup sugar"
+        },
+        {
+          "quantity": 1,
+          "unit": "",
+          "name": "lemon optional",
+          "original": "1 lemon optional"
+        },
+        {
+          "quantity": 4,
+          "unit": "cups",
+          "name": "ice",
+          "original": "4 cups ice"
+        }
+      ],
+      "instructions": [
+        "Boil 4 cups water.",
+        "Steep tea bags 8 minutes, then remove without squeezing hard.",
+        "Stir sugar into the warm tea until dissolved.",
+        "Add remaining cold water and chill.",
+        "Serve over ice with lemon if using."
+      ],
+      "equipment": [
+        "saucepan",
+        "pitcher",
+        "spoon"
+      ],
+      "tips": [
+        "Sweeten while warm so sugar dissolves cleanly.",
+        "Use less sugar for lightly sweet tea."
+      ],
+      "makeAhead": "Make up to 2 days ahead and keep refrigerated.",
+      "servingIdeas": [
+        "Fish fry",
+        "Backyard BBQ",
+        "Sunday dinner"
+      ],
+      "image": "images/hero/hero-04.png",
+      "image_url": "images/hero/hero-04.png",
+      "video_url": "",
+      "related_recipe_ids": [
+        "fried-catfish",
+        "bbq-pulled-pork",
+        "cornbread"
+      ],
+      "tags": [
+        "southern",
+        "soul food",
+        "drink",
+        "sweet tea",
+        "cookout"
+      ],
+      "featured": false,
+      "chefNotes": "For a big crowd, double the tea in two pitchers instead of one oversized container so it chills faster.",
+      "path": "beginner-home-cook",
+      "source": "Lets Cook Yall original educational recipe",
+      "slug": "southern-sweet-tea",
+      "cultural_variations": [
+        "Some families add lemon, mint, peach, or no garnish at all."
+      ],
+      "skills_learned": [
+        "steeping tea",
+        "balancing sweetness",
+        "batch drinks"
+      ],
+      "storage": "Refrigerate up to 4 days.",
+      "reheating": "Serve cold; do not reheat after sweetening.",
+      "occasion_tags": [
+        "fish fry",
+        "Sunday dinner",
+        "cookout",
+        "family reunion"
+      ],
+      "technique_tags": [
+        "drinks",
+        "steeping"
+      ],
+      "related_pairings": [
+        "fried-catfish",
+        "bbq-smoked-ribs",
+        "peach-cobbler"
+      ],
+      "source_url": "",
+      "structured_ingredients": [
+        {
+          "quantity": 8,
+          "unit": "cups",
+          "name": "water",
+          "original": "8 cups water"
+        },
+        {
+          "quantity": 6,
+          "unit": "",
+          "name": "black tea bags",
+          "original": "6 black tea bags"
+        },
+        {
+          "quantity": 0.75,
+          "unit": "cup",
+          "name": "sugar",
+          "original": "3/4 cup sugar"
+        },
+        {
+          "quantity": 1,
+          "unit": "",
+          "name": "lemon optional",
+          "original": "1 lemon optional"
+        },
+        {
+          "quantity": 4,
+          "unit": "cups",
+          "name": "ice",
+          "original": "4 cups ice"
+        }
+      ],
+      "directions": [
+        "Boil 4 cups water.",
+        "Steep tea bags 8 minutes, then remove without squeezing hard.",
+        "Stir sugar into the warm tea until dissolved.",
+        "Add remaining cold water and chill.",
+        "Serve over ice with lemon if using."
+      ]
+    },
+    {
+      "id": "lemonade",
+      "title": "Fresh Lemonade",
+      "description": "A bright pitcher drink made with fresh lemon juice and simple syrup for cookouts, kids tables, and family gatherings.",
+      "cuisine": "southern",
+      "category": "Drinks",
+      "course": "drink",
+      "meal_type": "drink",
+      "cookTime": "5 min",
+      "cookTimeMinutes": 5,
+      "prepTime": "10 min",
+      "prepTimeMinutes": 10,
+      "prep_time": "10 min",
+      "cook_time": "5 min",
+      "servings": 8,
+      "difficulty": "Beginner",
+      "skill_level": "Kid Chef",
+      "ingredients": [
+        "1 cup fresh lemon juice",
+        "3/4 cup sugar",
+        "1 cup water for syrup",
+        "5 cups cold water",
+        "4 cups ice"
+      ],
+      "ingredients_structured": [
+        {
+          "quantity": 1,
+          "unit": "cup",
+          "name": "fresh lemon juice",
+          "original": "1 cup fresh lemon juice"
+        },
+        {
+          "quantity": 0.75,
+          "unit": "cup",
+          "name": "sugar",
+          "original": "3/4 cup sugar"
+        },
+        {
+          "quantity": 1,
+          "unit": "cup",
+          "name": "water for syrup",
+          "original": "1 cup water for syrup"
+        },
+        {
+          "quantity": 5,
+          "unit": "cups",
+          "name": "cold water",
+          "original": "5 cups cold water"
+        },
+        {
+          "quantity": 4,
+          "unit": "cups",
+          "name": "ice",
+          "original": "4 cups ice"
+        }
+      ],
+      "instructions": [
+        "Simmer sugar and 1 cup water until dissolved.",
+        "Cool the syrup for 10 minutes.",
+        "Combine lemon juice, syrup, and cold water in a pitcher.",
+        "Taste and add more water or lemon if needed.",
+        "Serve over ice."
+      ],
+      "equipment": [
+        "small pot",
+        "pitcher",
+        "citrus juicer"
+      ],
+      "tips": [
+        "Roll lemons before juicing to get more juice.",
+        "Add sliced lemons right before serving so the drink does not turn bitter."
+      ],
+      "makeAhead": "Make syrup and juice lemons one day ahead; combine before serving.",
+      "servingIdeas": [
+        "Graduation party",
+        "Fish fry",
+        "Kids cooking day"
+      ],
+      "image": "images/hero/hero-05.png",
+      "image_url": "images/hero/hero-05.png",
+      "video_url": "",
+      "related_recipe_ids": [
+        "fried-catfish",
+        "bbq-chicken-quarters",
+        "watermelon-platter"
+      ],
+      "tags": [
+        "drink",
+        "lemonade",
+        "kid friendly",
+        "cookout",
+        "southern"
+      ],
+      "featured": false,
+      "chefNotes": "Simple syrup prevents gritty sugar at the bottom of the pitcher.",
+      "path": "kid-chefs",
+      "source": "Lets Cook Yall original educational recipe",
+      "slug": "fresh-lemonade",
+      "cultural_variations": [
+        "Add mint, strawberry, peach, or sparkling water for different gatherings."
+      ],
+      "skills_learned": [
+        "simple syrup",
+        "balancing acid and sweetness",
+        "batch drinks"
+      ],
+      "storage": "Refrigerate up to 3 days.",
+      "reheating": "Serve cold.",
+      "occasion_tags": [
+        "fish fry",
+        "cookout",
+        "graduation party",
+        "kids kitchen"
+      ],
+      "technique_tags": [
+        "drinks",
+        "simple syrup"
+      ],
+      "related_pairings": [
+        "fried-catfish",
+        "bbq-chicken-quarters",
+        "peach-cobbler"
+      ],
+      "source_url": "",
+      "structured_ingredients": [
+        {
+          "quantity": 1,
+          "unit": "cup",
+          "name": "fresh lemon juice",
+          "original": "1 cup fresh lemon juice"
+        },
+        {
+          "quantity": 0.75,
+          "unit": "cup",
+          "name": "sugar",
+          "original": "3/4 cup sugar"
+        },
+        {
+          "quantity": 1,
+          "unit": "cup",
+          "name": "water for syrup",
+          "original": "1 cup water for syrup"
+        },
+        {
+          "quantity": 5,
+          "unit": "cups",
+          "name": "cold water",
+          "original": "5 cups cold water"
+        },
+        {
+          "quantity": 4,
+          "unit": "cups",
+          "name": "ice",
+          "original": "4 cups ice"
+        }
+      ],
+      "directions": [
+        "Simmer sugar and 1 cup water until dissolved.",
+        "Cool the syrup for 10 minutes.",
+        "Combine lemon juice, syrup, and cold water in a pitcher.",
+        "Taste and add more water or lemon if needed.",
+        "Serve over ice."
+      ]
+    },
+    {
+      "id": "french-bread",
+      "title": "Warm French Bread",
+      "description": "A simple warm loaf for gumbo, jambalaya, Creole sauce, BBQ plates, and family-style dinners.",
+      "cuisine": "cajun",
+      "category": "Breads",
+      "course": "bread",
+      "meal_type": "side",
+      "cookTime": "8 min",
+      "cookTimeMinutes": 8,
+      "prepTime": "5 min",
+      "prepTimeMinutes": 5,
+      "prep_time": "5 min",
+      "cook_time": "8 min",
+      "servings": 8,
+      "difficulty": "Beginner",
+      "skill_level": "Beginner Home Cook",
+      "ingredients": [
+        "1 French bread loaf",
+        "3 tbsp butter",
+        "1 garlic clove minced optional",
+        "1 tbsp chopped parsley optional"
+      ],
+      "ingredients_structured": [
+        {
+          "quantity": 1,
+          "unit": "",
+          "name": "French bread loaf",
+          "original": "1 French bread loaf"
+        },
+        {
+          "quantity": 3,
+          "unit": "tbsp",
+          "name": "butter",
+          "original": "3 tbsp butter"
+        },
+        {
+          "quantity": 1,
+          "unit": "clove",
+          "name": "garlic minced optional",
+          "original": "1 garlic clove minced optional"
+        },
+        {
+          "quantity": 1,
+          "unit": "tbsp",
+          "name": "chopped parsley optional",
+          "original": "1 tbsp chopped parsley optional"
+        }
+      ],
+      "instructions": [
+        "Heat oven to 350 F.",
+        "Slice bread almost through so pieces stay connected.",
+        "Mix softened butter with garlic and parsley if using.",
+        "Spread butter into the cuts.",
+        "Wrap loosely in foil and warm 8 minutes."
+      ],
+      "equipment": [
+        "bread knife",
+        "foil",
+        "baking sheet"
+      ],
+      "tips": [
+        "Do not overbake or the bread will dry out.",
+        "Keep one side plain if serving with very seasoned gumbo."
+      ],
+      "makeAhead": "Butter the bread a few hours ahead and wrap in foil.",
+      "servingIdeas": [
+        "Serve with gumbo",
+        "Serve with shrimp Creole",
+        "Use for BBQ plates"
+      ],
+      "image": "assets/fresh-bread.jpeg",
+      "image_url": "assets/fresh-bread.jpeg",
+      "video_url": "",
+      "related_recipe_ids": [
+        "cajun-chicken-sausage-gumbo",
+        "cajun-jambalaya",
+        "creole-shrimp-creole"
+      ],
+      "tags": [
+        "cajun",
+        "creole",
+        "bread",
+        "gumbo",
+        "jambalaya"
+      ],
+      "featured": false,
+      "chefNotes": "Bread is part of the meal because it carries sauce, roux, and pan juices.",
+      "path": "beginner-home-cook",
+      "source": "Lets Cook Yall original educational recipe",
+      "slug": "warm-french-bread",
+      "cultural_variations": [
+        "Serve plain, buttered, garlicky, or toasted depending on the main dish."
+      ],
+      "skills_learned": [
+        "warming bread",
+        "garlic butter",
+        "service timing"
+      ],
+      "storage": "Wrap leftovers and refrigerate up to 3 days.",
+      "reheating": "Reheat wrapped in foil at 325 F until warm.",
+      "occasion_tags": [
+        "gumbo night",
+        "church homecoming",
+        "family dinner"
+      ],
+      "technique_tags": [
+        "bread",
+        "hosting timing"
+      ],
+      "related_pairings": [
+        "cajun-chicken-sausage-gumbo",
+        "creole-seafood-gumbo",
+        "cajun-jambalaya"
+      ],
+      "source_url": "",
+      "structured_ingredients": [
+        {
+          "quantity": 1,
+          "unit": "",
+          "name": "French bread loaf",
+          "original": "1 French bread loaf"
+        },
+        {
+          "quantity": 3,
+          "unit": "tbsp",
+          "name": "butter",
+          "original": "3 tbsp butter"
+        },
+        {
+          "quantity": 1,
+          "unit": "clove",
+          "name": "garlic minced optional",
+          "original": "1 garlic clove minced optional"
+        },
+        {
+          "quantity": 1,
+          "unit": "tbsp",
+          "name": "chopped parsley optional",
+          "original": "1 tbsp chopped parsley optional"
+        }
+      ],
+      "directions": [
+        "Heat oven to 350 F.",
+        "Slice bread almost through so pieces stay connected.",
+        "Mix softened butter with garlic and parsley if using.",
+        "Spread butter into the cuts.",
+        "Wrap loosely in foil and warm 8 minutes."
+      ]
     }
   ]
 }
