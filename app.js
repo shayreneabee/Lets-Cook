@@ -2526,8 +2526,59 @@ const regionalAuthenticityRecipes = [
   featured: false
 }));
 
+const livingCookbookRecipes = [
+  ["chicken-rice-casserole", "Chicken & Rice Casserole", "southern", "Southern Casseroles", "assets/logo.png", "20 min", "55 min", "Beginner", 8, "A creamy covered-dish casserole with chicken, rice, celery, onion, stock, and a buttery cracker top.", ["3 cups cooked chicken", "1 1/2 cups long-grain rice", "3 cups chicken stock", "1 cup milk", "1 can cream of chicken soup or 1 1/2 cups white sauce", "1 cup diced onion and celery", "1 cup shredded cheddar optional", "1 cup crushed buttery crackers", "2 tbsp melted butter"], ["Heat oven to 350 F.", "Grease a 9x13 baking dish.", "Stir chicken, rice, stock, milk, soup or white sauce, onion, celery, and cheese if using.", "Cover and bake until rice is tender, 40 to 45 minutes.", "Mix crackers with butter, sprinkle on top, and bake uncovered until golden."], ["casserole", "church supper", "covered dish", "southern"]],
+  ["broccoli-rice-casserole", "Broccoli Rice Casserole", "southern", "Southern Casseroles", "assets/logo.png", "15 min", "35 min", "Beginner", 8, "Tender broccoli and rice baked in a creamy cheese sauce for potlucks and holiday sides.", ["4 cups cooked rice", "4 cups broccoli florets", "2 cups cheddar cheese", "1 1/2 cups milk", "2 tbsp butter", "2 tbsp flour", "1/2 tsp garlic powder", "1/2 tsp salt", "1 cup cracker crumbs"], ["Heat oven to 350 F.", "Steam broccoli until just tender.", "Make a quick cheese sauce with butter, flour, milk, and cheddar.", "Fold rice and broccoli into the sauce.", "Bake with cracker crumbs until bubbly."], ["casserole", "broccoli", "rice", "potluck"]],
+  ["squash-casserole", "Southern Squash Casserole", "southern", "Southern Casseroles", "assets/logo.png", "20 min", "35 min", "Beginner", 8, "Yellow squash baked with onion, cheddar, egg, sour cream, and buttery cracker crumbs.", ["6 cups sliced yellow squash", "1 onion sliced", "1 cup sour cream", "2 eggs beaten", "1 1/2 cups cheddar cheese", "1 sleeve buttery crackers crushed", "3 tbsp melted butter", "1 tsp salt", "1/2 tsp black pepper"], ["Cook squash and onion until barely tender, then drain well.", "Stir sour cream, eggs, cheese, salt, and pepper together.", "Fold in squash.", "Spread into a baking dish.", "Top with buttered crackers and bake at 350 F until set."], ["squash", "casserole", "summer", "church supper"]],
+  ["sweet-potato-casserole", "Sweet Potato Casserole", "southern", "Southern Casseroles", "assets/logo.png", "25 min", "35 min", "Beginner", 10, "Mashed sweet potatoes baked with brown sugar, butter, warm spice, and a pecan topping.", ["4 lb sweet potatoes", "1/2 cup brown sugar", "1/2 cup melted butter", "2 eggs", "1/2 cup milk", "1 tsp vanilla", "1 tsp cinnamon", "1 cup chopped pecans", "1/2 cup flour"], ["Bake or boil sweet potatoes until tender.", "Mash with half the butter, eggs, milk, vanilla, cinnamon, and half the sugar.", "Spread into a baking dish.", "Mix pecans, flour, remaining sugar, and butter.", "Bake at 350 F until hot and crisp on top."], ["holiday", "sweet potatoes", "casserole", "thanksgiving"]],
+  ["green-bean-casserole", "Green Bean Casserole", "southern", "Southern Casseroles", "assets/logo.png", "15 min", "30 min", "Beginner", 8, "Green beans baked in a savory mushroom cream sauce with crispy onions.", ["2 lb green beans trimmed", "2 cups mushroom cream sauce", "1 cup fried onions", "1/2 cup milk", "1 tsp Worcestershire sauce", "1/2 tsp black pepper"], ["Blanch green beans until bright and tender-crisp.", "Stir cream sauce, milk, Worcestershire, and pepper.", "Fold in beans and half the onions.", "Bake at 350 F until bubbling.", "Top with remaining onions and bake until crisp."], ["green beans", "casserole", "holiday", "potluck"]],
+  ["corn-casserole", "Corn Casserole", "southern", "Southern Casseroles", "assets/logo.png", "10 min", "45 min", "Beginner", 8, "A soft, spoonable corn casserole with whole corn, creamed corn, sour cream, butter, and cornmeal mix.", ["1 can whole kernel corn drained", "1 can creamed corn", "1 cup sour cream", "1/2 cup melted butter", "2 eggs", "1 cup corn muffin mix", "1 cup cheddar optional"], ["Heat oven to 350 F.", "Stir corn, creamed corn, sour cream, butter, eggs, muffin mix, and cheese if using.", "Pour into a greased baking dish.", "Bake until set in the center.", "Rest 10 minutes before serving."], ["corn", "casserole", "side dish", "holiday"]],
+  ["hashbrown-casserole", "Hashbrown Casserole", "southern", "Southern Casseroles", "assets/logo.png", "15 min", "50 min", "Beginner", 10, "Shredded potatoes baked with sour cream, cheese, onion, and a crunchy topping.", ["2 lb frozen hashbrowns thawed", "2 cups cheddar cheese", "1 cup sour cream", "1 can cream of chicken or mushroom soup", "1/2 cup diced onion", "1/2 cup melted butter", "2 cups crushed cornflakes"], ["Heat oven to 350 F.", "Mix potatoes, cheese, sour cream, soup, onion, and half the butter.", "Spread into a baking dish.", "Toss cornflakes with remaining butter.", "Bake until hot, browned, and crisp on top."], ["potatoes", "casserole", "breakfast", "funeral potatoes"]],
+  ["mexican-cornbread-casserole", "Mexican Cornbread Casserole", "southern", "Southern Casseroles", "assets/logo.png", "20 min", "40 min", "Beginner", 8, "A Southern potluck casserole with seasoned beef, beans, corn, cheese, and cornbread batter.", ["1 lb ground beef", "1 onion diced", "1 packet taco seasoning", "1 can pinto beans", "1 cup corn", "1 cup salsa", "2 cups cheddar cheese", "2 cups cornbread batter", "1 jalapeno optional"], ["Brown beef with onion and taco seasoning.", "Stir in beans, corn, salsa, and jalapeno if using.", "Spread in a baking dish and top with cheese.", "Pour cornbread batter over the filling.", "Bake at 375 F until cornbread is set and golden."], ["casserole", "cornbread", "potluck", "tex-mex"]],
+  ["crawfish-cornbread-casserole", "Crawfish Cornbread Casserole", "cajun", "Southern Casseroles", "assets/logo.png", "20 min", "45 min", "Intermediate", 8, "Crawfish tails, corn, trinity, Cajun seasoning, and cornbread baked into a rich Louisiana-style casserole.", ["1 lb crawfish tails", "1 onion diced", "1 bell pepper diced", "2 celery stalks diced", "1 cup corn", "2 cups cornbread batter", "1 cup cheddar cheese", "2 tbsp butter", "2 tsp Cajun seasoning"], ["Heat oven to 375 F.", "Cook trinity in butter until soft.", "Stir in crawfish, corn, and Cajun seasoning.", "Fold crawfish mixture and cheese into cornbread batter.", "Bake until set, golden, and hot through."], ["crawfish", "cajun", "cornbread", "casserole"]],
+  ["king-ranch-chicken", "King Ranch Chicken", "texas", "Southern Casseroles", "assets/logo.png", "25 min", "40 min", "Beginner", 8, "A Texas casserole layered with chicken, tortillas, peppers, creamy sauce, tomatoes, chiles, and cheese.", ["3 cups cooked chicken", "12 corn tortillas", "1 onion diced", "1 bell pepper diced", "1 can diced tomatoes with chiles", "2 cups cream sauce or condensed soup blend", "2 cups cheddar cheese", "1 tsp chili powder"], ["Cook onion and bell pepper until soft.", "Stir chicken with tomatoes, chiles, cream sauce, and chili powder.", "Layer tortillas, chicken mixture, and cheese in a baking dish.", "Repeat layers and finish with cheese.", "Bake at 350 F until bubbling."], ["texas", "casserole", "chicken", "covered dish"]],
+  ["chicken-spaghetti", "Southern Chicken Spaghetti", "southern", "Southern Casseroles", "assets/logo.png", "25 min", "35 min", "Beginner", 8, "Spaghetti baked with chicken, peppers, tomatoes, creamy sauce, and cheese for a crowd-friendly pan.", ["12 oz spaghetti", "3 cups cooked chicken", "1 onion diced", "1 bell pepper diced", "1 can diced tomatoes", "2 cups cream sauce or condensed soup blend", "2 cups cheddar cheese", "1 tsp seasoned salt"], ["Boil spaghetti just shy of tender.", "Cook onion and bell pepper until soft.", "Stir chicken, tomatoes, sauce, cheese, and seasoning.", "Fold in spaghetti.", "Bake at 350 F until hot and bubbly."], ["chicken spaghetti", "casserole", "potluck", "southern"]],
+  ["funeral-potatoes", "Funeral Potatoes", "southern", "Southern Casseroles", "assets/logo.png", "15 min", "50 min", "Beginner", 10, "A comforting potato casserole with cheese, sour cream, and a buttery crunchy top for repasts and potlucks.", ["2 lb frozen diced potatoes thawed", "2 cups cheddar cheese", "1 cup sour cream", "1 can cream of chicken or mushroom soup", "1/2 cup melted butter", "2 cups crushed cornflakes", "1/2 tsp garlic powder"], ["Heat oven to 350 F.", "Mix potatoes, cheese, sour cream, soup, half the butter, and garlic powder.", "Spread into a baking dish.", "Top with cornflakes tossed in remaining butter.", "Bake until hot and golden."], ["repast", "potatoes", "casserole", "comfort food"]],
+  ["ambrosia-salad", "Ambrosia Salad", "southern", "Church Lady Hall of Fame", "assets/logo.png", "15 min", "0 min", "Beginner", 10, "A chilled fruit salad with citrus, pineapple, coconut, marshmallows, and creamy dressing.", ["2 cups mandarin oranges drained", "2 cups pineapple chunks drained", "1 cup mini marshmallows", "1 cup shredded coconut", "1 cup sour cream or whipped topping", "1 cup grapes halved", "1/2 cup pecans optional"], ["Drain fruit very well.", "Fold fruit, marshmallows, coconut, and grapes together.", "Stir in sour cream or whipped topping.", "Chill at least 1 hour.", "Top with pecans if using."], ["church supper", "fruit salad", "potluck", "cold salad"]],
+  ["watergate-salad", "Watergate Salad", "southern", "Church Lady Hall of Fame", "assets/logo.png", "10 min", "0 min", "Beginner", 10, "Pistachio pudding salad with pineapple, whipped topping, marshmallows, and pecans.", ["1 box pistachio pudding mix", "1 can crushed pineapple with juice", "1 cup mini marshmallows", "1/2 cup chopped pecans", "2 cups whipped topping"], ["Stir pudding mix with pineapple and juice.", "Fold in marshmallows and pecans.", "Fold in whipped topping.", "Chill until set.", "Serve cold."], ["church supper", "salad", "dessert salad", "potluck"]],
+  ["seven-layer-salad", "Seven Layer Salad", "southern", "Church Lady Hall of Fame", "assets/logo.png", "25 min", "0 min", "Beginner", 10, "A layered cold salad with lettuce, peas, eggs, bacon, cheese, vegetables, and creamy dressing.", ["1 head iceberg lettuce chopped", "1 cup frozen peas thawed", "4 boiled eggs sliced", "1 cup shredded cheddar", "6 slices bacon cooked", "1 cup mayonnaise", "2 tbsp sugar", "1 cup tomatoes or bell pepper"], ["Layer lettuce in a clear bowl.", "Add peas, eggs, cheese, bacon, and vegetables in layers.", "Mix mayonnaise and sugar.", "Spread dressing over the top to seal.", "Chill until serving."], ["church supper", "salad", "make ahead", "potluck"]],
+  ["grape-salad", "Grape Salad", "southern", "Church Lady Hall of Fame", "assets/logo.png", "15 min", "0 min", "Beginner", 12, "Green and red grapes folded into sweet cream cheese dressing with pecans and brown sugar.", ["4 lb seedless grapes", "8 oz cream cheese softened", "1 cup sour cream", "1/2 cup sugar", "1 tsp vanilla", "1/2 cup brown sugar", "1 cup chopped pecans"], ["Wash and dry grapes well.", "Beat cream cheese, sour cream, sugar, and vanilla.", "Fold grapes into dressing.", "Chill until cold.", "Top with brown sugar and pecans right before serving."], ["church supper", "grapes", "cold salad", "dessert salad"]],
+  ["corn-salad", "Southern Corn Salad", "southern", "Church Lady Hall of Fame", "assets/logo.png", "15 min", "0 min", "Beginner", 8, "A crisp potluck corn salad with corn, bell pepper, onion, tomato, herbs, and creamy or vinaigrette dressing.", ["4 cups corn kernels", "1 bell pepper diced", "1/2 red onion diced", "1 cup cherry tomatoes", "1/2 cup mayonnaise or vinaigrette", "1 tbsp lime juice", "1/2 tsp salt", "1/4 tsp pepper"], ["Combine corn, bell pepper, onion, and tomatoes.", "Stir dressing with lime, salt, and pepper.", "Fold dressing into vegetables.", "Chill 30 minutes.", "Taste and adjust seasoning."], ["corn salad", "potluck", "church supper", "side dish"]],
+  ["pea-salad", "Southern Pea Salad", "southern", "Church Lady Hall of Fame", "assets/logo.png", "15 min", "0 min", "Beginner", 8, "Sweet peas tossed with cheddar, onion, bacon, and creamy dressing.", ["4 cups frozen peas thawed", "1 cup cheddar cubes", "1/4 cup red onion diced", "6 slices bacon cooked", "1/2 cup mayonnaise", "1/4 cup sour cream", "1 tsp vinegar", "1/2 tsp black pepper"], ["Thaw peas and pat dry.", "Whisk mayonnaise, sour cream, vinegar, and pepper.", "Fold peas, cheddar, onion, and bacon into dressing.", "Chill at least 30 minutes.", "Serve cold."], ["pea salad", "church supper", "cold salad", "potluck"]],
+  ["chicken-and-dressing", "Chicken & Dressing", "southern", "Repast & Homegoing Foods", "assets/logo.png", "35 min", "55 min", "Intermediate", 12, "Cornbread dressing baked with shredded chicken, celery, onion, sage, stock, and a tender center.", ["8 cups crumbled cornbread", "3 cups shredded cooked chicken", "1 onion diced", "3 celery stalks diced", "4 cups chicken stock", "3 eggs beaten", "2 tsp poultry seasoning", "1 tsp rubbed sage", "1 tsp salt", "1/2 tsp black pepper"], ["Heat oven to 350 F.", "Cook onion and celery until soft.", "Mix cornbread, chicken, vegetables, seasoning, sage, salt, and pepper.", "Stir in eggs and enough stock for a moist mixture.", "Bake until set, golden, and 165 F in the center."], ["repast", "homegoing", "dressing", "church supper"]],
+  ["baked-ham", "Brown Sugar Baked Ham", "southern", "Repast & Homegoing Foods", "assets/logo.png", "15 min", "1 hr 45 min", "Beginner", 16, "A glazed baked ham sliced for repasts, Easter tables, sandwiches, and holiday buffets.", ["1 spiral sliced ham 8 to 10 lb", "1 cup brown sugar", "1/2 cup pineapple juice", "2 tbsp Dijon mustard", "1 tbsp apple cider vinegar", "1/2 tsp cloves optional"], ["Heat oven to 325 F.", "Place ham cut-side down and cover tightly.", "Bake until warmed through.", "Simmer brown sugar, pineapple juice, mustard, vinegar, and cloves into a glaze.", "Brush ham and bake uncovered until glossy."], ["ham", "repast", "holiday", "buffet"]]
+].map(([id, title, cuisine, category, image, prep_time, cook_time, difficulty, servings, description, ingredients, instructions, tags]) => ({
+  id,
+  title,
+  slug: id,
+  cuisine,
+  category,
+  image,
+  image_url: image,
+  prep_time,
+  prepTime: prep_time,
+  cook_time,
+  cookTime: cook_time,
+  time: cook_time,
+  cookTimeMinutes: Number(cook_time.match(/\d+/)?.[0] || 30),
+  skill_level: difficulty === "Beginner" ? "Amateur" : "Professional",
+  difficulty,
+  level: difficulty,
+  servings,
+  path: difficulty === "Beginner" ? "amateur-home-chef" : "professional-mode",
+  description,
+  ingredients,
+  directions: instructions,
+  instructions,
+  steps: instructions,
+  tags,
+  cultural_variations: [],
+  source: { type: "original", name: "Let's Cook Y'all Living Cookbook recipe" },
+  featured: false
+}));
+
 const existingRecipeIds = new Set(recipes.map((recipe) => recipe.id));
-recipes = [...recipes, ...[...nextFeatureRecipes, ...menuIntelligenceRecipes, ...regionalAuthenticityRecipes].filter((recipe) => !existingRecipeIds.has(recipe.id))];
+recipes = [...recipes, ...[...nextFeatureRecipes, ...menuIntelligenceRecipes, ...regionalAuthenticityRecipes, ...livingCookbookRecipes].filter((recipe) => !existingRecipeIds.has(recipe.id))];
 
 const lessons = [
   {
@@ -2874,7 +2925,27 @@ const recipeImageReplacementQueue = new Set([
   "carolina-red-rice",
   "gullah-geechee-favorites",
   "vidalia-onion-pie",
-  "georgia-brunswick-stew"
+  "georgia-brunswick-stew",
+  "chicken-rice-casserole",
+  "broccoli-rice-casserole",
+  "squash-casserole",
+  "sweet-potato-casserole",
+  "green-bean-casserole",
+  "corn-casserole",
+  "hashbrown-casserole",
+  "mexican-cornbread-casserole",
+  "crawfish-cornbread-casserole",
+  "king-ranch-chicken",
+  "chicken-spaghetti",
+  "funeral-potatoes",
+  "ambrosia-salad",
+  "watergate-salad",
+  "seven-layer-salad",
+  "grape-salad",
+  "corn-salad",
+  "pea-salad",
+  "chicken-and-dressing",
+  "baked-ham"
 ]);
 
 const recipeImageOverrides = {
@@ -3853,6 +3924,7 @@ function render() {
   if (route === "cuisine-explorer") return renderCuisineExplorer(id);
   if (route === "food-encyclopedia") return renderCulinaryAcademy(id);
   if (route === "menu-intelligence") return renderMenuIntelligence(id);
+  if (route === "living-cookbook") return renderLivingCookbook(id);
   if (route === "kids-cooking") return renderKidsCooking();
   if (route === "recipes") {
     if (!id) return renderRecipes();
@@ -3872,7 +3944,7 @@ function render() {
 }
 
 function setActive(route) {
-  const cookingRoutes = ["kitchen", "cook101", "skills-academy", "culinary-academy", "build-a-meal", "kitchen-search", "cuisine-explorer", "food-encyclopedia", "menu-intelligence", "kids-cooking", "recipes", "paths", "pathways", "planner", "hosting", "about", "account", "search", "cuisine"];
+  const cookingRoutes = ["kitchen", "cook101", "skills-academy", "culinary-academy", "build-a-meal", "kitchen-search", "cuisine-explorer", "food-encyclopedia", "menu-intelligence", "living-cookbook", "kids-cooking", "recipes", "paths", "pathways", "planner", "hosting", "about", "account", "search", "cuisine"];
   const normalizedRoute = cookingRoutes.includes(route) ? "lets-cook" : route;
   document.querySelectorAll(".main-nav a").forEach((link) => {
     link.classList.toggle("active", link.dataset.route === normalizedRoute);
@@ -3880,7 +3952,7 @@ function setActive(route) {
 }
 
 function activeAppForRoute(route) {
-  const cookingRoutes = ["lets-cook", "kitchen", "cook101", "skills-academy", "culinary-academy", "build-a-meal", "kitchen-search", "cuisine-explorer", "food-encyclopedia", "menu-intelligence", "kids-cooking", "recipes", "paths", "pathways", "planner", "hosting", "about", "account", "search", "cuisine"];
+  const cookingRoutes = ["lets-cook", "kitchen", "cook101", "skills-academy", "culinary-academy", "build-a-meal", "kitchen-search", "cuisine-explorer", "food-encyclopedia", "menu-intelligence", "living-cookbook", "kids-cooking", "recipes", "paths", "pathways", "planner", "hosting", "about", "account", "search", "cuisine"];
   if (cookingRoutes.includes(route)) return ecosystemApps.find((item) => item.id === "lets-cook");
   if (route === "find-the-beat") return ecosystemApps.find((item) => item.id === "find-the-beat");
   if (route === "second-chance") return ecosystemApps.find((item) => item.id === "second-chance");
@@ -4436,6 +4508,141 @@ function regionalShoppingList(ids = []) {
     return item.name || item.ingredient || item.original || "";
   }).filter(Boolean);
   return [...new Set(names)].slice(0, 14);
+}
+
+const livingCookbookChapters = [
+  {
+    id: "southern-casseroles",
+    title: "Southern Casseroles",
+    subtitle: "Covered dishes, church pans, holiday sides, and freezer-friendly comfort.",
+    intro: "Southern casseroles are practical hospitality. They travel, reheat, feed a crowd, and make one dish feel like care.",
+    heritage: "These are the pans that show up at church suppers, family reunions, repasts, and weeknight tables when one person needs to feed many.",
+    recipeIds: ["chicken-rice-casserole", "broccoli-rice-casserole", "squash-casserole", "sweet-potato-casserole", "green-bean-casserole", "corn-casserole", "hashbrown-casserole", "mexican-cornbread-casserole", "crawfish-cornbread-casserole", "king-ranch-chicken", "chicken-spaghetti", "funeral-potatoes"],
+    guidance: ["Use sturdy 9x13 pans with lids or foil.", "Label common allergens like seafood, nuts, dairy, and pork.", "Let casseroles rest 10 minutes before serving so they slice cleanly.", "For travel, keep hot pans hot and cold pans cold; do not leave creamy casseroles out for hours."],
+    hostingNotes: ["For church supper: bring serving spoons, foil, and a label card.", "For holidays: bake sides early and rewarm covered.", "For repasts: choose mild, comforting flavors and easy portions."]
+  },
+  {
+    id: "church-lady-hall-of-fame",
+    title: "Church Lady Hall of Fame",
+    subtitle: "The cold salads, deviled eggs, sides, beans, and baked pans people look for first.",
+    intro: "This chapter honors the reliable dishes that anchor potlucks: the bowls and pans everyone recognizes before they read the label.",
+    heritage: "Church lady cooking is organization, memory, thrift, seasoning, and knowing what holds up on a table after service.",
+    recipeIds: ["deviled-eggs", "southern-potato-salad", "ambrosia-salad", "watergate-salad", "seven-layer-salad", "grape-salad", "corn-salad", "pea-salad", "southern-baked-mac-cheese", "bbq-baked-beans"],
+    guidance: ["Keep mayonnaise-based salads chilled until service.", "Use shallow bowls for cold salads so they stay safer over ice.", "Bring extra paprika, parsley, or green onion for freshening the top.", "Make deviled eggs and cold salads ahead, but garnish close to serving."],
+    hostingNotes: ["Set cold dishes together over ice if the room is warm.", "Put labels on sweet salads so guests know whether they are side dish or dessert.", "Keep a backup spoon and napkins nearby."]
+  },
+  {
+    id: "repast-homegoing-foods",
+    title: "Repast & Homegoing Foods",
+    subtitle: "Quiet comfort, easy service, gentle flavors, and food that helps people gather.",
+    intro: "Repast food should feel steady and respectful. The goal is not showing off. The goal is feeding people with care.",
+    heritage: "Homegoing meals carry church support, family labor, grief, memory, and practical hospitality. The menu should be comforting, clear, and easy to serve.",
+    recipeIds: ["chicken-and-dressing", "baked-ham", "smothered-green-beans", "southern-baked-mac-cheese", "dinner-rolls", "pound-cake", "sweet-tea"],
+    guidance: ["Choose foods that hold heat and serve cleanly.", "Avoid too many fussy last-minute dishes.", "Set a quiet drink station away from the main food line.", "Use signs for pork, nuts, dairy, and spicy dishes."],
+    hostingNotes: ["Assign one person to receive food at the door.", "Keep a box of foil, tape, labels, pens, gloves, napkins, and serving spoons.", "Plan take-home containers if the family wants leftovers."]
+  },
+  {
+    id: "holiday-tables",
+    title: "Holiday Tables",
+    subtitle: "Menus, shopping starters, prep timelines, recipes, and hosting guidance for the big family days.",
+    intro: "Holiday cooking is less stressful when the table is planned like a chapter: mains, sides, bread, dessert, drinks, timing, and who is bringing what.",
+    heritage: "Thanksgiving, Christmas, Easter, Mother's Day, Father's Day, Juneteenth, and family reunions each have their own rhythm, but the center is the same: people gathered and fed.",
+    recipeIds: ["baked-ham", "chicken-and-dressing", "southern-collard-greens", "southern-baked-mac-cheese", "cornbread", "dinner-rolls", "sweet-potato-casserole", "green-bean-casserole", "bbq-brisket-basics", "bbq-chicken-quarters", "bbq-baked-beans", "watermelon-platter", "strawberry-soda", "red-velvet-cake", "peach-cobbler", "pound-cake"],
+    guidance: ["Write the oven schedule before cooking starts.", "Choose one main dish, three sides, one bread, one dessert, and one drink for smaller tables.", "For large gatherings, assign dishes by family instead of by person.", "Put desserts on a separate table so the main line keeps moving."],
+    hostingNotes: ["Thanksgiving: prep dressing, casseroles, greens, and desserts ahead.", "Christmas: plan breakfast, dinner, drinks, and leftovers.", "Family reunion: think stations, shade, ice, trash flow, and refills."],
+    holidays: [
+      { title: "Thanksgiving", recipeIds: ["chicken-and-dressing", "baked-ham", "sweet-potato-casserole", "green-bean-casserole", "southern-collard-greens", "dinner-rolls", "pound-cake"], shopping: ["cornbread", "chicken or ham", "sweet potatoes", "green beans", "greens", "roll ingredients", "cake ingredients"], hosting: ["Bake desserts the day before.", "Prep casseroles before the oven gets crowded.", "Assign drink and trash stations."] },
+      { title: "Christmas", recipeIds: ["baked-ham", "chicken-rice-casserole", "southern-baked-mac-cheese", "smothered-green-beans", "dinner-rolls", "pound-cake", "sweet-tea"], shopping: ["ham", "chicken", "rice", "cheese", "green beans", "tea", "rolls"], hosting: ["Keep breakfast simple.", "Use slow warmers for ham and sides.", "Send guests home with labeled leftovers."] },
+      { title: "Easter", recipeIds: ["baked-ham", "deviled-eggs", "southern-potato-salad", "smothered-green-beans", "dinner-rolls", "peach-cobbler", "sweet-tea"], shopping: ["ham", "eggs", "potatoes", "green beans", "roll ingredients", "peaches", "tea"], hosting: ["Make deviled eggs and potato salad ahead.", "Slice ham before guests line up.", "Keep cold foods chilled after service."] },
+      { title: "Mother's Day", recipeIds: ["shrimp-and-grits", "seven-layer-salad", "grape-salad", "dinner-rolls", "pound-cake", "lemonade"], shopping: ["shrimp", "grits", "salad vegetables", "grapes", "rolls", "lemons"], hosting: ["Choose a pretty but simple table.", "Cook the main close to serving.", "Let someone else handle cleanup."] },
+      { title: "Father's Day", recipeIds: ["bbq-brisket-basics", "bbq-chicken-quarters", "bbq-baked-beans", "cornbread", "watermelon-platter", "sweet-tea"], shopping: ["brisket", "chicken", "beans", "cornmeal", "watermelon", "tea"], hosting: ["Start smoked meats early.", "Keep sides easy and plentiful.", "Have a sauce and napkin station."] },
+      { title: "Juneteenth", recipeIds: ["bbq-brisket-basics", "bbq-chicken-quarters", "bbq-baked-beans", "southern-collard-greens", "cornbread", "strawberry-soda", "watermelon-platter", "red-velvet-cake"], shopping: ["brisket", "chicken", "beans", "greens", "cornmeal", "strawberries", "watermelon", "red velvet cake ingredients"], hosting: ["Use the Juneteenth flag and family-reunion energy.", "Keep red drinks cold.", "Set a table that tells food, family, and freedom."] },
+      { title: "Family Reunion", recipeIds: ["fried-chicken", "bbq-pulled-pork", "southern-potato-salad", "southern-baked-mac-cheese", "cornbread", "watermelon-platter", "strawberry-soda", "peach-cobbler"], shopping: ["chicken", "pork", "potatoes", "macaroni", "cheese", "cornmeal", "watermelon", "peaches"], hosting: ["Plan for 25, 50, or 100.", "Use food stations and assigned helpers.", "Keep drinks, ice, trash bags, and shade handled first."] }
+    ]
+  }
+];
+
+function livingCookbookById(id) {
+  return livingCookbookChapters.find((chapter) => chapter.id === id);
+}
+
+function livingCookbookHub() {
+  return `
+    <section class="cream-section living-cookbook-section">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Living Cookbook</p>
+        <h2>Cookbook chapters for the foods that show up when family and community gather.</h2>
+        <p>These are not isolated recipes. They are preserved chapters for casseroles, church suppers, repasts, homegoings, potlucks, reunions, and holiday tables.</p>
+      </div>
+      <div class="regional-soul-grid">
+        ${livingCookbookChapters.map((chapter) => `
+          <a class="regional-soul-card" href="#living-cookbook/${chapter.id}">
+            <img src="${recipePhotoFor(recipeByIdSafe(chapter.recipeIds[0]) || recipes[0])}" alt="${chapter.title}" />
+            <span>Living Cookbook</span>
+            <h3>${chapter.title}</h3>
+            <p>${chapter.subtitle}</p>
+          </a>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderLivingCookbook(id) {
+  const chapter = livingCookbookById(id);
+  if (!chapter) {
+    app.innerHTML = `
+      ${hero("Living Cookbook", "Cookbook chapters for Southern casseroles, church supper classics, repast foods, and holiday tables.", photoFor("hero", "hospitality", 8, "assets/lc-fried-chicken.jpg"), `<a class="small-button" href="#cuisine/southern">Southern Recipes</a><a class="small-button secondary" href="#hosting">Hosting Guides</a>`)}
+      ${cookSubnav()}
+      ${livingCookbookHub()}
+    `;
+    return;
+  }
+
+  const recipesForChapter = chapter.recipeIds.map((recipeId) => recipeByIdSafe(recipeId)).filter(Boolean);
+  app.innerHTML = `
+    ${hero(chapter.title, chapter.intro, recipePhotoFor(recipesForChapter[0] || recipes[0]), `<a class="small-button" href="#living-cookbook">All Living Cookbook</a><a class="small-button secondary" href="#hosting">Hosting Guides</a>`)}
+    ${cookSubnav()}
+    <section class="cream-section regional-soul-detail">
+      <div class="section-heading">
+        <p class="eyebrow">Living Cookbook chapter</p>
+        <h2>${chapter.subtitle}</h2>
+        <p>${chapter.heritage}</p>
+      </div>
+      <div class="regional-identity-grid">
+        <article><h3>Why It Matters</h3><p>${chapter.heritage}</p></article>
+        <article><h3>Service Notes</h3><ul>${chapter.guidance.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article><h3>Hosting Guidance</h3><ul>${chapter.hostingNotes.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article><h3>Shopping Starter</h3><ul>${regionalShoppingList(chapter.recipeIds).map((item) => `<li>${item}</li>`).join("")}</ul></article>
+      </div>
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Recipes in this chapter</p>
+        <h2>Every dish links to a real recipe page.</h2>
+      </div>
+      <div class="recipe-grid">${recipesForChapter.map(recipeCard).join("")}</div>
+      ${chapter.holidays ? `
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">Holiday Tables</p>
+          <h2>Complete menus with shopping and hosting notes.</h2>
+        </div>
+        <div class="regional-story-grid">
+          ${chapter.holidays.map((holiday) => `
+            <article>
+              <p class="eyebrow">Holiday table</p>
+              <h3>${holiday.title}</h3>
+              <div class="mini-recipe-list">${holiday.recipeIds.map((recipeId) => recipeByIdSafe(recipeId)).filter(Boolean).map((recipe) => `<a href="#recipes/${recipe.id}">${recipe.title}<small>${recipe.category || cuisineName(recipe.cuisine)}</small></a>`).join("")}</div>
+              <h4>Shopping List</h4>
+              <ul>${holiday.shopping.map((item) => `<li>${item}</li>`).join("")}</ul>
+              <h4>Hosting Guidance</h4>
+              <ul>${holiday.hosting.map((item) => `<li>${item}</li>`).join("")}</ul>
+            </article>
+          `).join("")}
+        </div>
+      ` : ""}
+      ${livingCookbookHub()}
+      ${progressionNav("#cuisine/southern", "Southern Recipes", "#hosting", "Hosting Guides", ["#menu-intelligence", "#culinary-academy/world-foods"])}
+    </section>
+  `;
 }
 
 function regionalMenuOutput(page, menu) {
@@ -6139,6 +6346,7 @@ function renderHosting(id) {
         </article>
       `).join("")}</div>
     </section>
+    ${livingCookbookHub()}
     <section class="gold-section">
       <div class="section-heading">
         <p class="eyebrow">More hosting situations</p>
@@ -6303,6 +6511,7 @@ function renderCuisine(id) {
         <h2>Recipe choices that belong here.</h2>
       </div>
       <div class="recipe-grid">${cuisineRecipes.map(recipeCard).join("")}</div>
+      ${["southern", "soul-food"].includes(cuisine.id) ? livingCookbookHub() : ""}
       ${cuisine.id === "soul-food" ? regionalSoulFoodHub() : ""}
       <div class="next-step-strip">
         <a class="small-button secondary" href="${cuisineGuideRoute(cuisine.id)}">Open Cuisine Guide</a>
