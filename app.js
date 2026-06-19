@@ -3643,8 +3643,10 @@ function renderPlatformHome() {
 const monthlySpotlight = {
   month: "June",
   headline: "Juneteenth: Food. Family. Freedom.",
-  subhead: "A June table filled with smoked brisket, BBQ chicken, beans, greens, cornbread, red velvet cake, strawberry soda, watermelon, music, memory, and everybody getting a plate.",
+  subhead: "Come on over. The smoker is going, the card tables are out, the kids are running through the yard, and somebody already put your plate to the side.",
   heroImages: ["images/hero/hero-01.jpg", "images/hero/hero-02.jpg", "images/hero/hero-03.jpg", "images/hero/hero-04.jpg", "images/hero/hero-05.jpg", "images/hero/hero-06.jpg", "images/hero/hero-07.jpg", "images/hero/hero-08.jpg", "images/hero/hero-09.jpg", "images/hero/hero-10.jpg"],
+  aboveFoldRecipeIds: ["bbq-brisket-basics", "bbq-chicken-quarters", "watermelon-platter", "red-velvet-cake"],
+  gatheringNotes: ["Uncle at the smoker", "Aunties serving plates", "Strawberry soda on ice", "Watermelon for the kids"],
   features: [
     { title: "Juneteenth", text: "Freedom food, family cookouts, red drinks, storytelling, and a table that remembers." },
     { title: "Black Music Month", text: "Blues, gospel, jazz, soul, R&B, and hip-hop playing while the grill works." },
@@ -4028,12 +4030,19 @@ function renderRegionalSoulFoodPage(id) {
 
 function monthlySpotlightBanner() {
   const images = monthlySpotlight.heroImages.map((image, index) => image || photoFor("hero", "family", index, "assets/cooking-family.jpeg"));
+  const gatheringRecipes = monthlySpotlight.aboveFoldRecipeIds.map(recipeByIdSafe).filter(Boolean);
   return `
     <section class="monthly-spotlight-banner juneteenth-banner">
       <div class="monthly-copy">
-        <p class="eyebrow">${monthlySpotlight.month} Monthly Spotlight</p>
+        <div class="juneteenth-homecoming-label">
+          <img src="assets/juneteenth-flag.png" alt="Juneteenth flag" />
+          <span>${monthlySpotlight.month} 19th Homecoming Table</span>
+        </div>
         <h1>${monthlySpotlight.headline}</h1>
         <p>${monthlySpotlight.subhead}</p>
+        <div class="gathering-note-row">
+          ${monthlySpotlight.gatheringNotes.map((note) => `<span>${note}</span>`).join("")}
+        </div>
         <div class="hero-actions">
           <a class="small-button" href="#culinary-academy/juneteenth-food-history">Learn the History</a>
           <a class="small-button secondary" href="#recipes">Explore Recipes</a>
@@ -4042,9 +4051,15 @@ function monthlySpotlightBanner() {
         </div>
       </div>
       <div class="monthly-visual" aria-label="Juneteenth cooking and gathering inspiration">
-        <div class="juneteenth-flag-mark">
-          <img src="assets/juneteenth-flag.png" alt="Juneteenth flag" />
-          <strong>June 19</strong>
+        <div class="cookout-table-card">
+          <div>
+            <p class="eyebrow">On the table</p>
+            <h2>Smoke, sides, cold drinks, and dessert.</h2>
+            <p>Brisket, BBQ chicken, greens, cornbread, red velvet cake, strawberry soda, watermelon, and enough love for whoever walks up.</p>
+          </div>
+          <div class="cookout-plate-links">
+            ${gatheringRecipes.map((recipe) => `<a href="#recipes/${recipe.id}"><img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" /><span>${recipe.title}</span></a>`).join("")}
+          </div>
         </div>
         <div class="monthly-photo-stack">
           ${images.slice(0, 4).map((image, index) => `<figure><img src="${image}" alt="June food and family gathering ${index + 1}" onerror="this.src='${photoFor("hero", "family", index, "assets/cooking-family.jpeg")}'" /></figure>`).join("")}
