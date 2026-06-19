@@ -3667,6 +3667,7 @@ const monthlySpotlight = {
   month: "June",
   headline: "Juneteenth: Food. Family. Freedom.",
   subhead: "This month we celebrate freedom, family traditions, good food, great music, and the people we love most.",
+  doodleImage: "images/hero/juneteenth-family-reunion-doodle.png",
   heroImages: ["images/hero/hero-01.jpg", "images/hero/hero-02.jpg", "images/hero/hero-03.jpg", "images/hero/hero-04.jpg", "images/hero/hero-05.jpg", "images/hero/hero-06.jpg", "images/hero/hero-07.jpg", "images/hero/hero-08.jpg", "images/hero/hero-09.jpg", "images/hero/hero-10.jpg"],
   aboveFoldRecipeIds: ["bbq-brisket-basics", "bbq-chicken-quarters", "bbq-baked-beans", "southern-collard-greens", "cornbread", "strawberry-soda", "watermelon-platter", "red-velvet-cake"],
   gatheringNotes: ["Brisket smoking since sunrise", "Aunties carrying foil pans", "Dominoes on the card table", "Kids running through the yard"],
@@ -4057,7 +4058,6 @@ function renderRegionalSoulFoodPage(id) {
 }
 
 function monthlySpotlightBanner() {
-  const images = monthlySpotlight.heroImages.map((image, index) => image || photoFor("hero", "family", index, "assets/cooking-family.jpeg"));
   const gatheringRecipes = monthlySpotlight.aboveFoldRecipeIds.map(recipeByIdSafe).filter(Boolean);
   const juneteenthMenuRoute = menuRouteForOccasion("Juneteenth");
   return `
@@ -4079,6 +4079,9 @@ function monthlySpotlightBanner() {
         </div>
       </div>
       <div class="monthly-visual" aria-label="Juneteenth cooking and gathering inspiration">
+        <figure class="juneteenth-doodle-frame">
+          <img src="${monthlySpotlight.doodleImage}" alt="Illustrated Juneteenth family reunion with Let's Cook Y'all sign, food table, smoker, dominoes, kids playing, and Juneteenth flag" />
+        </figure>
         <div class="cookout-table-card">
           <div>
             <p class="eyebrow">You just pulled up</p>
@@ -4088,9 +4091,6 @@ function monthlySpotlightBanner() {
           <div class="cookout-plate-links">
             ${gatheringRecipes.map((recipe) => `<a href="#recipes/${recipe.id}"><img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" /><span>${recipe.title}</span></a>`).join("")}
           </div>
-        </div>
-        <div class="monthly-photo-stack">
-          ${images.slice(0, 4).map((image, index) => `<figure><img src="${image}" alt="June food and family gathering ${index + 1}" onerror="this.src='${photoFor("hero", "family", index, "assets/cooking-family.jpeg")}'" /></figure>`).join("")}
         </div>
       </div>
     </section>
