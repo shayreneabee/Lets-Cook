@@ -126,7 +126,33 @@
       "prep_time": "10 min",
       "cook_time": "0 min",
       "skill_level": "Kid Chef",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Chill drinks thoroughly before serving unless the recipe is served warm.",
+      "internal_temperature": "No internal temperature needed.",
+      "common_mistakes": [
+        "Adding ice too early and watering down the pitcher.",
+        "Not tasting for sweetness and acid balance.",
+        "Serving without enough ice for a long gathering."
+      ],
+      "troubleshooting": [
+        "If too sweet, add cold water or citrus.",
+        "If flat, add lemon, mint, or a pinch of salt depending on the drink.",
+        "If serving outside, keep pitchers cold in ice."
+      ],
+      "storage": "Refrigerate covered up to 3 to 4 days depending on fresh fruit or dairy.",
+      "reheating": "Serve chilled unless noted.",
+      "occasion_tags": [
+        "Kid Chefs",
+        "No-Cook",
+        "Sandwich",
+        "Beginner"
+      ],
+      "technique_tags": [
+        "Kid Chefs",
+        "No-Cook",
+        "Sandwich",
+        "Beginner"
+      ]
     },
     {
       "id": "stovetop-mac-and-cheese",
@@ -191,7 +217,33 @@
       "prep_time": "8 min",
       "cook_time": "12 min",
       "skill_level": "Kid Chef",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ],
+      "storage": "Cool within 2 hours; refrigerate leftovers in a covered container up to 3 to 4 days.",
+      "reheating": "Reheat gently until hot throughout; leftovers with meat or dairy should reach 165 F.",
+      "occasion_tags": [
+        "Kid Chefs",
+        "Mac and Cheese",
+        "Stirring",
+        "Comfort Food"
+      ],
+      "technique_tags": [
+        "Kid Chefs",
+        "Mac and Cheese",
+        "Stirring",
+        "Comfort Food"
+      ]
     },
     {
       "id": "mini-pizza-bagels",
@@ -254,7 +306,33 @@
       "prep_time": "7 min",
       "cook_time": "8 min",
       "skill_level": "Kid Chef",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ],
+      "storage": "Cool within 2 hours; refrigerate leftovers in a covered container up to 3 to 4 days.",
+      "reheating": "Reheat gently until hot throughout; leftovers with meat or dairy should reach 165 F.",
+      "occasion_tags": [
+        "Kid Chefs",
+        "Pizza",
+        "Snack",
+        "Beginner"
+      ],
+      "technique_tags": [
+        "Kid Chefs",
+        "Pizza",
+        "Snack",
+        "Beginner"
+      ]
     },
     {
       "id": "fruit-kabobs",
@@ -318,7 +396,33 @@
       "prep_time": "15 min",
       "cook_time": "0 min",
       "skill_level": "Kid Chef",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Chill drinks thoroughly before serving unless the recipe is served warm.",
+      "internal_temperature": "No internal temperature needed.",
+      "common_mistakes": [
+        "Adding ice too early and watering down the pitcher.",
+        "Not tasting for sweetness and acid balance.",
+        "Serving without enough ice for a long gathering."
+      ],
+      "troubleshooting": [
+        "If too sweet, add cold water or citrus.",
+        "If flat, add lemon, mint, or a pinch of salt depending on the drink.",
+        "If serving outside, keep pitchers cold in ice."
+      ],
+      "storage": "Refrigerate covered up to 3 to 4 days depending on fresh fruit or dairy.",
+      "reheating": "Serve chilled unless noted.",
+      "occasion_tags": [
+        "Kid Chefs",
+        "Fruit",
+        "No-Cook",
+        "Snack"
+      ],
+      "technique_tags": [
+        "Kid Chefs",
+        "Fruit",
+        "No-Cook",
+        "Snack"
+      ]
     },
     {
       "id": "soft-scrambled-eggs",
@@ -382,7 +486,33 @@
       "prep_time": "5 min",
       "cook_time": "5 min",
       "skill_level": "Kid Chef",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ],
+      "storage": "Cool within 2 hours; refrigerate leftovers in a covered container up to 3 to 4 days.",
+      "reheating": "Reheat gently until hot throughout; leftovers with meat or dairy should reach 165 F.",
+      "occasion_tags": [
+        "Kid Chefs",
+        "Eggs",
+        "Breakfast",
+        "Stovetop"
+      ],
+      "technique_tags": [
+        "Kid Chefs",
+        "Eggs",
+        "Breakfast",
+        "Stovetop"
+      ]
     },
     {
       "id": "orange-chicken",
@@ -453,7 +583,33 @@
       "prep_time": "10 min",
       "cook_time": "20 min",
       "skill_level": "Kid Chef",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use the recipe heat setting; avoid crowding so food cooks evenly.",
+      "internal_temperature": "Poultry should reach 165 F in the thickest part.",
+      "common_mistakes": [
+        "Crowding the pan.",
+        "Cooking by color only instead of temperature.",
+        "Skipping rest time when the recipe calls for it."
+      ],
+      "troubleshooting": [
+        "If browning too fast, lower heat and finish gently.",
+        "If dry, slice thinner and serve with sauce or pan juices.",
+        "If underdone, return to heat until 165 F."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat leftovers to 165 F.",
+      "occasion_tags": [
+        "Chicken",
+        "Quick Meals",
+        "Global Flavors",
+        "Kid-Friendly Cooking"
+      ],
+      "technique_tags": [
+        "Chicken",
+        "Quick Meals",
+        "Global Flavors",
+        "Kid-Friendly Cooking"
+      ]
     },
     {
       "id": "crab-rangoon",
@@ -520,7 +676,31 @@
       "prep_time": "15 min",
       "cook_time": "20 min",
       "skill_level": "Professional",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use steady medium to medium-high heat so seafood cooks quickly without drying out.",
+      "internal_temperature": "Fish should reach 145 F or turn opaque and flake easily; shrimp should turn opaque and firm.",
+      "common_mistakes": [
+        "Overcooking seafood.",
+        "Starting with wet seafood when searing or frying.",
+        "Leaving cooked seafood out too long."
+      ],
+      "troubleshooting": [
+        "If seafood releases water, pat it dry next time and use higher heat.",
+        "If overcooked, serve with sauce or lemon to help the texture.",
+        "If underdone, return to gentle heat briefly."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 days.",
+      "reheating": "Reheat gently until hot; avoid overcooking. Leftovers should reach 165 F.",
+      "occasion_tags": [
+        "Party & Hosting",
+        "Global Flavors",
+        "Seafood"
+      ],
+      "technique_tags": [
+        "Party & Hosting",
+        "Global Flavors",
+        "Seafood"
+      ]
     },
     {
       "id": "yakamein",
@@ -589,7 +769,31 @@
       "prep_time": "10 min",
       "cook_time": "40 min",
       "skill_level": "Professional",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Brown over medium-high heat when searing, then finish at the recipe temperature until tender or cooked through.",
+      "internal_temperature": "Whole cuts of beef or pork are safe at 145 F with rest; ground meats should reach 160 F. Braised cuts may need longer for tenderness.",
+      "common_mistakes": [
+        "Rushing browning.",
+        "Cooking only by the clock instead of checking tenderness or temperature.",
+        "Slicing before resting."
+      ],
+      "troubleshooting": [
+        "If tough, keep cooking gently with moisture until tender.",
+        "If dry, serve with pan juices or sauce.",
+        "If greasy, skim fat before serving."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat leftovers to 165 F.",
+      "occasion_tags": [
+        "Southern Comfort",
+        "Global Flavors",
+        "Family Dinners"
+      ],
+      "technique_tags": [
+        "Southern Comfort",
+        "Global Flavors",
+        "Family Dinners"
+      ]
     },
     {
       "id": "shrimp-and-grits-green-beans",
@@ -637,7 +841,31 @@
       "prep_time": "10 min",
       "cook_time": "25 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use steady medium to medium-high heat so seafood cooks quickly without drying out.",
+      "internal_temperature": "Fish should reach 145 F or turn opaque and flake easily; shrimp should turn opaque and firm.",
+      "common_mistakes": [
+        "Overcooking seafood.",
+        "Starting with wet seafood when searing or frying.",
+        "Leaving cooked seafood out too long."
+      ],
+      "troubleshooting": [
+        "If seafood releases water, pat it dry next time and use higher heat.",
+        "If overcooked, serve with sauce or lemon to help the texture.",
+        "If underdone, return to gentle heat briefly."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 days.",
+      "reheating": "Reheat gently until hot; avoid overcooking. Leftovers should reach 165 F.",
+      "occasion_tags": [
+        "Southern Comfort",
+        "Seafood",
+        "Beginner Friendly"
+      ],
+      "technique_tags": [
+        "Southern Comfort",
+        "Seafood",
+        "Beginner Friendly"
+      ]
     },
     {
       "id": "oxtails",
@@ -839,8 +1067,8 @@
         "Braising",
         "Searing"
       ],
-      "storage": "",
-      "reheating": "",
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat leftovers to 165 F.",
       "occasion_tags": [
         "Sunday Dinner",
         "Holiday"
@@ -859,7 +1087,19 @@
         "southern-black-eyed-peas",
         "cornbread"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Brown over medium-high heat when searing, then finish at the recipe temperature until tender or cooked through.",
+      "internal_temperature": "Whole cuts of beef or pork are safe at 145 F with rest; ground meats should reach 160 F. Braised cuts may need longer for tenderness.",
+      "common_mistakes": [
+        "Rushing browning.",
+        "Cooking only by the clock instead of checking tenderness or temperature.",
+        "Slicing before resting."
+      ],
+      "troubleshooting": [
+        "If tough, keep cooking gently with moisture until tender.",
+        "If dry, serve with pan juices or sauce.",
+        "If greasy, skim fat before serving."
+      ]
     },
     {
       "id": "cajun-cream-salmon-rotini",
@@ -905,7 +1145,31 @@
       "prep_time": "10 min",
       "cook_time": "20 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use steady medium to medium-high heat so seafood cooks quickly without drying out.",
+      "internal_temperature": "Fish should reach 145 F or turn opaque and flake easily; shrimp should turn opaque and firm.",
+      "common_mistakes": [
+        "Overcooking seafood.",
+        "Starting with wet seafood when searing or frying.",
+        "Leaving cooked seafood out too long."
+      ],
+      "troubleshooting": [
+        "If seafood releases water, pat it dry next time and use higher heat.",
+        "If overcooked, serve with sauce or lemon to help the texture.",
+        "If underdone, return to gentle heat briefly."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 days.",
+      "reheating": "Reheat gently until hot; avoid overcooking. Leftovers should reach 165 F.",
+      "occasion_tags": [
+        "Quick Meals",
+        "Seafood",
+        "Date Night"
+      ],
+      "technique_tags": [
+        "Quick Meals",
+        "Seafood",
+        "Date Night"
+      ]
     },
     {
       "id": "roasted-vegetable-tray",
@@ -952,7 +1216,31 @@
       "prep_time": "10 min",
       "cook_time": "30 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ],
+      "storage": "Cool within 2 hours; refrigerate leftovers in a covered container up to 3 to 4 days.",
+      "reheating": "Reheat gently until hot throughout; leftovers with meat or dairy should reach 165 F.",
+      "occasion_tags": [
+        "Vegetarian",
+        "Meal Prep",
+        "Beginner Friendly"
+      ],
+      "technique_tags": [
+        "Vegetarian",
+        "Meal Prep",
+        "Beginner Friendly"
+      ]
     },
     {
       "id": "white-chicken-chili",
@@ -999,7 +1287,31 @@
       "prep_time": "10 min",
       "cook_time": "35 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use the recipe heat setting; avoid crowding so food cooks evenly.",
+      "internal_temperature": "Poultry should reach 165 F in the thickest part.",
+      "common_mistakes": [
+        "Crowding the pan.",
+        "Cooking by color only instead of temperature.",
+        "Skipping rest time when the recipe calls for it."
+      ],
+      "troubleshooting": [
+        "If browning too fast, lower heat and finish gently.",
+        "If dry, slice thinner and serve with sauce or pan juices.",
+        "If underdone, return to heat until 165 F."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat leftovers to 165 F.",
+      "occasion_tags": [
+        "Chicken",
+        "Meal Prep",
+        "Family Dinners"
+      ],
+      "technique_tags": [
+        "Chicken",
+        "Meal Prep",
+        "Family Dinners"
+      ]
     },
     {
       "id": "general-tso-style-chicken",
@@ -1046,7 +1358,31 @@
       "prep_time": "10 min",
       "cook_time": "25 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use the recipe heat setting; avoid crowding so food cooks evenly.",
+      "internal_temperature": "Poultry should reach 165 F in the thickest part.",
+      "common_mistakes": [
+        "Crowding the pan.",
+        "Cooking by color only instead of temperature.",
+        "Skipping rest time when the recipe calls for it."
+      ],
+      "troubleshooting": [
+        "If browning too fast, lower heat and finish gently.",
+        "If dry, slice thinner and serve with sauce or pan juices.",
+        "If underdone, return to heat until 165 F."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat leftovers to 165 F.",
+      "occasion_tags": [
+        "Chicken",
+        "Global Flavors",
+        "Quick Meals"
+      ],
+      "technique_tags": [
+        "Chicken",
+        "Global Flavors",
+        "Quick Meals"
+      ]
     },
     {
       "id": "cashew-chicken",
@@ -1093,7 +1429,31 @@
       "prep_time": "10 min",
       "cook_time": "20 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use the recipe heat setting; avoid crowding so food cooks evenly.",
+      "internal_temperature": "Poultry should reach 165 F in the thickest part.",
+      "common_mistakes": [
+        "Crowding the pan.",
+        "Cooking by color only instead of temperature.",
+        "Skipping rest time when the recipe calls for it."
+      ],
+      "troubleshooting": [
+        "If browning too fast, lower heat and finish gently.",
+        "If dry, slice thinner and serve with sauce or pan juices.",
+        "If underdone, return to heat until 165 F."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat leftovers to 165 F.",
+      "occasion_tags": [
+        "Chicken",
+        "Quick Meals",
+        "Global Flavors"
+      ],
+      "technique_tags": [
+        "Chicken",
+        "Quick Meals",
+        "Global Flavors"
+      ]
     },
     {
       "id": "fried-rice",
@@ -1139,7 +1499,31 @@
       "prep_time": "5 min",
       "cook_time": "15 min",
       "skill_level": "Kid Chef",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Chill drinks thoroughly before serving unless the recipe is served warm.",
+      "internal_temperature": "No internal temperature needed.",
+      "common_mistakes": [
+        "Adding ice too early and watering down the pitcher.",
+        "Not tasting for sweetness and acid balance.",
+        "Serving without enough ice for a long gathering."
+      ],
+      "troubleshooting": [
+        "If too sweet, add cold water or citrus.",
+        "If flat, add lemon, mint, or a pinch of salt depending on the drink.",
+        "If serving outside, keep pitchers cold in ice."
+      ],
+      "storage": "Refrigerate covered up to 3 to 4 days depending on fresh fruit or dairy.",
+      "reheating": "Serve chilled unless noted.",
+      "occasion_tags": [
+        "Quick Meals",
+        "Beginner Friendly",
+        "Vegetarian"
+      ],
+      "technique_tags": [
+        "Quick Meals",
+        "Beginner Friendly",
+        "Vegetarian"
+      ]
     },
     {
       "id": "chicken-parmesan",
@@ -1185,7 +1569,31 @@
       "prep_time": "15 min",
       "cook_time": "30 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use the recipe heat setting; avoid crowding so food cooks evenly.",
+      "internal_temperature": "Poultry should reach 165 F in the thickest part.",
+      "common_mistakes": [
+        "Crowding the pan.",
+        "Cooking by color only instead of temperature.",
+        "Skipping rest time when the recipe calls for it."
+      ],
+      "troubleshooting": [
+        "If browning too fast, lower heat and finish gently.",
+        "If dry, slice thinner and serve with sauce or pan juices.",
+        "If underdone, return to heat until 165 F."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat leftovers to 165 F.",
+      "occasion_tags": [
+        "Chicken",
+        "Family Dinners",
+        "Date Night"
+      ],
+      "technique_tags": [
+        "Chicken",
+        "Family Dinners",
+        "Date Night"
+      ]
     },
     {
       "id": "deviled-eggs",
@@ -1231,7 +1639,31 @@
       "prep_time": "13 min",
       "cook_time": "12 min",
       "skill_level": "Kid Chef",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Chill drinks thoroughly before serving unless the recipe is served warm.",
+      "internal_temperature": "No internal temperature needed.",
+      "common_mistakes": [
+        "Adding ice too early and watering down the pitcher.",
+        "Not tasting for sweetness and acid balance.",
+        "Serving without enough ice for a long gathering."
+      ],
+      "troubleshooting": [
+        "If too sweet, add cold water or citrus.",
+        "If flat, add lemon, mint, or a pinch of salt depending on the drink.",
+        "If serving outside, keep pitchers cold in ice."
+      ],
+      "storage": "Refrigerate covered up to 3 to 4 days depending on fresh fruit or dairy.",
+      "reheating": "Serve chilled unless noted.",
+      "occasion_tags": [
+        "Beginner Friendly",
+        "Party & Hosting",
+        "Holiday"
+      ],
+      "technique_tags": [
+        "Beginner Friendly",
+        "Party & Hosting",
+        "Holiday"
+      ]
     },
     {
       "id": "rotel-dip",
@@ -1275,7 +1707,31 @@
       "prep_time": "5 min",
       "cook_time": "15 min",
       "skill_level": "Kid Chef",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ],
+      "storage": "Cool within 2 hours; refrigerate leftovers in a covered container up to 3 to 4 days.",
+      "reheating": "Reheat gently until hot throughout; leftovers with meat or dairy should reach 165 F.",
+      "occasion_tags": [
+        "Party & Hosting",
+        "Quick Meals",
+        "Beginner Friendly"
+      ],
+      "technique_tags": [
+        "Party & Hosting",
+        "Quick Meals",
+        "Beginner Friendly"
+      ]
     },
     {
       "id": "party-meatballs",
@@ -1320,7 +1776,31 @@
       "prep_time": "5 min",
       "cook_time": "30 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Brown over medium-high heat when searing, then finish at the recipe temperature until tender or cooked through.",
+      "internal_temperature": "Whole cuts of beef or pork are safe at 145 F with rest; ground meats should reach 160 F. Braised cuts may need longer for tenderness.",
+      "common_mistakes": [
+        "Rushing browning.",
+        "Cooking only by the clock instead of checking tenderness or temperature.",
+        "Slicing before resting."
+      ],
+      "troubleshooting": [
+        "If tough, keep cooking gently with moisture until tender.",
+        "If dry, serve with pan juices or sauce.",
+        "If greasy, skim fat before serving."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat leftovers to 165 F.",
+      "occasion_tags": [
+        "Party & Hosting",
+        "Holiday",
+        "Meal Prep"
+      ],
+      "technique_tags": [
+        "Party & Hosting",
+        "Holiday",
+        "Meal Prep"
+      ]
     },
     {
       "id": "charcuterie-boards",
@@ -1367,7 +1847,31 @@
       "prep_time": "20 min",
       "cook_time": "0 min",
       "skill_level": "Kid Chef",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ],
+      "storage": "Cool within 2 hours; refrigerate leftovers in a covered container up to 3 to 4 days.",
+      "reheating": "Reheat gently until hot throughout; leftovers with meat or dairy should reach 165 F.",
+      "occasion_tags": [
+        "Party & Hosting",
+        "Date Night",
+        "Holiday"
+      ],
+      "technique_tags": [
+        "Party & Hosting",
+        "Date Night",
+        "Holiday"
+      ]
     },
     {
       "id": "dessert-charcuterie-board",
@@ -1413,7 +1917,31 @@
       "prep_time": "25 min",
       "cook_time": "0 min",
       "skill_level": "Kid Chef",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Bake at the recipe temperature until the center is set and the edges are done.",
+      "internal_temperature": "No meat temperature needed; use visual doneness cues from the recipe.",
+      "common_mistakes": [
+        "Measuring casually when baking needs precision.",
+        "Cutting before the dessert sets.",
+        "Overbaking until dry."
+      ],
+      "troubleshooting": [
+        "If center is loose, bake a few minutes longer or chill if it is a custard-style dessert.",
+        "If dry, serve with sauce, cream, or fruit.",
+        "If edges brown too fast, tent loosely with foil."
+      ],
+      "storage": "Cover and store according to dairy content; refrigerate custards and cream-based desserts.",
+      "reheating": "Warm gently if served warm; keep chilled desserts cold.",
+      "occasion_tags": [
+        "Desserts",
+        "Party & Hosting",
+        "Holiday"
+      ],
+      "technique_tags": [
+        "Desserts",
+        "Party & Hosting",
+        "Holiday"
+      ]
     },
     {
       "id": "bourbon-praline-bread-pudding",
@@ -1610,7 +2138,19 @@
         "southern-collard-greens",
         "sweet-tea"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Bake at the recipe temperature until the center is set and the edges are done.",
+      "internal_temperature": "No meat temperature needed; use visual doneness cues from the recipe.",
+      "common_mistakes": [
+        "Measuring casually when baking needs precision.",
+        "Cutting before the dessert sets.",
+        "Overbaking until dry."
+      ],
+      "troubleshooting": [
+        "If center is loose, bake a few minutes longer or chill if it is a custard-style dessert.",
+        "If dry, serve with sauce, cream, or fruit.",
+        "If edges brown too fast, tent loosely with foil."
+      ]
     },
     {
       "id": "blackened-fish",
@@ -1655,7 +2195,31 @@
       "prep_time": "10 min",
       "cook_time": "15 min",
       "skill_level": "Professional",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use steady medium to medium-high heat so seafood cooks quickly without drying out.",
+      "internal_temperature": "Fish should reach 145 F or turn opaque and flake easily; shrimp should turn opaque and firm.",
+      "common_mistakes": [
+        "Overcooking seafood.",
+        "Starting with wet seafood when searing or frying.",
+        "Leaving cooked seafood out too long."
+      ],
+      "troubleshooting": [
+        "If seafood releases water, pat it dry next time and use higher heat.",
+        "If overcooked, serve with sauce or lemon to help the texture.",
+        "If underdone, return to gentle heat briefly."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 days.",
+      "reheating": "Reheat gently until hot; avoid overcooking. Leftovers should reach 165 F.",
+      "occasion_tags": [
+        "Seafood",
+        "Quick Meals",
+        "Date Night"
+      ],
+      "technique_tags": [
+        "Seafood",
+        "Quick Meals",
+        "Date Night"
+      ]
     },
     {
       "id": "tuscan-chicken",
@@ -1701,7 +2265,31 @@
       "prep_time": "10 min",
       "cook_time": "30 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use the recipe heat setting; avoid crowding so food cooks evenly.",
+      "internal_temperature": "Poultry should reach 165 F in the thickest part.",
+      "common_mistakes": [
+        "Crowding the pan.",
+        "Cooking by color only instead of temperature.",
+        "Skipping rest time when the recipe calls for it."
+      ],
+      "troubleshooting": [
+        "If browning too fast, lower heat and finish gently.",
+        "If dry, slice thinner and serve with sauce or pan juices.",
+        "If underdone, return to heat until 165 F."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat leftovers to 165 F.",
+      "occasion_tags": [
+        "Chicken",
+        "Date Night",
+        "Family Dinners"
+      ],
+      "technique_tags": [
+        "Chicken",
+        "Date Night",
+        "Family Dinners"
+      ]
     },
     {
       "id": "garlic-wings",
@@ -1747,7 +2335,31 @@
       "prep_time": "10 min",
       "cook_time": "40 min",
       "skill_level": "Kid Chef",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use the recipe heat setting; avoid crowding so food cooks evenly.",
+      "internal_temperature": "Poultry should reach 165 F in the thickest part.",
+      "common_mistakes": [
+        "Crowding the pan.",
+        "Cooking by color only instead of temperature.",
+        "Skipping rest time when the recipe calls for it."
+      ],
+      "troubleshooting": [
+        "If browning too fast, lower heat and finish gently.",
+        "If dry, slice thinner and serve with sauce or pan juices.",
+        "If underdone, return to heat until 165 F."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat leftovers to 165 F.",
+      "occasion_tags": [
+        "Chicken",
+        "Party & Hosting",
+        "Quick Meals"
+      ],
+      "technique_tags": [
+        "Chicken",
+        "Party & Hosting",
+        "Quick Meals"
+      ]
     },
     {
       "id": "pineapple-fried-rice",
@@ -1793,7 +2405,31 @@
       "prep_time": "5 min",
       "cook_time": "20 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ],
+      "storage": "Cool within 2 hours; refrigerate leftovers in a covered container up to 3 to 4 days.",
+      "reheating": "Reheat gently until hot throughout; leftovers with meat or dairy should reach 165 F.",
+      "occasion_tags": [
+        "Global Flavors",
+        "Quick Meals",
+        "Vegetarian"
+      ],
+      "technique_tags": [
+        "Global Flavors",
+        "Quick Meals",
+        "Vegetarian"
+      ]
     },
     {
       "id": "lamb-bone-broth-soup",
@@ -1840,7 +2476,31 @@
       "prep_time": "15 min",
       "cook_time": "2 hr",
       "skill_level": "Professional",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Brown over medium-high heat when searing, then finish at the recipe temperature until tender or cooked through.",
+      "internal_temperature": "Whole cuts of beef or pork are safe at 145 F with rest; ground meats should reach 160 F. Braised cuts may need longer for tenderness.",
+      "common_mistakes": [
+        "Rushing browning.",
+        "Cooking only by the clock instead of checking tenderness or temperature.",
+        "Slicing before resting."
+      ],
+      "troubleshooting": [
+        "If tough, keep cooking gently with moisture until tender.",
+        "If dry, serve with pan juices or sauce.",
+        "If greasy, skim fat before serving."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat leftovers to 165 F.",
+      "occasion_tags": [
+        "Meal Prep",
+        "Global Flavors",
+        "Family Dinners"
+      ],
+      "technique_tags": [
+        "Meal Prep",
+        "Global Flavors",
+        "Family Dinners"
+      ]
     },
     {
       "id": "mealdb-braised-beef-chilli",
@@ -1922,7 +2582,34 @@
       "prep_time": "15 min",
       "cook_time": "35 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Brown over medium-high heat when searing, then finish at the recipe temperature until tender or cooked through.",
+      "internal_temperature": "Whole cuts of beef or pork are safe at 145 F with rest; ground meats should reach 160 F. Braised cuts may need longer for tenderness.",
+      "common_mistakes": [
+        "Rushing browning.",
+        "Cooking only by the clock instead of checking tenderness or temperature.",
+        "Slicing before resting."
+      ],
+      "troubleshooting": [
+        "If tough, keep cooking gently with moisture until tender.",
+        "If dry, serve with pan juices or sauce.",
+        "If greasy, skim fat before serving."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat leftovers to 165 F.",
+      "occasion_tags": [
+        "Beef",
+        "Imported",
+        "Mexican",
+        "TheMealDB",
+        "mexican"
+      ],
+      "technique_tags": [
+        "Beef",
+        "Imported",
+        "Mexican",
+        "TheMealDB"
+      ]
     },
     {
       "id": "mealdb-cajun-spiced-fish-tacos",
@@ -1997,7 +2684,34 @@
       "prep_time": "15 min",
       "cook_time": "35 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use steady medium to medium-high heat so seafood cooks quickly without drying out.",
+      "internal_temperature": "Fish should reach 145 F or turn opaque and flake easily; shrimp should turn opaque and firm.",
+      "common_mistakes": [
+        "Overcooking seafood.",
+        "Starting with wet seafood when searing or frying.",
+        "Leaving cooked seafood out too long."
+      ],
+      "troubleshooting": [
+        "If seafood releases water, pat it dry next time and use higher heat.",
+        "If overcooked, serve with sauce or lemon to help the texture.",
+        "If underdone, return to gentle heat briefly."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 days.",
+      "reheating": "Reheat gently until hot; avoid overcooking. Leftovers should reach 165 F.",
+      "occasion_tags": [
+        "Imported",
+        "Mexican",
+        "Seafood",
+        "TheMealDB",
+        "mexican"
+      ],
+      "technique_tags": [
+        "Imported",
+        "Mexican",
+        "Seafood",
+        "TheMealDB"
+      ]
     },
     {
       "id": "mealdb-chicken-enchilada-casserole",
@@ -2070,7 +2784,34 @@
       "prep_time": "15 min",
       "cook_time": "35 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use the recipe heat setting; avoid crowding so food cooks evenly.",
+      "internal_temperature": "Poultry should reach 165 F in the thickest part.",
+      "common_mistakes": [
+        "Crowding the pan.",
+        "Cooking by color only instead of temperature.",
+        "Skipping rest time when the recipe calls for it."
+      ],
+      "troubleshooting": [
+        "If browning too fast, lower heat and finish gently.",
+        "If dry, slice thinner and serve with sauce or pan juices.",
+        "If underdone, return to heat until 165 F."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat leftovers to 165 F.",
+      "occasion_tags": [
+        "Chicken",
+        "Imported",
+        "Mexican",
+        "TheMealDB",
+        "mexican"
+      ],
+      "technique_tags": [
+        "Chicken",
+        "Imported",
+        "Mexican",
+        "TheMealDB"
+      ]
     },
     {
       "id": "mealdb-brown-stew-chicken",
@@ -2152,7 +2893,34 @@
       "prep_time": "15 min",
       "cook_time": "35 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use the recipe heat setting; avoid crowding so food cooks evenly.",
+      "internal_temperature": "Poultry should reach 165 F in the thickest part.",
+      "common_mistakes": [
+        "Crowding the pan.",
+        "Cooking by color only instead of temperature.",
+        "Skipping rest time when the recipe calls for it."
+      ],
+      "troubleshooting": [
+        "If browning too fast, lower heat and finish gently.",
+        "If dry, slice thinner and serve with sauce or pan juices.",
+        "If underdone, return to heat until 165 F."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat leftovers to 165 F.",
+      "occasion_tags": [
+        "Chicken",
+        "Imported",
+        "Jamaican",
+        "TheMealDB",
+        "caribbean"
+      ],
+      "technique_tags": [
+        "Chicken",
+        "Imported",
+        "Jamaican",
+        "TheMealDB"
+      ]
     },
     {
       "id": "mealdb-callaloo-and-saltfish",
@@ -2231,7 +2999,34 @@
       "prep_time": "15 min",
       "cook_time": "35 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use steady medium to medium-high heat so seafood cooks quickly without drying out.",
+      "internal_temperature": "Fish should reach 145 F or turn opaque and flake easily; shrimp should turn opaque and firm.",
+      "common_mistakes": [
+        "Overcooking seafood.",
+        "Starting with wet seafood when searing or frying.",
+        "Leaving cooked seafood out too long."
+      ],
+      "troubleshooting": [
+        "If seafood releases water, pat it dry next time and use higher heat.",
+        "If overcooked, serve with sauce or lemon to help the texture.",
+        "If underdone, return to gentle heat briefly."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 days.",
+      "reheating": "Reheat gently until hot; avoid overcooking. Leftovers should reach 165 F.",
+      "occasion_tags": [
+        "Imported",
+        "Jamaican",
+        "Side",
+        "TheMealDB",
+        "caribbean"
+      ],
+      "technique_tags": [
+        "Imported",
+        "Jamaican",
+        "Side",
+        "TheMealDB"
+      ]
     },
     {
       "id": "mealdb-callaloo-jamaican-style",
@@ -2310,7 +3105,34 @@
       "prep_time": "15 min",
       "cook_time": "35 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ],
+      "storage": "Cool within 2 hours; refrigerate leftovers in a covered container up to 3 to 4 days.",
+      "reheating": "Reheat gently until hot throughout; leftovers with meat or dairy should reach 165 F.",
+      "occasion_tags": [
+        "Imported",
+        "Jamaican",
+        "Miscellaneous",
+        "TheMealDB",
+        "caribbean"
+      ],
+      "technique_tags": [
+        "Imported",
+        "Jamaican",
+        "Miscellaneous",
+        "TheMealDB"
+      ]
     },
     {
       "id": "mealdb-budino-di-ricotta",
@@ -2373,7 +3195,34 @@
       "prep_time": "15 min",
       "cook_time": "35 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Bake at the recipe temperature until the center is set and the edges are done.",
+      "internal_temperature": "No meat temperature needed; use visual doneness cues from the recipe.",
+      "common_mistakes": [
+        "Measuring casually when baking needs precision.",
+        "Cutting before the dessert sets.",
+        "Overbaking until dry."
+      ],
+      "troubleshooting": [
+        "If center is loose, bake a few minutes longer or chill if it is a custard-style dessert.",
+        "If dry, serve with sauce, cream, or fruit.",
+        "If edges brown too fast, tent loosely with foil."
+      ],
+      "storage": "Cover and store according to dairy content; refrigerate custards and cream-based desserts.",
+      "reheating": "Warm gently if served warm; keep chilled desserts cold.",
+      "occasion_tags": [
+        "Dessert",
+        "Imported",
+        "Italian",
+        "TheMealDB",
+        "italian"
+      ],
+      "technique_tags": [
+        "Dessert",
+        "Imported",
+        "Italian",
+        "TheMealDB"
+      ]
     },
     {
       "id": "mealdb-chicken-alfredo-primavera",
@@ -2461,7 +3310,34 @@
       "prep_time": "15 min",
       "cook_time": "35 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use the recipe heat setting; avoid crowding so food cooks evenly.",
+      "internal_temperature": "Poultry should reach 165 F in the thickest part.",
+      "common_mistakes": [
+        "Crowding the pan.",
+        "Cooking by color only instead of temperature.",
+        "Skipping rest time when the recipe calls for it."
+      ],
+      "troubleshooting": [
+        "If browning too fast, lower heat and finish gently.",
+        "If dry, slice thinner and serve with sauce or pan juices.",
+        "If underdone, return to heat until 165 F."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat leftovers to 165 F.",
+      "occasion_tags": [
+        "Chicken",
+        "Imported",
+        "Italian",
+        "TheMealDB",
+        "italian"
+      ],
+      "technique_tags": [
+        "Chicken",
+        "Imported",
+        "Italian",
+        "TheMealDB"
+      ]
     },
     {
       "id": "mealdb-chilli-prawn-linguine",
@@ -2539,7 +3415,34 @@
       "prep_time": "15 min",
       "cook_time": "35 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use steady medium to medium-high heat so seafood cooks quickly without drying out.",
+      "internal_temperature": "Fish should reach 145 F or turn opaque and flake easily; shrimp should turn opaque and firm.",
+      "common_mistakes": [
+        "Overcooking seafood.",
+        "Starting with wet seafood when searing or frying.",
+        "Leaving cooked seafood out too long."
+      ],
+      "troubleshooting": [
+        "If seafood releases water, pat it dry next time and use higher heat.",
+        "If overcooked, serve with sauce or lemon to help the texture.",
+        "If underdone, return to gentle heat briefly."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 days.",
+      "reheating": "Reheat gently until hot; avoid overcooking. Leftovers should reach 165 F.",
+      "occasion_tags": [
+        "Imported",
+        "Italian",
+        "Pasta",
+        "TheMealDB",
+        "italian"
+      ],
+      "technique_tags": [
+        "Imported",
+        "Italian",
+        "Pasta",
+        "TheMealDB"
+      ]
     },
     {
       "id": "mealdb-chicken-quinoa-greek-salad",
@@ -2613,7 +3516,34 @@
       "prep_time": "15 min",
       "cook_time": "35 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use the recipe heat setting; avoid crowding so food cooks evenly.",
+      "internal_temperature": "Poultry should reach 165 F in the thickest part.",
+      "common_mistakes": [
+        "Crowding the pan.",
+        "Cooking by color only instead of temperature.",
+        "Skipping rest time when the recipe calls for it."
+      ],
+      "troubleshooting": [
+        "If browning too fast, lower heat and finish gently.",
+        "If dry, slice thinner and serve with sauce or pan juices.",
+        "If underdone, return to heat until 165 F."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat leftovers to 165 F.",
+      "occasion_tags": [
+        "Chicken",
+        "Greek",
+        "Imported",
+        "TheMealDB",
+        "mediterranean"
+      ],
+      "technique_tags": [
+        "Chicken",
+        "Greek",
+        "Imported",
+        "TheMealDB"
+      ]
     },
     {
       "id": "mealdb-garides-saganaki",
@@ -2690,7 +3620,34 @@
       "prep_time": "15 min",
       "cook_time": "35 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use steady medium to medium-high heat so seafood cooks quickly without drying out.",
+      "internal_temperature": "Fish should reach 145 F or turn opaque and flake easily; shrimp should turn opaque and firm.",
+      "common_mistakes": [
+        "Overcooking seafood.",
+        "Starting with wet seafood when searing or frying.",
+        "Leaving cooked seafood out too long."
+      ],
+      "troubleshooting": [
+        "If seafood releases water, pat it dry next time and use higher heat.",
+        "If overcooked, serve with sauce or lemon to help the texture.",
+        "If underdone, return to gentle heat briefly."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 days.",
+      "reheating": "Reheat gently until hot; avoid overcooking. Leftovers should reach 165 F.",
+      "occasion_tags": [
+        "Greek",
+        "Imported",
+        "Seafood",
+        "TheMealDB",
+        "mediterranean"
+      ],
+      "technique_tags": [
+        "Greek",
+        "Imported",
+        "Seafood",
+        "TheMealDB"
+      ]
     },
     {
       "id": "mealdb-gigantes-plaki",
@@ -2767,7 +3724,34 @@
       "prep_time": "15 min",
       "cook_time": "35 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ],
+      "storage": "Cool within 2 hours; refrigerate leftovers in a covered container up to 3 to 4 days.",
+      "reheating": "Reheat gently until hot throughout; leftovers with meat or dairy should reach 165 F.",
+      "occasion_tags": [
+        "Greek",
+        "Imported",
+        "TheMealDB",
+        "Vegetarian",
+        "mediterranean"
+      ],
+      "technique_tags": [
+        "Greek",
+        "Imported",
+        "TheMealDB",
+        "Vegetarian"
+      ]
     },
     {
       "id": "mealdb-air-fryer-egg-rolls",
@@ -2850,7 +3834,34 @@
       "prep_time": "15 min",
       "cook_time": "35 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ],
+      "storage": "Cool within 2 hours; refrigerate leftovers in a covered container up to 3 to 4 days.",
+      "reheating": "Reheat gently until hot throughout; leftovers with meat or dairy should reach 165 F.",
+      "occasion_tags": [
+        "Chinese",
+        "Imported",
+        "Side",
+        "TheMealDB",
+        "asian-inspired"
+      ],
+      "technique_tags": [
+        "Chinese",
+        "Imported",
+        "Side",
+        "TheMealDB"
+      ]
     },
     {
       "id": "mealdb-beef-and-broccoli-stir-fry",
@@ -2933,7 +3944,34 @@
       "prep_time": "15 min",
       "cook_time": "35 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Brown over medium-high heat when searing, then finish at the recipe temperature until tender or cooked through.",
+      "internal_temperature": "Whole cuts of beef or pork are safe at 145 F with rest; ground meats should reach 160 F. Braised cuts may need longer for tenderness.",
+      "common_mistakes": [
+        "Rushing browning.",
+        "Cooking only by the clock instead of checking tenderness or temperature.",
+        "Slicing before resting."
+      ],
+      "troubleshooting": [
+        "If tough, keep cooking gently with moisture until tender.",
+        "If dry, serve with pan juices or sauce.",
+        "If greasy, skim fat before serving."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat leftovers to 165 F.",
+      "occasion_tags": [
+        "Beef",
+        "Chinese",
+        "Imported",
+        "TheMealDB",
+        "asian-inspired"
+      ],
+      "technique_tags": [
+        "Beef",
+        "Chinese",
+        "Imported",
+        "TheMealDB"
+      ]
     },
     {
       "id": "mealdb-beef-lo-mein",
@@ -3019,7 +4057,34 @@
       "prep_time": "15 min",
       "cook_time": "35 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Brown over medium-high heat when searing, then finish at the recipe temperature until tender or cooked through.",
+      "internal_temperature": "Whole cuts of beef or pork are safe at 145 F with rest; ground meats should reach 160 F. Braised cuts may need longer for tenderness.",
+      "common_mistakes": [
+        "Rushing browning.",
+        "Cooking only by the clock instead of checking tenderness or temperature.",
+        "Slicing before resting."
+      ],
+      "troubleshooting": [
+        "If tough, keep cooking gently with moisture until tender.",
+        "If dry, serve with pan juices or sauce.",
+        "If greasy, skim fat before serving."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat leftovers to 165 F.",
+      "occasion_tags": [
+        "Beef",
+        "Chinese",
+        "Imported",
+        "TheMealDB",
+        "asian-inspired"
+      ],
+      "technique_tags": [
+        "Beef",
+        "Chinese",
+        "Imported",
+        "TheMealDB"
+      ]
     },
     {
       "id": "mealdb-chicken-karaage",
@@ -3095,7 +4160,34 @@
       "prep_time": "15 min",
       "cook_time": "35 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use the recipe heat setting; avoid crowding so food cooks evenly.",
+      "internal_temperature": "Poultry should reach 165 F in the thickest part.",
+      "common_mistakes": [
+        "Crowding the pan.",
+        "Cooking by color only instead of temperature.",
+        "Skipping rest time when the recipe calls for it."
+      ],
+      "troubleshooting": [
+        "If browning too fast, lower heat and finish gently.",
+        "If dry, slice thinner and serve with sauce or pan juices.",
+        "If underdone, return to heat until 165 F."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat leftovers to 165 F.",
+      "occasion_tags": [
+        "Chicken",
+        "Imported",
+        "Japanese",
+        "TheMealDB",
+        "asian-inspired"
+      ],
+      "technique_tags": [
+        "Chicken",
+        "Imported",
+        "Japanese",
+        "TheMealDB"
+      ]
     },
     {
       "id": "mealdb-honey-teriyaki-salmon",
@@ -3157,7 +4249,34 @@
       "prep_time": "15 min",
       "cook_time": "35 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use steady medium to medium-high heat so seafood cooks quickly without drying out.",
+      "internal_temperature": "Fish should reach 145 F or turn opaque and flake easily; shrimp should turn opaque and firm.",
+      "common_mistakes": [
+        "Overcooking seafood.",
+        "Starting with wet seafood when searing or frying.",
+        "Leaving cooked seafood out too long."
+      ],
+      "troubleshooting": [
+        "If seafood releases water, pat it dry next time and use higher heat.",
+        "If overcooked, serve with sauce or lemon to help the texture.",
+        "If underdone, return to gentle heat briefly."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 days.",
+      "reheating": "Reheat gently until hot; avoid overcooking. Leftovers should reach 165 F.",
+      "occasion_tags": [
+        "Imported",
+        "Japanese",
+        "Seafood",
+        "TheMealDB",
+        "asian-inspired"
+      ],
+      "technique_tags": [
+        "Imported",
+        "Japanese",
+        "Seafood",
+        "TheMealDB"
+      ]
     },
     {
       "id": "mealdb-japanese-gohan-rice",
@@ -3226,7 +4345,34 @@
       "prep_time": "15 min",
       "cook_time": "35 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ],
+      "storage": "Cool within 2 hours; refrigerate leftovers in a covered container up to 3 to 4 days.",
+      "reheating": "Reheat gently until hot throughout; leftovers with meat or dairy should reach 165 F.",
+      "occasion_tags": [
+        "Imported",
+        "Japanese",
+        "Side",
+        "TheMealDB",
+        "asian-inspired"
+      ],
+      "technique_tags": [
+        "Imported",
+        "Japanese",
+        "Side",
+        "TheMealDB"
+      ]
     },
     {
       "id": "mealdb-drunken-noodles-pad-kee-mao",
@@ -3304,7 +4450,34 @@
       "prep_time": "15 min",
       "cook_time": "35 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Brown over medium-high heat when searing, then finish at the recipe temperature until tender or cooked through.",
+      "internal_temperature": "Whole cuts of beef or pork are safe at 145 F with rest; ground meats should reach 160 F. Braised cuts may need longer for tenderness.",
+      "common_mistakes": [
+        "Rushing browning.",
+        "Cooking only by the clock instead of checking tenderness or temperature.",
+        "Slicing before resting."
+      ],
+      "troubleshooting": [
+        "If tough, keep cooking gently with moisture until tender.",
+        "If dry, serve with pan juices or sauce.",
+        "If greasy, skim fat before serving."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat leftovers to 165 F.",
+      "occasion_tags": [
+        "Beef",
+        "Imported",
+        "Thai",
+        "TheMealDB",
+        "asian-inspired"
+      ],
+      "technique_tags": [
+        "Beef",
+        "Imported",
+        "Thai",
+        "TheMealDB"
+      ]
     },
     {
       "id": "mealdb-lemongrass-beef-stew-with-noodles",
@@ -3384,7 +4557,34 @@
       "prep_time": "15 min",
       "cook_time": "35 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Brown over medium-high heat when searing, then finish at the recipe temperature until tender or cooked through.",
+      "internal_temperature": "Whole cuts of beef or pork are safe at 145 F with rest; ground meats should reach 160 F. Braised cuts may need longer for tenderness.",
+      "common_mistakes": [
+        "Rushing browning.",
+        "Cooking only by the clock instead of checking tenderness or temperature.",
+        "Slicing before resting."
+      ],
+      "troubleshooting": [
+        "If tough, keep cooking gently with moisture until tender.",
+        "If dry, serve with pan juices or sauce.",
+        "If greasy, skim fat before serving."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat leftovers to 165 F.",
+      "occasion_tags": [
+        "Beef",
+        "Imported",
+        "Thai",
+        "TheMealDB",
+        "asian-inspired"
+      ],
+      "technique_tags": [
+        "Beef",
+        "Imported",
+        "Thai",
+        "TheMealDB"
+      ]
     },
     {
       "id": "mealdb-massaman-beef-curry",
@@ -3458,7 +4658,34 @@
       "prep_time": "15 min",
       "cook_time": "35 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Brown over medium-high heat when searing, then finish at the recipe temperature until tender or cooked through.",
+      "internal_temperature": "Whole cuts of beef or pork are safe at 145 F with rest; ground meats should reach 160 F. Braised cuts may need longer for tenderness.",
+      "common_mistakes": [
+        "Rushing browning.",
+        "Cooking only by the clock instead of checking tenderness or temperature.",
+        "Slicing before resting."
+      ],
+      "troubleshooting": [
+        "If tough, keep cooking gently with moisture until tender.",
+        "If dry, serve with pan juices or sauce.",
+        "If greasy, skim fat before serving."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat leftovers to 165 F.",
+      "occasion_tags": [
+        "Beef",
+        "Imported",
+        "Thai",
+        "TheMealDB",
+        "asian-inspired"
+      ],
+      "technique_tags": [
+        "Beef",
+        "Imported",
+        "Thai",
+        "TheMealDB"
+      ]
     },
     {
       "id": "shrimp-and-grits",
@@ -3670,8 +4897,8 @@
         "Pan Sauce",
         "Simmering"
       ],
-      "storage": "",
-      "reheating": "",
+      "storage": "Cool within 2 hours; refrigerate up to 3 days.",
+      "reheating": "Reheat gently until hot; avoid overcooking. Leftovers should reach 165 F.",
       "occasion_tags": [
         "Brunch",
         "Sunday Dinner",
@@ -3686,7 +4913,19 @@
         "greek-salad",
         "peach-cobbler"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use steady medium to medium-high heat so seafood cooks quickly without drying out.",
+      "internal_temperature": "Fish should reach 145 F or turn opaque and flake easily; shrimp should turn opaque and firm.",
+      "common_mistakes": [
+        "Overcooking seafood.",
+        "Starting with wet seafood when searing or frying.",
+        "Leaving cooked seafood out too long."
+      ],
+      "troubleshooting": [
+        "If seafood releases water, pat it dry next time and use higher heat.",
+        "If overcooked, serve with sauce or lemon to help the texture.",
+        "If underdone, return to gentle heat briefly."
+      ]
     },
     {
       "id": "cajun-cream-pasta",
@@ -3737,7 +4976,29 @@
       "prep_time": "15 min",
       "cook_time": "30 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use steady medium to medium-high heat so seafood cooks quickly without drying out.",
+      "internal_temperature": "Fish should reach 145 F or turn opaque and flake easily; shrimp should turn opaque and firm.",
+      "common_mistakes": [
+        "Overcooking seafood.",
+        "Starting with wet seafood when searing or frying.",
+        "Leaving cooked seafood out too long."
+      ],
+      "troubleshooting": [
+        "If seafood releases water, pat it dry next time and use higher heat.",
+        "If overcooked, serve with sauce or lemon to help the texture.",
+        "If underdone, return to gentle heat briefly."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 days.",
+      "reheating": "Reheat gently until hot; avoid overcooking. Leftovers should reach 165 F.",
+      "occasion_tags": [
+        "Quick Weeknight Meals",
+        "creole"
+      ],
+      "technique_tags": [
+        "Quick Weeknight Meals",
+        "creole"
+      ]
     },
     {
       "id": "general-tso-chicken",
@@ -3789,7 +5050,29 @@
       "prep_time": "15 min",
       "cook_time": "35 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use the recipe heat setting; avoid crowding so food cooks evenly.",
+      "internal_temperature": "Poultry should reach 165 F in the thickest part.",
+      "common_mistakes": [
+        "Crowding the pan.",
+        "Cooking by color only instead of temperature.",
+        "Skipping rest time when the recipe calls for it."
+      ],
+      "troubleshooting": [
+        "If browning too fast, lower heat and finish gently.",
+        "If dry, slice thinner and serve with sauce or pan juices.",
+        "If underdone, return to heat until 165 F."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat leftovers to 165 F.",
+      "occasion_tags": [
+        "Global Flavors",
+        "asian-inspired"
+      ],
+      "technique_tags": [
+        "Global Flavors",
+        "asian-inspired"
+      ]
     },
     {
       "id": "tandoori-chicken",
@@ -3852,7 +5135,33 @@
       "prep_time": "20 min",
       "cook_time": "35 min",
       "skill_level": "Amateur",
-      "cultural_variations": []
+      "cultural_variations": [],
+      "cooking_temperature": "Use the recipe heat setting; avoid crowding so food cooks evenly.",
+      "internal_temperature": "Poultry should reach 165 F in the thickest part.",
+      "common_mistakes": [
+        "Crowding the pan.",
+        "Cooking by color only instead of temperature.",
+        "Skipping rest time when the recipe calls for it."
+      ],
+      "troubleshooting": [
+        "If browning too fast, lower heat and finish gently.",
+        "If dry, slice thinner and serve with sauce or pan juices.",
+        "If underdone, return to heat until 165 F."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat leftovers to 165 F.",
+      "occasion_tags": [
+        "chicken",
+        "spices",
+        "yogurt marinade",
+        "naan"
+      ],
+      "technique_tags": [
+        "chicken",
+        "spices",
+        "yogurt marinade",
+        "naan"
+      ]
     },
     {
       "id": "butter-chicken",
@@ -4065,7 +5374,19 @@
         "biryani",
         "chana-masala"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the recipe heat setting; avoid crowding so food cooks evenly.",
+      "internal_temperature": "Poultry should reach 165 F in the thickest part.",
+      "common_mistakes": [
+        "Crowding the pan.",
+        "Cooking by color only instead of temperature.",
+        "Skipping rest time when the recipe calls for it."
+      ],
+      "troubleshooting": [
+        "If browning too fast, lower heat and finish gently.",
+        "If dry, slice thinner and serve with sauce or pan juices.",
+        "If underdone, return to heat until 165 F."
+      ]
     },
     {
       "id": "chicken-tikka-masala",
@@ -4263,7 +5584,19 @@
         "garlic-naan",
         "biryani"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the recipe heat setting; avoid crowding so food cooks evenly.",
+      "internal_temperature": "Poultry should reach 165 F in the thickest part.",
+      "common_mistakes": [
+        "Crowding the pan.",
+        "Cooking by color only instead of temperature.",
+        "Skipping rest time when the recipe calls for it."
+      ],
+      "troubleshooting": [
+        "If browning too fast, lower heat and finish gently.",
+        "If dry, slice thinner and serve with sauce or pan juices.",
+        "If underdone, return to heat until 165 F."
+      ]
     },
     {
       "id": "biryani",
@@ -4453,7 +5786,19 @@
         "garlic-naan",
         "chana-masala"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the recipe heat setting; avoid crowding so food cooks evenly.",
+      "internal_temperature": "Poultry should reach 165 F in the thickest part.",
+      "common_mistakes": [
+        "Crowding the pan.",
+        "Cooking by color only instead of temperature.",
+        "Skipping rest time when the recipe calls for it."
+      ],
+      "troubleshooting": [
+        "If browning too fast, lower heat and finish gently.",
+        "If dry, slice thinner and serve with sauce or pan juices.",
+        "If underdone, return to heat until 165 F."
+      ]
     },
     {
       "id": "palak-paneer",
@@ -4651,7 +5996,19 @@
         "garlic-naan",
         "chana-masala"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ]
     },
     {
       "id": "chana-masala",
@@ -4864,7 +6221,19 @@
         "biryani",
         "palak-paneer"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ]
     },
     {
       "id": "garlic-naan",
@@ -5051,7 +6420,19 @@
         "chana-masala",
         "palak-paneer"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ]
     },
     {
       "id": "fried-chicken",
@@ -5273,7 +6654,19 @@
         "southern-baked-mac-cheese",
         "banana-pudding"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Keep frying oil between 325 and 350 F.",
+      "internal_temperature": "Chicken is done at 165 F in the thickest part, away from bone.",
+      "common_mistakes": [
+        "Crowding the pot, which drops the oil temperature and makes the crust greasy.",
+        "Skipping the rest after dredging, which can make the coating fall off.",
+        "Pulling chicken by color only instead of checking 165 F."
+      ],
+      "troubleshooting": [
+        "If the crust browns too fast, lower the heat and finish pieces on a rack in a 325 F oven.",
+        "If the coating looks patchy, press flour firmly into the chicken and let it hydrate before frying.",
+        "If leftovers soften, reheat uncovered on a rack instead of microwaving."
+      ]
     },
     {
       "id": "mac-and-cheese",
@@ -5457,8 +6850,8 @@
         "Baking",
         "Custard"
       ],
-      "storage": "",
-      "reheating": "",
+      "storage": "Cool within 2 hours; refrigerate leftovers in a covered container up to 3 to 4 days.",
+      "reheating": "Reheat gently until hot throughout; leftovers with meat or dairy should reach 165 F.",
       "occasion_tags": [
         "Sunday Dinner",
         "Holiday",
@@ -5473,7 +6866,19 @@
         "southern-collard-greens",
         "smothered-pork-chops"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ]
     },
     {
       "id": "collard-greens",
@@ -5659,8 +7064,8 @@
         "Braising",
         "Simmering"
       ],
-      "storage": "",
-      "reheating": "",
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat leftovers to 165 F.",
       "occasion_tags": [
         "Sunday Dinner",
         "Holiday",
@@ -5675,7 +7080,19 @@
         "fried-chicken",
         "southern-black-eyed-peas"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the recipe heat setting; avoid crowding so food cooks evenly.",
+      "internal_temperature": "Poultry should reach 165 F in the thickest part.",
+      "common_mistakes": [
+        "Crowding the pan.",
+        "Cooking by color only instead of temperature.",
+        "Skipping rest time when the recipe calls for it."
+      ],
+      "troubleshooting": [
+        "If browning too fast, lower heat and finish gently.",
+        "If dry, slice thinner and serve with sauce or pan juices.",
+        "If underdone, return to heat until 165 F."
+      ]
     },
     {
       "id": "cornbread",
@@ -5876,7 +7293,19 @@
         "southern-collard-greens",
         "cajun-chicken-sausage-gumbo"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ]
     },
     {
       "id": "smothered-pork-chops",
@@ -6062,8 +7491,8 @@
         "Searing",
         "Simmering"
       ],
-      "storage": "",
-      "reheating": "",
+      "storage": "Cool within 2 hours; refrigerate chops and gravy up to 3 to 4 days.",
+      "reheating": "Reheat gently covered until hot throughout; leftovers should reach 165 F.",
       "occasion_tags": [
         "Sunday Dinner",
         "Repast"
@@ -6078,7 +7507,19 @@
         "southern-baked-mac-cheese",
         "cornbread"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Sear over medium-high heat, then simmer gently in gravy.",
+      "internal_temperature": "Pork chops are safe at 145 F with a 3-minute rest; cook longer if you want them very tender in gravy.",
+      "common_mistakes": [
+        "Boiling the gravy hard until it breaks.",
+        "Using too much flour and making paste.",
+        "Skipping browning before smothering."
+      ],
+      "troubleshooting": [
+        "If gravy is lumpy, whisk in warm stock slowly.",
+        "If chops are tough, simmer covered a little longer on low.",
+        "If gravy is salty, add unsalted stock or a splash of milk."
+      ]
     },
     {
       "id": "fried-catfish",
@@ -6263,8 +7704,8 @@
         "Dredging",
         "Frying"
       ],
-      "storage": "",
-      "reheating": "",
+      "storage": "Cool within 2 hours; refrigerate up to 3 days.",
+      "reheating": "Reheat on a rack at 375 F until hot and crisp; avoid steaming in the microwave.",
       "occasion_tags": [
         "Fish Fry",
         "Cookout"
@@ -6278,7 +7719,19 @@
         "tartar-sauce",
         "creamy-coleslaw"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Fry at 350 F so the cornmeal crust crisps before the fish dries out.",
+      "internal_temperature": "Fish is done at 145 F or when it flakes easily and turns opaque.",
+      "common_mistakes": [
+        "Letting coated fish sit too long until the crust gets soggy.",
+        "Overcrowding the skillet and steaming the fish.",
+        "Skipping the rack, which softens the underside."
+      ],
+      "troubleshooting": [
+        "If the crust falls off, pat fish drier and press the cornmeal on firmly.",
+        "If fish tastes oily, raise oil temperature between batches.",
+        "If fillets are thick, lower heat slightly and cook a little longer."
+      ]
     },
     {
       "id": "chicken-street-tacos",
@@ -6458,7 +7911,19 @@
         "cilantro-lime-rice",
         "black-bean-enchiladas"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the recipe heat setting; avoid crowding so food cooks evenly.",
+      "internal_temperature": "Poultry should reach 165 F in the thickest part.",
+      "common_mistakes": [
+        "Crowding the pan.",
+        "Cooking by color only instead of temperature.",
+        "Skipping rest time when the recipe calls for it."
+      ],
+      "troubleshooting": [
+        "If browning too fast, lower heat and finish gently.",
+        "If dry, slice thinner and serve with sauce or pan juices.",
+        "If underdone, return to heat until 165 F."
+      ]
     },
     {
       "id": "cheese-quesadillas",
@@ -6596,7 +8061,19 @@
         "cilantro-lime-rice",
         "black-bean-enchiladas"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ]
     },
     {
       "id": "cilantro-lime-rice",
@@ -6760,7 +8237,19 @@
         "chicken-street-tacos",
         "black-bean-enchiladas"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ]
     },
     {
       "id": "black-bean-enchiladas",
@@ -6926,7 +8415,19 @@
         "cilantro-lime-rice",
         "cheese-quesadillas"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ]
     },
     {
       "id": "jerk-chicken",
@@ -7108,7 +8609,19 @@
         "fried-sweet-plantains",
         "cabbage-saute"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the recipe heat setting; avoid crowding so food cooks evenly.",
+      "internal_temperature": "Poultry should reach 165 F in the thickest part.",
+      "common_mistakes": [
+        "Crowding the pan.",
+        "Cooking by color only instead of temperature.",
+        "Skipping rest time when the recipe calls for it."
+      ],
+      "troubleshooting": [
+        "If browning too fast, lower heat and finish gently.",
+        "If dry, slice thinner and serve with sauce or pan juices.",
+        "If underdone, return to heat until 165 F."
+      ]
     },
     {
       "id": "rice-and-peas",
@@ -7299,7 +8812,19 @@
         "jerk-chicken",
         "fried-sweet-plantains"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ]
     },
     {
       "id": "fried-sweet-plantains",
@@ -7422,7 +8947,19 @@
         "jerk-chicken",
         "rice-and-peas"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ]
     },
     {
       "id": "caribbean-curry-chicken",
@@ -7625,7 +9162,19 @@
         "rice-and-peas",
         "fried-sweet-plantains"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the recipe heat setting; avoid crowding so food cooks evenly.",
+      "internal_temperature": "Poultry should reach 165 F in the thickest part.",
+      "common_mistakes": [
+        "Crowding the pan.",
+        "Cooking by color only instead of temperature.",
+        "Skipping rest time when the recipe calls for it."
+      ],
+      "troubleshooting": [
+        "If browning too fast, lower heat and finish gently.",
+        "If dry, slice thinner and serve with sauce or pan juices.",
+        "If underdone, return to heat until 165 F."
+      ]
     },
     {
       "id": "chicken-gyros",
@@ -7819,7 +9368,19 @@
         "creamy-hummus",
         "pita-flatbread"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the recipe heat setting; avoid crowding so food cooks evenly.",
+      "internal_temperature": "Poultry should reach 165 F in the thickest part.",
+      "common_mistakes": [
+        "Crowding the pan.",
+        "Cooking by color only instead of temperature.",
+        "Skipping rest time when the recipe calls for it."
+      ],
+      "troubleshooting": [
+        "If browning too fast, lower heat and finish gently.",
+        "If dry, slice thinner and serve with sauce or pan juices.",
+        "If underdone, return to heat until 165 F."
+      ]
     },
     {
       "id": "greek-salad",
@@ -8009,7 +9570,19 @@
         "chicken-gyros",
         "lemon-herb-salmon"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ]
     },
     {
       "id": "creamy-hummus",
@@ -8183,7 +9756,19 @@
         "pita-flatbread",
         "greek-salad"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ]
     },
     {
       "id": "lemon-herb-salmon",
@@ -8363,7 +9948,19 @@
         "rice-pilaf",
         "tzatziki-sauce"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use steady medium to medium-high heat so seafood cooks quickly without drying out.",
+      "internal_temperature": "Fish should reach 145 F or turn opaque and flake easily; shrimp should turn opaque and firm.",
+      "common_mistakes": [
+        "Overcooking seafood.",
+        "Starting with wet seafood when searing or frying.",
+        "Leaving cooked seafood out too long."
+      ],
+      "troubleshooting": [
+        "If seafood releases water, pat it dry next time and use higher heat.",
+        "If overcooked, serve with sauce or lemon to help the texture.",
+        "If underdone, return to gentle heat briefly."
+      ]
     },
     {
       "id": "chicken-salad-croissants",
@@ -8412,7 +10009,33 @@
       "source": {
         "type": "original",
         "name": "Let's Cook Y'all kitchen recipe"
-      }
+      },
+      "cooking_temperature": "Use the recipe heat setting; avoid crowding so food cooks evenly.",
+      "internal_temperature": "Poultry should reach 165 F in the thickest part.",
+      "common_mistakes": [
+        "Crowding the pan.",
+        "Cooking by color only instead of temperature.",
+        "Skipping rest time when the recipe calls for it."
+      ],
+      "troubleshooting": [
+        "If browning too fast, lower heat and finish gently.",
+        "If dry, slice thinner and serve with sauce or pan juices.",
+        "If underdone, return to heat until 165 F."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat leftovers to 165 F.",
+      "occasion_tags": [
+        "lunch",
+        "croissants",
+        "hosting",
+        "quick meals"
+      ],
+      "technique_tags": [
+        "lunch",
+        "croissants",
+        "hosting",
+        "quick meals"
+      ]
     },
     {
       "id": "turkey-pinwheels",
@@ -8459,7 +10082,33 @@
       "source": {
         "type": "original",
         "name": "Let's Cook Y'all kitchen recipe"
-      }
+      },
+      "cooking_temperature": "Use the recipe heat setting; avoid crowding so food cooks evenly.",
+      "internal_temperature": "Poultry should reach 165 F in the thickest part.",
+      "common_mistakes": [
+        "Crowding the pan.",
+        "Cooking by color only instead of temperature.",
+        "Skipping rest time when the recipe calls for it."
+      ],
+      "troubleshooting": [
+        "If browning too fast, lower heat and finish gently.",
+        "If dry, slice thinner and serve with sauce or pan juices.",
+        "If underdone, return to heat until 165 F."
+      ],
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat leftovers to 165 F.",
+      "occasion_tags": [
+        "kid chefs",
+        "lunchbox",
+        "no-cook",
+        "wraps"
+      ],
+      "technique_tags": [
+        "kid chefs",
+        "lunchbox",
+        "no-cook",
+        "wraps"
+      ]
     },
     {
       "id": "easy-lunch-wraps",
@@ -8506,7 +10155,33 @@
       "source": {
         "type": "original",
         "name": "Let's Cook Y'all kitchen recipe"
-      }
+      },
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ],
+      "storage": "Cool within 2 hours; refrigerate leftovers in a covered container up to 3 to 4 days.",
+      "reheating": "Reheat gently until hot throughout; leftovers with meat or dairy should reach 165 F.",
+      "occasion_tags": [
+        "wraps",
+        "kid chefs",
+        "quick meals",
+        "no-cook"
+      ],
+      "technique_tags": [
+        "wraps",
+        "kid chefs",
+        "quick meals",
+        "no-cook"
+      ]
     },
     {
       "id": "southern-crispy-fried-chicken",
@@ -8683,8 +10358,8 @@
         "Dredging",
         "Frying"
       ],
-      "storage": "",
-      "reheating": "",
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat leftovers to 165 F.",
       "tags": [
         "southern",
         "fried chicken",
@@ -8710,7 +10385,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the recipe heat setting; avoid crowding so food cooks evenly.",
+      "internal_temperature": "Poultry should reach 165 F in the thickest part.",
+      "common_mistakes": [
+        "Crowding the pan.",
+        "Cooking by color only instead of temperature.",
+        "Skipping rest time when the recipe calls for it."
+      ],
+      "troubleshooting": [
+        "If browning too fast, lower heat and finish gently.",
+        "If dry, slice thinner and serve with sauce or pan juices.",
+        "If underdone, return to heat until 165 F."
+      ]
     },
     {
       "id": "buttermilk-biscuits",
@@ -8863,8 +10550,8 @@
         "Baking",
         "Folding"
       ],
-      "storage": "",
-      "reheating": "",
+      "storage": "Cool within 2 hours; refrigerate leftovers in a covered container up to 3 to 4 days.",
+      "reheating": "Reheat gently until hot throughout; leftovers with meat or dairy should reach 165 F.",
       "tags": [
         "southern",
         "biscuits",
@@ -8891,7 +10578,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ]
     },
     {
       "id": "southern-buttermilk-biscuits",
@@ -9044,8 +10743,8 @@
         "Baking",
         "Folding"
       ],
-      "storage": "",
-      "reheating": "",
+      "storage": "Refrigerate covered up to 3 to 4 days depending on fresh fruit or dairy.",
+      "reheating": "Serve chilled unless noted.",
       "tags": [
         "southern",
         "biscuits",
@@ -9069,7 +10768,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Chill drinks thoroughly before serving unless the recipe is served warm.",
+      "internal_temperature": "No internal temperature needed.",
+      "common_mistakes": [
+        "Adding ice too early and watering down the pitcher.",
+        "Not tasting for sweetness and acid balance.",
+        "Serving without enough ice for a long gathering."
+      ],
+      "troubleshooting": [
+        "If too sweet, add cold water or citrus.",
+        "If flat, add lemon, mint, or a pinch of salt depending on the drink.",
+        "If serving outside, keep pitchers cold in ice."
+      ]
     },
     {
       "id": "southern-baked-mac-cheese",
@@ -9233,8 +10944,8 @@
         "Baking",
         "Custard"
       ],
-      "storage": "",
-      "reheating": "",
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat covered at 325 F with a splash of milk until 165 F.",
       "tags": [
         "southern",
         "soul food",
@@ -9262,7 +10973,19 @@
       ],
       "featured": true,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Bake at 350 to 375 F until the custard is set and edges bubble.",
+      "internal_temperature": "Egg-based casseroles should reach 160 F; leftovers should reheat to 165 F.",
+      "common_mistakes": [
+        "Overcooking pasta before baking.",
+        "Using pre-shredded cheese only, which can make sauce grainy.",
+        "Cutting immediately before the custard sets."
+      ],
+      "troubleshooting": [
+        "If the center is loose, bake 5 to 10 minutes longer and rest before serving.",
+        "If top browns too fast, tent with foil.",
+        "If dry, serve with a little warm milk or cream stirred into the edge."
+      ]
     },
     {
       "id": "southern-collard-greens",
@@ -9426,8 +11149,8 @@
         "Braising",
         "Simmering"
       ],
-      "storage": "",
-      "reheating": "",
+      "storage": "Cool within 2 hours; refrigerate greens and pot liquor up to 3 to 4 days.",
+      "reheating": "Reheat gently with pot liquor until steaming hot, 165 F for leftovers.",
       "tags": [
         "southern",
         "greens",
@@ -9455,7 +11178,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Simmer low and slow; avoid a hard boil that makes greens harsh.",
+      "internal_temperature": "If using smoked turkey or meat, reheat it in the pot until steaming hot and at least 165 F for leftovers.",
+      "common_mistakes": [
+        "Not washing greens thoroughly.",
+        "Cooking too fast instead of letting the pot liquor develop.",
+        "Adding vinegar too early before greens soften."
+      ],
+      "troubleshooting": [
+        "If greens are gritty, drain and rinse again before continuing.",
+        "If bitter, add a pinch of sugar and a splash of vinegar at the end.",
+        "If tough, keep simmering with enough liquid."
+      ]
     },
     {
       "id": "southern-black-eyed-peas",
@@ -9618,8 +11353,8 @@
       "skills_learned": [
         "Simmering"
       ],
-      "storage": "",
-      "reheating": "",
+      "storage": "Cool within 2 hours; refrigerate leftovers in a covered container up to 3 to 4 days.",
+      "reheating": "Reheat gently until hot throughout; leftovers with meat or dairy should reach 165 F.",
       "tags": [
         "southern",
         "black-eyed peas",
@@ -9646,7 +11381,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ]
     },
     {
       "id": "southern-shrimp-and-grits",
@@ -9836,8 +11583,8 @@
         "Pan Sauce",
         "Simmering"
       ],
-      "storage": "",
-      "reheating": "",
+      "storage": "Cool within 2 hours; refrigerate up to 3 days.",
+      "reheating": "Reheat gently until hot; avoid overcooking. Leftovers should reach 165 F.",
       "tags": [
         "southern",
         "low country",
@@ -9864,7 +11611,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use steady medium to medium-high heat so seafood cooks quickly without drying out.",
+      "internal_temperature": "Fish should reach 145 F or turn opaque and flake easily; shrimp should turn opaque and firm.",
+      "common_mistakes": [
+        "Overcooking seafood.",
+        "Starting with wet seafood when searing or frying.",
+        "Leaving cooked seafood out too long."
+      ],
+      "troubleshooting": [
+        "If seafood releases water, pat it dry next time and use higher heat.",
+        "If overcooked, serve with sauce or lemon to help the texture.",
+        "If underdone, return to gentle heat briefly."
+      ]
     },
     {
       "id": "cajun-jambalaya",
@@ -10056,8 +11815,8 @@
         "One Pot",
         "Simmering"
       ],
-      "storage": "",
-      "reheating": "",
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat covered with a splash of stock or water until 165 F.",
       "tags": [
         "cajun",
         "jambalaya",
@@ -10085,7 +11844,19 @@
       ],
       "featured": true,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Simmer covered over low heat once rice and liquid are added.",
+      "internal_temperature": "Chicken should reach 165 F before serving.",
+      "common_mistakes": [
+        "Stirring too much after rice begins steaming.",
+        "Using too much liquid and making rice mushy.",
+        "Skipping the covered rest at the end."
+      ],
+      "troubleshooting": [
+        "If rice is crunchy, add a splash of hot stock, cover, and steam longer.",
+        "If wet, uncover briefly over low heat.",
+        "If seasoning is uneven, fluff from the bottom after resting."
+      ]
     },
     {
       "id": "cajun-chicken-sausage-gumbo",
@@ -10277,8 +12048,8 @@
         "Roux",
         "Simmering"
       ],
-      "storage": "",
-      "reheating": "",
+      "storage": "Cool quickly; refrigerate up to 3 to 4 days or freeze up to 3 months.",
+      "reheating": "Reheat gently to 165 F, stirring often so rice or roux does not stick.",
       "tags": [
         "cajun",
         "gumbo",
@@ -10306,7 +12077,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Cook roux over medium to medium-low heat; simmer gumbo gently after stock is added.",
+      "internal_temperature": "Chicken pieces should reach 165 F before serving.",
+      "common_mistakes": [
+        "Walking away from roux.",
+        "Adding stock too fast and creating lumps.",
+        "Boiling hard after the gumbo is assembled."
+      ],
+      "troubleshooting": [
+        "If roux burns or has black specks, start over; burnt roux cannot be fixed.",
+        "If gumbo is thin, simmer uncovered a little longer.",
+        "If too salty, add unsalted stock or rice and simmer gently."
+      ]
     },
     {
       "id": "cajun-shrimp-etouffee",
@@ -10498,8 +12281,8 @@
         "Roux",
         "Simmering"
       ],
-      "storage": "",
-      "reheating": "",
+      "storage": "Cool within 2 hours; refrigerate up to 3 days.",
+      "reheating": "Reheat gently until hot; avoid overcooking. Leftovers should reach 165 F.",
       "tags": [
         "cajun",
         "etouffee",
@@ -10526,7 +12309,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use steady medium to medium-high heat so seafood cooks quickly without drying out.",
+      "internal_temperature": "Fish should reach 145 F or turn opaque and flake easily; shrimp should turn opaque and firm.",
+      "common_mistakes": [
+        "Overcooking seafood.",
+        "Starting with wet seafood when searing or frying.",
+        "Leaving cooked seafood out too long."
+      ],
+      "troubleshooting": [
+        "If seafood releases water, pat it dry next time and use higher heat.",
+        "If overcooked, serve with sauce or lemon to help the texture.",
+        "If underdone, return to gentle heat briefly."
+      ]
     },
     {
       "id": "cajun-dirty-rice",
@@ -10692,8 +12487,8 @@
         "Rice",
         "Sauteing"
       ],
-      "storage": "",
-      "reheating": "",
+      "storage": "Cool within 2 hours; refrigerate leftovers in a covered container up to 3 to 4 days.",
+      "reheating": "Reheat gently until hot throughout; leftovers with meat or dairy should reach 165 F.",
       "tags": [
         "cajun",
         "dirty rice",
@@ -10719,7 +12514,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ]
     },
     {
       "id": "bbq-smoked-ribs",
@@ -10898,8 +12705,8 @@
         "Glazing",
         "Low And Slow"
       ],
-      "storage": "",
-      "reheating": "",
+      "storage": "Cool within 2 hours; refrigerate up to 3 to 4 days.",
+      "reheating": "Reheat covered at 300 F until hot, then uncover briefly to reset the glaze.",
       "tags": [
         "bbq",
         "ribs",
@@ -10927,7 +12734,19 @@
       ],
       "featured": true,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Cook ribs at 250 to 275 F, then glaze uncovered to set the sauce.",
+      "internal_temperature": "Pork is safe at 145 F, but ribs turn tender closer to 190 to 203 F when the meat bends and pulls back from bone.",
+      "common_mistakes": [
+        "Skipping membrane removal.",
+        "Saucing too early so the sugar burns.",
+        "Cooking too hot and drying out the ribs."
+      ],
+      "troubleshooting": [
+        "If ribs are tough, cover and keep cooking until they bend easily.",
+        "If sauce burns, glaze during the last 15 to 20 minutes.",
+        "If ribs dry out, wrap with a splash of apple juice."
+      ]
     },
     {
       "id": "bbq-pulled-pork",
@@ -11080,8 +12899,8 @@
         "Low And Slow",
         "Shredding"
       ],
-      "storage": "",
-      "reheating": "",
+      "storage": "Cool within 2 hours; refrigerate with juices up to 3 to 4 days.",
+      "reheating": "Reheat covered with juices until hot throughout, 165 F for leftovers.",
       "tags": [
         "bbq",
         "pulled pork",
@@ -11109,7 +12928,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Cook pork shoulder low and slow at 250 to 300 F.",
+      "internal_temperature": "Pork is safe at 145 F, but shoulder pulls best around 195 to 205 F when tender.",
+      "common_mistakes": [
+        "Trying to shred before the collagen has softened.",
+        "Discarding all cooking juices.",
+        "Adding sauce before tasting the meat."
+      ],
+      "troubleshooting": [
+        "If pork will not shred, keep cooking covered until fork-tender.",
+        "If it tastes flat, add a splash of vinegar and a pinch of salt.",
+        "If dry, mix in warm cooking juices."
+      ]
     },
     {
       "id": "banana-pudding",
@@ -11221,8 +13052,8 @@
         "Layering",
         "No Bake"
       ],
-      "storage": "",
-      "reheating": "",
+      "storage": "Cover and store according to dairy content; refrigerate custards and cream-based desserts.",
+      "reheating": "Warm gently if served warm; keep chilled desserts cold.",
       "tags": [
         "southern",
         "banana pudding",
@@ -11249,7 +13080,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Bake at the recipe temperature until the center is set and the edges are done.",
+      "internal_temperature": "No meat temperature needed; use visual doneness cues from the recipe.",
+      "common_mistakes": [
+        "Measuring casually when baking needs precision.",
+        "Cutting before the dessert sets.",
+        "Overbaking until dry."
+      ],
+      "troubleshooting": [
+        "If center is loose, bake a few minutes longer or chill if it is a custard-style dessert.",
+        "If dry, serve with sauce, cream, or fruit.",
+        "If edges brown too fast, tent loosely with foil."
+      ]
     },
     {
       "id": "peach-cobbler",
@@ -11414,8 +13257,8 @@
       "skills_learned": [
         "Baking"
       ],
-      "storage": "",
-      "reheating": "",
+      "storage": "Cool within 2 hours; refrigerate up to 3 days.",
+      "reheating": "Reheat gently until hot; avoid overcooking. Leftovers should reach 165 F.",
       "tags": [
         "southern",
         "peach cobbler",
@@ -11441,7 +13284,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use steady medium to medium-high heat so seafood cooks quickly without drying out.",
+      "internal_temperature": "Fish should reach 145 F or turn opaque and flake easily; shrimp should turn opaque and firm.",
+      "common_mistakes": [
+        "Overcooking seafood.",
+        "Starting with wet seafood when searing or frying.",
+        "Leaving cooked seafood out too long."
+      ],
+      "troubleshooting": [
+        "If seafood releases water, pat it dry next time and use higher heat.",
+        "If overcooked, serve with sauce or lemon to help the texture.",
+        "If underdone, return to gentle heat briefly."
+      ]
     },
     {
       "id": "southern-pecan-pie",
@@ -11594,8 +13449,8 @@
         "Baking",
         "Custard"
       ],
-      "storage": "",
-      "reheating": "",
+      "storage": "Cover and store according to dairy content; refrigerate custards and cream-based desserts.",
+      "reheating": "Warm gently if served warm; keep chilled desserts cold.",
       "tags": [
         "southern",
         "pecan pie",
@@ -11621,7 +13476,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Bake at the recipe temperature until the center is set and the edges are done.",
+      "internal_temperature": "No meat temperature needed; use visual doneness cues from the recipe.",
+      "common_mistakes": [
+        "Measuring casually when baking needs precision.",
+        "Cutting before the dessert sets.",
+        "Overbaking until dry."
+      ],
+      "troubleshooting": [
+        "If center is loose, bake a few minutes longer or chill if it is a custard-style dessert.",
+        "If dry, serve with sauce, cream, or fruit.",
+        "If edges brown too fast, tent loosely with foil."
+      ]
     },
     {
       "id": "pecan-pie",
@@ -11774,8 +13641,8 @@
         "Baking",
         "Custard"
       ],
-      "storage": "",
-      "reheating": "",
+      "storage": "Cover and store according to dairy content; refrigerate custards and cream-based desserts.",
+      "reheating": "Warm gently if served warm; keep chilled desserts cold.",
       "tags": [
         "southern",
         "pecan pie",
@@ -11799,7 +13666,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Bake at the recipe temperature until the center is set and the edges are done.",
+      "internal_temperature": "No meat temperature needed; use visual doneness cues from the recipe.",
+      "common_mistakes": [
+        "Measuring casually when baking needs precision.",
+        "Cutting before the dessert sets.",
+        "Overbaking until dry."
+      ],
+      "troubleshooting": [
+        "If center is loose, bake a few minutes longer or chill if it is a custard-style dessert.",
+        "If dry, serve with sauce, cream, or fruit.",
+        "If edges brown too fast, tent loosely with foil."
+      ]
     },
     {
       "id": "blackened-swordfish",
@@ -11980,7 +13859,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use steady medium to medium-high heat so seafood cooks quickly without drying out.",
+      "internal_temperature": "Fish should reach 145 F or turn opaque and flake easily; shrimp should turn opaque and firm.",
+      "common_mistakes": [
+        "Overcooking seafood.",
+        "Starting with wet seafood when searing or frying.",
+        "Leaving cooked seafood out too long."
+      ],
+      "troubleshooting": [
+        "If seafood releases water, pat it dry next time and use higher heat.",
+        "If overcooked, serve with sauce or lemon to help the texture.",
+        "If underdone, return to gentle heat briefly."
+      ]
     },
     {
       "id": "southern-meatloaf",
@@ -12174,7 +14065,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ]
     },
     {
       "id": "southern-cornbread-dressing",
@@ -12368,7 +14271,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ]
     },
     {
       "id": "ghanaian-kelewele",
@@ -12521,7 +14436,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ]
     },
     {
       "id": "nigerian-suya-skewers",
@@ -12687,7 +14614,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ]
     },
     {
       "id": "grilled-swordfish-lemon-herb",
@@ -12849,7 +14788,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use steady medium to medium-high heat so seafood cooks quickly without drying out.",
+      "internal_temperature": "Fish should reach 145 F or turn opaque and flake easily; shrimp should turn opaque and firm.",
+      "common_mistakes": [
+        "Overcooking seafood.",
+        "Starting with wet seafood when searing or frying.",
+        "Leaving cooked seafood out too long."
+      ],
+      "troubleshooting": [
+        "If seafood releases water, pat it dry next time and use higher heat.",
+        "If overcooked, serve with sauce or lemon to help the texture.",
+        "If underdone, return to gentle heat briefly."
+      ]
     },
     {
       "id": "mediterranean-swordfish",
@@ -13027,7 +14978,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use steady medium to medium-high heat so seafood cooks quickly without drying out.",
+      "internal_temperature": "Fish should reach 145 F or turn opaque and flake easily; shrimp should turn opaque and firm.",
+      "common_mistakes": [
+        "Overcooking seafood.",
+        "Starting with wet seafood when searing or frying.",
+        "Leaving cooked seafood out too long."
+      ],
+      "troubleshooting": [
+        "If seafood releases water, pat it dry next time and use higher heat.",
+        "If overcooked, serve with sauce or lemon to help the texture.",
+        "If underdone, return to gentle heat briefly."
+      ]
     },
     {
       "id": "moroccan-carrot-salad",
@@ -13190,7 +15153,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ]
     },
     {
       "id": "bbq-chicken-quarters",
@@ -13328,7 +15303,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the recipe heat setting; avoid crowding so food cooks evenly.",
+      "internal_temperature": "Poultry should reach 165 F in the thickest part.",
+      "common_mistakes": [
+        "Crowding the pan.",
+        "Cooking by color only instead of temperature.",
+        "Skipping rest time when the recipe calls for it."
+      ],
+      "troubleshooting": [
+        "If browning too fast, lower heat and finish gently.",
+        "If dry, slice thinner and serve with sauce or pan juices.",
+        "If underdone, return to heat until 165 F."
+      ]
     },
     {
       "id": "bbq-brisket-basics",
@@ -13486,7 +15473,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Smoke or oven-braise around 250 to 275 F for steady low-and-slow cooking.",
+      "internal_temperature": "Brisket is safely cooked above 145 F, but becomes sliceably tender around 195 to 205 F when a probe slides in easily.",
+      "common_mistakes": [
+        "Slicing before the brisket rests.",
+        "Cooking by time only instead of tenderness.",
+        "Cutting with the grain instead of across it."
+      ],
+      "troubleshooting": [
+        "If brisket feels tight, keep cooking low and slow until tender.",
+        "If slices are dry, spoon warm juices or sauce over them and slice thinner.",
+        "If bark gets too dark, wrap with a little stock."
+      ]
     },
     {
       "id": "creole-shrimp-creole",
@@ -13690,7 +15689,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use steady medium to medium-high heat so seafood cooks quickly without drying out.",
+      "internal_temperature": "Fish should reach 145 F or turn opaque and flake easily; shrimp should turn opaque and firm.",
+      "common_mistakes": [
+        "Overcooking seafood.",
+        "Starting with wet seafood when searing or frying.",
+        "Leaving cooked seafood out too long."
+      ],
+      "troubleshooting": [
+        "If seafood releases water, pat it dry next time and use higher heat.",
+        "If overcooked, serve with sauce or lemon to help the texture.",
+        "If underdone, return to gentle heat briefly."
+      ]
     },
     {
       "id": "creole-bananas-foster",
@@ -13841,7 +15852,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Bake at the recipe temperature until the center is set and the edges are done.",
+      "internal_temperature": "No meat temperature needed; use visual doneness cues from the recipe.",
+      "common_mistakes": [
+        "Measuring casually when baking needs precision.",
+        "Cutting before the dessert sets.",
+        "Overbaking until dry."
+      ],
+      "troubleshooting": [
+        "If center is loose, bake a few minutes longer or chill if it is a custard-style dessert.",
+        "If dry, serve with sauce, cream, or fruit.",
+        "If edges brown too fast, tent loosely with foil."
+      ]
     },
     {
       "id": "creole-seafood-gumbo",
@@ -14047,7 +16070,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use steady medium to medium-high heat so seafood cooks quickly without drying out.",
+      "internal_temperature": "Fish should reach 145 F or turn opaque and flake easily; shrimp should turn opaque and firm.",
+      "common_mistakes": [
+        "Overcooking seafood.",
+        "Starting with wet seafood when searing or frying.",
+        "Leaving cooked seafood out too long."
+      ],
+      "troubleshooting": [
+        "If seafood releases water, pat it dry next time and use higher heat.",
+        "If overcooked, serve with sauce or lemon to help the texture.",
+        "If underdone, return to gentle heat briefly."
+      ]
     },
     {
       "id": "creole-courtbouillon",
@@ -14238,7 +16273,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use steady medium to medium-high heat so seafood cooks quickly without drying out.",
+      "internal_temperature": "Fish should reach 145 F or turn opaque and flake easily; shrimp should turn opaque and firm.",
+      "common_mistakes": [
+        "Overcooking seafood.",
+        "Starting with wet seafood when searing or frying.",
+        "Leaving cooked seafood out too long."
+      ],
+      "troubleshooting": [
+        "If seafood releases water, pat it dry next time and use higher heat.",
+        "If overcooked, serve with sauce or lemon to help the texture.",
+        "If underdone, return to gentle heat briefly."
+      ]
     },
     {
       "id": "indian-dal-tadka",
@@ -14416,7 +16463,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ]
     },
     {
       "id": "swordfish-tacos",
@@ -14594,7 +16653,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use steady medium to medium-high heat so seafood cooks quickly without drying out.",
+      "internal_temperature": "Fish should reach 145 F or turn opaque and flake easily; shrimp should turn opaque and firm.",
+      "common_mistakes": [
+        "Overcooking seafood.",
+        "Starting with wet seafood when searing or frying.",
+        "Leaving cooked seafood out too long."
+      ],
+      "troubleshooting": [
+        "If seafood releases water, pat it dry next time and use higher heat.",
+        "If overcooked, serve with sauce or lemon to help the texture.",
+        "If underdone, return to gentle heat briefly."
+      ]
     },
     {
       "id": "red-velvet-cake",
@@ -14857,7 +16928,19 @@
       ],
       "featured": true,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Bake at the recipe temperature until the center is set and the edges are done.",
+      "internal_temperature": "No meat temperature needed; use visual doneness cues from the recipe.",
+      "common_mistakes": [
+        "Measuring casually when baking needs precision.",
+        "Cutting before the dessert sets.",
+        "Overbaking until dry."
+      ],
+      "troubleshooting": [
+        "If center is loose, bake a few minutes longer or chill if it is a custard-style dessert.",
+        "If dry, serve with sauce, cream, or fruit.",
+        "If edges brown too fast, tent loosely with foil."
+      ]
     },
     {
       "id": "strawberry-soda",
@@ -15014,7 +17097,19 @@
       ],
       "featured": true,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Chill drinks thoroughly before serving unless the recipe is served warm.",
+      "internal_temperature": "No internal temperature needed.",
+      "common_mistakes": [
+        "Adding ice too early and watering down the pitcher.",
+        "Not tasting for sweetness and acid balance.",
+        "Serving without enough ice for a long gathering."
+      ],
+      "troubleshooting": [
+        "If too sweet, add cold water or citrus.",
+        "If flat, add lemon, mint, or a pinch of salt depending on the drink.",
+        "If serving outside, keep pitchers cold in ice."
+      ]
     },
     {
       "id": "hibiscus-red-punch",
@@ -15184,7 +17279,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Chill drinks thoroughly before serving unless the recipe is served warm.",
+      "internal_temperature": "No internal temperature needed.",
+      "common_mistakes": [
+        "Adding ice too early and watering down the pitcher.",
+        "Not tasting for sweetness and acid balance.",
+        "Serving without enough ice for a long gathering."
+      ],
+      "troubleshooting": [
+        "If too sweet, add cold water or citrus.",
+        "If flat, add lemon, mint, or a pinch of salt depending on the drink.",
+        "If serving outside, keep pitchers cold in ice."
+      ]
     },
     {
       "id": "watermelon-platter",
@@ -15315,7 +17422,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ]
     },
     {
       "id": "bbq-baked-beans",
@@ -15497,7 +17616,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ]
     },
     {
       "id": "creamy-coleslaw",
@@ -15664,7 +17795,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use steady medium to medium-high heat so seafood cooks quickly without drying out.",
+      "internal_temperature": "Fish should reach 145 F or turn opaque and flake easily; shrimp should turn opaque and firm.",
+      "common_mistakes": [
+        "Overcooking seafood.",
+        "Starting with wet seafood when searing or frying.",
+        "Leaving cooked seafood out too long."
+      ],
+      "troubleshooting": [
+        "If seafood releases water, pat it dry next time and use higher heat.",
+        "If overcooked, serve with sauce or lemon to help the texture.",
+        "If underdone, return to gentle heat briefly."
+      ]
     },
     {
       "id": "southern-potato-salad",
@@ -15858,7 +18001,19 @@
       ],
       "featured": false,
       "source": "Let's Cook Y'all original kitchen data",
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
+      ]
     },
     {
       "id": "hot-water-cornbread",
@@ -16039,7 +18194,19 @@
         "southern-collard-greens",
         "sweet-tea"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Fry in shimmering oil around 350 F.",
+      "internal_temperature": "No meat temperature needed; patties are done when crisp outside and steaming inside.",
+      "common_mistakes": [
+        "Using cool water instead of boiling water.",
+        "Making patties too thick.",
+        "Frying before the cornmeal hydrates."
+      ],
+      "troubleshooting": [
+        "If patties crumble, add a spoonful more boiling water and rest 5 minutes.",
+        "If greasy, let oil return to temperature between batches.",
+        "If centers are gummy, flatten patties slightly."
+      ]
     },
     {
       "id": "mississippi-pot-roast",
@@ -16272,7 +18439,19 @@
         "southern-collard-greens",
         "sweet-tea"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Braise at 300 F or cook on low in a slow cooker until fork-tender.",
+      "internal_temperature": "Beef is safe at 145 F, but chuck roast becomes shreddable around 195 to 205 F when tender.",
+      "common_mistakes": [
+        "Stopping when the roast is only cooked, not tender.",
+        "Adding too much salty seasoning without tasting.",
+        "Skipping the sear."
+      ],
+      "troubleshooting": [
+        "If the roast will not shred, keep cooking covered.",
+        "If too salty, add unsalted stock and serve with potatoes or rice.",
+        "If dry, slice and warm in the pan juices."
+      ]
     },
     {
       "id": "caramel-cake",
@@ -16534,7 +18713,19 @@
         "southern-collard-greens",
         "sweet-tea"
       ],
-      "source_url": ""
+      "source_url": "",
+      "cooking_temperature": "Bake at the recipe temperature until the center is set and the edges are done.",
+      "internal_temperature": "No meat temperature needed; use visual doneness cues from the recipe.",
+      "common_mistakes": [
+        "Measuring casually when baking needs precision.",
+        "Cutting before the dessert sets.",
+        "Overbaking until dry."
+      ],
+      "troubleshooting": [
+        "If center is loose, bake a few minutes longer or chill if it is a custard-style dessert.",
+        "If dry, serve with sauce, cream, or fruit.",
+        "If edges brown too fast, tent loosely with foil."
+      ]
     },
     {
       "id": "sweet-tea",
@@ -16698,6 +18889,18 @@
         "Stir sugar into the warm tea until dissolved.",
         "Add remaining cold water and chill.",
         "Serve over ice with lemon if using."
+      ],
+      "cooking_temperature": "Use steady medium to medium-high heat so seafood cooks quickly without drying out.",
+      "internal_temperature": "Fish should reach 145 F or turn opaque and flake easily; shrimp should turn opaque and firm.",
+      "common_mistakes": [
+        "Overcooking seafood.",
+        "Starting with wet seafood when searing or frying.",
+        "Leaving cooked seafood out too long."
+      ],
+      "troubleshooting": [
+        "If seafood releases water, pat it dry next time and use higher heat.",
+        "If overcooked, serve with sauce or lemon to help the texture.",
+        "If underdone, return to gentle heat briefly."
       ]
     },
     {
@@ -16862,6 +19065,18 @@
         "Combine lemon juice, syrup, and cold water in a pitcher.",
         "Taste and add more water or lemon if needed.",
         "Serve over ice."
+      ],
+      "cooking_temperature": "Chill drinks thoroughly before serving unless the recipe is served warm.",
+      "internal_temperature": "No internal temperature needed.",
+      "common_mistakes": [
+        "Adding ice too early and watering down the pitcher.",
+        "Not tasting for sweetness and acid balance.",
+        "Serving without enough ice for a long gathering."
+      ],
+      "troubleshooting": [
+        "If too sweet, add cold water or citrus.",
+        "If flat, add lemon, mint, or a pinch of salt depending on the drink.",
+        "If serving outside, keep pitchers cold in ice."
       ]
     },
     {
@@ -17012,6 +19227,18 @@
         "Mix softened butter with garlic and parsley if using.",
         "Spread butter into the cuts.",
         "Wrap loosely in foil and warm 8 minutes."
+      ],
+      "cooking_temperature": "Use the heat level in the steps and adjust gently so food cooks evenly without scorching.",
+      "internal_temperature": "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added.",
+      "common_mistakes": [
+        "Starting before ingredients are prepped.",
+        "Forgetting to taste and adjust seasoning.",
+        "Cooking on heat that is too high for the technique."
+      ],
+      "troubleshooting": [
+        "If food tastes flat, add salt, acid, or herbs in small amounts.",
+        "If it cooks too quickly, lower the heat and give it time.",
+        "If texture is off, check moisture, heat, and cook time before changing ingredients."
       ]
     }
   ],

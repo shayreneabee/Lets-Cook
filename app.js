@@ -3378,7 +3378,7 @@ const kidsKitchenLevels = [
     ages: "Ages 13-17",
     focus: "Knife basics, simple hot meals, timing sides, seasoning, and cleaning as a cook.",
     safety: ["Use a stable cutting board", "Know where the fire extinguisher is", "Check food temperature when cooking meat"],
-    recipes: ["chicken-salad-croissants", "wraps", "orange-chicken"],
+    recipes: ["chicken-salad-croissants", "easy-lunch-wraps", "orange-chicken"],
     badges: ["Knife Ready", "Heat Manager", "Meal Builder"],
     challenge: "Plan and cook a simple dinner with one main, one side, and one cleanup plan."
   }
@@ -5163,6 +5163,26 @@ function renderRecipe(id) {
         <article class="detail-panel momma-panel">
           <p class="eyebrow">Tips from Momma</p>
           <ul>${(recipe.tips?.length ? recipe.tips : ["Taste as you go. A recipe is a guide, but your kitchen gets the final say.", "Set everything out before the heat comes on so cooking feels calm.", "Let cooked meat rest before serving so the juices stay where they belong."]).map((item) => `<li>${item}</li>`).join("")}</ul>
+        </article>
+        <article class="detail-panel recipe-intelligence-panel">
+          <p class="eyebrow">Cooking Intelligence</p>
+          <h2>Temperature, mistakes, and fixes.</h2>
+          <div class="detail-columns">
+            <section>
+              <h3>Cooking Temperature</h3>
+              <p>${recipe.cooking_temperature || "Use the heat level in the steps and adjust gently so food cooks evenly."}</p>
+              <h3>Internal Temperature</h3>
+              <p>${recipe.internal_temperature || "No specific internal temperature needed unless meat, poultry, seafood, or eggs are added."}</p>
+            </section>
+            <section>
+              <h3>Common Mistakes</h3>
+              <ul>${(recipe.common_mistakes || []).map((item) => `<li>${item}</li>`).join("")}</ul>
+            </section>
+            <section>
+              <h3>Troubleshooting</h3>
+              <ul>${(recipe.troubleshooting || []).map((item) => `<li>${item}</li>`).join("")}</ul>
+            </section>
+          </div>
         </article>
         <article class="detail-panel recipe-learning-panel">
           <p class="eyebrow">What this teaches</p>
