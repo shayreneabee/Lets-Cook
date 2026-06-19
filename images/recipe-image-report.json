@@ -10,6 +10,102 @@
   "consoleHelper": "window.reportLetsCookRecipeImages()",
   "contentAuditHelper": "window.auditLetsCookImageContent()",
   "contentRule": "Every cuisine or recipe image must attach to at least one real recipe, lesson, cuisine guide, hosting guide, or menu planner route. No orphaned photos. No orphaned recipes.",
+  "juneteenthMenuAudit": [
+    {
+      "recipe": "Smoked Brisket Basics",
+      "id": "bbq-brisket-basics",
+      "requiredSubject": "smoked sliced brisket",
+      "assignedImage": "images/juneteenth/smoked-sliced-brisket.png",
+      "fallbackUsed": false
+    },
+    {
+      "recipe": "BBQ Chicken Quarters",
+      "id": "bbq-chicken-quarters",
+      "requiredSubject": "grilled BBQ chicken quarters",
+      "assignedImage": "images/juneteenth/bbq-chicken-quarters.png",
+      "fallbackUsed": false
+    },
+    {
+      "recipe": "BBQ Baked Beans",
+      "id": "bbq-baked-beans",
+      "requiredSubject": "baked beans",
+      "assignedImage": "images/juneteenth/bbq-baked-beans.png",
+      "fallbackUsed": false
+    },
+    {
+      "recipe": "Southern Collard Greens",
+      "id": "southern-collard-greens",
+      "requiredSubject": "collard greens",
+      "assignedImage": "images/juneteenth/southern-collard-greens.png",
+      "fallbackUsed": false
+    },
+    {
+      "recipe": "Skillet Cornbread",
+      "id": "cornbread",
+      "requiredSubject": "cast iron skillet cornbread",
+      "assignedImage": "images/juneteenth/cast-iron-skillet-cornbread.png",
+      "fallbackUsed": false
+    },
+    {
+      "recipe": "Strawberry Soda",
+      "id": "strawberry-soda",
+      "requiredSubject": "strawberry soda pitcher/bottle",
+      "assignedImage": "images/juneteenth/strawberry-soda.png",
+      "fallbackUsed": false
+    },
+    {
+      "recipe": "Cold Watermelon Platter",
+      "id": "watermelon-platter",
+      "requiredSubject": "sliced watermelon platter",
+      "assignedImage": "images/juneteenth/watermelon-platter.png",
+      "fallbackUsed": false
+    },
+    {
+      "recipe": "Red Velvet Cake",
+      "id": "red-velvet-cake",
+      "requiredSubject": "classic red velvet layer cake",
+      "assignedImage": "images/juneteenth/red-velvet-cake.png",
+      "fallbackUsed": false
+    }
+  ],
+  "juneteenthAdditionalMenuAudit": [
+    {
+      "recipe": "Peach Cobbler",
+      "id": "peach-cobbler",
+      "assignedImage": "images/juneteenth/peach-cobbler.png",
+      "fallbackUsed": false
+    },
+    {
+      "recipe": "Creamy Coleslaw",
+      "id": "creamy-coleslaw",
+      "assignedImage": "images/juneteenth/creamy-coleslaw.png",
+      "fallbackUsed": false
+    },
+    {
+      "recipe": "Southern Potato Salad",
+      "id": "southern-potato-salad",
+      "assignedImage": "images/juneteenth/southern-potato-salad.png",
+      "fallbackUsed": false
+    },
+    {
+      "recipe": "Hibiscus Red Punch",
+      "id": "hibiscus-red-punch",
+      "assignedImage": "images/juneteenth/hibiscus-red-punch.png",
+      "fallbackUsed": false
+    },
+    {
+      "recipe": "Fresh Lemonade",
+      "id": "lemonade",
+      "assignedImage": "images/juneteenth/fresh-lemonade.png",
+      "fallbackUsed": false
+    },
+    {
+      "recipe": "Pulled Pork Shoulder",
+      "id": "bbq-pulled-pork",
+      "assignedImage": "images/juneteenth/pulled-pork-shoulder.png",
+      "fallbackUsed": false
+    }
+  ],
   "auditedMappings": [
     {
       "recipe": "Southern Fried Chicken",
