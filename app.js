@@ -3666,16 +3666,16 @@ function renderPlatformHome() {
 const monthlySpotlight = {
   month: "June",
   headline: "Juneteenth: Food. Family. Freedom.",
-  subhead: "Come on over. The smoker is going, the card tables are out, the kids are running through the yard, and somebody already put your plate to the side.",
+  subhead: "This month we celebrate freedom, family traditions, good food, great music, and the people we love most.",
   heroImages: ["images/hero/hero-01.jpg", "images/hero/hero-02.jpg", "images/hero/hero-03.jpg", "images/hero/hero-04.jpg", "images/hero/hero-05.jpg", "images/hero/hero-06.jpg", "images/hero/hero-07.jpg", "images/hero/hero-08.jpg", "images/hero/hero-09.jpg", "images/hero/hero-10.jpg"],
-  aboveFoldRecipeIds: ["bbq-brisket-basics", "bbq-chicken-quarters", "watermelon-platter", "red-velvet-cake"],
-  gatheringNotes: ["Uncle at the smoker", "Aunties serving plates", "Strawberry soda on ice", "Watermelon for the kids"],
+  aboveFoldRecipeIds: ["bbq-brisket-basics", "bbq-chicken-quarters", "bbq-baked-beans", "southern-collard-greens", "cornbread", "strawberry-soda", "watermelon-platter", "red-velvet-cake"],
+  gatheringNotes: ["Brisket smoking since sunrise", "Aunties carrying foil pans", "Dominoes on the card table", "Kids running through the yard"],
   features: [
-    { title: "Juneteenth", text: "Freedom food, family cookouts, red drinks, storytelling, and a table that remembers." },
-    { title: "Black Music Month", text: "Blues, gospel, jazz, soul, R&B, and hip-hop playing while the grill works." },
-    { title: "Summer Cookouts", text: "Smoke, sauce, cold drinks, easy sides, and enough shade for the aunties." },
+    { title: "Family Reunion Season", text: "Tents, folding chairs, matching shirts, coolers, cousins, and somebody telling you to eat before you leave." },
+    { title: "Black Music Month", text: "Blues, gospel, jazz, soul, R&B, and hip-hop playing while the grill works and the aunties talk." },
+    { title: "Summer Cookouts", text: "Smoke, sauce, cold drinks, easy sides, paper plates, and enough shade for the elders." },
     { title: "Peach Season", text: "Cobblers, shortcakes, preserves, grilled peaches, and Sunday dessert energy." },
-    { title: "Family Reunions", text: "Card tables, cousins, matching shirts, coolers, foil pans, and love overflowing." }
+    { title: "Church Homecomings", text: "Covered dishes, tea, red punch, serving spoons, and people hugging across generations." }
   ],
   favoriteRecipeIds: ["bbq-brisket-basics", "bbq-chicken-quarters", "bbq-baked-beans", "southern-collard-greens", "cornbread", "red-velvet-cake", "strawberry-soda", "watermelon-platter", "peach-cobbler"],
   redFoods: [
@@ -3726,6 +3726,11 @@ function recipeByIdSafe(id) {
 
 function recipeLinkList(ids = []) {
   return ids.map((id) => recipeByIdSafe(id)).filter(Boolean).map((recipe) => `<a href="#recipes/${recipe.id}">${recipe.title}</a>`).join("");
+}
+
+function menuRouteForOccasion(occasion) {
+  const index = menuPairings.findIndex((menu) => menu.occasion.toLowerCase() === occasion.toLowerCase());
+  return `#menu-intelligence/${index >= 0 ? index : 0}`;
 }
 
 const regionalSoulFoodPages = {
@@ -4054,31 +4059,31 @@ function renderRegionalSoulFoodPage(id) {
 function monthlySpotlightBanner() {
   const images = monthlySpotlight.heroImages.map((image, index) => image || photoFor("hero", "family", index, "assets/cooking-family.jpeg"));
   const gatheringRecipes = monthlySpotlight.aboveFoldRecipeIds.map(recipeByIdSafe).filter(Boolean);
+  const juneteenthMenuRoute = menuRouteForOccasion("Juneteenth");
   return `
     <section class="monthly-spotlight-banner juneteenth-banner">
       <div class="monthly-copy">
         <div class="juneteenth-homecoming-label">
           <img src="assets/juneteenth-flag.png" alt="Juneteenth flag" />
-          <span>${monthlySpotlight.month} 19th Homecoming Table</span>
+          <span>${monthlySpotlight.month} 19th Family Reunion</span>
         </div>
         <h1>${monthlySpotlight.headline}</h1>
         <p>${monthlySpotlight.subhead}</p>
+        <p class="reunion-welcome-line">Come on over. We saved you a plate.</p>
         <div class="gathering-note-row">
           ${monthlySpotlight.gatheringNotes.map((note) => `<span>${note}</span>`).join("")}
         </div>
         <div class="hero-actions">
-          <a class="small-button" href="#culinary-academy/juneteenth-food-history">Learn the History</a>
-          <a class="small-button secondary" href="#recipes">Explore Recipes</a>
-          <a class="small-button secondary" href="#menu-intelligence">Build a Celebration Menu</a>
-          <a class="small-button secondary" href="#hosting">Host With Love</a>
+          <a class="small-button" href="#pull-up-chair">Pull Up A Chair</a>
+          <a class="small-button secondary" href="${juneteenthMenuRoute}">Build A Juneteenth Menu</a>
         </div>
       </div>
       <div class="monthly-visual" aria-label="Juneteenth cooking and gathering inspiration">
         <div class="cookout-table-card">
           <div>
-            <p class="eyebrow">On the table</p>
-            <h2>Smoke, sides, cold drinks, and dessert.</h2>
-            <p>Brisket, BBQ chicken, greens, cornbread, red velvet cake, strawberry soda, watermelon, and enough love for whoever walks up.</p>
+            <p class="eyebrow">You just pulled up</p>
+            <h2>The grill is going and the table is filling up.</h2>
+            <p>Uncle has brisket on the smoker, somebody just brought baked beans, the kids found the watermelon, and the red velvet cake is already covered so nobody sneaks a slice.</p>
           </div>
           <div class="cookout-plate-links">
             ${gatheringRecipes.map((recipe) => `<a href="#recipes/${recipe.id}"><img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" /><span>${recipe.title}</span></a>`).join("")}
@@ -4106,6 +4111,55 @@ function thisMonthSection() {
   `;
 }
 
+function thisMonthsTableSection() {
+  const tableRecipes = monthlySpotlight.favoriteRecipeIds.map(recipeByIdSafe).filter(Boolean);
+  return `
+    <section class="cream-section reunion-table-section">
+      <div class="section-heading">
+        <p class="eyebrow">This Month's Table</p>
+        <h2>A whole Juneteenth spread, not just a list of recipes.</h2>
+        <p>Build the kind of table people circle back to: smoked meat, BBQ chicken, greens, beans, cornbread, cold red drinks, watermelon, and dessert waiting under foil.</p>
+      </div>
+      <div class="reunion-table-spread">
+        ${tableRecipes.map((recipe, index) => `
+          <a class="reunion-dish-card dish-${index + 1}" href="#recipes/${recipe.id}">
+            <img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" />
+            <span>${recipe.category || cuisineName(recipe.cuisine)}</span>
+            <strong>${recipe.title}</strong>
+          </a>
+        `).join("")}
+      </div>
+      <div class="hero-actions center-actions">
+        <a class="small-button" href="${menuRouteForOccasion("Juneteenth")}">Cook This Entire Menu</a>
+        <a class="small-button secondary" href="#hosting/family-reunion">Plan The Reunion Table</a>
+      </div>
+    </section>
+  `;
+}
+
+function familyReunionSeasonSection() {
+  const plans = [
+    ["Reunion Menu Builder", menuRouteForOccasion("Juneteenth"), "Start with a full Juneteenth table and adjust the menu for your people."],
+    ["Feed 25", "#hosting/family-reunion", "Small reunion, big love: one smoker main, three sides, fruit, dessert, drinks."],
+    ["Feed 50", "#hosting/family-reunion", "Use stations, foil pans, cooler drinks, and assigned family helpers."],
+    ["Feed 100", "#hosting/catering-prep", "Think in batches, holding temps, serving flow, refills, and cleanup crews."],
+    ["Potluck Planner", "#hosting/church-potluck", "Assign mains, sides, desserts, drinks, paper goods, and serving spoons."],
+    ["Shopping Lists", "#planner", "Turn the menu into ingredients, prep lists, and timing notes."]
+  ];
+  return `
+    <section class="gold-section family-reunion-season">
+      <div class="section-heading">
+        <p class="eyebrow">Family Reunion Season</p>
+        <h2>Plan like the whole family is pulling up.</h2>
+        <p>Feed 25, 50, or 100 without losing the warmth: menu flow, potluck assignments, shopping lists, prep timelines, drink stations, and room for the kids to run around.</p>
+      </div>
+      <div class="reunion-planner-grid">
+        ${plans.map(([title, href, text]) => `<a href="${href}"><span>${title}</span><p>${text}</p></a>`).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function juneteenthFavoritesSection() {
   const cards = monthlySpotlight.favoriteRecipeIds.map(recipeByIdSafe).filter(Boolean);
   return `
@@ -4124,8 +4178,8 @@ function redFoodsHistorySection() {
     <section class="cream-section red-foods-section">
       <div class="section-heading">
         <p class="eyebrow">Red Foods, Rich History</p>
-        <h2>Red drinks and red desserts carry celebration, remembrance, and joy.</h2>
-        <p>Across Juneteenth tables, red food traditions can honor resilience and the long road to freedom while keeping the gathering bright, generous, and deeply human.</p>
+        <h2>Cold red drinks, cake slices, watermelon, and memory.</h2>
+        <p>On Juneteenth tables, red foods are celebration food: sweet, bright, shared, and tied to resilience, remembrance, and the joy of finally gathering free.</p>
       </div>
       <div class="red-food-grid">
         ${monthlySpotlight.redFoods.map((item) => {
@@ -4179,11 +4233,38 @@ function musicCultureSection() {
     <section class="navy-section music-culture-section">
       <div class="section-heading">
         <p class="eyebrow">Black Music Month</p>
-        <h2>Put the record on while the grill is going.</h2>
-        <p>Blues, gospel, jazz, soul, R&B, and hip-hop all carry food memories: church plates, porch songs, block parties, cookouts, and kitchens where somebody is stirring while somebody else is singing.</p>
+        <h2>Somebody put the music on while the grill is going.</h2>
+        <p>Mississippi blues, church gospel, soul, jazz, R&B, and hip-hop all carry food memories: porch songs, family reunion playlists, card-table laughter, and kitchens where somebody is stirring while somebody else is singing.</p>
       </div>
       <div class="music-culture-grid">
-        ${["Blues", "Gospel", "Jazz", "Soul", "R&B", "Hip-Hop"].map((genre) => `<article><span>${genre}</span><p>Build a playlist, tell the story, and let the meal become part of the memory.</p></article>`).join("")}
+        ${[
+          ["Blues", "Mississippi roots, BBQ smoke, Delta stories, and grown folks talking under the tent."],
+          ["Gospel", "Sunday dinner, church homecomings, choir songs, greens, cornbread, and sweet tea."],
+          ["Soul", "Family plates, slow dances, porch memories, and dessert after everybody eats."],
+          ["Jazz", "Louisiana tables, second-line joy, gumbo pots, and celebration food."],
+          ["R&B", "Cookout playlists, cousins laughing, and strawberry soda sweating in the cooler."],
+          ["Hip-Hop", "Block parties, reunion shirts, grill smoke, and young folks bringing new energy."]
+        ].map(([genre, text]) => `<article><span>${genre}</span><p>${text}</p></article>`).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function pullUpAChairSection() {
+  return `
+    <section class="cream-section pull-up-chair-section" id="pull-up-chair">
+      <div class="section-heading">
+        <p class="eyebrow">Pull Up A Chair</p>
+        <h2>Stories, traditions, Sunday dinners, church homecomings, and food memories.</h2>
+        <p>This is the part where people hug, ask who made the potato salad, remember who used to bring the cake, and tell the kids why this day matters.</p>
+      </div>
+      <div class="chair-story-grid">
+        ${[
+          ["The Plate Saved For You", "Hospitality means somebody thought about you before you arrived."],
+          ["Domino Table Talk", "Food, music, jokes, and family stories are all part of the menu."],
+          ["Church Homecoming", "Covered dishes, red punch, serving spoons, and elders getting served first."],
+          ["Sunday Dinner Memory", "Greens, cornbread, fried chicken, tea, dessert, and time to sit down."]
+        ].map(([title, text]) => `<article><h3>${title}</h3><p>${text}</p></article>`).join("")}
       </div>
     </section>
   `;
@@ -4193,10 +4274,16 @@ function comingUpNextSection() {
   return `
     <section class="cream-section coming-up-section">
       <div class="section-heading compact-heading">
-        <p class="eyebrow">Coming Up Next</p>
-        <h2>Keep planning the season.</h2>
+        <p class="eyebrow">Upcoming Summer Gatherings</p>
+        <h2>Keep the tables full all summer.</h2>
       </div>
-      <div class="upcoming-chip-grid">${monthlySpotlight.upcoming.map((item) => `<a href="#hosting">${item}</a>`).join("")}</div>
+      <div class="upcoming-chip-grid">${[
+        ["4th of July", "#hosting/cookout"],
+        ["Family Reunions", "#hosting/family-reunion"],
+        ["Cookout Season", "#hosting/cookout"],
+        ["Church Homecomings", "#hosting/church-potluck"],
+        ["Peach Season", "#recipes/peach-cobbler"]
+      ].map(([item, href]) => `<a href="${href}">${item}</a>`).join("")}</div>
     </section>
   `;
 }
@@ -4219,10 +4306,12 @@ function renderLetsCookHome() {
     </section>
     ${ingredientDiscoverySection("chicken strips")}
     ${thisMonthSection()}
-    ${juneteenthFavoritesSection()}
-    ${redFoodsHistorySection()}
+    ${thisMonthsTableSection()}
+    ${familyReunionSeasonSection()}
     ${juneteenthMenuSection()}
     ${musicCultureSection()}
+    ${pullUpAChairSection()}
+    ${redFoodsHistorySection()}
     <section class="cream-section homepage-photo-strip">
       <div class="section-heading compact-heading">
         <p class="eyebrow">Learn by looking, tasting, and doing</p>

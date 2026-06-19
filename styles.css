@@ -5466,6 +5466,18 @@ button.small-button:is(:hover, :focus-visible) {
   font-size: clamp(1.05rem, 1.7vw, 1.35rem);
 }
 
+.monthly-copy .reunion-welcome-line {
+  width: fit-content;
+  margin: 1rem 0 0;
+  padding: 0.7rem 1rem;
+  border: 1px solid rgba(255, 250, 243, 0.3);
+  border-radius: 999px;
+  background: rgba(122, 23, 35, 0.42);
+  color: #fffaf3;
+  font-weight: 950;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+}
+
 .monthly-visual {
   display: grid;
   gap: 1rem;
@@ -5606,7 +5618,9 @@ button.small-button:is(:hover, :focus-visible) {
 
 .this-month-section,
 .red-foods-section,
-.coming-up-section {
+.coming-up-section,
+.reunion-table-section,
+.pull-up-chair-section {
   background: #f7f2e9;
 }
 
@@ -5645,6 +5659,147 @@ button.small-button:is(:hover, :focus-visible) {
   margin-top: 0.5rem;
   color: #7a1723;
   font-weight: 900;
+}
+
+.reunion-table-section {
+  overflow: hidden;
+}
+
+.reunion-table-spread {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.8rem, 1.8vw, 1.2rem);
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: clamp(1rem, 2.5vw, 1.6rem);
+  border: 1px solid #e7d8bf;
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at 22% 18%, rgba(217, 164, 65, 0.18), transparent 26%),
+    linear-gradient(135deg, #fffaf3, #fff4df);
+  box-shadow: 0 26px 70px rgba(43, 26, 18, 0.12);
+}
+
+.reunion-table-spread::before {
+  content: "";
+  position: absolute;
+  inset: 1rem;
+  border: 2px dashed rgba(181, 107, 69, 0.22);
+  border-radius: 28px;
+  pointer-events: none;
+}
+
+.reunion-dish-card {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  min-height: 220px;
+  overflow: hidden;
+  border-radius: 26px;
+  color: #fffaf3;
+  text-decoration: none;
+  box-shadow: 0 18px 42px rgba(43, 26, 18, 0.18);
+}
+
+.reunion-dish-card:nth-child(1),
+.reunion-dish-card:nth-child(8) {
+  grid-column: span 2;
+}
+
+.reunion-dish-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 180ms ease;
+}
+
+.reunion-dish-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(18, 10, 7, 0.74));
+}
+
+.reunion-dish-card span,
+.reunion-dish-card strong {
+  position: relative;
+  z-index: 1;
+  align-self: end;
+  margin: 0 1rem;
+}
+
+.reunion-dish-card span {
+  margin-top: auto;
+  color: #ffd166;
+  font-size: 0.78rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.reunion-dish-card strong {
+  margin-bottom: 1rem;
+  color: #fffaf3;
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+}
+
+.reunion-dish-card:hover img {
+  transform: scale(1.05);
+}
+
+.center-actions {
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.family-reunion-season {
+  background:
+    radial-gradient(circle at 10% 10%, rgba(125, 146, 112, 0.18), transparent 28%),
+    linear-gradient(135deg, #fff8ec, #f1dfbc);
+}
+
+.reunion-planner-grid,
+.chair-story-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.reunion-planner-grid a,
+.chair-story-grid article {
+  display: grid;
+  align-content: start;
+  min-height: 170px;
+  padding: 1.2rem;
+  border: 1px solid #e7d8bf;
+  border-radius: 24px;
+  background: #fff;
+  color: #232323;
+  text-decoration: none;
+  box-shadow: 0 18px 42px rgba(43, 26, 18, 0.08);
+  transition: transform 160ms ease, border-color 160ms ease;
+}
+
+.reunion-planner-grid a:hover {
+  border-color: #d9a441;
+  transform: translateY(-2px);
+}
+
+.reunion-planner-grid span,
+.chair-story-grid h3 {
+  margin: 0 0 0.6rem;
+  color: #2b1a12;
+  font-size: 1.2rem;
+  font-weight: 950;
+}
+
+.reunion-planner-grid p,
+.chair-story-grid p {
+  margin: 0;
+  color: #5f4a3f;
 }
 
 .navy-section {
@@ -5745,6 +5900,10 @@ button.small-button:is(:hover, :focus-visible) {
   .monthly-photo-stack figure {
     min-height: 170px;
   }
+
+  .reunion-table-spread {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 640px) {
@@ -5764,6 +5923,28 @@ button.small-button:is(:hover, :focus-visible) {
 
   .cookout-plate-links {
     grid-template-columns: 1fr;
+  }
+
+  .reunion-table-spread {
+    grid-template-columns: 1fr;
+    padding: 0.85rem;
+    border-radius: 24px;
+  }
+
+  .reunion-table-spread::before {
+    inset: 0.55rem;
+    border-radius: 20px;
+  }
+
+  .reunion-dish-card,
+  .reunion-dish-card:nth-child(1),
+  .reunion-dish-card:nth-child(8) {
+    grid-column: auto;
+    min-height: 190px;
+  }
+
+  .reunion-welcome-line {
+    width: 100%;
   }
 
   .monthly-copy h1 {
