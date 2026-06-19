@@ -1,4 +1,4 @@
-const CACHE_NAME = "brent-co-platform-v9";
+const CACHE_NAME = "brent-co-platform-v10";
 
 const OFFLINE_ASSETS = [
   "./",
@@ -42,11 +42,35 @@ self.addEventListener("fetch", (event) => {
   const { request } = event;
   if (request.method !== "GET") return;
 
+  const requestUrl = new URL(request.url);
+  const isSameOrigin = requestUrl.origin === self.location.origin;
+  const shouldRefreshFirst =
+    request.mode === "navigate" ||
+    request.destination === "script" ||
+    request.destination === "style" ||
+    request.destination === "manifest" ||
+    (isSameOrigin && requestUrl.pathname.includes("/data/"));
+
+  if (shouldRefreshFirst) {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          if (response && response.ok && isSameOrigin) {
+            const copy = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
+          }
+          return response;
+        })
+        .catch(() => caches.match(request).then((cached) => cached || caches.match("./index.html")))
+    );
+    return;
+  }
+
   event.respondWith(
     caches.match(request).then((cached) => {
       const networkFetch = fetch(request)
         .then((response) => {
-          if (response && response.ok && new URL(request.url).origin === self.location.origin) {
+          if (response && response.ok && isSameOrigin) {
             const copy = response.clone();
             caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
           }
