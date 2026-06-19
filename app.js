@@ -1361,6 +1361,151 @@ function menuShoppingList(menu) {
   return [...new Set(recipesForMenu(menu).flatMap((recipe) => recipe.ingredients || []))];
 }
 
+const plannerServingOptions = [1, 2, 4, 6, 8, 12, 25, 50, 100];
+
+const plannerAudienceIds = ["single", "date-night", "family", "large-family", "sunday-dinner", "church-homecoming", "tailgate", "thanksgiving", "juneteenth", "family-reunion"];
+
+const mealPrepModes = [
+  { id: "single-prep", title: "Single Person Meal Prep", days: [3, 5, 7], ids: ["lemon-herb-salmon", "cilantro-lime-rice", "roasted-vegetables"], notes: ["Stores well for 3 days refrigerated.", "Keep sauce and citrus separate until serving.", "Repurpose leftovers into rice bowls or wraps."] },
+  { id: "couple-prep", title: "Couple Meal Prep", days: [3, 5], ids: ["chicken-street-tacos", "black-bean-side", "mexican-slaw"], notes: ["Prep taco fillings once and warm tortillas fresh.", "Use leftovers for taco salads or quesadillas.", "Keep slaw undressed until serving if you want crunch."] },
+  { id: "family-prep", title: "Family Meal Prep", days: [3, 5], ids: ["fried-chicken", "southern-collard-greens", "cornbread"], notes: ["Chicken reheats best uncovered in the oven.", "Greens improve overnight.", "Cornbread freezes well wrapped tightly."] },
+  { id: "high-protein", title: "High Protein Meal Prep", days: [3, 5, 7], ids: ["bbq-chicken-quarters", "texas-chili", "greek-salad"], notes: ["Portion proteins first, then add sides.", "Freeze chili in flat bags for faster thawing.", "Use salad components fresh, not pre-dressed."] },
+  { id: "budget", title: "Budget Meal Prep", days: [5, 7], ids: ["red-beans-and-rice", "hoppin-john", "cornbread"], notes: ["Beans and rice stretch well.", "Freeze half before day three if cooking for one.", "Add greens or slaw for balance."] },
+  { id: "freezer", title: "Freezer Meal Prep", days: [5, 7], ids: ["texas-chili", "cajun-chicken-sausage-gumbo", "mississippi-pot-roast"], notes: ["Cool completely before freezing.", "Freeze in meal-size containers.", "Thaw overnight and reheat to steaming hot."] },
+  { id: "healthy", title: "Healthy Meal Prep", days: [3, 5], ids: ["greek-salad", "roasted-vegetables", "lemon-herb-salmon"], notes: ["Keep dressings separate.", "Use herbs, lemon, and sauces for flavor without heaviness.", "Eat seafood within 3 days."] },
+  { id: "beginner", title: "Beginner Meal Prep", days: [3], ids: ["soft-scrambled-eggs", "stovetop-mac-and-cheese", "fruit-cups"], notes: ["Start with simple batches.", "Label containers by day.", "Practice reheating gently."] },
+  { id: "work-lunch", title: "Work Lunch Meal Prep", days: [5], ids: ["chicken-salad-croissants", "turkey-pinwheels", "cucumber-salad"], notes: ["Pack bread separately when possible.", "Use ice packs for cold lunches.", "Add fruit or cups for quick sides."] }
+];
+
+const weeklyMealPlan = [
+  { day: "Monday", breakfast: "soft-scrambled-eggs", lunch: "chicken-salad-croissants", dinner: "chicken-street-tacos", snack: "fruit-cups" },
+  { day: "Tuesday", breakfast: "brunch-cups", lunch: "turkey-pinwheels", dinner: "lemon-herb-salmon", snack: "cucumber-salad" },
+  { day: "Wednesday", breakfast: "fruit-cups", lunch: "greek-salad", dinner: "texas-chili", snack: "dessert-cups" },
+  { day: "Thursday", breakfast: "soft-scrambled-eggs", lunch: "rice-and-peas", dinner: "caribbean-curry-chicken", snack: "cucumber-salad" },
+  { day: "Friday", breakfast: "brunch-cups", lunch: "chicken-salad-croissants", dinner: "bbq-chicken-quarters", snack: "watermelon-platter" }
+];
+
+function recipesByIds(ids = []) {
+  return [...new Set(ids)].map((id) => recipeById(id)).filter(Boolean);
+}
+
+function trackRecentlyViewedRecipe(id) {
+  if (!id) return;
+  recentlyViewed = [id, ...recentlyViewed.filter((item) => item !== id)].slice(0, 12);
+  localStorage.setItem("letsCookRecentlyViewed", JSON.stringify(recentlyViewed));
+}
+
+function ingredientCategory(name = "") {
+  const value = name.toLowerCase();
+  if (/chicken|beef|pork|shrimp|fish|crab|salmon|sausage|turkey|ham|bacon|oyster|seafood/.test(value)) return "meat/seafood";
+  if (/milk|butter|cheese|cream|yogurt|egg|mayo|mayonnaise/.test(value)) return "dairy";
+  if (/onion|pepper|celery|garlic|tomato|lettuce|cabbage|greens|potato|lemon|lime|herb|cilantro|parsley|cucumber|carrot|corn|watermelon|peach|banana/.test(value)) return "produce";
+  if (/paprika|salt|pepper|cumin|oregano|thyme|seasoning|cinnamon|sugar|spice|chili powder|garam|masala/.test(value)) return "spices";
+  if (/bread|roll|tortilla|bun|flour|cornmeal|crumb|pita|loaf/.test(value)) return "bakery";
+  if (/ice|soda|tea|lemonade|juice|water|drink|punch/.test(value)) return "drinks";
+  if (/frozen/.test(value)) return "frozen";
+  return "pantry";
+}
+
+function combinedShoppingList(recipeList = [], targetServings = 6) {
+  const measured = new Map();
+  const loose = new Map();
+  recipeList.forEach((recipe) => {
+    const baseServings = Math.max(1, Number(recipe.servings || 1));
+    const multiplier = Math.max(1, Number(targetServings || baseServings)) / baseServings;
+    structuredIngredientsFor(recipe).forEach((ingredient) => {
+      if (ingredient.quantity && ingredient.name) {
+        const unit = ingredient.unit || "";
+        const key = `${ingredient.name.toLowerCase()}|${unit.toLowerCase()}`;
+        const current = measured.get(key) || { name: ingredient.name, unit, quantity: 0, category: ingredientCategory(ingredient.name), recipes: new Set() };
+        current.quantity += Number(ingredient.quantity) * multiplier;
+        current.recipes.add(recipe.title);
+        measured.set(key, current);
+      } else if (ingredient.name) {
+        const key = ingredient.name.toLowerCase();
+        const current = loose.get(key) || { name: ingredient.name, unit: "", quantity: null, category: ingredientCategory(ingredient.name), recipes: new Set() };
+        current.recipes.add(recipe.title);
+        loose.set(key, current);
+      }
+    });
+  });
+  return [...measured.values(), ...loose.values()].map((item) => ({ ...item, recipes: [...item.recipes] }));
+}
+
+function groupedShoppingList(items = []) {
+  const order = ["produce", "meat/seafood", "dairy", "pantry", "spices", "frozen", "bakery", "drinks"];
+  return order.map((category) => {
+    const categoryItems = items.filter((item) => item.category === category);
+    if (!categoryItems.length) return "";
+    return `
+      <section class="shopping-category-card">
+        <h4>${category}</h4>
+        <ul>${categoryItems.map((item) => `<li>${item.quantity ? `<strong>${formatFraction(item.quantity)} ${singularizeUnit(item.unit, item.quantity)}</strong> ` : ""}${item.name}</li>`).join("")}</ul>
+      </section>
+    `;
+  }).join("");
+}
+
+function recipePlannerCard(recipe, action = "plan") {
+  const occasionTags = (recipe.tags || []).filter((tag) => /dinner|holiday|cookout|party|fish fry|potluck|family|sunday|juneteenth|tailgate/i.test(tag)).slice(0, 3);
+  return `
+    <article class="planner-recipe-card">
+      <img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" />
+      <div>
+        <p class="eyebrow">${cuisineName(recipe.cuisine)}</p>
+        <h3>${recipe.title}</h3>
+        <p>${recipe.description}</p>
+        <div class="recipe-card-meta compact-meta">
+          <span>${recipe.prep_time} prep</span>
+          <span>${recipe.cook_time} cook</span>
+          <span>${recipe.servings} servings</span>
+        </div>
+        <div class="region-chip-row">${occasionTags.length ? occasionTags.map((tag) => `<span>${tag}</span>`).join("") : `<span>${recipe.difficulty}</span>`}</div>
+        <div class="planner-card-actions">
+          <a class="small-button secondary" href="#recipes/${recipe.id}">View Recipe</a>
+          <button class="small-button" data-plan="${recipe.id}">${planned.includes(recipe.id) ? "Remove" : action === "menu" ? "Add to Menu" : "Plan"}</button>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function smartPairingFor(recipe) {
+  return menuPairings.find((menu) => (menu.main_recipe_ids || []).includes(recipe.id))
+    || menuPairings.find((menu) => recipesForMenu(menu).some((item) => item.id === recipe.id))
+    || menuPairings.find((menu) => menu.cuisine === recipe.cuisine)
+    || menuPairings[0];
+}
+
+function mealPrepCard(plan) {
+  const planRecipes = recipesByIds(plan.ids);
+  return `
+    <article class="meal-prep-card">
+      <div>
+        <p class="eyebrow">Meal Prep Mode</p>
+        <h3>${plan.title}</h3>
+        <p>${plan.days.join(", ")} day plans</p>
+      </div>
+      <div class="recipe-link-list">${planRecipes.map((recipe) => `<a href="#recipes/${recipe.id}">${recipe.title}</a>`).join("")}</div>
+      <h4>Leftover + reheat intelligence</h4>
+      <ul>${plan.notes.map((note) => `<li>${note}</li>`).join("")}</ul>
+      <button class="small-button secondary" data-use-recipe-set="${plan.ids.join(",")}">Add Plan</button>
+    </article>
+  `;
+}
+
+function savedMenuCard(menu) {
+  const menuRecipes = recipesByIds(menu.recipeIds || []);
+  return `
+    <article class="saved-menu-card">
+      <h3>${menu.title}</h3>
+      <p>${menu.audience || "Saved menu"} / ${menuRecipes.length} recipes</p>
+      <div class="recipe-link-list">${menuRecipes.map((recipe) => `<a href="#recipes/${recipe.id}">${recipe.title}</a>`).join("")}</div>
+      <button class="small-button secondary" data-use-saved-menu="${menu.id}">Reuse Menu</button>
+    </article>
+  `;
+}
+
 function menuMissingRecipeIds() {
   return menuPairings.flatMap((menu) =>
     [...menuRecipeSections.map(([, key]) => key), "alternate_recipe_ids"].flatMap((key) =>
@@ -3512,6 +3657,8 @@ const menuToggle = document.querySelector(".menu-toggle");
 
 let saved = readJSON("letsCookSaved", []);
 let planned = readJSON("letsCookPlanned", []);
+let recentlyViewed = readJSON("letsCookRecentlyViewed", []);
+let savedMenus = readJSON("letsCookSavedMenus", []);
 let submissions = readJSON("letsCookSubmissions", []);
 let lessonProgress = readJSON("letsCookLessonProgress", {});
 let letsCookSession = {
@@ -5343,6 +5490,7 @@ function renderRecipes() {
 
 function renderRecipe(id) {
   const recipe = recipes.find((item) => item.id === id) || recipes[0];
+  trackRecentlyViewedRecipe(recipe.id);
   setShareMeta({
     title: `${recipe.title} | Let's Cook Ya'll`,
     description: recipe.description,
@@ -5546,44 +5694,101 @@ function renderPath(id) {
 
 function renderPlanner(id) {
   const plannedRecipes = recipes.filter((recipe) => planned.includes(recipe.id));
-  const shoppingItems = [...new Set(plannedRecipes.flatMap((recipe) => recipe.ingredients))];
-  const selectedIndex = Number.isFinite(Number(id)) ? Math.max(0, Math.min(menuPairings.length - 1, Number(id))) : 0;
+  const [menuIdPart, servingPart, ...audienceParts] = String(id || "0").split("-");
+  const audienceId = audienceParts.join("-");
+  const selectedIndex = Number.isFinite(Number(menuIdPart)) ? Math.max(0, Math.min(menuPairings.length - 1, Number(menuIdPart))) : 0;
   const selectedMenu = menuPairings[selectedIndex];
-  const selectedAudience = menuAudienceOptions[0];
-  const menuShoppingItems = menuShoppingList(selectedMenu);
-  const menuRecipeCount = recipesForMenu(selectedMenu).length;
+  const selectedAudience = menuAudienceOptions.find((item) => item.id === audienceId) || menuAudienceOptions[0];
+  const menuRecipes = recipesForMenu(selectedMenu);
+  const menuRecipeCount = menuRecipes.length;
+  const selectedServingSize = plannerServingOptions.includes(Number(servingPart)) ? Number(servingPart) : 6;
+  const combinedRecipes = [...new Map([...menuRecipes, ...plannedRecipes].map((recipe) => [recipe.id, recipe])).values()];
+  const groupedShopping = groupedShoppingList(combinedShoppingList(combinedRecipes, selectedServingSize));
+  const savedRecipes = recipesByIds(saved);
+  const recentRecipes = recipesByIds(recentlyViewed).filter((recipe) => !saved.includes(recipe.id)).slice(0, 6);
+  const favoriteRecipes = savedRecipes.filter((recipe) => recipe.featured || (recipe.tags || []).some((tag) => /favorite|sunday|comfort|family|holiday|juneteenth/i.test(tag))).slice(0, 6);
+  const pairingAnchor = plannedRecipes[0] || menuRecipes[0];
+  const smartMenu = pairingAnchor ? smartPairingFor(pairingAnchor) : selectedMenu;
+  const smartRecipes = recipesForMenu(smartMenu).filter((recipe) => recipe.id !== pairingAnchor?.id);
   const quickPlan = [
     { title: "Kid-friendly start", ids: ["pb-and-j-sandwich", "stovetop-mac-and-cheese", "fruit-kabobs"] },
     { title: "Weeknight dinner", ids: ["chicken-street-tacos", "cilantro-lime-rice", "greek-salad"] },
     { title: "Sunday comfort", ids: ["oxtails", "collard-greens", "cornbread"] }
   ];
   const featuredPlanRecipes = ["chicken-street-tacos", "caribbean-curry-chicken", "lemon-herb-salmon", "stovetop-mac-and-cheese"].map((id) => recipes.find((recipe) => recipe.id === id)).filter(Boolean);
+  const savedRail = savedRecipes.length ? savedRecipes : featuredPlanRecipes;
+  const favoriteRail = favoriteRecipes.length ? favoriteRecipes : recipesByIds(["fried-chicken", "bbq-brisket-basics", "cajun-chicken-sausage-gumbo", "shrimp-and-grits", "red-velvet-cake"]);
   app.innerHTML = `
-    ${hero("Meal Planner", "Answer the classic question: what can I cook? Choose a cuisine, occasion, and main dish, then get sides, bread, dessert, drinks, sauces, shopping list, prep timeline, and hosting notes.", photoFor("hero", "learning", 5, "assets/lc-orange-chicken.jpg"))}
+    ${hero("Menu Planner", "Your command center for saved recipes, family menus, meal prep, shopping lists, serving-size planning, and warm hosting flow.", photoFor("hero", "learning", 5, "assets/lc-orange-chicken.jpg"), `<a class="small-button" href="#recipes">Find Recipes</a><button class="small-button secondary" data-print-recipe>Print Planner</button>`)}
     ${cookSubnav()}
-    <section class="cream-section">
+    <section class="cream-section planner-command-center">
       <div class="planner-summary">
         <article><strong>${plannedRecipes.length}</strong><span>Meals planned</span></article>
-        <article><strong>${shoppingItems.length + menuShoppingItems.length}</strong><span>Ingredients listed</span></article>
+        <article><strong>${combinedShoppingList(combinedRecipes, selectedServingSize).length}</strong><span>Shopping items</span></article>
         <article><strong>${menuRecipeCount}</strong><span>Linked menu recipes</span></article>
         <article><strong>${saved.length}</strong><span>Saved recipes</span></article>
       </div>
+      <div class="planner-primary-grid">
+        <article class="detail-panel menu-builder-section">
+          <p class="eyebrow">Build a Menu</p>
+          <h2>Start with an audience, occasion, and main dish.</h2>
+          <form class="menu-builder-form" data-menu-planner-form>
+            <label>Audience<select name="audience">${menuAudienceOptions.filter((item) => plannerAudienceIds.includes(item.id)).map((item) => `<option value="${item.id}"${item.id === selectedAudience.id ? " selected" : ""}>${item.title}</option>`).join("")}</select></label>
+            <label>Serving Size<select name="servings">${plannerServingOptions.map((item) => `<option value="${item}"${item === selectedServingSize ? " selected" : ""}>${item}</option>`).join("")}</select></label>
+            <label>Cuisine<select name="cuisine">${[...new Set(menuPairings.map((menu) => menu.cuisine))].map((item) => `<option${item === selectedMenu.cuisine ? " selected" : ""}>${item}</option>`).join("")}</select></label>
+            <label>Main Dish<select name="main">${menuPairings.map((menu, index) => `<option value="${index}"${index === selectedIndex ? " selected" : ""}>${recipeLinksFor(menu.main_recipe_ids).map((link) => link.replace(/<[^>]+>/g, "")).join(" or ") || menu.main_dish}</option>`).join("")}</select></label>
+            <button class="small-button" type="submit">Generate Menu</button>
+          </form>
+          <div class="planner-menu-actions">
+            <button class="small-button secondary" data-save-current-menu="${selectedIndex}">Save Menu</button>
+            <button class="small-button secondary" data-use-recipe-set="${menuRecipes.map((recipe) => recipe.id).join(",")}">Add Full Menu</button>
+            <button class="small-button secondary" data-clear-planned>Clear Current Menu</button>
+          </div>
+          ${menuAudienceCard(selectedAudience)}
+          ${menuPairingCard(selectedMenu)}
+        </article>
+        <article class="detail-panel planner-shopping-panel">
+          <p class="eyebrow">Combined Shopping List</p>
+          <h2>Scaled for ${selectedServingSize} servings.</h2>
+          <p>Duplicate measured ingredients are combined and grouped by grocery section.</p>
+          <div class="shopping-category-grid">${groupedShopping || "<p>Add recipes to your menu to generate a shopping list.</p>"}</div>
+          <button class="small-button secondary" data-print-recipe>Print / Save PDF</button>
+        </article>
+      </div>
+      <section class="detail-panel">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">My recipe library</p>
+          <h2>Build menus from what you already saved.</h2>
+          <p>Family recipes and custom recipes are ready for the next backend step; today this planner works with saved, recent, and favorite recipes.</p>
+        </div>
+        <div class="planner-rail-grid">
+          <section>
+            <h3>My Saved Recipes</h3>
+            <div class="planner-card-stack">${savedRail.slice(0, 6).map((recipe) => recipePlannerCard(recipe, "menu")).join("")}</div>
+          </section>
+          <section>
+            <h3>Recently Viewed Recipes</h3>
+            <div class="planner-card-stack">${recentRecipes.length ? recentRecipes.map((recipe) => recipePlannerCard(recipe, "menu")).join("") : `<div class="empty-state">Open a recipe and it will appear here.</div>`}</div>
+          </section>
+          <section>
+            <h3>Favorite Recipes</h3>
+            <div class="planner-card-stack">${favoriteRail.map((recipe) => recipePlannerCard(recipe, "menu")).join("")}</div>
+          </section>
+        </div>
+      </section>
+      <section class="detail-panel">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">Smart Pairings</p>
+          <h2>${pairingAnchor ? `${pairingAnchor.title} goes with...` : "Choose a main dish and build the rest of the plate."}</h2>
+          <p>Pairings only use real recipe records, so every side, bread, dessert, drink, and sauce has a home.</p>
+        </div>
+        <div class="recipe-grid">${smartRecipes.slice(0, 8).map(recipeCard).join("")}</div>
+      </section>
       <article class="detail-panel menu-builder-section">
-        <p class="eyebrow">Menu Planner</p>
-        <h2>Build a full table from one main dish.</h2>
-        <form class="menu-builder-form" data-menu-planner-form>
-          <label>Audience<select name="audience">${menuAudienceOptions.map((item) => `<option value="${item.id}">${item.title}</option>`).join("")}</select></label>
-          <label>Cuisine<select name="cuisine">${[...new Set(menuPairings.map((menu) => menu.cuisine))].map((item) => `<option${item === selectedMenu.cuisine ? " selected" : ""}>${item}</option>`).join("")}</select></label>
-          <label>Occasion<select name="occasion">${[...new Set(menuPairings.map((menu) => menu.occasion))].map((item) => `<option${item === selectedMenu.occasion ? " selected" : ""}>${item}</option>`).join("")}</select></label>
-          <label>Main Dish<select name="main">${menuPairings.map((menu, index) => `<option value="${index}"${index === selectedIndex ? " selected" : ""}>${recipeLinksFor(menu.main_recipe_ids).map((link) => link.replace(/<[^>]+>/g, "")).join(" or ") || menu.main_dish}</option>`).join("")}</select></label>
-          <button class="small-button" type="submit">Generate Menu</button>
-        </form>
-        ${menuAudienceCard(selectedAudience)}
-        ${menuPairingCard(selectedMenu)}
+        <p class="eyebrow">Meal Prep Mode</p>
+        <h2>Plan for 3, 5, or 7 days with leftovers that make sense.</h2>
         <div class="planner-layout compact-planner-layout">
-          <section class="academy-module-card"><h3>Shopping List</h3><ul>${menuShoppingItems.map((item) => `<li>${item}</li>`).join("")}</ul></section>
-          <section class="academy-module-card"><h3>Prep Timeline</h3><p>${selectedMenu.hosting_notes}</p><ul><li>Two days before: choose menu and shop shelf-stable goods.</li><li>Day before: prep sauces, desserts, and cold sides.</li><li>Day of: cook the main, warm breads, finish fresh sides, and set drinks.</li></ul></section>
-          <section class="academy-module-card"><h3>Alternate Recipes</h3><div class="recipe-link-list">${recipeLinksFor(selectedMenu.alternate_recipe_ids).join("") || "<span>Try another menu for alternates.</span>"}</div></section>
+          ${mealPrepModes.map(mealPrepCard).join("")}
         </div>
       </article>
       <div class="planner-layout">
@@ -5600,15 +5805,34 @@ function renderPlanner(id) {
         </article>
         <article class="detail-panel">
           <p class="eyebrow">This week</p>
-          <h2>This Week</h2>
+          <h2>Current Menu</h2>
           <div class="stack-list">${plannedRecipes.length ? plannedRecipes.map(compactRecipe).join("") : featuredPlanRecipes.map(compactRecipe).join("")}</div>
         </article>
         <article class="detail-panel">
-          <p class="eyebrow">Shop once</p>
-          <h2>Shopping List</h2>
-          <ul class="shopping-list">${shoppingItems.length ? shoppingItems.map((item) => `<li>${item}</li>`).join("") : menuShoppingItems.map((item) => `<li>${item}</li>`).join("")}</ul>
+          <p class="eyebrow">Saved Menus</p>
+          <h2>Reuse a menu</h2>
+          <div class="saved-menu-list">${savedMenus.length ? savedMenus.map(savedMenuCard).join("") : `<div class="empty-state">Save a generated menu and it will appear here.</div>`}</div>
         </article>
       </div>
+      <section class="detail-panel weekly-planner-panel">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">Weekly Meal Planning</p>
+          <h2>Plan by day: breakfast, lunch, dinner, and snack.</h2>
+          <p>Use this as a starter plan, then save recipes into your own weekly rhythm.</p>
+        </div>
+        <div class="weekly-plan-grid">
+          ${weeklyMealPlan.map((day) => `
+            <article>
+              <h3>${day.day}</h3>
+              ${["breakfast", "lunch", "dinner", "snack"].map((slot) => {
+                const recipe = recipeById(day[slot]);
+                return recipe ? `<p><strong>${slot}</strong><a href="#recipes/${recipe.id}">${recipe.title}</a></p>` : "";
+              }).join("")}
+            </article>
+          `).join("")}
+        </div>
+        <button class="small-button secondary" data-use-recipe-set="${weeklyMealPlan.flatMap((day) => [day.breakfast, day.lunch, day.dinner, day.snack]).filter(Boolean).join(",")}">Add Weekly Plan</button>
+      </section>
     </section>
   `;
 }
@@ -6158,6 +6382,48 @@ function handleClick(event) {
   const printButton = event.target.closest("[data-print-recipe]");
   const juneteenthMenuButton = event.target.closest("[data-juneteenth-menu]");
   const regionalMenuButton = event.target.closest("[data-regional-menu]");
+  const recipeSetButton = event.target.closest("[data-use-recipe-set]");
+  const saveCurrentMenuButton = event.target.closest("[data-save-current-menu]");
+  const useSavedMenuButton = event.target.closest("[data-use-saved-menu]");
+  const clearPlannedButton = event.target.closest("[data-clear-planned]");
+  if (clearPlannedButton) {
+    planned = [];
+    persistLetsCookState();
+    render();
+    return;
+  }
+  if (recipeSetButton) {
+    const ids = recipeSetButton.dataset.useRecipeSet.split(",").map((id) => id.trim()).filter((id) => recipeById(id));
+    planned = [...new Set([...planned, ...ids])];
+    persistLetsCookState();
+    render();
+    return;
+  }
+  if (saveCurrentMenuButton) {
+    const index = Number(saveCurrentMenuButton.dataset.saveCurrentMenu || 0);
+    const menu = menuPairings[Math.max(0, Math.min(menuPairings.length - 1, index))] || menuPairings[0];
+    const menuRecipes = recipesForMenu(menu);
+    const savedMenu = {
+      id: `menu-${Date.now()}`,
+      title: `${menu.cuisine} ${menu.occasion}`,
+      audience: "Menu Planner",
+      recipeIds: menuRecipes.map((recipe) => recipe.id),
+      createdAt: new Date().toISOString()
+    };
+    savedMenus = [savedMenu, ...savedMenus].slice(0, 12);
+    persistLetsCookState();
+    render();
+    return;
+  }
+  if (useSavedMenuButton) {
+    const menu = savedMenus.find((item) => item.id === useSavedMenuButton.dataset.useSavedMenu);
+    if (menu) {
+      planned = [...new Set([...planned, ...(menu.recipeIds || []).filter((id) => recipeById(id))])];
+      persistLetsCookState();
+      render();
+    }
+    return;
+  }
   if (regionalMenuButton) {
     const section = regionalMenuButton.closest("[data-regional-menu-section]");
     const output = section?.querySelector("[data-regional-output]");
@@ -6225,7 +6491,9 @@ async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const selected = Number(formData.get("main"));
-    window.location.hash = `#planner/${Number.isFinite(selected) ? selected : 0}`;
+    const servings = Number(formData.get("servings"));
+    const audience = formData.get("audience")?.toString() || "single";
+    window.location.hash = `#planner/${Number.isFinite(selected) ? selected : 0}-${plannerServingOptions.includes(servings) ? servings : 6}-${audience}`;
     return;
   }
 
@@ -6350,6 +6618,8 @@ function applyLetsCookState(payload, status = "") {
   };
   saved = payload.saved || saved || [];
   planned = payload.planned || planned || [];
+  recentlyViewed = payload.recentlyViewed || recentlyViewed || [];
+  savedMenus = payload.savedMenus || savedMenus || [];
   lessonProgress = payload.lessonProgress || lessonProgress || {};
   submissions = payload.submissions || submissions || [];
 }
@@ -6366,16 +6636,18 @@ async function submitLetsCookAuth(url, payload) {
 }
 
 async function persistLetsCookState() {
+  localStorage.setItem("letsCookSaved", JSON.stringify(saved));
+  localStorage.setItem("letsCookPlanned", JSON.stringify(planned));
+  localStorage.setItem("letsCookRecentlyViewed", JSON.stringify(recentlyViewed));
+  localStorage.setItem("letsCookSavedMenus", JSON.stringify(savedMenus));
+  localStorage.setItem("letsCookLessonProgress", JSON.stringify(lessonProgress));
   if (!letsCookSession.authenticated) {
-    localStorage.setItem("letsCookSaved", JSON.stringify(saved));
-    localStorage.setItem("letsCookPlanned", JSON.stringify(planned));
-    localStorage.setItem("letsCookLessonProgress", JSON.stringify(lessonProgress));
     return false;
   }
   const response = await fetch("/api/lets-cook/state", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ saved, planned, lessonProgress })
+    body: JSON.stringify({ saved, planned, recentlyViewed, savedMenus, lessonProgress })
   });
   const payload = await response.json().catch(() => ({}));
   applyLetsCookState(payload, response.ok ? "Saved to your Let's Cook account." : payload.error || "Save failed.");
