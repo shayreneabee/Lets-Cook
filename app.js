@@ -2577,8 +2577,53 @@ const livingCookbookRecipes = [
   featured: false
 }));
 
+const kidsKornerRecipes = [
+  ["mini-pizza-faces", "Mini Pizza Faces", "Easy Bites", "assets/american-food.jpeg", "10 min", "10 min", 4, "6-8 Kitchen Explorers", "Build silly pizza faces while practicing spreading, counting, and choosing colorful toppings.", ["4 English muffin halves", "1/2 cup pizza sauce", "1 cup shredded mozzarella", "Sliced olives", "Bell pepper strips", "Cherry tomato halves"], ["Heat the oven to 375 F with a grown-up.", "Place the muffin halves on a baking sheet.", "Spread each half with pizza sauce.", "Add cheese, then arrange vegetables into faces.", "Ask a grown-up to bake for 8 to 10 minutes. Cool before eating."], ["pizza", "assembly", "kid-friendly"]],
+  ["fruit-rainbow-kabobs", "Fruit Rainbow Kabobs", "Healthy Heroes", "assets/ingredients.jpeg", "15 min", "0 min", 4, "3-5 Little Helpers", "Make a bright fruit rainbow while learning colors, patterns, and careful food handling.", ["1 cup strawberries", "1 cup orange segments", "1 cup pineapple chunks", "1 cup green grapes", "1 cup blueberries", "1 cup purple grapes", "1 cup vanilla yogurt"], ["Wash hands and rinse all fruit.", "Ask a grown-up to cut large fruit into bite-size pieces.", "Arrange fruit by color.", "Slide fruit onto blunt kid-safe skewers with help.", "Serve with yogurt for dipping."], ["fruit", "no-cook", "pattern"]],
+  ["yogurt-parfait-cups", "Yogurt Parfait Cups", "Healthy Heroes", "assets/lc-desserts.jpg", "10 min", "0 min", 4, "3-5 Little Helpers", "Layer yogurt, fruit, and cereal into a breakfast or snack kids can build themselves.", ["2 cups vanilla or plain yogurt", "1 cup berries", "1 banana sliced", "1 cup low-sugar granola or cereal", "2 tsp honey optional"], ["Set four clear cups on the counter.", "Spoon yogurt into each cup.", "Add fruit and a small layer of cereal.", "Repeat the layers.", "Add honey only with grown-up approval and eat right away."], ["breakfast", "no-cook", "layering"]],
+  ["pbj-roll-ups", "PB&J Roll Ups", "Easy Bites", "assets/kid-friendly.jpeg", "10 min", "0 min", 2, "3-5 Little Helpers", "A soft rolled sandwich for practicing spreading, rolling, and slicing with a grown-up.", ["2 soft flour tortillas", "4 tbsp peanut butter or sunflower butter", "2 tbsp jam", "1 banana optional"], ["Check for nut allergies before starting.", "Lay tortillas flat.", "Spread nut or seed butter, leaving a small border.", "Spread jam on top and add banana if using.", "Roll tightly and ask a grown-up to slice into pinwheels."], ["no-cook", "sandwich", "allergy-aware"]],
+  ["apple-nachos", "Apple Nachos", "Fun Food", "assets/ingredients.jpeg", "12 min", "0 min", 4, "6-8 Kitchen Explorers", "Crisp apple slices with drizzles and toppings teach safe assembly and flavor balance.", ["2 apples", "1/4 cup sunflower butter", "2 tbsp yogurt", "2 tbsp raisins", "2 tbsp granola", "1 tsp cinnamon"], ["Wash the apples.", "Ask a grown-up to core and thinly slice them.", "Arrange slices on a plate.", "Drizzle with sunflower butter and yogurt.", "Sprinkle with raisins, granola, and cinnamon."], ["fruit", "snack", "no-cook"]],
+  ["ants-on-a-log", "Ants on a Log", "Healthy Heroes", "assets/ingredients.jpeg", "10 min", "0 min", 4, "3-5 Little Helpers", "A classic crunchy snack for spreading, counting, and building fine-motor confidence.", ["4 celery stalks", "1/2 cup peanut butter, sunflower butter, or cream cheese", "1/4 cup raisins"], ["Wash hands and celery.", "Ask a grown-up to cut celery into short sticks.", "Spread the filling into each celery groove.", "Count raisins and line them up on top.", "Refrigerate leftovers within two hours."], ["snack", "no-cook", "counting"]],
+  ["mini-chicken-sliders", "Mini Chicken Sliders", "Southern Favorites", "assets/beautiful-chicken.jpeg", "15 min", "12 min", 6, "9-12 Rising Chefs", "Small baked sliders teach safe assembly, portioning, and using the oven with an adult.", ["12 slider rolls", "2 cups cooked shredded chicken", "1/3 cup mild barbecue sauce", "6 cheese slices", "2 tbsp melted butter", "1/2 tsp garlic powder"], ["Heat the oven to 350 F with a grown-up.", "Mix chicken with barbecue sauce.", "Place roll bottoms in a baking dish.", "Add chicken and cheese, then cover with roll tops.", "Brush with garlic butter and bake 10 to 12 minutes. Cool slightly before serving."], ["sliders", "oven", "southern"]],
+  ["mac-and-cheese-bites", "Mac & Cheese Bites", "Southern Favorites", "assets/pasta.jpeg", "20 min", "18 min", 12, "9-12 Rising Chefs", "Turn cooked macaroni into tidy muffin-cup bites while learning measuring and oven safety.", ["3 cups cooked elbow macaroni", "1 1/2 cups shredded cheddar", "1 egg", "1/2 cup milk", "1/2 cup breadcrumbs", "1 tbsp melted butter"], ["Heat the oven to 375 F with a grown-up.", "Grease a 12-cup muffin pan.", "Stir macaroni, cheese, egg, and milk together.", "Spoon into the cups and top with buttered breadcrumbs.", "Bake 15 to 18 minutes. Rest 5 minutes before removing."], ["mac and cheese", "measuring", "oven"]],
+  ["chewy-chocolate-cookies", "Chewy Chocolate Chip Cookies", "Sweet Treats", "assets/lc-desserts.jpg", "20 min", "11 min", 18, "9-12 Rising Chefs", "A supervised baking lesson for measuring flour, creaming butter, scooping evenly, and reading doneness.", ["1/2 cup softened butter", "1/2 cup brown sugar", "1/4 cup sugar", "1 egg", "1 tsp vanilla", "1 1/4 cups flour", "1/2 tsp baking soda", "1/4 tsp salt", "3/4 cup chocolate chips"], ["Heat the oven to 350 F with a grown-up.", "Cream butter and both sugars.", "Mix in egg and vanilla.", "Stir flour, baking soda, and salt separately, then combine.", "Fold in chips, scoop onto a lined pan, and bake 9 to 11 minutes."], ["cookies", "baking", "dessert"]],
+  ["banana-pudding-cups", "Banana Pudding Cups", "Southern Favorites", "assets/lc-desserts.jpg", "20 min", "0 min", 6, "6-8 Kitchen Explorers", "Individual banana pudding cups teach layering, portioning, and keeping chilled foods safe.", ["2 cups prepared vanilla pudding", "2 bananas sliced", "24 vanilla wafers", "1 cup whipped topping"], ["Wash hands and set out six cups.", "Place wafers in each cup.", "Add pudding and banana slices.", "Repeat the layers and top with whipped topping.", "Chill until serving and refrigerate leftovers promptly."], ["southern", "no-bake", "layering"]],
+  ["berry-banana-smoothies", "Berry Banana Smoothies", "Healthy Heroes", "assets/ingredients.jpeg", "8 min", "0 min", 2, "6-8 Kitchen Explorers", "A blender lesson for measuring fruit, adding liquid gradually, and letting adults manage the blades.", ["1 banana", "1 cup frozen berries", "1 cup milk or oat milk", "1/2 cup yogurt", "1 tsp honey optional"], ["Put the unplugged blender on a dry counter.", "Add fruit, milk, and yogurt.", "Secure the lid.", "Ask a grown-up to plug in and run the blender.", "Pour into cups after the blades stop completely."], ["smoothie", "fruit", "blender-safety"]],
+  ["crispy-rice-treats", "Crispy Rice Treats", "Sweet Treats", "assets/lc-desserts.jpg", "10 min", "10 min", 12, "9-12 Rising Chefs", "A supervised stovetop treat for gentle heat, stirring, pressing, and waiting for food to cool.", ["4 tbsp butter", "10 oz marshmallows", "6 cups crispy rice cereal", "1/2 tsp vanilla", "Pinch of salt"], ["Line a 9-inch pan with parchment.", "Melt butter over low heat with a grown-up.", "Stir in marshmallows until smooth, then remove from heat.", "Fold in cereal, vanilla, and salt.", "Press into the pan with a buttered spatula and cool before cutting."], ["stovetop", "dessert", "mixing"]]
+].map(([id, title, category, image, prep_time, cook_time, servings, ageTrack, description, ingredients, instructions, tags]) => ({
+  id,
+  title,
+  slug: id,
+  cuisine: category === "Southern Favorites" ? "southern" : "kids-korner",
+  category,
+  image,
+  image_url: image,
+  prep_time,
+  prepTime: prep_time,
+  cook_time,
+  cookTime: cook_time,
+  time: cook_time === "0 min" ? prep_time : cook_time,
+  cookTimeMinutes: Number(cook_time.match(/\d+/)?.[0] || 0),
+  skill_level: "Kid Chef",
+  difficulty: "Kid Friendly",
+  level: "Kid Friendly",
+  servings,
+  path: "kid-chefs",
+  ageTrack,
+  kidsKorner: true,
+  description,
+  ingredients,
+  directions: instructions,
+  instructions,
+  steps: instructions,
+  tags: [...tags, "kids korner", "kid chefs"],
+  cultural_variations: [],
+  source: { type: "original", name: "Let's Cook Y'all Kids Korner" },
+  featured: false
+}));
+
 const existingRecipeIds = new Set(recipes.map((recipe) => recipe.id));
-recipes = [...recipes, ...[...nextFeatureRecipes, ...menuIntelligenceRecipes, ...regionalAuthenticityRecipes, ...livingCookbookRecipes].filter((recipe) => !existingRecipeIds.has(recipe.id))];
+recipes = [...recipes, ...[...nextFeatureRecipes, ...menuIntelligenceRecipes, ...regionalAuthenticityRecipes, ...livingCookbookRecipes, ...kidsKornerRecipes].filter((recipe) => !existingRecipeIds.has(recipe.id))];
 
 const lessons = [
   {
@@ -3821,32 +3866,86 @@ const hostingIdeas = [
 
 const kidsKitchenLevels = [
   {
-    title: "Junior Chef",
-    ages: "Ages 5-8",
-    focus: "Washing, spreading, counting, stirring cold foods, and building snack plates.",
-    safety: ["Wash hands before touching food", "Use butter knives or kid-safe tools only", "Keep grown-ups in charge of heat and sharp knives"],
-    recipes: ["pb-and-j-sandwich", "fruit-kabobs", "mini-pizza-bagels"],
-    badges: ["Clean Hands", "Great Spreader", "Pattern Builder"],
-    challenge: "Build a colorful snack plate with one fruit, one protein, and one crunchy item."
+    id: "little-helpers",
+    title: "Little Helpers",
+    ages: "Ages 3-5",
+    icon: "🌈",
+    focus: "Washing, counting, pouring, spreading soft foods, and building colorful snacks.",
+    safety: ["A grown-up stays within arm's reach", "Use only kid-safe tools", "No heat, sharp knives, or raw meat"],
+    recipes: ["fruit-rainbow-kabobs", "yogurt-parfait-cups", "pbj-roll-ups", "ants-on-a-log"],
+    badges: ["Helper", "Clean Hands", "Color Counter"],
+    challenge: "Build a snack with three colors and name every ingredient."
   },
   {
-    title: "Young Chef",
+    id: "kitchen-explorers",
+    title: "Kitchen Explorers",
+    ages: "Ages 6-8",
+    icon: "🧭",
+    focus: "Measuring, layering, reading picture steps, simple assembly, and safe blender or oven awareness.",
+    safety: ["Ask before touching appliances", "A grown-up handles blades and hot pans", "Read every step before starting"],
+    recipes: ["mini-pizza-faces", "apple-nachos", "banana-pudding-cups", "berry-banana-smoothies"],
+    badges: ["Measuring Star", "Recipe Reader", "Healthy Hero"],
+    challenge: "Read a recipe out loud, gather the ingredients, and finish one cold or baked snack with help."
+  },
+  {
+    id: "rising-chefs",
+    title: "Rising Chefs",
     ages: "Ages 9-12",
-    focus: "Measuring, mixing, reading recipes, simple stovetop awareness, and assembling family snacks.",
-    safety: ["Ask before using heat", "Turn pan handles inward", "Use measuring cups and spoons before free-pouring"],
-    recipes: ["stovetop-mac-and-cheese", "soft-scrambled-eggs", "turkey-pinwheels"],
-    badges: ["Measuring Pro", "Stirring Star", "Recipe Reader"],
-    challenge: "Cook one supervised breakfast or lunch and explain every safety step out loud."
+    icon: "⭐",
+    focus: "Recipe reading, accurate measuring, supervised heat, baking, and making food for the family.",
+    safety: ["Use heat only with adult permission", "Turn pan handles inward", "Use a timer and clean spills right away"],
+    recipes: ["mini-chicken-sliders", "mac-and-cheese-bites", "chewy-chocolate-cookies", "crispy-rice-treats"],
+    badges: ["Rising Chef", "Oven Ready", "Family Cook"],
+    challenge: "Make a supervised snack for four people and explain your cleanup plan."
   },
   {
-    title: "Teen Chef",
-    ages: "Ages 13-17",
-    focus: "Knife basics, simple hot meals, timing sides, seasoning, and cleaning as a cook.",
-    safety: ["Use a stable cutting board", "Know where the fire extinguisher is", "Check food temperature when cooking meat"],
-    recipes: ["chicken-salad-croissants", "easy-lunch-wraps", "orange-chicken"],
-    badges: ["Knife Ready", "Heat Manager", "Meal Builder"],
-    challenge: "Plan and cook a simple dinner with one main, one side, and one cleanup plan."
+    id: "teen-cooks",
+    title: "Teen Cooks",
+    ages: "Ages 13+",
+    icon: "🔥",
+    focus: "Independent planning, knife fundamentals, heat control, balanced meals, budgeting, and food safety.",
+    safety: ["Use a stable cutting board", "Check meat with a thermometer", "Know how to respond to grease, smoke, and cuts"],
+    recipes: ["stovetop-mac-and-cheese", "soft-scrambled-eggs", "mini-chicken-sliders", "chewy-chocolate-cookies"],
+    badges: ["Heat Manager", "Meal Builder", "Kitchen Safety"],
+    challenge: "Plan, cook, serve, and clean up one simple meal with adult approval."
   }
+];
+
+const kidsKornerRecipeIds = [
+  "mini-pizza-faces",
+  "fruit-rainbow-kabobs",
+  "yogurt-parfait-cups",
+  "pbj-roll-ups",
+  "apple-nachos",
+  "ants-on-a-log",
+  "mini-chicken-sliders",
+  "mac-and-cheese-bites",
+  "chewy-chocolate-cookies",
+  "banana-pudding-cups",
+  "berry-banana-smoothies",
+  "crispy-rice-treats",
+  "pb-and-j-sandwich",
+  "mini-pizza-bagels",
+  "fruit-kabobs"
+];
+
+const kidsKornerLessons = [
+  { id: "kitchen-safety", icon: "🧤", title: "Kitchen Safety", text: "Learn safe zones, grown-up jobs, kid jobs, hot surfaces, sharp tools, and what to do when something spills.", points: ["Stop and ask before using heat", "Keep handles turned in", "Wipe spills right away", "Know where the first-aid kit is"] },
+  { id: "washing-hands", icon: "🫧", title: "Washing Hands", text: "Clean hands protect everyone at the table.", points: ["Use warm water and soap", "Scrub for 20 seconds", "Clean between fingers", "Dry with a clean towel"] },
+  { id: "measuring", icon: "🥄", title: "Measuring", text: "Practice cups, spoons, leveling dry ingredients, and reading fractions.", points: ["Dry cups are for flour and sugar", "Liquid cups sit on the counter", "Level dry ingredients", "Read the unit before pouring"] },
+  { id: "stirring", icon: "🥣", title: "Stirring", text: "Learn when to fold, whisk, mix, and stop.", points: ["Hold the bowl steady", "Start slowly", "Scrape the sides", "Do not overmix batter"] },
+  { id: "reading-recipes", icon: "📖", title: "Reading Recipes", text: "Read the whole recipe, gather ingredients, and follow steps in order.", points: ["Check the time", "Count the servings", "Gather tools", "Mark completed steps"] },
+  { id: "food-groups", icon: "🍎", title: "Food Groups", text: "Build colorful plates with fruits, vegetables, grains, proteins, and dairy or alternatives.", points: ["Aim for color", "Add a protein", "Choose water often", "Try one new food at a time"] },
+  { id: "farm-to-table", icon: "🌱", title: "Farm to Table", text: "Follow food from soil, farm, and market to the family table.", points: ["Food has a season", "Farmers grow and raise ingredients", "Wash produce", "Waste less by planning"] },
+  { id: "world-foods", icon: "🌍", title: "Around the World for Kids", text: "Meet foods, flavors, and family traditions from different places with respect and curiosity.", points: ["Learn the food's name", "Find its place on a map", "Notice common ingredients", "Ask how families serve it"] }
+];
+
+const kidsKornerBadges = [
+  { id: "first-recipe", icon: "🏅", title: "First Recipe", text: "Save or complete your first Kids Korner recipe.", goal: 1 },
+  { id: "helper", icon: "🤝", title: "Helper", text: "Help gather, measure, serve, or clean up.", goal: 2 },
+  { id: "healthy-hero", icon: "🍓", title: "Healthy Hero", text: "Try three colorful fruit or vegetable recipes.", goal: 3 },
+  { id: "kitchen-safety", icon: "🛡️", title: "Kitchen Safety", text: "Finish the safety lesson and quiz.", goal: 1 },
+  { id: "rising-chef", icon: "👩🏾‍🍳", title: "Rising Chef", text: "Save or complete five Kids Korner recipes.", goal: 5 }
 ];
 
 const app = document.querySelector("#app");
@@ -3859,6 +3958,7 @@ let recentlyViewed = readJSON("letsCookRecentlyViewed", []);
 let savedMenus = readJSON("letsCookSavedMenus", []);
 let submissions = readJSON("letsCookSubmissions", []);
 let lessonProgress = readJSON("letsCookLessonProgress", {});
+let kidsBadgeProgress = readJSON("letsCookKidsBadges", []);
 let letsCookSession = {
   authenticated: false,
   user: null,
@@ -3925,7 +4025,8 @@ function render() {
   if (route === "food-encyclopedia") return renderCulinaryAcademy(id);
   if (route === "menu-intelligence") return renderMenuIntelligence(id);
   if (route === "living-cookbook") return renderLivingCookbook(id);
-  if (route === "kids-cooking") return renderKidsCooking();
+  if (route === "kids-cooking") return renderKidsKorner(id);
+  if (route === "kids-korner") return renderKidsKorner(id);
   if (route === "recipes") {
     if (!id) return renderRecipes();
     renderRecipe(id);
@@ -3944,7 +4045,7 @@ function render() {
 }
 
 function setActive(route) {
-  const cookingRoutes = ["kitchen", "cook101", "skills-academy", "culinary-academy", "build-a-meal", "kitchen-search", "cuisine-explorer", "food-encyclopedia", "menu-intelligence", "living-cookbook", "kids-cooking", "recipes", "paths", "pathways", "planner", "hosting", "about", "account", "search", "cuisine"];
+  const cookingRoutes = ["kitchen", "cook101", "skills-academy", "culinary-academy", "build-a-meal", "kitchen-search", "cuisine-explorer", "food-encyclopedia", "menu-intelligence", "living-cookbook", "kids-cooking", "kids-korner", "recipes", "paths", "pathways", "planner", "hosting", "about", "account", "search", "cuisine"];
   const normalizedRoute = cookingRoutes.includes(route) ? "lets-cook" : route;
   document.querySelectorAll(".main-nav a").forEach((link) => {
     link.classList.toggle("active", link.dataset.route === normalizedRoute);
@@ -3952,7 +4053,7 @@ function setActive(route) {
 }
 
 function activeAppForRoute(route) {
-  const cookingRoutes = ["lets-cook", "kitchen", "cook101", "skills-academy", "culinary-academy", "build-a-meal", "kitchen-search", "cuisine-explorer", "food-encyclopedia", "menu-intelligence", "living-cookbook", "kids-cooking", "recipes", "paths", "pathways", "planner", "hosting", "about", "account", "search", "cuisine"];
+  const cookingRoutes = ["lets-cook", "kitchen", "cook101", "skills-academy", "culinary-academy", "build-a-meal", "kitchen-search", "cuisine-explorer", "food-encyclopedia", "menu-intelligence", "living-cookbook", "kids-cooking", "kids-korner", "recipes", "paths", "pathways", "planner", "hosting", "about", "account", "search", "cuisine"];
   if (cookingRoutes.includes(route)) return ecosystemApps.find((item) => item.id === "lets-cook");
   if (route === "find-the-beat") return ecosystemApps.find((item) => item.id === "find-the-beat");
   if (route === "second-chance") return ecosystemApps.find((item) => item.id === "second-chance");
@@ -5163,6 +5264,7 @@ function cookSubnav() {
       <a href="#cuisine-explorer">Cuisine Explorer</a>
       <a href="#menu-intelligence">Menu Builder</a>
       <a href="#hosting">Hospitality & Hosting</a>
+      <a href="#kids-korner">Kids Korner</a>
       <a href="#recipes">Recipes</a>
       <a href="#account">Account</a>
     </section>
@@ -5667,55 +5769,343 @@ function renderSkillsAcademy() {
   `;
 }
 
-function renderKidsCooking() {
-  const kidPath = paths.find((path) => path.id === "kid-chefs");
-  const kidRecipes = recipes.filter((recipe) => recipe.path === "kid-chefs" || recipe.skill_level === "Kid Chef" || recipe.tags?.includes("kid chefs"));
+function kidsKornerRecipeList() {
+  return kidsKornerRecipeIds.map((recipeId) => recipeById(recipeId)).filter((recipe) => recipe?.kidsKorner || ["pb-and-j-sandwich", "mini-pizza-bagels", "fruit-kabobs"].includes(recipe?.id));
+}
+
+function kidsKornerNav(active = "home") {
+  const links = [
+    ["home", "Kids Korner", "#kids-korner"],
+    ["recipes", "Recipes", "#kids-korner/recipes"],
+    ["learn", "Learn", "#kids-korner/learn"],
+    ["play", "Play", "#kids-korner/play"],
+    ["create", "Create", "#kids-korner/create"],
+    ["badges", "My Badges", "#kids-korner/badges"],
+    ["favorites", "My Favorites", "#kids-korner/favorites"],
+    ["printables", "Printables", "#kids-korner/printables"],
+    ["parents", "Parent Guide", "#kids-korner/parents"]
+  ];
+  return `
+    <nav class="kids-korner-nav" aria-label="Kids Korner navigation">
+      ${links.map(([id, label, href]) => `<a class="${active === id ? "active" : ""}" href="${href}">${label}</a>`).join("")}
+    </nav>
+  `;
+}
+
+function kidsKornerHero() {
+  return `
+    <section class="kids-korner-hero">
+      <div class="kids-korner-hero-copy">
+        <p class="kids-kicker">A kid-friendly kitchen inside Let's Cook Y'all</p>
+        <h1>Kids Korner</h1>
+        <p>Mix it. Make it. Taste it. Clean it up. Every recipe and lesson here is built especially for young cooks and their grown-ups.</p>
+        <div class="kids-hero-actions">
+          <a class="kids-button primary" href="#kids-korner/recipes">Pick a Recipe</a>
+          <a class="kids-button" href="#kids-korner/learn">Start Learning</a>
+        </div>
+      </div>
+      <div class="kids-korner-hero-art" aria-label="Colorful kid-friendly cooking station">
+        <span class="kids-art-bubble bubble-one">🍓</span>
+        <span class="kids-art-bubble bubble-two">🥣</span>
+        <span class="kids-art-bubble bubble-three">⭐</span>
+        <img src="assets/kid-friendly.jpeg" alt="A cheerful kid-friendly cooking activity" />
+        <div class="kids-hero-note">Grown-ups + kids cook together</div>
+      </div>
+    </section>
+  `;
+}
+
+function kidsSectionIntro(eyebrow, title, text) {
+  return `<div class="kids-section-heading"><p>${eyebrow}</p><h2>${title}</h2><span>${text}</span></div>`;
+}
+
+function renderKidsKornerHome() {
+  const featured = kidsKornerRecipeList().slice(0, 6);
   app.innerHTML = `
-    ${hero("Kids Kitchen", "A safe, joyful cooking space for Junior Chefs, Young Chefs, and Teen Chefs to build real kitchen confidence one small skill at a time.", photoFor("cuisines", "hosting", 2, "assets/kid-friendly.jpeg"), `<a class="small-button" href="#paths/kid-chefs">Open Kid Chef Path</a>`)}
-    ${cookSubnav()}
-    <section class="cream-section">
-      <div class="about-layout">
-        <article class="detail-panel">
-          <p class="eyebrow">Kid Chef pathway</p>
-          <h2>${kidPath?.title || "Start small. Build confidence."}</h2>
-          <p class="detail-copy">${kidPath?.description || "PB&J, mac and cheese, wraps, pizza bagels, and snack plates help kids learn real kitchen rhythm without pressure."}</p>
-          <ul>${(kidPath?.skills || ["Wash hands", "Measure ingredients", "Spread and assemble", "Stir carefully", "Clean as you go"]).map((item) => `<li>${item}</li>`).join("")}</ul>
-        </article>
-        <article class="detail-panel">
-          <p class="eyebrow">Grown-up guide</p>
-          <h2>Keep it safe and encouraging.</h2>
-          <p class="detail-copy">Let kids own one small job at a time. Teach hand washing, counter cleanup, measuring, and tasting before sharp knives or hot pans.</p>
-        </article>
-      </div>
-      <div class="section-heading">
-        <p class="eyebrow">Age-based learning</p>
-        <h2>Choose the lane that fits the child, not just the recipe.</h2>
-      </div>
-      <div class="academy-module-grid kids-level-grid">
-        ${kidsKitchenLevels.map((level) => {
-          const levelRecipes = level.recipes.map((recipeId) => recipes.find((recipe) => recipe.id === recipeId)).filter(Boolean);
-          return `
-            <article class="academy-module-card">
-              <p class="eyebrow">${level.ages}</p>
+    <main class="kids-korner">
+      ${kidsKornerHero()}
+      ${kidsKornerNav("home")}
+      <section class="kids-section kids-doorways">
+        ${kidsSectionIntro("Choose your adventure", "One bright doorway. Lots to do.", "Recipes, lessons, games, creative challenges, badges, and printable kitchen fun all live here.")}
+        <div class="kids-doorway-grid">
+          ${[
+            ["🍕", "Recipes", "Make something tasty.", "#kids-korner/recipes", "coral"],
+            ["📚", "Learn", "Build a real kitchen skill.", "#kids-korner/learn", "blue"],
+            ["🎲", "Play", "Quiz, match, and search.", "#kids-korner/play", "purple"],
+            ["🎨", "Create", "Invent a snack of your own.", "#kids-korner/create", "green"],
+            ["🏅", "Badges", "See what you are mastering.", "#kids-korner/badges", "gold"],
+            ["🖍️", "Printables", "Take the fun offline.", "#kids-korner/printables", "pink"]
+          ].map(([icon, title, text, href, color]) => `
+            <a class="kids-doorway ${color}" href="${href}">
+              <span>${icon}</span><h3>${title}</h3><p>${text}</p>
+            </a>
+          `).join("")}
+        </div>
+      </section>
+      <section class="kids-section kids-age-section">
+        ${kidsSectionIntro("Grow at your pace", "A kitchen lane for every age.", "Choose the track that matches the child's age, comfort, and grown-up support.")}
+        <div class="kids-age-grid">
+          ${kidsKitchenLevels.map((level) => `
+            <article class="kids-age-card">
+              <span class="kids-age-icon">${level.icon}</span>
+              <p>${level.ages}</p>
               <h3>${level.title}</h3>
-              <p>${level.focus}</p>
-              <h4>Safety first</h4>
-              <ul>${level.safety.map((item) => `<li>${item}</li>`).join("")}</ul>
-              <h4>Skill badges</h4>
-              <div class="path-badges">${level.badges.map((badge) => `<span>${badge}</span>`).join("")}</div>
-              <p><strong>Challenge:</strong> ${level.challenge}</p>
-              <div class="stack-list">${levelRecipes.map(compactRecipe).join("")}</div>
+              <span>${level.focus}</span>
+              <a href="#kids-korner/learn">See skills</a>
+            </article>
+          `).join("")}
+        </div>
+      </section>
+      <section class="kids-section kids-featured-recipes">
+        ${kidsSectionIntro("Made for young cooks", "Today's Kids Korner picks.", "No adult recipe spillover. These recipes are simple, cheerful, and built around clear grown-up safety roles.")}
+        <div class="recipe-grid kids-recipe-grid">${featured.map(recipeCard).join("")}</div>
+        <div class="kids-centered-action"><a class="kids-button primary" href="#kids-korner/recipes">See All Kids Recipes</a></div>
+      </section>
+      <section class="kids-section kids-safety-banner">
+        <div><span>🛡️</span><h2>Safety is the first ingredient.</h2><p>Kids stop and ask before using heat, appliances, sharp tools, or handling raw meat. Grown-ups decide what is safe for each child.</p></div>
+        <a class="kids-button" href="#kids-korner/parents">Open Parent Guide</a>
+      </section>
+    </main>
+  `;
+}
+
+function renderKidsKornerRecipes() {
+  const kidRecipes = kidsKornerRecipeList();
+  const categories = ["Easy Bites", "Healthy Heroes", "Southern Favorites", "Sweet Treats", "Fun Food", "Food Around The World"];
+  app.innerHTML = `
+    <main class="kids-korner">
+      ${kidsKornerNav("recipes")}
+      <section class="kids-page-banner recipes">
+        <span>🍎</span><div><p>Kids Korner Recipes</p><h1>Food young cooks can really make.</h1><small>Every recipe includes a clear grown-up role and stays inside the Kids Korner kitchen.</small></div>
+      </section>
+      <section class="kids-section">
+        ${categories.map((category) => {
+          let categoryRecipes = kidRecipes.filter((recipe) => recipe.category === category);
+          if (category === "Food Around The World") categoryRecipes = kidRecipes.filter((recipe) => ["mini-pizza-faces", "yogurt-parfait-cups", "fruit-rainbow-kabobs"].includes(recipe.id));
+          if (!categoryRecipes.length) return "";
+          return `
+            <div class="kids-recipe-shelf">
+              <div class="kids-shelf-title"><h2>${category}</h2><span>${categoryRecipes.length} recipes</span></div>
+              <div class="recipe-grid kids-recipe-grid">${categoryRecipes.map(recipeCard).join("")}</div>
+            </div>
+          `;
+        }).join("")}
+      </section>
+    </main>
+  `;
+}
+
+function renderKidsKornerLearn() {
+  app.innerHTML = `
+    <main class="kids-korner">
+      ${kidsKornerNav("learn")}
+      <section class="kids-page-banner learn">
+        <span>📚</span><div><p>Learn</p><h1>Little skills become big confidence.</h1><small>Open each lesson for the key ideas, then try the recommended challenge.</small></div>
+      </section>
+      <section class="kids-section">
+        <div class="kids-lesson-grid">
+          ${kidsKornerLessons.map((lesson, index) => `
+            <details class="kids-lesson-card" ${index === 0 ? "open" : ""}>
+              <summary><span>${lesson.icon}</span><div><small>Lesson ${index + 1}</small><h2>${lesson.title}</h2></div></summary>
+              <p>${lesson.text}</p>
+              <ul>${lesson.points.map((point) => `<li>${point}</li>`).join("")}</ul>
+              <div class="kids-lesson-next"><strong>Try it:</strong> ${[
+                "Point out three kitchen hazards before cooking.",
+                "Sing a 20-second song while scrubbing.",
+                "Measure 1 cup, 1/2 cup, and 1 tablespoon.",
+                "Practice whisking water without splashing.",
+                "Circle the time, servings, and first step in a recipe.",
+                "Build a plate with three food groups.",
+                "Find one seasonal fruit or vegetable.",
+                "Choose a food and find its country or region on a map."
+              ][index]}</div>
+            </details>
+          `).join("")}
+        </div>
+        ${kidsSectionIntro("Age tracks", "Keep learning at the right level.", "The grown-up chooses the level based on both age and readiness.")}
+        <div class="kids-age-grid detailed">
+          ${kidsKitchenLevels.map((level) => `
+            <article class="kids-age-card">
+              <span class="kids-age-icon">${level.icon}</span><p>${level.ages}</p><h3>${level.title}</h3><span>${level.focus}</span>
+              <h4>Safety rules</h4><ul>${level.safety.map((item) => `<li>${item}</li>`).join("")}</ul>
+              <h4>Challenge</h4><p>${level.challenge}</p>
+            </article>
+          `).join("")}
+        </div>
+      </section>
+    </main>
+  `;
+}
+
+function renderKidsKornerPlay() {
+  app.innerHTML = `
+    <main class="kids-korner">
+      ${kidsKornerNav("play")}
+      <section class="kids-page-banner play">
+        <span>🎲</span><div><p>Play</p><h1>Kitchen brain games.</h1><small>Think, guess, match, and learn something useful while you play.</small></div>
+      </section>
+      <section class="kids-section kids-game-grid">
+        ${[
+          ["🍓", "Food Quiz", "Which food is a fruit even though people often cook it like a vegetable?", ["Carrot", "Tomato", "Potato"], "Tomato"],
+          ["🛡️", "Kitchen Safety Quiz", "What should you do before touching an oven or sharp tool?", ["Move fast", "Ask a grown-up", "Guess"], "Ask a grown-up"],
+          ["🍽️", "Match the Dish", "Which ingredient belongs in a yogurt parfait?", ["Berries", "Raw chicken", "Hot oil"], "Berries"],
+          ["🔤", "Word Search", "Find these kitchen words on the printable page.", ["MIX", "WASH", "MEASURE"], "Print the activity below"]
+        ].map(([icon, title, question, choices, answer]) => `
+          <article class="kids-game-card">
+            <span>${icon}</span><h2>${title}</h2><p>${question}</p>
+            <div class="kids-choice-list">${choices.map((choice) => `<span>${choice}</span>`).join("")}</div>
+            <details><summary>Check answer</summary><strong>${answer}</strong></details>
+          </article>
+        `).join("")}
+      </section>
+      <section class="kids-section kids-print-preview">
+        <h2>Mini Kitchen Word Search</h2>
+        <div class="kids-word-grid" aria-label="Kitchen word search">
+          ${"MIXWASHCUPSTIRBAKEFRUITMEASURECLEAN".split("").map((letter) => `<span>${letter}</span>`).join("")}
+        </div>
+        <button class="kids-button primary" data-print-recipe>Print This Game</button>
+      </section>
+    </main>
+  `;
+}
+
+function renderKidsKornerCreate() {
+  app.innerHTML = `
+    <main class="kids-korner">
+      ${kidsKornerNav("create")}
+      <section class="kids-page-banner create">
+        <span>🎨</span><div><p>Create</p><h1>Invent a snack plate.</h1><small>Choose one item from each group and Kids Korner will build your idea.</small></div>
+      </section>
+      <section class="kids-section">
+        <form class="kids-create-lab" data-kids-create-form>
+          <label>Pick a base<select name="base"><option>Apple slices</option><option>Mini pita</option><option>Yogurt</option><option>Whole-grain crackers</option></select></label>
+          <label>Pick a protein<select name="protein"><option>Sunflower butter</option><option>Cheese cubes</option><option>Hummus</option><option>Greek yogurt</option></select></label>
+          <label>Pick a color<select name="color"><option>Berries</option><option>Carrot coins</option><option>Cucumber</option><option>Banana</option></select></label>
+          <label>Pick a crunch<select name="crunch"><option>Granola</option><option>Pretzels</option><option>Pumpkin seeds</option><option>Crispy cereal</option></select></label>
+          <button class="kids-button primary" type="submit">Build My Snack</button>
+        </form>
+        <div class="kids-create-output" data-kids-create-output>
+          <span>✨</span><h2>Your creation will appear here.</h2><p>Remember to check allergies and ask a grown-up before starting.</p>
+        </div>
+        ${kidsSectionIntro("Creative challenges", "Make it yours.", "Cooking is following directions and using your imagination.")}
+        <div class="kids-challenge-grid">
+          <article><span>🌈</span><h3>Rainbow Plate</h3><p>Use foods with at least four different colors.</p></article>
+          <article><span>😊</span><h3>Funny Face Toast</h3><p>Build a face with fruit and a safe spread.</p></article>
+          <article><span>🌍</span><h3>World Snack</h3><p>Choose one kid-friendly food from another culture and learn its name.</p></article>
+        </div>
+      </section>
+    </main>
+  `;
+}
+
+function renderKidsKornerBadges() {
+  const kidSavedCount = saved.filter((id) => kidsKornerRecipeIds.includes(id)).length;
+  app.innerHTML = `
+    <main class="kids-korner">
+      ${kidsKornerNav("badges")}
+      <section class="kids-page-banner badges">
+        <span>🏅</span><div><p>My Badges</p><h1>Celebrate every kitchen win.</h1><small>Saved Kids Korner recipes count toward recipe badges. Grown-ups can celebrate practice, helping, and safety too.</small></div>
+      </section>
+      <section class="kids-section kids-badge-grid">
+        ${kidsKornerBadges.map((badge) => {
+          const automatic = badge.id === "first-recipe" ? kidSavedCount >= 1 : badge.id === "rising-chef" ? kidSavedCount >= 5 : false;
+          const earned = automatic || kidsBadgeProgress.includes(badge.id);
+          const progress = Math.min(kidSavedCount, badge.goal);
+          return `
+            <article class="kids-badge-card ${earned ? "earned" : ""}">
+              <span>${badge.icon}</span><p>${earned ? "Badge earned" : `${progress} of ${badge.goal}`}</p><h2>${badge.title}</h2><small>${badge.text}</small>
+              <div class="kids-badge-meter"><i style="width:${Math.min(100, (progress / badge.goal) * 100)}%"></i></div>
+              ${automatic ? "" : `<button class="kids-button" data-kids-badge="${badge.id}">${earned ? "Mark Incomplete" : "Grown-up: Mark Complete"}</button>`}
             </article>
           `;
         }).join("")}
-      </div>
-      <div class="section-heading">
-        <p class="eyebrow">Kid-friendly recipes</p>
-        <h2>Simple recipes with a clear grown-up safety role.</h2>
-      </div>
-      <div class="recipe-grid">${kidRecipes.map(recipeCard).join("")}</div>
-    </section>
+      </section>
+    </main>
   `;
+}
+
+function renderKidsKornerFavorites() {
+  const favorites = saved.map((id) => recipeById(id)).filter((recipe) => recipe && kidsKornerRecipeIds.includes(recipe.id));
+  app.innerHTML = `
+    <main class="kids-korner">
+      ${kidsKornerNav("favorites")}
+      <section class="kids-page-banner favorites">
+        <span>💛</span><div><p>My Favorites</p><h1>Your saved Kids Korner recipes.</h1><small>Only recipes from the kids kitchen appear here.</small></div>
+      </section>
+      <section class="kids-section">
+        ${favorites.length
+          ? `<div class="recipe-grid kids-recipe-grid">${favorites.map(recipeCard).join("")}</div>`
+          : `<div class="kids-empty-state"><span>🧺</span><h2>No favorites yet.</h2><p>Choose a Kids Korner recipe and tap Save Recipe to bring it here.</p><a class="kids-button primary" href="#kids-korner/recipes">Find a Recipe</a></div>`}
+      </section>
+    </main>
+  `;
+}
+
+function renderKidsKornerPrintables() {
+  const printables = [
+    ["📝", "My Recipe Card", ["Recipe name", "Ingredients", "Steps", "My rating"]],
+    ["🖍️", "Color the Kitchen", ["Mixing bowl", "Fruit", "Chef hat", "Measuring spoons"]],
+    ["🛒", "Kids Shopping List", ["Produce", "Dairy", "Pantry", "Something new"]],
+    ["🛡️", "Kitchen Safety Poster", ["Wash hands", "Ask first", "Clean spills", "Stay calm"]],
+    ["🥄", "Measuring Chart", ["3 tsp = 1 tbsp", "4 tbsp = 1/4 cup", "2 cups = 1 pint", "4 cups = 1 quart"]]
+  ];
+  app.innerHTML = `
+    <main class="kids-korner">
+      ${kidsKornerNav("printables")}
+      <section class="kids-page-banner printables">
+        <span>🖍️</span><div><p>Printables</p><h1>Kitchen fun you can hold.</h1><small>Print recipe cards, lists, posters, and learning sheets.</small></div>
+      </section>
+      <section class="kids-section kids-printable-grid">
+        ${printables.map(([icon, title, items]) => `
+          <article class="kids-printable-card">
+            <span>${icon}</span><h2>${title}</h2><ul>${items.map((item) => `<li>${item}</li>`).join("")}</ul>
+            <button class="kids-button" data-print-recipe>Print</button>
+          </article>
+        `).join("")}
+      </section>
+    </main>
+  `;
+}
+
+function renderKidsKornerParents() {
+  app.innerHTML = `
+    <main class="kids-korner">
+      ${kidsKornerNav("parents")}
+      <section class="kids-page-banner parents">
+        <span>🤝</span><div><p>Parent Guide</p><h1>Keep the kitchen safe, calm, and encouraging.</h1><small>Use age as a guide, then choose jobs based on the child's focus, coordination, and confidence.</small></div>
+      </section>
+      <section class="kids-section">
+        <div class="kids-parent-grid">
+          ${[
+            ["Before cooking", ["Read the whole recipe", "Check allergies", "Clear the workspace", "Assign grown-up jobs"]],
+            ["During cooking", ["Stay nearby", "Use calm instructions", "Model safe habits", "Praise effort and attention"]],
+            ["Heat and tools", ["Adults control hot oil", "Use age-appropriate knives", "Turn handles inward", "Keep cords away from edges"]],
+            ["Food safety", ["Wash hands", "Separate raw meat", "Use a thermometer", "Refrigerate leftovers within two hours"]],
+            ["Confidence", ["Give one clear job", "Let small mistakes become lessons", "Taste respectfully", "Finish with cleanup together"]],
+            ["Allergies", ["Read every label", "Avoid cross-contact", "Use safe substitutions", "Keep emergency plans available"]]
+          ].map(([title, items]) => `<article><h2>${title}</h2><ul>${items.map((item) => `<li>${item}</li>`).join("")}</ul></article>`).join("")}
+        </div>
+        <section class="kids-emergency-note"><span>Important</span><p>Kids Korner is educational content, not a substitute for direct adult supervision. The supervising adult decides which tools, ingredients, and tasks are appropriate.</p></section>
+      </section>
+    </main>
+  `;
+}
+
+function renderKidsKorner(id = "") {
+  const page = id || "home";
+  if (page === "recipes") return renderKidsKornerRecipes();
+  if (page === "learn") return renderKidsKornerLearn();
+  if (page === "play") return renderKidsKornerPlay();
+  if (page === "create") return renderKidsKornerCreate();
+  if (page === "badges") return renderKidsKornerBadges();
+  if (page === "favorites") return renderKidsKornerFavorites();
+  if (page === "printables") return renderKidsKornerPrintables();
+  if (page === "parents") return renderKidsKornerParents();
+  return renderKidsKornerHome();
+}
+
+function renderKidsCooking() {
+  return renderKidsKorner();
 }
 
 function missionValuesSection() {
@@ -6767,12 +7157,19 @@ function handleClick(event) {
   const saveButton = event.target.closest("[data-save]");
   const planButton = event.target.closest("[data-plan]");
   const printButton = event.target.closest("[data-print-recipe]");
+  const kidsBadgeButton = event.target.closest("[data-kids-badge]");
   const juneteenthMenuButton = event.target.closest("[data-juneteenth-menu]");
   const regionalMenuButton = event.target.closest("[data-regional-menu]");
   const recipeSetButton = event.target.closest("[data-use-recipe-set]");
   const saveCurrentMenuButton = event.target.closest("[data-save-current-menu]");
   const useSavedMenuButton = event.target.closest("[data-use-saved-menu]");
   const clearPlannedButton = event.target.closest("[data-clear-planned]");
+  if (kidsBadgeButton) {
+    kidsBadgeProgress = toggleValue(kidsBadgeProgress, kidsBadgeButton.dataset.kidsBadge);
+    localStorage.setItem("letsCookKidsBadges", JSON.stringify(kidsBadgeProgress));
+    render();
+    return;
+  }
   if (clearPlannedButton) {
     planned = [];
     persistLetsCookState();
@@ -6850,6 +7247,24 @@ function handleClick(event) {
 
 
 async function handleSubmit(event) {
+  if (event.target.matches("[data-kids-create-form]")) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const base = formData.get("base")?.toString() || "";
+    const protein = formData.get("protein")?.toString() || "";
+    const color = formData.get("color")?.toString() || "";
+    const crunch = formData.get("crunch")?.toString() || "";
+    const output = document.querySelector("[data-kids-create-output]");
+    if (output) {
+      output.innerHTML = `
+        <span>🎉</span>
+        <h2>Your snack: The Color Crunch Plate</h2>
+        <p>Arrange <strong>${base}</strong> with <strong>${protein}</strong>, <strong>${color}</strong>, and <strong>${crunch}</strong>. Ask a grown-up to check allergies and help with any cutting.</p>
+      `;
+    }
+    return;
+  }
+
   if (event.target.matches("[data-encyclopedia-form], [data-academy-form]")) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -7028,6 +7443,7 @@ async function persistLetsCookState() {
   localStorage.setItem("letsCookRecentlyViewed", JSON.stringify(recentlyViewed));
   localStorage.setItem("letsCookSavedMenus", JSON.stringify(savedMenus));
   localStorage.setItem("letsCookLessonProgress", JSON.stringify(lessonProgress));
+  localStorage.setItem("letsCookKidsBadges", JSON.stringify(kidsBadgeProgress));
   if (!letsCookSession.authenticated) {
     return false;
   }

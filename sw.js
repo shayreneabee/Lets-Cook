@@ -1,4 +1,4 @@
-const CACHE_NAME = "brent-co-platform-v10";
+const CACHE_NAME = "lets-cook-kids-korner-v11";
 
 const OFFLINE_ASSETS = [
   "./",
