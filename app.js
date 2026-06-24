@@ -3948,6 +3948,20 @@ const kidsKornerBadges = [
   { id: "rising-chef", icon: "👩🏾‍🍳", title: "Rising Chef", text: "Save or complete five Kids Korner recipes.", goal: 5 }
 ];
 
+const pantryScanQuickIngredients = [
+  "chicken", "ground beef", "eggs", "cheese", "milk", "butter", "rice", "pasta", "bread", "tortillas",
+  "potatoes", "onion", "bell pepper", "garlic", "tomatoes", "beans", "corn", "flour", "sugar", "oats",
+  "peanut butter", "jelly", "bananas", "apples", "yogurt", "lettuce", "cabbage", "shrimp", "salmon", "bacon"
+];
+
+const pantryScanAliases = new Map([
+  ["macaroni", "pasta"], ["noodles", "pasta"], ["noodle", "pasta"],
+  ["hamburger", "ground beef"], ["beef", "ground beef"], ["tomato", "tomatoes"],
+  ["egg", "eggs"], ["tortilla", "tortillas"], ["potato", "potatoes"],
+  ["banana", "bananas"], ["apple", "apples"], ["bean", "beans"],
+  ["cheddar", "cheese"], ["mozzarella", "cheese"]
+]);
+
 const app = document.querySelector("#app");
 const nav = document.querySelector(".main-nav");
 const menuToggle = document.querySelector(".menu-toggle");
@@ -3958,7 +3972,7 @@ let recentlyViewed = readJSON("letsCookRecentlyViewed", []);
 let savedMenus = readJSON("letsCookSavedMenus", []);
 let submissions = readJSON("letsCookSubmissions", []);
 let lessonProgress = readJSON("letsCookLessonProgress", {});
-let kidsBadgeProgress = readJSON("letsCookKidsBadges", []);
+let pantryScanState = readJSON("letsCookPantryScan", { ingredients: [], notes: "" });
 let letsCookSession = {
   authenticated: false,
   user: null,
@@ -4021,6 +4035,7 @@ function render() {
   if (route === "culinary-academy") return renderCulinaryAcademy(id);
   if (route === "build-a-meal") return renderBuildMeal(id);
   if (route === "kitchen-search") return renderKitchenSearch(id);
+  if (route === "pantry-scan") return renderPantryScan();
   if (route === "cuisine-explorer") return renderCuisineExplorer(id);
   if (route === "food-encyclopedia") return renderCulinaryAcademy(id);
   if (route === "menu-intelligence") return renderMenuIntelligence(id);
@@ -4045,7 +4060,7 @@ function render() {
 }
 
 function setActive(route) {
-  const cookingRoutes = ["kitchen", "cook101", "skills-academy", "culinary-academy", "build-a-meal", "kitchen-search", "cuisine-explorer", "food-encyclopedia", "menu-intelligence", "living-cookbook", "kids-cooking", "kids-korner", "recipes", "paths", "pathways", "planner", "hosting", "about", "account", "search", "cuisine"];
+  const cookingRoutes = ["kitchen", "cook101", "skills-academy", "culinary-academy", "build-a-meal", "kitchen-search", "pantry-scan", "cuisine-explorer", "food-encyclopedia", "menu-intelligence", "living-cookbook", "kids-cooking", "kids-korner", "recipes", "paths", "pathways", "planner", "hosting", "about", "account", "search", "cuisine"];
   const normalizedRoute = cookingRoutes.includes(route) ? "lets-cook" : route;
   document.querySelectorAll(".main-nav a").forEach((link) => {
     link.classList.toggle("active", link.dataset.route === normalizedRoute);
@@ -4053,7 +4068,7 @@ function setActive(route) {
 }
 
 function activeAppForRoute(route) {
-  const cookingRoutes = ["lets-cook", "kitchen", "cook101", "skills-academy", "culinary-academy", "build-a-meal", "kitchen-search", "cuisine-explorer", "food-encyclopedia", "menu-intelligence", "living-cookbook", "kids-cooking", "kids-korner", "recipes", "paths", "pathways", "planner", "hosting", "about", "account", "search", "cuisine"];
+  const cookingRoutes = ["lets-cook", "kitchen", "cook101", "skills-academy", "culinary-academy", "build-a-meal", "kitchen-search", "pantry-scan", "cuisine-explorer", "food-encyclopedia", "menu-intelligence", "living-cookbook", "kids-cooking", "kids-korner", "recipes", "paths", "pathways", "planner", "hosting", "about", "account", "search", "cuisine"];
   if (cookingRoutes.includes(route)) return ecosystemApps.find((item) => item.id === "lets-cook");
   if (route === "find-the-beat") return ecosystemApps.find((item) => item.id === "find-the-beat");
   if (route === "second-chance") return ecosystemApps.find((item) => item.id === "second-chance");
@@ -4104,6 +4119,7 @@ function lessonLinkFor(id) {
   if (id === "cuisine-explorer") return { href: "#cuisine-explorer", title: "Cuisine Explorer" };
   if (id === "menu-intelligence") return { href: "#menu-intelligence", title: "Menu Builder" };
   if (id === "kitchen-search") return { href: "#kitchen-search", title: "What's In My Kitchen" };
+  if (id === "pantry-scan") return { href: "#pantry-scan", title: "Pantry Scan" };
   return { href: "#culinary-academy", title: titleizeSlug(id) || "Culinary Academy" };
 }
 
@@ -5072,11 +5088,7 @@ function renderLetsCookHome() {
     ${monthlySpotlightBanner()}
     ${cookSubnav()}
     <section class="cream-section kitchen-flagship-intro">
-      <div class="section-heading compact-heading">
-        <p class="eyebrow">Flagship kitchen tool</p>
-        <h2>What's In My Kitchen</h2>
-        <p>Start with what you already have, then find real recipes, cuisines, techniques, sides, substitutions, and meal ideas.</p>
-      </div>
+      ${kitchenToolSwitcher()}
     </section>
     ${ingredientDiscoverySection("chicken strips")}
     ${thisMonthSection()}
@@ -5418,13 +5430,167 @@ function renderBuildMeal(id) {
   `;
 }
 
+function kitchenToolSwitcher(active = "") {
+  return `
+    <div class="kitchen-tool-grid">
+      <article class="kitchen-tool-card ${active === "kitchen-search" ? "active" : ""}">
+        <div class="kitchen-tool-icon" aria-hidden="true">🥕</div>
+        <div>
+          <p class="eyebrow">Type what you have</p>
+          <h2>What's In My Kitchen</h2>
+          <p>Search ingredients you already know are in the refrigerator, freezer, or pantry.</p>
+          <a class="small-button" href="#kitchen-search">Search Ingredients</a>
+        </div>
+      </article>
+      <article class="kitchen-tool-card pantry ${active === "pantry-scan" ? "active" : ""}">
+        <div class="kitchen-tool-icon" aria-hidden="true">📷</div>
+        <div>
+          <p class="eyebrow">Start with a photo</p>
+          <h2>Pantry Scan</h2>
+          <p>Upload a pantry picture, confirm the ingredients you see, and match them against real recipes.</p>
+          <a class="small-button" href="#pantry-scan">Open Pantry Scan</a>
+        </div>
+      </article>
+    </div>
+  `;
+}
+
 function renderKitchenSearch(id) {
   const term = id ? normalizeIngredientTerm(id) : "chicken strips";
   app.innerHTML = `
     ${hero("What's In My Kitchen", "Search by what you already have, then discover recipes, cuisines, techniques, side dishes, substitutions, and meal plans.", photoFor("skills", "measuring"), `<a class="small-button" href="#build-a-meal/${encodeURIComponent(term)}">Build A Meal</a>`)}
     ${cookSubnav()}
+    <section class="cream-section kitchen-tool-switcher">${kitchenToolSwitcher("kitchen-search")}</section>
     ${ingredientDiscoverySection(term)}
     ${ingredientGuideMarkup(term)}
+  `;
+}
+
+function normalizePantryIngredient(value = "") {
+  const normalized = String(value).toLowerCase().replace(/[^a-z0-9\s-]/g, " ").replace(/\s+/g, " ").trim();
+  return pantryScanAliases.get(normalized) || normalized;
+}
+
+function uniquePantryIngredients(values = []) {
+  return [...new Set(values.map(normalizePantryIngredient).filter(Boolean))];
+}
+
+function pantryIngredientsFromText(text = "") {
+  const normalized = String(text).toLowerCase();
+  const typed = normalized.split(/,|\n| and /).map((item) => item.trim()).filter(Boolean);
+  const spotted = pantryScanQuickIngredients.filter((item) => normalized.includes(item));
+  return uniquePantryIngredients([...typed, ...spotted]);
+}
+
+function pantryRecipeText(recipe = {}) {
+  const ingredients = recipe.ingredients || recipe.structured_ingredients || recipe.ingredients_structured || [];
+  const ingredientText = ingredients.map((item) => typeof item === "string" ? item : item.name || item.original || "").join(" ");
+  return normalizePantryIngredient(`${ingredientText} ${recipe.title || ""} ${recipe.description || ""} ${recipe.category || ""} ${recipe.cuisine || ""} ${(recipe.tags || []).join(" ")}`);
+}
+
+function pantryScanMatches(ingredients = []) {
+  const pantry = uniquePantryIngredients(ingredients);
+  return recipes.map((recipe) => {
+    const recipeText = pantryRecipeText(recipe);
+    const matches = pantry.filter((item) => recipeText.includes(item));
+    const practicalBonus = /quick|weeknight|kid|snack|pizza|sandwich|parfait|smoothie|mac|taco|rice|bowl/i.test(
+      [recipe.category, recipe.path, recipe.title, ...(recipe.tags || [])].join(" ")
+    ) ? 1 : 0;
+    return { recipe, matches, score: matches.length * 3 + practicalBonus };
+  }).filter((item) => item.matches.length)
+    .sort((a, b) => b.score - a.score || a.recipe.title.localeCompare(b.recipe.title))
+    .slice(0, 12);
+}
+
+function pantryScanResultsMarkup(ingredients = []) {
+  if (!ingredients.length) {
+    return `<div class="empty-state">Add ingredients or tap the quick ingredient buttons to get ideas from the real recipe library.</div>`;
+  }
+  const matches = pantryScanMatches(ingredients);
+  if (!matches.length) {
+    return `<div class="empty-state">No strong recipe matches yet. Add a protein, starch, or vegetable and try again.</div>`;
+  }
+  return matches.map(({ recipe, matches: matchedIngredients }) => `
+    <article class="planner-recipe-card pantry-result-card">
+      <img src="${recipePhotoFor(recipe)}" alt="${escapeHTML(recipe.title)}" />
+      <div>
+        <p class="eyebrow">Uses ${matchedIngredients.slice(0, 4).map(titleizeSlug).join(", ")}</p>
+        <h3>${recipe.title}</h3>
+        <p>${recipe.description || "A pantry-friendly Let's Cook Y'all recipe."}</p>
+        <div class="recipe-card-meta compact-meta">
+          <span>${recipe.prep_time || recipe.prepTime || "15 min"} prep</span>
+          <span>${recipe.cook_time || recipe.cookTime || recipe.time || "30 min"} cook</span>
+          <span>${recipe.difficulty || recipe.level || "Beginner"}</span>
+        </div>
+        <div class="planner-card-actions">
+          <a class="small-button secondary" href="#recipes/${recipe.id}">View Recipe</a>
+          <button class="small-button" data-plan="${recipe.id}">Add to Plan</button>
+        </div>
+      </div>
+    </article>
+  `).join("");
+}
+
+function pantryIngredientsFromDom() {
+  const notes = document.querySelector("#pantryScanNotes")?.value || "";
+  const chips = [...document.querySelectorAll("[data-pantry-chip].active")].map((chip) => chip.dataset.pantryChip);
+  const ingredients = uniquePantryIngredients([...pantryIngredientsFromText(notes), ...chips]);
+  pantryScanState = { ingredients, notes };
+  localStorage.setItem("letsCookPantryScan", JSON.stringify(pantryScanState));
+  return ingredients;
+}
+
+function updatePantryScanResults() {
+  const target = document.querySelector("#pantryScanResults");
+  if (target) target.innerHTML = pantryScanResultsMarkup(pantryIngredientsFromDom());
+}
+
+function renderPantryScan() {
+  const ingredients = uniquePantryIngredients(pantryScanState.ingredients || []);
+  app.innerHTML = `
+    ${hero("Pantry Scan", "Upload a pantry photo, confirm what is visible, and turn those ingredients into real recipe matches.", photoFor("skills", "measuring"), `<a class="small-button" href="#kitchen-search">What's In My Kitchen</a>`)}
+    ${cookSubnav()}
+    <section class="cream-section kitchen-tool-switcher">${kitchenToolSwitcher("pantry-scan")}</section>
+    <section class="cream-section pantry-scan-workbench">
+      <div class="pantry-scan-layout">
+        <article class="pantry-photo-card">
+          <p class="eyebrow">1. Add a pantry photo</p>
+          <h2>Show us what you are working with.</h2>
+          <label class="pantry-upload-control">
+            <span>Choose Photo</span>
+            <input id="pantryPhotoInput" type="file" accept="image/*" />
+          </label>
+          <div id="pantryPhotoPreview" class="pantry-photo-preview">
+            <span aria-hidden="true">📷</span>
+            <p>Your photo preview will appear here.</p>
+          </div>
+          <p class="pantry-privacy-note">The photo stays in your browser for this session. It is not uploaded to the server.</p>
+        </article>
+        <article class="pantry-confirm-card">
+          <p class="eyebrow">2. Confirm the ingredients</p>
+          <h2>What can you see?</h2>
+          <p>Type ingredients separated by commas, then tap any quick ingredients that also belong in the list.</p>
+          <textarea id="pantryScanNotes" rows="5" placeholder="Example: rice, chicken, eggs, cheese, bell pepper, onion">${escapeHTML(pantryScanState.notes || "")}</textarea>
+          <div class="pantry-chip-row">
+            ${pantryScanQuickIngredients.map((item) => `
+              <button type="button" class="pantry-chip ${ingredients.includes(item) ? "active" : ""}" data-pantry-chip="${item}">${item}</button>
+            `).join("")}
+          </div>
+          <div class="planner-card-actions">
+            <button class="small-button" type="button" data-run-pantry-scan>Find Meal Ideas</button>
+            <button class="small-button secondary" type="button" data-clear-pantry-scan>Clear Pantry</button>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="cream-section pantry-results-section">
+      <div class="section-heading">
+        <p class="eyebrow">3. Cook from what you have</p>
+        <h2>Recipe matches from the Let's Cook Y'all library.</h2>
+        <p>Matches are ranked by how many confirmed ingredients appear in each real recipe.</p>
+      </div>
+      <div id="pantryScanResults" class="planner-recipe-list">${pantryScanResultsMarkup(ingredients)}</div>
+    </section>
   `;
 }
 
@@ -6008,14 +6174,12 @@ function renderKidsKornerBadges() {
       </section>
       <section class="kids-section kids-badge-grid">
         ${kidsKornerBadges.map((badge) => {
-          const automatic = badge.id === "first-recipe" ? kidSavedCount >= 1 : badge.id === "rising-chef" ? kidSavedCount >= 5 : false;
-          const earned = automatic || kidsBadgeProgress.includes(badge.id);
+          const earned = badge.id === "first-recipe" ? kidSavedCount >= 1 : badge.id === "rising-chef" ? kidSavedCount >= 5 : false;
           const progress = Math.min(kidSavedCount, badge.goal);
           return `
             <article class="kids-badge-card ${earned ? "earned" : ""}">
               <span>${badge.icon}</span><p>${earned ? "Badge earned" : `${progress} of ${badge.goal}`}</p><h2>${badge.title}</h2><small>${badge.text}</small>
               <div class="kids-badge-meter"><i style="width:${Math.min(100, (progress / badge.goal) * 100)}%"></i></div>
-              ${automatic ? "" : `<button class="kids-button" data-kids-badge="${badge.id}">${earned ? "Mark Incomplete" : "Grown-up: Mark Complete"}</button>`}
             </article>
           `;
         }).join("")}
@@ -7118,6 +7282,21 @@ function learningSearchResults(query) {
 }
 
 function handleSearch(event) {
+  if (event?.target?.id === "pantryPhotoInput") {
+    const file = event.target.files?.[0];
+    const preview = document.querySelector("#pantryPhotoPreview");
+    if (!file || !preview) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      preview.innerHTML = `<img src="${reader.result}" alt="Pantry photo preview" /><p>Photo ready. Confirm the visible ingredients beside it.</p>`;
+    };
+    reader.readAsDataURL(file);
+    return;
+  }
+  if (event?.target?.id === "pantryScanNotes") {
+    updatePantryScanResults();
+    return;
+  }
   renderPartyPlannerResults();
   renderRecipePartyResults();
   const query = document.querySelector("#searchBox")?.value.toLowerCase().trim() || "";
@@ -7157,17 +7336,28 @@ function handleClick(event) {
   const saveButton = event.target.closest("[data-save]");
   const planButton = event.target.closest("[data-plan]");
   const printButton = event.target.closest("[data-print-recipe]");
-  const kidsBadgeButton = event.target.closest("[data-kids-badge]");
+  const pantryChip = event.target.closest("[data-pantry-chip]");
+  const pantryRunButton = event.target.closest("[data-run-pantry-scan]");
+  const pantryClearButton = event.target.closest("[data-clear-pantry-scan]");
   const juneteenthMenuButton = event.target.closest("[data-juneteenth-menu]");
   const regionalMenuButton = event.target.closest("[data-regional-menu]");
   const recipeSetButton = event.target.closest("[data-use-recipe-set]");
   const saveCurrentMenuButton = event.target.closest("[data-save-current-menu]");
   const useSavedMenuButton = event.target.closest("[data-use-saved-menu]");
   const clearPlannedButton = event.target.closest("[data-clear-planned]");
-  if (kidsBadgeButton) {
-    kidsBadgeProgress = toggleValue(kidsBadgeProgress, kidsBadgeButton.dataset.kidsBadge);
-    localStorage.setItem("letsCookKidsBadges", JSON.stringify(kidsBadgeProgress));
-    render();
+  if (pantryChip) {
+    pantryChip.classList.toggle("active");
+    updatePantryScanResults();
+    return;
+  }
+  if (pantryRunButton) {
+    updatePantryScanResults();
+    return;
+  }
+  if (pantryClearButton) {
+    pantryScanState = { ingredients: [], notes: "" };
+    localStorage.removeItem("letsCookPantryScan");
+    renderPantryScan();
     return;
   }
   if (clearPlannedButton) {
@@ -7443,7 +7633,6 @@ async function persistLetsCookState() {
   localStorage.setItem("letsCookRecentlyViewed", JSON.stringify(recentlyViewed));
   localStorage.setItem("letsCookSavedMenus", JSON.stringify(savedMenus));
   localStorage.setItem("letsCookLessonProgress", JSON.stringify(lessonProgress));
-  localStorage.setItem("letsCookKidsBadges", JSON.stringify(kidsBadgeProgress));
   if (!letsCookSession.authenticated) {
     return false;
   }
