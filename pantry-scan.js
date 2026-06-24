@@ -7,28 +7,15 @@
   ];
 
   const aliases = new Map([
-    ["macaroni", "pasta"],
-    ["noodles", "pasta"],
-    ["noodle", "pasta"],
-    ["hamburger", "ground beef"],
-    ["beef", "ground beef"],
-    ["tomato", "tomatoes"],
-    ["egg", "eggs"],
-    ["tortilla", "tortillas"],
-    ["potato", "potatoes"],
-    ["banana", "bananas"],
-    ["apple", "apples"],
-    ["bean", "beans"],
-    ["cheddar", "cheese"],
-    ["mozzarella", "cheese"]
+    ["macaroni", "pasta"], ["noodles", "pasta"], ["noodle", "pasta"],
+    ["hamburger", "ground beef"], ["beef", "ground beef"], ["tomato", "tomatoes"],
+    ["egg", "eggs"], ["tortilla", "tortillas"], ["potato", "potatoes"],
+    ["banana", "bananas"], ["apple", "apples"], ["bean", "beans"],
+    ["cheddar", "cheese"], ["mozzarella", "cheese"]
   ]);
 
   function normalize(value = "") {
-    return String(value)
-      .toLowerCase()
-      .replace(/[^a-z0-9\s-]/g, " ")
-      .replace(/\s+/g, " ")
-      .trim();
+    return String(value).toLowerCase().replace(/[^a-z0-9\s-]/g, " ").replace(/\s+/g, " ").trim();
   }
 
   function unique(values = []) {
@@ -58,14 +45,13 @@
 
   function findPantryMatches(ingredients = []) {
     const pantry = unique(ingredients);
-    const sourceRecipes = Array.isArray(recipes) ? recipes : [];
+    const sourceRecipes = typeof recipes !== "undefined" && Array.isArray(recipes) ? recipes : [];
     return sourceRecipes.map((recipe) => {
       const ingredientText = recipeIngredientText(recipe);
       const titleText = recipeTitleText(recipe);
       const matches = pantry.filter((item) => ingredientText.includes(item) || titleText.includes(item));
-      const kidBonus = /kid|snack|pizza|sandwich|parfait|smoothie|mac|cookie|nachos/i.test([recipe.category, recipe.path, recipe.title, ...(recipe.tags || [])].join(" ")) ? 1 : 0;
-      const score = matches.length * 3 + kidBonus;
-      return { recipe, matches, score };
+      const bonus = /quick|weeknight|kid|snack|pizza|sandwich|parfait|smoothie|mac|taco|rice|bowl/i.test([recipe.category, recipe.path, recipe.title, ...(recipe.tags || [])].join(" ")) ? 1 : 0;
+      return { recipe, matches, score: matches.length * 3 + bonus };
     }).filter((item) => item.score > 0)
       .sort((a, b) => b.score - a.score || a.recipe.title.localeCompare(b.recipe.title))
       .slice(0, 9);
@@ -88,7 +74,7 @@
     if (!target) return;
     const matches = findPantryMatches(ingredients);
     if (!ingredients.length) {
-      target.innerHTML = `<p class="hosting-note">Add a few ingredients or tap the quick chips to get recipe ideas.</p>`;
+      target.innerHTML = `<p class="hosting-note">Add ingredients or tap quick chips to get ideas from what is already in your kitchen.</p>`;
       return;
     }
     if (!matches.length) {
@@ -131,26 +117,26 @@
     app.innerHTML = `
       <section class="hero pantry-scan-hero">
         <div class="hero-copy">
-          <p class="eyebrow">Kids Korner / Jerod's Pantry Scan Idea</p>
-          <h1>Take a pantry picture, confirm what you see, and make a meal.</h1>
-          <p>This first version lets families upload a pantry photo, type or tap the ingredients they see, then Chef Y'all matches them to recipes already inside Let's Cook Y'all.</p>
+          <p class="eyebrow">What's In My Kitchen / Pantry Scan</p>
+          <h1>Upload a pantry picture, confirm what you see, and make a meal.</h1>
+          <p>This MVP pairs with What's In My Kitchen: photo first, ingredient confirmation second, recipe ideas third.</p>
           <div class="hero-actions">
-            <a class="button primary" href="#kids-korner">Back to Kids Korner</a>
+            <a class="button primary" href="#kitchen-search">Back to What's In My Kitchen</a>
             <button class="button secondary" id="runPantryScan">Find Meal Ideas</button>
           </div>
         </div>
         <div class="hero-card pantry-preview-card">
-          <p class="eyebrow">Camera-ready MVP</p>
-          <input id="pantryPhotoInput" type="file" accept="image/*" capture="environment" />
-          <div id="pantryPhotoPreview" class="pantry-photo-preview">Upload or snap a pantry photo.</div>
+          <p class="eyebrow">Photo MVP</p>
+          <input id="pantryPhotoInput" type="file" accept="image/*" />
+          <div id="pantryPhotoPreview" class="pantry-photo-preview">Upload a pantry photo.</div>
         </div>
       </section>
 
       <section class="section-block pantry-scan-workbench">
         <div class="section-heading">
           <p class="eyebrow">Confirm ingredients</p>
-          <h2>What does the camera see?</h2>
-          <p>Until we wire in true computer vision, this keeps the user flow real: photo first, ingredient confirmation second, recipe ideas third.</p>
+          <h2>What does the photo show?</h2>
+          <p>Until true computer vision is wired in, users can confirm the ingredients and get recipe matches immediately.</p>
         </div>
         <textarea id="pantryScanNotes" rows="4" placeholder="Example: rice, chicken, eggs, cheese, tortillas, bell pepper, onion">${state.notes || ""}</textarea>
         <div class="region-chip-row pantry-chip-row">
@@ -173,19 +159,19 @@
     renderResults(state.ingredients || []);
   }
 
-  function addKidsKornerPantryBanner() {
+  function addKitchenSearchPantryBanner() {
     const app = document.querySelector("#app");
-    if (!app || document.querySelector("#kidsPantryScanBanner")) return;
+    if (!app || document.querySelector("#kitchenPantryScanBanner")) return;
     const route = location.hash.replace("#", "").split("/")[0];
-    if (route !== "kids-korner" && route !== "kids-cooking") return;
+    if (route !== "kitchen-search") return;
     const banner = document.createElement("section");
-    banner.id = "kidsPantryScanBanner";
+    banner.id = "kitchenPantryScanBanner";
     banner.className = "section-block pantry-scan-callout";
     banner.innerHTML = `
       <div class="section-heading">
-        <p class="eyebrow">New family challenge</p>
-        <h2>What's in the pantry?</h2>
-        <p>Snap a picture, confirm the ingredients, and let Chef Y'all suggest meals kids can help make.</p>
+        <p class="eyebrow">New kitchen tool</p>
+        <h2>Pantry Scan</h2>
+        <p>Use this beside What's In My Kitchen: upload a pantry photo, confirm ingredients, and get recipe ideas from what you already have.</p>
       </div>
       <a class="button primary" href="#pantry-scan">Try Pantry Scan</a>
     `;
@@ -195,8 +181,9 @@
 
   function syncPantryRoute() {
     setTimeout(() => {
-      if (location.hash.replace("#", "").split("/")[0] === "pantry-scan") renderPantryScanPage();
-      else addKidsKornerPantryBanner();
+      const route = location.hash.replace("#", "").split("/")[0];
+      if (route === "pantry-scan") renderPantryScanPage();
+      else addKitchenSearchPantryBanner();
     }, 0);
   }
 
@@ -231,6 +218,7 @@
     reader.readAsDataURL(file);
   });
 
+  window.renderPantryScanPage = renderPantryScanPage;
   window.addEventListener("hashchange", syncPantryRoute);
   window.addEventListener("load", syncPantryRoute);
   if (document.readyState !== "loading") syncPantryRoute();
