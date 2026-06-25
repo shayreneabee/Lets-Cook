@@ -390,7 +390,7 @@ const cuisines = [
 const learningPillars = [
   { title: "Culinary Academy", route: "#culinary-academy", text: "A single learning hub for basics, ingredients, techniques, equipment, science, world foods, seasonings, and professional skills." },
   { title: "Cuisine Explorer", route: "#cuisine-explorer", text: "A polished world-food rolodex for culture, regions, country-level cuisines, ingredients, and traditions." },
-  { title: "Menu Builder", route: "#menu-intelligence", text: "Build culturally grounded meals with mains, sides, breads, sauces, drinks, desserts, and timing." },
+  { title: "What Y'all Cooking?", route: "#what-yall-cooking", text: "Scan what you have, cook from your kitchen, plan the week, build shopping lists, and prepare for gatherings." },
   { title: "Hospitality & Hosting", route: "#hosting", text: "Plan fish fries, Sunday dinners, showers, brunch, catering prep, and warm gathering menus." }
 ];
 
@@ -830,6 +830,105 @@ const countryCuisineProfiles = {
     beginnerRecipes: ["Southern Fried Chicken", "Shrimp and Grits with Green Beans", "Creamy Stone-Ground Grits", "Collard Greens", "Black-Eyed Peas", "Cornbread"]
   }
 };
+
+const cuisinePracticeRecipeTracks = {
+  mediterranean: {
+    beginner: [
+      ["Greek Salad", ["tomatoes", "cucumber", "olives", "feta", "olive oil"], ["knife skills", "dressing balance", "fresh assembly"]],
+      ["Hummus", ["chickpeas", "tahini", "lemon", "garlic", "olive oil"], ["blending", "seasoning", "texture control"]],
+      ["Tzatziki", ["Greek yogurt", "cucumber", "garlic", "lemon", "dill"], ["straining", "cold sauce", "herb balance"]],
+      ["Tomato & Cucumber Salad", ["tomatoes", "cucumber", "red onion", "herbs", "olive oil"], ["knife cuts", "simple vinaigrette", "fresh seasoning"]],
+      ["Garlic Pita", ["pita", "olive oil", "garlic", "parsley", "salt"], ["toasting", "aromatics", "serving bread"]]
+    ],
+    intermediate: [
+      ["Chicken Souvlaki", ["chicken", "lemon", "oregano", "garlic", "olive oil"], ["marinating", "skewering", "grilling"]],
+      ["Shakshuka", ["eggs", "tomatoes", "peppers", "onion", "spices"], ["simmering sauce", "poaching eggs", "spice blooming"]],
+      ["Falafel", ["chickpeas", "parsley", "cilantro", "garlic", "cumin"], ["soaking legumes", "forming", "frying"]],
+      ["Spanakopita", ["spinach", "feta", "phyllo", "dill", "egg"], ["layering pastry", "filling", "baking"]],
+      ["Greek Lemon Potatoes", ["potatoes", "lemon", "olive oil", "oregano", "stock"], ["roasting", "braising", "reducing pan juices"]]
+    ],
+    advanced: [
+      ["Moussaka", ["eggplant", "ground beef or lamb", "tomato", "bechamel", "potatoes"], ["layering", "bechamel", "baking casserole"]],
+      ["Beef Kofta", ["ground beef", "parsley", "onion", "cumin", "coriander"], ["seasoning meat", "shaping", "grilling"]],
+      ["Seafood Paella", ["rice", "saffron", "seafood", "stock", "peas"], ["socarrat", "stock absorption", "seafood timing"]],
+      ["Lamb Tagine", ["lamb", "apricots", "almonds", "cinnamon", "preserved lemon"], ["slow braising", "spice layering", "sweet-savory balance"]],
+      ["Baklava", ["phyllo", "walnuts", "butter", "honey", "cinnamon"], ["pastry layering", "syrup timing", "portioning"]]
+    ]
+  },
+  japanese: {
+    beginner: [
+      ["Steamed Rice", ["Japanese short-grain rice", "water"], ["rinsing rice", "resting", "steaming"]],
+      ["Miso Soup", ["miso", "dashi", "tofu", "wakame", "scallions"], ["broth basics", "gentle heating", "umami balance"]],
+      ["Tamagoyaki", ["eggs", "soy sauce", "mirin", "sugar"], ["rolling omelet", "low heat", "layering"]],
+      ["Onigiri", ["rice", "nori", "salt", "filling"], ["shaping rice", "seasoning", "wrapping"]]
+    ],
+    intermediate: [
+      ["Chicken Teriyaki", ["chicken", "soy sauce", "mirin", "sake", "sugar"], ["glazing", "pan searing", "sauce reduction"]],
+      ["Katsu Curry", ["chicken or pork", "panko", "curry roux", "rice"], ["breading", "frying", "curry simmering"]],
+      ["Udon", ["udon noodles", "dashi", "soy sauce", "scallions"], ["broth building", "noodle timing", "garnishing"]],
+      ["Yakisoba", ["noodles", "cabbage", "carrot", "pork or chicken", "yakisoba sauce"], ["stir-frying", "sauce coating", "high heat"]]
+    ],
+    advanced: [
+      ["Sushi Rolls", ["sushi rice", "nori", "fish or vegetables", "rice vinegar"], ["rice seasoning", "rolling", "knife slicing"]],
+      ["Ramen", ["noodles", "broth", "tare", "egg", "chashu or chicken"], ["broth layering", "tare", "topping prep"]],
+      ["Tonkotsu Broth", ["pork bones", "water", "aromatics"], ["long simmering", "emulsifying broth", "straining"]],
+      ["Tempura", ["shrimp or vegetables", "flour", "egg", "ice water", "oil"], ["cold batter", "frying temperature", "light coating"]]
+    ]
+  },
+  mexican: {
+    beginner: [
+      ["Pico de Gallo", ["tomato", "onion", "cilantro", "jalapeno", "lime"], ["knife skills", "acid balance", "fresh salsa"]],
+      ["Guacamole", ["avocado", "lime", "cilantro", "onion", "salt"], ["mashing", "seasoning", "texture control"]],
+      ["Street Corn", ["corn", "mayo", "cotija", "chile", "lime"], ["charring", "sauce coating", "finishing"]],
+      ["Mexican Rice", ["rice", "tomato", "onion", "stock", "garlic"], ["toasting rice", "simmering", "resting"]]
+    ],
+    intermediate: [
+      ["Chicken Enchiladas", ["chicken", "tortillas", "enchilada sauce", "cheese"], ["rolling", "sauce layering", "baking"]],
+      ["Chicken Tacos", ["chicken", "tortillas", "lime", "cilantro", "salsa"], ["seasoning protein", "warming tortillas", "building toppings"]],
+      ["Pozole", ["hominy", "pork or chicken", "chiles", "cabbage", "radish"], ["soup simmering", "chile base", "garnish setup"]],
+      ["Carne Asada", ["skirt steak", "citrus", "garlic", "cilantro", "chiles"], ["marinating", "high-heat grilling", "resting meat"]]
+    ],
+    advanced: [
+      ["Mole", ["dried chiles", "nuts", "spices", "chocolate", "stock"], ["toasting chiles", "blending", "long simmering"]],
+      ["Birria", ["beef", "guajillo chiles", "ancho chiles", "spices", "stock"], ["braising", "chile sauce", "consomme"]],
+      ["Chiles en Nogada", ["poblano peppers", "picadillo", "walnut sauce", "pomegranate"], ["stuffing peppers", "sauce making", "plating"]],
+      ["Tamales", ["masa", "corn husks", "filling", "broth"], ["masa mixing", "wrapping", "steaming"]]
+    ]
+  },
+  indian: {
+    beginner: [
+      ["Basmati Rice", ["basmati rice", "water", "salt", "ghee optional"], ["rinsing rice", "steaming", "resting"]],
+      ["Raita", ["yogurt", "cucumber", "cumin", "cilantro"], ["grating", "cooling sauce", "spice balance"]],
+      ["Chai", ["black tea", "milk", "ginger", "cardamom", "sugar"], ["simmering", "spice infusion", "straining"]],
+      ["Naan", ["flour", "yogurt", "yeast or baking powder", "garlic", "butter"], ["dough mixing", "rolling", "flatbread cooking"]]
+    ],
+    intermediate: [
+      ["Butter Chicken", ["chicken", "yogurt", "tomato", "cream", "garam masala"], ["marinating", "curry base", "simmering"]],
+      ["Chana Masala", ["chickpeas", "tomatoes", "onion", "ginger", "spices"], ["spice blooming", "stewing", "finishing"]],
+      ["Palak Paneer", ["spinach", "paneer", "cream", "garlic", "spices"], ["blanching greens", "pureeing", "gentle simmering"]],
+      ["Biryani", ["rice", "chicken or vegetables", "yogurt", "spices", "fried onions"], ["layering", "dum steaming", "rice timing"]]
+    ],
+    advanced: [
+      ["Rogan Josh", ["lamb", "yogurt", "Kashmiri chile", "ginger", "spices"], ["braising", "spice layering", "sauce reduction"]],
+      ["Dosa", ["rice", "urad dal", "fenugreek", "water"], ["fermentation", "batter spreading", "griddle control"]],
+      ["Vindaloo", ["pork or chicken", "vinegar", "garlic", "chiles", "spices"], ["marinating", "acid balance", "slow simmering"]],
+      ["Hyderabadi Biryani", ["basmati rice", "meat", "saffron", "fried onions", "spices"], ["par-cooking rice", "layering", "sealed steaming"]]
+    ]
+  },
+  "asian-inspired": null,
+  japan: null,
+  "latin-american": null,
+  "mediterranean-cuisines": null,
+  greece: null,
+  india: null
+};
+
+cuisinePracticeRecipeTracks["asian-inspired"] = cuisinePracticeRecipeTracks.japanese;
+cuisinePracticeRecipeTracks.japan = cuisinePracticeRecipeTracks.japanese;
+cuisinePracticeRecipeTracks["latin-american"] = cuisinePracticeRecipeTracks.mexican;
+cuisinePracticeRecipeTracks["mediterranean-cuisines"] = cuisinePracticeRecipeTracks.mediterranean;
+cuisinePracticeRecipeTracks.greece = cuisinePracticeRecipeTracks.mediterranean;
+cuisinePracticeRecipeTracks.india = cuisinePracticeRecipeTracks.indian;
 
 const africaCountryPages = {
   nigeria: {
@@ -2607,7 +2706,7 @@ const menuIntelligenceRecipes = [
   steps: instructions,
   tags,
   cultural_variations: [],
-  source: { type: "original", name: "Let's Cook Y'all menu intelligence recipe" },
+  source: { type: "original", name: "Let's Cook Y'all What Y'all Cooking? recipe" },
   featured: false
 }));
 
@@ -3560,14 +3659,14 @@ const imageContentRegistry = {
     type: "recipe",
     href: "#recipes/southern-crispy-fried-chicken",
     lesson: "#culinary-academy/frying",
-    menu: "#menu-intelligence/1"
+    menu: "#what-yall-cooking/1"
   },
   "images/cuisines/southern/southern-02.png": {
     title: "Baked Mac and Cheese",
     type: "recipe",
     href: "#recipes/southern-baked-mac-cheese",
     lesson: "#culinary-academy/bechamel",
-    menu: "#menu-intelligence/1"
+    menu: "#what-yall-cooking/1"
   },
   "images/cuisines/southern/southern-03.png": {
     title: "Slow-Cooked Collard Greens",
@@ -3700,21 +3799,21 @@ const imageContentRegistry = {
     type: "cuisine collection",
     href: "#cuisine/indian",
     lesson: "#culinary-academy/curry",
-    menu: "#menu-intelligence/7"
+    menu: "#what-yall-cooking/7"
   },
   "assets/lc-birria-tacos.jpg": {
     title: "Mexican taco night",
     type: "recipe/menu",
     href: "#recipes/chicken-street-tacos",
     lesson: "#culinary-academy/world-foods",
-    menu: "#menu-intelligence/8"
+    menu: "#what-yall-cooking/8"
   },
   "assets/lc-mediterranean-food.jpg": {
     title: "Mediterranean lunch spread",
     type: "menu",
     href: "#cuisine/mediterranean",
     lesson: "#culinary-academy/tzatziki",
-    menu: "#menu-intelligence/3"
+    menu: "#what-yall-cooking/3"
   },
   "assets/lc-desserts.jpg": {
     title: "Desserts and party cups",
@@ -4132,6 +4231,126 @@ function recipesForCuisine(cuisineId, limit = 12) {
   return picked.slice(0, limit);
 }
 
+function recipeForPracticeTitle(title = "") {
+  const wanted = slugify(title);
+  const exact = recipes.find((recipe) => {
+    const options = [recipe.id, recipe.slug, recipe.title].map((value) => slugify(value || ""));
+    return options.includes(wanted);
+  });
+  if (exact) return exact;
+  return recipes.find((recipe) => {
+    const options = [recipe.id, recipe.slug, recipe.title].map((value) => slugify(value || ""));
+    return options.some((value) => value && (value.includes(wanted) || wanted.includes(value)));
+  });
+}
+
+function cuisinePracticePhoto(cuisineId, title, index = 0) {
+  const matchedRecipe = recipeForPracticeTitle(title);
+  if (matchedRecipe) return recipePhotoFor(matchedRecipe);
+  const canonical = canonicalCuisineId(cuisineId);
+  return photoFor("cuisines", canonical, index, cuisineCoverImages[canonical] || cuisineCoverImages.global || "assets/logo.png");
+}
+
+function normalizePracticeItem(item, cuisineId, level, index, profile) {
+  const [title, ingredients, techniques] = Array.isArray(item) ? item : [item.title, item.ingredients, item.techniques];
+  const matchedRecipe = recipeForPracticeTitle(title);
+  return {
+    title,
+    level,
+    cuisineId,
+    ingredients: ingredients || matchedRecipe?.ingredients?.slice(0, 5) || profile?.ingredients?.slice(0, 5) || [],
+    techniques: techniques || matchedRecipe?.tags?.slice(0, 3) || profile?.techniques?.slice(0, 3) || [],
+    image: cuisinePracticePhoto(cuisineId, title, index),
+    recipe: matchedRecipe
+  };
+}
+
+function generatedPracticeTrack(profile, cuisineId) {
+  const cuisineRecipes = recipesForCuisine(cuisineId, 18).filter((recipe) => {
+    const haystack = recipeSearchText(recipe);
+    return !/pb&j|peanut butter|fruit kabob|kids korner|apple nachos|ants on a log/i.test(haystack);
+  });
+  const byDifficulty = (pattern, fallback) => {
+    const matches = cuisineRecipes.filter((recipe) => pattern.test(`${recipe.difficulty} ${recipe.skill_level} ${recipe.category} ${recipe.tags?.join(" ")}`));
+    return (matches.length ? matches : fallback).slice(0, 5).map((recipe) => [
+      recipe.title,
+      recipe.ingredients?.slice(0, 5) || profile?.ingredients?.slice(0, 5) || [],
+      recipe.tags?.slice(0, 3) || profile?.techniques?.slice(0, 3) || []
+    ]);
+  };
+  const beginnerFallback = (profile?.beginnerRecipes || profile?.dishes || []).slice(0, 5).map((title) => [
+    title,
+    profile?.ingredients?.slice(0, 5) || [],
+    profile?.techniques?.slice(0, 3) || []
+  ]);
+  return {
+    beginner: byDifficulty(/beginner|easy|quick/i, cuisineRecipes.length ? cuisineRecipes : beginnerFallback.map(([title]) => ({ title }))),
+    intermediate: byDifficulty(/intermediate|main|dinner|supper|brais|simmer|grill|roast/i, cuisineRecipes),
+    advanced: byDifficulty(/advanced|professional|holiday|party|biryani|gumbo|tagine|tamale|brais|smok/i, cuisineRecipes)
+  };
+}
+
+function practiceTrackForCuisine(normalizedId, recipeCuisineId, profile, group, parentGroup) {
+  const candidates = [
+    normalizedId,
+    recipeCuisineId,
+    profile?.cuisine,
+    group?.id,
+    parentGroup?.id,
+    ...(parentGroup?.regions || []).map(slugify)
+  ].filter(Boolean).map(canonicalCuisineId);
+  const explicitKey = candidates.find((key) => cuisinePracticeRecipeTracks[key]);
+  const track = explicitKey ? cuisinePracticeRecipeTracks[explicitKey] : generatedPracticeTrack(profile, recipeCuisineId);
+  return ["beginner", "intermediate", "advanced"].reduce((acc, level) => {
+    const sourceItems = track?.[level] || [];
+    acc[level] = sourceItems.slice(0, 5).map((item, index) => normalizePracticeItem(item, recipeCuisineId, level, index, profile));
+    return acc;
+  }, {});
+}
+
+function practiceTrackSummary(track) {
+  return ["beginner", "intermediate", "advanced"].map((level) => {
+    const label = titleizeSlug(level);
+    const titles = (track[level] || []).map((item) => item.title).slice(0, 5);
+    return `<article class="academy-module-card"><h3>${label} Practice</h3><ul>${titles.map((title) => `<li>${title}</li>`).join("")}</ul></article>`;
+  }).join("");
+}
+
+function practiceRecipeCard(item, index) {
+  const href = item.recipe ? `#recipes/${item.recipe.id}` : `#kitchen-search/${encodeURIComponent(item.title)}`;
+  const action = item.recipe ? "Open Recipe" : "Find Similar Recipes";
+  return `
+    <article class="practice-recipe-card">
+      <img src="${item.image}" alt="${item.title}" />
+      <div>
+        <span>${titleizeSlug(item.level)}</span>
+        <h3>${item.title}</h3>
+        <p><strong>Ingredients:</strong> ${item.ingredients.slice(0, 5).join(", ")}</p>
+        <p><strong>Skills:</strong> ${item.techniques.slice(0, 3).join(", ")}</p>
+        <a class="small-button ${item.recipe ? "" : "secondary"}" href="${href}">${action}</a>
+      </div>
+    </article>
+  `;
+}
+
+function practiceTrackMarkup(track, title) {
+  return ["beginner", "intermediate", "advanced"].map((level) => {
+    const items = track[level] || [];
+    if (!items.length) return "";
+    return `
+      <section class="practice-level-section">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">${titleizeSlug(level)}</p>
+          <h3>${titleizeSlug(level)} ${title} practice recipes</h3>
+        </div>
+        <div class="practice-recipe-grid">
+          ${items.map(practiceRecipeCard).join("")}
+        </div>
+      </section>
+    `;
+  }).join("");
+}
+
 function cuisineGuideRoute(cuisineId) {
   const guideIds = {
     southern: "southern-soul-food",
@@ -4498,10 +4717,11 @@ function render() {
   if (route === "culinary-academy") return renderCulinaryAcademy(id);
   if (route === "build-a-meal") return renderBuildMeal(id);
   if (route === "kitchen-search") return renderKitchenSearch(id);
-  if (route === "pantry-scan") return renderPantryScan();
+  if (route === "pantry-scan") return renderPantryScan(id);
   if (route === "cuisine-explorer") return renderCuisineExplorer(id);
   if (route === "food-encyclopedia") return renderCulinaryAcademy(id);
-  if (route === "menu-intelligence") return renderMenuIntelligence(id);
+  if (route === "what-yall-cooking") return renderWhatYallCooking(id);
+  if (route === "menu-intelligence") return renderWhatYallCooking(id);
   if (route === "living-cookbook") return renderLivingCookbook(id);
   if (route === "kids-cooking") return renderKidsKorner(id);
   if (route === "kids-korner") return renderKidsKorner(id);
@@ -4523,15 +4743,21 @@ function render() {
 }
 
 function setActive(route) {
-  const cookingRoutes = ["kitchen", "cook101", "skills-academy", "culinary-academy", "build-a-meal", "kitchen-search", "pantry-scan", "cuisine-explorer", "food-encyclopedia", "menu-intelligence", "living-cookbook", "kids-cooking", "kids-korner", "recipes", "paths", "pathways", "planner", "hosting", "about", "account", "search", "cuisine"];
-  const normalizedRoute = cookingRoutes.includes(route) ? "lets-cook" : route;
+  const routeFamilies = {
+    "cuisine-explorer": ["cuisine-explorer", "cuisine", "recipes", "search", "living-cookbook"],
+    "kids-korner": ["kids-korner", "kids-cooking"],
+    "what-yall-cooking": ["what-yall-cooking", "menu-intelligence", "kitchen-search", "pantry-scan", "planner", "build-a-meal", "hosting"],
+    "culinary-academy": ["culinary-academy", "cook101", "skills-academy", "food-encyclopedia", "paths", "pathways"]
+  };
   document.querySelectorAll(".main-nav a").forEach((link) => {
-    link.classList.toggle("active", link.dataset.route === normalizedRoute);
+    const linkRoute = (link.getAttribute("href") || "").replace("#", "").split("/")[0];
+    const family = routeFamilies[linkRoute] || [linkRoute];
+    link.classList.toggle("active", family.includes(route));
   });
 }
 
 function activeAppForRoute(route) {
-  const cookingRoutes = ["lets-cook", "kitchen", "cook101", "skills-academy", "culinary-academy", "build-a-meal", "kitchen-search", "pantry-scan", "cuisine-explorer", "food-encyclopedia", "menu-intelligence", "living-cookbook", "kids-cooking", "kids-korner", "recipes", "paths", "pathways", "planner", "hosting", "about", "account", "search", "cuisine"];
+  const cookingRoutes = ["lets-cook", "kitchen", "cook101", "skills-academy", "culinary-academy", "build-a-meal", "kitchen-search", "pantry-scan", "cuisine-explorer", "food-encyclopedia", "what-yall-cooking", "menu-intelligence", "living-cookbook", "kids-cooking", "kids-korner", "recipes", "paths", "pathways", "planner", "hosting", "about", "account", "search", "cuisine"];
   if (cookingRoutes.includes(route)) return ecosystemApps.find((item) => item.id === "lets-cook");
   if (route === "find-the-beat") return ecosystemApps.find((item) => item.id === "find-the-beat");
   if (route === "second-chance") return ecosystemApps.find((item) => item.id === "second-chance");
@@ -4580,7 +4806,7 @@ function lessonLinkFor(id) {
   const module = academyModules.find((item) => item.id === id);
   if (module) return { href: `#culinary-academy/${module.id}`, title: module.title };
   if (id === "cuisine-explorer") return { href: "#cuisine-explorer", title: "Cuisine Explorer" };
-  if (id === "menu-intelligence") return { href: "#menu-intelligence", title: "Menu Builder" };
+  if (id === "menu-intelligence") return { href: "#what-yall-cooking", title: "What Y'all Cooking?" };
   if (id === "kitchen-search") return { href: "#kitchen-search", title: "What's In My Kitchen" };
   if (id === "pantry-scan") return { href: "#pantry-scan", title: "Pantry Scan" };
   return { href: "#culinary-academy", title: titleizeSlug(id) || "Culinary Academy" };
@@ -4763,7 +4989,7 @@ function recipeLinkList(ids = []) {
 
 function menuRouteForOccasion(occasion) {
   const index = menuPairings.findIndex((menu) => menu.occasion.toLowerCase() === occasion.toLowerCase());
-  return `#menu-intelligence/${index >= 0 ? index : 0}`;
+  return `#what-yall-cooking/${index >= 0 ? index : 0}`;
 }
 
 const regionalSoulFoodPages = {
@@ -4888,7 +5114,7 @@ const regionalSoulFoodPages = {
     hospitality: "Serve pulled pork with slaw, cornbread, greens, beans, tea, and a dessert that can sit on the table without fuss.",
     music: "Gospel, blues, beach music, and family reunion playlists live beside pit smoke and covered dishes.",
     signatureRecipeIds: ["eastern-nc-bbq", "lexington-bbq", "carolina-vinegar-sauce", "carolina-hush-puppies", "creamy-coleslaw", "cornbread", "fried-chicken", "southern-collard-greens", "banana-pudding", "sweet-tea"],
-    skills: [["Pulled Pork", "#culinary-academy/grilling"], ["Vinegar Sauce", "#culinary-academy/sauces"], ["Greens", "#culinary-academy/greens"], ["Menu Planning", "#menu-intelligence"]],
+    skills: [["Pulled Pork", "#culinary-academy/grilling"], ["Vinegar Sauce", "#culinary-academy/sauces"], ["Greens", "#culinary-academy/greens"], ["Menu Planning", "#what-yall-cooking"]],
     traditions: ["Vinegar sauce cuts through rich pork.", "Slaw belongs on the plate or the sandwich depending on the table.", "Church and reunion meals rely on food that travels well."],
     features: [["Carolina BBQ", "Pulled pork, vinegar sauce, slaw, cornbread, and tea."], ["Fish Camp Roots", "Fried fish, slaw, hushpuppy-style bread, and family plates."]],
     menus: []
@@ -5172,7 +5398,7 @@ function regionalRecipeList(ids = []) {
 
 function africaCuisineHub() {
   return `
-    ${hero("Africa Cuisine Hub", "Travel country by country through the ingredients, family meals, celebration dishes, street foods, and holiday traditions that make Africa's food cultures distinct.", "images/cuisines/africa/nigeria/jollof-rice.jpg", `<a class="small-button" href="#cuisine-explorer">All Cuisines</a><a class="small-button secondary" href="#menu-intelligence">Build A Menu</a>`)}
+    ${hero("Africa Cuisine Hub", "Travel country by country through the ingredients, family meals, celebration dishes, street foods, and holiday traditions that make Africa's food cultures distinct.", "images/cuisines/africa/nigeria/jollof-rice.jpg", `<a class="small-button" href="#cuisine-explorer">All Cuisines</a><a class="small-button secondary" href="#what-yall-cooking">Build A Menu</a>`)}
     ${cookSubnav()}
     <section class="cream-section africa-hub-page">
       <div class="section-heading">
@@ -5211,7 +5437,7 @@ function renderAfricaCountryPage(id) {
   if (!page) return africaCuisineHub();
   const pageRecipes = page.recipeIds.map((recipeId) => recipeByIdSafe(recipeId)).filter(Boolean);
   app.innerHTML = `
-    ${hero(page.country, page.overview, page.image, `<a class="small-button" href="#cuisine-explorer/african-cuisines">Africa Hub</a><a class="small-button secondary" href="#menu-intelligence">Build A Menu</a>`)}
+    ${hero(page.country, page.overview, page.image, `<a class="small-button" href="#cuisine-explorer/african-cuisines">Africa Hub</a><a class="small-button secondary" href="#what-yall-cooking">Build A Menu</a>`)}
     ${cookSubnav()}
     <section class="cream-section africa-country-page">
       <div class="africa-country-intro">
@@ -5388,7 +5614,7 @@ function renderLivingCookbook(id) {
         </div>
       ` : ""}
       ${livingCookbookHub()}
-      ${progressionNav("#cuisine/southern", "Southern Recipes", "#hosting", "Hosting Guides", ["#menu-intelligence", "#culinary-academy/world-foods"])}
+      ${progressionNav("#cuisine/southern", "Southern Recipes", "#hosting", "Hosting Guides", ["#what-yall-cooking", "#culinary-academy/world-foods"])}
     </section>
   `;
 }
@@ -5476,7 +5702,7 @@ function renderRegionalSoulFoodPage(id) {
   const page = regionalSoulFoodPages[id] || regionalSoulFoodPages["mississippi-soul-food"];
   const firstMenu = page.menus[0];
   app.innerHTML = `
-    ${hero(page.title, page.intro, page.image || cuisineCoverImages["soul-food"], `<a class="small-button" href="#cuisine/soul-food">Soul Food Hub</a><a class="small-button secondary" href="#menu-intelligence">Build A Menu</a>`)}
+    ${hero(page.title, page.intro, page.image || cuisineCoverImages["soul-food"], `<a class="small-button" href="#cuisine/soul-food">Soul Food Hub</a><a class="small-button secondary" href="#what-yall-cooking">Build A Menu</a>`)}
     ${cookSubnav()}
     <section class="cream-section regional-soul-detail">
       <div class="section-heading">
@@ -5531,7 +5757,7 @@ function renderRegionalSoulFoodPage(id) {
       </div>
 
       ${regionalSoulFoodHub()}
-      ${progressionNav("#cuisine/soul-food", "Soul Food Hub", "#culinary-academy/world-foods", "World Foods Lesson", ["#hosting", "#menu-intelligence"])}
+      ${progressionNav("#cuisine/soul-food", "Soul Food Hub", "#culinary-academy/world-foods", "World Foods Lesson", ["#hosting", "#what-yall-cooking"])}
     </section>
   `;
 }
@@ -5961,13 +6187,10 @@ function renderCommunity() {
 function cookSubnav() {
   return `
     <section class="app-subnav" aria-label="Let's Cook Ya'll navigation">
-      <a href="#culinary-academy">Culinary Academy</a>
       <a href="#cuisine-explorer">Cuisine Explorer</a>
-      <a href="#menu-intelligence">Menu Builder</a>
-      <a href="#hosting">Hospitality & Hosting</a>
       <a href="#kids-korner">Kids Korner</a>
-      <a href="#recipes">Recipes</a>
-      <a href="#account">Account</a>
+      <a href="#what-yall-cooking">What Y'all Cooking?</a>
+      <a href="#culinary-academy">Academy</a>
     </section>
   `;
 }
@@ -6122,6 +6345,15 @@ function renderBuildMeal(id) {
 function kitchenToolSwitcher(active = "") {
   return `
     <div class="kitchen-tool-grid">
+      <article class="kitchen-tool-card ${active === "what-yall-cooking" ? "active" : ""}">
+        <div class="kitchen-tool-icon" aria-hidden="true">🍽</div>
+        <div>
+          <p class="eyebrow">Smart kitchen assistant</p>
+          <h2>What Y'all Cooking?</h2>
+          <p>Scan ingredients, plan the week, build a shopping list, or turn one recipe into a whole meal.</p>
+          <a class="small-button" href="#what-yall-cooking">Open Assistant</a>
+        </div>
+      </article>
       <article class="kitchen-tool-card ${active === "kitchen-search" ? "active" : ""}">
         <div class="kitchen-tool-icon" aria-hidden="true">🥕</div>
         <div>
@@ -6138,6 +6370,15 @@ function kitchenToolSwitcher(active = "") {
           <h2>Pantry Scan</h2>
           <p>Upload a pantry picture, confirm the ingredients you see, and match them against real recipes.</p>
           <a class="small-button" href="#pantry-scan">Open Pantry Scan</a>
+        </div>
+      </article>
+      <article class="kitchen-tool-card pantry ${active === "refrigerator-scan" ? "active" : ""}">
+        <div class="kitchen-tool-icon" aria-hidden="true">❄</div>
+        <div>
+          <p class="eyebrow">Use it before it spoils</p>
+          <h2>Refrigerator Scan</h2>
+          <p>Log cold ingredients and leftovers, then find real meals that use them well.</p>
+          <a class="small-button" href="#pantry-scan/refrigerator">Scan Refrigerator</a>
         </div>
       </article>
     </div>
@@ -6234,16 +6475,26 @@ function updatePantryScanResults() {
   if (target) target.innerHTML = pantryScanResultsMarkup(pantryIngredientsFromDom());
 }
 
-function renderPantryScan() {
+function renderPantryScan(id = "pantry") {
+  const scanMode = slugify(id || "pantry");
+  const isColdStorage = ["refrigerator", "fridge", "freezer", "refrigerator-freezer"].includes(scanMode);
+  const scanTitle = isColdStorage ? "Refrigerator & Freezer Scan" : "Pantry Scan";
+  const scanCopy = isColdStorage
+    ? "Confirm what is in the fridge or freezer, then turn fresh food and leftovers into real recipe matches."
+    : "Upload a pantry photo, confirm what is visible, and turn those ingredients into real recipe matches.";
+  const scanPrompt = isColdStorage ? "Add a refrigerator or freezer photo" : "Add a pantry photo";
+  const quickIngredients = isColdStorage
+    ? ["eggs", "cheese", "milk", "chicken", "ground beef", "leftover rice", "spinach", "bell pepper", "yogurt", "butter"]
+    : pantryScanQuickIngredients;
   const ingredients = uniquePantryIngredients(pantryScanState.ingredients || []);
   app.innerHTML = `
-    ${hero("Pantry Scan", "Upload a pantry photo, confirm what is visible, and turn those ingredients into real recipe matches.", photoFor("skills", "measuring"), `<a class="small-button" href="#kitchen-search">What's In My Kitchen</a>`)}
+    ${hero(scanTitle, scanCopy, photoFor("skills", "measuring"), `<a class="small-button" href="#what-yall-cooking">What Y'all Cooking?</a><a class="small-button secondary" href="#kitchen-search">Cook With What I Have</a>`)}
     ${cookSubnav()}
-    <section class="cream-section kitchen-tool-switcher">${kitchenToolSwitcher("pantry-scan")}</section>
+    <section class="cream-section kitchen-tool-switcher">${kitchenToolSwitcher(isColdStorage ? "refrigerator-scan" : "pantry-scan")}</section>
     <section class="cream-section pantry-scan-workbench">
       <div class="pantry-scan-layout">
         <article class="pantry-photo-card">
-          <p class="eyebrow">1. Add a pantry photo</p>
+          <p class="eyebrow">1. ${scanPrompt}</p>
           <h2>Show us what you are working with.</h2>
           <label class="pantry-upload-control">
             <span>Choose Photo</span>
@@ -6261,13 +6512,13 @@ function renderPantryScan() {
           <p>Type ingredients separated by commas, then tap any quick ingredients that also belong in the list.</p>
           <textarea id="pantryScanNotes" rows="5" placeholder="Example: rice, chicken, eggs, cheese, bell pepper, onion">${escapeHTML(pantryScanState.notes || "")}</textarea>
           <div class="pantry-chip-row">
-            ${pantryScanQuickIngredients.map((item) => `
+            ${quickIngredients.map((item) => `
               <button type="button" class="pantry-chip ${ingredients.includes(item) ? "active" : ""}" data-pantry-chip="${item}">${item}</button>
             `).join("")}
           </div>
           <div class="planner-card-actions">
             <button class="small-button" type="button" data-run-pantry-scan>Find Meal Ideas</button>
-            <button class="small-button secondary" type="button" data-clear-pantry-scan>Clear Pantry</button>
+            <button class="small-button secondary" type="button" data-clear-pantry-scan>Clear Items</button>
           </div>
         </article>
       </div>
@@ -6296,15 +6547,10 @@ function renderCuisineExplorerDetail(id) {
   const dishes = profile?.dishes || group?.regions || ["traditional mains", "family sides", "shared breads", "celebration dishes"];
   const techniques = profile?.techniques || ["building flavor bases", "seasoning in layers", "balancing texture", "serving family-style"];
   const menu = profile?.menu || ["main dish", "starch or bread", "vegetable side", "sauce or condiment", "drink"];
-  const beginnerRecipes = profile?.beginnerRecipes || recipesForCuisine(recipeCuisineId, 4).map((recipe) => recipe.title);
-  const profileRecipeMatches = (profile ? recipes.filter((recipe) => {
-    const titleMatch = beginnerRecipes.some((name) => recipe.title.toLowerCase().includes(name.toLowerCase()) || name.toLowerCase().includes(recipe.title.toLowerCase()));
-    const tagMatch = (recipe.tags || []).some((tag) => normalizeIngredientTerm(tag).includes(normalized));
-    return titleMatch || tagMatch;
-  }).slice(0, 6) : []).concat(recipesForCuisine(recipeCuisineId, 6)).filter((recipe, index, list) => list.findIndex((item) => item.id === recipe.id) === index).slice(0, 6);
+  const practiceTrack = practiceTrackForCuisine(normalized, recipeCuisineId, profile, group, parentGroup);
   const regions = group?.regions || [];
   app.innerHTML = `
-    ${hero(title, overview, image || photoFor("cuisines", "mediterranean"), `<a class="small-button" href="#cuisine-explorer">All Cuisines</a><a class="small-button secondary" href="#menu-intelligence">Build A Menu</a>`)}
+    ${hero(title, overview, image || photoFor("cuisines", "mediterranean"), `<a class="small-button" href="#cuisine-explorer">All Cuisines</a><a class="small-button secondary" href="#what-yall-cooking">Build A Menu</a>`)}
     ${cookSubnav()}
     <section class="cream-section cuisine-detail-page">
       <div class="section-heading">
@@ -6318,12 +6564,12 @@ function renderCuisineExplorerDetail(id) {
         <article class="academy-module-card"><h3>Traditional Dishes</h3><ul>${dishes.map((item) => `<li>${item}</li>`).join("")}</ul></article>
         <article class="academy-module-card"><h3>Cooking Techniques</h3><ul>${techniques.map((item) => `<li>${item}</li>`).join("")}</ul></article>
         <article class="academy-module-card"><h3>Menu Example</h3><ul>${menu.map((item) => `<li>${item}</li>`).join("")}</ul></article>
-        <article class="academy-module-card"><h3>Beginner Recipes</h3><ul>${beginnerRecipes.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        ${practiceTrackSummary(practiceTrack)}
       </div>
-      <div class="section-heading compact-heading"><p class="eyebrow">Recipes to try</p><h2>Practice recipes for ${title}.</h2></div>
-      <div class="recipe-grid">${profileRecipeMatches.map(recipeCard).join("")}</div>
+      <div class="section-heading compact-heading"><p class="eyebrow">Cuisine-specific practice</p><h2>Practice recipes for ${title}.</h2><p>Each practice card uses ingredients, techniques, and images that belong to this cuisine path.</p></div>
+      ${practiceTrackMarkup(practiceTrack, title)}
       ${regions.length ? `<div class="section-heading compact-heading"><p class="eyebrow">Country paths</p><h2>Choose a country or region next.</h2></div><div class="region-chip-row linked-chip-row">${regions.map((region) => `<a href="#cuisine-explorer/${slugify(region)}">${region}</a>`).join("")}</div>` : ""}
-      ${progressionNav("#cuisine-explorer", "All Cuisines", "#culinary-academy/world-foods", "World Foods Lesson", ["#menu-intelligence", "#hosting"])}
+      ${progressionNav("#cuisine-explorer", "All Cuisines", "#culinary-academy/world-foods", "World Foods Lesson", ["#what-yall-cooking", "#hosting"])}
     </section>
   `;
 }
@@ -6335,7 +6581,7 @@ function renderCuisineExplorer(id) {
   if (id && africaCountryPages[id]) return renderAfricaCountryPage(id);
   if (id) return renderCuisineExplorerDetail(id);
   app.innerHTML = `
-    ${hero("Cuisine Explorer", "A culinary rolodex for food culture, regional flavor, ingredients, traditions, and the way meals connect across the world.", photoFor("cuisines", "indian"), `<a class="small-button" href="#culinary-academy">Open Culinary Academy</a><a class="small-button secondary" href="#menu-intelligence">Build A Menu</a>`)}
+    ${hero("Cuisine Explorer", "A culinary rolodex for food culture, regional flavor, ingredients, traditions, and the way meals connect across the world.", photoFor("cuisines", "indian"), `<a class="small-button" href="#culinary-academy">Open Culinary Academy</a><a class="small-button secondary" href="#what-yall-cooking">Build A Menu</a>`)}
     ${cookSubnav()}
     <section class="cream-section">
       <div class="section-heading">
@@ -6380,7 +6626,7 @@ function academySearchMarkup(query) {
         ${moduleMatches.map((module) => `<a href="#culinary-academy/${module.id}"><span>Lesson</span><strong>${module.title}</strong><p>${module.overview}</p></a>`).join("")}
         ${entryMatches.map((entry) => `<a href="#culinary-academy/${slugify(entry.term)}"><span>Food term</span><strong>${entry.term}</strong><p>${entry.purpose}</p></a>`).join("")}
         ${cuisineMatches.map((group) => `<a href="#cuisine-explorer/${group.id}"><span>Cuisine</span><strong>${group.title}</strong><p>${group.note}</p></a>`).join("")}
-        ${menuMatches.map((menu, index) => `<a href="#menu-intelligence/${index}"><span>Menu guide</span><strong>${menu.main_dish}</strong><p>${menu.cuisine} / ${menu.occasion}</p></a>`).join("")}
+        ${menuMatches.map((menu, index) => `<a href="#what-yall-cooking/${index}"><span>Menu guide</span><strong>${menu.main_dish}</strong><p>${menu.cuisine} / ${menu.occasion}</p></a>`).join("")}
       </div>
     </div>
   `;
@@ -6525,26 +6771,66 @@ function menuPairingCard(menu) {
   `;
 }
 
-function renderMenuIntelligence(id) {
+function renderWhatYallCooking(id) {
   const selectedIndex = Number.isFinite(Number(id)) ? Math.max(0, Math.min(menuPairings.length - 1, Number(id))) : 0;
   const selectedMenu = menuPairings[selectedIndex];
-  const selectedAudience = menuAudienceOptions[0];
+  const selectedAudience = menuAudienceOptions.find((item) => item.id === "family-dinner") || menuAudienceOptions[0];
   const cuisinesList = [...new Set(menuPairings.map((menu) => menu.cuisine))];
   const occasionsList = [...new Set(menuPairings.map((menu) => menu.occasion))];
+  const pantryIngredients = uniquePantryIngredients(pantryScanState.ingredients || []);
+  const pantryMatches = pantryScanMatches(pantryIngredients).slice(0, 4);
+  const savedRecipes = recipesByIds(saved).slice(0, 4);
+  const recentRecipes = recipesByIds(recentlyViewed).slice(0, 4);
+  const starterRecipes = pantryMatches.length
+    ? pantryMatches.map((item) => item.recipe)
+    : [...new Map([...savedRecipes, ...recentRecipes, ...recipesByIds(["fried-chicken", "chicken-street-tacos", "vegetable-stir-fry", "bbq-brisket-basics"])].map((recipe) => [recipe.id, recipe])).values()].slice(0, 4);
+  const smartMenu = starterRecipes[0] ? smartPairingFor(starterRecipes[0]) : selectedMenu;
+  const smartRecipes = recipesForMenu(smartMenu).slice(0, 8);
+  const actionCards = [
+    ["Scan My Pantry", "Use a pantry photo or typed list to find real recipe matches.", "#pantry-scan/pantry", "Pantry"],
+    ["Scan My Refrigerator", "Log fridge and freezer ingredients before they go to waste.", "#pantry-scan/refrigerator", "Fridge"],
+    ["Cook With What I Have", "Type ingredients and get recipes already inside Let's Cook Y'all.", "#kitchen-search", "Cook"],
+    ["Plan This Week", "Build a weekly plan and combine the shopping list.", "#planner", "Week"],
+    ["Build Shopping List", "Turn selected recipes and menus into grouped grocery sections.", "#planner/list", "List"],
+    ["Plan an Event", "Use hosting guides for reunions, holidays, potlucks, and cookouts.", "#hosting", "Event"]
+  ];
+  const kitchenNeeds = [
+    ["Cuisine", "Choose Southern, Mexican, Indian, African, Asian, Mediterranean, Cajun, Creole, Soul Food, BBQ, or Mississippi Favorites."],
+    ["Serving size", "Plan for 1, 2, 4, 6, 8, 12, 25, 50, or 100 without showing confusing multiplier math."],
+    ["Budget", "Prioritize pantry staples, leftovers, batch cooking, and recipes that stretch."],
+    ["Diet needs", "Use vegetarian, dairy-free, nut-free, gluten-free, and kid-friendly tags where available."]
+  ];
   app.innerHTML = `
-    ${hero("Traditional Menu Intelligence", "Learn what goes together culturally and practically: mains, sides, breads, sauces, drinks, desserts, timing, and hosting notes.", photoFor("hero", "hospitality"), `<a class="small-button" href="#hosting">Hosting Ideas</a><a class="small-button secondary" href="#build-a-meal">Build A Meal</a>`)}
+    ${hero("What Y'all Cooking?", "Your smart kitchen assistant for pantry scans, fridge checks, leftovers, weekly meals, shopping lists, and real recipes from the Let's Cook Y'all kitchen.", photoFor("hero", "learning", 5, "assets/lc-orange-chicken.jpg"), `<a class="small-button" href="#pantry-scan">Scan My Pantry</a><a class="small-button secondary" href="#kitchen-search">Cook With What I Have</a>`)}
     ${cookSubnav()}
+    <section class="cream-section smart-kitchen-section">
+      <div class="section-heading">
+        <p class="eyebrow">Smart kitchen assistant</p>
+        <h2>Start with what you have, then decide who you are feeding.</h2>
+        <p>No random filler. Every suggestion points to a real recipe, planner, scan tool, hosting guide, or shopping-list workflow already in the app.</p>
+      </div>
+      <div class="what-cooking-action-grid">
+        ${actionCards.map(([title, text, href, label]) => `
+          <a class="academy-module-card what-cooking-action-card" href="${href}">
+            <span>${label}</span>
+            <h3>${title}</h3>
+            <p>${text}</p>
+          </a>
+        `).join("")}
+      </div>
+    </section>
     <section class="cream-section menu-builder-section">
       <div class="section-heading">
-        <p class="eyebrow">Menu Builder</p>
-        <h2>Select a cuisine, occasion, and main dish. We'll suggest the rest of the table.</h2>
+        <p class="eyebrow">Build from real recipes</p>
+        <h2>Choose the table you are cooking for.</h2>
+        <p>Pick an audience, cuisine, occasion, and main dish. The result is made from linked recipe records, not loose menu advice.</p>
       </div>
       <form class="menu-builder-form" data-menu-builder-form>
         <label>Audience<select name="audience">${menuAudienceOptions.map((item) => `<option value="${item.id}">${item.title}</option>`).join("")}</select></label>
         <label>Cuisine<select name="cuisine">${cuisinesList.map((item) => `<option${item === selectedMenu.cuisine ? " selected" : ""}>${item}</option>`).join("")}</select></label>
         <label>Occasion<select name="occasion">${occasionsList.map((item) => `<option${item === selectedMenu.occasion ? " selected" : ""}>${item}</option>`).join("")}</select></label>
         <label>Main Dish<select name="main">${menuPairings.map((menu, index) => `<option value="${index}"${index === selectedIndex ? " selected" : ""}>${recipeLinksFor(menu.main_recipe_ids).map((link) => link.replace(/<[^>]+>/g, "")).join(" or ") || menu.main_dish}</option>`).join("")}</select></label>
-        <button class="small-button" type="submit">Build Menu</button>
+        <button class="small-button" type="submit">Build My Table</button>
       </form>
       <div class="audience-option-grid">
         ${menuAudienceOptions.map(menuAudienceCard).join("")}
@@ -6552,33 +6838,57 @@ function renderMenuIntelligence(id) {
       <div class="menu-builder-result">
         ${menuAudienceCard(selectedAudience)}
         ${menuPairingCard(selectedMenu)}
-        ${progressionNav("#cuisine-explorer", "Cuisine Explorer", "#hosting", "Hospitality & Hosting", ["#culinary-academy/world-foods", "#build-a-meal"])}
+        ${progressionNav("#cuisine-explorer", "Cuisine Explorer", "#planner", "Open Meal Planner", ["#pantry-scan", "#hosting"])}
       </div>
     </section>
     <section class="cream-section">
       <div class="section-heading">
-        <p class="eyebrow">Menu pairings</p>
-        <h2>Build meals that make sense on the plate and at the table.</h2>
+        <p class="eyebrow">Cook with what you have</p>
+        <h2>${pantryIngredients.length ? `Recipes using ${pantryIngredients.slice(0, 4).map(titleizeSlug).join(", ")}.` : "Add ingredients to unlock pantry-based ideas."}</h2>
+        <p>${pantryIngredients.length ? "These are ranked by matching ingredients from your pantry scan." : "Use Pantry Scan or What's In My Kitchen to turn ingredients into useful recipe ideas."}</p>
       </div>
-      <div class="menu-pairing-grid">
-        ${menuPairings.map((menu, index) => `<a class="menu-pairing-link" href="#menu-intelligence/${index}">${menuPairingCard(menu)}</a>`).join("")}
+      <div class="planner-card-stack">
+        ${starterRecipes.length ? starterRecipes.map((recipe) => recipePlannerCard(recipe, "menu")).join("") : `<div class="empty-state">Add ingredients or save recipes to start building smarter suggestions.</div>`}
       </div>
     </section>
     <section class="gold-section">
       <div class="section-heading">
-        <p class="eyebrow">Hospitality knowledge</p>
-        <h2>Hosting is a skill too.</h2>
+        <p class="eyebrow">Smart pairings</p>
+        <h2>Turn one recipe into a complete meal.</h2>
+        <p>${smartMenu.main_dish || "Choose a recipe"} connects to these real recipe records for sides, breads, sauces, desserts, and drinks.</p>
       </div>
-      <div class="hosting-knowledge-grid">
-        ${hostingKnowledge.map((item) => `<article><h3>${item.title}</h3><p>${item.text}</p><span>${item.pairing}</span></article>`).join("")}
+      <div class="recipe-grid">
+        ${smartRecipes.map(recipeCard).join("")}
+      </div>
+      <div class="what-cooking-detail-grid">
+        ${kitchenNeeds.map(([title, text]) => `<article><h3>${title}</h3><p>${text}</p></article>`).join("")}
+      </div>
+      <div class="feature-preview-strip">
+        <p><strong>Coming later:</strong> barcode scanner, expiration tracking, voice input, family profiles, and nutrition dashboard.</p>
+      </div>
+    </section>
+    <section class="cream-section">
+      <div class="section-heading">
+        <p class="eyebrow">Plan the next step</p>
+        <h2>Save it, shop it, cook it, or host it.</h2>
+      </div>
+      <div class="what-cooking-action-grid">
+        <a class="academy-module-card what-cooking-action-card" href="#planner"><span>Planner</span><h3>Open Meal Planner</h3><p>Use saved recipes, recent recipes, serving sizes, and combined shopping lists.</p></a>
+        <a class="academy-module-card what-cooking-action-card" href="#recipes"><span>Recipes</span><h3>Browse Recipe Library</h3><p>Find a real recipe by cuisine, skill level, technique, or occasion.</p></a>
+        <a class="academy-module-card what-cooking-action-card" href="#hosting"><span>Hosting</span><h3>Plan an Event</h3><p>Get menus, shopping lists, prep timelines, and serving notes for gatherings.</p></a>
+        <a class="academy-module-card what-cooking-action-card" href="#kids-korner"><span>Kids</span><h3>Cook With Kids</h3><p>Open age-safe recipes, games, badges, and parent notes.</p></a>
       </div>
     </section>
   `;
 }
 
+function renderMenuIntelligence(id) {
+  renderWhatYallCooking(id);
+}
+
 function renderSkillsAcademy() {
   app.innerHTML = `
-    ${hero("Cooking Skills Academy", "Duolingo-style progression meets culinary school foundations: safety, vocabulary, culture, technique, science, hospitality, and operations.", photoFor("skills", "knife"), `<a class="small-button" href="#culinary-academy">Open Culinary Academy</a><a class="small-button secondary" href="#menu-intelligence">Menu Intelligence</a>`)}
+    ${hero("Cooking Skills Academy", "Duolingo-style progression meets culinary school foundations: safety, vocabulary, culture, technique, science, hospitality, and operations.", photoFor("skills", "knife"), `<a class="small-button" href="#culinary-academy">Open Culinary Academy</a><a class="small-button secondary" href="#what-yall-cooking">What Y'all Cooking?</a>`)}
     ${cookSubnav()}
     <section class="cream-section">
       <div class="section-heading">
@@ -7110,7 +7420,7 @@ function renderLesson(id) {
         <h2>Try the skill in a real kitchen moment.</h2>
       </div>
       <div class="recipe-grid">${linkedRecipes.map(recipeCard).join("")}</div>
-      ${progressionNav(`#cook101/${previousLesson.id}`, previousLesson.title, `#cook101/${nextLesson.id}`, nextLesson.title, ["#culinary-academy", "#menu-intelligence"])}
+      ${progressionNav(`#cook101/${previousLesson.id}`, previousLesson.title, `#cook101/${nextLesson.id}`, nextLesson.title, ["#culinary-academy", "#what-yall-cooking"])}
     </section>
   `;
 }
@@ -7518,7 +7828,7 @@ function hostingGuideFor(id) {
 function renderHostingDetail(id) {
   const guide = hostingGuideFor(id);
   app.innerHTML = `
-    ${hero(guide.title, guide.text, photoFor("cuisines", "hosting", 3, "assets/lc-desserts.jpg"), `<a class="small-button" href="#hosting">All Hosting</a><a class="small-button secondary" href="#menu-intelligence">Build A Menu</a>`)}
+    ${hero(guide.title, guide.text, photoFor("cuisines", "hosting", 3, "assets/lc-desserts.jpg"), `<a class="small-button" href="#hosting">All Hosting</a><a class="small-button secondary" href="#what-yall-cooking">Build A Menu</a>`)}
     ${cookSubnav()}
     <section class="cream-section hosting-detail-page">
       <div class="academy-module-grid">
@@ -7544,7 +7854,7 @@ function renderHostingDetail(id) {
           <ul>${guide.setup.map((item) => `<li>${item}</li>`).join("")}</ul>
         </article>
       </div>
-      ${progressionNav("#hosting", "All Hosting Guides", "#menu-intelligence", "Menu Builder", ["#culinary-academy/professional-skills", "#recipes"])}
+      ${progressionNav("#hosting", "All Hosting Guides", "#what-yall-cooking", "What Y'all Cooking?", ["#culinary-academy/professional-skills", "#recipes"])}
     </section>
   `;
 }
@@ -7789,7 +8099,7 @@ function renderCuisine(id) {
       ${cuisine.id === "soul-food" ? regionalSoulFoodHub() : ""}
       <div class="next-step-strip">
         <a class="small-button secondary" href="${cuisineGuideRoute(cuisine.id)}">Open Cuisine Guide</a>
-        <a class="small-button secondary" href="#menu-intelligence">Build A Menu</a>
+        <a class="small-button secondary" href="#what-yall-cooking">Build A Menu</a>
         <a class="small-button secondary" href="#culinary-academy/world-foods">World Foods Lesson</a>
       </div>
     </section>
@@ -7984,7 +8294,7 @@ function learningSearchResults(query) {
     ...menuPairings
       .filter((menu) => [menu.cuisine, menu.occasion, menu.main_dish, menu.cultural_notes, ...menu.traditional_sides].join(" ").toLowerCase().includes(normalized))
       .slice(0, 2)
-      .map((menu) => ({ type: "Menu Guide", title: menu.main_dish, text: `${menu.cuisine} / ${menu.occasion}`, href: `#menu-intelligence/${menuPairings.indexOf(menu)}` })),
+      .map((menu) => ({ type: "Menu Guide", title: menu.main_dish, text: `${menu.cuisine} / ${menu.occasion}`, href: `#what-yall-cooking/${menuPairings.indexOf(menu)}` })),
     ...hostingIdeas
       .filter((idea) => [idea.title, idea.text, ...(idea.setup || [])].join(" ").toLowerCase().includes(normalized))
       .slice(0, 2)
@@ -8247,7 +8557,7 @@ async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const selected = Number(formData.get("main"));
-    window.location.hash = `#menu-intelligence/${Number.isFinite(selected) ? selected : 0}`;
+    window.location.hash = `#what-yall-cooking/${Number.isFinite(selected) ? selected : 0}`;
     return;
   }
 

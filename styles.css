@@ -5796,6 +5796,137 @@ button.small-button:is(:hover, :focus-visible) {
   margin-top: 18px;
 }
 
+.smart-kitchen-section {
+  background:
+    radial-gradient(circle at top left, rgba(217, 164, 65, 0.16), transparent 32%),
+    linear-gradient(135deg, #fffaf3, #f7f2e9);
+}
+
+.what-cooking-action-grid,
+.what-cooking-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.what-cooking-action-card {
+  min-height: 190px;
+  text-decoration: none;
+  color: #232323;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.what-cooking-action-card:hover {
+  border-color: #d9a441;
+  box-shadow: 0 22px 48px rgba(43, 26, 18, 0.13);
+  transform: translateY(-3px);
+}
+
+.what-cooking-action-card span {
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 12px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: #173d2a;
+  color: #fff8ec;
+  font-size: 0.75rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.what-cooking-detail-grid {
+  margin-top: 22px;
+}
+
+.what-cooking-detail-grid article,
+.feature-preview-strip {
+  padding: 18px;
+  border: 1px solid rgba(95, 74, 63, 0.18);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 14px 34px rgba(43, 26, 18, 0.08);
+}
+
+.what-cooking-detail-grid h3,
+.feature-preview-strip p {
+  margin: 0;
+}
+
+.what-cooking-detail-grid h3 {
+  color: #2b1a12;
+}
+
+.what-cooking-detail-grid p {
+  color: #5f4a3f;
+}
+
+.feature-preview-strip {
+  margin-top: 18px;
+  color: #5f4a3f;
+}
+
+.practice-level-section {
+  margin-top: 28px;
+}
+
+.practice-recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+}
+
+.practice-recipe-card {
+  overflow: hidden;
+  border: 1px solid #e7d8bf;
+  border-radius: 22px;
+  background: #fff;
+  color: #232323;
+  box-shadow: 0 18px 42px rgba(43, 26, 18, 0.08);
+}
+
+.practice-recipe-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #f7f2e9;
+}
+
+.practice-recipe-card div {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+}
+
+.practice-recipe-card span {
+  width: fit-content;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(125, 146, 112, 0.16);
+  color: #173d2a;
+  font-size: 0.72rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.practice-recipe-card h3,
+.practice-recipe-card p {
+  margin: 0;
+}
+
+.practice-recipe-card h3 {
+  color: #2b1a12;
+  font-size: 1.18rem;
+}
+
+.practice-recipe-card p {
+  color: #5f4a3f;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
 .audience-option-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
