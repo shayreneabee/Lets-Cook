@@ -381,6 +381,19 @@ const cuisines = [
   { id: "italian", name: "Italian Comfort", image: cuisineCoverImages.italian, blurb: "Pasta nights, red sauce, baked mains, and beginner-friendly classics." },
   { id: "hosting", name: "Party & Hosting", image: cuisineCoverImages.hosting, blurb: "Boards, bites, desserts, and dinner-party helpers that make people feel cared for." },
   { id: "global", name: "Global Flavors", image: cuisineCoverImages.global, blurb: "Practical recipes and flavor lessons that help cooks move between regional food traditions with respect." },
+  { id: "midwest", name: "Midwest Regional", image: "assets/logo.png", blurb: "Chicago counters, Great Lakes fish fries, church hotdish tables, state fair sweets, and winter comfort food." },
+  { id: "chicago", name: "Chicago / Illinois", image: "assets/logo.png", blurb: "Italian beef, hot dogs, mild sauce, tavern pizza, rib tips, pizza puffs, and South Side counter food." },
+  { id: "wisconsin", name: "Wisconsin", image: "assets/logo.png", blurb: "Cheese curds, brats, Friday fish fry, kringle, butter burgers, and supper-club comfort." },
+  { id: "michigan", name: "Michigan", image: "assets/logo.png", blurb: "Detroit pizza, Coney dogs, pasties, cherry pie, whitefish, paczki, and Great Lakes foodways." },
+  { id: "minnesota", name: "Minnesota", image: "assets/logo.png", blurb: "Hotdish, wild rice soup, walleye, Jucy Lucy burgers, lefse, and dessert bars." },
+  { id: "indiana", name: "Indiana", image: "assets/logo.png", blurb: "Breaded pork tenderloin sandwiches, sugar cream pie, chicken and noodles, and persimmon pudding." },
+  { id: "ohio", name: "Ohio", image: "assets/logo.png", blurb: "Cincinnati chili, buckeyes, pierogies, Polish Boys, goetta, and city-rooted comfort food." },
+  { id: "iowa", name: "Iowa", image: "assets/logo.png", blurb: "Loose-meat sandwiches, pork tenderloin, corn casserole, rhubarb pie, and county-fair plates." },
+  { id: "missouri", name: "Missouri", image: "assets/logo.png", blurb: "Kansas City burnt ends and ribs meet St. Louis pizza, toasted ravioli, pork steaks, and gooey butter cake." },
+  { id: "kansas", name: "Kansas", image: "assets/logo.png", blurb: "Burnt ends, bierocks, chicken fried steak, wheat-country suppers, and plains comfort." },
+  { id: "nebraska", name: "Nebraska", image: "assets/logo.png", blurb: "Runzas, steak, kolaches, beef-country family tables, and community bakery traditions." },
+  { id: "north-dakota", name: "North Dakota", image: "assets/logo.png", blurb: "Knoephla soup, kuchen, fry bread where culturally appropriate, and cold-weather prairie meals." },
+  { id: "south-dakota", name: "South Dakota", image: "assets/logo.png", blurb: "Chislic, kuchen, fry bread where culturally appropriate, steak suppers, and prairie gatherings." },
   { id: "nigerian", name: "Nigerian", image: photoFor("cuisines", "global"), blurb: "Jollof rice, egusi, suya, moi moi, pepper soup, and layered tomato-pepper stew bases." },
   { id: "ghanaian", name: "Ghanaian", image: photoFor("cuisines", "global", 1), blurb: "Waakye, red red, kelewele, groundnut soup, jollof, shito, and generous rice-and-bean plates." },
   { id: "ethiopian", name: "Ethiopian", image: photoFor("cuisines", "global", 2), blurb: "Injera, berbere, lentil stews, shiro, tibs, doro wat, and shared platter hospitality." },
@@ -707,6 +720,13 @@ const cuisineExplorerGroups = [
     image: photoFor("cuisines", "southern"),
     note: "Cast iron, greens, cornbread, fish fries, Sunday dinner, slow cooking, and hospitality at the center.",
     regions: ["Mississippi", "Louisiana", "Georgia", "Alabama", "Carolinas", "Texas", "Tennessee"]
+  },
+  {
+    id: "midwest",
+    title: "Midwest Regional Food",
+    image: "assets/logo.png",
+    note: "Cook through Chicago counters, Great Lakes fish fries, supper clubs, church basements, county fairs, winter soups, barbecue cities, and prairie bakery traditions.",
+    regions: ["Chicago", "Wisconsin", "Michigan", "Minnesota", "Indiana", "Ohio", "Iowa", "Missouri", "Kansas City", "St. Louis", "Kansas", "Nebraska", "North Dakota", "South Dakota"]
   },
   {
     id: "cajun-creole",
@@ -1438,6 +1458,167 @@ const menuPairings = [
     pro_level: "Track smoker temperature, rest meat properly, and set separate sauce and slicing stations.",
     cook_time: "3-12 hours",
     hosting_notes: "Hold cooked meat wrapped in a cooler, label sauces, and keep wet wipes near the serving line."
+  },
+  {
+    cuisine: "Midwest / Chicago",
+    country_or_region: "Illinois / Chicago",
+    occasion: "Chicago Street Food Night",
+    main_dish: "Italian beef, Chicago hot dogs, and Maxwell Street Polish",
+    main_recipe_ids: ["italian-beef", "chicago-style-hot-dog", "maxwell-street-polish"],
+    side_recipe_ids: ["pizza-puff", "chicago-mild-sauce", "caramel-cheese-popcorn"],
+    bread_recipe_ids: [],
+    sauce_recipe_ids: ["chicago-mild-sauce"],
+    drink_recipe_ids: ["italian-ice"],
+    dessert_recipe_ids: ["rainbow-cone"],
+    alternate_recipe_ids: ["jibarito", "chicago-gyros", "chicago-rib-tips", "harolds-style-fried-chicken"],
+    traditional_sides: ["pizza puffs", "fries with mild sauce", "popcorn mix"],
+    breads: ["seeded hot dog buns", "Italian rolls", "French bread"],
+    sauces_condiments: ["giardiniera", "sport peppers", "mild sauce", "mustard", "relish"],
+    drinks: ["Italian ice", "lemonade", "cola"],
+    desserts: ["Rainbow Cone", "caramel and cheese popcorn"],
+    cultural_notes: "Chicago street food is neighborhood-counter food: practical, fast, specific, and deeply tied to migration, work routes, sports nights, and family stops.",
+    beginner_level: "Pick two mains, one sauce, and one sweet finish so the table feels like a Chicago counter without overloading the kitchen.",
+    pro_level: "Hold beef warm in jus, keep hot dog toppings cold and crisp, and fry pizza puffs close to service.",
+    cook_time: "60-120 min",
+    hosting_notes: "Set up a topping bar with labeled sport peppers, relish, onions, tomatoes, pickles, giardiniera, and mild sauce."
+  },
+  {
+    cuisine: "Midwest / Wisconsin",
+    country_or_region: "Wisconsin",
+    occasion: "Wisconsin Fish Fry",
+    main_dish: "Friday fish fry",
+    main_recipe_ids: ["wisconsin-friday-fish-fry"],
+    side_recipe_ids: ["wisconsin-cheese-curds", "beer-cheese-soup", "wisconsin-brats"],
+    bread_recipe_ids: [],
+    sauce_recipe_ids: [],
+    drink_recipe_ids: [],
+    dessert_recipe_ids: ["wisconsin-kringle"],
+    alternate_recipe_ids: ["wisconsin-butter-burgers"],
+    traditional_sides: ["cheese curds", "fries", "slaw", "rye bread", "potato pancakes"],
+    breads: ["rye bread", "rolls"],
+    sauces_condiments: ["tartar sauce", "lemon", "mustard", "beer cheese"],
+    drinks: ["root beer", "lemonade", "supper-club cocktails for adults"],
+    desserts: ["kringle"],
+    cultural_notes: "Wisconsin fish fry culture connects taverns, supper clubs, churches, Friday nights, and Great Lakes freshwater fish.",
+    beginner_level: "Fry fish in batches and make slaw ahead.",
+    pro_level: "Keep fried fish on racks, salt immediately, and serve with hot sides and cold slaw.",
+    cook_time: "75-120 min",
+    hosting_notes: "Use trays and racks so fried fish stays crisp while the last batch cooks."
+  },
+  {
+    cuisine: "Midwest",
+    country_or_region: "Upper Midwest",
+    occasion: "Midwest Potluck",
+    main_dish: "Hotdish, casserole, and church-basement sides",
+    main_recipe_ids: ["tater-tot-hotdish", "indiana-chicken-and-noodles"],
+    side_recipe_ids: ["iowa-corn-casserole", "beer-cheese-soup", "wisconsin-cheese-curds"],
+    bread_recipe_ids: ["lefse"],
+    sauce_recipe_ids: [],
+    drink_recipe_ids: [],
+    dessert_recipe_ids: ["midwest-dessert-bars", "gooey-butter-cake", "rhubarb-pie"],
+    alternate_recipe_ids: ["chicken-and-rice-casserole", "broccoli-rice-casserole", "funeral-potatoes"],
+    traditional_sides: ["corn casserole", "cheese curds", "potluck salads", "dessert bars"],
+    breads: ["lefse", "rolls", "rye bread"],
+    sauces_condiments: ["gravy", "mustard", "pickles"],
+    drinks: ["coffee", "lemonade", "iced tea"],
+    desserts: ["bars", "rhubarb pie", "gooey butter cake"],
+    cultural_notes: "Midwest potluck food is built for church halls, family tables, winter nights, and dishes that travel without drama.",
+    beginner_level: "Choose one hot pan, one simple side, and one bar dessert.",
+    pro_level: "Label pans, stage hot and cold foods separately, and plan oven space before guests arrive.",
+    cook_time: "90-150 min",
+    hosting_notes: "Ask guests to bring serving spoons and label allergens on dessert bars and casseroles."
+  },
+  {
+    cuisine: "Midwest",
+    country_or_region: "State fairs and county fairs",
+    occasion: "County Fair Favorites",
+    main_dish: "Tenderloins, loose meat, and fair sweets",
+    main_recipe_ids: ["breaded-pork-tenderloin-sandwich", "maid-rite-loose-meat-sandwich"],
+    side_recipe_ids: ["iowa-corn-casserole", "wisconsin-cheese-curds"],
+    bread_recipe_ids: [],
+    sauce_recipe_ids: [],
+    drink_recipe_ids: ["italian-ice"],
+    dessert_recipe_ids: ["buckeyes", "rhubarb-pie", "dakota-kuchen"],
+    alternate_recipe_ids: ["iowa-pork-tenderloin-sandwich", "persimmon-pudding", "sugar-cream-pie"],
+    traditional_sides: ["cheese curds", "corn casserole", "pickles", "chips"],
+    breads: ["sandwich buns"],
+    sauces_condiments: ["mustard", "mayo", "pickles", "onions"],
+    drinks: ["lemonade", "Italian ice"],
+    desserts: ["buckeyes", "rhubarb pie", "kuchen"],
+    cultural_notes: "County fair food celebrates local agriculture, pork, dairy, pies, fried snacks, and portable food you can eat walking around.",
+    beginner_level: "Make one sandwich, one fried or baked snack, and one dessert.",
+    pro_level: "Hold fried food on racks and build sandwich stations quickly.",
+    cook_time: "60-120 min",
+    hosting_notes: "Serve sandwiches wrapped in parchment with a toppings tray and plenty of napkins."
+  },
+  {
+    cuisine: "Midwest / Missouri",
+    country_or_region: "Kansas City and St. Louis",
+    occasion: "Game Day Menu",
+    main_dish: "Kansas City ribs and St. Louis toasted ravioli",
+    main_recipe_ids: ["kansas-city-ribs", "toasted-ravioli"],
+    side_recipe_ids: ["kansas-city-burnt-ends", "st-louis-pork-steaks", "kansas-city-smoked-sausage"],
+    bread_recipe_ids: [],
+    sauce_recipe_ids: ["kansas-city-bbq-sauce"],
+    drink_recipe_ids: [],
+    dessert_recipe_ids: ["gooey-butter-cake"],
+    alternate_recipe_ids: ["st-louis-style-pizza", "kansas-burnt-ends"],
+    traditional_sides: ["toasted ravioli", "smoked sausage", "pork steaks"],
+    breads: ["white bread", "pizza crust"],
+    sauces_condiments: ["Kansas City BBQ sauce", "marinara", "pickles"],
+    drinks: ["iced tea", "lemonade", "cola"],
+    desserts: ["gooey butter cake"],
+    cultural_notes: "Missouri game-day food splits beautifully: Kansas City smoke and St. Louis party trays both belong.",
+    beginner_level: "Use one smoked or oven-finished meat, one appetizer, and one dessert.",
+    pro_level: "Stagger ribs, ravioli frying, and pizza cuts so the table stays hot.",
+    cook_time: "2-6 hours",
+    hosting_notes: "Keep sauces separated and slice rich foods small so people can sample everything."
+  },
+  {
+    cuisine: "Midwest",
+    country_or_region: "Great Lakes and prairie states",
+    occasion: "Winter Comfort Food",
+    main_dish: "Soup, hotdish, and beefy cold-weather suppers",
+    main_recipe_ids: ["knoephla-soup", "tater-tot-hotdish", "nebraska-steak"],
+    side_recipe_ids: ["wild-rice-soup", "runza", "bierocks"],
+    bread_recipe_ids: ["lefse"],
+    sauce_recipe_ids: [],
+    drink_recipe_ids: [],
+    dessert_recipe_ids: ["dakota-kuchen", "paczki"],
+    alternate_recipe_ids: ["virginia-brunswick-stew", "loaded-baked-potato-soup"],
+    traditional_sides: ["bread rolls", "lefse", "pickles", "winter salads"],
+    breads: ["lefse", "runza dough", "bierocks"],
+    sauces_condiments: ["gravy", "mustard", "butter"],
+    drinks: ["coffee", "hot tea", "cider"],
+    desserts: ["kuchen", "paczki", "dessert bars"],
+    cultural_notes: "Winter Midwest food is about warmth, storage crops, dairy, beef, soups, hot pans, and food that feeds people after cold work.",
+    beginner_level: "Choose one soup or one hotdish and one simple sweet.",
+    pro_level: "Bake filled breads ahead and reheat gently while soup stays warm.",
+    cook_time: "90-180 min",
+    hosting_notes: "Use slow cookers, soup pots, and covered pans to keep food warm without drying it out."
+  },
+  {
+    cuisine: "Midwest / Kansas City",
+    country_or_region: "Kansas and Missouri BBQ country",
+    occasion: "BBQ Weekend",
+    main_dish: "Burnt ends, ribs, and smoked sausage",
+    main_recipe_ids: ["kansas-city-burnt-ends", "kansas-city-ribs", "kansas-city-smoked-sausage"],
+    side_recipe_ids: ["bbq-baked-beans", "creamy-coleslaw", "iowa-corn-casserole"],
+    bread_recipe_ids: [],
+    sauce_recipe_ids: ["kansas-city-bbq-sauce"],
+    drink_recipe_ids: [],
+    dessert_recipe_ids: ["gooey-butter-cake"],
+    alternate_recipe_ids: ["kansas-burnt-ends", "texas-smoked-sausage", "bbq-pulled-pork"],
+    traditional_sides: ["baked beans", "slaw", "corn casserole", "pickles"],
+    breads: ["white bread", "buns"],
+    sauces_condiments: ["Kansas City BBQ sauce", "pickles", "onions"],
+    drinks: ["sweet tea", "lemonade", "cold water"],
+    desserts: ["gooey butter cake", "dessert bars"],
+    cultural_notes: "Kansas City barbecue is sauce, smoke, bark, rib tips, burnt ends, sausage, and a plate built for sharing.",
+    beginner_level: "Make oven-finished ribs with sauce and two make-ahead sides.",
+    pro_level: "Smoke brisket point for burnt ends, glaze late, and rest ribs before slicing.",
+    cook_time: "3-10 hours",
+    hosting_notes: "Plan a slicing station, sauce station, and wet wipes before meat comes off the pit."
   },
   {
     cuisine: "Juneteenth / Soul Food",
@@ -3026,8 +3207,114 @@ const africaExpansionRecipes = [
   expansionRecipe("tunisian-ojja-merguez", "Tunisian Ojja with Merguez", "Family Meals", "images/cuisines/africa/tunisia/ojja-merguez.jpg", "15 min", "30 min", 4, "Intermediate", "Eggs and merguez sausage cooked in a spicy tomato-pepper sauce with harissa.", ["1 lb merguez sausage", "1 onion diced", "1 bell pepper diced", "3 garlic cloves", "2 cups crushed tomatoes", "1 tbsp harissa", "1 tsp caraway", "4 eggs", "Olive oil"], ["Brown merguez and remove.", "Cook onion and pepper in olive oil until soft.", "Add garlic, harissa, caraway, and tomatoes; simmer 12 minutes.", "Return sausage and make four wells.", "Crack in eggs, cover, and cook until whites set; serve with bread."], ["tunisia", "ojja", "merguez", "family meal"], { cuisine: "tunisia" })
 ];
 
+function midwestRecipe(id, title, cuisine, category, description, ingredients, steps, tags = [], extras = {}) {
+  return expansionRecipe(
+    id,
+    title,
+    category,
+    `images/regional/midwest/${id}.jpg`,
+    extras.prep || "20 min",
+    extras.cook || "35 min",
+    extras.servings || 4,
+    extras.level || "Intermediate",
+    description,
+    ingredients,
+    steps,
+    [...tags, "midwest", cuisine],
+    {
+      cuisine,
+      storage: extras.storage || "Refrigerate leftovers in a covered container for up to 3 days.",
+      reheating: extras.reheating || "Reheat gently until hot throughout, adding a splash of water, broth, or sauce if needed.",
+      occasion_tags: extras.occasion_tags || ["family dinner", "regional food"],
+      technique_tags: extras.technique_tags || tags
+    }
+  );
+}
+
+const midwestExpansionRecipes = [
+  midwestRecipe("chicago-polish-sausage", "Chicago Polish Sausage", "chicago", "Chicago Street Food", "A grilled or seared Polish sausage served on a bun with mustard, onions, and sport peppers.", ["4 Polish sausages", "4 poppy seed or sturdy buns", "1 onion sliced", "1 tbsp oil", "Yellow mustard", "Sport peppers"], ["Brown sausages in a skillet or on a grill until hot and lightly charred.", "Cook onions in oil until soft and browned at the edges.", "Warm buns.", "Nestle sausage in each bun.", "Top with mustard, onions, and sport peppers."], ["sausage", "street food", "sandwich"], { cook: "20 min" }),
+  midwestRecipe("maxwell-street-polish", "Maxwell Street Polish", "chicago", "Chicago Street Food", "A Chicago market-style Polish sausage with griddled onions, yellow mustard, and sport peppers.", ["4 Polish sausages", "4 buns", "2 onions sliced", "2 tbsp oil", "Yellow mustard", "Sport peppers"], ["Split sausages lightly and sear until browned.", "Cook onions slowly in oil until sweet and golden.", "Steam or toast buns.", "Add sausage, mustard, onions, and peppers.", "Serve hot with napkins."], ["sausage", "onions", "street food"]),
+  midwestRecipe("italian-beef", "Italian Beef Sandwich", "chicago", "Chicago Street Food", "Thin-sliced roast beef warmed in garlicky jus and served on an Italian roll with sweet peppers or giardiniera.", ["2 lb cooked roast beef sliced thin", "4 Italian rolls", "3 cups beef stock", "1 tsp Italian seasoning", "1 tsp garlic powder", "1 cup giardiniera", "1 cup roasted sweet peppers"], ["Simmer stock with Italian seasoning and garlic powder.", "Warm sliced beef gently in the jus without boiling.", "Dip rolls lightly in jus if desired.", "Pile beef onto rolls.", "Top with giardiniera or sweet peppers."], ["beef", "sandwich", "jus"], { cook: "25 min" }),
+  midwestRecipe("chicago-style-hot-dog", "Chicago-Style Hot Dog", "chicago", "Chicago Street Food", "A dragged-through-the-garden hot dog with mustard, relish, onion, tomato, pickle spear, sport peppers, and celery salt.", ["4 all-beef hot dogs", "4 poppy seed buns", "Yellow mustard", "Neon relish", "1 small onion diced", "Tomato wedges", "4 pickle spears", "Sport peppers", "Celery salt"], ["Steam or simmer hot dogs until hot.", "Warm buns gently.", "Place each dog in a bun.", "Add mustard, relish, onion, tomato, pickle, and sport peppers.", "Finish with celery salt; do not add ketchup if keeping it Chicago-style."], ["hot dog", "street food", "assembly"], { prep: "10 min", cook: "8 min" }),
+  midwestRecipe("chicago-gyros", "Chicago Gyros", "chicago", "Chicago Street Food", "Warm gyro meat tucked in pita with tomato, onion, lettuce, and cool tzatziki.", ["1 lb gyro meat or seasoned lamb-beef slices", "4 pitas", "1 cup tzatziki", "1 tomato sliced", "1/2 onion sliced", "2 cups shredded lettuce"], ["Brown gyro meat until crisp at the edges.", "Warm pitas.", "Spread tzatziki on each pita.", "Layer meat, tomato, onion, and lettuce.", "Fold and serve immediately."], ["pita", "street food", "sandwich"]),
+  midwestRecipe("pizza-puff", "Pizza Puff", "chicago", "Chicago Street Food", "A crisp fried pocket filled with tomato sauce, mozzarella, and pepperoni-style flavor.", ["8 empanada wrappers", "1 cup pizza sauce", "1 1/2 cups mozzarella", "1/2 cup chopped pepperoni", "1 tsp Italian seasoning", "Oil for frying"], ["Mix sauce, cheese, pepperoni, and seasoning.", "Spoon filling onto wrappers and seal edges with water.", "Chill 10 minutes to help seal.", "Fry at 350 F until golden and crisp.", "Drain and cool slightly before eating."], ["fried", "pizza", "snack"], { cook: "18 min" }),
+  midwestRecipe("jibarito", "Jibarito", "chicago", "Chicago Street Food", "A Puerto Rican Chicago sandwich that uses crisp flattened plantains instead of bread.", ["2 green plantains", "1 lb thin steak or chicken", "1 tsp adobo seasoning", "1 cup lettuce", "1 tomato sliced", "Garlic mayo", "Oil for frying"], ["Peel plantains, cut in half, fry until softened, smash flat, and fry again until crisp.", "Season and cook steak or chicken until done.", "Spread garlic mayo on plantain pieces.", "Layer meat, lettuce, and tomato.", "Top with second plantain piece and serve."], ["plantain", "sandwich", "fried"], { level: "Advanced", cook: "35 min" }),
+  midwestRecipe("chicago-pork-chop-sandwich", "Chicago Pork Chop Sandwich", "chicago", "Chicago Street Food", "A bone-in or boneless pork chop sandwich with mustard, onions, and peppers.", ["4 thin pork chops", "1 tsp seasoned salt", "1/2 tsp black pepper", "1 tbsp oil", "4 buns", "Mustard", "Griddled onions", "Sport peppers"], ["Season pork chops.", "Sear in oil until browned and 145 F inside.", "Rest 5 minutes.", "Warm buns and add mustard.", "Add pork, onions, and peppers."], ["pork", "sandwich", "street food"]),
+  midwestRecipe("deep-dish-pizza", "Chicago Deep Dish Pizza", "chicago", "Chicago Pizza", "A tall butter-crust pizza layered with cheese, sausage, and chunky tomato sauce.", ["1 deep-dish pizza dough", "2 cups shredded mozzarella", "1 lb Italian sausage", "2 cups crushed tomatoes", "1 tsp oregano", "1/4 cup grated Parmesan"], ["Heat oven to 425 F.", "Press dough into an oiled deep pan.", "Layer mozzarella on the bottom, then sausage.", "Top with tomatoes, oregano, and Parmesan.", "Bake 30 to 35 minutes and rest before slicing."], ["pizza", "baking", "tomato"], { cook: "45 min", level: "Advanced" }),
+  midwestRecipe("tavern-style-thin-crust-pizza", "Chicago Tavern-Style Thin Crust Pizza", "chicago", "Chicago Pizza", "A crisp thin-crust pizza cut into squares and built for sharing.", ["1 thin pizza crust", "1/2 cup pizza sauce", "2 cups shredded mozzarella", "1/2 cup Italian sausage crumbles", "1/4 cup sliced giardiniera", "Oregano"], ["Heat oven to 475 F with a hot sheet pan or stone.", "Spread sauce thinly over crust.", "Add cheese, sausage, giardiniera, and oregano.", "Bake until edges are crisp and cheese bubbles.", "Cut into squares."], ["pizza", "thin crust", "baking"], { cook: "15 min" }),
+  midwestRecipe("chicago-mild-sauce", "Chicago Mild Sauce", "chicago", "South Side / West Side Favorites", "A tangy-sweet peppery sauce for fried chicken, fries, and wings.", ["1 cup ketchup", "1/2 cup BBQ sauce", "2 tbsp hot sauce", "2 tbsp apple cider vinegar", "1 tbsp brown sugar", "1 tsp garlic powder", "1/2 tsp black pepper"], ["Whisk all ingredients in a small saucepan.", "Simmer 8 minutes until glossy.", "Taste for heat and tang.", "Cool slightly.", "Brush over fried chicken or serve with fries."], ["sauce", "fried chicken", "condiment"], { prep: "5 min", cook: "10 min" }),
+  midwestRecipe("harolds-style-fried-chicken", "Harold's-Style Fried Chicken", "chicago", "South Side / West Side Favorites", "Crisp fried chicken served with white bread, pickles, fries, and mild sauce on the side.", ["3 lb chicken pieces", "2 cups buttermilk", "2 cups flour", "1 tbsp seasoned salt", "1 tsp paprika", "1 tsp black pepper", "Oil for frying", "Mild sauce"], ["Soak chicken in buttermilk at least 2 hours.", "Mix flour and seasonings.", "Dredge chicken and rest 10 minutes.", "Fry at 325 to 350 F until golden and 165 F inside.", "Serve with mild sauce, bread, and pickles."], ["fried chicken", "mild sauce", "south side"], { cook: "45 min" }),
+  midwestRecipe("chicago-rib-tips", "Chicago Rib Tips", "chicago", "South Side / West Side Favorites", "Smoky rib tips finished with sauce and served with fries or white bread.", ["3 lb pork rib tips", "2 tbsp BBQ rub", "1 cup BBQ sauce", "1/2 cup apple juice", "White bread", "Pickles"], ["Season rib tips with rub.", "Smoke or roast covered at 275 F until tender.", "Uncover and brush with sauce.", "Cook until sticky and browned.", "Chop and serve with bread and pickles."], ["bbq", "rib tips", "smoke"], { cook: "3 hr", level: "Advanced" }),
+  midwestRecipe("gd-burger-gyro-meat", "GD Burger with Gyro Meat", "chicago", "South Side / West Side Favorites", "A loaded neighborhood-style burger topped with crisp gyro meat, sauce, lettuce, tomato, and onion.", ["4 burger patties", "8 oz gyro meat", "4 buns", "4 slices cheese", "Lettuce", "Tomato", "Onion", "Tzatziki or special sauce"], ["Cook burger patties to 160 F.", "Crisp gyro meat in a skillet.", "Toast buns and melt cheese on burgers.", "Stack burger with gyro meat and vegetables.", "Finish with sauce and serve hot."], ["burger", "gyro", "loaded"]),
+  midwestRecipe("chicken-vesuvio", "Chicken Vesuvio", "chicago", "Chicago Classics", "An Italian American Chicago skillet of chicken, potatoes, garlic, white wine, herbs, and peas.", ["4 chicken thighs", "1 1/2 lb potato wedges", "4 garlic cloves", "1/2 cup white wine or stock", "1 cup chicken stock", "1 tsp oregano", "1 cup peas", "2 tbsp olive oil"], ["Brown seasoned chicken in oil and remove.", "Brown potato wedges in the same pan.", "Add garlic, wine, stock, and oregano.", "Return chicken and roast at 400 F until chicken reaches 175 F.", "Stir in peas at the end."], ["chicken", "potatoes", "skillet"], { cook: "1 hr" }),
+  midwestRecipe("shrimp-dejonghe", "Shrimp DeJonghe", "chicago", "Chicago Classics", "A Chicago shrimp casserole baked with garlicky herbed breadcrumbs.", ["1 1/2 lb shrimp", "1 cup breadcrumbs", "6 tbsp butter", "4 garlic cloves minced", "2 tbsp parsley", "1 tbsp sherry or lemon juice", "1/2 tsp paprika"], ["Heat oven to 375 F.", "Arrange shrimp in a buttered baking dish.", "Mix crumbs, melted butter, garlic, parsley, sherry or lemon, and paprika.", "Scatter crumbs over shrimp.", "Bake 15 to 18 minutes until shrimp reach 145 F."], ["shrimp", "casserole", "breadcrumbs"]),
+  midwestRecipe("chicago-hot-tamales", "Chicago Hot Tamales", "chicago", "Chicago Classics", "Chicago-style hot tamales simmered with seasoned beef filling and cornmeal dough.", ["2 cups masa harina or fine cornmeal", "1 1/2 cups broth", "1 lb ground beef", "1 tbsp chili powder", "1 tsp cumin", "1/2 cup tomato sauce", "Corn husks or parchment"], ["Make a soft dough with masa and broth.", "Cook beef with spices and tomato sauce.", "Spread dough, add beef, and roll tightly.", "Steam or simmer gently until firm.", "Serve with extra sauce."], ["tamales", "street food", "beef"], { level: "Advanced", cook: "1 hr" }),
+  midwestRecipe("caramel-cheese-popcorn", "Caramel and Cheese Popcorn Mix", "chicago", "Sweet Chicago", "A Chicago-style sweet-salty popcorn mix with caramel corn and cheddar popcorn.", ["8 cups popped popcorn", "1 cup brown sugar", "1/2 cup butter", "1/4 cup corn syrup", "1/2 tsp baking soda", "4 cups cheddar popcorn"], ["Boil brown sugar, butter, and corn syrup for 4 minutes.", "Stir in baking soda.", "Pour over half the popcorn and bake at 250 F for 45 minutes, stirring.", "Cool caramel corn.", "Mix with cheddar popcorn."], ["popcorn", "sweet", "snack"], { prep: "10 min", cook: "50 min" }),
+  midwestRecipe("rainbow-cone", "Rainbow Cone", "chicago", "Sweet Chicago", "A layered cone inspired by Chicago's classic rainbow of ice cream flavors.", ["4 waffle cones", "1 pint chocolate ice cream", "1 pint strawberry ice cream", "1 pint Palmer House or vanilla cherry ice cream", "1 pint pistachio ice cream", "1 pint orange sherbet"], ["Chill cones and a wide spatula.", "Soften each flavor slightly.", "Add thin slices or scoops of each flavor to the cone.", "Stack from dark to bright colors.", "Serve immediately."], ["ice cream", "dessert", "chicago"], { prep: "15 min", cook: "0 min" }),
+  midwestRecipe("italian-ice", "Italian Ice", "chicago", "Sweet Chicago", "A bright frozen lemon ice served in cups on hot days.", ["1 cup lemon juice", "1 cup sugar", "3 cups water", "1 tbsp lemon zest", "Pinch salt"], ["Dissolve sugar in 1 cup warm water.", "Stir in remaining water, lemon juice, zest, and salt.", "Freeze in a shallow pan.", "Scrape every 30 minutes until fluffy.", "Scoop into cups."], ["frozen", "lemon", "dessert"], { prep: "10 min", cook: "0 min" }),
+
+  midwestRecipe("wisconsin-cheese-curds", "Wisconsin Cheese Curds", "wisconsin", "Wisconsin", "Fresh cheese curds battered and fried until crisp outside and melty inside.", ["1 lb cheese curds", "1 cup flour", "1 tsp baking powder", "1 egg", "3/4 cup cold beer or sparkling water", "Oil for frying"], ["Pat curds dry.", "Whisk flour, baking powder, egg, and cold beer into batter.", "Dip curds and fry at 375 F until golden.", "Drain on a rack.", "Serve hot with ranch or marinara."], ["cheese", "fried", "snack"]),
+  midwestRecipe("wisconsin-brats", "Wisconsin Brats", "wisconsin", "Wisconsin", "Beer-simmered bratwurst finished on the grill with onions and mustard.", ["6 bratwurst", "2 onions sliced", "2 cups beer or broth", "6 buns", "Mustard", "Sauerkraut"], ["Simmer brats and onions in beer or broth for 15 minutes.", "Grill brats until browned.", "Toast buns.", "Top with onions, mustard, and sauerkraut.", "Serve hot."], ["brats", "grill", "sausage"]),
+  midwestRecipe("beer-cheese-soup", "Beer Cheese Soup", "wisconsin", "Wisconsin", "A creamy Wisconsin-style soup with cheddar, vegetables, and beer or broth.", ["3 tbsp butter", "1 onion diced", "1 carrot diced", "1 celery stalk diced", "3 tbsp flour", "2 cups broth", "1 cup beer or extra broth", "2 cups shredded cheddar", "1 cup milk"], ["Cook vegetables in butter until soft.", "Stir in flour and cook 1 minute.", "Whisk in broth, beer, and milk.", "Simmer until slightly thick.", "Add cheese off heat and stir smooth."], ["soup", "cheese", "comfort"]),
+  midwestRecipe("wisconsin-friday-fish-fry", "Wisconsin Friday Fish Fry", "wisconsin", "Wisconsin", "Crisp battered fish served with slaw, rye bread, lemon, and tartar sauce.", ["1 1/2 lb cod, perch, or walleye", "1 cup flour", "1 egg", "1 cup cold beer or sparkling water", "1 tsp salt", "Oil for frying", "Lemon", "Tartar sauce"], ["Pat fish dry and cut into portions.", "Whisk batter with flour, egg, cold beer, and salt.", "Dip fish and fry at 350 F until golden and 145 F inside.", "Drain on a rack.", "Serve with lemon and tartar sauce."], ["fish fry", "fried", "great lakes"], { cook: "25 min" }),
+  midwestRecipe("wisconsin-kringle", "Wisconsin Kringle", "wisconsin", "Wisconsin", "A tender oval pastry with fruit or nut filling and sweet glaze.", ["1 sheet laminated pastry or crescent dough", "1 cup cherry or almond filling", "1 egg", "1 cup powdered sugar", "2 tbsp milk", "1/2 tsp vanilla"], ["Heat oven to 375 F.", "Shape pastry into an oval and fill lightly.", "Seal edges and brush with egg.", "Bake until golden.", "Cool and drizzle with glaze."], ["pastry", "dessert", "bakery"], { level: "Advanced" }),
+  midwestRecipe("wisconsin-butter-burgers", "Wisconsin Butter Burgers", "wisconsin", "Wisconsin", "A juicy griddled burger finished with buttered toasted buns.", ["1 1/2 lb ground beef", "1 tsp salt", "1/2 tsp pepper", "4 burger buns", "4 tbsp softened butter", "4 slices American cheese", "Pickles and onions"], ["Shape beef into four patties.", "Cook on a hot griddle to 160 F.", "Butter buns generously and toast.", "Melt cheese on patties.", "Serve with pickles and onions."], ["burger", "griddle", "butter"]),
+
+  midwestRecipe("detroit-style-pizza", "Detroit-Style Pizza", "michigan", "Michigan", "A rectangular pan pizza with crisp cheesy edges, airy crust, toppings, and sauce stripes.", ["1 pan pizza dough", "2 cups brick or mozzarella cheese cubes", "1 cup pepperoni", "1 cup pizza sauce", "2 tbsp olive oil"], ["Oil a metal pan and press dough to the edges.", "Top with cheese all the way to the corners.", "Add pepperoni.", "Bake at 475 F until edges are dark and crisp.", "Spoon warm sauce in stripes before serving."], ["pizza", "baking", "detroit"], { cook: "25 min", level: "Advanced" }),
+  midwestRecipe("michigan-coney-dogs", "Michigan Coney Dogs", "michigan", "Michigan", "Hot dogs topped with seasoned meat sauce, mustard, and onions.", ["8 hot dogs", "8 buns", "1 lb ground beef", "1 cup tomato sauce", "1 tbsp chili powder", "1 tsp cumin", "Yellow mustard", "1 onion diced"], ["Cook beef until crumbled and browned.", "Add tomato sauce and spices; simmer until thick.", "Heat hot dogs and buns.", "Top dogs with meat sauce.", "Finish with mustard and onion."], ["hot dog", "coney", "meat sauce"]),
+  midwestRecipe("upper-peninsula-pasties", "Upper Peninsula Pasties", "michigan", "Michigan", "Hand pies filled with beef, potato, rutabaga, and onion.", ["2 pie crusts", "1 lb ground beef or diced beef", "2 potatoes diced", "1 cup rutabaga diced", "1 onion diced", "1 tsp salt", "1/2 tsp pepper"], ["Heat oven to 375 F.", "Mix beef, vegetables, salt, and pepper.", "Cut crusts into rounds and fill.", "Seal and vent each pasty.", "Bake 45 to 55 minutes until crust is golden and filling is cooked."], ["hand pie", "beef", "upper peninsula"], { cook: "55 min" }),
+  midwestRecipe("michigan-cherry-pie", "Michigan Cherry Pie", "michigan", "Michigan", "A tart cherry pie with a flaky crust and glossy fruit filling.", ["2 pie crusts", "5 cups tart cherries", "1 cup sugar", "1/4 cup cornstarch", "1 tbsp lemon juice", "1 tbsp butter"], ["Heat oven to 400 F.", "Mix cherries, sugar, cornstarch, and lemon.", "Fill bottom crust and dot with butter.", "Top with crust and vent.", "Bake until bubbling and golden."], ["pie", "cherry", "dessert"]),
+  midwestRecipe("great-lakes-whitefish", "Great Lakes Whitefish", "michigan", "Michigan", "Simple pan-seared whitefish with lemon, butter, and herbs.", ["4 whitefish fillets", "1/2 cup flour", "1 tsp salt", "2 tbsp butter", "1 tbsp oil", "1 lemon", "2 tbsp parsley"], ["Season flour and lightly coat fish.", "Heat butter and oil.", "Cook fish 3 to 4 minutes per side to 145 F.", "Add lemon juice.", "Finish with parsley."], ["fish", "great lakes", "skillet"], { cook: "12 min" }),
+  midwestRecipe("paczki", "Paczki", "michigan", "Michigan", "Rich filled Polish doughnuts popular around Fat Tuesday in Michigan communities.", ["3 cups flour", "1 packet yeast", "3/4 cup milk", "1/4 cup sugar", "3 egg yolks", "4 tbsp butter", "Jam or custard", "Oil for frying"], ["Make a soft enriched yeast dough.", "Let rise until doubled.", "Cut rounds and rise again.", "Fry until golden.", "Fill with jam or custard and dust with sugar."], ["doughnut", "polish", "dessert"], { level: "Advanced", cook: "25 min" }),
+
+  midwestRecipe("tater-tot-hotdish", "Tater Tot Hotdish", "minnesota", "Minnesota", "A Minnesota casserole of seasoned beef, creamy sauce, vegetables, and crisp tater tots.", ["1 lb ground beef", "1 onion diced", "2 cups frozen mixed vegetables", "1 can cream soup", "1/2 cup milk", "1 bag frozen tater tots", "1 cup cheddar"], ["Heat oven to 375 F.", "Brown beef and onion.", "Mix with vegetables, soup, and milk in a baking dish.", "Top with tater tots and cheese.", "Bake 40 minutes until bubbling and crisp."], ["hotdish", "casserole", "family"], { cook: "45 min" }),
+  midwestRecipe("wild-rice-soup", "Wild Rice Soup", "minnesota", "Minnesota", "Creamy soup with wild rice, vegetables, herbs, and chicken or mushrooms.", ["1 cup wild rice", "1 onion diced", "2 carrots diced", "2 celery stalks diced", "6 cups broth", "2 cups cooked chicken or mushrooms", "1 cup cream", "2 tbsp butter"], ["Cook wild rice until tender.", "Cook onion, carrots, and celery in butter.", "Add broth and chicken or mushrooms.", "Stir in cooked rice.", "Finish with cream and simmer gently."], ["soup", "wild rice", "comfort"]),
+  midwestRecipe("pan-fried-walleye", "Pan-Fried Walleye", "minnesota", "Minnesota", "Lightly breaded walleye fried until crisp and tender.", ["4 walleye fillets", "1 cup cracker crumbs", "1/2 cup flour", "1 egg", "1 tbsp milk", "Salt and pepper", "Oil for frying", "Lemon"], ["Pat fish dry and season.", "Dredge in flour, egg wash, then crumbs.", "Fry in shallow oil until golden.", "Cook to 145 F.", "Serve with lemon."], ["walleye", "fish", "fried"]),
+  midwestRecipe("jucy-lucy", "Jucy Lucy", "minnesota", "Minnesota", "A Minneapolis-style burger stuffed with molten cheese inside the patty.", ["1 1/2 lb ground beef", "4 slices American cheese folded", "1 tsp salt", "1/2 tsp pepper", "4 buns", "Pickles and onions"], ["Divide beef into eight thin patties.", "Place cheese between two patties and seal edges well.", "Season and griddle until 160 F.", "Rest carefully because cheese is hot.", "Serve on buns with pickles and onions."], ["burger", "cheese-stuffed", "griddle"]),
+  midwestRecipe("lefse", "Lefse", "minnesota", "Minnesota", "Soft Norwegian-style potato flatbread served with butter, sugar, or savory fillings.", ["2 cups riced potatoes", "2 tbsp butter", "1/4 cup cream", "1 cup flour", "1/2 tsp salt"], ["Mix potatoes, butter, cream, and salt; chill.", "Add flour lightly to make dough.", "Roll thin on a floured surface.", "Cook on a dry griddle until spotted.", "Serve warm with butter."], ["flatbread", "potato", "norwegian"], { level: "Advanced" }),
+  midwestRecipe("midwest-dessert-bars", "Midwest Dessert Bars", "minnesota", "Minnesota", "A pan of chewy oatmeal jam bars made for potlucks and lunch tables.", ["1 1/2 cups oats", "1 1/2 cups flour", "1 cup brown sugar", "1 cup butter melted", "1 tsp baking powder", "1 1/2 cups jam"], ["Heat oven to 350 F.", "Mix oats, flour, sugar, baking powder, and butter.", "Press two-thirds into a pan.", "Spread jam over crust.", "Crumble remaining dough on top and bake 30 minutes."], ["bars", "dessert", "potluck"]),
+
+  midwestRecipe("breaded-pork-tenderloin-sandwich", "Breaded Pork Tenderloin Sandwich", "indiana", "Indiana", "A thin pounded pork cutlet fried crisp and served wider than the bun.", ["4 pork loin cutlets", "1 cup flour", "2 eggs", "1 cup cracker crumbs", "1 tsp salt", "Oil for frying", "4 buns", "Pickles and mustard"], ["Pound pork cutlets thin.", "Dredge in flour, egg, then crumbs.", "Fry until golden and 145 F.", "Drain on a rack.", "Serve on buns with pickles and mustard."], ["pork", "sandwich", "fried"]),
+  midwestRecipe("sugar-cream-pie", "Sugar Cream Pie", "indiana", "Indiana", "Indiana's simple custard-like pie made with cream, sugar, vanilla, and nutmeg.", ["1 pie crust", "1 cup sugar", "1/4 cup flour", "2 cups heavy cream", "1 tsp vanilla", "2 tbsp butter", "Nutmeg"], ["Heat oven to 375 F.", "Whisk sugar and flour in crust.", "Stir in cream and vanilla.", "Dot with butter and nutmeg.", "Bake until set around edges with a slight wobble."], ["pie", "cream", "dessert"]),
+  midwestRecipe("indiana-chicken-and-noodles", "Indiana Chicken and Noodles", "indiana", "Indiana", "Thick egg noodles simmered with shredded chicken in a savory broth.", ["2 cups cooked shredded chicken", "6 cups chicken broth", "12 oz egg noodles", "1 onion diced", "2 carrots sliced", "2 tbsp butter", "1 tsp poultry seasoning"], ["Cook onion and carrots in butter.", "Add broth and seasoning; simmer.", "Add noodles and cook until tender.", "Stir in chicken.", "Simmer until thick and serve over mashed potatoes if desired."], ["chicken", "noodles", "comfort"]),
+  midwestRecipe("persimmon-pudding", "Persimmon Pudding", "indiana", "Indiana", "A moist steamed-style pudding made with ripe persimmon pulp and warm spice.", ["2 cups persimmon pulp", "2 cups flour", "1 cup sugar", "2 eggs", "2 cups milk", "1 tsp baking soda", "1 tsp cinnamon", "4 tbsp melted butter"], ["Heat oven to 325 F.", "Mix persimmon pulp, sugar, eggs, milk, and butter.", "Stir in flour, baking soda, cinnamon, and salt.", "Pour into a buttered dish.", "Bake until dark, moist, and set."], ["persimmon", "pudding", "dessert"]),
+
+  midwestRecipe("cincinnati-chili", "Cincinnati Chili", "ohio", "Ohio", "A spiced meat sauce served over spaghetti with cheese, onions, beans, and crackers.", ["1 1/2 lb ground beef", "1 onion diced", "2 cups tomato sauce", "2 tbsp chili powder", "1 tsp cinnamon", "1 tsp cumin", "1 tbsp cocoa powder", "12 oz spaghetti", "Cheddar cheese"], ["Simmer beef, onion, tomato sauce, spices, cocoa, and water until fine-textured and saucy.", "Cook spaghetti.", "Spoon chili over spaghetti.", "Top with cheddar and optional onions or beans.", "Serve with crackers."], ["chili", "spaghetti", "ohio"]),
+  midwestRecipe("buckeyes", "Buckeyes", "ohio", "Ohio", "Peanut butter balls dipped in chocolate to resemble buckeye nuts.", ["1 1/2 cups peanut butter", "1/2 cup butter softened", "3 cups powdered sugar", "2 cups chocolate chips", "1 tbsp coconut oil or shortening"], ["Mix peanut butter, butter, and powdered sugar.", "Roll into balls and chill.", "Melt chocolate with coconut oil.", "Dip balls leaving a peanut butter circle visible.", "Chill until set."], ["candy", "peanut butter", "dessert"], { prep: "30 min", cook: "0 min" }),
+  midwestRecipe("cleveland-pierogies", "Cleveland Pierogies", "ohio", "Ohio", "Potato-cheese dumplings boiled and pan-fried with onions.", ["2 cups mashed potatoes", "1 cup cheddar", "2 cups flour", "1 egg", "1/2 cup water", "1 onion sliced", "3 tbsp butter"], ["Make dough with flour, egg, water, and salt.", "Fill rounds with potato and cheese.", "Seal tightly.", "Boil until they float.", "Pan-fry with butter and onions."], ["dumpling", "potato", "polish"], { level: "Advanced" }),
+  midwestRecipe("polish-boy", "Polish Boy", "ohio", "Ohio", "A Cleveland sandwich with kielbasa, fries, slaw, and barbecue sauce on a bun.", ["4 kielbasa links", "4 buns", "2 cups fries", "1 cup coleslaw", "1/2 cup BBQ sauce", "Hot sauce optional"], ["Grill or sear kielbasa.", "Cook fries until crisp.", "Warm buns.", "Add kielbasa, fries, slaw, and sauce.", "Serve right away."], ["sandwich", "kielbasa", "cleveland"]),
+  midwestRecipe("goetta", "Goetta", "ohio", "Ohio", "A Cincinnati-area breakfast loaf of pork, beef, oats, and spices sliced and fried crisp.", ["1 lb ground pork", "1 lb ground beef", "2 cups steel-cut oats", "6 cups broth", "1 onion minced", "1 tsp sage", "1 tsp salt", "1/2 tsp pepper"], ["Simmer oats in broth until thick.", "Cook meats and onion until done.", "Stir meat and seasonings into oats.", "Pack into loaf pans and chill until firm.", "Slice and fry until crisp."], ["breakfast", "oats", "cincinnati"], { cook: "1 hr 30 min" }),
+
+  midwestRecipe("maid-rite-loose-meat-sandwich", "Maid-Rite Loose Meat Sandwich", "iowa", "Iowa", "A seasoned loose ground beef sandwich served on a soft bun with pickles and mustard.", ["1 1/2 lb ground beef", "1/2 cup beef broth", "1 tbsp Worcestershire", "1 tsp mustard", "1/2 tsp onion powder", "4 buns", "Pickles"], ["Cook beef while crumbling very fine.", "Add broth, Worcestershire, mustard, and onion powder.", "Simmer until moist but not saucy.", "Pile onto buns.", "Serve with pickles and mustard."], ["beef", "sandwich", "loose meat"]),
+  midwestRecipe("iowa-pork-tenderloin-sandwich", "Iowa Pork Tenderloin Sandwich", "iowa", "Iowa", "A huge crisp pork tenderloin cutlet served on a small bun with classic toppings.", ["4 pork loin cutlets", "1 cup flour", "2 eggs", "1 cup breadcrumbs", "1 tsp seasoned salt", "Oil for frying", "4 buns", "Pickles"], ["Pound pork thin and wide.", "Coat in flour, egg, and breadcrumbs.", "Fry until crisp and 145 F.", "Drain on a rack.", "Serve on buns with pickles, mustard, or mayo."], ["pork", "sandwich", "fried"]),
+  midwestRecipe("iowa-corn-casserole", "Iowa Corn Casserole", "iowa", "Iowa", "A creamy baked corn casserole for potlucks and family dinners.", ["1 can whole kernel corn", "1 can cream-style corn", "1 box cornbread mix", "1 cup sour cream", "1/2 cup melted butter", "1 cup cheddar"], ["Heat oven to 350 F.", "Mix both corns, cornbread mix, sour cream, and butter.", "Spread in a baking dish.", "Bake 35 minutes.", "Top with cheddar and bake until set."], ["corn", "casserole", "potluck"]),
+  midwestRecipe("rhubarb-pie", "Rhubarb Pie", "iowa", "Iowa", "A tart-sweet rhubarb pie with a flaky crust.", ["2 pie crusts", "5 cups sliced rhubarb", "1 1/4 cups sugar", "1/4 cup flour", "1 tbsp lemon juice", "2 tbsp butter"], ["Heat oven to 400 F.", "Mix rhubarb, sugar, flour, and lemon.", "Fill crust and dot with butter.", "Top with second crust and vent.", "Bake until bubbling and golden."], ["pie", "rhubarb", "dessert"]),
+
+  midwestRecipe("kansas-city-burnt-ends", "Kansas City Burnt Ends", "missouri", "Kansas City BBQ", "Cubed smoked brisket point glazed until sticky, smoky, and tender.", ["3 lb smoked brisket point", "1/2 cup BBQ rub", "1 cup Kansas City BBQ sauce", "1/4 cup brown sugar", "2 tbsp butter"], ["Smoke or roast brisket point until tender.", "Cube into bite-size pieces.", "Toss with sauce, brown sugar, and butter.", "Return to smoker or oven until sticky.", "Serve with pickles and bread."], ["bbq", "brisket", "burnt ends"], { cook: "3 hr" }),
+  midwestRecipe("kansas-city-ribs", "Kansas City Ribs", "missouri", "Kansas City BBQ", "Pork ribs rubbed, cooked low, and glazed with sweet-tangy Kansas City sauce.", ["2 racks pork ribs", "1/3 cup BBQ rub", "1 cup Kansas City BBQ sauce", "1/2 cup apple juice"], ["Remove membrane and season ribs.", "Cook low at 275 F until tender.", "Spritz with apple juice as needed.", "Brush with sauce near the end.", "Rest and slice between bones."], ["bbq", "ribs", "smoke"], { cook: "3 hr" }),
+  midwestRecipe("kansas-city-bbq-sauce", "Kansas City BBQ Sauce", "missouri", "Kansas City BBQ", "A tomato-based sweet, tangy, lightly smoky sauce for ribs, burnt ends, and sausage.", ["1 1/2 cups ketchup", "1/2 cup brown sugar", "1/3 cup apple cider vinegar", "2 tbsp molasses", "1 tbsp Worcestershire", "1 tsp smoked paprika", "1/2 tsp garlic powder"], ["Whisk ingredients in a saucepan.", "Simmer 15 minutes.", "Taste for sweet, tangy, and smoke balance.", "Cool before storing.", "Brush on meat near the end of cooking."], ["sauce", "bbq", "kansas city"], { prep: "5 min", cook: "15 min" }),
+  midwestRecipe("kansas-city-smoked-sausage", "Kansas City Smoked Sausage", "missouri", "Kansas City BBQ", "Smoked sausage links sliced and served with sauce, pickles, and bread.", ["2 lb smoked sausage links", "1/2 cup BBQ sauce", "White bread", "Pickles", "Sliced onion"], ["Smoke or grill sausage until hot and browned.", "Rest 5 minutes.", "Slice on a bias.", "Brush lightly with sauce.", "Serve with bread, pickles, and onions."], ["sausage", "bbq", "smoked"]),
+  midwestRecipe("st-louis-style-pizza", "St. Louis-Style Pizza", "missouri", "St. Louis Classics", "A cracker-thin square-cut pizza with sweet sauce and processed-style cheese blend.", ["1 thin pizza crust", "1/2 cup pizza sauce", "2 cups Provel-style or mozzarella-provolone blend", "1/2 cup cooked sausage", "Oregano"], ["Heat oven to 475 F.", "Spread sauce very thin.", "Add cheese blend and sausage.", "Bake until crisp and bubbling.", "Cut into squares."], ["pizza", "st louis", "thin crust"]),
+  midwestRecipe("toasted-ravioli", "Toasted Ravioli", "missouri", "St. Louis Classics", "Breaded ravioli fried crisp and served with marinara.", ["1 lb cheese ravioli", "1 cup flour", "2 eggs", "1 cup Italian breadcrumbs", "Oil for frying", "Marinara", "Parmesan"], ["Cook ravioli just until tender and cool.", "Dredge in flour, egg, then breadcrumbs.", "Fry at 350 F until crisp.", "Drain and sprinkle with Parmesan.", "Serve with marinara."], ["ravioli", "fried", "appetizer"]),
+  midwestRecipe("st-louis-pork-steaks", "St. Louis Pork Steaks", "missouri", "St. Louis Classics", "Pork shoulder steaks grilled and simmered in barbecue sauce until tender.", ["4 pork shoulder steaks", "2 tbsp BBQ rub", "2 cups BBQ sauce", "1/2 cup beer or broth"], ["Season pork steaks.", "Grill or sear both sides.", "Place in a pan with BBQ sauce and beer.", "Cover and cook until tender.", "Finish uncovered until sauce thickens."], ["pork", "bbq", "st louis"], { cook: "1 hr 30 min" }),
+  midwestRecipe("gooey-butter-cake", "Gooey Butter Cake", "missouri", "St. Louis Classics", "A sweet St. Louis cake with a tender base and gooey cream cheese top.", ["1 box yellow cake mix", "1 egg", "1/2 cup melted butter", "8 oz cream cheese", "2 eggs", "3 cups powdered sugar", "1 tsp vanilla"], ["Heat oven to 350 F.", "Mix cake mix, one egg, and butter; press into pan.", "Beat cream cheese, eggs, powdered sugar, and vanilla.", "Spread over base.", "Bake until edges set and center is gooey."], ["cake", "dessert", "st louis"]),
+
+  midwestRecipe("kansas-burnt-ends", "Kansas Burnt Ends", "kansas", "Kansas", "Saucy cubes of brisket point cooked until smoky, caramelized, and tender.", ["3 lb brisket point", "2 tbsp BBQ rub", "1 cup BBQ sauce", "2 tbsp brown sugar", "1 tbsp butter"], ["Season and cook brisket low until tender.", "Cube the point.", "Toss with sauce, sugar, and butter.", "Cook uncovered until barky and glazed.", "Serve with pickles."], ["bbq", "brisket", "kansas"]),
+  midwestRecipe("bierocks", "Bierocks", "kansas", "Kansas", "German-Russian meat-and-cabbage filled rolls common across Kansas and the plains.", ["1 lb ground beef", "1 onion diced", "4 cups shredded cabbage", "1 tsp salt", "1/2 tsp pepper", "12 frozen roll dough pieces thawed"], ["Cook beef and onion.", "Add cabbage and cook until soft.", "Season and cool filling.", "Fill dough pieces and seal.", "Bake at 375 F until golden."], ["filled bread", "cabbage", "plains"], { cook: "35 min" }),
+  midwestRecipe("kansas-chicken-fried-steak", "Kansas Chicken Fried Steak", "kansas", "Kansas", "Tenderized steak breaded, fried, and served with cream gravy.", ["4 cube steaks", "1 cup flour", "1 tsp seasoned salt", "2 eggs", "1/2 cup milk", "Oil for frying", "2 cups cream gravy"], ["Season flour.", "Dip steaks in flour, egg-milk, then flour again.", "Fry until crisp and cooked through.", "Drain on rack.", "Serve with cream gravy."], ["steak", "fried", "gravy"]),
+
+  midwestRecipe("runza", "Runza", "nebraska", "Nebraska", "A Nebraska beef, cabbage, and onion stuffed bread pocket.", ["1 lb ground beef", "1 onion diced", "4 cups shredded cabbage", "1 tsp salt", "1/2 tsp pepper", "12 thawed roll dough pieces"], ["Cook beef and onion.", "Add cabbage and cook down.", "Season and cool.", "Fill dough and seal tightly.", "Bake at 375 F until browned."], ["filled bread", "beef", "nebraska"]),
+  midwestRecipe("nebraska-steak", "Nebraska Steak", "nebraska", "Nebraska", "A simple seared steak dinner focused on beef, salt, pepper, butter, and rest time.", ["4 ribeye or sirloin steaks", "1 tbsp kosher salt", "1 tsp black pepper", "2 tbsp oil", "3 tbsp butter", "2 garlic cloves"], ["Season steaks at least 30 minutes ahead.", "Sear in hot oil.", "Add butter and garlic and baste.", "Cook to desired temperature.", "Rest 5 to 10 minutes before slicing."], ["steak", "beef", "searing"], { cook: "15 min" }),
+  midwestRecipe("kolaches", "Kolaches", "nebraska", "Nebraska", "Soft yeast pastries filled with fruit or sweet cheese.", ["3 cups flour", "1 packet yeast", "3/4 cup milk", "1/4 cup sugar", "1 egg", "4 tbsp butter", "1 cup fruit filling"], ["Make a soft yeast dough.", "Let rise until doubled.", "Shape rounds and make wells.", "Fill with fruit filling.", "Bake at 375 F until golden."], ["pastry", "czech", "bakery"], { level: "Advanced" }),
+
+  midwestRecipe("dakota-kuchen", "Dakota Kuchen", "north-dakota", "Dakotas", "A German-Russian custard fruit cake common in Dakota family baking.", ["1 sweet yeast dough", "2 cups sliced peaches or apples", "1 cup cream", "2 eggs", "1/2 cup sugar", "1 tsp cinnamon"], ["Press dough into a pan and let rise.", "Arrange fruit over dough.", "Whisk cream, eggs, sugar, and cinnamon.", "Pour custard over fruit.", "Bake until custard sets and edges brown."], ["cake", "custard", "dakota"], { level: "Advanced" }),
+  midwestRecipe("south-dakota-chislic", "South Dakota Chislic", "south-dakota", "Dakotas", "Bite-size cubes of lamb or beef fried or grilled and served with garlic salt and crackers.", ["1 1/2 lb lamb or beef sirloin cubed", "1 tbsp oil", "1 tsp garlic salt", "1/2 tsp black pepper", "Crackers", "Hot sauce"], ["Pat meat dry and season lightly.", "Skewer or cook cubes in a hot skillet.", "Cook until browned and desired doneness.", "Sprinkle with garlic salt.", "Serve with crackers and hot sauce."], ["meat", "skewer", "south dakota"], { cook: "12 min" }),
+  midwestRecipe("knoephla-soup", "Knoephla Soup", "north-dakota", "Dakotas", "A creamy North Dakota soup with potatoes, dumplings, and vegetables.", ["3 tbsp butter", "1 onion diced", "2 carrots diced", "3 potatoes diced", "6 cups chicken broth", "1 cup cream", "1 cup flour", "1 egg", "1/4 cup milk"], ["Cook onion and carrots in butter.", "Add potatoes and broth; simmer until tender.", "Mix flour, egg, milk, and salt into dumpling dough.", "Drop small pieces into simmering soup.", "Finish with cream and simmer gently."], ["soup", "dumplings", "north dakota"]),
+  midwestRecipe("northern-plains-fry-bread", "Northern Plains Fry Bread", "north-dakota", "Dakotas", "A simple fried bread included with respect for Indigenous food histories and best paired with cultural context.", ["3 cups flour", "1 tbsp baking powder", "1 tsp salt", "1 1/4 cups warm water", "Oil for frying"], ["Mix flour, baking powder, and salt.", "Add warm water to make soft dough; rest 20 minutes.", "Divide and flatten rounds.", "Fry until puffed and golden.", "Drain and serve warm."], ["fry bread", "indigenous foodways", "bread"], { cook: "20 min" })
+];
+
 const existingRecipeIds = new Set(recipes.map((recipe) => recipe.id));
-recipes = [...recipes, ...[...nextFeatureRecipes, ...menuIntelligenceRecipes, ...regionalAuthenticityRecipes, ...livingCookbookRecipes, ...kidsKornerRecipes, ...kidsExpansionRecipes, ...familyExpansionRecipes, ...mississippiHeritageRecipes, ...africaExpansionRecipes].filter((recipe) => !existingRecipeIds.has(recipe.id))];
+recipes = [...recipes, ...[...nextFeatureRecipes, ...menuIntelligenceRecipes, ...regionalAuthenticityRecipes, ...livingCookbookRecipes, ...kidsKornerRecipes, ...kidsExpansionRecipes, ...familyExpansionRecipes, ...mississippiHeritageRecipes, ...africaExpansionRecipes, ...midwestExpansionRecipes].filter((recipe) => !existingRecipeIds.has(recipe.id))];
 
 const lessons = [
   {
@@ -3329,7 +3616,9 @@ recipes.push(
 
 const partyCupIds = ["charcuterie-cups", "fruit-cups", "dessert-cups", "brunch-cups", "tailgate-cups", "holiday-cups"];
 
-const recipeImageReplacementQueue = new Set([]);
+const recipeImageReplacementQueue = new Set([
+  ...midwestExpansionRecipes.map((recipe) => recipe.id)
+]);
 
 const recipeImageOverrides = {
   "smothered-pork-chops": "images/recipes/audit-2026-06/smothered-pork-chops.jpg",
@@ -4135,6 +4424,22 @@ const cuisineAliases = {
   "european-cuisines": "italian",
   "holiday-sunday": "hosting",
   "african-cuisines": "global",
+  midwest: "midwest",
+  illinois: "chicago",
+  chicago: "chicago",
+  wisconsin: "wisconsin",
+  michigan: "michigan",
+  minnesota: "minnesota",
+  indiana: "indiana",
+  ohio: "ohio",
+  iowa: "iowa",
+  missouri: "missouri",
+  "kansas-city": "missouri",
+  "st-louis": "missouri",
+  kansas: "kansas",
+  nebraska: "nebraska",
+  "north-dakota": "north-dakota",
+  "south-dakota": "south-dakota",
   african: "global",
   nigeria: "nigerian",
   ghana: "ghanaian",
@@ -4177,7 +4482,20 @@ const cuisineRecipeAliases = {
   mediterranean: ["italian", "global"],
   italian: ["mediterranean"],
   hosting: ["southern", "global"],
-  global: ["southern", "asian-inspired", "mediterranean", "mexican", "indian", "caribbean", "italian"]
+  midwest: ["chicago", "wisconsin", "michigan", "minnesota", "indiana", "ohio", "iowa", "missouri", "kansas", "nebraska", "north-dakota", "south-dakota"],
+  chicago: ["midwest"],
+  wisconsin: ["midwest"],
+  michigan: ["midwest"],
+  minnesota: ["midwest"],
+  indiana: ["midwest"],
+  ohio: ["midwest"],
+  iowa: ["midwest"],
+  missouri: ["midwest"],
+  kansas: ["midwest", "missouri"],
+  nebraska: ["midwest"],
+  "north-dakota": ["midwest"],
+  "south-dakota": ["midwest"],
+  global: ["southern", "asian-inspired", "mediterranean", "mexican", "indian", "caribbean", "italian", "midwest"]
 };
 
 const strictCuisineIds = new Set([
@@ -4197,7 +4515,20 @@ const strictCuisineIds = new Set([
   "soul-food",
   "low-country",
   "mississippi-favorites",
-  "caribbean"
+  "caribbean",
+  "midwest",
+  "chicago",
+  "wisconsin",
+  "michigan",
+  "minnesota",
+  "indiana",
+  "ohio",
+  "iowa",
+  "missouri",
+  "kansas",
+  "nebraska",
+  "north-dakota",
+  "south-dakota"
 ]);
 
 function canonicalCuisineId(id = "") {
@@ -5171,6 +5502,196 @@ const regionalSoulFoodAliases = {
   lowcountry: "south-carolina-soul-food"
 };
 
+const midwestRegionalPages = {
+  "chicago-midwest": {
+    state: "Chicago / Illinois",
+    title: "Chicago Foodways",
+    image: "assets/logo.png",
+    intro: "Chicago food is counter food, immigrant food, South Side and West Side flavor, tavern pizza, hot dog stands, mild sauce, beef sandwiches, and neighborhood loyalty.",
+    history: "The city's food identity grew through Black migration, Polish, Italian, Mexican, Puerto Rican, Greek, Jewish, and many other communities feeding workers, families, sports crowds, and late-night neighborhoods.",
+    hospitality: "A Chicago table should feel specific: Italian beef with jus, a true Chicago dog, a pizza puff, mild sauce, rib tips, tavern pizza, and something cold or sweet.",
+    culture: "Music, house parties, block clubs, corner counters, ball games, and family errands all shape the way Chicago eats.",
+    signatureRecipeIds: ["italian-beef", "chicago-style-hot-dog", "maxwell-street-polish", "chicago-polish-sausage", "pizza-puff", "jibarito", "chicago-pork-chop-sandwich", "deep-dish-pizza", "tavern-style-thin-crust-pizza", "chicago-mild-sauce", "harolds-style-fried-chicken", "lemon-pepper-wings", "chicago-rib-tips", "gd-burger-gyro-meat", "chicken-vesuvio", "shrimp-dejonghe", "chicago-hot-tamales", "caramel-cheese-popcorn", "rainbow-cone", "italian-ice"],
+    skills: [["Sandwich Stations", "#what-yall-cooking"], ["Frying", "#culinary-academy"], ["Pizza Baking", "#culinary-academy"], ["Sauce Balance", "#culinary-academy"]],
+    traditions: ["Chicago hot dogs are about rules, toppings, texture, and neighborhood pride.", "Mild sauce belongs to fried chicken, fries, and South Side/West Side counter culture.", "Tavern-style pizza is square-cut, crisp, communal, and different from deep dish."],
+    features: [["South Side Counter Plate", "Fried chicken, mild sauce, fries, white bread, and hot sauce."], ["Street Food Run", "Italian beef, Polish sausage, pizza puff, hot dog, and Italian ice."]],
+    menus: []
+  },
+  "wisconsin-midwest": {
+    state: "Wisconsin",
+    title: "Wisconsin Supper Club & Fish Fry",
+    image: "assets/logo.png",
+    intro: "Wisconsin food is dairy country, Friday fish fry, brats, supper clubs, cheese curds, beer cheese soup, butter burgers, and bakery boxes.",
+    history: "German, Polish, Scandinavian, dairy-farm, tavern, church, and Great Lakes foodways shape the state table.",
+    hospitality: "Set out fried fish, slaw, rye bread, curds, brats, soup, kringle, and a table that feels like Friday night after work.",
+    culture: "Supper clubs, taverns, church fish fries, football weekends, lake towns, and dairy farms make Wisconsin food easy to recognize.",
+    signatureRecipeIds: ["wisconsin-cheese-curds", "wisconsin-brats", "beer-cheese-soup", "wisconsin-friday-fish-fry", "wisconsin-kringle", "wisconsin-butter-burgers"],
+    skills: [["Fish Fry Timing", "#culinary-academy"], ["Cheese Batter", "#culinary-academy"], ["Grilling Brats", "#what-yall-cooking"], ["Soup Texture", "#culinary-academy"]],
+    traditions: ["Friday fish fry is a community ritual.", "Cheese curds should be hot, crisp, and melty.", "Kringle and butter burgers point to bakery and dairy traditions."],
+    features: [["Friday Fish Fry", "Fish, slaw, rye bread, tartar, lemon, and dessert."], ["Game Day Dairy Table", "Brats, curds, beer cheese soup, and butter burgers."]],
+    menus: []
+  },
+  "michigan-midwest": {
+    state: "Michigan",
+    title: "Michigan Great Lakes Table",
+    image: "assets/logo.png",
+    intro: "Michigan food moves from Detroit pizza and Coney dogs to Upper Peninsula pasties, Great Lakes whitefish, cherry pie, and paczki.",
+    history: "Auto-worker lunches, Greek Coney shops, Polish bakeries, mining-region pasties, fruit orchards, and freshwater fishing all shape Michigan cuisine.",
+    hospitality: "Serve pizza, Coney dogs, pasties, fish, cherry pie, and bakery sweets with the confidence of a state that knows winter and water.",
+    culture: "Detroit, the Great Lakes, the Upper Peninsula, orchard towns, and immigrant bakeries each bring a different chapter.",
+    signatureRecipeIds: ["detroit-style-pizza", "michigan-coney-dogs", "upper-peninsula-pasties", "michigan-cherry-pie", "great-lakes-whitefish", "paczki"],
+    skills: [["Pan Pizza", "#culinary-academy"], ["Hand Pies", "#culinary-academy"], ["Fish Cookery", "#what-yall-cooking"], ["Fruit Pie", "#culinary-academy"]],
+    traditions: ["Detroit-style pizza is defined by its pan, cheesy edges, and sauce stripes.", "Pasties reflect mining-region portability and comfort.", "Cherry pie belongs to orchard country and summer tables."],
+    features: [["Detroit Night", "Pizza, Coney dogs, and paczki."], ["Great Lakes Supper", "Whitefish, pasties, cherry pie, and cold-weather comfort."]],
+    menus: []
+  },
+  "minnesota-midwest": {
+    state: "Minnesota",
+    title: "Minnesota Hotdish & Lake Food",
+    image: "assets/logo.png",
+    intro: "Minnesota food is hotdish, wild rice soup, walleye, Jucy Lucy burgers, lefse, dessert bars, lake cabins, church basements, and winter warmth.",
+    history: "Indigenous wild rice traditions, Scandinavian baking, church potlucks, lake fishing, and Minneapolis burger culture all sit at the table.",
+    hospitality: "Make something warm, sturdy, creamy, and shareable: soup, hotdish, fish, bars, and coffee.",
+    culture: "Lake life, cold winters, church halls, state fairs, and community tables make Minnesota food practical and welcoming.",
+    signatureRecipeIds: ["tater-tot-hotdish", "wild-rice-soup", "pan-fried-walleye", "jucy-lucy", "lefse", "midwest-dessert-bars"],
+    skills: [["Hotdish Building", "#what-yall-cooking"], ["Wild Rice", "#culinary-academy"], ["Fish Frying", "#culinary-academy"], ["Bar Cookies", "#culinary-academy"]],
+    traditions: ["Hotdish is designed for families, potlucks, and weather that asks for a hot oven.", "Wild rice carries Native food history and regional identity.", "Dessert bars belong to church tables and lunchrooms."],
+    features: [["Church Basement Potluck", "Hotdish, bars, coffee, and practical hospitality."], ["Lake Fish Supper", "Walleye, wild rice soup, lefse, and dessert bars."]],
+    menus: []
+  },
+  "indiana-midwest": {
+    state: "Indiana",
+    title: "Indiana Tenderloin & Pie Table",
+    image: "assets/logo.png",
+    intro: "Indiana food is breaded pork tenderloin sandwiches, sugar cream pie, chicken and noodles, persimmon pudding, fairs, farms, and supper tables.",
+    history: "Pork production, farm kitchens, Hoosier pie traditions, local persimmons, and county fair food shape Indiana's table.",
+    hospitality: "Build a plate around a giant tenderloin, noodles or pie, and the kind of dessert people ask about before dinner is done.",
+    culture: "Diners, state fairs, basketball nights, and farm family kitchens define much of the food memory.",
+    signatureRecipeIds: ["breaded-pork-tenderloin-sandwich", "sugar-cream-pie", "indiana-chicken-and-noodles", "persimmon-pudding"],
+    skills: [["Cutlet Frying", "#culinary-academy"], ["Pie Custard", "#culinary-academy"], ["Noodles", "#culinary-academy"], ["Seasonal Baking", "#culinary-academy"]],
+    traditions: ["A tenderloin should famously outgrow the bun.", "Sugar cream pie is a Hoosier staple.", "Chicken and noodles is a comfort plate, often served thick and hearty."],
+    features: [["County Fair Plate", "Tenderloin, pickles, corn, and pie."], ["Hoosier Comfort", "Chicken and noodles, sugar cream pie, and persimmon pudding."]],
+    menus: []
+  },
+  "ohio-midwest": {
+    state: "Ohio",
+    title: "Ohio City Comforts",
+    image: "assets/logo.png",
+    intro: "Ohio food is Cincinnati chili, buckeyes, pierogies, Polish Boys, goetta, city neighborhoods, immigrant kitchens, and game-day sweets.",
+    history: "Greek chili parlors, Polish and Eastern European communities, Cleveland sandwich culture, Cincinnati breakfast traditions, and Ohio State candy tables all contribute.",
+    hospitality: "Serve chili over spaghetti, fry pierogies, build Polish Boys, and finish with buckeyes.",
+    culture: "Ohio food is city-specific: Cincinnati tastes different from Cleveland, and both are part of the story.",
+    signatureRecipeIds: ["cincinnati-chili", "buckeyes", "cleveland-pierogies", "polish-boy", "goetta"],
+    skills: [["Chili Sauce", "#what-yall-cooking"], ["Dumplings", "#culinary-academy"], ["Candy Dipping", "#culinary-academy"], ["Sandwich Assembly", "#what-yall-cooking"]],
+    traditions: ["Cincinnati chili is ordered by ways and layered over spaghetti.", "Buckeyes are candy-table essentials.", "Pierogies and Polish Boys reflect Cleveland's neighborhood food identity."],
+    features: [["Cincinnati Table", "Chili, goetta, and buckeyes."], ["Cleveland Counter", "Polish Boy, pierogies, and fried comfort."]],
+    menus: []
+  },
+  "iowa-midwest": {
+    state: "Iowa",
+    title: "Iowa County Fair & Farm Table",
+    image: "assets/logo.png",
+    intro: "Iowa food is loose-meat sandwiches, pork tenderloins, corn casseroles, rhubarb pie, fairs, farms, and food that feeds a line.",
+    history: "Pork, corn, county fairs, church dinners, and farm kitchens make Iowa food straightforward, hearty, and specific.",
+    hospitality: "Offer a sandwich, a corn side, pie, and enough coffee or lemonade for everybody.",
+    culture: "County fairs, school fundraisers, family reunions, and farm suppers make the Iowa table practical and recognizable.",
+    signatureRecipeIds: ["maid-rite-loose-meat-sandwich", "iowa-pork-tenderloin-sandwich", "iowa-corn-casserole", "rhubarb-pie"],
+    skills: [["Sandwich Filling", "#what-yall-cooking"], ["Cutlet Frying", "#culinary-academy"], ["Casserole Baking", "#culinary-academy"], ["Fruit Pie", "#culinary-academy"]],
+    traditions: ["Loose-meat sandwiches are not sloppy joes; they are seasoned, moist beef without tomato sauce.", "Pork tenderloins are pounded wide and fried crisp.", "Rhubarb pie reflects spring and early summer farm baking."],
+    features: [["Fair Stand Supper", "Tenderloin, loose meat, corn casserole, and pie."], ["Farm Potluck", "Corn casserole, sandwiches, and rhubarb dessert."]],
+    menus: []
+  },
+  "missouri-midwest": {
+    state: "Missouri / Kansas City / St. Louis",
+    title: "Missouri BBQ & St. Louis Classics",
+    image: "assets/logo.png",
+    intro: "Missouri food splits beautifully between Kansas City barbecue and St. Louis party food: burnt ends, ribs, sauce, toasted ravioli, pork steaks, pizza, and gooey butter cake.",
+    history: "Kansas City stockyards and barbecue culture meet St. Louis Italian American neighborhoods, taverns, bakeries, and backyard pork steaks.",
+    hospitality: "Put smoke and party trays together: ribs, burnt ends, toasted ravioli, pork steaks, sauce, and cake.",
+    culture: "Missouri's food identity is city-led: Kansas City tastes like smoke and sauce, while St. Louis tastes like squares, ravioli, pork steaks, and bakery pans.",
+    signatureRecipeIds: ["kansas-city-burnt-ends", "kansas-city-ribs", "kansas-city-bbq-sauce", "kansas-city-smoked-sausage", "st-louis-style-pizza", "toasted-ravioli", "st-louis-pork-steaks", "gooey-butter-cake"],
+    skills: [["BBQ Sauce", "#what-yall-cooking"], ["Rib Timing", "#culinary-academy"], ["Fried Appetizers", "#culinary-academy"], ["Sheet Cake", "#culinary-academy"]],
+    traditions: ["Burnt ends should be smoky, tender, sticky, and rich.", "Toasted ravioli belongs to St. Louis appetizer culture.", "Gooey butter cake is a St. Louis dessert signature."],
+    features: [["Kansas City Smoke", "Burnt ends, ribs, sausage, sauce, and pickles."], ["St. Louis Party Table", "Toasted ravioli, pork steaks, square pizza, and gooey butter cake."]],
+    menus: []
+  },
+  "kansas-midwest": {
+    state: "Kansas",
+    title: "Kansas Plains Comfort",
+    image: "assets/logo.png",
+    intro: "Kansas food carries barbecue, bierocks, chicken fried steak, wheat fields, cattle country, and filled bread traditions.",
+    history: "Plains agriculture, German-Russian immigrant foodways, cattle culture, and Kansas City barbecue influence shape the table.",
+    hospitality: "Serve something beefy, something baked, something sauced, and enough bread for the plate.",
+    culture: "Kansas food feels like road trips, small-town cafes, wheat country, and barbecue weekends.",
+    signatureRecipeIds: ["kansas-burnt-ends", "bierocks", "kansas-chicken-fried-steak"],
+    skills: [["Filled Breads", "#culinary-academy"], ["Gravy", "#culinary-academy"], ["BBQ Glazing", "#what-yall-cooking"]],
+    traditions: ["Bierocks preserve plains immigrant baking traditions.", "Chicken fried steak reflects cafe and cattle-country comfort.", "Burnt ends connect Kansas to barbecue culture."],
+    features: [["Plains Supper", "Bierocks, steak, gravy, and pie."], ["BBQ Road Weekend", "Burnt ends, sauce, beans, and bread."]],
+    menus: []
+  },
+  "nebraska-midwest": {
+    state: "Nebraska",
+    title: "Nebraska Beef & Bakery Table",
+    image: "assets/logo.png",
+    intro: "Nebraska food is runzas, steak, kolaches, beef-country suppers, Czech bakery memory, and family meals built for cold and work.",
+    history: "Cattle country, Czech and German communities, field work, and small-town bakeries shape Nebraska food identity.",
+    hospitality: "A Nebraska table can be as simple as steak, filled bread, a bakery sweet, and coffee.",
+    culture: "Football weekends, family farms, bakeries, and community halls keep the food grounded.",
+    signatureRecipeIds: ["runza", "nebraska-steak", "kolaches"],
+    skills: [["Filled Bread", "#culinary-academy"], ["Steak Searing", "#culinary-academy"], ["Yeast Dough", "#culinary-academy"]],
+    traditions: ["Runzas are Nebraska comfort in a handheld bread pocket.", "Steak points to cattle country.", "Kolaches preserve bakery traditions across communities."],
+    features: [["Game Day Nebraska", "Runzas, steak bites, kolaches, and coffee."], ["Bakery Table", "Kolaches, filled breads, and family sweets."]],
+    menus: []
+  },
+  "north-dakota-midwest": {
+    state: "North Dakota",
+    title: "North Dakota Prairie Kitchen",
+    image: "assets/logo.png",
+    intro: "North Dakota food is knoephla soup, kuchen, filled breads, prairie winter cooking, and food that warms people after cold work.",
+    history: "German-Russian, Scandinavian, Indigenous, and prairie farming foodways shape the state's soups, breads, desserts, and community meals.",
+    hospitality: "Soup, bread, kuchen, coffee, and practical abundance define the table.",
+    culture: "Church basements, winter kitchens, prairie towns, and family baking shape the rhythm.",
+    signatureRecipeIds: ["knoephla-soup", "dakota-kuchen", "northern-plains-fry-bread"],
+    skills: [["Dumplings", "#culinary-academy"], ["Custard Baking", "#culinary-academy"], ["Respectful Food Context", "#culinary-academy"]],
+    traditions: ["Knoephla soup is cold-weather comfort.", "Kuchen is a dessert tied to German-Russian baking.", "Fry bread should be taught with cultural context and respect."],
+    features: [["Prairie Winter Supper", "Knoephla soup, bread, kuchen, and coffee."], ["Community Bake Table", "Kuchen and shared dessert pans."]],
+    menus: []
+  },
+  "south-dakota-midwest": {
+    state: "South Dakota",
+    title: "South Dakota Chislic & Prairie Food",
+    image: "assets/logo.png",
+    intro: "South Dakota food includes chislic, kuchen, fry bread where culturally appropriate, steak suppers, and prairie gathering food.",
+    history: "Dakota communities, ranching, German-Russian baking, tavern food, and Indigenous food histories all require specific, respectful treatment.",
+    hospitality: "Small bites, steak, fried bread, coffee, and dessert make a practical gathering table.",
+    culture: "Chislic is a regional marker; kuchen carries bakery tradition; fry bread requires cultural context rather than casual appropriation.",
+    signatureRecipeIds: ["south-dakota-chislic", "dakota-kuchen", "northern-plains-fry-bread", "nebraska-steak"],
+    skills: [["Skewers", "#what-yall-cooking"], ["Meat Doneness", "#culinary-academy"], ["Custard Baking", "#culinary-academy"]],
+    traditions: ["Chislic is bite-size meat, simply seasoned and served socially.", "Kuchen belongs to community dessert tables.", "Fry bread should be presented with respect for Native histories and communities."],
+    features: [["Chislic Night", "Bite-size meat, crackers, sauce, and conversation."], ["Prairie Dessert Table", "Kuchen, coffee, and family baking."]],
+    menus: []
+  }
+};
+
+const midwestRegionalAliases = {
+  midwest: "midwest",
+  illinois: "chicago-midwest",
+  chicago: "chicago-midwest",
+  wisconsin: "wisconsin-midwest",
+  michigan: "michigan-midwest",
+  minnesota: "minnesota-midwest",
+  indiana: "indiana-midwest",
+  ohio: "ohio-midwest",
+  iowa: "iowa-midwest",
+  missouri: "missouri-midwest",
+  "kansas-city": "missouri-midwest",
+  "st-louis": "missouri-midwest",
+  kansas: "kansas-midwest",
+  nebraska: "nebraska-midwest",
+  "north-dakota": "north-dakota-midwest",
+  "south-dakota": "south-dakota-midwest"
+};
+
 const regionalSoulFoodMenuTemplates = [
   {
     id: "sunday-dinner",
@@ -5366,6 +5887,28 @@ Object.entries(regionalSoulFoodPages).forEach(([id, page]) => {
   page.menus = (regionalMenuOverrides[id] || regionalSoulFoodMenuTemplates).map((menu) => ({ ...menu }));
 });
 
+Object.entries(midwestRegionalPages).forEach(([id, page]) => {
+  const pageText = `${id} ${page.state} ${page.title}`.toLowerCase();
+  const matchedMenus = menuPairings.filter((menu) => {
+    const menuText = `${menu.cuisine} ${menu.country_or_region} ${menu.occasion}`.toLowerCase();
+    return menuText.includes("midwest")
+      || (pageText.includes("chicago") && menuText.includes("chicago"))
+      || (pageText.includes("wisconsin") && menuText.includes("wisconsin"))
+      || (pageText.includes("missouri") && (menuText.includes("missouri") || menuText.includes("kansas city") || menuText.includes("st. louis")))
+      || (pageText.includes("kansas") && menuText.includes("kansas"));
+  });
+  const fallbackMenu = {
+    id: `${id}-regional-menu`,
+    title: `${page.state} Regional Table`,
+    recipeIds: page.signatureRecipeIds.slice(0, 8),
+    timeline: ["Two days before: choose recipes and write the shopping list.", "One day before: prep sauces, desserts, doughs, or cold sides.", "Day of: cook hot mains, warm breads, and set the serving table."],
+    notes: "Build the menu from the state's real dishes so the table feels place-specific instead of generic."
+  };
+  page.menus = matchedMenus.length
+    ? matchedMenus.map((menu) => ({ ...menu, id: slugify(`${page.state}-${menu.occasion}`), title: menu.occasion, recipeIds: recipesForMenu(menu).map((recipe) => recipe.id), timeline: [menu.beginner_level, menu.pro_level, menu.hosting_notes], notes: menu.cultural_notes }))
+    : [fallbackMenu];
+});
+
 function regionalSoulFoodHub() {
   return `
     <section class="regional-soul-section">
@@ -5394,6 +5937,63 @@ function regionalRecipeCards(ids = []) {
 
 function regionalRecipeList(ids = []) {
   return ids.map((id) => recipeByIdSafe(id)).filter(Boolean).map((recipe) => `<li><a href="#recipes/${recipe.id}">${recipe.title}</a></li>`).join("");
+}
+
+function renderMidwestRegionalPage(id) {
+  const page = midwestRegionalPages[id] || midwestRegionalPages["chicago-midwest"];
+  const firstMenu = page.menus[0];
+  app.innerHTML = `
+    ${hero(page.title, page.intro, page.image || "assets/logo.png", `<a class="small-button" href="#cuisine-explorer/midwest">Midwest Hub</a><a class="small-button secondary" href="#what-yall-cooking">Build A Menu</a>`)}
+    ${cookSubnav()}
+    <section class="cream-section regional-soul-detail">
+      <div class="section-heading">
+        <p class="eyebrow">${page.state} table</p>
+        <h2>Food identity, local history, gatherings, fair food, holidays, and recipes that belong to this place.</h2>
+      </div>
+      <div class="regional-identity-grid">
+        <article><h3>Food Identity</h3><p>${page.intro}</p></article>
+        <article><h3>Regional History</h3><p>${page.history}</p></article>
+        <article><h3>Family, Church, Potluck</h3><p>${page.hospitality}</p></article>
+        <article><h3>Fair Food + Community</h3><p>${page.culture}</p></article>
+      </div>
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Signature dishes</p>
+        <h2>Real ${page.state} recipes, not generic filler.</h2>
+      </div>
+      <div class="recipe-grid">${regionalRecipeCards(page.signatureRecipeIds)}</div>
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Gatherings + menus</p>
+        <h2>Build a table that tastes like the place.</h2>
+      </div>
+      <div class="regional-menu-panel" data-regional-menu-section>
+        <div class="regional-menu-tabs">
+          ${page.menus.map((menu, index) => `<button class="small-button ${index ? "secondary" : ""}" type="button" data-regional-menu="${menu.id}" data-region-id="${id}">${menu.title}</button>`).join("")}
+        </div>
+        <div data-regional-output>${regionalMenuOutput(page, firstMenu)}</div>
+      </div>
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Skills + lessons</p>
+        <h2>Practice the techniques behind the food.</h2>
+      </div>
+      <div class="regional-skill-grid">
+        ${page.skills.map(([title, href]) => `<a href="${href}"><span>${title}</span><small>Open lesson</small></a>`).join("")}
+      </div>
+      <div class="regional-story-grid">
+        <article>
+          <p class="eyebrow">Traditions + heritage</p>
+          <h3>Why these dishes matter</h3>
+          <ul>${page.traditions.map((item) => `<li>${item}</li>`).join("")}</ul>
+        </article>
+        <article>
+          <p class="eyebrow">Place markers</p>
+          <h3>What makes this table recognizable</h3>
+          ${page.features.map(([title, text]) => `<div class="feature-note"><strong>${title}</strong><span>${text}</span></div>`).join("")}
+        </article>
+      </div>
+      ${midwestRegionalHub()}
+      ${progressionNav("#cuisine-explorer/midwest", "Midwest Hub", "#what-yall-cooking", "Build A Menu", ["#recipes", "#kids-korner"])}
+    </section>
+  `;
 }
 
 function africaCuisineHub() {
@@ -6385,6 +6985,28 @@ function kitchenToolSwitcher(active = "") {
   `;
 }
 
+function midwestRegionalHub() {
+  return `
+    <section class="regional-soul-section">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Cook Through America</p>
+        <h2>Choose a Midwest state or city and cook what actually belongs there.</h2>
+        <p>Each stop has food identity, local history, potluck and fair traditions, real recipe cards, and exact-photo slots queued when the matching dish image still needs to be added.</p>
+      </div>
+      <div class="regional-soul-grid">
+        ${Object.entries(midwestRegionalPages).map(([id, page]) => `
+          <a class="regional-soul-card" href="#cuisine-explorer/${id}">
+            <img src="${page.image || "assets/logo.png"}" alt="${page.title}" />
+            <span>${page.state}</span>
+            <h3>${page.title}</h3>
+            <p>${page.intro}</p>
+          </a>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderKitchenSearch(id) {
   const term = id ? normalizeIngredientTerm(id) : "chicken strips";
   app.innerHTML = `
@@ -6577,6 +7199,16 @@ function renderCuisineExplorerDetail(id) {
 function renderCuisineExplorer(id) {
   const regionalId = id ? regionalSoulFoodAliases[id] || id : "";
   if (regionalId && regionalSoulFoodPages[regionalId]) return renderRegionalSoulFoodPage(regionalId);
+  const midwestId = id ? midwestRegionalAliases[id] || id : "";
+  if (midwestId === "midwest") {
+    app.innerHTML = `
+      ${hero("Midwest Regional Food", "Cook through America by way of Chicago counters, Great Lakes fish fries, potluck pans, barbecue cities, prairie bakeries, winter soups, and state-fair comfort.", "assets/logo.png", `<a class="small-button" href="#cuisine-explorer">All Cuisines</a><a class="small-button secondary" href="#what-yall-cooking">Build A Midwest Menu</a>`)}
+      ${cookSubnav()}
+      ${midwestRegionalHub()}
+    `;
+    return;
+  }
+  if (midwestId && midwestRegionalPages[midwestId]) return renderMidwestRegionalPage(midwestId);
   if (id === "african-cuisines") return africaCuisineHub();
   if (id && africaCountryPages[id]) return renderAfricaCountryPage(id);
   if (id) return renderCuisineExplorerDetail(id);
@@ -8471,7 +9103,7 @@ function handleClick(event) {
   if (regionalMenuButton) {
     const section = regionalMenuButton.closest("[data-regional-menu-section]");
     const output = section?.querySelector("[data-regional-output]");
-    const page = regionalSoulFoodPages[regionalMenuButton.dataset.regionId] || regionalSoulFoodPages["mississippi-soul-food"];
+    const page = regionalSoulFoodPages[regionalMenuButton.dataset.regionId] || midwestRegionalPages[regionalMenuButton.dataset.regionId] || regionalSoulFoodPages["mississippi-soul-food"];
     const menu = page.menus.find((item) => item.id === regionalMenuButton.dataset.regionalMenu) || page.menus[0];
     section?.querySelectorAll("[data-regional-menu]").forEach((button) => button.classList.toggle("secondary", button !== regionalMenuButton));
     if (output) output.innerHTML = regionalMenuOutput(page, menu);
