@@ -1,4 +1,4 @@
-const CACHE_NAME = "lets-cook-africa-hub-v18";
+const CACHE_NAME = "lets-cook-recipe-image-audit-v19";
 
 const OFFLINE_ASSETS = [
   "./",

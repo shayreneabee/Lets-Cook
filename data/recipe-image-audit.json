@@ -1,0 +1,3360 @@
+{
+  "generatedAt": "2026-06-25T16:54:49.490Z",
+  "totalRecipes": 335,
+  "uniqueImages": 335,
+  "missingFiles": [],
+  "fallbacks": [],
+  "sharedImages": [],
+  "recipes": [
+    {
+      "id": "pb-and-j-sandwich",
+      "title": "Classic PB&J Sandwich",
+      "cuisine": "global",
+      "category": "Kid-Friendly Cooking",
+      "image": "images/recipes/audit-2026-06/pb-and-j-sandwich.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "stovetop-mac-and-cheese",
+      "title": "Easy Stovetop Mac and Cheese",
+      "cuisine": "southern",
+      "category": "Kid-Friendly Cooking",
+      "image": "images/recipes/audit-2026-06/stovetop-mac-and-cheese.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "mini-pizza-bagels",
+      "title": "Mini Pizza Bagels",
+      "cuisine": "global",
+      "category": "Kid-Friendly Cooking",
+      "image": "images/recipes/audit-2026-06/mini-pizza-bagels.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "fruit-kabobs",
+      "title": "Rainbow Fruit Kabobs",
+      "cuisine": "global",
+      "category": "Kid-Friendly Cooking",
+      "image": "images/recipes/audit-2026-06/fruit-kabobs.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "soft-scrambled-eggs",
+      "title": "Soft Scrambled Eggs",
+      "cuisine": "southern",
+      "category": "Kid-Friendly Cooking",
+      "image": "images/recipes/audit-2026-06/soft-scrambled-eggs.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "yakamein",
+      "title": "Yakamein",
+      "cuisine": "creole",
+      "category": "Southern Comfort",
+      "image": "images/recipes/audit-2026-06/yakamein.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "shrimp-and-grits",
+      "title": "Shrimp and Grits with Green Beans",
+      "cuisine": "southern",
+      "category": "Southern Comfort",
+      "image": "images/recipes/audit-2026-06/shrimp-and-grits.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "oxtails",
+      "title": "Braised Oxtails",
+      "cuisine": "southern",
+      "category": "Family Dinners",
+      "image": "images/recipes/audit-2026-06/oxtails.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "orange-chicken",
+      "title": "Orange Chicken",
+      "cuisine": "asian-inspired",
+      "category": "Kid-Friendly Cooking",
+      "image": "images/recipes/audit-2026-06/orange-chicken.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "cajun-cream-pasta",
+      "title": "Cajun Cream Salmon Rotini Pasta",
+      "cuisine": "creole",
+      "category": "Quick Weeknight Meals",
+      "image": "images/recipes/audit-2026-06/cajun-cream-pasta.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "chicken-parmesan",
+      "title": "Chicken Parmesan",
+      "cuisine": "italian",
+      "category": "Family Dinners",
+      "image": "images/recipes/audit-2026-06/chicken-parmesan.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "crab-rangoon",
+      "title": "Crab Rangoon",
+      "cuisine": "asian-inspired",
+      "category": "Party & Hosting",
+      "image": "images/recipes/audit-2026-06/crab-rangoon.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "deviled-eggs",
+      "title": "Deviled Eggs",
+      "cuisine": "southern",
+      "category": "Beginner Basics",
+      "image": "images/regional/mississippi/deviled-eggs.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "charcuterie-boards",
+      "title": "Charcuterie Boards",
+      "cuisine": "hosting",
+      "category": "Party & Hosting",
+      "image": "images/recipes/audit-2026-06/charcuterie-boards.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "bourbon-praline-bread-pudding",
+      "title": "Bourbon Praline Bread Pudding",
+      "cuisine": "southern",
+      "category": "Party & Hosting",
+      "image": "images/recipes/audit-2026-06/bourbon-praline-bread-pudding.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "roasted-vegetable-tray",
+      "title": "Roasted Broccoli, Zucchini, Red Onion, Cherry Tomatoes, and Sweet Potatoes",
+      "cuisine": "global",
+      "category": "Beginner Basics",
+      "image": "images/recipes/audit-2026-06/roasted-vegetable-tray.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "white-chicken-chili",
+      "title": "White Chicken Chili / Southwest Chicken Soup",
+      "cuisine": "southern",
+      "category": "Family Dinners",
+      "image": "images/recipes/audit-2026-06/white-chicken-chili.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "general-tso-chicken",
+      "title": "General Tso-Style Chicken",
+      "cuisine": "asian-inspired",
+      "category": "Global Flavors",
+      "image": "images/recipes/audit-2026-06/general-tso-chicken.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "cashew-chicken",
+      "title": "Cashew Chicken",
+      "cuisine": "asian-inspired",
+      "category": "Quick Weeknight Meals",
+      "image": "images/recipes/audit-2026-06/cashew-chicken.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "fried-rice",
+      "title": "Fried Rice",
+      "cuisine": "asian-inspired",
+      "category": "Quick Weeknight Meals",
+      "image": "assets/lc-fried-rice.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "rotel-dip",
+      "title": "Rotel Dip",
+      "cuisine": "hosting",
+      "category": "Party & Hosting",
+      "image": "images/recipes/audit-2026-06/rotel-dip.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "party-meatballs",
+      "title": "Party Meatballs",
+      "cuisine": "hosting",
+      "category": "Party & Hosting",
+      "image": "images/recipes/audit-2026-06/party-meatballs.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "dessert-charcuterie-board",
+      "title": "Dessert Charcuterie Board",
+      "cuisine": "hosting",
+      "category": "Party & Hosting",
+      "image": "assets/lc-desserts.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "blackened-fish",
+      "title": "Blackened Fish",
+      "cuisine": "creole",
+      "category": "Quick Weeknight Meals",
+      "image": "images/recipes/audit-2026-06/blackened-fish.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "tuscan-chicken",
+      "title": "Tuscan Chicken",
+      "cuisine": "italian",
+      "category": "Family Dinners",
+      "image": "images/recipes/audit-2026-06/tuscan-chicken.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "garlic-wings",
+      "title": "Garlic Wings",
+      "cuisine": "southern",
+      "category": "Party & Hosting",
+      "image": "images/recipes/audit-2026-06/garlic-wings.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "pineapple-fried-rice",
+      "title": "Pineapple Fried Rice",
+      "cuisine": "asian-inspired",
+      "category": "Global Flavors",
+      "image": "images/recipes/audit-2026-06/pineapple-fried-rice.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "lamb-bone-broth-soup",
+      "title": "Lamb Bone Broth / Soup Idea",
+      "cuisine": "global",
+      "category": "Family Dinners",
+      "image": "images/recipes/audit-2026-06/lamb-bone-broth-soup.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "tandoori-chicken",
+      "title": "Tandoori-Style Chicken",
+      "cuisine": "indian",
+      "category": "Global Flavors",
+      "image": "images/recipes/audit-2026-06/tandoori-chicken.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "butter-chicken",
+      "title": "Butter Chicken",
+      "cuisine": "indian",
+      "category": "Family Dinners",
+      "image": "images/recipes/audit-2026-06/butter-chicken.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "chicken-tikka-masala",
+      "title": "Chicken Tikka Masala",
+      "cuisine": "indian",
+      "category": "Global Flavors",
+      "image": "images/recipes/audit-2026-06/chicken-tikka-masala.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "biryani",
+      "title": "Beginner Chicken Biryani",
+      "cuisine": "indian",
+      "category": "Family Dinners",
+      "image": "images/recipes/audit-2026-06/biryani.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "palak-paneer",
+      "title": "Palak Paneer",
+      "cuisine": "indian",
+      "category": "Vegetarian",
+      "image": "images/recipes/audit-2026-06/palak-paneer.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "chana-masala",
+      "title": "Chana Masala",
+      "cuisine": "indian",
+      "category": "Vegetarian",
+      "image": "images/recipes/audit-2026-06/chana-masala.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "garlic-naan",
+      "title": "Garlic Naan",
+      "cuisine": "indian",
+      "category": "Beginner Basics",
+      "image": "images/recipes/audit-2026-06/garlic-naan.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "fried-chicken",
+      "title": "Southern Fried Chicken",
+      "cuisine": "southern",
+      "category": "Southern Comfort",
+      "image": "images/recipes/audit-2026-06/fried-chicken.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "mac-and-cheese",
+      "title": "Baked Mac and Cheese",
+      "cuisine": "southern",
+      "category": "Southern Comfort",
+      "image": "images/cuisines/southern/southern-02.png",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "collard-greens",
+      "title": "Collard Greens",
+      "cuisine": "southern",
+      "category": "Beginner Basics",
+      "image": "images/cuisines/southern/southern-03.png",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "cornbread",
+      "title": "Skillet Cornbread",
+      "cuisine": "southern",
+      "category": "Beginner Basics",
+      "image": "images/juneteenth/cast-iron-skillet-cornbread.png",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "smothered-pork-chops",
+      "title": "Smothered Pork Chops",
+      "cuisine": "southern",
+      "category": "Family Dinners",
+      "image": "images/recipes/audit-2026-06/smothered-pork-chops.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "fried-catfish",
+      "title": "Fried Catfish",
+      "cuisine": "southern",
+      "category": "Seafood",
+      "image": "images/regional/mississippi/catfish-fillets.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "southern-crispy-fried-chicken",
+      "title": "Crispy Fried Chicken",
+      "cuisine": "southern",
+      "category": "Soul Food",
+      "image": "images/recipes/audit-2026-06/southern-crispy-fried-chicken.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "southern-baked-mac-cheese",
+      "title": "Baked Mac and Cheese",
+      "cuisine": "southern",
+      "category": "Soul Food",
+      "image": "images/regional/mississippi/mac-and-cheese.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "southern-collard-greens",
+      "title": "Slow-Cooked Collard Greens",
+      "cuisine": "southern",
+      "category": "Soul Food",
+      "image": "images/regional/mississippi/collard-greens.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "southern-black-eyed-peas",
+      "title": "Black-Eyed Peas",
+      "cuisine": "southern",
+      "category": "Soul Food",
+      "image": "images/cuisines/southern/southern-04.png",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "southern-cornbread-dressing",
+      "title": "Cornbread Dressing",
+      "cuisine": "southern",
+      "category": "Holiday",
+      "image": "images/recipes/audit-2026-06/southern-cornbread-dressing.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "southern-meatloaf",
+      "title": "Southern Meatloaf",
+      "cuisine": "southern",
+      "category": "Family Dinners",
+      "image": "images/cuisines/southern/southern-06.png",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "southern-stone-ground-grits",
+      "title": "Creamy Stone-Ground Grits",
+      "cuisine": "southern",
+      "category": "Beginner Basics",
+      "image": "images/cuisines/southern/southern-07.png",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "southern-pecan-pie",
+      "title": "Pecan Pie",
+      "cuisine": "southern",
+      "category": "Desserts",
+      "image": "images/cuisines/southern/southern-08.png",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "southern-shrimp-and-grits",
+      "title": "Low Country Shrimp and Grits",
+      "cuisine": "southern",
+      "category": "Seafood",
+      "image": "images/recipes/audit-2026-06/southern-shrimp-and-grits.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "asian-garlic-fried-rice",
+      "title": "Garlic Fried Rice",
+      "cuisine": "asian-inspired",
+      "category": "Asian Inspired",
+      "image": "images/cuisines/asian/asian-01.png",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "asian-orange-chicken",
+      "title": "Orange Chicken",
+      "cuisine": "asian-inspired",
+      "category": "Quick Meals",
+      "image": "images/cuisines/asian/asian-02.png",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "asian-cashew-chicken",
+      "title": "Cashew Chicken",
+      "cuisine": "asian-inspired",
+      "category": "Family Dinners",
+      "image": "images/cuisines/asian/asian-03.png",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "asian-beef-broccoli",
+      "title": "Beef and Broccoli",
+      "cuisine": "asian-inspired",
+      "category": "Family Dinners",
+      "image": "images/cuisines/asian/asian-04.png",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "asian-lo-mein",
+      "title": "Vegetable Lo Mein",
+      "cuisine": "asian-inspired",
+      "category": "Vegetarian",
+      "image": "images/cuisines/asian/asian-05.png",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "asian-dumpling-bowls",
+      "title": "Dumpling Bowl",
+      "cuisine": "asian-inspired",
+      "category": "Quick Meals",
+      "image": "images/cuisines/asian/asian-06.png",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "asian-teriyaki-salmon",
+      "title": "Teriyaki Salmon",
+      "cuisine": "asian-inspired",
+      "category": "Seafood",
+      "image": "images/cuisines/asian/asian-07.png",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "asian-thai-basil-chicken",
+      "title": "Thai Basil Chicken",
+      "cuisine": "asian-inspired",
+      "category": "Quick Meals",
+      "image": "images/cuisines/asian/asian-08.png",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "asian-miso-noodles",
+      "title": "Miso Butter Noodles",
+      "cuisine": "asian-inspired",
+      "category": "Beginner Basics",
+      "image": "images/cuisines/asian/asian-09.png",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "asian-crab-rangoon",
+      "title": "Crab Rangoon",
+      "cuisine": "asian-inspired",
+      "category": "Party & Hosting",
+      "image": "images/cuisines/asian/asian-10.png",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "bbq-smoked-ribs",
+      "title": "Sticky BBQ Ribs",
+      "cuisine": "bbq",
+      "category": "BBQ",
+      "image": "images/regional/mississippi/ribs.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "bbq-pulled-pork",
+      "title": "Pulled Pork Shoulder",
+      "cuisine": "bbq",
+      "category": "BBQ",
+      "image": "images/regional/mississippi/pulled-pork.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "bbq-brisket-basics",
+      "title": "Brisket Basics",
+      "cuisine": "bbq",
+      "category": "BBQ",
+      "image": "images/juneteenth/smoked-sliced-brisket.png",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "bbq-chicken-quarters",
+      "title": "BBQ Chicken Quarters",
+      "cuisine": "bbq",
+      "category": "BBQ",
+      "image": "images/regional/mississippi/bbq-chicken.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "cajun-chicken-sausage-gumbo",
+      "title": "Chicken and Sausage Gumbo",
+      "cuisine": "cajun",
+      "category": "Cajun",
+      "image": "images/recipes/audit-2026-06/cajun-chicken-sausage-gumbo.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "cajun-jambalaya",
+      "title": "Chicken and Sausage Jambalaya",
+      "cuisine": "cajun",
+      "category": "Cajun",
+      "image": "images/recipes/audit-2026-06/cajun-jambalaya.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "cajun-shrimp-etouffee",
+      "title": "Shrimp Etouffee",
+      "cuisine": "cajun",
+      "category": "Cajun",
+      "image": "images/recipes/audit-2026-06/cajun-shrimp-etouffee.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "cajun-dirty-rice",
+      "title": "Dirty Rice",
+      "cuisine": "cajun",
+      "category": "Cajun",
+      "image": "images/recipes/audit-2026-06/cajun-dirty-rice.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "creole-shrimp-creole",
+      "title": "Shrimp Creole",
+      "cuisine": "creole",
+      "category": "Creole",
+      "image": "images/recipes/audit-2026-06/creole-shrimp-creole.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "creole-seafood-gumbo",
+      "title": "Creole Seafood Gumbo",
+      "cuisine": "creole",
+      "category": "Creole",
+      "image": "images/recipes/audit-2026-06/creole-seafood-gumbo.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "creole-courtbouillon",
+      "title": "Fish Courtbouillon",
+      "cuisine": "creole",
+      "category": "Creole",
+      "image": "images/recipes/audit-2026-06/creole-courtbouillon.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "creole-bananas-foster",
+      "title": "Bananas Foster",
+      "cuisine": "creole",
+      "category": "Desserts",
+      "image": "images/recipes/audit-2026-06/creole-bananas-foster.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "nigerian-jollof-rice",
+      "title": "Nigerian Jollof Rice",
+      "cuisine": "nigerian",
+      "category": "West African",
+      "image": "images/cuisines/africa/nigeria/jollof-rice.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "nigerian-egusi-soup",
+      "title": "Egusi Soup",
+      "cuisine": "nigerian",
+      "category": "West African",
+      "image": "images/cuisines/africa/nigeria/egusi-soup.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "nigerian-suya-skewers",
+      "title": "Suya Skewers",
+      "cuisine": "nigerian",
+      "category": "West African",
+      "image": "images/cuisines/africa/nigeria/suya-skewers.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "nigerian-fried-rice",
+      "title": "Nigerian Fried Rice",
+      "cuisine": "nigerian",
+      "category": "West African",
+      "image": "images/recipes/audit-2026-06/nigerian-fried-rice.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "nigerian-pepper-soup",
+      "title": "Pepper Soup",
+      "cuisine": "nigerian",
+      "category": "West African",
+      "image": "images/recipes/audit-2026-06/nigerian-pepper-soup.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "nigerian-moi-moi",
+      "title": "Moi Moi",
+      "cuisine": "nigerian",
+      "category": "West African",
+      "image": "images/cuisines/africa/nigeria/moi-moi.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "ghanaian-waakye",
+      "title": "Waakye",
+      "cuisine": "ghanaian",
+      "category": "West African",
+      "image": "images/cuisines/africa/ghana/waakye.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "ghanaian-jollof-rice",
+      "title": "Ghanaian Jollof Rice",
+      "cuisine": "ghanaian",
+      "category": "West African",
+      "image": "images/recipes/audit-2026-06/ghanaian-jollof-rice.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "ghanaian-kelewele",
+      "title": "Kelewele",
+      "cuisine": "ghanaian",
+      "category": "West African",
+      "image": "images/cuisines/africa/ghana/kelewele.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "ghanaian-groundnut-soup",
+      "title": "Groundnut Soup",
+      "cuisine": "ghanaian",
+      "category": "West African",
+      "image": "images/cuisines/africa/ghana/groundnut-soup.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "ghanaian-red-red",
+      "title": "Red Red",
+      "cuisine": "ghanaian",
+      "category": "West African",
+      "image": "images/cuisines/africa/ghana/red-red.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "ethiopian-doro-wat",
+      "title": "Doro Wat",
+      "cuisine": "ethiopian",
+      "category": "East African",
+      "image": "images/cuisines/africa/ethiopia/doro-wat.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "ethiopian-misir-wat",
+      "title": "Misir Wat",
+      "cuisine": "ethiopian",
+      "category": "East African",
+      "image": "images/cuisines/africa/ethiopia/misir-wat.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "ethiopian-shiro-wat",
+      "title": "Shiro Wat",
+      "cuisine": "ethiopian",
+      "category": "East African",
+      "image": "images/recipes/audit-2026-06/ethiopian-shiro-wat.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "ethiopian-tibs",
+      "title": "Tibs",
+      "cuisine": "ethiopian",
+      "category": "East African",
+      "image": "images/cuisines/africa/ethiopia/tibs.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "ethiopian-injera",
+      "title": "Injera",
+      "cuisine": "ethiopian",
+      "category": "East African",
+      "image": "images/cuisines/africa/ethiopia/injera.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "ethiopian-kik-alicha",
+      "title": "Kik Alicha",
+      "cuisine": "ethiopian",
+      "category": "East African",
+      "image": "images/recipes/audit-2026-06/ethiopian-kik-alicha.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "moroccan-chicken-tagine",
+      "title": "Chicken Tagine",
+      "cuisine": "moroccan",
+      "category": "North African",
+      "image": "images/cuisines/africa/morocco/chicken-tagine.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "moroccan-couscous-vegetables",
+      "title": "Couscous with Vegetables",
+      "cuisine": "moroccan",
+      "category": "North African",
+      "image": "images/cuisines/africa/morocco/vegetable-couscous.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "moroccan-harira",
+      "title": "Harira Soup",
+      "cuisine": "moroccan",
+      "category": "North African",
+      "image": "images/cuisines/africa/morocco/harira.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "moroccan-chermoula-fish",
+      "title": "Chermoula Fish",
+      "cuisine": "moroccan",
+      "category": "North African",
+      "image": "images/cuisines/africa/morocco/chermoula-fish.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "moroccan-carrot-salad",
+      "title": "Moroccan Carrot Salad",
+      "cuisine": "moroccan",
+      "category": "North African",
+      "image": "images/recipes/audit-2026-06/moroccan-carrot-salad.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "indian-dal-tadka",
+      "title": "Dal Tadka",
+      "cuisine": "indian",
+      "category": "Indian",
+      "image": "images/recipes/audit-2026-06/indian-dal-tadka.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "grilled-swordfish-lemon-herb",
+      "title": "Grilled Swordfish with Lemon Herbs",
+      "cuisine": "mediterranean",
+      "category": "Seafood",
+      "image": "images/recipes/audit-2026-06/grilled-swordfish-lemon-herb.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "blackened-swordfish",
+      "title": "Blackened Swordfish",
+      "cuisine": "southern",
+      "category": "Seafood",
+      "image": "images/recipes/audit-2026-06/blackened-swordfish.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "swordfish-tacos",
+      "title": "Swordfish Tacos with Citrus Slaw",
+      "cuisine": "mexican",
+      "category": "Seafood",
+      "image": "images/recipes/audit-2026-06/swordfish-tacos.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "mediterranean-swordfish",
+      "title": "Mediterranean Swordfish with Tomatoes and Olives",
+      "cuisine": "mediterranean",
+      "category": "Seafood",
+      "image": "images/recipes/audit-2026-06/mediterranean-swordfish.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "garlic-butter-swordfish",
+      "title": "Swordfish with Garlic Butter",
+      "cuisine": "mediterranean",
+      "category": "Seafood",
+      "image": "images/recipes/audit-2026-06/garlic-butter-swordfish.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "southern-potato-salad",
+      "title": "Southern Potato Salad",
+      "cuisine": "southern",
+      "category": "Sides",
+      "image": "images/regional/mississippi/potato-salad.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "candied-yams",
+      "title": "Candied Yams",
+      "cuisine": "southern",
+      "category": "Sides",
+      "image": "images/recipes/audit-2026-06/candied-yams.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "creamy-coleslaw",
+      "title": "Creamy Coleslaw",
+      "cuisine": "southern",
+      "category": "Sides",
+      "image": "images/regional/mississippi/coleslaw.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "bbq-baked-beans",
+      "title": "BBQ Baked Beans",
+      "cuisine": "bbq",
+      "category": "Sides",
+      "image": "images/juneteenth/bbq-baked-beans.png",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "hushpuppies",
+      "title": "Golden Hushpuppies",
+      "cuisine": "southern",
+      "category": "Breads",
+      "image": "images/regional/mississippi/hushpuppies.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "dinner-rolls",
+      "title": "Soft Dinner Rolls",
+      "cuisine": "southern",
+      "category": "Breads",
+      "image": "images/recipes/audit-2026-06/dinner-rolls.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "tartar-sauce",
+      "title": "Fish Fry Tartar Sauce",
+      "cuisine": "southern",
+      "category": "Sauces",
+      "image": "images/recipes/audit-2026-06/tartar-sauce.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "southern-gravy",
+      "title": "Onion Pan Gravy",
+      "cuisine": "southern",
+      "category": "Sauces",
+      "image": "images/recipes/audit-2026-06/southern-gravy.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "sweet-tea",
+      "title": "Southern Sweet Tea",
+      "cuisine": "southern",
+      "category": "Drinks",
+      "image": "images/recipes/audit-2026-06/sweet-tea.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "lemonade",
+      "title": "Fresh Lemonade",
+      "cuisine": "southern",
+      "category": "Drinks",
+      "image": "images/juneteenth/fresh-lemonade.png",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "peach-cobbler",
+      "title": "Peach Cobbler",
+      "cuisine": "southern",
+      "category": "Desserts",
+      "image": "images/regional/mississippi/peach-cobbler.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "banana-pudding",
+      "title": "Banana Pudding",
+      "cuisine": "southern",
+      "category": "Desserts",
+      "image": "images/regional/mississippi/banana-pudding.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "pound-cake",
+      "title": "Vanilla Pound Cake",
+      "cuisine": "southern",
+      "category": "Desserts",
+      "image": "images/recipes/audit-2026-06/pound-cake.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "rice-and-peas",
+      "title": "Caribbean Rice and Peas",
+      "cuisine": "caribbean",
+      "category": "Sides",
+      "image": "images/recipes/audit-2026-06/rice-and-peas.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "cabbage-saute",
+      "title": "Caribbean Cabbage Saute",
+      "cuisine": "caribbean",
+      "category": "Sides",
+      "image": "images/recipes/audit-2026-06/cabbage-saute.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "cucumber-salad",
+      "title": "Cucumber Lime Salad",
+      "cuisine": "caribbean",
+      "category": "Sides",
+      "image": "images/recipes/audit-2026-06/cucumber-salad.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "coco-bread",
+      "title": "Coco Bread",
+      "cuisine": "caribbean",
+      "category": "Breads",
+      "image": "images/recipes/audit-2026-06/coco-bread.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "jerk-sauce",
+      "title": "Jerk Sauce",
+      "cuisine": "caribbean",
+      "category": "Sauces",
+      "image": "images/recipes/audit-2026-06/jerk-sauce.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "sorrel-drink",
+      "title": "Sorrel Drink",
+      "cuisine": "caribbean",
+      "category": "Drinks",
+      "image": "images/recipes/audit-2026-06/sorrel-drink.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "rum-cake",
+      "title": "Caribbean Rum Cake",
+      "cuisine": "caribbean",
+      "category": "Desserts",
+      "image": "images/recipes/audit-2026-06/rum-cake.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "greek-salad",
+      "title": "Greek Salad",
+      "cuisine": "mediterranean",
+      "category": "Salads",
+      "image": "images/recipes/audit-2026-06/greek-salad.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "creamy-hummus",
+      "title": "Creamy Hummus",
+      "cuisine": "mediterranean",
+      "category": "Dips",
+      "image": "images/recipes/audit-2026-06/creamy-hummus.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "roasted-vegetables",
+      "title": "Roasted Vegetables",
+      "cuisine": "mediterranean",
+      "category": "Sides",
+      "image": "images/recipes/audit-2026-06/roasted-vegetables.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "rice-pilaf",
+      "title": "Herbed Rice Pilaf",
+      "cuisine": "mediterranean",
+      "category": "Sides",
+      "image": "images/recipes/audit-2026-06/rice-pilaf.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "pita-flatbread",
+      "title": "Skillet Pita Flatbread",
+      "cuisine": "mediterranean",
+      "category": "Breads",
+      "image": "images/recipes/audit-2026-06/pita-flatbread.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "tzatziki-sauce",
+      "title": "Tzatziki Sauce",
+      "cuisine": "mediterranean",
+      "category": "Sauces",
+      "image": "images/recipes/audit-2026-06/tzatziki-sauce.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "mint-lemonade",
+      "title": "Mint Lemonade",
+      "cuisine": "mediterranean",
+      "category": "Drinks",
+      "image": "images/recipes/audit-2026-06/mint-lemonade.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "baklava-cups",
+      "title": "Baklava Cups",
+      "cuisine": "mediterranean",
+      "category": "Desserts",
+      "image": "images/recipes/audit-2026-06/baklava-cups.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "corn-on-the-cob",
+      "title": "Buttery Corn on the Cob",
+      "cuisine": "bbq",
+      "category": "Sides",
+      "image": "images/recipes/audit-2026-06/corn-on-the-cob.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "slider-buns",
+      "title": "Soft Slider Buns",
+      "cuisine": "bbq",
+      "category": "Breads",
+      "image": "images/recipes/audit-2026-06/slider-buns.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "bbq-sauce-trio",
+      "title": "BBQ Sauce Trio",
+      "cuisine": "bbq",
+      "category": "Sauces",
+      "image": "images/recipes/audit-2026-06/bbq-sauce-trio.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "smothered-green-beans",
+      "title": "Smothered Green Beans",
+      "cuisine": "cajun",
+      "category": "Sides",
+      "image": "images/recipes/audit-2026-06/smothered-green-beans.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "corn-maque-choux",
+      "title": "Corn Maque Choux",
+      "cuisine": "cajun",
+      "category": "Sides",
+      "image": "images/recipes/audit-2026-06/corn-maque-choux.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "french-bread",
+      "title": "Warm French Bread",
+      "cuisine": "cajun",
+      "category": "Breads",
+      "image": "images/recipes/audit-2026-06/french-bread.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "white-rice",
+      "title": "Steamed White Rice",
+      "cuisine": "creole",
+      "category": "Sides",
+      "image": "images/recipes/audit-2026-06/white-rice.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "okra-tomato-stew",
+      "title": "Okra and Tomato Stew",
+      "cuisine": "creole",
+      "category": "Sides",
+      "image": "images/recipes/audit-2026-06/okra-tomato-stew.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "green-salad",
+      "title": "Simple Green Salad",
+      "cuisine": "creole",
+      "category": "Salads",
+      "image": "images/recipes/audit-2026-06/green-salad.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "buttered-vegetables",
+      "title": "Buttered Vegetables",
+      "cuisine": "creole",
+      "category": "Sides",
+      "image": "images/recipes/audit-2026-06/buttered-vegetables.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "creole-seasoning-blend",
+      "title": "Creole Seasoning Blend",
+      "cuisine": "creole",
+      "category": "Seasonings",
+      "image": "images/recipes/audit-2026-06/creole-seasoning-blend.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "cucumber-raita",
+      "title": "Cucumber Raita",
+      "cuisine": "indian",
+      "category": "Sauces",
+      "image": "images/recipes/audit-2026-06/cucumber-raita.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "kachumber-salad",
+      "title": "Kachumber Salad",
+      "cuisine": "indian",
+      "category": "Salads",
+      "image": "images/recipes/audit-2026-06/kachumber-salad.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "mint-chutney",
+      "title": "Mint Chutney",
+      "cuisine": "indian",
+      "category": "Sauces",
+      "image": "images/recipes/audit-2026-06/mint-chutney.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "mango-lassi",
+      "title": "Mango Lassi",
+      "cuisine": "indian",
+      "category": "Drinks",
+      "image": "images/recipes/audit-2026-06/mango-lassi.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "kheer",
+      "title": "Rice Kheer",
+      "cuisine": "indian",
+      "category": "Desserts",
+      "image": "images/recipes/audit-2026-06/kheer.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "birria-style-tacos",
+      "title": "Birria-Style Tacos",
+      "cuisine": "mexican",
+      "category": "Main Dishes",
+      "image": "images/recipes/audit-2026-06/birria-style-tacos.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "black-bean-side",
+      "title": "Seasoned Black Beans",
+      "cuisine": "mexican",
+      "category": "Sides",
+      "image": "images/recipes/audit-2026-06/black-bean-side.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "cilantro-lime-rice",
+      "title": "Cilantro Lime Rice",
+      "cuisine": "mexican",
+      "category": "Sides",
+      "image": "images/recipes/audit-2026-06/cilantro-lime-rice.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "elote-corn",
+      "title": "Elote-Style Corn",
+      "cuisine": "mexican",
+      "category": "Sides",
+      "image": "images/recipes/audit-2026-06/elote-corn.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "mexican-slaw",
+      "title": "Citrus Taco Slaw",
+      "cuisine": "mexican",
+      "category": "Sides",
+      "image": "images/recipes/audit-2026-06/mexican-slaw.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "corn-tortillas",
+      "title": "Warm Corn Tortillas",
+      "cuisine": "mexican",
+      "category": "Breads",
+      "image": "images/recipes/audit-2026-06/corn-tortillas.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "salsa-roja",
+      "title": "Salsa Roja",
+      "cuisine": "mexican",
+      "category": "Sauces",
+      "image": "images/recipes/audit-2026-06/salsa-roja.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "salsa-verde",
+      "title": "Salsa Verde",
+      "cuisine": "mexican",
+      "category": "Sauces",
+      "image": "images/recipes/audit-2026-06/salsa-verde.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "pickled-red-onions",
+      "title": "Pickled Red Onions",
+      "cuisine": "mexican",
+      "category": "Sauces",
+      "image": "images/recipes/audit-2026-06/pickled-red-onions.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "agua-fresca",
+      "title": "Watermelon Agua Fresca",
+      "cuisine": "mexican",
+      "category": "Drinks",
+      "image": "images/recipes/audit-2026-06/agua-fresca.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "churro-bites",
+      "title": "Churro Bites",
+      "cuisine": "mexican",
+      "category": "Desserts",
+      "image": "images/recipes/audit-2026-06/churro-bites.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "flan-cups",
+      "title": "Vanilla Flan Cups",
+      "cuisine": "mexican",
+      "category": "Desserts",
+      "image": "images/recipes/audit-2026-06/flan-cups.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "mississippi-buffalo-fish",
+      "title": "Mississippi Buffalo Fish Fry",
+      "cuisine": "mississippi-favorites",
+      "category": "Main Dishes",
+      "image": "images/regional/mississippi-buffalo-fish.png",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "mississippi-perch-fry",
+      "title": "Mississippi Fried Perch",
+      "cuisine": "mississippi-favorites",
+      "category": "Seafood",
+      "image": "images/recipes/audit-2026-06/mississippi-perch-fry.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "mississippi-bream-fry",
+      "title": "Mississippi Fried Bream",
+      "cuisine": "mississippi-favorites",
+      "category": "Seafood",
+      "image": "images/recipes/audit-2026-06/mississippi-bream-fry.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "mississippi-crappie-fry",
+      "title": "Mississippi Fried Crappie",
+      "cuisine": "mississippi-favorites",
+      "category": "Seafood",
+      "image": "images/recipes/audit-2026-06/mississippi-crappie-fry.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "mississippi-fish-fry-plate",
+      "title": "Mississippi Fish Fry Plate",
+      "cuisine": "mississippi-favorites",
+      "category": "Platters",
+      "image": "images/regional/mississippi/fish-fry-plate.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "comeback-sauce",
+      "title": "Mississippi Comeback Sauce",
+      "cuisine": "mississippi-favorites",
+      "category": "Sauces",
+      "image": "images/recipes/audit-2026-06/comeback-sauce.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "shrimp-poboy",
+      "title": "Louisiana Shrimp Po'Boy",
+      "cuisine": "louisiana",
+      "category": "Sandwiches",
+      "image": "images/regional/shrimp-poboy.png",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "oyster-poboy",
+      "title": "Louisiana Oyster Po'Boy",
+      "cuisine": "louisiana",
+      "category": "Sandwiches",
+      "image": "images/recipes/audit-2026-06/oyster-poboy.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "muffuletta",
+      "title": "New Orleans Muffuletta",
+      "cuisine": "louisiana",
+      "category": "Sandwiches",
+      "image": "images/regional/muffuletta.png",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "charbroiled-oysters",
+      "title": "New Orleans Charbroiled Oysters",
+      "cuisine": "louisiana",
+      "category": "Seafood",
+      "image": "images/recipes/audit-2026-06/charbroiled-oysters.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "beignets",
+      "title": "New Orleans Beignets",
+      "cuisine": "louisiana",
+      "category": "Desserts",
+      "image": "images/regional/beignets.png",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "crawfish-boil",
+      "title": "Louisiana Crawfish Boil",
+      "cuisine": "louisiana",
+      "category": "Seafood",
+      "image": "images/recipes/audit-2026-06/crawfish-boil.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "texas-beef-ribs",
+      "title": "Texas Smoked Beef Ribs",
+      "cuisine": "texas",
+      "category": "BBQ",
+      "image": "images/regional/texas-beef-ribs.png",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "texas-chili",
+      "title": "Texas No-Bean Chili",
+      "cuisine": "texas",
+      "category": "Main Dishes",
+      "image": "images/regional/texas-chili.png",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "texas-smoked-sausage",
+      "title": "Texas Smoked Sausage Links",
+      "cuisine": "texas",
+      "category": "BBQ",
+      "image": "images/recipes/audit-2026-06/texas-smoked-sausage.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "jalapeno-cheddar-sausage",
+      "title": "Texas Jalapeno Cheddar Sausage",
+      "cuisine": "texas",
+      "category": "BBQ",
+      "image": "images/recipes/audit-2026-06/jalapeno-cheddar-sausage.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "alabama-white-sauce-chicken",
+      "title": "Alabama White Sauce Chicken",
+      "cuisine": "alabama",
+      "category": "BBQ",
+      "image": "images/regional/alabama-white-sauce-chicken.png",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "alabama-pulled-pork-sandwiches",
+      "title": "Alabama Pulled Pork Sandwiches",
+      "cuisine": "alabama",
+      "category": "BBQ",
+      "image": "images/recipes/audit-2026-06/alabama-pulled-pork-sandwiches.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "alabama-fried-green-tomatoes",
+      "title": "Alabama Fried Green Tomatoes",
+      "cuisine": "alabama",
+      "category": "Sides",
+      "image": "images/recipes/audit-2026-06/alabama-fried-green-tomatoes.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "nashville-hot-chicken",
+      "title": "Nashville Hot Chicken",
+      "cuisine": "tennessee",
+      "category": "Main Dishes",
+      "image": "images/recipes/audit-2026-06/nashville-hot-chicken.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "memphis-dry-rub-ribs",
+      "title": "Memphis Dry-Rub Ribs",
+      "cuisine": "tennessee",
+      "category": "BBQ",
+      "image": "images/recipes/audit-2026-06/memphis-dry-rub-ribs.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "memphis-bbq-spaghetti",
+      "title": "Memphis BBQ Spaghetti",
+      "cuisine": "tennessee",
+      "category": "Sides",
+      "image": "images/recipes/audit-2026-06/memphis-bbq-spaghetti.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "arkansas-fried-pickles",
+      "title": "Arkansas Fried Pickles",
+      "cuisine": "arkansas",
+      "category": "Sides",
+      "image": "images/recipes/audit-2026-06/arkansas-fried-pickles.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "arkansas-delta-tamales",
+      "title": "Arkansas Delta Hot Tamales",
+      "cuisine": "arkansas",
+      "category": "Main Dishes",
+      "image": "images/recipes/audit-2026-06/arkansas-delta-tamales.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "arkansas-chocolate-gravy-biscuits",
+      "title": "Chocolate Gravy and Biscuits",
+      "cuisine": "arkansas",
+      "category": "Breakfast",
+      "image": "images/recipes/audit-2026-06/arkansas-chocolate-gravy-biscuits.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "frogmore-stew",
+      "title": "Frogmore Stew",
+      "cuisine": "low-country",
+      "category": "Seafood",
+      "image": "images/regional/frogmore-stew.png",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "hoppin-john",
+      "title": "Hoppin' John",
+      "cuisine": "low-country",
+      "category": "Sides",
+      "image": "images/regional/hoppin-john.png",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "eastern-nc-bbq",
+      "title": "Eastern North Carolina Chopped BBQ",
+      "cuisine": "north-carolina",
+      "category": "BBQ",
+      "image": "images/recipes/audit-2026-06/eastern-nc-bbq.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "lexington-bbq",
+      "title": "Lexington-Style Pork Shoulder BBQ",
+      "cuisine": "north-carolina",
+      "category": "BBQ",
+      "image": "images/recipes/audit-2026-06/lexington-bbq.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "virginia-country-ham",
+      "title": "Virginia Country Ham Biscuits",
+      "cuisine": "virginia",
+      "category": "Breakfast",
+      "image": "images/recipes/audit-2026-06/virginia-country-ham.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "virginia-brunswick-stew",
+      "title": "Virginia Brunswick Stew",
+      "cuisine": "virginia",
+      "category": "Stews",
+      "image": "images/recipes/audit-2026-06/virginia-brunswick-stew.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "virginia-peanut-soup",
+      "title": "Virginia Peanut Soup",
+      "cuisine": "virginia",
+      "category": "Soups",
+      "image": "images/recipes/audit-2026-06/virginia-peanut-soup.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "key-lime-pie",
+      "title": "Florida Key Lime Pie",
+      "cuisine": "florida",
+      "category": "Desserts",
+      "image": "images/regional/key-lime-pie.png",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "stone-crab-claws",
+      "title": "Florida Stone Crab Claws",
+      "cuisine": "florida",
+      "category": "Seafood",
+      "image": "images/regional/stone-crab.png",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "florida-blue-crab",
+      "title": "Florida Blue Crab Boil",
+      "cuisine": "florida",
+      "category": "Seafood",
+      "image": "images/recipes/audit-2026-06/florida-blue-crab.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "grouper-sandwich",
+      "title": "Florida Grouper Sandwich",
+      "cuisine": "florida",
+      "category": "Sandwiches",
+      "image": "images/recipes/audit-2026-06/grouper-sandwich.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "smoked-mullet",
+      "title": "Florida Smoked Mullet",
+      "cuisine": "florida",
+      "category": "Seafood",
+      "image": "images/recipes/audit-2026-06/smoked-mullet.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "cuban-sandwich",
+      "title": "Florida Cuban Sandwich",
+      "cuisine": "florida",
+      "category": "Sandwiches",
+      "image": "images/regional/cuban-sandwich.png",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "white-perch-fry",
+      "title": "Mississippi White Perch Fry",
+      "cuisine": "mississippi-favorites",
+      "category": "Seafood",
+      "image": "images/recipes/audit-2026-06/white-perch-fry.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "chicken-and-dumplings",
+      "title": "Southern Chicken and Dumplings",
+      "cuisine": "mississippi-favorites",
+      "category": "Main Dishes",
+      "image": "images/recipes/audit-2026-06/chicken-and-dumplings.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "mississippi-butter-beans",
+      "title": "Mississippi Butter Beans",
+      "cuisine": "mississippi-favorites",
+      "category": "Sides",
+      "image": "images/regional/mississippi/butter-beans.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "turnip-greens",
+      "title": "Turnip Greens with Pot Liquor",
+      "cuisine": "mississippi-favorites",
+      "category": "Sides",
+      "image": "images/regional/mississippi/turnip-greens.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "red-beans-and-rice",
+      "title": "Louisiana Red Beans and Rice",
+      "cuisine": "louisiana",
+      "category": "Main Dishes",
+      "image": "images/recipes/audit-2026-06/red-beans-and-rice.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "louisiana-boudin",
+      "title": "Louisiana Boudin Links",
+      "cuisine": "louisiana",
+      "category": "Main Dishes",
+      "image": "images/recipes/audit-2026-06/louisiana-boudin.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "fried-oysters",
+      "title": "Louisiana Fried Oysters",
+      "cuisine": "louisiana",
+      "category": "Seafood",
+      "image": "images/recipes/audit-2026-06/fried-oysters.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "chicken-fried-steak",
+      "title": "Texas Chicken Fried Steak",
+      "cuisine": "texas",
+      "category": "Main Dishes",
+      "image": "images/recipes/audit-2026-06/chicken-fried-steak.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "texas-kolaches",
+      "title": "Texas Sausage Kolaches",
+      "cuisine": "texas",
+      "category": "Breakfast",
+      "image": "images/recipes/audit-2026-06/texas-kolaches.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "texas-pinto-beans",
+      "title": "Texas Pinto Beans",
+      "cuisine": "texas",
+      "category": "Sides",
+      "image": "images/recipes/audit-2026-06/texas-pinto-beans.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "conch-fritters",
+      "title": "Florida Conch Fritters",
+      "cuisine": "florida",
+      "category": "Seafood",
+      "image": "images/recipes/audit-2026-06/conch-fritters.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "datil-pepper-sauce",
+      "title": "Florida Datil Pepper Sauce",
+      "cuisine": "florida",
+      "category": "Sauces",
+      "image": "images/recipes/audit-2026-06/datil-pepper-sauce.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "tennessee-chess-pie",
+      "title": "Tennessee Chess Pie",
+      "cuisine": "tennessee",
+      "category": "Desserts",
+      "image": "images/recipes/audit-2026-06/tennessee-chess-pie.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "virginia-spoon-bread",
+      "title": "Virginia Spoon Bread",
+      "cuisine": "virginia",
+      "category": "Sides",
+      "image": "images/recipes/audit-2026-06/virginia-spoon-bread.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "carolina-vinegar-sauce",
+      "title": "Carolina Vinegar BBQ Sauce",
+      "cuisine": "north-carolina",
+      "category": "Sauces",
+      "image": "images/recipes/audit-2026-06/carolina-vinegar-sauce.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "carolina-hush-puppies",
+      "title": "Carolina Hush Puppies",
+      "cuisine": "north-carolina",
+      "category": "Breads",
+      "image": "images/recipes/audit-2026-06/carolina-hush-puppies.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "carolina-red-rice",
+      "title": "South Carolina Red Rice",
+      "cuisine": "low-country",
+      "category": "Sides",
+      "image": "images/recipes/audit-2026-06/carolina-red-rice.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "gullah-geechee-favorites",
+      "title": "Gullah Geechee Heritage Plate",
+      "cuisine": "low-country",
+      "category": "Platters",
+      "image": "images/recipes/audit-2026-06/gullah-geechee-favorites.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "vidalia-onion-pie",
+      "title": "Georgia Vidalia Onion Pie",
+      "cuisine": "georgia",
+      "category": "Sides",
+      "image": "images/recipes/audit-2026-06/vidalia-onion-pie.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "georgia-brunswick-stew",
+      "title": "Georgia Brunswick Stew",
+      "cuisine": "georgia",
+      "category": "Stews",
+      "image": "images/recipes/audit-2026-06/georgia-brunswick-stew.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "chicken-rice-casserole",
+      "title": "Chicken & Rice Casserole",
+      "cuisine": "southern",
+      "category": "Southern Casseroles",
+      "image": "images/recipes/audit-2026-06/chicken-rice-casserole.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "broccoli-rice-casserole",
+      "title": "Broccoli Rice Casserole",
+      "cuisine": "southern",
+      "category": "Southern Casseroles",
+      "image": "images/recipes/audit-2026-06/broccoli-rice-casserole.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "squash-casserole",
+      "title": "Southern Squash Casserole",
+      "cuisine": "southern",
+      "category": "Southern Casseroles",
+      "image": "images/recipes/audit-2026-06/squash-casserole.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "sweet-potato-casserole",
+      "title": "Sweet Potato Casserole",
+      "cuisine": "southern",
+      "category": "Southern Casseroles",
+      "image": "images/recipes/audit-2026-06/sweet-potato-casserole.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "green-bean-casserole",
+      "title": "Green Bean Casserole",
+      "cuisine": "southern",
+      "category": "Southern Casseroles",
+      "image": "images/recipes/audit-2026-06/green-bean-casserole.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "corn-casserole",
+      "title": "Corn Casserole",
+      "cuisine": "southern",
+      "category": "Southern Casseroles",
+      "image": "images/recipes/audit-2026-06/corn-casserole.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "hashbrown-casserole",
+      "title": "Hashbrown Casserole",
+      "cuisine": "southern",
+      "category": "Southern Casseroles",
+      "image": "images/recipes/audit-2026-06/hashbrown-casserole.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "mexican-cornbread-casserole",
+      "title": "Mexican Cornbread Casserole",
+      "cuisine": "southern",
+      "category": "Southern Casseroles",
+      "image": "images/recipes/audit-2026-06/mexican-cornbread-casserole.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "crawfish-cornbread-casserole",
+      "title": "Crawfish Cornbread Casserole",
+      "cuisine": "cajun",
+      "category": "Southern Casseroles",
+      "image": "images/recipes/audit-2026-06/crawfish-cornbread-casserole.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "king-ranch-chicken",
+      "title": "King Ranch Chicken",
+      "cuisine": "texas",
+      "category": "Southern Casseroles",
+      "image": "images/recipes/audit-2026-06/king-ranch-chicken.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "chicken-spaghetti",
+      "title": "Southern Chicken Spaghetti",
+      "cuisine": "southern",
+      "category": "Southern Casseroles",
+      "image": "images/recipes/audit-2026-06/chicken-spaghetti.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "funeral-potatoes",
+      "title": "Funeral Potatoes",
+      "cuisine": "southern",
+      "category": "Southern Casseroles",
+      "image": "images/recipes/audit-2026-06/funeral-potatoes.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "ambrosia-salad",
+      "title": "Ambrosia Salad",
+      "cuisine": "southern",
+      "category": "Church Lady Hall of Fame",
+      "image": "images/recipes/audit-2026-06/ambrosia-salad.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "watergate-salad",
+      "title": "Watergate Salad",
+      "cuisine": "southern",
+      "category": "Church Lady Hall of Fame",
+      "image": "images/recipes/audit-2026-06/watergate-salad.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "seven-layer-salad",
+      "title": "Seven Layer Salad",
+      "cuisine": "southern",
+      "category": "Church Lady Hall of Fame",
+      "image": "images/recipes/audit-2026-06/seven-layer-salad.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "grape-salad",
+      "title": "Grape Salad",
+      "cuisine": "southern",
+      "category": "Church Lady Hall of Fame",
+      "image": "images/recipes/audit-2026-06/grape-salad.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "corn-salad",
+      "title": "Southern Corn Salad",
+      "cuisine": "southern",
+      "category": "Church Lady Hall of Fame",
+      "image": "images/recipes/audit-2026-06/corn-salad.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "pea-salad",
+      "title": "Southern Pea Salad",
+      "cuisine": "southern",
+      "category": "Church Lady Hall of Fame",
+      "image": "images/recipes/audit-2026-06/pea-salad.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "chicken-and-dressing",
+      "title": "Chicken & Dressing",
+      "cuisine": "southern",
+      "category": "Repast & Homegoing Foods",
+      "image": "images/regional/mississippi/chicken-dressing.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "baked-ham",
+      "title": "Brown Sugar Baked Ham",
+      "cuisine": "southern",
+      "category": "Repast & Homegoing Foods",
+      "image": "images/recipes/audit-2026-06/baked-ham.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "mini-pizza-faces",
+      "title": "Mini Pizza Faces",
+      "cuisine": "kids-korner",
+      "category": "Easy Bites",
+      "image": "images/recipes/audit-2026-06/mini-pizza-faces.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "fruit-rainbow-kabobs",
+      "title": "Fruit Rainbow Kabobs",
+      "cuisine": "kids-korner",
+      "category": "Healthy Heroes",
+      "image": "assets/ingredients.jpeg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "yogurt-parfait-cups",
+      "title": "Yogurt Parfait Cups",
+      "cuisine": "kids-korner",
+      "category": "Healthy Heroes",
+      "image": "images/recipes/audit-2026-06/yogurt-parfait-cups.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "pbj-roll-ups",
+      "title": "PB&J Roll Ups",
+      "cuisine": "kids-korner",
+      "category": "Easy Bites",
+      "image": "images/recipes/audit-2026-06/pbj-roll-ups.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "apple-nachos",
+      "title": "Apple Nachos",
+      "cuisine": "kids-korner",
+      "category": "Fun Food",
+      "image": "images/recipes/audit-2026-06/apple-nachos.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "ants-on-a-log",
+      "title": "Ants on a Log",
+      "cuisine": "kids-korner",
+      "category": "Healthy Heroes",
+      "image": "images/recipes/audit-2026-06/ants-on-a-log.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "mini-chicken-sliders",
+      "title": "Mini Chicken Sliders",
+      "cuisine": "southern",
+      "category": "Southern Favorites",
+      "image": "images/recipes/audit-2026-06/mini-chicken-sliders.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "mac-and-cheese-bites",
+      "title": "Mac & Cheese Bites",
+      "cuisine": "southern",
+      "category": "Southern Favorites",
+      "image": "images/recipes/audit-2026-06/mac-and-cheese-bites.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "chewy-chocolate-cookies",
+      "title": "Chewy Chocolate Chip Cookies",
+      "cuisine": "kids-korner",
+      "category": "Sweet Treats",
+      "image": "images/recipes/audit-2026-06/chewy-chocolate-cookies.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "banana-pudding-cups",
+      "title": "Banana Pudding Cups",
+      "cuisine": "southern",
+      "category": "Southern Favorites",
+      "image": "images/recipes/audit-2026-06/banana-pudding-cups.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "berry-banana-smoothies",
+      "title": "Berry Banana Smoothies",
+      "cuisine": "kids-korner",
+      "category": "Healthy Heroes",
+      "image": "images/recipes/audit-2026-06/berry-banana-smoothies.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "crispy-rice-treats",
+      "title": "Crispy Rice Treats",
+      "cuisine": "kids-korner",
+      "category": "Sweet Treats",
+      "image": "images/recipes/audit-2026-06/crispy-rice-treats.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "cheese-quesadilla-triangles",
+      "title": "Cheese Quesadilla Triangles",
+      "cuisine": "american",
+      "category": "Easy Bites",
+      "image": "images/recipes/audit-2026-06/cheese-quesadilla-triangles.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "english-muffin-pizzas",
+      "title": "English Muffin Pizzas",
+      "cuisine": "american",
+      "category": "Fun Food",
+      "image": "images/recipes/audit-2026-06/english-muffin-pizzas.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "no-bake-cereal-bars",
+      "title": "No-Bake Cereal Bars",
+      "cuisine": "american",
+      "category": "Sweet Treats",
+      "image": "images/recipes/audit-2026-06/no-bake-cereal-bars.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "trail-mix-jars",
+      "title": "Trail Mix Jars",
+      "cuisine": "american",
+      "category": "Healthy Heroes",
+      "image": "images/recipes/audit-2026-06/trail-mix-jars.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "breakfast-egg-cups",
+      "title": "Breakfast Egg Cups",
+      "cuisine": "american",
+      "category": "Easy Bites",
+      "image": "images/recipes/audit-2026-06/breakfast-egg-cups.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "taco-cups",
+      "title": "Taco Cups",
+      "cuisine": "mexican",
+      "category": "Food Around The World",
+      "image": "images/recipes/audit-2026-06/taco-cups.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "baked-chicken-tenders",
+      "title": "Baked Chicken Tenders",
+      "cuisine": "american",
+      "category": "Easy Bites",
+      "image": "images/recipes/audit-2026-06/baked-chicken-tenders.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "sheet-pan-nachos",
+      "title": "Sheet Pan Nachos",
+      "cuisine": "mexican",
+      "category": "Fun Food",
+      "image": "images/recipes/audit-2026-06/sheet-pan-nachos.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "simple-spaghetti",
+      "title": "Simple Spaghetti",
+      "cuisine": "italian",
+      "category": "Food Around The World",
+      "image": "images/recipes/audit-2026-06/simple-spaghetti.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "smoothie-cups",
+      "title": "Build-Your-Own Smoothie Cups",
+      "cuisine": "american",
+      "category": "Healthy Heroes",
+      "image": "images/recipes/audit-2026-06/smoothie-cups.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "smothered-chicken",
+      "title": "Smothered Chicken",
+      "cuisine": "southern",
+      "category": "Family Dinner",
+      "image": "images/recipes/audit-2026-06/smothered-chicken.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "baked-spaghetti",
+      "title": "Baked Spaghetti",
+      "cuisine": "italian",
+      "category": "Family Dinner",
+      "image": "images/recipes/audit-2026-06/baked-spaghetti.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "taco-soup",
+      "title": "Taco Soup",
+      "cuisine": "mexican",
+      "category": "Soups",
+      "image": "images/recipes/audit-2026-06/taco-soup.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "hamburger-steak-with-gravy",
+      "title": "Hamburger Steak with Onion Gravy",
+      "cuisine": "southern",
+      "category": "Family Dinner",
+      "image": "images/recipes/audit-2026-06/hamburger-steak-with-gravy.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "chicken-alfredo",
+      "title": "Chicken Alfredo",
+      "cuisine": "italian-american",
+      "category": "Family Dinner",
+      "image": "images/recipes/audit-2026-06/chicken-alfredo.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "breakfast-casserole",
+      "title": "Sausage Breakfast Casserole",
+      "cuisine": "southern",
+      "category": "Breakfast",
+      "image": "images/recipes/audit-2026-06/breakfast-casserole.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "lemon-pepper-wings",
+      "title": "Lemon Pepper Wings",
+      "cuisine": "american",
+      "category": "Family Dinner",
+      "image": "images/recipes/audit-2026-06/lemon-pepper-wings.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "baked-pork-chops",
+      "title": "Juicy Baked Pork Chops",
+      "cuisine": "southern",
+      "category": "Family Dinner",
+      "image": "images/recipes/audit-2026-06/baked-pork-chops.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "loaded-baked-potato-soup",
+      "title": "Loaded Baked Potato Soup",
+      "cuisine": "american",
+      "category": "Soups",
+      "image": "images/recipes/audit-2026-06/loaded-baked-potato-soup.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "shrimp-fried-rice",
+      "title": "Shrimp Fried Rice",
+      "cuisine": "asian",
+      "category": "Global Dishes",
+      "image": "images/recipes/audit-2026-06/shrimp-fried-rice.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "beef-tacos",
+      "title": "Weeknight Beef Tacos",
+      "cuisine": "mexican",
+      "category": "Global Dishes",
+      "image": "images/recipes/audit-2026-06/beef-tacos.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "chicken-quesadillas",
+      "title": "Chicken Quesadillas",
+      "cuisine": "mexican",
+      "category": "Family Dinner",
+      "image": "images/recipes/audit-2026-06/chicken-quesadillas.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "vegetable-stir-fry",
+      "title": "Colorful Vegetable Stir-Fry",
+      "cuisine": "asian",
+      "category": "Global Dishes",
+      "image": "images/recipes/audit-2026-06/vegetable-stir-fry.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "pan-trout-fish-sandwich",
+      "title": "Pan Trout Fish Sandwich",
+      "cuisine": "mississippi-favorites",
+      "category": "Fish Fry & River Foods",
+      "image": "images/regional/mississippi/pan-trout-sandwich.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "whole-fried-catfish",
+      "title": "Whole Fried Catfish",
+      "cuisine": "mississippi-favorites",
+      "category": "Fish Fry & River Foods",
+      "image": "images/regional/mississippi/whole-fried-catfish.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "southern-pig-feet",
+      "title": "Slow-Simmered Pig Feet",
+      "cuisine": "mississippi-favorites",
+      "category": "Country Kitchen",
+      "image": "images/regional/mississippi/pig-feet.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "pickled-pig-feet",
+      "title": "Pickled Pig Feet",
+      "cuisine": "mississippi-favorites",
+      "category": "Country Kitchen",
+      "image": "images/regional/mississippi/pickled-pig-feet.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "neck-bones-and-rice",
+      "title": "Neck Bones and Rice",
+      "cuisine": "mississippi-favorites",
+      "category": "Country Kitchen",
+      "image": "images/regional/mississippi/neck-bones-rice.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "ham-hocks-and-beans",
+      "title": "Ham Hocks and Beans",
+      "cuisine": "mississippi-favorites",
+      "category": "Country Kitchen",
+      "image": "images/regional/mississippi/ham-hocks-beans.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "fried-fatback",
+      "title": "Crisp Fried Fatback",
+      "cuisine": "mississippi-favorites",
+      "category": "Country Kitchen",
+      "image": "images/regional/mississippi/fried-fatback.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "mississippi-smoked-sausage",
+      "title": "Skillet Smoked Sausage and Onions",
+      "cuisine": "mississippi-favorites",
+      "category": "Country Kitchen",
+      "image": "images/regional/mississippi/smoked-sausage.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "purple-hull-peas",
+      "title": "Purple Hull Peas",
+      "cuisine": "mississippi-favorites",
+      "category": "Country Kitchen",
+      "image": "images/regional/mississippi/purple-hull-peas.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "mustard-greens",
+      "title": "Mustard Greens with Pot Liquor",
+      "cuisine": "mississippi-favorites",
+      "category": "Country Kitchen",
+      "image": "images/regional/mississippi/mustard-greens.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "fried-okra",
+      "title": "Cornmeal Fried Okra",
+      "cuisine": "mississippi-favorites",
+      "category": "Country Kitchen",
+      "image": "images/regional/mississippi/fried-okra.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "baked-beans-ground-beef",
+      "title": "Baked Beans with Ground Beef",
+      "cuisine": "mississippi-favorites",
+      "category": "Cookouts & Church Events",
+      "image": "images/regional/mississippi/beef-baked-beans.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "baked-beans-beef-bacon",
+      "title": "Baked Beans with Beef and Bacon",
+      "cuisine": "mississippi-favorites",
+      "category": "Cookouts & Church Events",
+      "image": "images/regional/mississippi/beef-bacon-baked-beans.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "mississippi-mud-pie",
+      "title": "Mississippi Mud Pie",
+      "cuisine": "mississippi-favorites",
+      "category": "Mississippi Desserts",
+      "image": "images/regional/mississippi/mud-pie.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "mississippi-mud-cake",
+      "title": "Mississippi Mud Cake",
+      "cuisine": "mississippi-favorites",
+      "category": "Mississippi Desserts",
+      "image": "images/regional/mississippi/mud-cake.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "southern-tea-cakes",
+      "title": "Southern Tea Cakes",
+      "cuisine": "mississippi-favorites",
+      "category": "Mississippi Desserts",
+      "image": "images/regional/mississippi/tea-cakes.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "sweet-potato-pie",
+      "title": "Southern Sweet Potato Pie",
+      "cuisine": "mississippi-favorites",
+      "category": "Mississippi Desserts",
+      "image": "images/regional/mississippi/sweet-potato-pie.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "blackberry-cobbler",
+      "title": "Blackberry Cobbler",
+      "cuisine": "mississippi-favorites",
+      "category": "Mississippi Desserts",
+      "image": "images/regional/mississippi/blackberry-cobbler.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "fried-chicken-box",
+      "title": "Mississippi Fried Chicken Box",
+      "cuisine": "mississippi-favorites",
+      "category": "Gas Station & Corner Store",
+      "image": "images/regional/mississippi/fried-chicken-box.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "chicken-on-a-stick",
+      "title": "Chicken on a Stick",
+      "cuisine": "mississippi-favorites",
+      "category": "Gas Station & Corner Store",
+      "image": "images/regional/mississippi/chicken-on-a-stick.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "sausage-dogs",
+      "title": "Smoked Sausage Dogs",
+      "cuisine": "mississippi-favorites",
+      "category": "Gas Station & Corner Store",
+      "image": "images/regional/mississippi/sausage-dogs.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "fried-bologna-sandwich",
+      "title": "Fried Bologna Sandwich",
+      "cuisine": "mississippi-favorites",
+      "category": "Gas Station & Corner Store",
+      "image": "images/regional/mississippi/bologna-sandwich.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "cracklins",
+      "title": "Pork Cracklins",
+      "cuisine": "mississippi-favorites",
+      "category": "Gas Station & Corner Store",
+      "image": "images/regional/mississippi/cracklins.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "pork-skins",
+      "title": "Homemade Pork Skins",
+      "cuisine": "mississippi-favorites",
+      "category": "Gas Station & Corner Store",
+      "image": "images/regional/mississippi/pork-skins.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "homemade-moon-pies",
+      "title": "Homemade Moon Pies",
+      "cuisine": "mississippi-favorites",
+      "category": "Gas Station & Corner Store",
+      "image": "images/regional/mississippi/moon-pies.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "kool-aid-pickles",
+      "title": "Kool-Aid Pickles",
+      "cuisine": "mississippi-favorites",
+      "category": "Gas Station & Corner Store",
+      "image": "images/regional/mississippi/kool-aid-pickles.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "hot-sausage-sandwich",
+      "title": "Hot Sausage Sandwich",
+      "cuisine": "mississippi-favorites",
+      "category": "Gas Station & Corner Store",
+      "image": "images/regional/mississippi/hot-sausage-sandwich.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "delta-hot-tamales",
+      "title": "Mississippi Delta Hot Tamales",
+      "cuisine": "mississippi-favorites",
+      "category": "Gas Station & Corner Store",
+      "image": "images/regional/mississippi/delta-tamales.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "senegalese-thieboudienne",
+      "title": "Senegalese Thieboudienne",
+      "cuisine": "senegal",
+      "category": "Family Meals",
+      "image": "images/cuisines/africa/senegal/thieboudienne.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "senegalese-chicken-yassa",
+      "title": "Senegalese Chicken Yassa",
+      "cuisine": "senegal",
+      "category": "Family Meals",
+      "image": "images/cuisines/africa/senegal/chicken-yassa.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "senegalese-maafe",
+      "title": "Senegalese Maafe",
+      "cuisine": "senegal",
+      "category": "Family Meals",
+      "image": "images/cuisines/africa/senegal/maafe.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "senegalese-pastels",
+      "title": "Senegalese Fish Pastels",
+      "cuisine": "senegal",
+      "category": "Street Foods",
+      "image": "images/cuisines/africa/senegal/pastels.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "ivorian-attieke-fish",
+      "title": "Attiéké with Grilled Fish",
+      "cuisine": "ivory-coast",
+      "category": "Family Meals",
+      "image": "images/cuisines/africa/ivory-coast/attieke-grilled-fish.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "ivorian-kedjenou",
+      "title": "Ivorian Chicken Kedjenou",
+      "cuisine": "ivory-coast",
+      "category": "Family Meals",
+      "image": "images/cuisines/africa/ivory-coast/kedjenou.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "ivorian-aloco",
+      "title": "Ivorian Aloco",
+      "cuisine": "ivory-coast",
+      "category": "Street Foods",
+      "image": "images/cuisines/africa/ivory-coast/aloco.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "ivorian-foutou-sauce-graine",
+      "title": "Foutou with Sauce Graine",
+      "cuisine": "ivory-coast",
+      "category": "Celebration Foods",
+      "image": "images/cuisines/africa/ivory-coast/foutou-sauce-graine.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "kenyan-nyama-choma",
+      "title": "Kenyan Nyama Choma",
+      "cuisine": "kenya",
+      "category": "Celebration Foods",
+      "image": "images/cuisines/africa/kenya/nyama-choma.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "kenyan-sukuma-wiki",
+      "title": "Kenyan Sukuma Wiki",
+      "cuisine": "kenya",
+      "category": "Family Meals",
+      "image": "images/cuisines/africa/kenya/sukuma-wiki.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "kenyan-beef-pilau",
+      "title": "Kenyan Beef Pilau",
+      "cuisine": "kenya",
+      "category": "Celebration Foods",
+      "image": "images/cuisines/africa/kenya/beef-pilau.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "kenyan-mandazi",
+      "title": "Kenyan Mandazi",
+      "cuisine": "kenya",
+      "category": "Street Foods",
+      "image": "images/cuisines/africa/kenya/mandazi.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "tanzanian-mishkaki",
+      "title": "Tanzanian Mishkaki",
+      "cuisine": "tanzania",
+      "category": "Street Foods",
+      "image": "images/cuisines/africa/tanzania/mishkaki.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "tanzanian-coconut-fish-curry",
+      "title": "Tanzanian Coconut Fish Curry",
+      "cuisine": "tanzania",
+      "category": "Family Meals",
+      "image": "images/cuisines/africa/tanzania/coconut-fish-curry.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "tanzanian-chipsi-mayai",
+      "title": "Tanzanian Chipsi Mayai",
+      "cuisine": "tanzania",
+      "category": "Street Foods",
+      "image": "images/cuisines/africa/tanzania/chipsi-mayai.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "tanzanian-vitumbua",
+      "title": "Tanzanian Vitumbua",
+      "cuisine": "tanzania",
+      "category": "Street Foods",
+      "image": "images/cuisines/africa/tanzania/vitumbua.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "south-african-bobotie",
+      "title": "South African Bobotie",
+      "cuisine": "south-africa",
+      "category": "Family Meals",
+      "image": "images/cuisines/africa/south-africa/bobotie.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "south-african-bunny-chow",
+      "title": "Durban Bunny Chow",
+      "cuisine": "south-africa",
+      "category": "Street Foods",
+      "image": "images/cuisines/africa/south-africa/bunny-chow.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "south-african-chakalaka-pap",
+      "title": "Chakalaka with Pap",
+      "cuisine": "south-africa",
+      "category": "Family Meals",
+      "image": "images/cuisines/africa/south-africa/chakalaka-pap.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "south-african-koeksisters",
+      "title": "South African Koeksisters",
+      "cuisine": "south-africa",
+      "category": "Celebration Foods",
+      "image": "images/cuisines/africa/south-africa/koeksisters.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "zimbabwean-sadza-beef-stew",
+      "title": "Sadza with Beef Stew",
+      "cuisine": "zimbabwe",
+      "category": "Family Meals",
+      "image": "images/cuisines/africa/zimbabwe/sadza-beef-stew.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "zimbabwean-muriwo-unedovi",
+      "title": "Muriwo Unedovi",
+      "cuisine": "zimbabwe",
+      "category": "Family Meals",
+      "image": "images/cuisines/africa/zimbabwe/muriwo-unedovi.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "zimbabwean-peanut-butter-rice",
+      "title": "Zimbabwean Peanut Butter Rice",
+      "cuisine": "zimbabwe",
+      "category": "Family Meals",
+      "image": "images/cuisines/africa/zimbabwe/peanut-butter-rice.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "zimbabwean-mapopo-candy",
+      "title": "Zimbabwean Mapopo Candy",
+      "cuisine": "zimbabwe",
+      "category": "Celebration Foods",
+      "image": "images/cuisines/africa/zimbabwe/mapopo-candy.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "egyptian-koshari",
+      "title": "Egyptian Koshari",
+      "cuisine": "egypt",
+      "category": "Street Foods",
+      "image": "images/cuisines/africa/egypt/koshari.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "egyptian-ful-medames",
+      "title": "Egyptian Ful Medames",
+      "cuisine": "egypt",
+      "category": "Family Meals",
+      "image": "images/cuisines/africa/egypt/ful-medames.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "egyptian-molokhia",
+      "title": "Egyptian Molokhia",
+      "cuisine": "egypt",
+      "category": "Family Meals",
+      "image": "images/cuisines/africa/egypt/molokhia.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "egyptian-basbousa",
+      "title": "Egyptian Basbousa",
+      "cuisine": "egypt",
+      "category": "Celebration Foods",
+      "image": "images/cuisines/africa/egypt/basbousa.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "tunisian-brik",
+      "title": "Tunisian Brik",
+      "cuisine": "tunisia",
+      "category": "Street Foods",
+      "image": "images/cuisines/africa/tunisia/brik.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "tunisian-lablabi",
+      "title": "Tunisian Lablabi",
+      "cuisine": "tunisia",
+      "category": "Street Foods",
+      "image": "images/cuisines/africa/tunisia/lablabi.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "tunisian-lamb-couscous",
+      "title": "Tunisian Lamb Couscous",
+      "cuisine": "tunisia",
+      "category": "Celebration Foods",
+      "image": "images/cuisines/africa/tunisia/lamb-couscous.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "tunisian-ojja-merguez",
+      "title": "Tunisian Ojja with Merguez",
+      "cuisine": "tunisia",
+      "category": "Family Meals",
+      "image": "images/cuisines/africa/tunisia/ojja-merguez.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "charcuterie-cups",
+      "title": "Charcuterie Cups",
+      "cuisine": "hosting",
+      "category": "Party Cups",
+      "image": "images/recipes/audit-2026-06/charcuterie-cups.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "fruit-cups",
+      "title": "Fruit Cups",
+      "cuisine": "hosting",
+      "category": "Party Cups",
+      "image": "images/recipes/audit-2026-06/fruit-cups.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "dessert-cups",
+      "title": "Dessert Cups",
+      "cuisine": "hosting",
+      "category": "Party Cups",
+      "image": "images/recipes/audit-2026-06/dessert-cups.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "brunch-cups",
+      "title": "Brunch Cups",
+      "cuisine": "hosting",
+      "category": "Party Cups",
+      "image": "images/recipes/audit-2026-06/brunch-cups.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "tailgate-cups",
+      "title": "Tailgate Cups",
+      "cuisine": "hosting",
+      "category": "Party Cups",
+      "image": "images/recipes/audit-2026-06/tailgate-cups.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "holiday-cups",
+      "title": "Holiday Cups",
+      "cuisine": "hosting",
+      "category": "Party Cups",
+      "image": "images/recipes/audit-2026-06/holiday-cups.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    }
+  ]
+}
