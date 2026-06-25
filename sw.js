@@ -1,4 +1,4 @@
-const CACHE_NAME = "lets-cook-midwest-regions-v22";
+const CACHE_NAME = "lets-cook-route-scroll-v23";
 
 const OFFLINE_ASSETS = [
   "./",

@@ -5002,11 +5002,17 @@ nav.addEventListener("click", () => {
   menuToggle.setAttribute("aria-expanded", "false");
 });
 
+function scrollToRouteTop(behavior = "auto") {
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, left: 0, behavior });
+    });
+  });
+}
+
 window.addEventListener("hashchange", () => {
   render();
-  if (window.location.hash.startsWith("#recipes/")) {
-    requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: "auto" }));
-  }
+  scrollToRouteTop("smooth");
 });
 document.addEventListener("click", handleClick);
 document.addEventListener("submit", handleSubmit);
@@ -5059,7 +5065,6 @@ function render() {
   if (route === "recipes") {
     if (!id) return renderRecipes();
     renderRecipe(id);
-    requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: "auto" }));
     return;
   }
   if (route === "paths") return id ? renderPath(id) : renderPaths();
@@ -9386,7 +9391,5 @@ function accountAvatar(user = {}, className = "profile-avatar") {
 
 Promise.all([loadRecipeDatabase(), loadLetsCookState()]).finally(() => {
   render();
-  if (window.location.hash.startsWith("#recipes/")) {
-    requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: "auto" }));
-  }
+  scrollToRouteTop("auto");
 });
