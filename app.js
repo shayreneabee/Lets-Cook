@@ -668,10 +668,10 @@ const learningLevels = [
 const cuisineExplorerGroups = [
   {
     id: "african-cuisines",
-    title: "African Cuisines",
-    image: photoFor("cuisines", "global"),
-    note: "Stews, grains, spice blends, grilled meats, vegetables, fermented foods, and regional hospitality.",
-    regions: ["Nigeria", "Ghana", "Ethiopia", "Senegal", "Morocco", "South Africa", "Kenya", "East Africa", "West Africa", "North Africa"]
+    title: "Africa Cuisine Hub",
+    image: "images/cuisines/africa/nigeria/jollof-rice.jpg",
+    note: "Explore distinct country foodways across West, East, Southern, and North Africa through real dishes, ingredients, traditions, street foods, and celebration tables.",
+    regions: ["Nigeria", "Ghana", "Senegal", "Ivory Coast", "Ethiopia", "Kenya", "Tanzania", "South Africa", "Zimbabwe", "Morocco", "Egypt", "Tunisia"]
   },
   {
     id: "asian-cuisines",
@@ -830,6 +830,180 @@ const countryCuisineProfiles = {
     beginnerRecipes: ["Southern Fried Chicken", "Shrimp and Grits with Green Beans", "Creamy Stone-Ground Grits", "Collard Greens", "Black-Eyed Peas", "Cornbread"]
   }
 };
+
+const africaCountryPages = {
+  nigeria: {
+    country: "Nigeria",
+    region: "West Africa",
+    image: "images/cuisines/africa/nigeria/jollof-rice.jpg",
+    overview: "Nigerian food is not one single cuisine. Yoruba, Igbo, Hausa, Efik, Edo, Delta, and many other food traditions shape a table known for layered pepper bases, soups, rice dishes, beans, grilled meats, seafood, and swallow foods.",
+    traditions: "Family meals often pair a soup or stew with rice, yam, plantain, beans, or a swallow. Party food is its own language: jollof, fried rice, moi moi, grilled meat, and drinks served generously.",
+    ingredients: ["Scotch bonnet", "red bell pepper", "tomato", "palm oil", "egusi", "crayfish", "black-eyed peas", "plantain", "yam"],
+    recipeIds: ["nigerian-jollof-rice", "nigerian-egusi-soup", "nigerian-suya-skewers", "nigerian-moi-moi"],
+    familyMeals: ["Jollof rice with chicken and plantain", "Egusi soup with pounded yam", "Beans and plantain", "Pepper soup with boiled yam"],
+    celebrationFoods: ["Party jollof", "Nigerian fried rice", "Moi moi", "Small chops"],
+    streetFoods: ["Suya", "Puff puff", "Akara", "Roasted corn and pear"],
+    holidayFoods: ["Christmas rice dishes", "Eid suya and grilled meats", "New Year family stews", "Wedding party rice"]
+  },
+  ghana: {
+    country: "Ghana",
+    region: "West Africa",
+    image: "images/cuisines/africa/ghana/waakye.jpg",
+    overview: "Ghanaian cooking moves between coastal fish, forest crops, northern grains, soups, stews, rice, fermented corn and cassava doughs, plantains, beans, and powerful condiments such as shito.",
+    traditions: "Meals are built around a starch and a soup, stew, or sauce. Waakye sellers, chop bars, family kitchens, and celebration tables each have recognizable combinations and accompaniments.",
+    ingredients: ["cowpeas", "rice", "plantain", "cassava", "corn", "groundnuts", "palm oil", "smoked fish", "Scotch bonnet"],
+    recipeIds: ["ghanaian-waakye", "ghanaian-red-red", "ghanaian-kelewele", "ghanaian-groundnut-soup"],
+    familyMeals: ["Groundnut soup with rice balls", "Red red with fried plantain", "Banku with pepper and fish", "Light soup with fufu"],
+    celebrationFoods: ["Ghanaian jollof", "Waakye spread", "Fried rice and chicken", "Kelewele trays"],
+    streetFoods: ["Kelewele", "Waakye", "Chichinga", "Roasted plantain and groundnuts"],
+    holidayFoods: ["Christmas jollof and chicken", "Easter family soups", "Eid rice and grilled meat", "Festival yam dishes"]
+  },
+  senegal: {
+    country: "Senegal",
+    region: "West Africa",
+    image: "images/cuisines/africa/senegal/thieboudienne.jpg",
+    overview: "Senegalese cuisine is grounded in rice, fish, millet, peanuts, vegetables, tamarind, hibiscus, and careful one-pot cooking. Hospitality is expressed through generous shared bowls.",
+    traditions: "The communal bowl matters. Rice is arranged with fish, meat, vegetables, and sauce so diners share the same meal while respecting the portions nearest them.",
+    ingredients: ["broken rice", "fish", "peanuts", "millet", "tamarind", "hibiscus", "onion", "cassava", "Scotch bonnet"],
+    recipeIds: ["senegalese-thieboudienne", "senegalese-chicken-yassa", "senegalese-maafe", "senegalese-pastels"],
+    familyMeals: ["Thieboudienne", "Yassa chicken with rice", "Maafe with rice", "Cebbu yapp"],
+    celebrationFoods: ["Large thieboudienne bowls", "Yassa for gatherings", "Lakh millet porridge", "Sweet thiakry"],
+    streetFoods: ["Pastels", "Fataya", "Grilled meat sandwiches", "Roasted peanuts"],
+    holidayFoods: ["Eid lamb dishes", "Korité family rice", "Tamkharit thiéré", "Baptism and wedding platters"]
+  },
+  "ivory-coast": {
+    country: "Côte d'Ivoire (Ivory Coast)",
+    region: "West Africa",
+    image: "images/cuisines/africa/ivory-coast/attieke-grilled-fish.jpg",
+    overview: "Ivorian cuisine centers cassava, plantain, rice, yams, peanuts, palm fruit, grilled fish and meat, deeply seasoned stews, and bright pepper-onion accompaniments.",
+    traditions: "Attiéké is both everyday staple and cultural marker. Family meals often place a starch beside grilled protein or a sauce, while maquis restaurants make grilled food and convivial dining central.",
+    ingredients: ["attiéké", "plantain", "cassava", "palm nuts", "peanuts", "okra", "fish", "chicken", "hot pepper"],
+    recipeIds: ["ivorian-attieke-fish", "ivorian-kedjenou", "ivorian-aloco", "ivorian-foutou-sauce-graine"],
+    familyMeals: ["Kedjenou with attiéké", "Foutou with sauce graine", "Rice with peanut sauce", "Grilled fish with attiéké"],
+    celebrationFoods: ["Braised chicken platters", "Attiéké and grilled fish", "Foutou with rich sauces", "Alloco party trays"],
+    streetFoods: ["Garba", "Alloco", "Brochettes", "Grilled fish"],
+    holidayFoods: ["Eid grilled meat", "Christmas chicken and attiéké", "Wedding foutou", "Festival yam dishes"]
+  },
+  ethiopia: {
+    country: "Ethiopia",
+    region: "East Africa",
+    image: "images/cuisines/africa/ethiopia/doro-wat.jpg",
+    overview: "Ethiopian food is built around fermented injera, slow-cooked wats, mild alichas, legumes, greens, seared meats, berbere, and spiced clarified butter. Many meals are shared from one platter.",
+    traditions: "Eating from a shared injera-lined platter expresses hospitality and connection. Orthodox fasting traditions also support a broad and sophisticated plant-based repertoire.",
+    ingredients: ["teff", "berbere", "niter kibbeh", "lentils", "chickpea flour", "collard greens", "onion", "garlic", "ginger"],
+    recipeIds: ["ethiopian-doro-wat", "ethiopian-misir-wat", "ethiopian-tibs", "ethiopian-injera"],
+    familyMeals: ["Injera with mixed wats", "Tibs with vegetables", "Shiro with injera", "Kik alicha and gomen"],
+    celebrationFoods: ["Doro wat with eggs", "Kitfo", "Special tibs", "Coffee ceremony foods"],
+    streetFoods: ["Sambusa", "Roasted barley", "Chechebsa", "Fresh bread snacks"],
+    holidayFoods: ["Doro wat for holidays", "Genfo for family occasions", "Fasting platters", "Meskel celebration foods"]
+  },
+  kenya: {
+    country: "Kenya",
+    region: "East Africa",
+    image: "images/cuisines/africa/kenya/nyama-choma.jpg",
+    overview: "Kenyan food reflects many communities and landscapes, including maize staples, greens, beans, grilled meat, coastal coconut dishes, Indian Ocean spices, tea, and rice dishes such as pilau.",
+    traditions: "Ugali with vegetables or stew is everyday comfort, while nyama choma is tied to social gatherings. Coastal kitchens bring coconut, cardamom, cloves, and seafood into the national table.",
+    ingredients: ["maize meal", "collard greens", "beans", "goat", "beef", "coconut milk", "cardamom", "tomato", "chai spices"],
+    recipeIds: ["kenyan-nyama-choma", "kenyan-sukuma-wiki", "kenyan-beef-pilau", "kenyan-mandazi"],
+    familyMeals: ["Ugali with sukuma wiki", "Githeri", "Beef stew with chapati", "Coastal coconut fish"],
+    celebrationFoods: ["Nyama choma", "Pilau", "Chapati", "Chicken stew"],
+    streetFoods: ["Mutura", "Mandazi", "Roasted maize", "Samosas"],
+    holidayFoods: ["Christmas pilau", "Eid coastal biryani", "Wedding chapati", "Family nyama choma"]
+  },
+  tanzania: {
+    country: "Tanzania",
+    region: "East Africa",
+    image: "images/cuisines/africa/tanzania/mishkaki.jpg",
+    overview: "Tanzanian cuisine combines mainland staples such as ugali, beans, greens, grilled meat, and plantains with Swahili Coast coconut, seafood, rice, and spice traditions.",
+    traditions: "Meals often pair a starch with beans, greens, fish, or meat. Coastal celebrations lean into pilau, biryani, coconut sauces, and fragrant spice.",
+    ingredients: ["maize meal", "coconut milk", "rice", "cassava", "plantain", "beef", "fish", "cardamom", "cloves"],
+    recipeIds: ["tanzanian-mishkaki", "tanzanian-coconut-fish-curry", "tanzanian-chipsi-mayai", "tanzanian-vitumbua"],
+    familyMeals: ["Ugali with beans and greens", "Coconut fish curry with rice", "Pilau", "Plantain stew"],
+    celebrationFoods: ["Swahili pilau", "Biryani", "Mishkaki platters", "Coconut rice"],
+    streetFoods: ["Mishkaki", "Chipsi mayai", "Vitumbua", "Zanzibar pizza"],
+    holidayFoods: ["Eid pilau and biryani", "Christmas roast meat", "Wedding rice dishes", "Ramadan snacks"]
+  },
+  "south-africa": {
+    country: "South Africa",
+    region: "Southern Africa",
+    image: "images/cuisines/africa/south-africa/bobotie.jpg",
+    overview: "South African cuisine reflects Indigenous, Cape Malay, Indian, Dutch, British, and many regional foodways through braais, stews, maize dishes, curries, baked dishes, relishes, and sweets.",
+    traditions: "The braai is food and social ritual. Durban carries a major Indian South African food identity, while Cape kitchens preserve spiced dishes and baked sweets with long histories.",
+    ingredients: ["maize meal", "beef", "lamb", "curry spices", "apricot", "beans", "tomato", "chile", "dried fruit"],
+    recipeIds: ["south-african-bobotie", "south-african-bunny-chow", "south-african-chakalaka-pap", "south-african-koeksisters"],
+    familyMeals: ["Bobotie with yellow rice", "Pap and stew", "Chicken curry", "Potjiekos"],
+    celebrationFoods: ["Braai platters", "Potjiekos", "Cape Malay curries", "Malva pudding"],
+    streetFoods: ["Bunny chow", "Boerewors rolls", "Vetkoek", "Gatsby sandwiches"],
+    holidayFoods: ["Christmas braai", "Pickled fish at Easter", "Diwali sweets and curries", "Heritage Day braai"]
+  },
+  zimbabwe: {
+    country: "Zimbabwe",
+    region: "Southern Africa",
+    image: "images/cuisines/africa/zimbabwe/sadza-beef-stew.jpg",
+    overview: "Zimbabwean home cooking centers sadza, leafy vegetables, beans, peanuts, beef or chicken stews, pumpkin, maize, and practical meals built for family tables.",
+    traditions: "Sadza anchors the plate and is eaten with relish, greens, beans, or meat. Groundnuts enrich vegetables, rice, porridge, and sauces.",
+    ingredients: ["maize meal", "groundnuts", "leafy greens", "beef", "chicken", "pumpkin", "beans", "tomato", "papaya"],
+    recipeIds: ["zimbabwean-sadza-beef-stew", "zimbabwean-muriwo-unedovi", "zimbabwean-peanut-butter-rice", "zimbabwean-mapopo-candy"],
+    familyMeals: ["Sadza with beef stew", "Muriwo unedovi", "Beans and pumpkin", "Chicken stew"],
+    celebrationFoods: ["Roadrunner chicken", "Rice with peanut butter", "Grilled meat", "Large sadza plates"],
+    streetFoods: ["Roasted maize", "Maputi", "Meat pies", "Mazondo"],
+    holidayFoods: ["Christmas rice and chicken", "Wedding sadza platters", "Family goat stew", "Mapopo sweets"]
+  },
+  morocco: {
+    country: "Morocco",
+    region: "North Africa",
+    image: "images/cuisines/africa/morocco/chicken-tagine.jpg",
+    overview: "Moroccan cuisine layers Amazigh, Arab, Andalusian, African, Mediterranean, and Jewish Moroccan foodways through tagines, couscous, bread, preserved lemon, olives, herbs, tea, and warm spices.",
+    traditions: "Bread accompanies most meals, Friday couscous carries family meaning, and mint tea is central to hospitality. Tagines build tenderness through gentle covered cooking.",
+    ingredients: ["couscous", "preserved lemon", "olives", "saffron", "cumin", "ginger", "cinnamon", "chickpeas", "mint"],
+    recipeIds: ["moroccan-chicken-tagine", "moroccan-couscous-vegetables", "moroccan-harira", "moroccan-chermoula-fish"],
+    familyMeals: ["Friday couscous", "Chicken tagine", "Harira with bread", "Kefta tagine"],
+    celebrationFoods: ["Pastilla", "Mechoui", "Seven-vegetable couscous", "Sweet briouats"],
+    streetFoods: ["Msemen", "Bessara", "Grilled sardines", "Snail soup"],
+    holidayFoods: ["Ramadan harira", "Eid lamb dishes", "Wedding pastilla", "Friday couscous"]
+  },
+  egypt: {
+    country: "Egypt",
+    region: "North Africa",
+    image: "images/cuisines/africa/egypt/koshari.jpg",
+    overview: "Egyptian food is shaped by the Nile, ancient grain and legume traditions, urban street food, home-cooked vegetables, flatbreads, rice, lentils, fava beans, and festive sweets.",
+    traditions: "Ful and ta'ameya are everyday anchors, while koshari represents the energy of city food. Family tables often include bread, pickles, salads, rice, and vegetable stews.",
+    ingredients: ["fava beans", "lentils", "rice", "pasta", "baladi bread", "molokhia", "cumin", "garlic", "sesame"],
+    recipeIds: ["egyptian-koshari", "egyptian-ful-medames", "egyptian-molokhia", "egyptian-basbousa"],
+    familyMeals: ["Molokhia with rice and chicken", "Mahshi", "Ful with bread", "Kofta and rice"],
+    celebrationFoods: ["Fattah", "Stuffed pigeon", "Mahshi platters", "Basbousa"],
+    streetFoods: ["Koshari", "Ful", "Ta'ameya", "Hawawshi"],
+    holidayFoods: ["Eid fattah", "Ramadan soups and sweets", "Sham el-Nessim foods", "Christmas kahk"]
+  },
+  tunisia: {
+    country: "Tunisia",
+    region: "North Africa",
+    image: "images/cuisines/africa/tunisia/brik.jpg",
+    overview: "Tunisian cuisine is known for harissa, olive oil, seafood, couscous, chickpeas, tomatoes, peppers, eggs, preserved foods, and bold heat balanced with citrus.",
+    traditions: "Bread, salads, olives, and harissa often begin the meal. Couscous varies by region and occasion, while chickpea dishes and filled pastries remain everyday favorites.",
+    ingredients: ["harissa", "olive oil", "couscous", "chickpeas", "tomato", "pepper", "tuna", "egg", "merguez"],
+    recipeIds: ["tunisian-brik", "tunisian-lablabi", "tunisian-lamb-couscous", "tunisian-ojja-merguez"],
+    familyMeals: ["Couscous with lamb", "Ojja", "Lablabi", "Fish with charmoula"],
+    celebrationFoods: ["Holiday couscous", "Stuffed vegetables", "Assidat zgougou", "Makroudh"],
+    streetFoods: ["Brik", "Lablabi", "Fricassé", "Mlawi"],
+    holidayFoods: ["Ramadan brik", "Eid couscous", "Mawlid assidat zgougou", "Wedding sweets"]
+  }
+};
+
+Object.entries(africaCountryPages).forEach(([id, page]) => {
+  countryCuisineProfiles[id] = {
+    title: page.country,
+    region: page.region,
+    cuisine: id,
+    overview: page.overview,
+    culture: page.traditions,
+    ingredients: page.ingredients,
+    dishes: [...page.familyMeals, ...page.streetFoods].slice(0, 7),
+    techniques: ["building regional flavor bases", "cooking staple grains and starches", "balancing spice and heat", "serving family-style"],
+    menu: page.familyMeals,
+    beginnerRecipes: page.recipeIds
+  };
+});
 
 const foodEncyclopedia = [
   {
@@ -2622,8 +2796,139 @@ const kidsKornerRecipes = [
   featured: false
 }));
 
+function expansionRecipe(id, title, category, image, prep, cook, servings, level, description, ingredients, steps, tags, extras = {}) {
+  const safeImage = {
+    "assets/brunch.jpg": "assets/ingredients.jpeg",
+    "assets/birrira_tacos.jpg": "assets/lc-birria-tacos.jpg",
+    "assets/mexican-food.jpeg": "assets/lc-birria-tacos.jpg",
+    "assets/southern-food.jpeg": "assets/lc-fried-chicken.jpg",
+    "assets/soups.jpeg": "assets/ingredients.jpeg",
+    "assets/Asian Food.jpg": "assets/lc-fried-rice.jpg"
+  }[image] || image;
+  return {
+    id, title, slug: id, category, image: safeImage, image_url: safeImage,
+    cuisine: extras.cuisine || "american",
+    prep_time: prep, prepTime: prep, cook_time: cook, cookTime: cook,
+    time: cook === "0 min" ? prep : cook,
+    skill_level: extras.skillLevel || level,
+    difficulty: level, level, servings,
+    description, ingredients, directions: steps, instructions: steps, steps,
+    tags, path: extras.path || "amateur-cooks",
+    source: { type: "original", name: "Let's Cook Y'all test kitchen" },
+    storage: extras.storage || "Refrigerate leftovers within 2 hours and use within 3 days.",
+    reheating: extras.reheating || "Reheat until steaming hot throughout.",
+    helperNote: extras.helperNote || "",
+    kidsKorner: Boolean(extras.kidsKorner),
+    ageTrack: extras.ageTrack || "",
+    cultural_variations: [],
+    featured: false
+  };
+}
+
+const kidsExpansionRecipes = [
+  expansionRecipe("cheese-quesadilla-triangles", "Cheese Quesadilla Triangles", "Easy Bites", "assets/american-food.jpeg", "5 min", "8 min", 2, "Kid Friendly", "Crisp tortilla triangles with melted cheese teach spreading, folding, and safe skillet awareness.", ["2 flour tortillas", "1 cup shredded cheddar or Monterey Jack", "1 tsp butter", "1/4 cup mild salsa"], ["Sprinkle cheese over one tortilla and cover with the second tortilla.", "Ask a grown-up to melt butter in a skillet over medium-low heat.", "Cook 3 to 4 minutes per side until golden and melted.", "Rest 2 minutes, then let a grown-up cut into triangles.", "Serve with mild salsa."], ["quesadilla", "lunch", "kid-friendly"], { kidsKorner: true, ageTrack: "6-8 Kitchen Explorers", path: "kid-chefs", helperNote: "Kids can measure cheese and assemble. A grown-up handles the hot skillet and knife.", storage: "Chill for up to 2 days; reheat in a dry skillet or toaster oven." }),
+  expansionRecipe("english-muffin-pizzas", "English Muffin Pizzas", "Fun Food", "assets/american-food.jpeg", "10 min", "10 min", 4, "Kid Friendly", "Personal pizzas make it easy to practice measuring sauce and choosing balanced toppings.", ["2 English muffins, split", "1/2 cup pizza sauce", "1 cup shredded mozzarella", "1/2 cup chopped bell pepper", "2 tbsp sliced olives"], ["Heat oven to 400 F with a grown-up.", "Put muffin halves cut-side up on a lined pan.", "Spread 2 tablespoons sauce on each half.", "Top with cheese and vegetables.", "Bake 8 to 10 minutes and cool for 3 minutes."], ["pizza", "oven", "vegetables"], { kidsKorner: true, ageTrack: "6-8 Kitchen Explorers", path: "kid-chefs", helperNote: "Kids build the pizzas. A grown-up moves the pan in and out of the oven." }),
+  expansionRecipe("no-bake-cereal-bars", "No-Bake Cereal Bars", "Sweet Treats", "assets/lc-desserts.jpg", "12 min", "0 min", 12, "Kid Friendly", "Chewy cereal bars teach measuring, stirring, pressing, and patient chilling.", ["3 cups oat cereal", "1 cup quick oats", "1/2 cup sunflower butter", "1/3 cup honey", "1/2 tsp cinnamon", "1/3 cup raisins"], ["Line an 8-inch pan with parchment.", "Stir cereal, oats, cinnamon, and raisins together.", "Warm sunflower butter and honey for 20 seconds with adult help.", "Mix wet and dry ingredients, then press firmly into the pan.", "Chill 1 hour before a grown-up cuts the bars."], ["no-bake", "snack", "allergy-aware"], { kidsKorner: true, ageTrack: "6-8 Kitchen Explorers", path: "kid-chefs", helperNote: "Check seed and honey allergies. Children under age 1 should never eat honey.", storage: "Keep covered in the refrigerator for up to 5 days." }),
+  expansionRecipe("trail-mix-jars", "Trail Mix Jars", "Healthy Heroes", "assets/ingredients.jpeg", "10 min", "0 min", 6, "Kid Friendly", "Build-your-own snack jars practice scooping, counting, and allergy awareness.", ["2 cups whole-grain cereal", "1 cup pretzels", "1 cup dried cranberries", "1 cup banana chips", "1/2 cup pumpkin seeds", "1/2 cup mini chocolate chips"], ["Wash hands and set out six small containers.", "Measure every ingredient into separate bowls.", "Add equal scoops of each ingredient to each jar.", "Close and gently shake.", "Label jars with the date and allergy information."], ["no-cook", "snack", "measuring"], { kidsKorner: true, ageTrack: "3-5 Little Helpers", path: "kid-chefs", helperNote: "Use age-safe pieces and skip hard foods that may be a choking risk.", storage: "Store airtight at room temperature for up to 1 week." }),
+  expansionRecipe("breakfast-egg-cups", "Breakfast Egg Cups", "Easy Bites", "assets/brunch.jpg", "12 min", "18 min", 6, "Kid Friendly", "Mini egg cups are a simple breakfast lesson in whisking, portioning, and oven timing.", ["6 eggs", "1/4 cup milk", "1/2 cup shredded cheddar", "1/2 cup diced cooked vegetables", "1/4 tsp salt", "Pinch black pepper"], ["Heat oven to 350 F and grease six muffin cups.", "Crack eggs into a bowl with adult help.", "Whisk in milk, salt, and pepper.", "Divide vegetables and cheese among the cups, then add egg mixture.", "Bake 16 to 18 minutes until centers reach 160 F."], ["breakfast", "eggs", "oven"], { kidsKorner: true, ageTrack: "9-12 Rising Chefs", path: "kid-chefs", helperNote: "Kids can whisk and portion. A grown-up handles the oven and checks temperature.", storage: "Refrigerate for 3 days; microwave one cup for 30 to 45 seconds." }),
+  expansionRecipe("taco-cups", "Taco Cups", "Food Around The World", "assets/birrira_tacos.jpg", "15 min", "15 min", 8, "Kid Friendly", "Crunchy taco cups teach safe filling, portioning, and layering.", ["8 small flour tortillas", "1 cup cooked seasoned ground turkey or black beans", "1 cup shredded cheese", "1/2 cup corn", "1/2 cup mild salsa", "1 cup shredded lettuce"], ["Heat oven to 375 F.", "Press tortillas into eight muffin cups.", "Fill with cooked meat or beans, corn, and cheese.", "Bake 12 to 15 minutes until edges are crisp.", "Cool, then top with lettuce and salsa."], ["tacos", "assembly", "oven"], { kidsKorner: true, ageTrack: "9-12 Rising Chefs", path: "kid-chefs", cuisine: "mexican", helperNote: "Use only fully cooked filling. A grown-up handles the hot pan." }),
+  expansionRecipe("baked-chicken-tenders", "Baked Chicken Tenders", "Easy Bites", "assets/beautiful-chicken.jpeg", "15 min", "20 min", 4, "Kid Friendly", "Oven-crisp chicken teaches breading order and safe thermometer use without frying.", ["1 lb chicken tenders", "1/2 cup flour", "1 egg", "1 tbsp milk", "1 cup panko", "1 tsp paprika", "1/2 tsp garlic powder", "1/2 tsp salt"], ["Heat oven to 425 F and oil a wire rack over a sheet pan.", "Set flour, beaten egg with milk, and seasoned panko in separate bowls.", "With clean hands, coat chicken in flour, egg, then crumbs.", "Wash hands and sanitize the counter.", "Bake 18 to 20 minutes until chicken reaches 165 F."], ["chicken", "baking", "food-safety"], { kidsKorner: true, ageTrack: "9-12 Rising Chefs", path: "kid-chefs", helperNote: "A grown-up supervises raw chicken cleanup and checks 165 F.", storage: "Refrigerate 3 days; reheat at 375 F until crisp and hot." }),
+  expansionRecipe("sheet-pan-nachos", "Sheet Pan Nachos", "Fun Food", "assets/birrira_tacos.jpg", "10 min", "10 min", 6, "Kid Friendly", "A shareable snack that teaches even layering and portion planning.", ["8 oz tortilla chips", "1 can black beans, drained", "1 1/2 cups shredded cheese", "1 cup corn", "1/2 cup mild salsa", "1 avocado, diced"], ["Heat oven to 400 F.", "Spread chips in one layer on a sheet pan.", "Scatter beans, corn, and cheese evenly.", "Bake 8 to 10 minutes until cheese melts.", "Add salsa and avocado after the pan cools slightly."], ["nachos", "sharing", "oven"], { kidsKorner: true, ageTrack: "13+ Teen Cooks", path: "kid-chefs", cuisine: "mexican", helperNote: "Teens can manage the oven after adult approval; use mitts and a clear landing space." }),
+  expansionRecipe("simple-spaghetti", "Simple Spaghetti", "Food Around The World", "assets/pasta.jpeg", "10 min", "25 min", 4, "Kid Friendly", "A dependable tomato spaghetti for learning pasta timing, simmering, and seasoning.", ["8 oz spaghetti", "1 tbsp olive oil", "1 small onion, diced", "2 cloves garlic, minced", "1 can crushed tomatoes", "1 tsp Italian seasoning", "1/2 tsp salt"], ["Boil salted water with adult supervision.", "Cook spaghetti until al dente; reserve 1/2 cup pasta water and drain.", "Cook onion in oil for 5 minutes, then add garlic for 30 seconds.", "Add tomatoes, seasoning, and salt; simmer 15 minutes.", "Toss sauce with pasta, adding pasta water as needed."], ["pasta", "simmering", "dinner"], { kidsKorner: true, ageTrack: "13+ Teen Cooks", path: "kid-chefs", cuisine: "italian", helperNote: "A grown-up should supervise draining boiling water.", storage: "Refrigerate 4 days; reheat with a spoonful of water." }),
+  expansionRecipe("smoothie-cups", "Build-Your-Own Smoothie Cups", "Healthy Heroes", "assets/ingredients.jpeg", "10 min", "0 min", 4, "Kid Friendly", "Pre-portioned smoothie cups let kids choose fruit and learn a safe blender routine.", ["2 bananas, sliced", "2 cups mixed frozen fruit", "2 cups milk or oat milk", "1 cup yogurt", "2 tbsp oats"], ["Divide banana, fruit, and oats among four cups.", "Pour one cup into the blender with 1/2 cup milk and 1/4 cup yogurt.", "Secure the lid.", "A grown-up runs the blender until smooth.", "Repeat with the other cups and serve."], ["smoothie", "fruit", "blender"], { kidsKorner: true, ageTrack: "6-8 Kitchen Explorers", path: "kid-chefs", helperNote: "Kids measure and pour. Adults control the plug, lid, and blades." })
+];
+
+const familyExpansionRecipes = [
+  expansionRecipe("smothered-chicken", "Smothered Chicken", "Family Dinner", "assets/beautiful-chicken.jpeg", "20 min", "55 min", 6, "Beginner", "Seasoned chicken braised in onion gravy until tender enough for a weeknight or Sunday table.", ["6 bone-in chicken thighs", "1 tsp salt", "1 tsp paprika", "1/2 tsp black pepper", "1/2 cup flour", "2 tbsp oil", "1 large onion, sliced", "2 cups chicken stock", "1/2 cup milk"], ["Season chicken and dredge lightly in flour.", "Brown chicken in oil 4 minutes per side; remove.", "Cook onion until soft, then stir in 2 tablespoons remaining flour.", "Whisk in stock and milk; simmer until smooth.", "Return chicken, cover, and simmer 35 minutes to 175 F."], ["southern", "braising", "gravy"], { cuisine: "southern", storage: "Refrigerate chicken and gravy for 4 days." }),
+  expansionRecipe("baked-spaghetti", "Baked Spaghetti", "Family Dinner", "assets/pasta.jpeg", "20 min", "35 min", 8, "Beginner", "Saucy spaghetti baked with beef and melted cheese for an easy family pan.", ["12 oz spaghetti", "1 lb ground beef", "1 onion, diced", "24 oz marinara", "1 tsp Italian seasoning", "1 cup ricotta", "2 cups mozzarella"], ["Heat oven to 375 F and cook spaghetti 2 minutes shy of package directions.", "Brown beef and onion; drain excess fat.", "Stir in marinara and seasoning.", "Mix pasta with sauce and ricotta in a 9x13 dish.", "Top with mozzarella and bake 25 minutes."], ["pasta", "casserole", "family"], { cuisine: "italian", storage: "Refrigerate 4 days or freeze portions for 2 months." }),
+  expansionRecipe("taco-soup", "Taco Soup", "Soups", "assets/mexican-food.jpeg", "15 min", "35 min", 8, "Beginner", "A one-pot tomato, bean, corn, and beef soup with taco spices.", ["1 lb ground turkey or beef", "1 onion, diced", "2 tbsp taco seasoning", "1 can black beans", "1 can pinto beans", "1 can corn", "1 can diced tomatoes", "3 cups broth"], ["Brown meat and onion; drain.", "Stir in taco seasoning for 30 seconds.", "Add drained beans, corn, tomatoes, and broth.", "Bring to a boil, then simmer 25 minutes.", "Taste and serve with lime, cheese, or tortilla chips."], ["soup", "one-pot", "mexican-inspired"], { cuisine: "mexican", storage: "Refrigerate 4 days or freeze 3 months." }),
+  expansionRecipe("hamburger-steak-with-gravy", "Hamburger Steak with Onion Gravy", "Family Dinner", "assets/southern-food.jpeg", "20 min", "35 min", 6, "Beginner", "Tender beef patties finished in brown onion gravy.", ["1 1/2 lb ground beef", "1 egg", "1/3 cup breadcrumbs", "1 tsp Worcestershire sauce", "1 onion, sliced", "2 tbsp flour", "2 cups beef stock", "1 tbsp oil"], ["Mix beef, egg, crumbs, Worcestershire, salt, and pepper; shape six patties.", "Brown patties in oil and remove.", "Cook onion until golden.", "Stir in flour, then slowly whisk in stock.", "Return patties and simmer 15 minutes to 160 F."], ["beef", "gravy", "comfort food"], { cuisine: "southern" }),
+  expansionRecipe("chicken-alfredo", "Chicken Alfredo", "Family Dinner", "assets/pasta.jpeg", "15 min", "25 min", 6, "Beginner", "Creamy Parmesan pasta with sliced skillet chicken.", ["12 oz fettuccine", "1 lb chicken breast", "1 tsp salt", "1 tbsp oil", "3 tbsp butter", "3 cloves garlic", "1 1/2 cups heavy cream", "1 1/2 cups grated Parmesan"], ["Cook pasta and reserve 1 cup pasta water.", "Season chicken; cook in oil to 165 F, rest, and slice.", "Melt butter and cook garlic for 30 seconds.", "Add cream and simmer gently for 3 minutes.", "Stir in Parmesan, toss with pasta, and loosen with pasta water."], ["pasta", "cream sauce", "chicken"], { cuisine: "italian-american", storage: "Refrigerate 3 days; reheat gently with milk." }),
+  expansionRecipe("breakfast-casserole", "Sausage Breakfast Casserole", "Breakfast", "assets/brunch.jpg", "20 min", "45 min", 8, "Beginner", "Eggs, sausage, peppers, and cheese baked into a make-ahead breakfast.", ["1 lb breakfast sausage", "8 eggs", "2 cups milk", "6 cups cubed bread", "1 bell pepper, diced", "2 cups shredded cheddar", "1 tsp mustard powder"], ["Heat oven to 350 F and grease a 9x13 dish.", "Brown sausage with pepper; drain.", "Spread bread, sausage, and cheese in the dish.", "Whisk eggs, milk, mustard, salt, and pepper; pour over.", "Bake 40 to 45 minutes until center reaches 160 F."], ["breakfast", "casserole", "make-ahead"], { cuisine: "southern", storage: "Refrigerate 4 days; reheat covered." }),
+  expansionRecipe("lemon-pepper-wings", "Lemon Pepper Wings", "Family Dinner", "assets/beautiful-chicken.jpeg", "15 min", "45 min", 6, "Beginner", "Crisp oven-baked wings tossed with buttery lemon pepper.", ["3 lb chicken wings", "1 tbsp baking powder", "1 tsp salt", "2 tsp lemon pepper", "3 tbsp melted butter", "1 tbsp lemon juice", "1 tsp lemon zest"], ["Pat wings very dry and heat oven to 425 F.", "Toss wings with baking powder, salt, and 1 teaspoon lemon pepper.", "Bake on a rack 40 to 45 minutes, turning once, to 165 F.", "Mix butter, juice, zest, and remaining seasoning.", "Toss hot wings in lemon butter."], ["wings", "baking", "party"], { cuisine: "american", storage: "Refrigerate 3 days; reheat at 400 F until crisp." }),
+  expansionRecipe("baked-pork-chops", "Juicy Baked Pork Chops", "Family Dinner", "assets/southern-food.jpeg", "10 min", "22 min", 4, "Beginner", "Weeknight pork chops baked with a savory paprika and garlic rub.", ["4 bone-in pork chops, 1 inch thick", "1 tbsp olive oil", "1 tsp paprika", "1 tsp garlic powder", "1/2 tsp onion powder", "1 tsp salt", "1/2 tsp pepper"], ["Heat oven to 400 F.", "Pat chops dry and rub with oil and seasonings.", "Place in a baking dish with space between each chop.", "Bake 18 to 22 minutes until centers reach 145 F.", "Rest 5 minutes before serving."], ["pork", "baking", "weeknight"], { cuisine: "southern" }),
+  expansionRecipe("loaded-baked-potato-soup", "Loaded Baked Potato Soup", "Soups", "assets/soups.jpeg", "20 min", "40 min", 8, "Beginner", "Creamy potato soup finished with cheddar, scallions, and crisp bacon.", ["2 lb russet potatoes, diced", "6 slices bacon", "1 onion, diced", "3 tbsp flour", "4 cups chicken stock", "2 cups milk", "1 cup cheddar", "3 scallions"], ["Cook bacon until crisp; remove and save 2 tablespoons drippings.", "Cook onion in drippings for 5 minutes.", "Stir in flour, then whisk in stock and milk.", "Add potatoes and simmer 20 minutes until tender.", "Mash some potatoes, stir in cheese, and top with bacon and scallions."], ["soup", "potato", "comfort food"], { cuisine: "american", storage: "Refrigerate 4 days; do not boil while reheating." }),
+  expansionRecipe("shrimp-fried-rice", "Shrimp Fried Rice", "Global Dishes", "assets/Asian Food.jpg", "20 min", "15 min", 4, "Beginner", "A fast skillet meal using cold rice, shrimp, vegetables, and soy sauce.", ["1 lb peeled shrimp", "3 cups cold cooked rice", "2 eggs", "1 cup frozen peas and carrots", "3 scallions", "2 tbsp soy sauce", "1 tsp sesame oil", "2 tbsp neutral oil"], ["Pat shrimp dry.", "Scramble eggs in 1 teaspoon oil and remove.", "Cook shrimp in remaining oil to 145 F; remove.", "Stir-fry vegetables and cold rice until hot.", "Return shrimp and eggs; add soy sauce, sesame oil, and scallions."], ["rice", "stir-fry", "shrimp"], { cuisine: "asian", storage: "Cool quickly and refrigerate 3 days; reheat to 165 F." }),
+  expansionRecipe("beef-tacos", "Weeknight Beef Tacos", "Global Dishes", "assets/birrira_tacos.jpg", "15 min", "15 min", 4, "Beginner", "Seasoned ground beef in warm tortillas with crisp toppings.", ["1 lb ground beef", "1 tbsp chili powder", "1 tsp cumin", "1/2 tsp garlic powder", "1/2 cup water", "8 tortillas", "2 cups shredded lettuce", "1 cup diced tomato", "1 cup shredded cheese"], ["Brown beef in a skillet and drain.", "Add spices and water; simmer 5 minutes.", "Warm tortillas in a dry skillet or wrapped in foil.", "Set out lettuce, tomato, and cheese.", "Fill each tortilla and serve immediately."], ["tacos", "beef", "weeknight"], { cuisine: "mexican", storage: "Refrigerate filling separately for 4 days." }),
+  expansionRecipe("chicken-quesadillas", "Chicken Quesadillas", "Family Dinner", "assets/birrira_tacos.jpg", "15 min", "15 min", 4, "Beginner", "Golden tortillas filled with seasoned chicken, peppers, and melted cheese.", ["4 large flour tortillas", "2 cups cooked diced chicken", "2 cups shredded cheese", "1 bell pepper, sliced", "1/2 onion, sliced", "1 tsp taco seasoning", "2 tsp oil"], ["Cook pepper and onion in 1 teaspoon oil until tender.", "Stir in chicken and seasoning until hot.", "Spread filling and cheese over half of each tortilla; fold.", "Cook in remaining oil 2 to 3 minutes per side.", "Rest 2 minutes before slicing."], ["quesadilla", "chicken", "skillet"], { cuisine: "mexican", storage: "Refrigerate 3 days; reheat in a dry skillet." }),
+  expansionRecipe("vegetable-stir-fry", "Colorful Vegetable Stir-Fry", "Global Dishes", "assets/Asian Food.jpg", "20 min", "12 min", 4, "Beginner", "Crisp vegetables in a simple ginger-soy sauce served over rice.", ["2 cups broccoli florets", "1 bell pepper, sliced", "1 carrot, sliced", "1 cup snap peas", "2 tbsp oil", "2 tbsp soy sauce", "1 tbsp honey", "1 tsp grated ginger", "1 tsp cornstarch", "1/2 cup water"], ["Whisk soy sauce, honey, ginger, cornstarch, and water.", "Heat a large skillet until hot.", "Cook carrots and broccoli in oil for 4 minutes.", "Add pepper and snap peas for 3 minutes.", "Add sauce and toss until glossy and vegetables are crisp-tender."], ["vegetables", "stir-fry", "quick meal"], { cuisine: "asian", storage: "Refrigerate 4 days; reheat briefly to keep vegetables crisp." })
+];
+
+const mississippiHeritageRecipes = [
+  expansionRecipe("pan-trout-fish-sandwich", "Pan Trout Fish Sandwich", "Fish Fry & River Foods", "images/regional/mississippi/pan-trout-sandwich.jpg", "20 min", "15 min", 4, "Beginner", "A crisp cornmeal fish sandwich built the way a Delta counter or neighborhood fish spot might serve it: white bread, pickles, hot sauce, and slaw nearby.", ["1 1/2 lb pan trout or small white fish fillets", "1 cup buttermilk", "1 tsp hot sauce", "1 cup yellow cornmeal", "1/3 cup flour", "1 tsp seasoned salt", "1/2 tsp black pepper", "Oil for frying", "8 slices white sandwich bread", "Pickles and hot sauce"], ["Check fish for bones and soak in buttermilk and hot sauce for 15 minutes.", "Mix cornmeal, flour, seasoned salt, and pepper.", "Heat 2 inches of oil to 350 F.", "Dredge fish and fry in batches until crisp and 145 F, about 3 to 4 minutes per side.", "Drain on a rack and stack on white bread with pickles and hot sauce."], ["mississippi", "delta", "fish sandwich", "gas station"], { cuisine: "mississippi-favorites", storage: "Refrigerate fish for 2 days; reheat uncovered at 400 F." }),
+  expansionRecipe("whole-fried-catfish", "Whole Fried Catfish", "Fish Fry & River Foods", "images/regional/mississippi/whole-fried-catfish.jpg", "25 min", "18 min", 4, "Intermediate", "Whole scored catfish fried crisp outside and flaky at the bone, a familiar fish-house and family fish-fry presentation.", ["4 cleaned whole catfish, 12 to 16 oz each", "2 cups buttermilk", "1 tbsp hot sauce", "2 cups cornmeal", "1/2 cup flour", "2 tsp seasoned salt", "1 tsp paprika", "Oil for frying"], ["Cut three shallow diagonal slashes on each side of each fish.", "Soak fish in buttermilk and hot sauce for 20 minutes.", "Combine cornmeal, flour, seasoned salt, and paprika.", "Dredge fish thoroughly and fry at 350 F, turning carefully, until crisp and 145 F.", "Drain on a rack and serve with hush puppies, slaw, lemon, and hot sauce."], ["mississippi", "catfish", "fish fry", "whole fish"], { cuisine: "mississippi-favorites" }),
+  expansionRecipe("southern-pig-feet", "Slow-Simmered Pig Feet", "Country Kitchen", "images/regional/mississippi/pig-feet.jpg", "20 min", "3 hr", 6, "Intermediate", "Pig feet simmered until tender with vinegar, aromatics, and pepper, served with greens, beans, or rice in country kitchens across Mississippi.", ["4 lb split and cleaned pig feet", "1 onion, quartered", "4 garlic cloves", "2 bay leaves", "1 tbsp black peppercorns", "1 tsp red pepper flakes", "1/3 cup apple cider vinegar", "2 tsp salt", "Water to cover"], ["Rinse pig feet well and place in a heavy pot.", "Add onion, garlic, bay, peppercorns, pepper flakes, vinegar, and salt.", "Cover with water and bring to a boil; skim the surface.", "Cover and simmer gently 2 1/2 to 3 hours until very tender.", "Taste the broth and serve with rice, greens, cornbread, or hot sauce."], ["mississippi", "country cooking", "pork", "slow simmer"], { cuisine: "mississippi-favorites", storage: "Refrigerate in the cooking liquid for 3 days; reheat to 165 F." }),
+  expansionRecipe("pickled-pig-feet", "Pickled Pig Feet", "Country Kitchen", "images/regional/mississippi/pickled-pig-feet.jpg", "25 min", "3 hr", 8, "Intermediate", "Tender pig feet chilled in a sharp spiced vinegar brine, a country-store and home-preserving tradition.", ["4 lb cleaned pig feet", "1 onion", "2 bay leaves", "2 cups white vinegar", "1 cup cooking broth", "1 tbsp pickling spice", "1 tbsp sugar", "2 tsp salt", "1 sliced jalapeno optional"], ["Simmer pig feet with onion and bay in water until tender, 2 1/2 to 3 hours.", "Transfer feet to a clean heat-safe container.", "Boil vinegar, broth, pickling spice, sugar, salt, and jalapeno for 5 minutes.", "Pour hot brine over the feet and cool.", "Refrigerate at least 24 hours before serving; keep refrigerated."], ["mississippi", "pickling", "country store", "pork"], { cuisine: "mississippi-favorites", storage: "Keep refrigerated in brine and use within 5 days; this is not a shelf-stable canning recipe." }),
+  expansionRecipe("neck-bones-and-rice", "Neck Bones and Rice", "Country Kitchen", "images/regional/mississippi/neck-bones-rice.jpg", "20 min", "2 hr 30 min", 6, "Beginner", "Pork neck bones braised with onion until the meat slips from the bone, then spooned with rich broth over rice.", ["4 lb pork neck bones", "2 tsp seasoned salt", "1 tsp black pepper", "1 tbsp oil", "1 onion, diced", "3 garlic cloves", "5 cups chicken stock", "1 tsp thyme", "4 cups cooked white rice"], ["Season neck bones and brown them in oil in batches.", "Cook onion and garlic in the same pot.", "Return neck bones with stock and thyme.", "Cover and simmer 2 to 2 1/2 hours until tender.", "Remove loose bones carefully and serve meat and gravy over rice."], ["mississippi", "neck bones", "rice", "braising"], { cuisine: "mississippi-favorites" }),
+  expansionRecipe("ham-hocks-and-beans", "Ham Hocks and Beans", "Country Kitchen", "images/regional/mississippi/ham-hocks-beans.jpg", "20 min", "2 hr 30 min", 8, "Beginner", "Creamy beans simmered with smoky ham hocks, onion, and bay until the pot liquor is rich enough for cornbread.", ["1 lb dried navy or great northern beans, soaked", "2 smoked ham hocks", "1 onion, diced", "2 celery stalks, diced", "3 garlic cloves", "2 bay leaves", "7 cups water or stock", "Black pepper to taste"], ["Drain soaked beans.", "Put beans, hocks, onion, celery, garlic, bay, and liquid in a pot.", "Bring to a boil, then simmer covered for 2 hours.", "Pull meat from hocks, discard bones and skin, and return meat to the pot.", "Simmer uncovered until creamy; season after tasting the smoked meat."], ["mississippi", "beans", "ham hocks", "pot liquor"], { cuisine: "mississippi-favorites" }),
+  expansionRecipe("fried-fatback", "Crisp Fried Fatback", "Country Kitchen", "images/regional/mississippi/fried-fatback.jpg", "5 min", "12 min", 6, "Beginner", "Salt-cured fatback fried until crisp and used sparingly beside beans, greens, biscuits, or country breakfast.", ["12 thin slices salt-cured fatback", "1/4 cup water"], ["Rinse very salty fatback briefly and pat dry.", "Lay slices in a cold heavy skillet with water.", "Cook over medium heat until the water evaporates and fat begins rendering.", "Turn often until crisp and browned.", "Drain well and serve in small portions with beans, greens, or biscuits."], ["mississippi", "country breakfast", "fatback", "pork"], { cuisine: "mississippi-favorites", storage: "Refrigerate for 3 days; re-crisp in a skillet." }),
+  expansionRecipe("mississippi-smoked-sausage", "Skillet Smoked Sausage and Onions", "Country Kitchen", "images/regional/mississippi/smoked-sausage.jpg", "10 min", "20 min", 6, "Beginner", "Smoked sausage browned with onions and peppers for a quick plate, sandwich, or cookout pan.", ["2 lb smoked sausage, sliced", "1 large onion, sliced", "1 bell pepper, sliced", "1 tbsp oil", "1 tsp Creole seasoning", "1/4 cup water"], ["Heat oil in a large skillet.", "Brown sausage in batches and set aside.", "Cook onion and pepper until softened and browned at the edges.", "Return sausage with seasoning and water.", "Cover 5 minutes, then uncover and cook until glazed."], ["mississippi", "smoked sausage", "cookout", "skillet"], { cuisine: "mississippi-favorites" }),
+  expansionRecipe("purple-hull-peas", "Purple Hull Peas", "Country Kitchen", "images/regional/mississippi/purple-hull-peas.jpg", "20 min", "1 hr", 8, "Beginner", "Fresh or frozen purple hull peas simmered with smoked meat and aromatics, especially recognizable on summer Mississippi tables.", ["2 lb shelled purple hull peas", "4 oz salt pork or smoked turkey", "1 onion, chopped", "2 garlic cloves", "5 cups water or stock", "1 tsp black pepper", "Salt to taste"], ["Rinse and sort the peas.", "Brown salt pork lightly, then add onion and garlic.", "Add peas, liquid, and pepper.", "Simmer 45 to 60 minutes until tender but not broken.", "Taste before adding salt and serve with hot water cornbread."], ["mississippi", "purple hull peas", "summer", "field peas"], { cuisine: "mississippi-favorites" }),
+  expansionRecipe("mustard-greens", "Mustard Greens with Pot Liquor", "Country Kitchen", "images/regional/mississippi/mustard-greens.jpg", "25 min", "55 min", 8, "Beginner", "Peppery mustard greens simmered with smoked meat, onion, vinegar, and a touch of heat.", ["3 bunches mustard greens", "1 smoked turkey wing or ham hock", "1 onion, chopped", "4 cups stock", "1 tsp red pepper flakes", "2 tbsp apple cider vinegar", "1 tsp sugar optional"], ["Wash greens in several changes of water and tear away thick stems.", "Simmer smoked meat, onion, stock, and pepper flakes for 25 minutes.", "Add greens by handfuls as they wilt.", "Cover and simmer 30 minutes until tender.", "Add vinegar, taste the pot liquor, and adjust seasoning."], ["mississippi", "mustard greens", "pot liquor", "soul food"], { cuisine: "mississippi-favorites" }),
+  expansionRecipe("fried-okra", "Cornmeal Fried Okra", "Country Kitchen", "images/regional/mississippi/fried-okra.jpg", "15 min", "15 min", 6, "Beginner", "Fresh okra sliced, lightly coated in cornmeal, and fried crisp for a summer vegetable side.", ["1 lb fresh okra", "1 cup buttermilk", "1 cup cornmeal", "1/3 cup flour", "1 tsp seasoned salt", "1/2 tsp black pepper", "Oil for frying"], ["Trim okra and cut into 1/2-inch rounds.", "Soak in buttermilk for 10 minutes.", "Combine cornmeal, flour, salt, and pepper.", "Drain lightly, coat, and fry at 350 F in batches until golden.", "Drain on a rack and season while hot."], ["mississippi", "okra", "frying", "summer"], { cuisine: "mississippi-favorites" }),
+  expansionRecipe("baked-beans-ground-beef", "Baked Beans with Ground Beef", "Cookouts & Church Events", "images/regional/mississippi/beef-baked-beans.jpg", "20 min", "45 min", 12, "Beginner", "Sweet-savory baked beans bulked up with seasoned ground beef for cookouts, reunions, and church pans.", ["2 cans baked beans, 28 oz each", "1 lb ground beef", "1 onion, diced", "1/2 cup barbecue sauce", "1/4 cup brown sugar", "2 tbsp mustard", "1 tbsp Worcestershire sauce"], ["Heat oven to 350 F.", "Brown beef and onion; drain.", "Mix beans, beef, barbecue sauce, brown sugar, mustard, and Worcestershire.", "Spread in a 9x13 dish.", "Bake uncovered 35 to 45 minutes until bubbling."], ["mississippi", "baked beans", "ground beef", "cookout"], { cuisine: "mississippi-favorites" }),
+  expansionRecipe("baked-beans-beef-bacon", "Baked Beans with Beef and Bacon", "Cookouts & Church Events", "images/regional/mississippi/beef-bacon-baked-beans.jpg", "25 min", "55 min", 14, "Beginner", "A richer reunion-pan version with ground beef, smoky bacon, barbecue sauce, and brown sugar.", ["2 cans baked beans, 28 oz each", "1 lb ground beef", "8 bacon slices, chopped", "1 onion, diced", "1/2 cup barbecue sauce", "1/3 cup brown sugar", "2 tbsp mustard"], ["Heat oven to 350 F.", "Cook bacon until crisp; remove and leave 1 tablespoon drippings.", "Brown beef and onion in the drippings; drain.", "Combine everything in a baking dish.", "Bake uncovered 45 minutes until thick and glossy."], ["mississippi", "baked beans", "bacon", "family reunion"], { cuisine: "mississippi-favorites" }),
+  expansionRecipe("mississippi-mud-pie", "Mississippi Mud Pie", "Mississippi Desserts", "images/regional/mississippi/mud-pie.jpg", "35 min", "30 min", 10, "Intermediate", "A dark chocolate cookie-crust pie layered with fudgy filling and whipped cream.", ["24 chocolate sandwich cookies", "5 tbsp melted butter", "8 oz dark chocolate", "6 tbsp butter", "3/4 cup sugar", "3 eggs", "1 tsp vanilla", "1 cup whipped cream"], ["Heat oven to 350 F.", "Crush cookies, mix with melted butter, and press into a pie plate.", "Melt chocolate and butter; whisk in sugar, eggs, and vanilla.", "Pour into crust and bake 25 to 30 minutes until edges set.", "Cool completely and top with whipped cream."], ["mississippi", "chocolate", "pie", "dessert"], { cuisine: "mississippi-favorites", storage: "Refrigerate covered for 4 days." }),
+  expansionRecipe("mississippi-mud-cake", "Mississippi Mud Cake", "Mississippi Desserts", "images/regional/mississippi/mud-cake.jpg", "25 min", "35 min", 16, "Beginner", "A sheet-pan chocolate cake topped with marshmallows and warm cocoa icing.", ["1 cup butter", "1/2 cup cocoa", "2 cups sugar", "4 eggs", "1 1/2 cups flour", "1 tsp vanilla", "3 cups mini marshmallows", "2 cups powdered sugar", "1/4 cup cocoa", "1/3 cup milk"], ["Heat oven to 350 F and grease a 9x13 pan.", "Melt butter with cocoa, then whisk in sugar, eggs, flour, and vanilla.", "Bake 28 to 32 minutes.", "Cover hot cake with marshmallows.", "Whisk powdered sugar, cocoa, and milk into icing and pour over the marshmallows."], ["mississippi", "sheet cake", "chocolate", "church supper"], { cuisine: "mississippi-favorites" }),
+  expansionRecipe("southern-tea-cakes", "Southern Tea Cakes", "Mississippi Desserts", "images/regional/mississippi/tea-cakes.jpg", "25 min", "10 min", 24, "Beginner", "Soft, lightly sweet cookies with vanilla and nutmeg, made for tins, visits, and family memory.", ["1/2 cup softened butter", "1 cup sugar", "1 egg", "1 tsp vanilla", "2 cups flour", "1/2 tsp baking soda", "1/4 tsp nutmeg", "1/4 tsp salt"], ["Heat oven to 350 F.", "Cream butter and sugar; beat in egg and vanilla.", "Whisk dry ingredients separately.", "Mix into a soft dough, chill 20 minutes, and roll 1/4 inch thick.", "Cut rounds and bake 8 to 10 minutes until edges barely color."], ["mississippi", "tea cakes", "cookies", "heritage"], { cuisine: "mississippi-favorites", storage: "Store airtight for 5 days." }),
+  expansionRecipe("sweet-potato-pie", "Southern Sweet Potato Pie", "Mississippi Desserts", "images/regional/mississippi/sweet-potato-pie.jpg", "30 min", "55 min", 8, "Beginner", "Silky sweet potato custard with vanilla, cinnamon, and nutmeg in a flaky crust.", ["2 cups mashed cooked sweet potato", "1/2 cup melted butter", "3/4 cup brown sugar", "2 eggs", "1/2 cup evaporated milk", "1 tsp vanilla", "1 tsp cinnamon", "1/4 tsp nutmeg", "1 unbaked 9-inch pie crust"], ["Heat oven to 350 F.", "Beat sweet potato, butter, sugar, eggs, milk, vanilla, and spices until smooth.", "Pour into the pie crust.", "Bake 50 to 55 minutes until edges are set and center jiggles slightly.", "Cool at least 2 hours before slicing."], ["mississippi", "sweet potato", "pie", "holiday"], { cuisine: "mississippi-favorites" }),
+  expansionRecipe("blackberry-cobbler", "Blackberry Cobbler", "Mississippi Desserts", "images/regional/mississippi/blackberry-cobbler.jpg", "20 min", "45 min", 8, "Beginner", "Juicy blackberries baked under a simple golden batter, especially welcome when berries are in season.", ["5 cups blackberries", "3/4 cup sugar, divided", "1 tbsp lemon juice", "1 cup flour", "1 1/2 tsp baking powder", "1/2 tsp salt", "1/2 cup butter", "3/4 cup milk"], ["Heat oven to 375 F.", "Toss berries with 1/4 cup sugar and lemon juice in a baking dish.", "Whisk flour, remaining sugar, baking powder, and salt.", "Stir in melted butter and milk; spoon batter over berries.", "Bake 40 to 45 minutes until bubbling and golden."], ["mississippi", "blackberry", "cobbler", "summer"], { cuisine: "mississippi-favorites" }),
+  expansionRecipe("fried-chicken-box", "Mississippi Fried Chicken Box", "Gas Station & Corner Store", "images/regional/mississippi/fried-chicken-box.jpg", "25 min", "25 min", 4, "Intermediate", "Crisp fried chicken packed with white bread, pickles, and a simple side, inspired by the dependable hot-box meal found at Mississippi convenience stores.", ["8 chicken pieces", "2 cups buttermilk", "1 tbsp hot sauce", "2 cups flour", "2 tsp seasoned salt", "1 tsp paprika", "1 tsp black pepper", "Oil for frying", "White bread and pickles"], ["Marinate chicken in buttermilk and hot sauce for at least 2 hours.", "Mix flour and seasonings.", "Dredge chicken firmly and rest 10 minutes.", "Fry at 325 to 340 F until crisp and chicken reaches 165 F.", "Drain well and pack with white bread, pickles, and slaw or potato wedges."], ["mississippi", "gas station", "fried chicken", "hot box"], { cuisine: "mississippi-favorites" }),
+  expansionRecipe("chicken-on-a-stick", "Chicken on a Stick", "Gas Station & Corner Store", "images/regional/mississippi/chicken-on-a-stick.jpg", "25 min", "15 min", 6, "Intermediate", "Seasoned chicken and vegetables skewered, battered, and fried: a recognizable Mississippi gas-station hot-box favorite.", ["1 1/2 lb chicken breast, 1-inch pieces", "1 bell pepper, chunks", "1 onion, chunks", "1 cup buttermilk", "1 1/2 cups flour", "1 tsp seasoned salt", "1 tsp paprika", "Oil for frying"], ["Thread chicken, pepper, and onion onto sturdy skewers.", "Dip skewers in buttermilk.", "Coat completely in seasoned flour.", "Fry at 350 F, turning carefully, until chicken reaches 165 F.", "Drain on a rack and cool briefly before serving."], ["mississippi", "gas station", "chicken on a stick", "fried"], { cuisine: "mississippi-favorites" }),
+  expansionRecipe("sausage-dogs", "Smoked Sausage Dogs", "Gas Station & Corner Store", "images/regional/mississippi/sausage-dogs.jpg", "10 min", "15 min", 6, "Beginner", "Split smoked sausage browned hard and tucked into soft buns with mustard, onions, relish, or chili.", ["6 smoked sausage links", "6 hot dog buns", "1 onion, sliced", "1 tbsp oil", "Mustard", "Relish or chowchow"], ["Split sausage links lengthwise without cutting through.", "Brown sausage cut-side down in a skillet.", "Cook onion in the same pan until softened.", "Warm buns.", "Serve sausage in buns with onions, mustard, and relish or chowchow."], ["mississippi", "sausage dog", "corner store", "quick meal"], { cuisine: "mississippi-favorites" }),
+  expansionRecipe("fried-bologna-sandwich", "Fried Bologna Sandwich", "Gas Station & Corner Store", "images/regional/mississippi/bologna-sandwich.jpg", "5 min", "8 min", 2, "Beginner", "Thick bologna browned at the edges and served on soft bread with mustard, cheese, pickles, or a fried egg.", ["4 thick bologna slices", "4 slices white bread", "2 cheese slices optional", "Mustard or mayonnaise", "Pickles"], ["Cut a small slit in each bologna slice so it stays flat.", "Fry in a dry skillet until browned on both sides.", "Add cheese during the last minute if using.", "Spread bread with mustard or mayonnaise.", "Build sandwiches with bologna and pickles."], ["mississippi", "bologna", "sandwich", "country store"], { cuisine: "mississippi-favorites" }),
+  expansionRecipe("cracklins", "Pork Cracklins", "Gas Station & Corner Store", "images/regional/mississippi/cracklins.jpg", "20 min", "1 hr 15 min", 8, "Advanced", "Meaty pork skin and fat cooked slowly, then crisped and seasoned; common in butcher shops, country stores, and road snacks across the Deep South.", ["2 lb pork belly skin with fat and some meat", "1/4 cup water", "1 tsp salt", "1/2 tsp cayenne", "1/2 tsp black pepper"], ["Cut pork into 1-inch pieces and place in a heavy pot with water.", "Cook over medium-low heat, stirring often, as fat renders.", "Continue until pieces shrink and turn golden.", "Raise heat slightly and fry in rendered fat until crisp.", "Drain carefully and season while hot."], ["mississippi", "cracklins", "pork", "country store"], { cuisine: "mississippi-favorites", storage: "Cool completely and store airtight for 2 days; rendered fat is extremely hot, so use caution." }),
+  expansionRecipe("pork-skins", "Homemade Pork Skins", "Gas Station & Corner Store", "images/regional/mississippi/pork-skins.jpg", "30 min", "2 hr 15 min", 8, "Advanced", "Pork skin dried until firm, then puffed quickly in hot oil and seasoned.", ["1 lb cleaned pork skin, fat scraped away", "Water for simmering", "Oil for frying", "1 tsp salt", "1/2 tsp paprika", "1/4 tsp cayenne"], ["Simmer pork skin 45 minutes until tender.", "Drain, scrape away remaining fat, and cut into pieces.", "Dry in a 200 F oven 1 to 1 1/2 hours until hard and dry.", "Fry a few pieces at a time at 385 F until puffed.", "Drain and season immediately."], ["mississippi", "pork skins", "snack", "country store"], { cuisine: "mississippi-favorites" }),
+  expansionRecipe("homemade-moon-pies", "Homemade Moon Pies", "Gas Station & Corner Store", "images/regional/mississippi/moon-pies.jpg", "45 min", "12 min", 12, "Intermediate", "Graham-style cookies sandwiched with marshmallow filling and dipped in chocolate, made to pair with an ice-cold cola.", ["2 cups flour", "1 cup graham cracker crumbs", "1/2 cup butter", "3/4 cup brown sugar", "1 egg", "1 tsp vanilla", "12 large marshmallows", "12 oz chocolate", "1 tbsp coconut oil"], ["Heat oven to 350 F.", "Cream butter and sugar; add egg and vanilla, then flour and crumbs.", "Roll and cut 24 rounds; bake 10 to 12 minutes.", "Place marshmallows on half the warm cookies, soften briefly, and top with remaining cookies.", "Dip cooled sandwiches in melted chocolate and let set."], ["mississippi", "moon pie", "cola", "snack"], { cuisine: "mississippi-favorites" }),
+  expansionRecipe("kool-aid-pickles", "Kool-Aid Pickles", "Gas Station & Corner Store", "images/regional/mississippi/kool-aid-pickles.jpg", "10 min", "0 min", 12, "Beginner", "Dill pickles soaked in a sweet, brightly colored drink-mix brine, strongly associated with Delta snack culture.", ["1 jar whole dill pickles, 32 oz", "1 packet red cherry or tropical punch drink mix", "1/2 cup sugar"], ["Drain pickle brine into a bowl and reserve it.", "Whisk drink mix and sugar into the brine until dissolved.", "Slice pickles if desired and return them to the jar.", "Pour colored brine over pickles.", "Refrigerate 3 to 5 days, turning the jar daily."], ["mississippi", "delta", "kool-aid pickles", "snack"], { cuisine: "mississippi-favorites", storage: "Keep refrigerated and use within 2 weeks." }),
+  expansionRecipe("hot-sausage-sandwich", "Hot Sausage Sandwich", "Gas Station & Corner Store", "images/regional/mississippi/hot-sausage-sandwich.jpg", "10 min", "15 min", 4, "Beginner", "Spicy sausage patties or links browned and served on soft bread with mustard, pickles, and onions.", ["1 lb hot pork sausage, shaped into 4 patties", "4 sandwich buns", "1 onion, sliced", "Mustard", "Pickles"], ["Shape sausage into four thin patties.", "Cook in a skillet over medium heat until browned and 160 F.", "Cook onions in a spoonful of the drippings.", "Toast buns lightly.", "Serve patties with mustard, pickles, and onions."], ["mississippi", "hot sausage", "sandwich", "corner store"], { cuisine: "mississippi-favorites" }),
+  expansionRecipe("delta-hot-tamales", "Mississippi Delta Hot Tamales", "Gas Station & Corner Store", "images/regional/mississippi/delta-tamales.jpg", "1 hr", "2 hr", 24, "Advanced", "Smaller, heavily seasoned Delta-style tamales simmered rather than steamed and commonly sold from stands, counters, and roadside spots.", ["2 lb ground beef", "1 onion, minced", "3 tbsp chili powder", "1 tbsp paprika", "2 tsp cumin", "2 tsp salt", "3 cups masa harina", "1 cup lard or shortening", "3 cups beef broth", "24 dried corn husks"], ["Soak corn husks in warm water until flexible.", "Brown beef and onion with chili powder, paprika, cumin, and salt; cool.", "Beat masa with lard and enough broth to make a spreadable dough.", "Spread masa on husks, add beef, roll tightly, and tie in bundles.", "Stand tamales in a pot, cover with seasoned broth, and simmer gently 1 1/2 to 2 hours."], ["mississippi", "delta tamales", "roadside food", "heritage"], { cuisine: "mississippi-favorites", storage: "Refrigerate 4 days or freeze 2 months; reheat in broth or steam." })
+];
+
+const africaExpansionRecipes = [
+  expansionRecipe("senegalese-thieboudienne", "Senegalese Thieboudienne", "Family Meals", "images/cuisines/africa/senegal/thieboudienne.jpg", "35 min", "1 hr 20 min", 6, "Advanced", "Senegal's celebrated rice-and-fish dish with stuffed fish, tomato rice, cassava, carrot, cabbage, and eggplant.", ["2 lb firm whole fish or fillets", "2 cups broken rice", "3 tbsp tomato paste", "1 onion", "4 garlic cloves", "1 small cabbage", "2 carrots", "1 cassava piece", "1 eggplant", "1 Scotch bonnet", "5 cups fish stock"], ["Pound half the onion with garlic, parsley, salt, and pepper; cut pockets in the fish and add the herb paste.", "Brown fish lightly in oil and remove.", "Fry tomato paste and remaining onion until darkened, then add stock and whole vegetables.", "Simmer vegetables until tender and remove them with the fish.", "Cook washed rice in the seasoned broth until tender, then serve with fish, vegetables, and tamarind or chile sauce."], ["senegal", "fish", "rice", "family meal"], { cuisine: "senegal", storage: "Refrigerate 3 days; reheat rice and fish to 165 F." }),
+  expansionRecipe("senegalese-chicken-yassa", "Senegalese Chicken Yassa", "Family Meals", "images/cuisines/africa/senegal/chicken-yassa.jpg", "30 min", "55 min", 6, "Intermediate", "Chicken marinated with lemon and mustard, then cooked with a generous bed of deeply softened onions.", ["6 chicken thighs", "5 large onions sliced", "1/2 cup lemon juice", "3 tbsp Dijon mustard", "4 garlic cloves", "1 Scotch bonnet", "2 tbsp oil", "1 cup chicken stock", "Salt and pepper"], ["Marinate chicken with half the onions, lemon, mustard, garlic, salt, and pepper for at least 2 hours.", "Remove chicken and brown it well in oil.", "Cook all onions slowly until soft and lightly golden.", "Add marinade and stock; return chicken and simmer until it reaches 165 F.", "Serve over white rice with the onion sauce."], ["senegal", "yassa", "chicken", "lemon"], { cuisine: "senegal" }),
+  expansionRecipe("senegalese-maafe", "Senegalese Maafe", "Family Meals", "images/cuisines/africa/senegal/maafe.jpg", "25 min", "1 hr 15 min", 6, "Intermediate", "A savory peanut stew with beef, tomato, sweet potato, carrot, and cabbage served over rice.", ["2 lb beef chuck cubed", "1 cup natural peanut butter", "2 tbsp tomato paste", "1 onion", "3 garlic cloves", "1 sweet potato", "2 carrots", "1/4 cabbage", "5 cups stock", "1 Scotch bonnet"], ["Brown beef in batches.", "Cook onion, garlic, and tomato paste until concentrated.", "Whisk peanut butter with warm stock and add it to the pot.", "Return beef and simmer 40 minutes.", "Add vegetables and chile; cook until beef and vegetables are tender, then serve with rice."], ["senegal", "maafe", "peanut stew", "beef"], { cuisine: "senegal" }),
+  expansionRecipe("senegalese-pastels", "Senegalese Fish Pastels", "Street Foods", "images/cuisines/africa/senegal/pastels.jpg", "45 min", "20 min", 16, "Intermediate", "Crisp fish-filled pastries served with a spicy tomato-onion dipping sauce.", ["2 cups flour", "2 tbsp oil", "3/4 cup water", "1 lb cooked white fish flaked", "1 onion minced", "2 garlic cloves", "2 tbsp parsley", "1 tsp chile", "2 cups tomato sauce", "Oil for frying"], ["Mix flour, oil, salt, and enough water for a smooth dough; rest 20 minutes.", "Cook onion and garlic, then mix half with fish, parsley, and chile.", "Simmer remaining onion mixture with tomato sauce for dipping.", "Roll dough, cut rounds, fill, fold, and seal.", "Fry at 350 F until golden and serve with sauce."], ["senegal", "pastels", "street food", "fish"], { cuisine: "senegal" }),
+
+  expansionRecipe("ivorian-attieke-fish", "Attiéké with Grilled Fish", "Family Meals", "images/cuisines/africa/ivory-coast/attieke-grilled-fish.jpg", "30 min", "25 min", 4, "Intermediate", "Steamed fermented cassava couscous served with grilled fish, fresh tomato-onion salad, and hot pepper.", ["4 whole small fish or 4 fillets", "4 cups prepared attiéké", "2 tomatoes diced", "1 onion thinly sliced", "1 cucumber diced", "2 limes", "2 tbsp oil", "1 chile", "Salt and pepper"], ["Season fish with lime, oil, salt, and pepper.", "Grill until charred and the fish reaches 145 F.", "Steam prepared attiéké according to package directions and fluff.", "Toss tomato, onion, cucumber, chile, and lime into a fresh salad.", "Serve fish over attiéké with salad and extra chile."], ["ivory coast", "attieke", "grilled fish", "cassava"], { cuisine: "ivory-coast" }),
+  expansionRecipe("ivorian-kedjenou", "Ivorian Chicken Kedjenou", "Family Meals", "images/cuisines/africa/ivory-coast/kedjenou.jpg", "20 min", "1 hr", 6, "Intermediate", "Chicken gently stewed in its own juices with tomato, eggplant, onion, ginger, and chile.", ["3 lb chicken pieces", "2 tomatoes chopped", "1 eggplant cubed", "2 onions sliced", "3 garlic cloves", "1 tbsp grated ginger", "1 Scotch bonnet", "2 tbsp oil", "1 tsp thyme"], ["Season chicken with salt, pepper, garlic, ginger, and thyme.", "Layer chicken, tomato, eggplant, onion, chile, and oil in a heavy covered pot.", "Cover tightly and cook over low heat without adding water.", "Shake the pot occasionally instead of opening it.", "Cook until chicken reaches 165 F and vegetables form a thick sauce; serve with attiéké."], ["ivory coast", "kedjenou", "chicken stew", "family meal"], { cuisine: "ivory-coast" }),
+  expansionRecipe("ivorian-aloco", "Ivorian Aloco", "Street Foods", "images/cuisines/africa/ivory-coast/aloco.jpg", "15 min", "15 min", 4, "Beginner", "Ripe plantains fried until caramelized and served with a spicy tomato-onion sauce.", ["4 very ripe plantains", "Oil for frying", "2 tomatoes chopped", "1 small onion", "1 chile", "1 garlic clove", "1 tbsp vinegar", "Salt"], ["Cut plantains into thick diagonal pieces.", "Fry at 350 F until deep golden and soft inside.", "Cook tomato, onion, chile, and garlic until saucy.", "Season sauce with vinegar and salt.", "Drain plantains and serve hot with the pepper sauce."], ["ivory coast", "aloco", "plantain", "street food"], { cuisine: "ivory-coast" }),
+  expansionRecipe("ivorian-foutou-sauce-graine", "Foutou with Sauce Graine", "Celebration Foods", "images/cuisines/africa/ivory-coast/foutou-sauce-graine.jpg", "35 min", "1 hr 20 min", 6, "Advanced", "Pounded plantain and cassava served with a rich palm-nut sauce and tender meat.", ["3 green plantains", "1 lb cassava peeled", "2 cups palm nut concentrate", "2 lb beef or goat", "1 onion", "2 tomatoes", "2 garlic cloves", "1 chile", "4 cups stock"], ["Boil plantain and cassava until very tender, then pound or process until smooth and elastic.", "Brown meat and add onion, tomato, garlic, chile, and stock.", "Simmer until meat is nearly tender.", "Stir palm nut concentrate into the stew and cook until rich and red oil rises lightly.", "Shape foutou into portions and serve with sauce."], ["ivory coast", "foutou", "palm nut", "celebration"], { cuisine: "ivory-coast" }),
+
+  expansionRecipe("kenyan-nyama-choma", "Kenyan Nyama Choma", "Celebration Foods", "images/cuisines/africa/kenya/nyama-choma.jpg", "20 min", "1 hr", 6, "Intermediate", "Simply seasoned goat or beef grilled over charcoal and served with kachumbari and ugali.", ["3 lb goat or beef ribs and chunks", "2 tbsp oil", "2 tsp salt", "1 tsp black pepper", "2 tomatoes diced", "1 red onion sliced", "1 chile", "2 tbsp cilantro", "2 limes"], ["Season meat with oil, salt, and pepper.", "Grill over medium charcoal heat, turning slowly, until browned and tender.", "Rest meat before chopping.", "Mix tomato, onion, chile, cilantro, lime, and salt for kachumbari.", "Serve meat with kachumbari and ugali."], ["kenya", "nyama choma", "grilled meat", "celebration"], { cuisine: "kenya" }),
+  expansionRecipe("kenyan-sukuma-wiki", "Kenyan Sukuma Wiki", "Family Meals", "images/cuisines/africa/kenya/sukuma-wiki.jpg", "15 min", "20 min", 4, "Beginner", "Tender leafy greens cooked with onion and tomato, commonly served with ugali.", ["2 bunches collard greens thinly sliced", "1 onion diced", "2 tomatoes chopped", "2 tbsp oil", "1 garlic clove", "1/2 tsp salt", "1/4 cup water"], ["Wash and thinly slice the greens.", "Cook onion in oil until soft.", "Add garlic and tomato; cook until tomato breaks down.", "Add greens, salt, and water.", "Cover briefly, then cook uncovered until tender but still green."], ["kenya", "sukuma wiki", "greens", "family meal"], { cuisine: "kenya" }),
+  expansionRecipe("kenyan-beef-pilau", "Kenyan Beef Pilau", "Celebration Foods", "images/cuisines/africa/kenya/beef-pilau.jpg", "25 min", "55 min", 6, "Intermediate", "Fragrant rice cooked with beef, browned onions, cumin, cardamom, cinnamon, cloves, and black pepper.", ["2 cups basmati rice", "1 1/2 lb beef cubed", "2 onions sliced", "4 garlic cloves", "1 tbsp ginger", "1 tsp cumin", "6 cardamom pods", "1 cinnamon stick", "6 cloves", "4 cups stock"], ["Brown beef and set aside.", "Cook onions until deep golden; add garlic, ginger, and whole spices.", "Return beef with stock and simmer until nearly tender.", "Add washed rice and salt.", "Cover and cook over low heat until rice is tender; rest 10 minutes before fluffing."], ["kenya", "pilau", "rice", "celebration"], { cuisine: "kenya" }),
+  expansionRecipe("kenyan-mandazi", "Kenyan Mandazi", "Street Foods", "images/cuisines/africa/kenya/mandazi.jpg", "25 min", "20 min", 16, "Intermediate", "Lightly sweet cardamom-scented fried breads served with tea or breakfast.", ["3 cups flour", "1/3 cup sugar", "2 tsp instant yeast", "1 tsp cardamom", "1 cup coconut milk", "1 egg", "2 tbsp oil", "Oil for frying"], ["Mix flour, sugar, yeast, cardamom, and salt.", "Add coconut milk, egg, and oil; knead into a soft dough.", "Cover and rise until doubled.", "Roll, cut into triangles, and rest 10 minutes.", "Fry at 350 F until golden on both sides."], ["kenya", "mandazi", "fried bread", "street food"], { cuisine: "kenya" }),
+
+  expansionRecipe("tanzanian-mishkaki", "Tanzanian Mishkaki", "Street Foods", "images/cuisines/africa/tanzania/mishkaki.jpg", "30 min", "15 min", 6, "Intermediate", "Charcoal-grilled beef skewers marinated with ginger, garlic, tomato, lemon, and warm spice.", ["2 lb beef sirloin cubed", "1 tomato grated", "1 onion grated", "3 garlic cloves", "1 tbsp ginger", "1 tbsp lemon juice", "1 tsp cumin", "1 tsp coriander", "1/2 tsp chile", "2 tbsp oil"], ["Mix tomato, onion, garlic, ginger, lemon, spices, oil, and salt.", "Marinate beef at least 2 hours.", "Thread tightly onto skewers.", "Grill over high heat until charred and cooked to preference.", "Serve with kachumbari and pili pili sauce."], ["tanzania", "mishkaki", "street food", "grilled beef"], { cuisine: "tanzania" }),
+  expansionRecipe("tanzanian-coconut-fish-curry", "Tanzanian Coconut Fish Curry", "Family Meals", "images/cuisines/africa/tanzania/coconut-fish-curry.jpg", "20 min", "30 min", 4, "Intermediate", "Coastal fish simmered gently in coconut milk with tomato, ginger, garlic, turmeric, and lime.", ["1 1/2 lb firm white fish", "1 can coconut milk", "2 tomatoes chopped", "1 onion diced", "3 garlic cloves", "1 tbsp ginger", "1 tsp turmeric", "1 chile", "1 lime"], ["Season fish with salt and lime.", "Cook onion, garlic, ginger, turmeric, and chile until fragrant.", "Add tomato and cook down.", "Pour in coconut milk and simmer 8 minutes.", "Add fish and cook gently until it reaches 145 F; finish with lime."], ["tanzania", "coconut fish curry", "coastal", "family meal"], { cuisine: "tanzania" }),
+  expansionRecipe("tanzanian-chipsi-mayai", "Tanzanian Chipsi Mayai", "Street Foods", "images/cuisines/africa/tanzania/chipsi-mayai.jpg", "15 min", "20 min", 2, "Beginner", "A popular French-fry omelet served with kachumbari and chile sauce.", ["2 large potatoes cut into fries", "4 eggs", "2 tbsp oil plus frying oil", "1/2 onion diced", "1 tomato diced", "Salt and pepper"], ["Fry potatoes until golden and drain.", "Beat eggs with salt and pepper.", "Arrange fries in an oiled skillet and pour eggs over them.", "Cook until set underneath, flip carefully, and finish the second side.", "Serve with diced tomato and onion salad."], ["tanzania", "chipsi mayai", "street food", "eggs"], { cuisine: "tanzania" }),
+  expansionRecipe("tanzanian-vitumbua", "Tanzanian Vitumbua", "Street Foods", "images/cuisines/africa/tanzania/vitumbua.jpg", "25 min", "20 min", 16, "Intermediate", "Soft coconut rice cakes cooked in a round-cavity pan until golden outside and tender within.", ["2 cups rice soaked overnight", "1 cup coconut milk", "1/3 cup sugar", "1 tsp yeast", "1/2 tsp cardamom", "1/2 cup water", "Oil for pan"], ["Drain rice and blend with coconut milk and enough water for a thick batter.", "Stir in sugar, yeast, cardamom, and a pinch of salt.", "Cover and ferment until bubbly, about 1 hour.", "Oil an aebleskiver or vitumbua pan and fill cavities halfway.", "Cook, turn, and brown all sides."], ["tanzania", "vitumbua", "rice cake", "street food"], { cuisine: "tanzania" }),
+
+  expansionRecipe("south-african-bobotie", "South African Bobotie", "Family Meals", "images/cuisines/africa/south-africa/bobotie.jpg", "25 min", "50 min", 6, "Intermediate", "Cape Malay-influenced spiced minced meat baked beneath a savory egg custard.", ["2 lb ground beef or lamb", "1 onion diced", "2 tbsp curry powder", "1 tsp turmeric", "2 tbsp chutney", "1 slice bread soaked in milk", "1/3 cup raisins", "2 eggs", "1 cup milk", "Bay leaves"], ["Heat oven to 350 F.", "Cook onion and meat until browned; add curry, turmeric, chutney, raisins, and soaked bread.", "Spread mixture in a baking dish.", "Whisk eggs and milk and pour over the meat; top with bay leaves.", "Bake until custard is set and center reaches 160 F; serve with yellow rice."], ["south africa", "bobotie", "cape malay", "family meal"], { cuisine: "south-africa" }),
+  expansionRecipe("south-african-bunny-chow", "Durban Bunny Chow", "Street Foods", "images/cuisines/africa/south-africa/bunny-chow.jpg", "25 min", "1 hr", 4, "Intermediate", "A hollowed loaf filled with Durban-style curry, created within South Africa's Indian community.", ["1 unsliced white bread loaf", "1 1/2 lb lamb, beef, or chicken", "1 onion diced", "3 garlic cloves", "1 tbsp ginger", "2 tbsp curry powder", "2 tomatoes", "2 potatoes cubed", "2 cups stock"], ["Brown meat and set aside.", "Cook onion, garlic, ginger, and curry powder until fragrant.", "Add tomato, meat, potato, and stock; simmer until tender and thick.", "Cut bread into four sections and hollow each without breaking the base.", "Fill bread with curry and cap with the removed bread."], ["south africa", "bunny chow", "durban", "street food"], { cuisine: "south-africa" }),
+  expansionRecipe("south-african-chakalaka-pap", "Chakalaka with Pap", "Family Meals", "images/cuisines/africa/south-africa/chakalaka-pap.jpg", "20 min", "35 min", 6, "Beginner", "Spicy vegetable-and-bean relish served with smooth maize pap.", ["2 cups maize meal", "6 cups water", "1 onion diced", "2 bell peppers diced", "2 carrots grated", "2 tomatoes chopped", "1 can baked beans", "1 tbsp curry powder", "1 chile"], ["Whisk maize meal into simmering salted water and cook until thick and smooth.", "Cook onion, pepper, carrot, and chile in oil.", "Add curry powder and tomato; simmer until saucy.", "Stir in beans and heat through.", "Serve hot chakalaka beside pap."], ["south africa", "chakalaka", "pap", "family meal"], { cuisine: "south-africa" }),
+  expansionRecipe("south-african-koeksisters", "South African Koeksisters", "Celebration Foods", "images/cuisines/africa/south-africa/koeksisters.jpg", "45 min", "25 min", 18, "Advanced", "Braided fried pastries plunged into ice-cold cinnamon-lemon syrup for a glossy, crisp, syrupy finish.", ["3 cups flour", "2 tsp baking powder", "3 tbsp butter", "1 egg", "3/4 cup milk", "3 cups sugar", "1 1/2 cups water", "1 cinnamon stick", "1 tbsp lemon juice", "Oil for frying"], ["Boil sugar, water, cinnamon, and lemon into syrup; chill completely.", "Rub butter into flour and baking powder, then mix in egg and milk.", "Rest dough, roll, cut strips, and braid.", "Fry at 350 F until golden.", "Move hot pastries directly into ice-cold syrup, then drain."], ["south africa", "koeksisters", "pastry", "celebration"], { cuisine: "south-africa" }),
+
+  expansionRecipe("zimbabwean-sadza-beef-stew", "Sadza with Beef Stew", "Family Meals", "images/cuisines/africa/zimbabwe/sadza-beef-stew.jpg", "25 min", "1 hr 10 min", 6, "Intermediate", "Firm maize sadza served with tender tomato-onion beef stew and greens.", ["2 cups fine white maize meal", "6 cups water", "2 lb beef chuck cubed", "1 onion diced", "3 tomatoes chopped", "2 garlic cloves", "2 cups beef stock", "1 tsp paprika"], ["Brown beef in batches.", "Cook onion and garlic, then add tomato and paprika.", "Return beef with stock and simmer until tender.", "For sadza, whisk 1 cup maize meal into simmering water, then gradually beat in remaining meal.", "Cook and stir until thick and smooth; serve with stew."], ["zimbabwe", "sadza", "beef stew", "family meal"], { cuisine: "zimbabwe" }),
+  expansionRecipe("zimbabwean-muriwo-unedovi", "Muriwo Unedovi", "Family Meals", "images/cuisines/africa/zimbabwe/muriwo-unedovi.jpg", "15 min", "25 min", 4, "Beginner", "Leafy greens cooked with tomato, onion, and peanut butter into a creamy savory relish.", ["2 bunches collard greens sliced", "1 onion diced", "2 tomatoes chopped", "1/2 cup natural peanut butter", "1 cup water", "1 tbsp oil", "Salt"], ["Cook onion in oil until soft.", "Add tomatoes and cook until broken down.", "Add greens and water; cover until wilted.", "Stir peanut butter with a little hot cooking liquid until smooth.", "Add it to the greens and simmer until creamy; serve with sadza."], ["zimbabwe", "muriwo unedovi", "greens", "peanut butter"], { cuisine: "zimbabwe" }),
+  expansionRecipe("zimbabwean-peanut-butter-rice", "Zimbabwean Peanut Butter Rice", "Family Meals", "images/cuisines/africa/zimbabwe/peanut-butter-rice.jpg", "10 min", "30 min", 6, "Beginner", "Tender rice enriched with peanut butter for a creamy, savory family side.", ["2 cups long-grain rice", "4 cups water", "1 tsp salt", "1/2 cup natural peanut butter", "1/2 cup hot water"], ["Rinse rice and cook with water and salt until tender.", "Whisk peanut butter with hot water until smooth.", "Fold peanut mixture into hot rice.", "Cover and rest 5 minutes.", "Fluff gently and serve with chicken, beef stew, or vegetables."], ["zimbabwe", "peanut butter rice", "rice", "family meal"], { cuisine: "zimbabwe" }),
+  expansionRecipe("zimbabwean-mapopo-candy", "Zimbabwean Mapopo Candy", "Celebration Foods", "images/cuisines/africa/zimbabwe/mapopo-candy.jpg", "20 min", "45 min", 24, "Intermediate", "Papaya cooked with sugar and citrus, then shaped into chewy sweets.", ["1 firm green papaya peeled and grated", "2 cups sugar", "1/2 cup water", "1 tbsp lemon juice", "1/2 tsp lemon zest", "Pinch salt"], ["Combine papaya, sugar, water, lemon, zest, and salt in a heavy pan.", "Cook over medium-low heat, stirring often, until thick and translucent.", "Continue until mixture pulls from the pan.", "Cool until safe to handle.", "Shape small pieces and let them dry on parchment."], ["zimbabwe", "mapopo", "papaya candy", "celebration"], { cuisine: "zimbabwe" }),
+
+  expansionRecipe("egyptian-koshari", "Egyptian Koshari", "Street Foods", "images/cuisines/africa/egypt/koshari.jpg", "30 min", "55 min", 8, "Intermediate", "Egypt's layered street-food staple of rice, lentils, macaroni, chickpeas, tomato sauce, and crisp onions.", ["1 cup brown lentils", "1 cup rice", "8 oz small macaroni", "1 can chickpeas", "3 onions sliced", "2 cups tomato sauce", "4 garlic cloves", "2 tbsp vinegar", "1 tsp cumin"], ["Cook lentils until nearly tender, then add rice and cook together.", "Boil macaroni separately and drain.", "Fry onions until deeply crisp and reserve.", "Simmer tomato sauce with garlic, vinegar, cumin, and chile.", "Layer rice-lentils, macaroni, chickpeas, sauce, and onions."], ["egypt", "koshari", "street food", "lentils"], { cuisine: "egypt" }),
+  expansionRecipe("egyptian-ful-medames", "Egyptian Ful Medames", "Family Meals", "images/cuisines/africa/egypt/ful-medames.jpg", "15 min", "25 min", 4, "Beginner", "Warm fava beans dressed with cumin, lemon, garlic, olive oil, tomato, and parsley.", ["2 cans fava beans", "2 garlic cloves", "1 tsp cumin", "1 lemon", "3 tbsp olive oil", "1 tomato diced", "1/4 cup parsley", "Salt and chile"], ["Warm beans with their liquid until very tender.", "Mash some beans while leaving others whole.", "Stir in garlic, cumin, lemon, salt, and chile.", "Spoon into bowls and drizzle with olive oil.", "Top with tomato and parsley; serve with baladi bread."], ["egypt", "ful medames", "fava beans", "breakfast"], { cuisine: "egypt" }),
+  expansionRecipe("egyptian-molokhia", "Egyptian Molokhia", "Family Meals", "images/cuisines/africa/egypt/molokhia.jpg", "20 min", "35 min", 6, "Intermediate", "Finely chopped jute leaves cooked in broth and finished with sizzling garlic and coriander.", ["1 lb frozen chopped molokhia", "5 cups chicken stock", "6 garlic cloves minced", "1 tbsp ground coriander", "2 tbsp butter or ghee", "1 tsp lemon juice", "Salt"], ["Bring stock to a gentle simmer.", "Add frozen molokhia and stir until thawed; do not boil hard.", "Cook garlic and coriander in butter until fragrant and lightly golden.", "Pour the hot garlic mixture into the soup and stir.", "Season with salt and lemon; serve with rice and chicken."], ["egypt", "molokhia", "jute leaves", "family meal"], { cuisine: "egypt" }),
+  expansionRecipe("egyptian-basbousa", "Egyptian Basbousa", "Celebration Foods", "images/cuisines/africa/egypt/basbousa.jpg", "20 min", "35 min", 16, "Beginner", "A tender semolina cake baked golden and soaked with lemon-vanilla syrup.", ["2 cups coarse semolina", "1 cup plain yogurt", "3/4 cup sugar", "1/2 cup melted butter", "1 tsp baking powder", "16 almonds", "1 1/2 cups sugar for syrup", "1 cup water", "1 tbsp lemon juice"], ["Heat oven to 350 F and butter a 9-inch pan.", "Mix semolina, yogurt, sugar, butter, and baking powder.", "Spread in pan, score diamonds, and place an almond on each.", "Bake until deep golden, 30 to 35 minutes.", "Boil syrup ingredients 8 minutes and pour warm syrup over hot cake."], ["egypt", "basbousa", "semolina cake", "celebration"], { cuisine: "egypt" }),
+
+  expansionRecipe("tunisian-brik", "Tunisian Brik", "Street Foods", "images/cuisines/africa/tunisia/brik.jpg", "20 min", "12 min", 4, "Intermediate", "Crisp malsouka pastry filled with tuna, parsley, capers, potato, and a soft egg.", ["4 brik or spring-roll pastry sheets", "1 can tuna drained", "1 small potato boiled and mashed", "4 eggs", "2 tbsp parsley", "1 tbsp capers", "1 tsp harissa", "Oil for frying", "Lemon"], ["Mix tuna, potato, parsley, capers, and harissa.", "Place filling on one half of each pastry and make a well.", "Crack an egg into the well and fold pastry over.", "Fry carefully at 350 F until crisp and egg white sets.", "Drain and serve immediately with lemon."], ["tunisia", "brik", "street food", "egg"], { cuisine: "tunisia" }),
+  expansionRecipe("tunisian-lablabi", "Tunisian Lablabi", "Street Foods", "images/cuisines/africa/tunisia/lablabi.jpg", "15 min", "30 min", 4, "Beginner", "A warming chickpea-and-bread bowl seasoned with cumin, garlic, harissa, olive oil, lemon, and egg.", ["2 cans chickpeas", "4 cups water or stock", "4 garlic cloves", "2 tsp cumin", "2 tbsp harissa", "4 cups torn day-old bread", "4 soft eggs", "1 lemon", "Olive oil"], ["Simmer chickpeas with garlic, cumin, salt, and stock for 20 minutes.", "Put torn bread into serving bowls.", "Ladle chickpeas and broth over bread.", "Top with harissa, egg, lemon, and olive oil.", "Serve immediately while the bread is softened but textured."], ["tunisia", "lablabi", "chickpeas", "street food"], { cuisine: "tunisia" }),
+  expansionRecipe("tunisian-lamb-couscous", "Tunisian Lamb Couscous", "Celebration Foods", "images/cuisines/africa/tunisia/lamb-couscous.jpg", "30 min", "1 hr 20 min", 8, "Advanced", "Couscous topped with lamb, chickpeas, vegetables, and a harissa-red broth.", ["3 cups couscous", "2 lb lamb shoulder cubed", "1 onion", "2 tbsp tomato paste", "1 tbsp harissa", "1 can chickpeas", "3 carrots", "2 zucchini", "2 potatoes", "6 cups stock"], ["Brown lamb and onion.", "Cook tomato paste and harissa until darkened.", "Add stock and simmer lamb 40 minutes.", "Add chickpeas and vegetables; cook until tender.", "Steam or hydrate couscous, fluff, and serve topped with lamb, vegetables, and broth."], ["tunisia", "couscous", "lamb", "celebration"], { cuisine: "tunisia" }),
+  expansionRecipe("tunisian-ojja-merguez", "Tunisian Ojja with Merguez", "Family Meals", "images/cuisines/africa/tunisia/ojja-merguez.jpg", "15 min", "30 min", 4, "Intermediate", "Eggs and merguez sausage cooked in a spicy tomato-pepper sauce with harissa.", ["1 lb merguez sausage", "1 onion diced", "1 bell pepper diced", "3 garlic cloves", "2 cups crushed tomatoes", "1 tbsp harissa", "1 tsp caraway", "4 eggs", "Olive oil"], ["Brown merguez and remove.", "Cook onion and pepper in olive oil until soft.", "Add garlic, harissa, caraway, and tomatoes; simmer 12 minutes.", "Return sausage and make four wells.", "Crack in eggs, cover, and cook until whites set; serve with bread."], ["tunisia", "ojja", "merguez", "family meal"], { cuisine: "tunisia" })
+];
+
 const existingRecipeIds = new Set(recipes.map((recipe) => recipe.id));
-recipes = [...recipes, ...[...nextFeatureRecipes, ...menuIntelligenceRecipes, ...regionalAuthenticityRecipes, ...livingCookbookRecipes, ...kidsKornerRecipes].filter((recipe) => !existingRecipeIds.has(recipe.id))];
+recipes = [...recipes, ...[...nextFeatureRecipes, ...menuIntelligenceRecipes, ...regionalAuthenticityRecipes, ...livingCookbookRecipes, ...kidsKornerRecipes, ...kidsExpansionRecipes, ...familyExpansionRecipes, ...mississippiHeritageRecipes, ...africaExpansionRecipes].filter((recipe) => !existingRecipeIds.has(recipe.id))];
 
 const lessons = [
   {
@@ -2927,17 +3232,13 @@ const partyCupIds = ["charcuterie-cups", "fruit-cups", "dessert-cups", "brunch-c
 
 const recipeImageReplacementQueue = new Set([
   "sweet-tea",
-  "banana-pudding",
   "smothered-pork-chops",
   "mississippi-pot-roast",
   "mississippi-perch-fry",
   "mississippi-bream-fry",
   "mississippi-crappie-fry",
-  "mississippi-fish-fry-plate",
   "white-perch-fry",
   "chicken-and-dumplings",
-  "mississippi-butter-beans",
-  "turnip-greens",
   "comeback-sauce",
   "oyster-poboy",
   "charbroiled-oysters",
@@ -2966,7 +3267,6 @@ const recipeImageReplacementQueue = new Set([
   "tennessee-chess-pie",
   "virginia-spoon-bread",
   "carolina-vinegar-sauce",
-  "hushpuppies",
   "carolina-red-rice",
   "gullah-geechee-favorites",
   "vidalia-onion-pie",
@@ -2989,7 +3289,6 @@ const recipeImageReplacementQueue = new Set([
   "grape-salad",
   "corn-salad",
   "pea-salad",
-  "chicken-and-dressing",
   "baked-ham"
 ]);
 
@@ -3009,10 +3308,72 @@ const recipeImageOverrides = {
   "lemonade": "images/juneteenth/fresh-lemonade.png",
   "bbq-pulled-pork": "images/juneteenth/pulled-pork-shoulder.png",
   "mississippi-buffalo-fish": "images/regional/mississippi-buffalo-fish.png",
-  "mississippi-perch-fry": "assets/lc-seafood.jpg",
-  "mississippi-bream-fry": "assets/lc-seafood.jpg",
-  "mississippi-crappie-fry": "assets/lc-seafood.jpg",
-  "mississippi-fish-fry-plate": "images/regional/mississippi-buffalo-fish.png",
+  "pan-trout-fish-sandwich": "images/regional/mississippi/pan-trout-sandwich.jpg",
+  "fried-catfish": "images/regional/mississippi/catfish-fillets.jpg",
+  "mississippi-perch-fry": "images/regional/mississippi/catfish-fillets.jpg",
+  "white-perch-fry": "images/regional/mississippi/catfish-fillets.jpg",
+  "mississippi-bream-fry": "images/regional/mississippi/catfish-fillets.jpg",
+  "mississippi-crappie-fry": "images/regional/mississippi/catfish-fillets.jpg",
+  "whole-fried-catfish": "images/regional/mississippi/whole-fried-catfish.jpg",
+  "mississippi-fish-fry-plate": "images/regional/mississippi/fish-fry-plate.jpg",
+  "hushpuppies": "images/regional/mississippi/hushpuppies.jpg",
+  "creamy-coleslaw": "images/regional/mississippi/coleslaw.jpg",
+  "southern-pig-feet": "images/regional/mississippi/pig-feet.jpg",
+  "pickled-pig-feet": "images/regional/mississippi/pickled-pig-feet.jpg",
+  "neck-bones-and-rice": "images/regional/mississippi/neck-bones-rice.jpg",
+  "ham-hocks-and-beans": "images/regional/mississippi/ham-hocks-beans.jpg",
+  "fried-fatback": "images/regional/mississippi/fried-fatback.jpg",
+  "mississippi-smoked-sausage": "images/regional/mississippi/smoked-sausage.jpg",
+  "purple-hull-peas": "images/regional/mississippi/purple-hull-peas.jpg",
+  "mississippi-butter-beans": "images/regional/mississippi/butter-beans.jpg",
+  "turnip-greens": "images/regional/mississippi/turnip-greens.jpg",
+  "mustard-greens": "images/regional/mississippi/mustard-greens.jpg",
+  "southern-collard-greens": "images/regional/mississippi/collard-greens.jpg",
+  "fried-okra": "images/regional/mississippi/fried-okra.jpg",
+  "hot-water-cornbread": "images/regional/mississippi/hot-water-cornbread.jpg",
+  "baked-beans-ground-beef": "images/regional/mississippi/beef-baked-beans.jpg",
+  "baked-beans-beef-bacon": "images/regional/mississippi/beef-bacon-baked-beans.jpg",
+  "southern-potato-salad": "images/regional/mississippi/potato-salad.jpg",
+  "deviled-eggs": "images/regional/mississippi/deviled-eggs.jpg",
+  "southern-baked-mac-cheese": "images/regional/mississippi/mac-and-cheese.jpg",
+  "bbq-chicken-quarters": "images/regional/mississippi/bbq-chicken.jpg",
+  "bbq-smoked-ribs": "images/regional/mississippi/ribs.jpg",
+  "bbq-pulled-pork": "images/regional/mississippi/pulled-pork.jpg",
+  "southern-cornbread-dressing": "images/regional/mississippi/cornbread-dressing.jpg",
+  "chicken-and-dressing": "images/regional/mississippi/chicken-dressing.jpg",
+  "mississippi-mud-pie": "images/regional/mississippi/mud-pie.jpg",
+  "mississippi-mud-cake": "images/regional/mississippi/mud-cake.jpg",
+  "southern-tea-cakes": "images/regional/mississippi/tea-cakes.jpg",
+  "sweet-potato-pie": "images/regional/mississippi/sweet-potato-pie.jpg",
+  "peach-cobbler": "images/regional/mississippi/peach-cobbler.jpg",
+  "blackberry-cobbler": "images/regional/mississippi/blackberry-cobbler.jpg",
+  "banana-pudding": "images/regional/mississippi/banana-pudding.jpg",
+  "fried-chicken-box": "images/regional/mississippi/fried-chicken-box.jpg",
+  "chicken-on-a-stick": "images/regional/mississippi/chicken-on-a-stick.jpg",
+  "sausage-dogs": "images/regional/mississippi/sausage-dogs.jpg",
+  "fried-bologna-sandwich": "images/regional/mississippi/bologna-sandwich.jpg",
+  "cracklins": "images/regional/mississippi/cracklins.jpg",
+  "pork-skins": "images/regional/mississippi/pork-skins.jpg",
+  "homemade-moon-pies": "images/regional/mississippi/moon-pies.jpg",
+  "kool-aid-pickles": "images/regional/mississippi/kool-aid-pickles.jpg",
+  "hot-sausage-sandwich": "images/regional/mississippi/hot-sausage-sandwich.jpg",
+  "delta-hot-tamales": "images/regional/mississippi/delta-tamales.jpg",
+  "nigerian-jollof-rice": "images/cuisines/africa/nigeria/jollof-rice.jpg",
+  "nigerian-egusi-soup": "images/cuisines/africa/nigeria/egusi-soup.jpg",
+  "nigerian-suya-skewers": "images/cuisines/africa/nigeria/suya-skewers.jpg",
+  "nigerian-moi-moi": "images/cuisines/africa/nigeria/moi-moi.jpg",
+  "ghanaian-waakye": "images/cuisines/africa/ghana/waakye.jpg",
+  "ghanaian-red-red": "images/cuisines/africa/ghana/red-red.jpg",
+  "ghanaian-kelewele": "images/cuisines/africa/ghana/kelewele.jpg",
+  "ghanaian-groundnut-soup": "images/cuisines/africa/ghana/groundnut-soup.jpg",
+  "ethiopian-doro-wat": "images/cuisines/africa/ethiopia/doro-wat.jpg",
+  "ethiopian-misir-wat": "images/cuisines/africa/ethiopia/misir-wat.jpg",
+  "ethiopian-tibs": "images/cuisines/africa/ethiopia/tibs.jpg",
+  "ethiopian-injera": "images/cuisines/africa/ethiopia/injera.jpg",
+  "moroccan-chicken-tagine": "images/cuisines/africa/morocco/chicken-tagine.jpg",
+  "moroccan-couscous-vegetables": "images/cuisines/africa/morocco/vegetable-couscous.jpg",
+  "moroccan-harira": "images/cuisines/africa/morocco/harira.jpg",
+  "moroccan-chermoula-fish": "images/cuisines/africa/morocco/chermoula-fish.jpg",
   "comeback-sauce": "assets/editorial-kitchen-prep.jpg",
   "shrimp-poboy": "images/regional/shrimp-poboy.png",
   "oyster-poboy": "images/regional/shrimp-poboy.png",
@@ -3047,13 +3408,13 @@ const recipeImageOverrides = {
   "smoked-mullet": "assets/lc-seafood.jpg",
   "cuban-sandwich": "images/regional/cuban-sandwich.png",
   "sweet-tea": "images/juneteenth/hibiscus-red-punch.png",
-  "banana-pudding": "assets/lc-desserts.jpg",
+  "banana-pudding": "images/regional/mississippi/banana-pudding.jpg",
   "smothered-pork-chops": "assets/american-food.jpeg",
-  "bbq-smoked-ribs": "images/regional/texas-beef-ribs.png",
+  "bbq-smoked-ribs": "images/regional/mississippi/ribs.jpg",
   "southern-fried-chicken": "images/cuisines/southern/southern-01.png",
   "southern-crispy-fried-chicken": "images/cuisines/southern/southern-01.png",
   "fried-chicken": "images/cuisines/southern/southern-01.png",
-  "southern-baked-mac-cheese": "images/cuisines/southern/southern-02.png",
+  "southern-baked-mac-cheese": "images/regional/mississippi/mac-and-cheese.jpg",
   "mac-and-cheese": "images/cuisines/southern/southern-02.png",
   "stovetop-mac-and-cheese": "images/cuisines/southern/southern-02.png",
   "collard-greens": "images/cuisines/southern/southern-03.png",
@@ -3088,7 +3449,7 @@ const recipeImageOverrides = {
   "chicken-piccata": "assets/lc-chicken-piccata.jpg",
   "chicken-parmesan": "assets/lc-chicken-piccata.jpg",
   "blackened-fish": "assets/lc-seafood.jpg",
-  "fried-catfish": "assets/lc-seafood.jpg",
+  "fried-catfish": "images/regional/mississippi/catfish-fillets.jpg",
   "lemon-herb-salmon": "assets/lc-seafood.jpg",
   "seafood-boil": "assets/lc-seafood.jpg",
   "birria-tacos": "assets/lc-birria-tacos.jpg",
@@ -3871,8 +4232,9 @@ const kidsKitchenLevels = [
     ages: "Ages 3-5",
     icon: "🌈",
     focus: "Washing, counting, pouring, spreading soft foods, and building colorful snacks.",
+    skills: ["Wash produce", "Count portions", "Scoop and pour", "Spread soft foods", "Sort foods by color"],
     safety: ["A grown-up stays within arm's reach", "Use only kid-safe tools", "No heat, sharp knives, or raw meat"],
-    recipes: ["fruit-rainbow-kabobs", "yogurt-parfait-cups", "pbj-roll-ups", "ants-on-a-log"],
+    recipes: ["fruit-rainbow-kabobs", "yogurt-parfait-cups", "pbj-roll-ups", "ants-on-a-log", "trail-mix-jars", "apple-nachos"],
     badges: ["Helper", "Clean Hands", "Color Counter"],
     challenge: "Build a snack with three colors and name every ingredient."
   },
@@ -3882,8 +4244,9 @@ const kidsKitchenLevels = [
     ages: "Ages 6-8",
     icon: "🧭",
     focus: "Measuring, layering, reading picture steps, simple assembly, and safe blender or oven awareness.",
+    skills: ["Measure cups and spoons", "Layer ingredients", "Read steps in order", "Use a timer", "Set up a clean station"],
     safety: ["Ask before touching appliances", "A grown-up handles blades and hot pans", "Read every step before starting"],
-    recipes: ["mini-pizza-faces", "apple-nachos", "banana-pudding-cups", "berry-banana-smoothies"],
+    recipes: ["mini-pizza-faces", "english-muffin-pizzas", "cheese-quesadilla-triangles", "banana-pudding-cups", "berry-banana-smoothies", "smoothie-cups", "no-bake-cereal-bars"],
     badges: ["Measuring Star", "Recipe Reader", "Healthy Hero"],
     challenge: "Read a recipe out loud, gather the ingredients, and finish one cold or baked snack with help."
   },
@@ -3893,8 +4256,9 @@ const kidsKitchenLevels = [
     ages: "Ages 9-12",
     icon: "⭐",
     focus: "Recipe reading, accurate measuring, supervised heat, baking, and making food for the family.",
+    skills: ["Crack and whisk eggs", "Measure accurately", "Bread foods in order", "Use an oven timer", "Check and clean the workspace"],
     safety: ["Use heat only with adult permission", "Turn pan handles inward", "Use a timer and clean spills right away"],
-    recipes: ["mini-chicken-sliders", "mac-and-cheese-bites", "chewy-chocolate-cookies", "crispy-rice-treats"],
+    recipes: ["mini-chicken-sliders", "mac-and-cheese-bites", "chewy-chocolate-cookies", "crispy-rice-treats", "breakfast-egg-cups", "taco-cups", "baked-chicken-tenders"],
     badges: ["Rising Chef", "Oven Ready", "Family Cook"],
     challenge: "Make a supervised snack for four people and explain your cleanup plan."
   },
@@ -3904,8 +4268,9 @@ const kidsKitchenLevels = [
     ages: "Ages 13+",
     icon: "🔥",
     focus: "Independent planning, knife fundamentals, heat control, balanced meals, budgeting, and food safety.",
+    skills: ["Plan a complete meal", "Use a chef's knife safely", "Control stovetop heat", "Check food temperature", "Store leftovers correctly"],
     safety: ["Use a stable cutting board", "Check meat with a thermometer", "Know how to respond to grease, smoke, and cuts"],
-    recipes: ["stovetop-mac-and-cheese", "soft-scrambled-eggs", "mini-chicken-sliders", "chewy-chocolate-cookies"],
+    recipes: ["stovetop-mac-and-cheese", "soft-scrambled-eggs", "sheet-pan-nachos", "simple-spaghetti", "chicken-quesadillas", "vegetable-stir-fry", "baked-chicken-tenders"],
     badges: ["Heat Manager", "Meal Builder", "Kitchen Safety"],
     challenge: "Plan, cook, serve, and clean up one simple meal with adult approval."
   }
@@ -3924,6 +4289,16 @@ const kidsKornerRecipeIds = [
   "banana-pudding-cups",
   "berry-banana-smoothies",
   "crispy-rice-treats",
+  "cheese-quesadilla-triangles",
+  "english-muffin-pizzas",
+  "no-bake-cereal-bars",
+  "trail-mix-jars",
+  "breakfast-egg-cups",
+  "taco-cups",
+  "baked-chicken-tenders",
+  "sheet-pan-nachos",
+  "simple-spaghetti",
+  "smoothie-cups",
   "pb-and-j-sandwich",
   "mini-pizza-bagels",
   "fruit-kabobs"
@@ -4312,7 +4687,7 @@ const regionalSoulFoodPages = {
     history: "Black Mississippi cooks shaped American music and American food through necessity, skill, faith, and hospitality. Catfish, greens, cornmeal, pork, sweet potatoes, Gulf shrimp, and pecans show up because they are tied to land, labor, rivers, and memory.",
     hospitality: "The table is generous: one fried or smothered main, greens with pot liquor, cornbread, something creamy, something sweet, and tea cold enough for a hot day.",
     music: "Mississippi is the birthplace of America's music. Blues, gospel, soul food, BBQ smoke, fish fries, and Sunday dinner all share the same community rhythm.",
-    signatureRecipeIds: ["fried-catfish", "mississippi-buffalo-fish", "white-perch-fry", "mississippi-bream-fry", "mississippi-crappie-fry", "mississippi-fish-fry-plate", "smothered-pork-chops", "chicken-and-dumplings", "hot-water-cornbread", "cornbread", "comeback-sauce", "mississippi-butter-beans", "turnip-greens", "peach-cobbler", "caramel-cake"],
+    signatureRecipeIds: ["pan-trout-fish-sandwich", "fried-catfish", "whole-fried-catfish", "mississippi-fish-fry-plate", "neck-bones-and-rice", "purple-hull-peas", "hot-water-cornbread", "baked-beans-beef-bacon", "southern-potato-salad", "chicken-and-dressing", "mississippi-mud-cake", "southern-tea-cakes", "kool-aid-pickles", "delta-hot-tamales"],
     skills: [["Cast-Iron Frying", "#culinary-academy/frying"], ["Fish Fry Basics", "#culinary-academy/frying"], ["Greens + Pot Liquor", "#culinary-academy/greens"], ["Cornbread", "#culinary-academy/cornbread"], ["Seasoning", "#culinary-academy/seasonings"]],
     traditions: ["Fish fries bring neighbors together around catfish, buffalo fish, white perch, crappie, bream, hot oil, cornmeal, slaw, sauce, and cold drinks.", "Church homecomings lean on dishes that travel, hold heat, and feed people with dignity.", "Sunday dinner is a weekly reset: gospel, greens, cornbread, a main dish, dessert, and time to sit down."],
     features: [["Blues & BBQ", "Pit smoke, Delta blues, ribs, pulled pork, baked beans, and family reunion plates."], ["Gospel & Sunday Dinner", "Greens, cornbread, fried chicken, smothered pork chops, tea, and a table that feels like home."]],
@@ -4584,6 +4959,95 @@ const regionalMenuOverrides = {
   ]
 };
 
+function mississippiCultureItem(title, recipeId, note, pairings, region, imagePrompt) {
+  return { title, recipeId, note, pairings, region, imagePrompt };
+}
+
+const mississippiDeltaPineyWoods = [
+  {
+    id: "fish-fry-river-foods",
+    title: "Fish Fry & River Foods",
+    intro: "Mississippi fish culture runs through Delta rivers, farm ponds, reservoirs, fish houses, backyard fryers, and Friday-night plates. The fish changes by water and family, but cornmeal, hot oil, cold slaw, white bread, lemon, and hot sauce keep showing up.",
+    items: [
+      mississippiCultureItem("Pan Trout Fish Sandwiches", "pan-trout-fish-sandwich", "Thin, crisp fish stacked on soft white bread is counter food, road food, and a quick fish-fry meal people can eat with one hand.", "Pickles, hot sauce, coleslaw, fries, or a cold drink.", "Delta counters, neighborhood fish spots, and convenience stores statewide.", "Documentary food photo of a cornmeal pan-trout sandwich on white bread with pickles, hot sauce, and wax paper at a Mississippi Delta counter."),
+      mississippiCultureItem("Fried Catfish Fillets", "fried-catfish", "Farm-raised and river catfish made Mississippi nationally recognizable. Fillets are the easy-to-serve center of fish-house plates and family fish fries.", "Hush puppies, slaw, fries, spaghetti, tartar or comeback sauce.", "Delta, east-central catfish country, reservoirs, and restaurants statewide.", "Golden Mississippi catfish fillets in a paper-lined basket with hush puppies, coleslaw, lemon, and hot sauce."),
+      mississippiCultureItem("Whole Fried Catfish", "whole-fried-catfish", "Whole fish keeps the old fish-house presentation intact and rewards diners who know how to work carefully around the bones.", "Hush puppies, slaw, fries, pickles, lemon, and tea.", "Fish houses, rural fish fries, and communities near ponds and rivers.", "Whole scored fried catfish on an enamel platter with hush puppies and slaw at a rural Mississippi fish fry."),
+      mississippiCultureItem("Fish Fry Plates", "mississippi-fish-fry-plate", "The complete plate matters as much as the fish: hot cornmeal crust, cold creamy sides, bread, sauce, and something sweet to drink.", "Potato salad or spaghetti, slaw, hush puppies, comeback sauce, sweet tea.", "Church fundraisers, family reunions, volunteer fire departments, and backyards.", "Mississippi church fish-fry plate with catfish, spaghetti, slaw, hush puppies, comeback sauce, and sweet tea."),
+      mississippiCultureItem("Hush Puppies", "hushpuppies", "Small fried cornmeal breads make practical use of the hot fish oil and give the plate a sweet-savory, crisp-edged companion.", "Fried fish, slaw, tartar sauce, onions, and pickles.", "Fish houses and fish fries across Mississippi.", "Basket of dark-golden hush puppies beside fried catfish at a Mississippi fish house."),
+      mississippiCultureItem("Homemade Coleslaw", "creamy-coleslaw", "Cold slaw cuts through fried food and can be made early enough for a church or reunion crew to focus on the fryer.", "Catfish, pulled pork, ribs, chicken boxes, and sandwiches.", "Fish fries, BBQ plates, church kitchens, and cookouts statewide.", "Creamy homemade coleslaw in a chilled stainless bowl on a Mississippi cookout table.")
+    ]
+  },
+  {
+    id: "country-kitchen",
+    title: "Country Kitchen",
+    intro: "Delta and Piney Woods country cooking wastes little and seasons patiently. Smoked pork, field peas, greens, beans, cornmeal, and inexpensive cuts become full meals through long simmering, skillet work, and strong pot liquor.",
+    items: [
+      mississippiCultureItem("Pig Feet", "southern-pig-feet", "Slow cooking turns a tough, collagen-rich cut tender and makes a seasoned broth meant for rice or cornbread.", "Rice, greens, beans, vinegar pepper sauce, and cornbread.", "Rural home kitchens, soul-food tables, and Delta communities.", "Slow-simmered pig feet with pepper vinegar, rice, greens, and cornbread in a Mississippi country kitchen."),
+      mississippiCultureItem("Pickled Pig Feet", "pickled-pig-feet", "The vinegar-brined version belongs to country-store memory and the older preserving habits of making flavorful use of the whole animal.", "Crackers, hot sauce, pickles, and cold drinks.", "Country stores, rural communities, and home refrigerators statewide.", "Glass jar of red-pepper pickled pig feet on a worn Mississippi country-store counter."),
+      mississippiCultureItem("Neck Bones & Rice", "neck-bones-and-rice", "Neck bones reward time rather than expensive ingredients; the broth becomes the gravy that makes the rice the meal.", "White rice, cabbage or greens, cornbread, and hot sauce.", "Delta, central, and Piney Woods family kitchens.", "Braised pork neck bones and gravy over white rice with greens and hot water cornbread."),
+      mississippiCultureItem("Ham Hocks & Beans", "ham-hocks-and-beans", "Smoked hocks season a whole pot of beans, stretching meat flavor through a large family meal.", "Cornbread, chowchow, sliced onion, and greens.", "Country kitchens and cold-weather tables statewide.", "Creamy white beans with smoked ham hock, onion, chowchow, and cast-iron cornbread."),
+      mississippiCultureItem("Fatback", "fried-fatback", "Salt-cured fatback is both seasoning and a crisp side, used sparingly to give beans, peas, and greens depth.", "Biscuits, field peas, beans, eggs, and cane syrup.", "Piney Woods, farm kitchens, and country breakfasts.", "Crisp fried fatback beside biscuits, eggs, and a bowl of field peas in a Piney Woods kitchen."),
+      mississippiCultureItem("Smoked Sausage", "mississippi-smoked-sausage", "Smoked sausage works for breakfast, sandwiches, skillets, cookouts, and large pans because it cooks quickly and carries deep smoke.", "Peppers and onions, rice, beans, buns, mustard, and potato salad.", "Gas stations, cookouts, Delta tables, and Piney Woods groceries.", "Browned Mississippi smoked sausage with onions and peppers in a cast-iron skillet."),
+      mississippiCultureItem("Purple Hull Peas", "purple-hull-peas", "Purple hull peas mark summer shelling, garden cooking, and the field-pea tradition that gives Southern plates body without needing much meat.", "Hot water cornbread, sliced tomato, okra, and pepper sauce.", "Delta gardens, farm stands, and summer tables statewide.", "Fresh purple hull peas with pot liquor, tomato slices, and hot water cornbread."),
+      mississippiCultureItem("Butter Beans", "mississippi-butter-beans", "Creamy butter beans are a dependable meat-and-three side and a meal of their own when the pot liquor is right.", "Cornbread, greens, fried chicken, or sliced tomato.", "Home kitchens and plate-lunch counters statewide.", "Mississippi butter beans in a white bowl with cornbread and sliced tomatoes."),
+      mississippiCultureItem("Turnip Greens", "turnip-greens", "Turnip greens bring peppery bitterness, smoked seasoning, and pot liquor that asks for cornbread.", "Hot water cornbread, beans, pork chops, and pepper sauce.", "Central and north Mississippi home and church tables.", "Turnip greens and pot liquor with pepper sauce and hot water cornbread."),
+      mississippiCultureItem("Mustard Greens", "mustard-greens", "Mustard greens cook faster and taste sharper than collards, giving cooks another distinct green rather than one generic pot.", "Cornbread, smoked turkey, beans, and vinegar.", "Gardens and country kitchens across Mississippi.", "Peppery mustard greens with smoked turkey and vinegar in a Mississippi kitchen."),
+      mississippiCultureItem("Collard Greens", "southern-collard-greens", "Collards hold up to long simmering and large-batch church or reunion cooking.", "Mac and cheese, fried chicken, cornbread, and pot liquor.", "Church dinners, Sunday tables, and reunions statewide.", "Deep-green collards in a large church-kitchen pan with cornbread nearby."),
+      mississippiCultureItem("Fried Okra", "fried-okra", "Okra thrives in Mississippi heat; frying keeps it crisp and turns a garden vegetable into a side people reach for by the handful.", "Fried fish, tomatoes, field peas, or chicken.", "Gardens, meat-and-three counters, and summer suppers.", "Cornmeal fried okra in a paper-lined bowl beside tomatoes and field peas."),
+      mississippiCultureItem("Hot Water Cornbread", "hot-water-cornbread", "Cornmeal and boiling water become crisp-edged patties without an oven, making this bread fast, economical, and perfect for pot liquor.", "Greens, beans, fish, neck bones, and peas.", "Delta and Black Mississippi home cooking statewide.", "Crisp hot water cornbread patties beside greens and pot liquor.")
+    ]
+  },
+  {
+    id: "cookouts-church-reunions",
+    title: "Cookouts, Family Reunions & Church Events",
+    intro: "These are foods designed for foil pans, serving spoons, folding tables, second plates, and feeding people who did not RSVP. They hold, travel, scale, and taste like somebody cared.",
+    items: [
+      mississippiCultureItem("Baked Beans with Ground Beef", "baked-beans-ground-beef", "Ground beef turns a side into a substantial cookout pan and helps it feed a larger crowd.", "BBQ chicken, ribs, potato salad, slaw, and rolls.", "Cookouts, reunions, and church events statewide.", "Foil pan of baked beans with ground beef on a Mississippi reunion buffet."),
+      mississippiCultureItem("Baked Beans with Beef and Bacon", "baked-beans-beef-bacon", "Bacon adds smoke and a crisp top to the sweeter, heavier reunion version.", "Pulled pork, ribs, mac and cheese, and cornbread.", "Backyard cookouts and large family gatherings.", "Glossy baked beans with beef and bacon beside ribs and potato salad."),
+      mississippiCultureItem("Potato Salad", "southern-potato-salad", "Potato salad is judged closely because every family has a preferred balance of mustard, relish, egg, and texture.", "Fish, fried chicken, BBQ, sandwiches, and baked beans.", "Every Mississippi gathering table.", "Mustard-style Southern potato salad with chopped egg in a reunion serving bowl."),
+      mississippiCultureItem("Deviled Eggs", "deviled-eggs", "Deviled eggs signal that somebody arrived early, chilled the tray, and brought a dish that disappears before the main line moves.", "Ham, chicken and dressing, salads, and holiday plates.", "Church dinners, repasts, holidays, and reunions.", "Paprika-dusted deviled eggs on a covered church-lunch tray."),
+      mississippiCultureItem("Mac and Cheese", "southern-baked-mac-cheese", "Baked macaroni belongs to the pan-food canon: browned top, custardy center, and enough structure to serve cleanly.", "Fried chicken, greens, BBQ, ham, and dressing.", "Sunday dinner, repasts, holidays, and church homecomings.", "Deep-pan baked macaroni and cheese with a browned top at a Mississippi church supper."),
+      mississippiCultureItem("BBQ Chicken", "bbq-chicken-quarters", "Chicken quarters stay juicy over smoke and stretch farther than individual specialty cuts.", "Baked beans, slaw, potato salad, bread, and sauce.", "Backyard pits, reunions, fundraisers, and cookouts.", "Sauced BBQ chicken quarters on a smoky Mississippi backyard grill."),
+      mississippiCultureItem("Ribs", "bbq-smoked-ribs", "Ribs are celebration food and pitmaster proof: smoke, tenderness, bark, and sauce all get discussed.", "Beans, slaw, potato salad, white bread, and pickles.", "Cookouts, reunions, juke-joint and BBQ traditions statewide.", "Smoked pork ribs with bark, sauce on the side, white bread, and pickles."),
+      mississippiCultureItem("Pulled Pork", "bbq-pulled-pork", "A pork shoulder can feed a crowd, hold well, and become plates or sandwiches.", "Slaw, beans, buns, pickles, and hot sauce.", "Fundraisers, church events, cookouts, and family reunions.", "Pulled pork shoulder being served from a foil pan at a Mississippi reunion."),
+      mississippiCultureItem("Cornbread Dressing", "southern-cornbread-dressing", "Dressing centers sage, onion, celery, stock, and cornbread in a pan tied to holidays and memory.", "Turkey, chicken, gravy, greens, cranberry sauce, and yams.", "Thanksgiving, Christmas, and Sunday family tables.", "Sage cornbread dressing in a browned casserole dish with gravy."),
+      mississippiCultureItem("Chicken and Dressing", "chicken-and-dressing", "Chicken baked with or served over dressing turns the holiday side into a complete church or family meal.", "Green beans, mac and cheese, rolls, cranberry sauce, and tea.", "Church lunches, repasts, holidays, and homecomings.", "Chicken and cornbread dressing with gravy on a Mississippi homecoming plate.")
+    ]
+  },
+  {
+    id: "mississippi-desserts",
+    title: "Mississippi Desserts",
+    intro: "Mississippi dessert tables lean toward pans, pies, cobblers, cakes, and cookies that travel well, slice generously, and sit beside coffee or sweet tea while people keep talking.",
+    items: [
+      mississippiCultureItem("Mississippi Mud Pie", "mississippi-mud-pie", "The name leans into the state's river imagery while the dessert layers dark chocolate, cookie crust, and cream.", "Coffee, cold milk, or vanilla ice cream.", "Restaurant dessert menus and family celebrations statewide.", "Dark chocolate Mississippi mud pie with cookie crust and whipped cream."),
+      mississippiCultureItem("Mississippi Mud Cake", "mississippi-mud-cake", "The sheet-cake version is built for crowds: chocolate cake, marshmallows, and warm icing in one pan.", "Coffee, milk, or a church dessert table.", "Potlucks, family reunions, and church events.", "Mississippi mud sheet cake with marshmallow layer and glossy cocoa icing."),
+      mississippiCultureItem("Tea Cakes", "southern-tea-cakes", "Tea cakes preserve an older, less-sweet cookie tradition passed through Black Southern family kitchens.", "Coffee, tea, milk, or fruit preserves.", "Delta and rural family kitchens, especially among older generations.", "Soft golden tea cakes cooling on a worn baking sheet beside coffee."),
+      mississippiCultureItem("Sweet Potato Pie", "sweet-potato-pie", "Sweet potatoes connect gardens, holiday tables, and Black Southern baking through a warmly spiced custard.", "Coffee, whipped cream, or holiday dinner.", "Holiday and Sunday tables statewide.", "Southern sweet potato pie with a clean slice and warm nutmeg color."),
+      mississippiCultureItem("Peach Cobbler", "peach-cobbler", "Cobbler turns summer fruit or preserved peaches into a dessert that can feed a room from one dish.", "Vanilla ice cream or cold milk.", "Sunday dinners, reunions, and cookouts.", "Bubbling peach cobbler in a deep pan with a scoop of vanilla ice cream."),
+      mississippiCultureItem("Blackberry Cobbler", "blackberry-cobbler", "Wild and cultivated blackberries make a deeply colored seasonal cobbler tied to picking, preserving, and summer.", "Ice cream, whipped cream, or coffee.", "Piney Woods, north Mississippi, and rural summer tables.", "Rustic blackberry cobbler with purple juices bubbling through golden crust."),
+      mississippiCultureItem("Banana Pudding", "banana-pudding", "Banana pudding is a large-bowl dessert designed to be assembled ahead, chilled, and spooned generously.", "Vanilla wafers, coffee, or a full church plate.", "Church dinners, repasts, reunions, and holidays statewide.", "Large glass bowl of layered banana pudding and vanilla wafers on a church table.")
+    ]
+  },
+  {
+    id: "gas-station-corner-store",
+    title: "Mississippi Gas Station & Corner Store Culture",
+    intro: "In Mississippi, a gas station can also be a breakfast stop, fish counter, fried-chicken kitchen, sausage stand, tamale source, and community bulletin board. Hot boxes and corner stores preserve practical regional foods that travel, satisfy, and fit the rhythm of work and the road.",
+    items: [
+      mississippiCultureItem("Fried Chicken Boxes", "fried-chicken-box", "A hot chicken box is dependable road food: crisp pieces packed with bread, pickles, wedges, or slaw.", "White bread, pickles, potato wedges, slaw, and a cold drink.", "Convenience stores and small-town hot boxes statewide.", "Mississippi gas-station fried chicken box with white bread, pickles, wedges, and wax paper."),
+      mississippiCultureItem("Chicken on a Stick", "chicken-on-a-stick", "Battered chicken, pepper, and onion on a skewer is one of the foods Mississippians immediately associate with a good gas-station hot box.", "Potato wedges, ranch, hot sauce, or a fountain drink.", "North and central Mississippi gas stations and convenience stores.", "Golden fried chicken-on-a-stick with onion and bell pepper in a Mississippi gas-station hot box."),
+      mississippiCultureItem("Sausage Dogs", "sausage-dogs", "Smoked sausage in a bun is fast, smoky, inexpensive, and easy to dress from a condiment counter.", "Mustard, onions, relish, chili, chips, and soda.", "Gas stations, ball fields, cookouts, and corner stores statewide.", "Split smoked sausage dog with mustard and onions wrapped in deli paper."),
+      mississippiCultureItem("Bologna Sandwiches", "fried-bologna-sandwich", "Bologna sandwiches move between lunchbox, country-store, breakfast, and skillet comfort food.", "Mustard, cheese, pickles, chips, or a fried egg.", "Country stores and home kitchens statewide.", "Thick fried bologna sandwich on white bread with mustard and pickles."),
+      mississippiCultureItem("Cracklins", "cracklins", "Cracklins retain meat and fat with the skin, making them denser than pork skins and prized as a fresh, salty road snack.", "Hot sauce, cold soda, or cornbread batter in some kitchens.", "Butcher counters, country stores, and south Mississippi road stops.", "Fresh pork cracklins in a brown paper bag on a Mississippi country-store counter."),
+      mississippiCultureItem("Pork Skins", "pork-skins", "Light, puffed pork skins are shelf and counter snacks seasoned from plain salt to hot pepper.", "Hot sauce, cold drinks, or sandwiches.", "Corner stores, gas stations, and groceries statewide.", "Freshly puffed pork skins dusted with red pepper in a clear counter bag."),
+      mississippiCultureItem("Moon Pies", "homemade-moon-pies", "Moon Pies became a durable Southern store snack because they are portable, sweet, and natural company for a cola.", "RC Cola or another ice-cold bottled cola.", "Corner stores, gas stations, and road trips across Mississippi.", "Chocolate Moon Pie and glass-bottle RC Cola on a Mississippi store counter."),
+      mississippiCultureItem("RC Cola and Moon Pie Tradition", "", "The pairing represents old Southern store culture: an inexpensive cola and marshmallow sandwich snack bought together at the counter.", "RC Cola, Moon Pie, peanuts, or a road-trip stop.", "Country stores and convenience stores statewide; also celebrated more broadly across the South.", "Vintage RC Cola bottle and Moon Pie beside a Mississippi gas-station cash register."),
+      mississippiCultureItem("Kool-Aid Pickles", "kool-aid-pickles", "Sweet, sour, brightly colored pickles are especially associated with the Mississippi Delta and youth snack culture.", "Chips, candy, or a cold drink.", "Delta convenience stores, neighborhood stands, and home refrigerators.", "Bright red Kool-Aid pickles in a clear deli cup at a Delta corner store."),
+      mississippiCultureItem("Hot Sausage Sandwiches", "hot-sausage-sandwich", "Spicy sausage on soft bread delivers heat, fat, mustard, and pickle in a compact counter meal.", "Mustard, pickles, onions, chips, and soda.", "Delta and southwest Mississippi stores and sandwich counters.", "Hot sausage sandwich with mustard, pickles, and onions wrapped in white paper."),
+      mississippiCultureItem("Delta Tamales", "delta-hot-tamales", "Delta tamales are smaller, heavily seasoned, often simmered, and tied to Black, Mexican, Sicilian, and regional labor histories that developed into a food all their own.", "Crackers, chili, hot sauce, slaw, or a cold drink.", "Mississippi Delta tamale stands, restaurants, and roadside sellers.", "Bundle of Mississippi Delta hot tamales in corn husks with red chile broth at a roadside stand.")
+    ]
+  }
+];
+
 Object.entries(regionalSoulFoodPages).forEach(([id, page]) => {
   page.menus = (regionalMenuOverrides[id] || regionalSoulFoodMenuTemplates).map((menu) => ({ ...menu }));
 });
@@ -4616,6 +5080,85 @@ function regionalRecipeCards(ids = []) {
 
 function regionalRecipeList(ids = []) {
   return ids.map((id) => recipeByIdSafe(id)).filter(Boolean).map((recipe) => `<li><a href="#recipes/${recipe.id}">${recipe.title}</a></li>`).join("");
+}
+
+function africaCuisineHub() {
+  return `
+    ${hero("Africa Cuisine Hub", "Travel country by country through the ingredients, family meals, celebration dishes, street foods, and holiday traditions that make Africa's food cultures distinct.", "images/cuisines/africa/nigeria/jollof-rice.jpg", `<a class="small-button" href="#cuisine-explorer">All Cuisines</a><a class="small-button secondary" href="#menu-intelligence">Build A Menu</a>`)}
+    ${cookSubnav()}
+    <section class="cream-section africa-hub-page">
+      <div class="section-heading">
+        <p class="eyebrow">Country by country</p>
+        <h2>There is no single “African cuisine.”</h2>
+        <p>Choose a country to learn its food identity through real dishes, everyday staples, gathering foods, market and street traditions, and recipes with matching photography.</p>
+      </div>
+      <div class="africa-country-grid">
+        ${Object.entries(africaCountryPages).map(([id, page]) => `
+          <a class="africa-country-card" href="#cuisine-explorer/${id}">
+            <img src="${page.image}" alt="${page.country} cuisine" />
+            <div>
+              <span>${page.region}</span>
+              <h3>${page.country}</h3>
+              <p>${page.overview}</p>
+              <strong>Explore ${page.country}</strong>
+            </div>
+          </a>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function africaFoodList(title, items) {
+  return `
+    <article class="africa-food-lane">
+      <h3>${title}</h3>
+      <ul>${items.map((item) => `<li>${item}</li>`).join("")}</ul>
+    </article>
+  `;
+}
+
+function renderAfricaCountryPage(id) {
+  const page = africaCountryPages[id];
+  if (!page) return africaCuisineHub();
+  const pageRecipes = page.recipeIds.map((recipeId) => recipeByIdSafe(recipeId)).filter(Boolean);
+  app.innerHTML = `
+    ${hero(page.country, page.overview, page.image, `<a class="small-button" href="#cuisine-explorer/african-cuisines">Africa Hub</a><a class="small-button secondary" href="#menu-intelligence">Build A Menu</a>`)}
+    ${cookSubnav()}
+    <section class="cream-section africa-country-page">
+      <div class="africa-country-intro">
+        <article>
+          <p class="eyebrow">${page.region}</p>
+          <h2>Food traditions</h2>
+          <p>${page.traditions}</p>
+        </article>
+        <article>
+          <p class="eyebrow">Signature ingredients</p>
+          <div class="region-chip-row">${page.ingredients.map((ingredient) => `<span>${ingredient}</span>`).join("")}</div>
+        </article>
+      </div>
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Cook this country</p>
+        <h2>Recipes with exact dish photography.</h2>
+        <p>Every card below opens a complete recipe record attributed to ${page.country}.</p>
+      </div>
+      <div class="recipe-grid">${pageRecipes.map(recipeCard).join("")}</div>
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">How the table lives</p>
+        <h2>Everyday food, gathering food, and food on the move.</h2>
+      </div>
+      <div class="africa-food-lanes">
+        ${africaFoodList("Family Meals", page.familyMeals)}
+        ${africaFoodList("Celebration Foods", page.celebrationFoods)}
+        ${africaFoodList("Street Foods", page.streetFoods)}
+        ${africaFoodList("Holiday Foods", page.holidayFoods)}
+      </div>
+      <nav class="africa-country-nav" aria-label="Explore more African cuisines">
+        <a href="#cuisine-explorer/african-cuisines">Back to Africa Hub</a>
+        ${Object.entries(africaCountryPages).filter(([countryId]) => countryId !== id).slice(0, 5).map(([countryId, country]) => `<a href="#cuisine-explorer/${countryId}">${country.country}</a>`).join("")}
+      </nav>
+    </section>
+  `;
 }
 
 function regionalShoppingList(ids = []) {
@@ -4785,6 +5328,62 @@ function regionalMenuOutput(page, menu) {
   `;
 }
 
+function renderMississippiHeritageChapter() {
+  return `
+    <section class="mississippi-heritage-chapter" id="mississippi-delta-piney-woods">
+      <header class="mississippi-chapter-header">
+        <p class="eyebrow">A living Mississippi cookbook</p>
+        <h2>Mississippi Delta & Piney Woods Cuisine</h2>
+        <p>This is not one generic Southern plate. It is river fish and farm ponds, Delta tamale stands, Piney Woods smokehouses, country-store snacks, church-kitchen pans, reunion tables, garden peas, pot liquor, and hot-box food eaten on the road.</p>
+        <div class="mississippi-region-key">
+          <span>Delta river country</span><span>Piney Woods kitchens</span><span>Church + reunion tables</span><span>Gas station culture</span>
+        </div>
+      </header>
+      ${mississippiDeltaPineyWoods.map((section, sectionIndex) => `
+        <section class="mississippi-food-lane" id="${section.id}">
+          <div class="mississippi-lane-heading">
+            <span>${String(sectionIndex + 1).padStart(2, "0")}</span>
+            <div><h3>${section.title}</h3><p>${section.intro}</p></div>
+          </div>
+          <div class="mississippi-culture-grid">
+            ${section.items.map((item) => {
+              const recipe = item.recipeId ? recipeByIdSafe(item.recipeId) : null;
+              const cultureImage = recipe
+                ? recipePhotoFor(recipe)
+                : "images/regional/mississippi/cola-moon-pie.jpg";
+              return `
+                <article class="mississippi-culture-card">
+                  <img class="mississippi-food-photo" src="${cultureImage}" alt="${item.title}" />
+                  <div class="mississippi-card-top">
+                    <span>${section.title}</span>
+                    <h4>${item.title}</h4>
+                  </div>
+                  <p>${item.note}</p>
+                  <dl>
+                    <div><dt>Traditional pairings</dt><dd>${item.pairings}</dd></div>
+                    <div><dt>Commonly found</dt><dd>${item.region}</dd></div>
+                  </dl>
+                  <details class="mississippi-photo-prompt">
+                    <summary>Photo direction</summary>
+                    <p>${item.imagePrompt}</p>
+                  </details>
+                  ${recipe
+                    ? `<a class="small-button" href="#recipes/${recipe.id}">Cook ${recipe.title}</a>`
+                    : `<span class="culture-note-only">Culture note / no recipe required</span>`}
+                </article>
+              `;
+            }).join("")}
+          </div>
+        </section>
+      `).join("")}
+      <footer class="mississippi-chapter-footer">
+        <strong>Mississippi food is place-based.</strong>
+        <p>The Delta, Piney Woods, Gulf Coast, hill country, and city tables overlap, but they are not interchangeable. This chapter centers foods people recognize from home, work, church, school games, reunions, country stores, and the road.</p>
+      </footer>
+    </section>
+  `;
+}
+
 function renderRegionalSoulFoodPage(id) {
   const page = regionalSoulFoodPages[id] || regionalSoulFoodPages["mississippi-soul-food"];
   const firstMenu = page.menus[0];
@@ -4808,6 +5407,8 @@ function renderRegionalSoulFoodPage(id) {
         <h2>Recipes tied to ${page.state} food memory.</h2>
       </div>
       <div class="recipe-grid">${regionalRecipeCards(page.signatureRecipeIds)}</div>
+
+      ${id === "mississippi-soul-food" ? renderMississippiHeritageChapter() : ""}
 
       <div class="section-heading compact-heading">
         <p class="eyebrow">Gatherings + menus</p>
@@ -5642,6 +6243,8 @@ function renderCuisineExplorerDetail(id) {
 function renderCuisineExplorer(id) {
   const regionalId = id ? regionalSoulFoodAliases[id] || id : "";
   if (regionalId && regionalSoulFoodPages[regionalId]) return renderRegionalSoulFoodPage(regionalId);
+  if (id === "african-cuisines") return africaCuisineHub();
+  if (id && africaCountryPages[id]) return renderAfricaCountryPage(id);
   if (id) return renderCuisineExplorerDetail(id);
   app.innerHTML = `
     ${hero("Cuisine Explorer", "A culinary rolodex for food culture, regional flavor, ingredients, traditions, and the way meals connect across the world.", photoFor("cuisines", "indian"), `<a class="small-button" href="#culinary-academy">Open Culinary Academy</a><a class="small-button secondary" href="#menu-intelligence">Build A Menu</a>`)}
@@ -5743,63 +6346,61 @@ function progressionNav(previousHref, previousLabel, nextHref, nextLabel, relate
 }
 
 function renderCulinaryAcademy(id) {
-  const query = id ? normalizeIngredientTerm(id) : "";
-  const module = academyModuleById(id);
-  if (module) return renderAcademyModule(module);
-  const entries = query
-    ? foodEncyclopedia.filter((entry) => [entry.term, entry.origin, entry.purpose, ...(entry.related || [])].join(" ").toLowerCase().includes(query))
-    : foodEncyclopedia;
+  const openingDate = new Date("2026-10-01T00:00:00");
+  const daysUntilOpening = Math.max(0, Math.ceil((openingDate.getTime() - Date.now()) / 86400000));
+  const lockedFeatures = [
+    "Knife Skills",
+    "Kitchen Fundamentals",
+    "Southern Cooking Series",
+    "World Cuisine Passport",
+    "Food History",
+    "Printables & Certificates",
+    "Kids Cooking Lessons"
+  ];
+  const requestedLesson = id ? titleizeSlug(id) : "";
   app.innerHTML = `
-    ${hero("Culinary Academy", "One learning home for food terms, ingredients, techniques, equipment, food science, world foods, seasonings, and professional kitchen skills.", photoFor("hero", "learning"), `<a class="small-button" href="#cuisine-explorer">Explore Cuisines</a><a class="small-button secondary" href="#menu-intelligence">Build A Menu</a>`)}
     ${cookSubnav()}
-    <section class="cream-section">
-      <div class="section-heading">
-        <p class="eyebrow">Academy categories</p>
-        <h2>Everything food learners need, organized into clear study lanes.</h2>
-      </div>
-      <div class="academy-category-grid">
-        ${academyCategories.map((category) => `
-          <article class="academy-category-card">
-            <h3>${category.title}</h3>
-            <p>${category.text}</p>
-            <div class="region-chip-row linked-chip-row">${category.entries.map((entry) => {
-              const linkedModule = academyModuleById(entry);
-              return `<a href="#culinary-academy/${entry}">${linkedModule?.title || titleizeSlug(entry)}</a>`;
-            }).join("")}</div>
-          </article>
-        `).join("")}
-      </div>
-    </section>
-    <section class="cream-section">
-      <div class="section-heading">
-        <p class="eyebrow">Search the academy</p>
-        <h2>Definitions for beginners, context for culture, and notes for serious cooks.</h2>
-      </div>
-      <form class="ingredient-search-panel encyclopedia-search" data-academy-form>
-        <label for="academySearchInput">Search food terms, ingredients, equipment, and techniques</label>
-        <div>
-          <input id="academySearchInput" name="term" value="${query}" placeholder="roux, plantain, umami, chopsticks..." />
-          <button class="small-button" type="submit">Search</button>
-        </div>
-      </form>
-      ${academySearchMarkup(query)}
-      <div class="encyclopedia-grid">
-        ${entries.map((entry) => `
-          <article class="encyclopedia-card">
-            <span>${entry.origin}</span>
-            <h3>${entry.term}</h3>
-            ${entry.pronunciation ? `<p class="pronunciation">${entry.pronunciation}</p>` : ""}
-            <p>${entry.purpose}</p>
-            <div class="chef-note-grid">
-              <section><strong>Beginner note</strong><p>${entry.beginner}</p></section>
-              <section><strong>Pro chef note</strong><p>${entry.pro}</p></section>
+    <section class="academy-hold-page">
+      <div class="academy-hold-shell">
+        <div class="academy-hold-intro">
+          <span class="academy-lock-mark" aria-hidden="true">&#128274;</span>
+          <p class="eyebrow">Learning kitchen under construction</p>
+          <h1>Cuisine Academy</h1>
+          <p class="academy-opening-date">Coming October 2026</p>
+          <p class="academy-hold-copy">The Let's Cook Y'all Cuisine Academy is currently in development and will officially open in October 2026. Future lessons will include Southern cooking, world cuisines, kitchen fundamentals, food history, knife skills, printable guides, and cultural food experiences.</p>
+          ${requestedLesson ? `<p class="academy-route-note"><strong>${requestedLesson}</strong> is safely tucked inside the Academy while we finish building the full lesson.</p>` : ""}
+          <div class="academy-countdown" aria-label="${daysUntilOpening} days until Cuisine Academy opens">
+            <strong>${daysUntilOpening}</strong>
+            <span>days until the doors open</span>
+          </div>
+          <div class="academy-progress-block">
+            <div><span>Academy build progress</span><strong>40%</strong></div>
+            <div class="academy-progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40">
+              <span></span>
             </div>
-            <div class="region-chip-row linked-chip-row">${entry.related.map((item) => {
-              const href = knownAcademyHref(item);
-              return href ? `<a href="${href}">${item}</a>` : `<span>${item}</span>`;
-            }).join("")}</div>
+          </div>
+          <div class="academy-hold-actions">
+            <a class="small-button" href="#recipes">Cook Something Today</a>
+            <a class="small-button secondary" href="#cuisine-explorer">Explore Cuisines</a>
+          </div>
+        </div>
+        <aside class="academy-preview-panel" aria-label="Locked Academy preview">
+          <p class="eyebrow">What is being prepared</p>
+          <h2>Your future learning table</h2>
+          <div class="academy-locked-list">
+            ${lockedFeatures.map((feature) => `
+              <div>
+                <span aria-hidden="true">&#128274;</span>
+                <strong>${feature}</strong>
+              </div>
+            `).join("")}
+          </div>
+          <article class="building-public-note">
+            <span>Building in Public</span>
+            <h3>Learning while we build.</h3>
+            <p>New lessons will grow alongside Shay's culinary education journey. The Academy will open with practical instruction, cultural context, and tools made for real kitchens.</p>
           </article>
-        `).join("") || `<div class="empty-state">No encyclopedia entries found yet.</div>`}
+        </aside>
       </div>
     </section>
   `;
@@ -6093,8 +6694,15 @@ function renderKidsKornerLearn() {
           ${kidsKitchenLevels.map((level) => `
             <article class="kids-age-card">
               <span class="kids-age-icon">${level.icon}</span><p>${level.ages}</p><h3>${level.title}</h3><span>${level.focus}</span>
+              <h4>Five skills to practice</h4><ul>${level.skills.map((item) => `<li>${item}</li>`).join("")}</ul>
               <h4>Safety rules</h4><ul>${level.safety.map((item) => `<li>${item}</li>`).join("")}</ul>
+              <h4>Recipes to try</h4>
+              <div class="kids-age-recipe-links">${level.recipes.map((recipeId) => {
+                const recipe = recipeById(recipeId);
+                return recipe ? `<a href="#recipes/${recipe.id}">${recipe.title}</a>` : "";
+              }).join("")}</div>
               <h4>Challenge</h4><p>${level.challenge}</p>
+              <h4>Badges</h4><div class="kids-age-badges">${level.badges.map((badge) => `<span>${badge}</span>`).join("")}</div>
             </article>
           `).join("")}
         </div>
@@ -6111,18 +6719,41 @@ function renderKidsKornerPlay() {
         <span>🎲</span><div><p>Play</p><h1>Kitchen brain games.</h1><small>Think, guess, match, and learn something useful while you play.</small></div>
       </section>
       <section class="kids-section kids-game-grid">
-        ${[
-          ["🍓", "Food Quiz", "Which food is a fruit even though people often cook it like a vegetable?", ["Carrot", "Tomato", "Potato"], "Tomato"],
-          ["🛡️", "Kitchen Safety Quiz", "What should you do before touching an oven or sharp tool?", ["Move fast", "Ask a grown-up", "Guess"], "Ask a grown-up"],
-          ["🍽️", "Match the Dish", "Which ingredient belongs in a yogurt parfait?", ["Berries", "Raw chicken", "Hot oil"], "Berries"],
-          ["🔤", "Word Search", "Find these kitchen words on the printable page.", ["MIX", "WASH", "MEASURE"], "Print the activity below"]
-        ].map(([icon, title, question, choices, answer]) => `
-          <article class="kids-game-card">
-            <span>${icon}</span><h2>${title}</h2><p>${question}</p>
-            <div class="kids-choice-list">${choices.map((choice) => `<span>${choice}</span>`).join("")}</div>
-            <details><summary>Check answer</summary><strong>${answer}</strong></details>
-          </article>
-        `).join("")}
+        <article class="kids-game-card interactive">
+          <span>🍓</span><h2>Ingredient Matching</h2><p>Which ingredient belongs in a yogurt parfait?</p>
+          <div class="kids-choice-list">
+            ${["Berries", "Raw chicken", "Hot oil"].map((choice) => `<button type="button" data-kids-answer="${choice === "Berries"}">${choice}</button>`).join("")}
+          </div>
+          <strong class="kids-game-result" data-kids-game-result>Choose an answer.</strong>
+        </article>
+        <form class="kids-game-card interactive" data-kids-safety-quiz>
+          <span>🛡️</span><h2>Kitchen Safety Quiz</h2>
+          <label>Before using an oven, you should
+            <select name="oven"><option value="">Choose</option><option>Ask a grown-up</option><option>Turn it on alone</option><option>Touch the rack</option></select>
+          </label>
+          <label>If water spills, you should
+            <select name="spill"><option value="">Choose</option><option>Wipe it up</option><option>Run through it</option><option>Ignore it</option></select>
+          </label>
+          <label>After touching raw chicken, you should
+            <select name="hands"><option value="">Choose</option><option>Wash hands with soap</option><option>Touch the fridge</option><option>Dry hands on clothes</option></select>
+          </label>
+          <button class="kids-button primary" type="submit">Check My Safety Score</button>
+          <strong class="kids-game-result" data-kids-safety-result>Answer all three.</strong>
+        </form>
+        <article class="kids-game-card">
+          <span>🌈</span><h2>Food Color Challenge</h2><p>Check off four colors you can put on one plate.</p>
+          <div class="kids-check-list" data-rainbow-checklist>
+            ${["Red berries", "Orange carrots", "Green cucumber", "Blue blueberries", "Purple grapes"].map((item) => `<label><input type="checkbox" /> ${item}</label>`).join("")}
+          </div>
+          <strong class="kids-game-result" data-rainbow-result>0 of 4 colors found.</strong>
+        </article>
+        <article class="kids-game-card">
+          <span>🍽️</span><h2>Help Cook Dinner</h2><p>Complete five real helper jobs.</p>
+          <div class="kids-check-list" data-dinner-checklist>
+            ${["Wash hands", "Set out ingredients", "Measure one item", "Set the table", "Help clean up"].map((item) => `<label><input type="checkbox" /> ${item}</label>`).join("")}
+          </div>
+          <strong class="kids-game-result" data-dinner-result>0 of 5 jobs complete.</strong>
+        </article>
       </section>
       <section class="kids-section kids-print-preview">
         <h2>Mini Kitchen Word Search</h2>
@@ -6153,7 +6784,7 @@ function renderKidsKornerCreate() {
         <div class="kids-create-output" data-kids-create-output>
           <span>✨</span><h2>Your creation will appear here.</h2><p>Remember to check allergies and ask a grown-up before starting.</p>
         </div>
-        ${kidsSectionIntro("Creative challenges", "Make it yours.", "Cooking is following directions and using your imagination.")}
+        ${kidsSectionIntro("Creative challenges", "Make it, taste it, name it.", "Finish a real food task, then tell a grown-up what you learned.")}
         <div class="kids-challenge-grid">
           <article><span>🌈</span><h3>Rainbow Plate</h3><p>Use foods with at least four different colors.</p></article>
           <article><span>😊</span><h3>Funny Face Toast</h3><p>Build a face with fruit and a safe spread.</p></article>
@@ -6495,6 +7126,7 @@ function renderRecipe(id) {
           <p class="eyebrow">Ingredients</p>
           <h2>Gather everything first.</h2>
           <ul class="ingredient-checklist">${recipe.ingredients.map((item) => `<li><span>&#10003;</span>${item}</li>`).join("")}</ul>
+          ${recipe.helperNote ? `<div class="kid-helper-note"><strong>Kid/helper job</strong><p>${recipe.helperNote}</p></div>` : ""}
         </article>
         ${recipeUtilityPanel(recipe)}
         <article class="detail-panel directions-panel recipe-steps-panel">
@@ -7282,6 +7914,20 @@ function learningSearchResults(query) {
 }
 
 function handleSearch(event) {
+  if (event?.target?.closest("[data-rainbow-checklist]")) {
+    const checklist = event.target.closest("[data-rainbow-checklist]");
+    const count = checklist.querySelectorAll("input:checked").length;
+    const result = document.querySelector("[data-rainbow-result]");
+    if (result) result.textContent = count >= 4 ? "Rainbow complete! You found four colors." : `${count} of 4 colors found.`;
+    return;
+  }
+  if (event?.target?.closest("[data-dinner-checklist]")) {
+    const checklist = event.target.closest("[data-dinner-checklist]");
+    const count = checklist.querySelectorAll("input:checked").length;
+    const result = document.querySelector("[data-dinner-result]");
+    if (result) result.textContent = count === 5 ? "Dinner helper challenge complete!" : `${count} of 5 jobs complete.`;
+    return;
+  }
   if (event?.target?.id === "pantryPhotoInput") {
     const file = event.target.files?.[0];
     const preview = document.querySelector("#pantryPhotoPreview");
@@ -7332,6 +7978,9 @@ function handleSearch(event) {
 }
 
 function handleClick(event) {
+  const kidsAnswer = event.target.closest("[data-kids-answer]");
+  const rainbowChecklist = event.target.closest("[data-rainbow-checklist]");
+  const dinnerChecklist = event.target.closest("[data-dinner-checklist]");
   const quickFilter = event.target.closest("[data-quick-filter]");
   const saveButton = event.target.closest("[data-save]");
   const planButton = event.target.closest("[data-plan]");
@@ -7345,6 +7994,29 @@ function handleClick(event) {
   const saveCurrentMenuButton = event.target.closest("[data-save-current-menu]");
   const useSavedMenuButton = event.target.closest("[data-use-saved-menu]");
   const clearPlannedButton = event.target.closest("[data-clear-planned]");
+  if (kidsAnswer) {
+    const result = kidsAnswer.closest(".kids-game-card")?.querySelector("[data-kids-game-result]");
+    const correct = kidsAnswer.dataset.kidsAnswer === "true";
+    if (result) result.textContent = correct ? "You got it! Berries add color and fruit." : "Try again. Pick the ingredient that is safe and fruity.";
+    kidsAnswer.closest(".kids-choice-list")?.querySelectorAll("button").forEach((button) => button.classList.toggle("selected", button === kidsAnswer));
+    return;
+  }
+  if (rainbowChecklist) {
+    requestAnimationFrame(() => {
+      const count = rainbowChecklist.querySelectorAll("input:checked").length;
+      const result = document.querySelector("[data-rainbow-result]");
+      if (result) result.textContent = count >= 4 ? "Rainbow complete! You found four colors." : `${count} of 4 colors found.`;
+    });
+    return;
+  }
+  if (dinnerChecklist) {
+    requestAnimationFrame(() => {
+      const count = dinnerChecklist.querySelectorAll("input:checked").length;
+      const result = document.querySelector("[data-dinner-result]");
+      if (result) result.textContent = count === 5 ? "Dinner helper challenge complete!" : `${count} of 5 jobs complete.`;
+    });
+    return;
+  }
   if (pantryChip) {
     pantryChip.classList.toggle("active");
     updatePantryScanResults();
@@ -7437,6 +8109,18 @@ function handleClick(event) {
 
 
 async function handleSubmit(event) {
+  if (event.target.matches("[data-kids-safety-quiz]")) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const score = [
+      formData.get("oven") === "Ask a grown-up",
+      formData.get("spill") === "Wipe it up",
+      formData.get("hands") === "Wash hands with soap"
+    ].filter(Boolean).length;
+    const result = event.target.querySelector("[data-kids-safety-result]");
+    if (result) result.textContent = score === 3 ? "3 out of 3! Kitchen Safety badge work complete." : `${score} out of 3. Review the safety lesson and try again.`;
+    return;
+  }
   if (event.target.matches("[data-kids-create-form]")) {
     event.preventDefault();
     const formData = new FormData(event.target);

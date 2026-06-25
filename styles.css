@@ -5375,6 +5375,362 @@ button.small-button:is(:hover, :focus-visible) {
   margin-top: 30px;
 }
 
+.academy-hold-page {
+  min-height: calc(100vh - 150px);
+  padding: clamp(2rem, 6vw, 5.5rem) clamp(1rem, 5vw, 5rem);
+  color: #232323;
+  background:
+    radial-gradient(circle at 88% 14%, rgba(217, 164, 65, 0.22), transparent 28rem),
+    linear-gradient(145deg, #f7f2e9 0%, #efe4d1 55%, #f7f2e9 100%);
+}
+
+.academy-hold-shell {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: center;
+}
+
+.academy-hold-intro h1 {
+  margin: 0.35rem 0 0;
+  color: #263d2e;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+.academy-lock-mark {
+  width: 4rem;
+  height: 4rem;
+  display: grid;
+  place-items: center;
+  margin-bottom: 1.25rem;
+  border: 1px solid rgba(38, 61, 46, 0.18);
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 18px 45px rgba(54, 38, 22, 0.12);
+  font-size: 1.55rem;
+}
+
+.academy-opening-date {
+  margin: 1rem 0 1.25rem;
+  color: #b56b45;
+  font-size: clamp(1.25rem, 2.5vw, 1.7rem);
+  font-weight: 800;
+}
+
+.academy-hold-copy,
+.academy-route-note {
+  max-width: 680px;
+  color: #5f4a3f;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.academy-route-note {
+  padding: 0.8rem 1rem;
+  border-left: 4px solid #d9a441;
+  background: rgba(255, 255, 255, 0.66);
+}
+
+.academy-countdown {
+  width: fit-content;
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  margin: 1.75rem 0;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  color: #fff;
+  background: #263d2e;
+  box-shadow: 0 12px 28px rgba(38, 61, 46, 0.18);
+}
+
+.academy-countdown strong {
+  font-size: 2rem;
+}
+
+.academy-countdown span {
+  font-weight: 700;
+}
+
+.academy-progress-block {
+  max-width: 540px;
+}
+
+.academy-progress-block > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.55rem;
+  color: #46372f;
+  font-weight: 800;
+}
+
+.academy-progress-track {
+  height: 0.7rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(125, 146, 112, 0.2);
+}
+
+.academy-progress-track span {
+  display: block;
+  width: 40%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #7d9270, #d9a441);
+}
+
+.academy-hold-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+.academy-preview-panel {
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid rgba(231, 216, 191, 0.9);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 24px 60px rgba(67, 48, 28, 0.14);
+}
+
+.academy-preview-panel h2 {
+  margin: 0.4rem 0 1.25rem;
+  color: #2b1a12;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+.academy-locked-list {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.academy-locked-list > div {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 3.15rem;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid #e7d8bf;
+  border-radius: 7px;
+  color: #46372f;
+  background: #fffaf3;
+}
+
+.academy-locked-list > div span {
+  opacity: 0.65;
+}
+
+.building-public-note {
+  margin-top: 1.25rem;
+  padding: 1.1rem;
+  border-radius: 7px;
+  color: #fdf9f2;
+  background: #7d9270;
+}
+
+.building-public-note > span {
+  color: #fff3c9;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.building-public-note h3 {
+  margin: 0.45rem 0;
+  color: #fff;
+}
+
+.building-public-note p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+@media (max-width: 760px) {
+  .academy-hold-page {
+    min-height: auto;
+    padding-top: 2rem;
+  }
+
+  .academy-hold-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .academy-hold-intro h1 {
+    font-size: clamp(3rem, 17vw, 4.8rem);
+  }
+
+  .academy-countdown {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .academy-hold-actions .small-button {
+    flex: 1 1 12rem;
+    text-align: center;
+  }
+}
+
+.africa-hub-page,
+.africa-country-page {
+  color: #232323;
+  background:
+    linear-gradient(180deg, rgba(125, 146, 112, 0.08), transparent 18rem),
+    #f7f2e9;
+}
+
+.africa-country-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.africa-country-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #e0d2bb;
+  border-radius: 8px;
+  color: #232323;
+  background: #fff;
+  box-shadow: 0 14px 34px rgba(58, 39, 25, 0.1);
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.africa-country-card:is(:hover, :focus-visible) {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 42px rgba(58, 39, 25, 0.16);
+}
+
+.africa-country-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: block;
+  object-fit: cover;
+  background: #eadfce;
+}
+
+.africa-country-card > div {
+  padding: 1rem;
+}
+
+.africa-country-card span {
+  color: #7d9270;
+  font-size: 0.76rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.africa-country-card h3 {
+  margin: 0.35rem 0 0.5rem;
+  color: #2b1a12;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.6rem;
+}
+
+.africa-country-card p {
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 0 0 0.8rem;
+  color: #5f4a3f;
+  line-height: 1.55;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+
+.africa-country-card strong {
+  color: #b56b45;
+}
+
+.africa-country-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: 1rem;
+}
+
+.africa-country-intro > article,
+.africa-food-lane {
+  padding: 1.2rem;
+  border: 1px solid #e7d8bf;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 10px 26px rgba(58, 39, 25, 0.08);
+}
+
+.africa-country-intro h2,
+.africa-food-lane h3 {
+  margin: 0.3rem 0 0.65rem;
+  color: #2b1a12;
+}
+
+.africa-country-intro p,
+.africa-food-lane li {
+  color: #5f4a3f;
+  line-height: 1.6;
+}
+
+.africa-food-lanes {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.africa-food-lane ul {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.africa-country-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #d9c8ab;
+}
+
+.africa-country-nav a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid #d9c8ab;
+  border-radius: 7px;
+  color: #263d2e;
+  background: #fffaf3;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.africa-country-nav a:is(:hover, :focus-visible) {
+  color: #fff;
+  background: #7d9270;
+}
+
+@media (max-width: 900px) {
+  .africa-food-lanes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .africa-country-grid,
+  .africa-country-intro,
+  .africa-food-lanes {
+    grid-template-columns: 1fr;
+  }
+
+  .africa-country-card p {
+    -webkit-line-clamp: 5;
+  }
+}
+
 .progression-nav {
   display: grid;
   gap: 14px;
@@ -6435,11 +6791,213 @@ button.small-button:is(:hover, :focus-visible) {
   border-top: 0;
 }
 
+.mississippi-heritage-chapter {
+  margin: clamp(2.5rem, 6vw, 5rem) 0;
+  padding: clamp(1.1rem, 3vw, 2rem);
+  border: 1px solid #d8c39f;
+  border-radius: 28px;
+  background: #f6efe2;
+  box-shadow: 0 24px 60px rgba(62, 38, 22, 0.12);
+}
+
+.mississippi-chapter-header {
+  max-width: 900px;
+  padding: clamp(1rem, 3vw, 2rem);
+  border-left: 7px solid #7b3f22;
+  background: #fffaf3;
+}
+
+.mississippi-chapter-header h2 {
+  max-width: 760px;
+  margin: 0.2rem 0 0.8rem;
+  color: #2b1a12;
+  font-size: clamp(2rem, 5vw, 4.2rem);
+  line-height: 0.98;
+}
+
+.mississippi-chapter-header > p:last-of-type,
+.mississippi-lane-heading p,
+.mississippi-culture-card > p,
+.mississippi-chapter-footer p {
+  color: #5f4a3f;
+  line-height: 1.65;
+}
+
+.mississippi-region-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.mississippi-region-key span {
+  padding: 0.45rem 0.72rem;
+  border-radius: 999px;
+  background: #e7d8bf;
+  color: #3d281d;
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.mississippi-food-lane {
+  margin-top: clamp(2rem, 5vw, 4rem);
+}
+
+.mississippi-lane-heading {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  max-width: 980px;
+  margin-bottom: 1.2rem;
+}
+
+.mississippi-lane-heading > span {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #7b3f22;
+  color: #fff;
+  font-weight: 950;
+}
+
+.mississippi-lane-heading h3 {
+  margin: 0;
+  color: #2b1a12;
+  font-size: clamp(1.6rem, 3.4vw, 2.7rem);
+}
+
+.mississippi-lane-heading p {
+  margin: 0.45rem 0 0;
+}
+
+.mississippi-culture-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.mississippi-culture-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  min-height: 100%;
+  padding: 1.15rem;
+  border: 1px solid #ddccb0;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(62, 38, 22, 0.08);
+}
+
+.mississippi-food-photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+  object-fit: cover;
+  background: #eadfce;
+}
+
+.mississippi-card-top span {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: #7b3f22;
+  font-size: 0.74rem;
+  font-weight: 900;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.mississippi-card-top h4 {
+  margin: 0;
+  color: #2b1a12;
+  font-size: 1.25rem;
+}
+
+.mississippi-culture-card dl {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0;
+}
+
+.mississippi-culture-card dl div {
+  padding-top: 0.65rem;
+  border-top: 1px solid #eee1cc;
+}
+
+.mississippi-culture-card dt {
+  color: #7b3f22;
+  font-size: 0.76rem;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.mississippi-culture-card dd {
+  margin: 0.25rem 0 0;
+  color: #5f4a3f;
+  line-height: 1.5;
+}
+
+.mississippi-photo-prompt {
+  padding: 0.75rem;
+  border-radius: 10px;
+  background: #f7f2e9;
+}
+
+.mississippi-photo-prompt summary {
+  color: #2b1a12;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.mississippi-photo-prompt p {
+  margin: 0.55rem 0 0;
+  color: #5f4a3f;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.mississippi-culture-card .small-button,
+.culture-note-only {
+  margin-top: auto;
+}
+
+.culture-note-only {
+  color: #7b3f22;
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.mississippi-chapter-footer {
+  margin-top: clamp(2rem, 5vw, 4rem);
+  padding: 1.2rem;
+  border-top: 2px solid #c8aa7d;
+}
+
+.mississippi-chapter-footer strong {
+  color: #2b1a12;
+  font-size: 1.2rem;
+}
+
 @media (max-width: 900px) {
   .regional-identity-grid,
   .regional-story-grid,
   .regional-menu-output {
     grid-template-columns: 1fr;
+  }
+
+  .mississippi-heritage-chapter {
+    border-radius: 18px;
+    padding: 0.75rem;
+  }
+
+  .mississippi-lane-heading {
+    grid-template-columns: 48px minmax(0, 1fr);
+  }
+
+  .mississippi-lane-heading > span {
+    width: 44px;
   }
 }
 
@@ -6899,11 +7457,103 @@ button.small-button:is(:hover, :focus-visible) {
 .kids-printable-card h2, .kids-badge-card h2, .kids-badge-card p { margin: 0; }
 .kids-choice-list { display: flex; flex-wrap: wrap; gap: 8px; }
 
-.kids-choice-list span {
+.kids-choice-list span,
+.kids-choice-list button {
   padding: 8px 12px;
   border-radius: 999px;
   background: #edf3ff;
+  border: 2px solid transparent;
+  color: #24304a;
   font-weight: 800;
+}
+
+.kids-choice-list button {
+  cursor: pointer;
+}
+
+.kids-choice-list button:hover,
+.kids-choice-list button.selected {
+  border-color: #61409f;
+  background: #fff4a8;
+}
+
+.kids-game-card.interactive label {
+  display: grid;
+  gap: 6px;
+  color: #24304a;
+  font-weight: 800;
+}
+
+.kids-game-card.interactive select {
+  min-height: 44px;
+  padding: 8px 10px;
+  border: 2px solid #d5c7ec;
+  border-radius: 8px;
+  background: #fff;
+  color: #24304a;
+}
+
+.kids-game-result {
+  min-height: 24px;
+  color: #61409f;
+}
+
+.kids-check-list {
+  display: grid;
+  gap: 8px;
+}
+
+.kids-check-list label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #fff8dc;
+  color: #24304a;
+  font-weight: 800;
+}
+
+.kids-check-list input {
+  width: 20px;
+  height: 20px;
+  accent-color: #2d9b6b;
+}
+
+.kids-age-recipe-links,
+.kids-age-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.kids-age-recipe-links a,
+.kids-age-badges span {
+  padding: 6px 9px;
+  border-radius: 999px;
+  background: #edf3ff;
+  color: #24304a;
+  font-size: 0.83rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.kids-age-recipe-links a:hover {
+  background: #fff4a8;
+}
+
+.kid-helper-note {
+  margin-top: 18px;
+  padding: 14px;
+  border-left: 5px solid #f0a33a;
+  border-radius: 6px;
+  background: #fff4d7;
+  color: #2b1a12;
+}
+
+.kid-helper-note p {
+  margin: 4px 0 0;
 }
 
 .kids-game-card details {
