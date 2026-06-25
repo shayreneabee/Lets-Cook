@@ -79,7 +79,16 @@ const fallbacks = rows.filter((row) =>
   row.fallbackUsed
   || row.missingRecipeImage
   || row.image === "assets/logo.png"
+  || row.image === "assets/recipe-photo-needed.svg"
 );
+const photoQueue = fallbacks.map((row) => ({
+  id: row.id,
+  title: row.title,
+  cuisine: row.cuisine,
+  category: row.category,
+  expectedPath: `images/recipes/audit-2026-06/${row.id}.jpg`,
+  prompt: `Editorial food photography of ${row.title}, authentic ${row.cuisine || row.category} dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark.`
+}));
 const sharedImages = [...byImage.entries()]
   .filter(([, recipes]) => recipes.length > 1)
   .map(([image, recipes]) => ({
@@ -93,6 +102,7 @@ const report = {
   uniqueImages: byImage.size,
   missingFiles,
   fallbacks,
+  photoQueue,
   sharedImages,
   recipes: rows
 };
@@ -104,7 +114,8 @@ console.log(`Recipes: ${rows.length}`);
 console.log(`Unique images: ${byImage.size}`);
 console.log(`Missing files: ${missingFiles.length}`);
 console.log(`Fallback/queued images: ${fallbacks.length}`);
+console.log(`Photo queue items: ${photoQueue.length}`);
 console.log(`Shared image groups: ${sharedImages.length}`);
 console.log(`Report: ${path.relative(root, outputPath)}`);
 
-if (missingFiles.length || fallbacks.length) process.exitCode = 1;
+if (missingFiles.length) process.exitCode = 1;

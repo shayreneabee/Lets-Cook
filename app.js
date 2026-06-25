@@ -242,8 +242,15 @@ const categoryCoverImages = {
   "Family Dinners": "assets/cooking-family.jpeg"
 };
 
+const exactRecipePhotoNeededImage = "assets/recipe-photo-needed.svg";
+
 function recipePhotoFor(recipe = {}) {
   return resolveRecipeImage(recipe).image;
+}
+
+function recipePhotoStatusBadge(resolved = {}) {
+  if (resolved.source !== "queued-for-replacement" && !resolved.missingImage) return "";
+  return `<span class="photo-needed-badge">Exact photo needed</span>`;
 }
 
 function resolveRecipeImage(recipe = {}) {
@@ -252,15 +259,15 @@ function resolveRecipeImage(recipe = {}) {
   const queuedForExactImage = recipeImageReplacementQueue.has(recipe.id);
   const cuisineKey = recipe.category === "Party Cups" ? "hosting" : recipe.cuisine || "global";
   const image = queuedForExactImage
-    ? "assets/logo.png"
+    ? exactRecipePhotoNeededImage
     : mappedImage
     || explicitImage
     || cuisineCoverImages[cuisineKey]
     || categoryCoverImages[recipe.category]
-    || "assets/logo.png";
+    || exactRecipePhotoNeededImage;
   const source = queuedForExactImage ? "queued-for-replacement" : mappedImage ? "recipe" : explicitImage ? "recipe-data" : cuisineCoverImages[cuisineKey] ? "cuisine" : categoryCoverImages[recipe.category] ? "category" : "fallback";
   if (image.startsWith("images/")) {
-    imageFallbacks.set(image, cuisineCoverImages[cuisineKey] || categoryCoverImages[recipe.category] || "assets/logo.png");
+    imageFallbacks.set(image, exactRecipePhotoNeededImage);
   }
   return {
     image,
@@ -1799,7 +1806,8 @@ const menuRecipeSections = [
 ];
 
 function recipeById(id) {
-  return recipes.find((recipe) => recipe.id === id);
+  const recipe = recipes.find((item) => item.id === id);
+  return recipeHasPublishReadyPhoto(recipe) ? recipe : null;
 }
 
 function recipeLinksFor(ids = []) {
@@ -3620,6 +3628,11 @@ const recipeImageReplacementQueue = new Set([
   ...midwestExpansionRecipes.map((recipe) => recipe.id)
 ]);
 
+function recipeHasPublishReadyPhoto(recipe) {
+  if (!recipe) return false;
+  return !recipeImageReplacementQueue.has(recipe.id);
+}
+
 const recipeImageOverrides = {
   "smothered-pork-chops": "images/recipes/audit-2026-06/smothered-pork-chops.jpg",
   "sweet-tea": "images/recipes/audit-2026-06/sweet-tea.jpg",
@@ -4172,7 +4185,7 @@ function normalizeRecipe(recipe) {
 recipes = recipes.map(normalizeRecipe);
 
 function partyCupRecipes() {
-  return partyCupIds.map((id) => recipes.find((recipe) => recipe.id === id)).filter(Boolean);
+  return partyCupIds.map((id) => recipeById(id)).filter(Boolean);
 }
 
 function money(value) {
@@ -4540,6 +4553,7 @@ function recipesForCuisine(cuisineId, limit = 12) {
   const canonical = canonicalCuisineId(cuisineId || "global");
   const relatedIds = [canonical, ...(cuisineRecipeAliases[canonical] || [])];
   const wanted = new Set(relatedIds);
+  const publishableRecipes = recipes.filter(recipeHasPublishReadyPhoto);
   const picked = [];
   const add = (items) => {
     items.forEach((item) => {
@@ -4548,28 +4562,29 @@ function recipesForCuisine(cuisineId, limit = 12) {
       }
     });
   };
-  add(recipes.filter((recipe) => wanted.has(recipe.cuisine)));
+  add(publishableRecipes.filter((recipe) => wanted.has(recipe.cuisine)));
   if (picked.length < limit) {
     const tokens = relatedIds.flatMap((id) => id.split("-")).filter((word) => word.length > 2);
-    add(recipes.filter((recipe) => {
+    add(publishableRecipes.filter((recipe) => {
       const haystack = recipeSearchText(recipe);
       return tokens.some((token) => haystack.includes(token));
     }));
   }
   if (!strictCuisineIds.has(canonical) && picked.length < Math.min(4, limit)) {
-    add(recipes.filter((recipe) => recipe.ingredients?.length && (recipe.directions?.length || recipe.steps?.length)));
+    add(publishableRecipes.filter((recipe) => recipe.ingredients?.length && (recipe.directions?.length || recipe.steps?.length)));
   }
   return picked.slice(0, limit);
 }
 
 function recipeForPracticeTitle(title = "") {
   const wanted = slugify(title);
-  const exact = recipes.find((recipe) => {
+  const publishableRecipes = recipes.filter(recipeHasPublishReadyPhoto);
+  const exact = publishableRecipes.find((recipe) => {
     const options = [recipe.id, recipe.slug, recipe.title].map((value) => slugify(value || ""));
     return options.includes(wanted);
   });
   if (exact) return exact;
-  return recipes.find((recipe) => {
+  return publishableRecipes.find((recipe) => {
     const options = [recipe.id, recipe.slug, recipe.title].map((value) => slugify(value || ""));
     return options.some((value) => value && (value.includes(wanted) || wanted.includes(value)));
   });
@@ -4728,11 +4743,11 @@ function relatedRecipesFor(recipe, limit = 6) {
       }
     });
   };
-  add((recipe.related_recipe_ids || []).map((id) => recipes.find((item) => item.id === id)));
-  add(recipes.filter((item) => item.cuisine === recipe.cuisine));
+  add((recipe.related_recipe_ids || []).map((id) => recipeById(id)));
+  add(recipes.filter((item) => recipeHasPublishReadyPhoto(item) && item.cuisine === recipe.cuisine));
   if (picked.length < limit) {
     const tags = new Set(recipe.tags || []);
-    add(recipes.filter((item) => item.tags?.some((tag) => tags.has(tag)) || item.category === recipe.category));
+    add(recipes.filter((item) => recipeHasPublishReadyPhoto(item) && (item.tags?.some((tag) => tags.has(tag)) || item.category === recipe.category)));
   }
   return picked.slice(0, limit);
 }
@@ -5316,7 +5331,7 @@ const monthlySpotlight = {
 };
 
 function recipeByIdSafe(id) {
-  return recipes.find((recipe) => recipe.id === id);
+  return recipeById(id);
 }
 
 function recipeLinkList(ids = []) {
@@ -6599,10 +6614,11 @@ function comingUpNextSection() {
 }
 
 function renderLetsCookHome() {
-  const recipeOfWeek = recipes.find((recipe) => recipe.id === "yakamein") || recipes[0];
-  const kidPick = recipes.find((recipe) => recipe.id === "pb-and-j-sandwich") || recipes.find((recipe) => recipe.skill_level === "Kid Chef");
-  const southernClassic = recipes.find((recipe) => recipe.id === "oxtails") || recipes.find((recipe) => recipe.cuisine === "southern");
-  const globalFlavor = recipes.find((recipe) => recipe.id === "chicken-street-tacos") || recipes.find((recipe) => recipe.cuisine !== "southern");
+  const publishableRecipes = recipes.filter(recipeHasPublishReadyPhoto);
+  const recipeOfWeek = recipeById("yakamein") || publishableRecipes[0];
+  const kidPick = recipeById("pb-and-j-sandwich") || publishableRecipes.find((recipe) => recipe.skill_level === "Kid Chef");
+  const southernClassic = recipeById("oxtails") || publishableRecipes.find((recipe) => recipe.cuisine === "southern");
+  const globalFlavor = recipeById("chicken-street-tacos") || publishableRecipes.find((recipe) => recipe.cuisine !== "southern");
   const heroImages = Array.from({ length: 10 }, (_, index) => photoFor("hero", "family", index, "assets/cooking-family.jpeg"));
   app.innerHTML = `
     ${monthlySpotlightBanner()}
@@ -6667,7 +6683,7 @@ function renderLetsCookHome() {
         <p class="eyebrow">Tonight's table</p>
         <h2>Warm Picks From The Kitchen</h2>
       </div>
-      <div class="recipe-grid">${recipes.slice(0, 6).map(recipeCard).join("")}</div>
+      <div class="recipe-grid">${recipes.filter(recipeHasPublishReadyPhoto).slice(0, 6).map(recipeCard).join("")}</div>
     </section>
   `;
 }
@@ -8038,7 +8054,7 @@ function renderLesson(id) {
   const lessonIndex = lessons.findIndex((item) => item.id === lesson.id);
   const previousLesson = lessons[(lessonIndex - 1 + lessons.length) % lessons.length];
   const nextLesson = lessons[(lessonIndex + 1) % lessons.length];
-  const linkedRecipes = lesson.recipes.map((recipeId) => recipes.find((recipe) => recipe.id === recipeId)).filter(Boolean);
+  const linkedRecipes = lesson.recipes.map((recipeId) => recipeById(recipeId)).filter(Boolean);
   app.innerHTML = `
     ${hero(lesson.title, lesson.text, academyPhotoFor(lesson.id) || lesson.image, `<a class="small-button" href="#cook101">All Basics</a>`)}
     ${cookSubnav()}
@@ -8089,17 +8105,32 @@ function renderRecipes() {
       <div class="quick-filter-row">${quickFilters.map(([label, value]) => `<button class="quick-filter" type="button" data-quick-filter="${value}">${label}</button>`).join("")}</div>
       <div id="learningResults" class="learning-search-results"></div>
     </section>
-    <section class="cream-section"><div id="results" class="recipe-grid">${recipes.map(recipeCard).join("")}</div></section>
+    <section class="cream-section"><div id="results" class="recipe-grid">${recipes.filter(recipeHasPublishReadyPhoto).map(recipeCard).join("")}</div></section>
   `;
 }
 
 function renderRecipe(id) {
   const recipe = recipes.find((item) => item.id === id) || recipes[0];
+  if (!recipeHasPublishReadyPhoto(recipe)) {
+    app.innerHTML = `
+      ${hero("Recipe Photography In Progress", "This dish has a real recipe record, but Let's Cook Y'all does not publish recipe pages until the food photo matches the dish.", exactRecipePhotoNeededImage, `<a class="small-button" href="#recipes">Browse Ready Recipes</a><a class="small-button secondary" href="#cuisine-explorer">Explore Cuisines</a>`)}
+      ${cookSubnav()}
+      <section class="cream-section">
+        <div class="empty-state">
+          <p class="eyebrow">Content package queued</p>
+          <h2>${recipe.title}</h2>
+          <p>Recipes and photography are built together here. This page will open once the matching food photograph is assigned.</p>
+        </div>
+      </section>
+    `;
+    return;
+  }
+  const resolvedPhoto = resolveRecipeImage(recipe);
   trackRecentlyViewedRecipe(recipe.id);
   setShareMeta({
     title: `${recipe.title} | Let's Cook Ya'll`,
     description: recipe.description,
-    image: recipePhotoFor(recipe)
+    image: resolvedPhoto.image
   });
   const path = paths.find((item) => item.id === recipe.path);
   const cuisineLesson = cuisine101For(recipe.cuisine);
@@ -8123,7 +8154,7 @@ function renderRecipe(id) {
   ` : "";
   app.innerHTML = `
     <section class="recipe-hero recipe-story-hero">
-      <figure><img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" /></figure>
+      <figure class="${resolvedPhoto.source === "queued-for-replacement" ? "photo-needed-frame" : ""}"><img src="${resolvedPhoto.image}" alt="${recipe.title}" />${recipePhotoStatusBadge(resolvedPhoto)}</figure>
       <div class="recipe-hero-copy">
         <p class="eyebrow">Let's Make</p>
         <h1>${recipe.title}</h1>
@@ -8250,8 +8281,8 @@ function renderPaths() {
 
 function renderPath(id) {
   const path = paths.find((item) => item.id === id) || paths[0];
-  const pathRecipes = recipes.filter((recipe) => recipe.path === path.id);
-  const starterRecipes = path.recipes.map((recipeId) => recipes.find((recipe) => recipe.id === recipeId)).filter(Boolean);
+  const pathRecipes = recipes.filter((recipe) => recipeHasPublishReadyPhoto(recipe) && recipe.path === path.id);
+  const starterRecipes = path.recipes.map((recipeId) => recipeById(recipeId)).filter(Boolean);
   const moreRecipes = pathRecipes.filter((recipe) => !starterRecipes.some((starter) => starter.id === recipe.id));
   app.innerHTML = `
     ${hero(path.title, path.description, pathPhotoFor(path), `<a class="small-button" href="#paths">All Paths</a>`)}
@@ -8321,7 +8352,7 @@ function renderPlanner(id) {
     { title: "Weeknight dinner", ids: ["chicken-street-tacos", "cilantro-lime-rice", "greek-salad"] },
     { title: "Sunday comfort", ids: ["oxtails", "collard-greens", "cornbread"] }
   ];
-  const featuredPlanRecipes = ["chicken-street-tacos", "caribbean-curry-chicken", "lemon-herb-salmon", "stovetop-mac-and-cheese"].map((id) => recipes.find((recipe) => recipe.id === id)).filter(Boolean);
+  const featuredPlanRecipes = ["chicken-street-tacos", "caribbean-curry-chicken", "lemon-herb-salmon", "stovetop-mac-and-cheese"].map((id) => recipeById(id)).filter(Boolean);
   const savedRail = savedRecipes.length ? savedRecipes : featuredPlanRecipes;
   const favoriteRail = favoriteRecipes.length ? favoriteRecipes : recipesByIds(["fried-chicken", "bbq-brisket-basics", "cajun-chicken-sausage-gumbo", "shrimp-and-grits", "red-velvet-cake"]);
   app.innerHTML = `
@@ -8562,7 +8593,7 @@ function renderHosting(id) {
           <p class="detail-copy">${idea.text}</p>
           <div class="hosting-note"><strong>Timing:</strong> ${idea.timing}</div>
           <ul class="hosting-checklist">${idea.setup.map((item) => `<li>${item}</li>`).join("")}</ul>
-          <div class="stack-list">${idea.recipes.map((id) => compactRecipe(recipes.find((recipe) => recipe.id === id))).join("")}</div>
+          <div class="stack-list">${idea.recipes.map((id) => compactRecipe(recipeById(id))).join("")}</div>
           <a class="small-button secondary" href="#hosting/${slugify(idea.title)}">Open Hosting Guide</a>
         </article>
       `).join("")}</div>
@@ -8811,9 +8842,10 @@ function lessonCard(lesson) {
 
 function recipeCard(recipe) {
   const isPersonal = personalRecipeIds.includes(recipe.id);
+  const resolvedPhoto = resolveRecipeImage(recipe);
   return `
     <article class="recipe-card">
-      <a class="recipe-photo" href="#recipes/${recipe.id}"><img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" /></a>
+      <a class="recipe-photo ${resolvedPhoto.source === "queued-for-replacement" ? "photo-needed-frame" : ""}" href="#recipes/${recipe.id}"><img src="${resolvedPhoto.image}" alt="${recipe.title}" />${recipePhotoStatusBadge(resolvedPhoto)}</a>
       <div class="recipe-content">
         <div class="recipe-card-topline">
           ${isPersonal ? `<span>Shay's Kitchen</span>` : `<span>${cuisineName(recipe.cuisine)}</span>`}
@@ -8834,7 +8866,7 @@ function recipeCard(recipe) {
 }
 
 function personalRecipes() {
-  return personalRecipeIds.map((id) => recipes.find((recipe) => recipe.id === id)).filter(Boolean);
+  return personalRecipeIds.map((id) => recipeById(id)).filter(Boolean);
 }
 
 function compactRecipe(recipe) {
@@ -8987,7 +9019,7 @@ function handleSearch(event) {
   const maxTime = Number(document.querySelector("#timeFilter")?.value || 0);
   const level = document.querySelector("#levelFilter")?.value || "";
   const quick = document.querySelector(".quick-filter.active")?.dataset.quickFilter || "";
-  const results = recipes.filter((recipe) => {
+  const results = recipes.filter((recipe) => recipeHasPublishReadyPhoto(recipe)).filter((recipe) => {
     const ingredientText = recipe.ingredients.join(" ").toLowerCase();
     const tagText = (recipe.tags || []).join(" ").toLowerCase();
     const haystack = `${recipe.title} ${recipe.category} ${recipe.level} ${recipe.difficulty || ""} ${recipe.description} ${ingredientText} ${tagText}`.toLowerCase();

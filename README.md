@@ -30,7 +30,7 @@ A working prototype for a warm Brent & Co. cooking-skills app inspired by the or
 - Local JSON recipe database in `data/recipes.json`
 - Search/filter by keyword, pantry ingredients, cuisine, cook time, category, and difficulty
 - Phase 1 culinary education architecture for Culinary Academy, Cuisine Explorer, Menu Builder, and Hospitality & Hosting
-- Centralized photography system with hero, skills, cuisine, and community image slots. Current pages use safe existing assets as fallbacks until final production photography is added.
+- Centralized photography system with hero, skills, cuisine, community image slots, and strict recipe-to-photo pairing. Recipes are not considered publish-ready until the dish has a matching food photograph and correct cuisine assignment.
 
 ## Photography System
 
@@ -69,12 +69,23 @@ Recommended dimensions:
 - Recipe detail images: 2000x1400 or larger, high detail, crop-safe center subject.
 - Profile/community moments: 1600x1600 or 1800x1200, crop-safe around faces and hands.
 
+Recipe + photography pairing rule:
+
+- A recipe is not complete unless it has a real recipe, a matching food photograph, a correct image mapping, and a correct cuisine assignment.
+- New recipes and new recipe photos must be created or assigned together as one content package.
+- Do not publish recipe cards with placeholder images, unrelated food photos, duplicate images from other dishes, or generic regional collage images.
+- If the matching food photograph does not exist yet, keep the recipe in the photo queue until the image is created, sourced, or assigned.
+- Every recipe card should visually identify the dish before the title is read.
+- This rule applies to every cuisine, region, holiday, Kids Korner recipe, hospitality menu, and future expansion.
+
 Fallback behavior:
 
 - Page components call the centralized `photographyLibrary` in `app.js`.
 - The app tries the expected `/images/` slot first.
 - If that file is not present yet, a global image error handler swaps in the current safe `/assets/` fallback.
-- Recipe cards and recipe detail pages use `recipePhotoFor(recipe)` so recipe visuals are also connected to the centralized system.
+- Recipe cards and recipe detail pages use `recipePhotoFor(recipe)` so recipe visuals are connected to the centralized system.
+- Recipe-specific image failures fall back to `assets/recipe-photo-needed.svg`, not an unrelated cuisine or category photo.
+- Recipes in `recipeImageReplacementQueue` are treated as unpublished and are hidden from public grids, search results, region pages, menu planner output, and related recipe cards until a matching image is assigned.
 
 Missing image report:
 
@@ -82,7 +93,9 @@ Missing image report:
 - The script writes `images/missing-image-report.json`.
 - In the browser console, run `window.reportLetsCookMissingImages()` to print the expected slot list and fallback mapping.
 - In the browser console, run `window.reportLetsCookRecipeImages()` to audit each recipe's assigned image, source, and fallback status.
-- Recipe images are resolved in this order: recipe-specific mapping, recipe `image_url`/`image`, cuisine cover, category cover, then global fallback. The audited Southern image assignments live in `images/recipe-image-report.json`.
+- Run `node scripts/audit_recipe_images.js` from the project root to refresh `data/recipe-image-audit.json`.
+- The audit report includes `photoQueue`, which lists unpublished recipes that need exact food photography plus suggested image paths and generation prompts.
+- Recipe images are resolved in this order: recipe-specific mapping, recipe `image_url`/`image`, cuisine cover, category cover, then branded photo-needed fallback. The audited recipe image assignments live in `data/recipe-image-audit.json`.
 
 Avoid watermarked images, dark photos, empty kitchens, AI-looking faces, overly staged models, and repeated generic stock.
 

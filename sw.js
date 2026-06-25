@@ -1,4 +1,4 @@
-const CACHE_NAME = "lets-cook-route-scroll-v23";
+const CACHE_NAME = "lets-cook-image-integrity-v24";
 
 const OFFLINE_ASSETS = [
   "./",
