@@ -3624,9 +3624,20 @@ recipes.push(
 
 const partyCupIds = ["charcuterie-cups", "fruit-cups", "dessert-cups", "brunch-cups", "tailgate-cups", "holiday-cups"];
 
-const recipeImageReplacementQueue = new Set([
-  ...midwestExpansionRecipes.map((recipe) => recipe.id)
+const midwestPhotoReadyRecipeIds = new Set([
+  "bierocks",
+  "chicago-style-hot-dog",
+  "detroit-style-pizza",
+  "italian-beef",
+  "tater-tot-hotdish",
+  "wisconsin-cheese-curds"
 ]);
+
+const recipeImageReplacementQueue = new Set(
+  midwestExpansionRecipes
+    .map((recipe) => recipe.id)
+    .filter((recipeId) => !midwestPhotoReadyRecipeIds.has(recipeId))
+);
 
 function recipeHasPublishReadyPhoto(recipe) {
   if (!recipe) return false;
@@ -3634,6 +3645,12 @@ function recipeHasPublishReadyPhoto(recipe) {
 }
 
 const recipeImageOverrides = {
+  "bierocks": "images/recipes/audit-2026-06/bierocks.jpg",
+  "chicago-style-hot-dog": "images/recipes/audit-2026-06/chicago-style-hot-dog.jpg",
+  "detroit-style-pizza": "images/recipes/audit-2026-06/detroit-style-pizza.jpg",
+  "italian-beef": "images/recipes/audit-2026-06/italian-beef.jpg",
+  "tater-tot-hotdish": "images/recipes/audit-2026-06/tater-tot-hotdish.jpg",
+  "wisconsin-cheese-curds": "images/recipes/audit-2026-06/wisconsin-cheese-curds.jpg",
   "smothered-pork-chops": "images/recipes/audit-2026-06/smothered-pork-chops.jpg",
   "sweet-tea": "images/recipes/audit-2026-06/sweet-tea.jpg",
   "mississippi-perch-fry": "images/recipes/audit-2026-06/mississippi-perch-fry.jpg",

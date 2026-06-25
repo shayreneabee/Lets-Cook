@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-25T22:04:56.547Z",
+  "generatedAt": "2026-06-25T22:40:16.973Z",
   "totalRecipes": 404,
-  "uniqueImages": 336,
+  "uniqueImages": 342,
   "missingFiles": [],
   "fallbacks": [
     {
@@ -17,26 +17,6 @@
     {
       "id": "maxwell-street-polish",
       "title": "Maxwell Street Polish",
-      "cuisine": "chicago",
-      "category": "Chicago Street Food",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "italian-beef",
-      "title": "Italian Beef Sandwich",
-      "cuisine": "chicago",
-      "category": "Chicago Street Food",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "chicago-style-hot-dog",
-      "title": "Chicago-Style Hot Dog",
       "cuisine": "chicago",
       "category": "Chicago Street Food",
       "image": "assets/recipe-photo-needed.svg",
@@ -205,16 +185,6 @@
       "missingRecipeImage": true
     },
     {
-      "id": "wisconsin-cheese-curds",
-      "title": "Wisconsin Cheese Curds",
-      "cuisine": "wisconsin",
-      "category": "Wisconsin",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
       "id": "wisconsin-brats",
       "title": "Wisconsin Brats",
       "cuisine": "wisconsin",
@@ -265,16 +235,6 @@
       "missingRecipeImage": true
     },
     {
-      "id": "detroit-style-pizza",
-      "title": "Detroit-Style Pizza",
-      "cuisine": "michigan",
-      "category": "Michigan",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
       "id": "michigan-coney-dogs",
       "title": "Michigan Coney Dogs",
       "cuisine": "michigan",
@@ -319,16 +279,6 @@
       "title": "Paczki",
       "cuisine": "michigan",
       "category": "Michigan",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "tater-tot-hotdish",
-      "title": "Tater Tot Hotdish",
-      "cuisine": "minnesota",
-      "category": "Minnesota",
       "image": "assets/recipe-photo-needed.svg",
       "source": "queued-for-replacement",
       "fallbackUsed": true,
@@ -605,16 +555,6 @@
       "missingRecipeImage": true
     },
     {
-      "id": "bierocks",
-      "title": "Bierocks",
-      "cuisine": "kansas",
-      "category": "Kansas",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
       "id": "kansas-chicken-fried-steak",
       "title": "Kansas Chicken Fried Steak",
       "cuisine": "kansas",
@@ -711,22 +651,6 @@
       "category": "Chicago Street Food",
       "expectedPath": "images/recipes/audit-2026-06/maxwell-street-polish.jpg",
       "prompt": "Editorial food photography of Maxwell Street Polish, authentic chicago dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "italian-beef",
-      "title": "Italian Beef Sandwich",
-      "cuisine": "chicago",
-      "category": "Chicago Street Food",
-      "expectedPath": "images/recipes/audit-2026-06/italian-beef.jpg",
-      "prompt": "Editorial food photography of Italian Beef Sandwich, authentic chicago dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "chicago-style-hot-dog",
-      "title": "Chicago-Style Hot Dog",
-      "cuisine": "chicago",
-      "category": "Chicago Street Food",
-      "expectedPath": "images/recipes/audit-2026-06/chicago-style-hot-dog.jpg",
-      "prompt": "Editorial food photography of Chicago-Style Hot Dog, authentic chicago dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
     },
     {
       "id": "chicago-gyros",
@@ -857,14 +781,6 @@
       "prompt": "Editorial food photography of Italian Ice, authentic chicago dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
     },
     {
-      "id": "wisconsin-cheese-curds",
-      "title": "Wisconsin Cheese Curds",
-      "cuisine": "wisconsin",
-      "category": "Wisconsin",
-      "expectedPath": "images/recipes/audit-2026-06/wisconsin-cheese-curds.jpg",
-      "prompt": "Editorial food photography of Wisconsin Cheese Curds, authentic wisconsin dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
       "id": "wisconsin-brats",
       "title": "Wisconsin Brats",
       "cuisine": "wisconsin",
@@ -905,14 +821,6 @@
       "prompt": "Editorial food photography of Wisconsin Butter Burgers, authentic wisconsin dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
     },
     {
-      "id": "detroit-style-pizza",
-      "title": "Detroit-Style Pizza",
-      "cuisine": "michigan",
-      "category": "Michigan",
-      "expectedPath": "images/recipes/audit-2026-06/detroit-style-pizza.jpg",
-      "prompt": "Editorial food photography of Detroit-Style Pizza, authentic michigan dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
       "id": "michigan-coney-dogs",
       "title": "Michigan Coney Dogs",
       "cuisine": "michigan",
@@ -951,14 +859,6 @@
       "category": "Michigan",
       "expectedPath": "images/recipes/audit-2026-06/paczki.jpg",
       "prompt": "Editorial food photography of Paczki, authentic michigan dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "tater-tot-hotdish",
-      "title": "Tater Tot Hotdish",
-      "cuisine": "minnesota",
-      "category": "Minnesota",
-      "expectedPath": "images/recipes/audit-2026-06/tater-tot-hotdish.jpg",
-      "prompt": "Editorial food photography of Tater Tot Hotdish, authentic minnesota dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
     },
     {
       "id": "wild-rice-soup",
@@ -1177,14 +1077,6 @@
       "prompt": "Editorial food photography of Kansas Burnt Ends, authentic kansas dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
     },
     {
-      "id": "bierocks",
-      "title": "Bierocks",
-      "cuisine": "kansas",
-      "category": "Kansas",
-      "expectedPath": "images/recipes/audit-2026-06/bierocks.jpg",
-      "prompt": "Editorial food photography of Bierocks, authentic kansas dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
       "id": "kansas-chicken-fried-steak",
       "title": "Kansas Chicken Fried Steak",
       "cuisine": "kansas",
@@ -1262,14 +1154,6 @@
           "title": "Maxwell Street Polish"
         },
         {
-          "id": "italian-beef",
-          "title": "Italian Beef Sandwich"
-        },
-        {
-          "id": "chicago-style-hot-dog",
-          "title": "Chicago-Style Hot Dog"
-        },
-        {
           "id": "chicago-gyros",
           "title": "Chicago Gyros"
         },
@@ -1334,10 +1218,6 @@
           "title": "Italian Ice"
         },
         {
-          "id": "wisconsin-cheese-curds",
-          "title": "Wisconsin Cheese Curds"
-        },
-        {
           "id": "wisconsin-brats",
           "title": "Wisconsin Brats"
         },
@@ -1358,10 +1238,6 @@
           "title": "Wisconsin Butter Burgers"
         },
         {
-          "id": "detroit-style-pizza",
-          "title": "Detroit-Style Pizza"
-        },
-        {
           "id": "michigan-coney-dogs",
           "title": "Michigan Coney Dogs"
         },
@@ -1380,10 +1256,6 @@
         {
           "id": "paczki",
           "title": "Paczki"
-        },
-        {
-          "id": "tater-tot-hotdish",
-          "title": "Tater Tot Hotdish"
         },
         {
           "id": "wild-rice-soup",
@@ -1492,10 +1364,6 @@
         {
           "id": "kansas-burnt-ends",
           "title": "Kansas Burnt Ends"
-        },
-        {
-          "id": "bierocks",
-          "title": "Bierocks"
         },
         {
           "id": "kansas-chicken-fried-steak",
@@ -4848,20 +4716,20 @@
       "title": "Italian Beef Sandwich",
       "cuisine": "chicago",
       "category": "Chicago Street Food",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/italian-beef.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "chicago-style-hot-dog",
       "title": "Chicago-Style Hot Dog",
       "cuisine": "chicago",
       "category": "Chicago Street Food",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/chicago-style-hot-dog.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "chicago-gyros",
@@ -5028,10 +4896,10 @@
       "title": "Wisconsin Cheese Curds",
       "cuisine": "wisconsin",
       "category": "Wisconsin",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/wisconsin-cheese-curds.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "wisconsin-brats",
@@ -5088,10 +4956,10 @@
       "title": "Detroit-Style Pizza",
       "cuisine": "michigan",
       "category": "Michigan",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/detroit-style-pizza.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "michigan-coney-dogs",
@@ -5148,10 +5016,10 @@
       "title": "Tater Tot Hotdish",
       "cuisine": "minnesota",
       "category": "Minnesota",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/tater-tot-hotdish.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "wild-rice-soup",
@@ -5428,10 +5296,10 @@
       "title": "Bierocks",
       "cuisine": "kansas",
       "category": "Kansas",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/bierocks.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "kansas-chicken-fried-steak",
