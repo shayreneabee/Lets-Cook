@@ -1822,8 +1822,12 @@ const menuRecipeSections = [
 ];
 
 function recipeById(id) {
-  const recipe = recipes.find((item) => item.id === id);
+  const recipe = [...userRecipeCollection(), ...recipes].find((item) => item.id === id);
   return recipeHasPublishReadyPhoto(recipe) ? recipe : null;
+}
+
+function allRecipeCollection() {
+  return [...userRecipeCollection(), ...recipes].filter(recipeHasPublishReadyPhoto);
 }
 
 function recipeLinksFor(ids = []) {
@@ -5157,6 +5161,7 @@ let saved = readJSON("letsCookSaved", []);
 let planned = readJSON("letsCookPlanned", []);
 let recentlyViewed = readJSON("letsCookRecentlyViewed", []);
 let savedMenus = readJSON("letsCookSavedMenus", []);
+let userRecipes = readJSON("letsCookUserRecipes", []);
 let submissions = readJSON("letsCookSubmissions", []);
 let lessonProgress = readJSON("letsCookLessonProgress", {});
 let pantryScanState = readJSON("letsCookPantryScan", { ingredients: [], notes: "" });
@@ -5223,6 +5228,7 @@ function render() {
   if (route === "second-chance") return renderSecondChanceHome();
   if (route === "community") return renderCommunity();
   if (route === "kitchen") return renderKitchen();
+  if (route === "add-recipe") return renderAddRecipe();
   if (route === "cook101") return id ? renderLesson(id) : renderCook101();
   if (route === "skills-academy") return renderSkillsAcademy();
   if (route === "culinary-academy") return renderCulinaryAcademy(id);
@@ -6814,7 +6820,7 @@ function renderLetsCookHome() {
         <p>Meals already cooked, loved, talked about, or planned for the next Brent & Co. table. This is also where cooks can upload food videos.</p>
       </div>
       <div class="recipe-grid">${personalRecipes().slice(0, 6).map(recipeCard).join("")}</div>
-      <div class="hero-actions"><a class="small-button" href="#kitchen">Open Shay's Kitchen</a><a class="small-button secondary" href="#kitchen">Upload Food Video</a></div>
+      <div class="hero-actions"><a class="small-button" href="#kitchen">Open Shay's Kitchen</a><a class="small-button secondary" href="#add-recipe">Add Recipe</a><a class="small-button secondary" href="#kitchen">Upload Food Video</a></div>
     </section>
     <section class="cream-section rollout-section">
       <div class="section-heading">
@@ -8161,7 +8167,7 @@ function renderKitchen() {
       "Shay's Recipes",
       "A personal collection of meals already cooked, already loved, or already planned. This is where Let's Cook Ya'll starts feeling like it grew from a real kitchen.",
       recipePhotoFor(shayFeatured[0] || recipes[0]),
-      `<a class="small-button" href="#recipes">Browse Recipes</a><a class="small-button secondary" href="#what-yall-cooking">What Y'all Cooking?</a>`
+      `<a class="small-button" href="#add-recipe">Add Recipe</a><a class="small-button secondary" href="#recipes">Browse Recipes</a><a class="small-button secondary" href="#what-yall-cooking">What Y'all Cooking?</a>`
     )}
     ${cookSubnav()}
     <section class="cream-section shay-kitchen-section">
@@ -8178,6 +8184,7 @@ function renderKitchen() {
           <span>Family Table</span>
         </div>
       </div>
+      <div class="hero-actions"><a class="small-button" href="#add-recipe">Add Recipe</a><a class="small-button secondary" href="#account">My Kitchen Profile</a></div>
       <div class="section-heading compact-heading">
         <p class="eyebrow">Featured Shay recipes</p>
         <h2>Cook something from the kitchen.</h2>
@@ -8194,6 +8201,106 @@ function renderKitchen() {
         <div class="recipe-grid">${section.recipes.map(recipeCard).join("")}</div>
       </section>
     `).join("")}
+  `;
+}
+
+function renderAddRecipe() {
+  const submitted = userRecipeCollection();
+  const cuisineOptions = [
+    ["southern", "Southern"],
+    ["soul-food", "Soul Food"],
+    ["mississippi-favorites", "Mississippi Favorites"],
+    ["mexican", "Mexican"],
+    ["italian", "Italian"],
+    ["asian-inspired", "Asian"],
+    ["indian", "Indian"],
+    ["mediterranean", "Mediterranean"],
+    ["caribbean", "Caribbean"],
+    ["global", "Global Flavors"]
+  ];
+  const categoryOptions = [
+    "Family Dinners",
+    "Southern Comfort",
+    "Holiday Table",
+    "Desserts",
+    "Breakfast",
+    "Quick Meals",
+    "Kids Korner",
+    "Party & Hosting",
+    "Seafood",
+    "Vegetarian"
+  ];
+  app.innerHTML = `
+    ${hero("Add Recipe", "Save your family recipes, weeknight wins, holiday dishes, and kitchen stories into your own Let's Cook Y'all collection.", photoFor("hero", "family", 2, "assets/cooking-family.jpeg"), `<a class="small-button" href="#kitchen">Back to Shay's Kitchen</a>`)}
+    ${cookSubnav()}
+    <section class="cream-section add-recipe-section">
+      <div class="detail-panel add-recipe-panel">
+        <div>
+          <p class="eyebrow">My Kitchen</p>
+          <h2>Add a recipe for review.</h2>
+          <p>Submitted recipes save to your collection right away as pending review. Add enough detail so you or another cook can actually make it later.</p>
+        </div>
+        <span class="review-status-pill">Pending review after submission</span>
+      </div>
+      <form class="add-recipe-form detail-panel" data-add-recipe-form>
+        <label>Recipe title
+          <input name="title" required placeholder="Auntie's Sunday Chicken" />
+        </label>
+        <div class="form-two">
+          <label>Category
+            <select name="category" required>
+              ${categoryOptions.map((category) => `<option value="${category}">${category}</option>`).join("")}
+            </select>
+          </label>
+          <label>Cuisine
+            <select name="cuisine" required>
+              ${cuisineOptions.map(([value, label]) => `<option value="${value}">${label}</option>`).join("")}
+            </select>
+          </label>
+        </div>
+        <div class="form-three">
+          <label>Prep time
+            <input name="prepTime" placeholder="15 min" />
+          </label>
+          <label>Cook time
+            <input name="cookTime" placeholder="45 min" />
+          </label>
+          <label>Servings
+            <input name="servings" type="number" min="1" step="1" value="4" />
+          </label>
+        </div>
+        <label>Difficulty
+          <select name="difficulty">
+            <option>Beginner</option>
+            <option>Intermediate</option>
+            <option>Advanced</option>
+          </select>
+        </label>
+        <label>Ingredients
+          <textarea name="ingredients" required rows="8" placeholder="One ingredient per line&#10;2 cups flour&#10;1 tsp salt&#10;1 cup buttermilk"></textarea>
+        </label>
+        <label>Instructions
+          <textarea name="instructions" required rows="8" placeholder="One step per line&#10;Heat oven to 350 F.&#10;Mix dry ingredients.&#10;Bake until golden."></textarea>
+        </label>
+        <label>Notes or story behind the recipe
+          <textarea name="notes" rows="5" placeholder="Where did this recipe come from? Who makes it? When do y'all serve it?"></textarea>
+        </label>
+        <label>Optional photo upload
+          <input name="photo" type="file" accept="image/png,image/jpeg,image/webp" />
+        </label>
+        <div class="form-actions">
+          <button class="small-button" type="submit">Save Recipe</button>
+          <a class="small-button secondary" href="#kitchen">Cancel</a>
+        </div>
+      </form>
+    </section>
+    <section class="cream-section">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">My submitted recipes</p>
+        <h2>${submitted.length ? "Saved in your collection." : "Nothing submitted yet."}</h2>
+      </div>
+      <div class="recipe-grid">${submitted.length ? submitted.map(recipeCard).join("") : `<div class="empty-state">Add your first recipe and it will appear here as pending review.</div>`}</div>
+    </section>
   `;
 }
 
@@ -8293,12 +8400,12 @@ function renderRecipes() {
       <div class="quick-filter-row">${quickFilters.map(([label, value]) => `<button class="quick-filter" type="button" data-quick-filter="${value}">${label}</button>`).join("")}</div>
       <div id="learningResults" class="learning-search-results"></div>
     </section>
-    <section class="cream-section"><div id="results" class="recipe-grid">${recipes.filter(recipeHasPublishReadyPhoto).map(recipeCard).join("")}</div></section>
+    <section class="cream-section"><div id="results" class="recipe-grid">${allRecipeCollection().map(recipeCard).join("")}</div></section>
   `;
 }
 
 function renderRecipe(id) {
-  const recipe = recipes.find((item) => item.id === id) || recipes[0];
+  const recipe = recipeById(id) || recipes.find((item) => item.id === id) || recipes[0];
   if (!recipeHasPublishReadyPhoto(recipe)) {
     app.innerHTML = `
       ${hero("Recipe Photography In Progress", "This dish has a real recipe record, but Let's Cook Y'all does not publish recipe pages until the food photo matches the dish.", exactRecipePhotoNeededImage, `<a class="small-button" href="#recipes">Browse Ready Recipes</a><a class="small-button secondary" href="#cuisine-explorer">Explore Cuisines</a>`)}
@@ -9035,10 +9142,11 @@ function recipeCard(recipe) {
       <a class="recipe-photo ${resolvedPhoto.source === "queued-for-replacement" ? "photo-needed-frame" : ""}" href="#recipes/${recipe.id}"><img src="${resolvedPhoto.image}" alt="${recipe.title}" />${recipePhotoStatusBadge(resolvedPhoto)}</a>
       <div class="recipe-content">
         <div class="recipe-card-topline">
-          ${isPersonal ? `<span>Shay's Kitchen</span>` : `<span>${cuisineName(recipe.cuisine)}</span>`}
+          ${recipe.isUserRecipe ? `<span>My Kitchen</span>` : isPersonal ? `<span>Shay's Kitchen</span>` : `<span>${cuisineName(recipe.cuisine)}</span>`}
           <span>${recipe.skill_level}</span>
         </div>
         <h3>${recipe.title}</h3>
+        ${recipe.review_status === "pending" ? `<p class="pending-review-note">Pending review. Saved to your recipe collection.</p>` : ""}
         <div class="recipe-mini-meta">
           <span>${recipeDuration(recipe)}</span>
           <span>${recipe.difficulty}</span>
@@ -9053,12 +9161,41 @@ function recipeCard(recipe) {
 }
 
 function personalRecipes() {
-  return personalRecipeIds.map((id) => recipeById(id)).filter(Boolean);
+  const shayRecipes = personalRecipeIds.map((id) => recipeById(id)).filter(Boolean);
+  return [...userRecipeCollection(), ...shayRecipes];
 }
 
 function compactRecipe(recipe) {
   if (!recipe) return "";
   return `<div class="compact-recipe"><img src="${recipePhotoFor(recipe)}" alt="" /><div><strong>${recipe.title}</strong><span>${recipe.time} / ${recipe.level}</span></div><button class="small-button secondary" data-plan="${recipe.id}">${planned.includes(recipe.id) ? "Remove" : "Plan"}</button></div>`;
+}
+
+function userRecipeCollection() {
+  return (userRecipes || []).map((recipe) => normalizeRecipe({ ...recipe, isUserRecipe: true }));
+}
+
+function splitRecipeLines(value = "") {
+  return String(value)
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter(Boolean);
+}
+
+function userRecipeFallbackImage(cuisine, category) {
+  const canonical = canonicalCuisineId(cuisine || "");
+  return cuisineCoverImages[canonical]
+    || categoryCoverImages[category]
+    || photoFor("hero", "family", 0, "assets/cooking-family.jpeg");
+}
+
+function readFileAsDataURL(file) {
+  return new Promise((resolve) => {
+    if (!file?.name) return resolve("");
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result?.toString() || "");
+    reader.onerror = () => resolve("");
+    reader.readAsDataURL(file);
+  });
 }
 
 function applyRecipeDatabase(database) {
@@ -9206,7 +9343,7 @@ function handleSearch(event) {
   const maxTime = Number(document.querySelector("#timeFilter")?.value || 0);
   const level = document.querySelector("#levelFilter")?.value || "";
   const quick = document.querySelector(".quick-filter.active")?.dataset.quickFilter || "";
-  const results = recipes.filter((recipe) => recipeHasPublishReadyPhoto(recipe)).filter((recipe) => {
+  const results = allRecipeCollection().filter((recipe) => {
     const ingredientText = recipe.ingredients.join(" ").toLowerCase();
     const tagText = (recipe.tags || []).join(" ").toLowerCase();
     const haystack = `${recipe.title} ${recipe.category} ${recipe.level} ${recipe.difficulty || ""} ${recipe.description} ${ingredientText} ${tagText}`.toLowerCase();
@@ -9427,6 +9564,47 @@ async function handleSubmit(event) {
     return;
   }
 
+  if (event.target.matches("[data-add-recipe-form]")) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const title = formData.get("title")?.toString().trim() || "Untitled Recipe";
+    const cuisine = formData.get("cuisine")?.toString() || "global";
+    const category = formData.get("category")?.toString() || "Family Dinners";
+    const photo = formData.get("photo");
+    const uploadedPhoto = await readFileAsDataURL(photo);
+    const idBase = `user-${slugify(title) || "recipe"}`;
+    const id = userRecipes.some((recipe) => recipe.id === idBase) ? `${idBase}-${Date.now()}` : idBase;
+    const newRecipe = normalizeRecipe({
+      id,
+      slug: id.replace(/^user-/, ""),
+      title,
+      cuisine,
+      category,
+      image: uploadedPhoto || userRecipeFallbackImage(cuisine, category),
+      image_url: uploadedPhoto || userRecipeFallbackImage(cuisine, category),
+      prep_time: formData.get("prepTime")?.toString().trim() || "15 min",
+      cook_time: formData.get("cookTime")?.toString().trim() || "30 min",
+      difficulty: formData.get("difficulty")?.toString() || "Beginner",
+      servings: Number(formData.get("servings")) || 4,
+      description: formData.get("notes")?.toString().trim() || `${title} submitted from My Kitchen.`,
+      ingredients: splitRecipeLines(formData.get("ingredients")?.toString() || ""),
+      directions: splitRecipeLines(formData.get("instructions")?.toString() || ""),
+      instructions: splitRecipeLines(formData.get("instructions")?.toString() || ""),
+      tags: [category, cuisine, "user recipe", "pending review"],
+      skill_level: "Home Cook",
+      review_status: "pending",
+      isUserRecipe: true,
+      created_at: new Date().toISOString(),
+      source: { type: "user-submitted", name: "My Kitchen" }
+    });
+    userRecipes = [newRecipe, ...userRecipes].slice(0, 50);
+    saved = [...new Set([newRecipe.id, ...saved])];
+    localStorage.setItem("letsCookUserRecipes", JSON.stringify(userRecipes));
+    persistLetsCookState();
+    window.location.hash = `#recipes/${newRecipe.id}`;
+    return;
+  }
+
   if (event.target.matches("[data-lets-signup-form]")) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -9552,6 +9730,9 @@ function applyLetsCookState(payload, status = "") {
   savedMenus = payload.savedMenus || savedMenus || [];
   lessonProgress = payload.lessonProgress || lessonProgress || {};
   submissions = payload.submissions || submissions || [];
+  if (Array.isArray(payload.userRecipes) && (payload.authenticated || payload.userRecipes.length)) {
+    userRecipes = payload.userRecipes;
+  }
 }
 
 async function submitLetsCookAuth(url, payload) {
@@ -9570,6 +9751,7 @@ async function persistLetsCookState() {
   localStorage.setItem("letsCookPlanned", JSON.stringify(planned));
   localStorage.setItem("letsCookRecentlyViewed", JSON.stringify(recentlyViewed));
   localStorage.setItem("letsCookSavedMenus", JSON.stringify(savedMenus));
+  localStorage.setItem("letsCookUserRecipes", JSON.stringify(userRecipes));
   localStorage.setItem("letsCookLessonProgress", JSON.stringify(lessonProgress));
   if (!letsCookSession.authenticated) {
     return false;
@@ -9577,7 +9759,7 @@ async function persistLetsCookState() {
   const response = await fetch("/api/lets-cook/state", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ saved, planned, recentlyViewed, savedMenus, lessonProgress })
+    body: JSON.stringify({ saved, planned, recentlyViewed, savedMenus, lessonProgress, userRecipes })
   });
   const payload = await response.json().catch(() => ({}));
   applyLetsCookState(payload, response.ok ? "Saved to your Let's Cook account." : payload.error || "Save failed.");

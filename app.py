@@ -187,11 +187,17 @@ def init_db():
                 saved_json TEXT NOT NULL DEFAULT '[]',
                 planned_json TEXT NOT NULL DEFAULT '[]',
                 lesson_progress_json TEXT NOT NULL DEFAULT '{}',
+                user_recipes_json TEXT NOT NULL DEFAULT '[]',
                 updated_at INTEGER NOT NULL,
                 FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
             )
             """
         )
+        state_columns = {
+            row["name"] for row in conn.execute("PRAGMA table_info(user_state)").fetchall()
+        }
+        if "user_recipes_json" not in state_columns:
+            conn.execute("ALTER TABLE user_state ADD COLUMN user_recipes_json TEXT NOT NULL DEFAULT '[]'")
         existing_columns = {
             row["name"] for row in conn.execute("PRAGMA table_info(users)").fetchall()
         }
@@ -763,7 +769,7 @@ def ensure_state(conn, user_id):
     if row:
         return row
     conn.execute(
-        "INSERT INTO user_state (user_id, saved_json, planned_json, lesson_progress_json, updated_at) VALUES (?, '[]', '[]', '{}', ?)",
+        "INSERT INTO user_state (user_id, saved_json, planned_json, lesson_progress_json, user_recipes_json, updated_at) VALUES (?, '[]', '[]', '{}', '[]', ?)",
         (user_id, int(time.time())),
     )
     return conn.execute("SELECT * FROM user_state WHERE user_id = ?", (user_id,)).fetchone()
@@ -777,6 +783,7 @@ def load_state(user):
             "saved": [],
             "planned": [],
             "lessonProgress": {},
+            "userRecipes": [],
             "submissions": [],
         }
     with db() as conn:
@@ -794,6 +801,7 @@ def load_state(user):
         "saved": json.loads(state["saved_json"] or "[]"),
         "planned": json.loads(state["planned_json"] or "[]"),
         "lessonProgress": json.loads(state["lesson_progress_json"] or "{}"),
+        "userRecipes": json.loads(state["user_recipes_json"] or "[]"),
         "submissions": [
             {
                 "id": str(row["id"]),
@@ -980,13 +988,14 @@ def api_save_state():
         conn.execute(
             """
             UPDATE user_state
-            SET saved_json = ?, planned_json = ?, lesson_progress_json = ?, updated_at = ?
+            SET saved_json = ?, planned_json = ?, lesson_progress_json = ?, user_recipes_json = ?, updated_at = ?
             WHERE user_id = ?
             """,
             (
                 json.dumps(payload.get("saved", [])),
                 json.dumps(payload.get("planned", [])),
                 json.dumps(payload.get("lessonProgress", {})),
+                json.dumps(payload.get("userRecipes", [])),
                 int(time.time()),
                 user["id"],
             ),
