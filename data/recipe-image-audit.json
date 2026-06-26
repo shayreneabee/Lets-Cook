@@ -1,1405 +1,11 @@
 {
-  "generatedAt": "2026-06-25T22:40:16.973Z",
+  "generatedAt": "2026-06-26T11:51:20.061Z",
   "totalRecipes": 404,
-  "uniqueImages": 342,
+  "uniqueImages": 404,
   "missingFiles": [],
-  "fallbacks": [
-    {
-      "id": "chicago-polish-sausage",
-      "title": "Chicago Polish Sausage",
-      "cuisine": "chicago",
-      "category": "Chicago Street Food",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "maxwell-street-polish",
-      "title": "Maxwell Street Polish",
-      "cuisine": "chicago",
-      "category": "Chicago Street Food",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "chicago-gyros",
-      "title": "Chicago Gyros",
-      "cuisine": "chicago",
-      "category": "Chicago Street Food",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "pizza-puff",
-      "title": "Pizza Puff",
-      "cuisine": "chicago",
-      "category": "Chicago Street Food",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "jibarito",
-      "title": "Jibarito",
-      "cuisine": "chicago",
-      "category": "Chicago Street Food",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "chicago-pork-chop-sandwich",
-      "title": "Chicago Pork Chop Sandwich",
-      "cuisine": "chicago",
-      "category": "Chicago Street Food",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "deep-dish-pizza",
-      "title": "Chicago Deep Dish Pizza",
-      "cuisine": "chicago",
-      "category": "Chicago Pizza",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "tavern-style-thin-crust-pizza",
-      "title": "Chicago Tavern-Style Thin Crust Pizza",
-      "cuisine": "chicago",
-      "category": "Chicago Pizza",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "chicago-mild-sauce",
-      "title": "Chicago Mild Sauce",
-      "cuisine": "chicago",
-      "category": "South Side / West Side Favorites",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "harolds-style-fried-chicken",
-      "title": "Harold's-Style Fried Chicken",
-      "cuisine": "chicago",
-      "category": "South Side / West Side Favorites",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "chicago-rib-tips",
-      "title": "Chicago Rib Tips",
-      "cuisine": "chicago",
-      "category": "South Side / West Side Favorites",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "gd-burger-gyro-meat",
-      "title": "GD Burger with Gyro Meat",
-      "cuisine": "chicago",
-      "category": "South Side / West Side Favorites",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "chicken-vesuvio",
-      "title": "Chicken Vesuvio",
-      "cuisine": "chicago",
-      "category": "Chicago Classics",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "shrimp-dejonghe",
-      "title": "Shrimp DeJonghe",
-      "cuisine": "chicago",
-      "category": "Chicago Classics",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "chicago-hot-tamales",
-      "title": "Chicago Hot Tamales",
-      "cuisine": "chicago",
-      "category": "Chicago Classics",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "caramel-cheese-popcorn",
-      "title": "Caramel and Cheese Popcorn Mix",
-      "cuisine": "chicago",
-      "category": "Sweet Chicago",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "rainbow-cone",
-      "title": "Rainbow Cone",
-      "cuisine": "chicago",
-      "category": "Sweet Chicago",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "italian-ice",
-      "title": "Italian Ice",
-      "cuisine": "chicago",
-      "category": "Sweet Chicago",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "wisconsin-brats",
-      "title": "Wisconsin Brats",
-      "cuisine": "wisconsin",
-      "category": "Wisconsin",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "beer-cheese-soup",
-      "title": "Beer Cheese Soup",
-      "cuisine": "wisconsin",
-      "category": "Wisconsin",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "wisconsin-friday-fish-fry",
-      "title": "Wisconsin Friday Fish Fry",
-      "cuisine": "wisconsin",
-      "category": "Wisconsin",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "wisconsin-kringle",
-      "title": "Wisconsin Kringle",
-      "cuisine": "wisconsin",
-      "category": "Wisconsin",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "wisconsin-butter-burgers",
-      "title": "Wisconsin Butter Burgers",
-      "cuisine": "wisconsin",
-      "category": "Wisconsin",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "michigan-coney-dogs",
-      "title": "Michigan Coney Dogs",
-      "cuisine": "michigan",
-      "category": "Michigan",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "upper-peninsula-pasties",
-      "title": "Upper Peninsula Pasties",
-      "cuisine": "michigan",
-      "category": "Michigan",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "michigan-cherry-pie",
-      "title": "Michigan Cherry Pie",
-      "cuisine": "michigan",
-      "category": "Michigan",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "great-lakes-whitefish",
-      "title": "Great Lakes Whitefish",
-      "cuisine": "michigan",
-      "category": "Michigan",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "paczki",
-      "title": "Paczki",
-      "cuisine": "michigan",
-      "category": "Michigan",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "wild-rice-soup",
-      "title": "Wild Rice Soup",
-      "cuisine": "minnesota",
-      "category": "Minnesota",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "pan-fried-walleye",
-      "title": "Pan-Fried Walleye",
-      "cuisine": "minnesota",
-      "category": "Minnesota",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "jucy-lucy",
-      "title": "Jucy Lucy",
-      "cuisine": "minnesota",
-      "category": "Minnesota",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "lefse",
-      "title": "Lefse",
-      "cuisine": "minnesota",
-      "category": "Minnesota",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "midwest-dessert-bars",
-      "title": "Midwest Dessert Bars",
-      "cuisine": "minnesota",
-      "category": "Minnesota",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "breaded-pork-tenderloin-sandwich",
-      "title": "Breaded Pork Tenderloin Sandwich",
-      "cuisine": "indiana",
-      "category": "Indiana",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "sugar-cream-pie",
-      "title": "Sugar Cream Pie",
-      "cuisine": "indiana",
-      "category": "Indiana",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "indiana-chicken-and-noodles",
-      "title": "Indiana Chicken and Noodles",
-      "cuisine": "indiana",
-      "category": "Indiana",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "persimmon-pudding",
-      "title": "Persimmon Pudding",
-      "cuisine": "indiana",
-      "category": "Indiana",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "cincinnati-chili",
-      "title": "Cincinnati Chili",
-      "cuisine": "ohio",
-      "category": "Ohio",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "buckeyes",
-      "title": "Buckeyes",
-      "cuisine": "ohio",
-      "category": "Ohio",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "cleveland-pierogies",
-      "title": "Cleveland Pierogies",
-      "cuisine": "ohio",
-      "category": "Ohio",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "polish-boy",
-      "title": "Polish Boy",
-      "cuisine": "ohio",
-      "category": "Ohio",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "goetta",
-      "title": "Goetta",
-      "cuisine": "ohio",
-      "category": "Ohio",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "maid-rite-loose-meat-sandwich",
-      "title": "Maid-Rite Loose Meat Sandwich",
-      "cuisine": "iowa",
-      "category": "Iowa",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "iowa-pork-tenderloin-sandwich",
-      "title": "Iowa Pork Tenderloin Sandwich",
-      "cuisine": "iowa",
-      "category": "Iowa",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "iowa-corn-casserole",
-      "title": "Iowa Corn Casserole",
-      "cuisine": "iowa",
-      "category": "Iowa",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "rhubarb-pie",
-      "title": "Rhubarb Pie",
-      "cuisine": "iowa",
-      "category": "Iowa",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "kansas-city-burnt-ends",
-      "title": "Kansas City Burnt Ends",
-      "cuisine": "missouri",
-      "category": "Kansas City BBQ",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "kansas-city-ribs",
-      "title": "Kansas City Ribs",
-      "cuisine": "missouri",
-      "category": "Kansas City BBQ",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "kansas-city-bbq-sauce",
-      "title": "Kansas City BBQ Sauce",
-      "cuisine": "missouri",
-      "category": "Kansas City BBQ",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "kansas-city-smoked-sausage",
-      "title": "Kansas City Smoked Sausage",
-      "cuisine": "missouri",
-      "category": "Kansas City BBQ",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "st-louis-style-pizza",
-      "title": "St. Louis-Style Pizza",
-      "cuisine": "missouri",
-      "category": "St. Louis Classics",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "toasted-ravioli",
-      "title": "Toasted Ravioli",
-      "cuisine": "missouri",
-      "category": "St. Louis Classics",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "st-louis-pork-steaks",
-      "title": "St. Louis Pork Steaks",
-      "cuisine": "missouri",
-      "category": "St. Louis Classics",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "gooey-butter-cake",
-      "title": "Gooey Butter Cake",
-      "cuisine": "missouri",
-      "category": "St. Louis Classics",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "kansas-burnt-ends",
-      "title": "Kansas Burnt Ends",
-      "cuisine": "kansas",
-      "category": "Kansas",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "kansas-chicken-fried-steak",
-      "title": "Kansas Chicken Fried Steak",
-      "cuisine": "kansas",
-      "category": "Kansas",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "runza",
-      "title": "Runza",
-      "cuisine": "nebraska",
-      "category": "Nebraska",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "nebraska-steak",
-      "title": "Nebraska Steak",
-      "cuisine": "nebraska",
-      "category": "Nebraska",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "kolaches",
-      "title": "Kolaches",
-      "cuisine": "nebraska",
-      "category": "Nebraska",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "dakota-kuchen",
-      "title": "Dakota Kuchen",
-      "cuisine": "north-dakota",
-      "category": "Dakotas",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "south-dakota-chislic",
-      "title": "South Dakota Chislic",
-      "cuisine": "south-dakota",
-      "category": "Dakotas",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "knoephla-soup",
-      "title": "Knoephla Soup",
-      "cuisine": "north-dakota",
-      "category": "Dakotas",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    },
-    {
-      "id": "northern-plains-fry-bread",
-      "title": "Northern Plains Fry Bread",
-      "cuisine": "north-dakota",
-      "category": "Dakotas",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
-    }
-  ],
-  "photoQueue": [
-    {
-      "id": "chicago-polish-sausage",
-      "title": "Chicago Polish Sausage",
-      "cuisine": "chicago",
-      "category": "Chicago Street Food",
-      "expectedPath": "images/recipes/audit-2026-06/chicago-polish-sausage.jpg",
-      "prompt": "Editorial food photography of Chicago Polish Sausage, authentic chicago dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "maxwell-street-polish",
-      "title": "Maxwell Street Polish",
-      "cuisine": "chicago",
-      "category": "Chicago Street Food",
-      "expectedPath": "images/recipes/audit-2026-06/maxwell-street-polish.jpg",
-      "prompt": "Editorial food photography of Maxwell Street Polish, authentic chicago dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "chicago-gyros",
-      "title": "Chicago Gyros",
-      "cuisine": "chicago",
-      "category": "Chicago Street Food",
-      "expectedPath": "images/recipes/audit-2026-06/chicago-gyros.jpg",
-      "prompt": "Editorial food photography of Chicago Gyros, authentic chicago dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "pizza-puff",
-      "title": "Pizza Puff",
-      "cuisine": "chicago",
-      "category": "Chicago Street Food",
-      "expectedPath": "images/recipes/audit-2026-06/pizza-puff.jpg",
-      "prompt": "Editorial food photography of Pizza Puff, authentic chicago dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "jibarito",
-      "title": "Jibarito",
-      "cuisine": "chicago",
-      "category": "Chicago Street Food",
-      "expectedPath": "images/recipes/audit-2026-06/jibarito.jpg",
-      "prompt": "Editorial food photography of Jibarito, authentic chicago dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "chicago-pork-chop-sandwich",
-      "title": "Chicago Pork Chop Sandwich",
-      "cuisine": "chicago",
-      "category": "Chicago Street Food",
-      "expectedPath": "images/recipes/audit-2026-06/chicago-pork-chop-sandwich.jpg",
-      "prompt": "Editorial food photography of Chicago Pork Chop Sandwich, authentic chicago dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "deep-dish-pizza",
-      "title": "Chicago Deep Dish Pizza",
-      "cuisine": "chicago",
-      "category": "Chicago Pizza",
-      "expectedPath": "images/recipes/audit-2026-06/deep-dish-pizza.jpg",
-      "prompt": "Editorial food photography of Chicago Deep Dish Pizza, authentic chicago dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "tavern-style-thin-crust-pizza",
-      "title": "Chicago Tavern-Style Thin Crust Pizza",
-      "cuisine": "chicago",
-      "category": "Chicago Pizza",
-      "expectedPath": "images/recipes/audit-2026-06/tavern-style-thin-crust-pizza.jpg",
-      "prompt": "Editorial food photography of Chicago Tavern-Style Thin Crust Pizza, authentic chicago dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "chicago-mild-sauce",
-      "title": "Chicago Mild Sauce",
-      "cuisine": "chicago",
-      "category": "South Side / West Side Favorites",
-      "expectedPath": "images/recipes/audit-2026-06/chicago-mild-sauce.jpg",
-      "prompt": "Editorial food photography of Chicago Mild Sauce, authentic chicago dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "harolds-style-fried-chicken",
-      "title": "Harold's-Style Fried Chicken",
-      "cuisine": "chicago",
-      "category": "South Side / West Side Favorites",
-      "expectedPath": "images/recipes/audit-2026-06/harolds-style-fried-chicken.jpg",
-      "prompt": "Editorial food photography of Harold's-Style Fried Chicken, authentic chicago dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "chicago-rib-tips",
-      "title": "Chicago Rib Tips",
-      "cuisine": "chicago",
-      "category": "South Side / West Side Favorites",
-      "expectedPath": "images/recipes/audit-2026-06/chicago-rib-tips.jpg",
-      "prompt": "Editorial food photography of Chicago Rib Tips, authentic chicago dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "gd-burger-gyro-meat",
-      "title": "GD Burger with Gyro Meat",
-      "cuisine": "chicago",
-      "category": "South Side / West Side Favorites",
-      "expectedPath": "images/recipes/audit-2026-06/gd-burger-gyro-meat.jpg",
-      "prompt": "Editorial food photography of GD Burger with Gyro Meat, authentic chicago dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "chicken-vesuvio",
-      "title": "Chicken Vesuvio",
-      "cuisine": "chicago",
-      "category": "Chicago Classics",
-      "expectedPath": "images/recipes/audit-2026-06/chicken-vesuvio.jpg",
-      "prompt": "Editorial food photography of Chicken Vesuvio, authentic chicago dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "shrimp-dejonghe",
-      "title": "Shrimp DeJonghe",
-      "cuisine": "chicago",
-      "category": "Chicago Classics",
-      "expectedPath": "images/recipes/audit-2026-06/shrimp-dejonghe.jpg",
-      "prompt": "Editorial food photography of Shrimp DeJonghe, authentic chicago dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "chicago-hot-tamales",
-      "title": "Chicago Hot Tamales",
-      "cuisine": "chicago",
-      "category": "Chicago Classics",
-      "expectedPath": "images/recipes/audit-2026-06/chicago-hot-tamales.jpg",
-      "prompt": "Editorial food photography of Chicago Hot Tamales, authentic chicago dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "caramel-cheese-popcorn",
-      "title": "Caramel and Cheese Popcorn Mix",
-      "cuisine": "chicago",
-      "category": "Sweet Chicago",
-      "expectedPath": "images/recipes/audit-2026-06/caramel-cheese-popcorn.jpg",
-      "prompt": "Editorial food photography of Caramel and Cheese Popcorn Mix, authentic chicago dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "rainbow-cone",
-      "title": "Rainbow Cone",
-      "cuisine": "chicago",
-      "category": "Sweet Chicago",
-      "expectedPath": "images/recipes/audit-2026-06/rainbow-cone.jpg",
-      "prompt": "Editorial food photography of Rainbow Cone, authentic chicago dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "italian-ice",
-      "title": "Italian Ice",
-      "cuisine": "chicago",
-      "category": "Sweet Chicago",
-      "expectedPath": "images/recipes/audit-2026-06/italian-ice.jpg",
-      "prompt": "Editorial food photography of Italian Ice, authentic chicago dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "wisconsin-brats",
-      "title": "Wisconsin Brats",
-      "cuisine": "wisconsin",
-      "category": "Wisconsin",
-      "expectedPath": "images/recipes/audit-2026-06/wisconsin-brats.jpg",
-      "prompt": "Editorial food photography of Wisconsin Brats, authentic wisconsin dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "beer-cheese-soup",
-      "title": "Beer Cheese Soup",
-      "cuisine": "wisconsin",
-      "category": "Wisconsin",
-      "expectedPath": "images/recipes/audit-2026-06/beer-cheese-soup.jpg",
-      "prompt": "Editorial food photography of Beer Cheese Soup, authentic wisconsin dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "wisconsin-friday-fish-fry",
-      "title": "Wisconsin Friday Fish Fry",
-      "cuisine": "wisconsin",
-      "category": "Wisconsin",
-      "expectedPath": "images/recipes/audit-2026-06/wisconsin-friday-fish-fry.jpg",
-      "prompt": "Editorial food photography of Wisconsin Friday Fish Fry, authentic wisconsin dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "wisconsin-kringle",
-      "title": "Wisconsin Kringle",
-      "cuisine": "wisconsin",
-      "category": "Wisconsin",
-      "expectedPath": "images/recipes/audit-2026-06/wisconsin-kringle.jpg",
-      "prompt": "Editorial food photography of Wisconsin Kringle, authentic wisconsin dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "wisconsin-butter-burgers",
-      "title": "Wisconsin Butter Burgers",
-      "cuisine": "wisconsin",
-      "category": "Wisconsin",
-      "expectedPath": "images/recipes/audit-2026-06/wisconsin-butter-burgers.jpg",
-      "prompt": "Editorial food photography of Wisconsin Butter Burgers, authentic wisconsin dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "michigan-coney-dogs",
-      "title": "Michigan Coney Dogs",
-      "cuisine": "michigan",
-      "category": "Michigan",
-      "expectedPath": "images/recipes/audit-2026-06/michigan-coney-dogs.jpg",
-      "prompt": "Editorial food photography of Michigan Coney Dogs, authentic michigan dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "upper-peninsula-pasties",
-      "title": "Upper Peninsula Pasties",
-      "cuisine": "michigan",
-      "category": "Michigan",
-      "expectedPath": "images/recipes/audit-2026-06/upper-peninsula-pasties.jpg",
-      "prompt": "Editorial food photography of Upper Peninsula Pasties, authentic michigan dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "michigan-cherry-pie",
-      "title": "Michigan Cherry Pie",
-      "cuisine": "michigan",
-      "category": "Michigan",
-      "expectedPath": "images/recipes/audit-2026-06/michigan-cherry-pie.jpg",
-      "prompt": "Editorial food photography of Michigan Cherry Pie, authentic michigan dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "great-lakes-whitefish",
-      "title": "Great Lakes Whitefish",
-      "cuisine": "michigan",
-      "category": "Michigan",
-      "expectedPath": "images/recipes/audit-2026-06/great-lakes-whitefish.jpg",
-      "prompt": "Editorial food photography of Great Lakes Whitefish, authentic michigan dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "paczki",
-      "title": "Paczki",
-      "cuisine": "michigan",
-      "category": "Michigan",
-      "expectedPath": "images/recipes/audit-2026-06/paczki.jpg",
-      "prompt": "Editorial food photography of Paczki, authentic michigan dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "wild-rice-soup",
-      "title": "Wild Rice Soup",
-      "cuisine": "minnesota",
-      "category": "Minnesota",
-      "expectedPath": "images/recipes/audit-2026-06/wild-rice-soup.jpg",
-      "prompt": "Editorial food photography of Wild Rice Soup, authentic minnesota dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "pan-fried-walleye",
-      "title": "Pan-Fried Walleye",
-      "cuisine": "minnesota",
-      "category": "Minnesota",
-      "expectedPath": "images/recipes/audit-2026-06/pan-fried-walleye.jpg",
-      "prompt": "Editorial food photography of Pan-Fried Walleye, authentic minnesota dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "jucy-lucy",
-      "title": "Jucy Lucy",
-      "cuisine": "minnesota",
-      "category": "Minnesota",
-      "expectedPath": "images/recipes/audit-2026-06/jucy-lucy.jpg",
-      "prompt": "Editorial food photography of Jucy Lucy, authentic minnesota dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "lefse",
-      "title": "Lefse",
-      "cuisine": "minnesota",
-      "category": "Minnesota",
-      "expectedPath": "images/recipes/audit-2026-06/lefse.jpg",
-      "prompt": "Editorial food photography of Lefse, authentic minnesota dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "midwest-dessert-bars",
-      "title": "Midwest Dessert Bars",
-      "cuisine": "minnesota",
-      "category": "Minnesota",
-      "expectedPath": "images/recipes/audit-2026-06/midwest-dessert-bars.jpg",
-      "prompt": "Editorial food photography of Midwest Dessert Bars, authentic minnesota dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "breaded-pork-tenderloin-sandwich",
-      "title": "Breaded Pork Tenderloin Sandwich",
-      "cuisine": "indiana",
-      "category": "Indiana",
-      "expectedPath": "images/recipes/audit-2026-06/breaded-pork-tenderloin-sandwich.jpg",
-      "prompt": "Editorial food photography of Breaded Pork Tenderloin Sandwich, authentic indiana dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "sugar-cream-pie",
-      "title": "Sugar Cream Pie",
-      "cuisine": "indiana",
-      "category": "Indiana",
-      "expectedPath": "images/recipes/audit-2026-06/sugar-cream-pie.jpg",
-      "prompt": "Editorial food photography of Sugar Cream Pie, authentic indiana dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "indiana-chicken-and-noodles",
-      "title": "Indiana Chicken and Noodles",
-      "cuisine": "indiana",
-      "category": "Indiana",
-      "expectedPath": "images/recipes/audit-2026-06/indiana-chicken-and-noodles.jpg",
-      "prompt": "Editorial food photography of Indiana Chicken and Noodles, authentic indiana dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "persimmon-pudding",
-      "title": "Persimmon Pudding",
-      "cuisine": "indiana",
-      "category": "Indiana",
-      "expectedPath": "images/recipes/audit-2026-06/persimmon-pudding.jpg",
-      "prompt": "Editorial food photography of Persimmon Pudding, authentic indiana dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "cincinnati-chili",
-      "title": "Cincinnati Chili",
-      "cuisine": "ohio",
-      "category": "Ohio",
-      "expectedPath": "images/recipes/audit-2026-06/cincinnati-chili.jpg",
-      "prompt": "Editorial food photography of Cincinnati Chili, authentic ohio dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "buckeyes",
-      "title": "Buckeyes",
-      "cuisine": "ohio",
-      "category": "Ohio",
-      "expectedPath": "images/recipes/audit-2026-06/buckeyes.jpg",
-      "prompt": "Editorial food photography of Buckeyes, authentic ohio dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "cleveland-pierogies",
-      "title": "Cleveland Pierogies",
-      "cuisine": "ohio",
-      "category": "Ohio",
-      "expectedPath": "images/recipes/audit-2026-06/cleveland-pierogies.jpg",
-      "prompt": "Editorial food photography of Cleveland Pierogies, authentic ohio dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "polish-boy",
-      "title": "Polish Boy",
-      "cuisine": "ohio",
-      "category": "Ohio",
-      "expectedPath": "images/recipes/audit-2026-06/polish-boy.jpg",
-      "prompt": "Editorial food photography of Polish Boy, authentic ohio dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "goetta",
-      "title": "Goetta",
-      "cuisine": "ohio",
-      "category": "Ohio",
-      "expectedPath": "images/recipes/audit-2026-06/goetta.jpg",
-      "prompt": "Editorial food photography of Goetta, authentic ohio dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "maid-rite-loose-meat-sandwich",
-      "title": "Maid-Rite Loose Meat Sandwich",
-      "cuisine": "iowa",
-      "category": "Iowa",
-      "expectedPath": "images/recipes/audit-2026-06/maid-rite-loose-meat-sandwich.jpg",
-      "prompt": "Editorial food photography of Maid-Rite Loose Meat Sandwich, authentic iowa dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "iowa-pork-tenderloin-sandwich",
-      "title": "Iowa Pork Tenderloin Sandwich",
-      "cuisine": "iowa",
-      "category": "Iowa",
-      "expectedPath": "images/recipes/audit-2026-06/iowa-pork-tenderloin-sandwich.jpg",
-      "prompt": "Editorial food photography of Iowa Pork Tenderloin Sandwich, authentic iowa dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "iowa-corn-casserole",
-      "title": "Iowa Corn Casserole",
-      "cuisine": "iowa",
-      "category": "Iowa",
-      "expectedPath": "images/recipes/audit-2026-06/iowa-corn-casserole.jpg",
-      "prompt": "Editorial food photography of Iowa Corn Casserole, authentic iowa dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "rhubarb-pie",
-      "title": "Rhubarb Pie",
-      "cuisine": "iowa",
-      "category": "Iowa",
-      "expectedPath": "images/recipes/audit-2026-06/rhubarb-pie.jpg",
-      "prompt": "Editorial food photography of Rhubarb Pie, authentic iowa dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "kansas-city-burnt-ends",
-      "title": "Kansas City Burnt Ends",
-      "cuisine": "missouri",
-      "category": "Kansas City BBQ",
-      "expectedPath": "images/recipes/audit-2026-06/kansas-city-burnt-ends.jpg",
-      "prompt": "Editorial food photography of Kansas City Burnt Ends, authentic missouri dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "kansas-city-ribs",
-      "title": "Kansas City Ribs",
-      "cuisine": "missouri",
-      "category": "Kansas City BBQ",
-      "expectedPath": "images/recipes/audit-2026-06/kansas-city-ribs.jpg",
-      "prompt": "Editorial food photography of Kansas City Ribs, authentic missouri dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "kansas-city-bbq-sauce",
-      "title": "Kansas City BBQ Sauce",
-      "cuisine": "missouri",
-      "category": "Kansas City BBQ",
-      "expectedPath": "images/recipes/audit-2026-06/kansas-city-bbq-sauce.jpg",
-      "prompt": "Editorial food photography of Kansas City BBQ Sauce, authentic missouri dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "kansas-city-smoked-sausage",
-      "title": "Kansas City Smoked Sausage",
-      "cuisine": "missouri",
-      "category": "Kansas City BBQ",
-      "expectedPath": "images/recipes/audit-2026-06/kansas-city-smoked-sausage.jpg",
-      "prompt": "Editorial food photography of Kansas City Smoked Sausage, authentic missouri dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "st-louis-style-pizza",
-      "title": "St. Louis-Style Pizza",
-      "cuisine": "missouri",
-      "category": "St. Louis Classics",
-      "expectedPath": "images/recipes/audit-2026-06/st-louis-style-pizza.jpg",
-      "prompt": "Editorial food photography of St. Louis-Style Pizza, authentic missouri dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "toasted-ravioli",
-      "title": "Toasted Ravioli",
-      "cuisine": "missouri",
-      "category": "St. Louis Classics",
-      "expectedPath": "images/recipes/audit-2026-06/toasted-ravioli.jpg",
-      "prompt": "Editorial food photography of Toasted Ravioli, authentic missouri dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "st-louis-pork-steaks",
-      "title": "St. Louis Pork Steaks",
-      "cuisine": "missouri",
-      "category": "St. Louis Classics",
-      "expectedPath": "images/recipes/audit-2026-06/st-louis-pork-steaks.jpg",
-      "prompt": "Editorial food photography of St. Louis Pork Steaks, authentic missouri dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "gooey-butter-cake",
-      "title": "Gooey Butter Cake",
-      "cuisine": "missouri",
-      "category": "St. Louis Classics",
-      "expectedPath": "images/recipes/audit-2026-06/gooey-butter-cake.jpg",
-      "prompt": "Editorial food photography of Gooey Butter Cake, authentic missouri dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "kansas-burnt-ends",
-      "title": "Kansas Burnt Ends",
-      "cuisine": "kansas",
-      "category": "Kansas",
-      "expectedPath": "images/recipes/audit-2026-06/kansas-burnt-ends.jpg",
-      "prompt": "Editorial food photography of Kansas Burnt Ends, authentic kansas dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "kansas-chicken-fried-steak",
-      "title": "Kansas Chicken Fried Steak",
-      "cuisine": "kansas",
-      "category": "Kansas",
-      "expectedPath": "images/recipes/audit-2026-06/kansas-chicken-fried-steak.jpg",
-      "prompt": "Editorial food photography of Kansas Chicken Fried Steak, authentic kansas dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "runza",
-      "title": "Runza",
-      "cuisine": "nebraska",
-      "category": "Nebraska",
-      "expectedPath": "images/recipes/audit-2026-06/runza.jpg",
-      "prompt": "Editorial food photography of Runza, authentic nebraska dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "nebraska-steak",
-      "title": "Nebraska Steak",
-      "cuisine": "nebraska",
-      "category": "Nebraska",
-      "expectedPath": "images/recipes/audit-2026-06/nebraska-steak.jpg",
-      "prompt": "Editorial food photography of Nebraska Steak, authentic nebraska dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "kolaches",
-      "title": "Kolaches",
-      "cuisine": "nebraska",
-      "category": "Nebraska",
-      "expectedPath": "images/recipes/audit-2026-06/kolaches.jpg",
-      "prompt": "Editorial food photography of Kolaches, authentic nebraska dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "dakota-kuchen",
-      "title": "Dakota Kuchen",
-      "cuisine": "north-dakota",
-      "category": "Dakotas",
-      "expectedPath": "images/recipes/audit-2026-06/dakota-kuchen.jpg",
-      "prompt": "Editorial food photography of Dakota Kuchen, authentic north-dakota dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "south-dakota-chislic",
-      "title": "South Dakota Chislic",
-      "cuisine": "south-dakota",
-      "category": "Dakotas",
-      "expectedPath": "images/recipes/audit-2026-06/south-dakota-chislic.jpg",
-      "prompt": "Editorial food photography of South Dakota Chislic, authentic south-dakota dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "knoephla-soup",
-      "title": "Knoephla Soup",
-      "cuisine": "north-dakota",
-      "category": "Dakotas",
-      "expectedPath": "images/recipes/audit-2026-06/knoephla-soup.jpg",
-      "prompt": "Editorial food photography of Knoephla Soup, authentic north-dakota dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    },
-    {
-      "id": "northern-plains-fry-bread",
-      "title": "Northern Plains Fry Bread",
-      "cuisine": "north-dakota",
-      "category": "Dakotas",
-      "expectedPath": "images/recipes/audit-2026-06/northern-plains-fry-bread.jpg",
-      "prompt": "Editorial food photography of Northern Plains Fry Bread, authentic north-dakota dish, plated clearly so the food is immediately recognizable, warm natural light, Southern Living and Food & Wine quality, no text, no watermark."
-    }
-  ],
-  "sharedImages": [
-    {
-      "image": "assets/recipe-photo-needed.svg",
-      "recipes": [
-        {
-          "id": "chicago-polish-sausage",
-          "title": "Chicago Polish Sausage"
-        },
-        {
-          "id": "maxwell-street-polish",
-          "title": "Maxwell Street Polish"
-        },
-        {
-          "id": "chicago-gyros",
-          "title": "Chicago Gyros"
-        },
-        {
-          "id": "pizza-puff",
-          "title": "Pizza Puff"
-        },
-        {
-          "id": "jibarito",
-          "title": "Jibarito"
-        },
-        {
-          "id": "chicago-pork-chop-sandwich",
-          "title": "Chicago Pork Chop Sandwich"
-        },
-        {
-          "id": "deep-dish-pizza",
-          "title": "Chicago Deep Dish Pizza"
-        },
-        {
-          "id": "tavern-style-thin-crust-pizza",
-          "title": "Chicago Tavern-Style Thin Crust Pizza"
-        },
-        {
-          "id": "chicago-mild-sauce",
-          "title": "Chicago Mild Sauce"
-        },
-        {
-          "id": "harolds-style-fried-chicken",
-          "title": "Harold's-Style Fried Chicken"
-        },
-        {
-          "id": "chicago-rib-tips",
-          "title": "Chicago Rib Tips"
-        },
-        {
-          "id": "gd-burger-gyro-meat",
-          "title": "GD Burger with Gyro Meat"
-        },
-        {
-          "id": "chicken-vesuvio",
-          "title": "Chicken Vesuvio"
-        },
-        {
-          "id": "shrimp-dejonghe",
-          "title": "Shrimp DeJonghe"
-        },
-        {
-          "id": "chicago-hot-tamales",
-          "title": "Chicago Hot Tamales"
-        },
-        {
-          "id": "caramel-cheese-popcorn",
-          "title": "Caramel and Cheese Popcorn Mix"
-        },
-        {
-          "id": "rainbow-cone",
-          "title": "Rainbow Cone"
-        },
-        {
-          "id": "italian-ice",
-          "title": "Italian Ice"
-        },
-        {
-          "id": "wisconsin-brats",
-          "title": "Wisconsin Brats"
-        },
-        {
-          "id": "beer-cheese-soup",
-          "title": "Beer Cheese Soup"
-        },
-        {
-          "id": "wisconsin-friday-fish-fry",
-          "title": "Wisconsin Friday Fish Fry"
-        },
-        {
-          "id": "wisconsin-kringle",
-          "title": "Wisconsin Kringle"
-        },
-        {
-          "id": "wisconsin-butter-burgers",
-          "title": "Wisconsin Butter Burgers"
-        },
-        {
-          "id": "michigan-coney-dogs",
-          "title": "Michigan Coney Dogs"
-        },
-        {
-          "id": "upper-peninsula-pasties",
-          "title": "Upper Peninsula Pasties"
-        },
-        {
-          "id": "michigan-cherry-pie",
-          "title": "Michigan Cherry Pie"
-        },
-        {
-          "id": "great-lakes-whitefish",
-          "title": "Great Lakes Whitefish"
-        },
-        {
-          "id": "paczki",
-          "title": "Paczki"
-        },
-        {
-          "id": "wild-rice-soup",
-          "title": "Wild Rice Soup"
-        },
-        {
-          "id": "pan-fried-walleye",
-          "title": "Pan-Fried Walleye"
-        },
-        {
-          "id": "jucy-lucy",
-          "title": "Jucy Lucy"
-        },
-        {
-          "id": "lefse",
-          "title": "Lefse"
-        },
-        {
-          "id": "midwest-dessert-bars",
-          "title": "Midwest Dessert Bars"
-        },
-        {
-          "id": "breaded-pork-tenderloin-sandwich",
-          "title": "Breaded Pork Tenderloin Sandwich"
-        },
-        {
-          "id": "sugar-cream-pie",
-          "title": "Sugar Cream Pie"
-        },
-        {
-          "id": "indiana-chicken-and-noodles",
-          "title": "Indiana Chicken and Noodles"
-        },
-        {
-          "id": "persimmon-pudding",
-          "title": "Persimmon Pudding"
-        },
-        {
-          "id": "cincinnati-chili",
-          "title": "Cincinnati Chili"
-        },
-        {
-          "id": "buckeyes",
-          "title": "Buckeyes"
-        },
-        {
-          "id": "cleveland-pierogies",
-          "title": "Cleveland Pierogies"
-        },
-        {
-          "id": "polish-boy",
-          "title": "Polish Boy"
-        },
-        {
-          "id": "goetta",
-          "title": "Goetta"
-        },
-        {
-          "id": "maid-rite-loose-meat-sandwich",
-          "title": "Maid-Rite Loose Meat Sandwich"
-        },
-        {
-          "id": "iowa-pork-tenderloin-sandwich",
-          "title": "Iowa Pork Tenderloin Sandwich"
-        },
-        {
-          "id": "iowa-corn-casserole",
-          "title": "Iowa Corn Casserole"
-        },
-        {
-          "id": "rhubarb-pie",
-          "title": "Rhubarb Pie"
-        },
-        {
-          "id": "kansas-city-burnt-ends",
-          "title": "Kansas City Burnt Ends"
-        },
-        {
-          "id": "kansas-city-ribs",
-          "title": "Kansas City Ribs"
-        },
-        {
-          "id": "kansas-city-bbq-sauce",
-          "title": "Kansas City BBQ Sauce"
-        },
-        {
-          "id": "kansas-city-smoked-sausage",
-          "title": "Kansas City Smoked Sausage"
-        },
-        {
-          "id": "st-louis-style-pizza",
-          "title": "St. Louis-Style Pizza"
-        },
-        {
-          "id": "toasted-ravioli",
-          "title": "Toasted Ravioli"
-        },
-        {
-          "id": "st-louis-pork-steaks",
-          "title": "St. Louis Pork Steaks"
-        },
-        {
-          "id": "gooey-butter-cake",
-          "title": "Gooey Butter Cake"
-        },
-        {
-          "id": "kansas-burnt-ends",
-          "title": "Kansas Burnt Ends"
-        },
-        {
-          "id": "kansas-chicken-fried-steak",
-          "title": "Kansas Chicken Fried Steak"
-        },
-        {
-          "id": "runza",
-          "title": "Runza"
-        },
-        {
-          "id": "nebraska-steak",
-          "title": "Nebraska Steak"
-        },
-        {
-          "id": "kolaches",
-          "title": "Kolaches"
-        },
-        {
-          "id": "dakota-kuchen",
-          "title": "Dakota Kuchen"
-        },
-        {
-          "id": "south-dakota-chislic",
-          "title": "South Dakota Chislic"
-        },
-        {
-          "id": "knoephla-soup",
-          "title": "Knoephla Soup"
-        },
-        {
-          "id": "northern-plains-fry-bread",
-          "title": "Northern Plains Fry Bread"
-        }
-      ]
-    }
-  ],
+  "fallbacks": [],
+  "photoQueue": [],
+  "sharedImages": [],
   "recipes": [
     {
       "id": "pb-and-j-sandwich",
@@ -4696,20 +3302,20 @@
       "title": "Chicago Polish Sausage",
       "cuisine": "chicago",
       "category": "Chicago Street Food",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/chicago-polish-sausage.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "maxwell-street-polish",
       "title": "Maxwell Street Polish",
       "cuisine": "chicago",
       "category": "Chicago Street Food",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/maxwell-street-polish.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "italian-beef",
@@ -4736,160 +3342,160 @@
       "title": "Chicago Gyros",
       "cuisine": "chicago",
       "category": "Chicago Street Food",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/chicago-gyros.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "pizza-puff",
       "title": "Pizza Puff",
       "cuisine": "chicago",
       "category": "Chicago Street Food",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/pizza-puff.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "jibarito",
       "title": "Jibarito",
       "cuisine": "chicago",
       "category": "Chicago Street Food",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/jibarito.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "chicago-pork-chop-sandwich",
       "title": "Chicago Pork Chop Sandwich",
       "cuisine": "chicago",
       "category": "Chicago Street Food",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/chicago-pork-chop-sandwich.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "deep-dish-pizza",
       "title": "Chicago Deep Dish Pizza",
       "cuisine": "chicago",
       "category": "Chicago Pizza",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/deep-dish-pizza.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "tavern-style-thin-crust-pizza",
       "title": "Chicago Tavern-Style Thin Crust Pizza",
       "cuisine": "chicago",
       "category": "Chicago Pizza",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/tavern-style-thin-crust-pizza.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "chicago-mild-sauce",
       "title": "Chicago Mild Sauce",
       "cuisine": "chicago",
       "category": "South Side / West Side Favorites",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/chicago-mild-sauce.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "harolds-style-fried-chicken",
       "title": "Harold's-Style Fried Chicken",
       "cuisine": "chicago",
       "category": "South Side / West Side Favorites",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/harolds-style-fried-chicken.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "chicago-rib-tips",
       "title": "Chicago Rib Tips",
       "cuisine": "chicago",
       "category": "South Side / West Side Favorites",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/chicago-rib-tips.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "gd-burger-gyro-meat",
       "title": "GD Burger with Gyro Meat",
       "cuisine": "chicago",
       "category": "South Side / West Side Favorites",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/gd-burger-gyro-meat.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "chicken-vesuvio",
       "title": "Chicken Vesuvio",
       "cuisine": "chicago",
       "category": "Chicago Classics",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/chicken-vesuvio.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "shrimp-dejonghe",
       "title": "Shrimp DeJonghe",
       "cuisine": "chicago",
       "category": "Chicago Classics",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/shrimp-dejonghe.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "chicago-hot-tamales",
       "title": "Chicago Hot Tamales",
       "cuisine": "chicago",
       "category": "Chicago Classics",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/chicago-hot-tamales.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "caramel-cheese-popcorn",
       "title": "Caramel and Cheese Popcorn Mix",
       "cuisine": "chicago",
       "category": "Sweet Chicago",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/caramel-cheese-popcorn.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "rainbow-cone",
       "title": "Rainbow Cone",
       "cuisine": "chicago",
       "category": "Sweet Chicago",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/rainbow-cone.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "italian-ice",
       "title": "Italian Ice",
       "cuisine": "chicago",
       "category": "Sweet Chicago",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/italian-ice.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "wisconsin-cheese-curds",
@@ -4906,50 +3512,50 @@
       "title": "Wisconsin Brats",
       "cuisine": "wisconsin",
       "category": "Wisconsin",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/wisconsin-brats.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "beer-cheese-soup",
       "title": "Beer Cheese Soup",
       "cuisine": "wisconsin",
       "category": "Wisconsin",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/beer-cheese-soup.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "wisconsin-friday-fish-fry",
       "title": "Wisconsin Friday Fish Fry",
       "cuisine": "wisconsin",
       "category": "Wisconsin",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/wisconsin-friday-fish-fry.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "wisconsin-kringle",
       "title": "Wisconsin Kringle",
       "cuisine": "wisconsin",
       "category": "Wisconsin",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/wisconsin-kringle.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "wisconsin-butter-burgers",
       "title": "Wisconsin Butter Burgers",
       "cuisine": "wisconsin",
       "category": "Wisconsin",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/wisconsin-butter-burgers.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "detroit-style-pizza",
@@ -4966,50 +3572,50 @@
       "title": "Michigan Coney Dogs",
       "cuisine": "michigan",
       "category": "Michigan",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/michigan-coney-dogs.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "upper-peninsula-pasties",
       "title": "Upper Peninsula Pasties",
       "cuisine": "michigan",
       "category": "Michigan",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/upper-peninsula-pasties.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "michigan-cherry-pie",
       "title": "Michigan Cherry Pie",
       "cuisine": "michigan",
       "category": "Michigan",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/michigan-cherry-pie.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "great-lakes-whitefish",
       "title": "Great Lakes Whitefish",
       "cuisine": "michigan",
       "category": "Michigan",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/great-lakes-whitefish.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "paczki",
       "title": "Paczki",
       "cuisine": "michigan",
       "category": "Michigan",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/paczki.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "tater-tot-hotdish",
@@ -5026,270 +3632,270 @@
       "title": "Wild Rice Soup",
       "cuisine": "minnesota",
       "category": "Minnesota",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/wild-rice-soup.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "pan-fried-walleye",
       "title": "Pan-Fried Walleye",
       "cuisine": "minnesota",
       "category": "Minnesota",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/pan-fried-walleye.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "jucy-lucy",
       "title": "Jucy Lucy",
       "cuisine": "minnesota",
       "category": "Minnesota",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/jucy-lucy.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "lefse",
       "title": "Lefse",
       "cuisine": "minnesota",
       "category": "Minnesota",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/lefse.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "midwest-dessert-bars",
       "title": "Midwest Dessert Bars",
       "cuisine": "minnesota",
       "category": "Minnesota",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/midwest-dessert-bars.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "breaded-pork-tenderloin-sandwich",
       "title": "Breaded Pork Tenderloin Sandwich",
       "cuisine": "indiana",
       "category": "Indiana",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/breaded-pork-tenderloin-sandwich.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "sugar-cream-pie",
       "title": "Sugar Cream Pie",
       "cuisine": "indiana",
       "category": "Indiana",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/sugar-cream-pie.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "indiana-chicken-and-noodles",
       "title": "Indiana Chicken and Noodles",
       "cuisine": "indiana",
       "category": "Indiana",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/indiana-chicken-and-noodles.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "persimmon-pudding",
       "title": "Persimmon Pudding",
       "cuisine": "indiana",
       "category": "Indiana",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/persimmon-pudding.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "cincinnati-chili",
       "title": "Cincinnati Chili",
       "cuisine": "ohio",
       "category": "Ohio",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/cincinnati-chili.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "buckeyes",
       "title": "Buckeyes",
       "cuisine": "ohio",
       "category": "Ohio",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/buckeyes.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "cleveland-pierogies",
       "title": "Cleveland Pierogies",
       "cuisine": "ohio",
       "category": "Ohio",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/cleveland-pierogies.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "polish-boy",
       "title": "Polish Boy",
       "cuisine": "ohio",
       "category": "Ohio",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/polish-boy.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "goetta",
       "title": "Goetta",
       "cuisine": "ohio",
       "category": "Ohio",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/goetta.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "maid-rite-loose-meat-sandwich",
       "title": "Maid-Rite Loose Meat Sandwich",
       "cuisine": "iowa",
       "category": "Iowa",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/maid-rite-loose-meat-sandwich.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "iowa-pork-tenderloin-sandwich",
       "title": "Iowa Pork Tenderloin Sandwich",
       "cuisine": "iowa",
       "category": "Iowa",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/iowa-pork-tenderloin-sandwich.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "iowa-corn-casserole",
       "title": "Iowa Corn Casserole",
       "cuisine": "iowa",
       "category": "Iowa",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/iowa-corn-casserole.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "rhubarb-pie",
       "title": "Rhubarb Pie",
       "cuisine": "iowa",
       "category": "Iowa",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/rhubarb-pie.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "kansas-city-burnt-ends",
       "title": "Kansas City Burnt Ends",
       "cuisine": "missouri",
       "category": "Kansas City BBQ",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/kansas-city-burnt-ends.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "kansas-city-ribs",
       "title": "Kansas City Ribs",
       "cuisine": "missouri",
       "category": "Kansas City BBQ",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/kansas-city-ribs.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "kansas-city-bbq-sauce",
       "title": "Kansas City BBQ Sauce",
       "cuisine": "missouri",
       "category": "Kansas City BBQ",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/kansas-city-bbq-sauce.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "kansas-city-smoked-sausage",
       "title": "Kansas City Smoked Sausage",
       "cuisine": "missouri",
       "category": "Kansas City BBQ",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/kansas-city-smoked-sausage.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "st-louis-style-pizza",
       "title": "St. Louis-Style Pizza",
       "cuisine": "missouri",
       "category": "St. Louis Classics",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/st-louis-style-pizza.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "toasted-ravioli",
       "title": "Toasted Ravioli",
       "cuisine": "missouri",
       "category": "St. Louis Classics",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/toasted-ravioli.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "st-louis-pork-steaks",
       "title": "St. Louis Pork Steaks",
       "cuisine": "missouri",
       "category": "St. Louis Classics",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/st-louis-pork-steaks.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "gooey-butter-cake",
       "title": "Gooey Butter Cake",
       "cuisine": "missouri",
       "category": "St. Louis Classics",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/gooey-butter-cake.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "kansas-burnt-ends",
       "title": "Kansas Burnt Ends",
       "cuisine": "kansas",
       "category": "Kansas",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/kansas-burnt-ends.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "bierocks",
@@ -5306,80 +3912,80 @@
       "title": "Kansas Chicken Fried Steak",
       "cuisine": "kansas",
       "category": "Kansas",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/kansas-chicken-fried-steak.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "runza",
       "title": "Runza",
       "cuisine": "nebraska",
       "category": "Nebraska",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/runza.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "nebraska-steak",
       "title": "Nebraska Steak",
       "cuisine": "nebraska",
       "category": "Nebraska",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/nebraska-steak.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "kolaches",
       "title": "Kolaches",
       "cuisine": "nebraska",
       "category": "Nebraska",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/kolaches.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "dakota-kuchen",
       "title": "Dakota Kuchen",
       "cuisine": "north-dakota",
       "category": "Dakotas",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/dakota-kuchen.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "south-dakota-chislic",
       "title": "South Dakota Chislic",
       "cuisine": "south-dakota",
       "category": "Dakotas",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/south-dakota-chislic.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "knoephla-soup",
       "title": "Knoephla Soup",
       "cuisine": "north-dakota",
       "category": "Dakotas",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/knoephla-soup.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "northern-plains-fry-bread",
       "title": "Northern Plains Fry Bread",
       "cuisine": "north-dakota",
       "category": "Dakotas",
-      "image": "assets/recipe-photo-needed.svg",
-      "source": "queued-for-replacement",
-      "fallbackUsed": true,
-      "missingRecipeImage": true
+      "image": "images/recipes/audit-2026-06/northern-plains-fry-bread.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
     },
     {
       "id": "charcuterie-cups",
