@@ -8415,3 +8415,65 @@ button.small-button:is(:hover, :focus-visible) {
     height: 220px;
   }
 }
+
+/* Shay's Kitchen */
+.shay-kitchen-section {
+  display: grid;
+  gap: 28px;
+}
+
+.shay-kitchen-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 28px;
+  align-items: end;
+}
+
+.shay-kitchen-intro h2 {
+  max-width: 820px;
+  margin-bottom: 12px;
+}
+
+.shay-kitchen-intro p:not(.eyebrow) {
+  max-width: 860px;
+  color: #5f4a3f;
+}
+
+.shay-kitchen-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+  max-width: 360px;
+}
+
+.shay-kitchen-tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 9px 14px;
+  border: 1px solid #e7d8bf;
+  border-radius: 999px;
+  background: #fff8ec;
+  color: #2b1a12;
+  font-weight: 850;
+  box-shadow: 0 10px 22px rgba(57, 38, 20, 0.08);
+}
+
+.shay-category-section {
+  padding-top: 56px;
+}
+
+.shay-category-section .section-heading {
+  margin-bottom: 24px;
+}
+
+@media (max-width: 820px) {
+  .shay-kitchen-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .shay-kitchen-tags {
+    justify-content: flex-start;
+  }
+}
