@@ -3583,15 +3583,54 @@ select {
   margin: 14px 0;
 }
 
+.planner-library-panel {
+  display: grid;
+  gap: 24px;
+  padding: clamp(22px, 4vw, 34px);
+}
+
+.planner-library-panel .compact-heading {
+  display: grid;
+  gap: 10px;
+  max-width: 760px;
+  margin: 0;
+}
+
+.planner-library-panel .compact-heading h2 {
+  max-width: 12ch;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.04;
+}
+
+.planner-library-panel .compact-heading p:not(.eyebrow) {
+  max-width: 68ch;
+  margin: 0;
+  color: #5f4a3f;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
 .planner-rail-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+  gap: 22px;
+}
+
+.planner-rail-grid > section {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+}
+
+.planner-rail-grid > section > h3 {
+  margin: 0;
+  color: #2b1a12;
+  font-size: 1.15rem;
 }
 
 .planner-card-stack {
   display: grid;
-  gap: 12px;
+  gap: 14px;
 }
 
 .planner-recipe-card {

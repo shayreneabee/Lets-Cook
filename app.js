@@ -8520,7 +8520,7 @@ function renderPlanner(id) {
           <button class="small-button secondary" data-print-recipe>Print / Save PDF</button>
         </article>
       </div>
-      <section class="detail-panel">
+      <section class="detail-panel planner-library-panel">
         <div class="section-heading compact-heading">
           <p class="eyebrow">My recipe library</p>
           <h2>Build menus from what you already saved.</h2>
