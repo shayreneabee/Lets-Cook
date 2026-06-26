@@ -8510,7 +8510,6 @@ function renderPlanner(id) {
             <button class="small-button secondary" data-use-recipe-set="${menuRecipes.map((recipe) => recipe.id).join(",")}">Add Full Menu</button>
             <button class="small-button secondary" data-clear-planned>Clear Current Menu</button>
           </div>
-          ${menuAudienceCard(selectedAudience)}
           ${menuPairingCard(selectedMenu)}
         </article>
         <article class="detail-panel planner-shopping-panel">
