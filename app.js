@@ -7570,9 +7570,6 @@ function menuPairingCard(menu) {
 function renderWhatYallCooking(id) {
   const selectedIndex = Number.isFinite(Number(id)) ? Math.max(0, Math.min(menuPairings.length - 1, Number(id))) : 0;
   const selectedMenu = menuPairings[selectedIndex];
-  const selectedAudience = menuAudienceOptions.find((item) => item.id === "family-dinner") || menuAudienceOptions[0];
-  const cuisinesList = [...new Set(menuPairings.map((menu) => menu.cuisine))];
-  const occasionsList = [...new Set(menuPairings.map((menu) => menu.occasion))];
   const pantryIngredients = uniquePantryIngredients(pantryScanState.ingredients || []);
   const pantryMatches = pantryScanMatches(pantryIngredients).slice(0, 4);
   const savedRecipes = recipesByIds(saved).slice(0, 4);
@@ -7582,97 +7579,86 @@ function renderWhatYallCooking(id) {
     : [...new Map([...savedRecipes, ...recentRecipes, ...recipesByIds(["fried-chicken", "chicken-street-tacos", "vegetable-stir-fry", "bbq-brisket-basics"])].map((recipe) => [recipe.id, recipe])).values()].slice(0, 4);
   const smartMenu = starterRecipes[0] ? smartPairingFor(starterRecipes[0]) : selectedMenu;
   const smartRecipes = recipesForMenu(smartMenu).slice(0, 8);
-  const actionCards = [
-    ["Scan My Pantry", "Use a pantry photo or typed list to find real recipe matches.", "#pantry-scan/pantry", "Pantry"],
-    ["Scan My Refrigerator", "Log fridge and freezer ingredients before they go to waste.", "#pantry-scan/refrigerator", "Fridge"],
-    ["Cook With What I Have", "Type ingredients and get recipes already inside Let's Cook Y'all.", "#kitchen-search", "Cook"],
-    ["Plan This Week", "Build a weekly plan and combine the shopping list.", "#planner", "Week"],
-    ["Build Shopping List", "Turn selected recipes and menus into grouped grocery sections.", "#planner/list", "List"],
-    ["Plan an Event", "Use hosting guides for reunions, holidays, potlucks, and cookouts.", "#hosting", "Event"]
+  const servingOptions = ["1", "2", "3-4", "5+"];
+  const moods = [
+    "Comfort Food",
+    "Quick Meals",
+    "Healthy",
+    "Southern",
+    "Mexican",
+    "Italian",
+    "Asian",
+    "African",
+    "Mediterranean",
+    "BBQ",
+    "Seafood",
+    "Desserts",
+    "Vegan",
+    "Breakfast"
   ];
-  const kitchenNeeds = [
-    ["Cuisine", "Choose Southern, Mexican, Indian, African, Asian, Mediterranean, Cajun, Creole, Soul Food, BBQ, or Mississippi Favorites."],
-    ["Serving size", "Plan for 1, 2, 4, 6, 8, 12, 25, 50, or 100 without showing confusing multiplier math."],
-    ["Budget", "Prioritize pantry staples, leftovers, batch cooking, and recipes that stretch."],
-    ["Diet needs", "Use vegetarian, dairy-free, nut-free, gluten-free, and kid-friendly tags where available."]
-  ];
+  const resultRecipes = [...new Map([...starterRecipes, ...smartRecipes].map((recipe) => [recipe.id, recipe])).values()].slice(0, 6);
+  const resultCard = (recipe) => {
+    const resolvedPhoto = resolveRecipeImage(recipe);
+    return `
+    <article class="what-cooking-result-card">
+      <figure><img src="${resolvedPhoto.image}" alt="${recipe.title}" loading="lazy"></figure>
+      <div>
+        <div class="recipe-card-meta">
+          <span>${recipe.prep_time || "Prep varies"}</span>
+          <span>${recipe.difficulty || "Beginner"}</span>
+          <span>${recipe.servings || 4} servings</span>
+        </div>
+        <h3>${recipe.title}</h3>
+        <p>${recipe.description || "A real recipe from the Let's Cook Y'all kitchen."}</p>
+        <div class="mini-ingredient-list">
+          ${(recipe.ingredients || []).slice(0, 5).map((item) => `<span>${typeof item === "string" ? item : item.name || item.ingredient || ""}</span>`).join("")}
+        </div>
+        <div class="recipe-card-actions">
+          <a class="small-button" href="#recipes/${recipe.id}">Cook This</a>
+          <button class="small-button secondary" type="button" data-save="${recipe.id}">${saved.includes(recipe.id) ? "Saved" : "Save"}</button>
+          <a class="small-button secondary" href="#planner/list">Add Missing Ingredients</a>
+        </div>
+      </div>
+    </article>
+  `;
+  };
   app.innerHTML = `
-    ${hero("What Y'all Cooking?", "Your smart kitchen assistant for pantry scans, fridge checks, leftovers, weekly meals, shopping lists, and real recipes from the Let's Cook Y'all kitchen.", photoFor("hero", "learning", 5, "assets/lc-orange-chicken.jpg"), `<a class="small-button" href="#pantry-scan">Scan My Pantry</a><a class="small-button secondary" href="#kitchen-search">Cook With What I Have</a>`)}
+    ${hero("What Y'all Cooking?", "Tell me what you have, and I'll tell you what to make.", photoFor("hero", "learning", 5, "assets/lc-orange-chicken.jpg"), `<a class="small-button" href="#pantry-scan/pantry">Scan My Pantry</a><a class="small-button secondary" href="#recipes">Skip and Browse Recipes</a>`)}
     ${cookSubnav()}
-    <section class="cream-section smart-kitchen-section">
+    <section class="cream-section smart-kitchen-section what-cooking-fast-flow">
       <div class="section-heading">
         <p class="eyebrow">Smart kitchen assistant</p>
-        <h2>Start with what you have, then decide who you are feeding.</h2>
-        <p>No random filler. Every suggestion points to a real recipe, planner, scan tool, hosting guide, or shopping-list workflow already in the app.</p>
+        <h2>How many people are you cooking for?</h2>
       </div>
-      <div class="what-cooking-action-grid">
-        ${actionCards.map(([title, text, href, label]) => `
-          <a class="academy-module-card what-cooking-action-card" href="${href}">
-            <span>${label}</span>
-            <h3>${title}</h3>
-            <p>${text}</p>
+      <div class="serving-choice-grid">
+        ${servingOptions.map((servings) => `
+          <a class="serving-choice-card" href="#planner/0-${servings === "3-4" ? "4" : servings === "5+" ? "6" : servings}">
+            <span>${servings}</span>
           </a>
         `).join("")}
       </div>
-    </section>
-    <section class="cream-section menu-builder-section">
+      <div class="pantry-camera-panel">
+        <a class="pantry-camera-button" href="#pantry-scan/pantry" aria-label="Scan my pantry">
+          <span>📷</span>
+          <strong>Scan My Pantry</strong>
+        </a>
+        <a class="small-button secondary" href="#recipes">Skip and browse recipes</a>
+      </div>
       <div class="section-heading">
-        <p class="eyebrow">Build from real recipes</p>
-        <h2>Choose the table you are cooking for.</h2>
-        <p>Pick an audience, cuisine, occasion, and main dish. The result is made from linked recipe records, not loose menu advice.</p>
+        <p class="eyebrow">Mood</p>
+        <h2>What are you in the mood for?</h2>
       </div>
-      <form class="menu-builder-form" data-menu-builder-form>
-        <label>Audience<select name="audience">${menuAudienceOptions.map((item) => `<option value="${item.id}">${item.title}</option>`).join("")}</select></label>
-        <label>Cuisine<select name="cuisine">${cuisinesList.map((item) => `<option${item === selectedMenu.cuisine ? " selected" : ""}>${item}</option>`).join("")}</select></label>
-        <label>Occasion<select name="occasion">${occasionsList.map((item) => `<option${item === selectedMenu.occasion ? " selected" : ""}>${item}</option>`).join("")}</select></label>
-        <label>Main Dish<select name="main">${menuPairings.map((menu, index) => `<option value="${index}"${index === selectedIndex ? " selected" : ""}>${recipeLinksFor(menu.main_recipe_ids).map((link) => link.replace(/<[^>]+>/g, "")).join(" or ") || menu.main_dish}</option>`).join("")}</select></label>
-        <button class="small-button" type="submit">Build My Table</button>
-      </form>
-      <div class="audience-option-grid">
-        ${menuAudienceOptions.map(menuAudienceCard).join("")}
-      </div>
-      <div class="menu-builder-result">
-        ${menuAudienceCard(selectedAudience)}
-        ${menuPairingCard(selectedMenu)}
-        ${progressionNav("#cuisine-explorer", "Cuisine Explorer", "#planner", "Open Meal Planner", ["#pantry-scan", "#hosting"])}
-      </div>
-    </section>
-    <section class="cream-section">
-      <div class="section-heading">
-        <p class="eyebrow">Cook with what you have</p>
-        <h2>${pantryIngredients.length ? `Recipes using ${pantryIngredients.slice(0, 4).map(titleizeSlug).join(", ")}.` : "Add ingredients to unlock pantry-based ideas."}</h2>
-        <p>${pantryIngredients.length ? "These are ranked by matching ingredients from your pantry scan." : "Use Pantry Scan or What's In My Kitchen to turn ingredients into useful recipe ideas."}</p>
-      </div>
-      <div class="planner-card-stack">
-        ${starterRecipes.length ? starterRecipes.map((recipe) => recipePlannerCard(recipe, "menu")).join("") : `<div class="empty-state">Add ingredients or save recipes to start building smarter suggestions.</div>`}
+      <div class="mood-chip-grid">
+        ${moods.map((mood) => `<a href="#search/${encodeURIComponent(mood)}">${mood}</a>`).join("")}
       </div>
     </section>
     <section class="gold-section">
       <div class="section-heading">
-        <p class="eyebrow">Smart pairings</p>
-        <h2>Turn one recipe into a complete meal.</h2>
-        <p>${smartMenu.main_dish || "Choose a recipe"} connects to these real recipe records for sides, breads, sauces, desserts, and drinks.</p>
+        <p class="eyebrow">Recipe results</p>
+        <h2>${pantryIngredients.length ? `Ideas using ${pantryIngredients.slice(0, 4).map(titleizeSlug).join(", ")}.` : "Fast recipe ideas to start with."}</h2>
       </div>
-      <div class="recipe-grid">
-        ${smartRecipes.map(recipeCard).join("")}
-      </div>
-      <div class="what-cooking-detail-grid">
-        ${kitchenNeeds.map(([title, text]) => `<article><h3>${title}</h3><p>${text}</p></article>`).join("")}
-      </div>
-      <div class="feature-preview-strip">
-        <p><strong>Coming later:</strong> barcode scanner, expiration tracking, voice input, family profiles, and nutrition dashboard.</p>
-      </div>
-    </section>
-    <section class="cream-section">
-      <div class="section-heading">
-        <p class="eyebrow">Plan the next step</p>
-        <h2>Save it, shop it, cook it, or host it.</h2>
-      </div>
-      <div class="what-cooking-action-grid">
-        <a class="academy-module-card what-cooking-action-card" href="#planner"><span>Planner</span><h3>Open Meal Planner</h3><p>Use saved recipes, recent recipes, serving sizes, and combined shopping lists.</p></a>
-        <a class="academy-module-card what-cooking-action-card" href="#recipes"><span>Recipes</span><h3>Browse Recipe Library</h3><p>Find a real recipe by cuisine, skill level, technique, or occasion.</p></a>
-        <a class="academy-module-card what-cooking-action-card" href="#hosting"><span>Hosting</span><h3>Plan an Event</h3><p>Get menus, shopping lists, prep timelines, and serving notes for gatherings.</p></a>
-        <a class="academy-module-card what-cooking-action-card" href="#kids-korner"><span>Kids</span><h3>Cook With Kids</h3><p>Open age-safe recipes, games, badges, and parent notes.</p></a>
+      <div class="what-cooking-results-grid">
+        ${resultRecipes.length ? resultRecipes.map(resultCard).join("") : `<div class="empty-state">Scan your pantry or browse recipes to start cooking.</div>`}
       </div>
     </section>
   `;

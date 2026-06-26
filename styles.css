@@ -5838,6 +5838,177 @@ button.small-button:is(:hover, :focus-visible) {
     linear-gradient(135deg, #fffaf3, #f7f2e9);
 }
 
+.what-cooking-fast-flow {
+  display: grid;
+  gap: 28px;
+}
+
+.serving-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.serving-choice-card {
+  display: grid;
+  min-height: 88px;
+  place-items: center;
+  border: 1px solid #e7d8bf;
+  border-radius: 22px;
+  background: #fff;
+  color: #232323;
+  text-decoration: none;
+  box-shadow: 0 16px 34px rgba(43, 26, 18, 0.08);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.serving-choice-card:hover {
+  border-color: #d9a441;
+  box-shadow: 0 22px 46px rgba(43, 26, 18, 0.14);
+  transform: translateY(-2px);
+}
+
+.serving-choice-card span {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2rem, 7vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.pantry-camera-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px;
+  border: 1px solid rgba(35, 35, 35, 0.08);
+  border-radius: 28px;
+  background: linear-gradient(135deg, #173d2a, #274f39);
+  box-shadow: 0 24px 56px rgba(23, 61, 42, 0.18);
+}
+
+.pantry-camera-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  color: #fffaf3;
+  font-size: 1.1rem;
+  font-weight: 950;
+  text-decoration: none;
+}
+
+.pantry-camera-button span {
+  display: grid;
+  width: 76px;
+  height: 76px;
+  place-items: center;
+  border-radius: 24px;
+  background: #fffaf3;
+  color: #173d2a;
+  font-size: 2.2rem;
+  box-shadow: inset 0 0 0 1px rgba(23, 61, 42, 0.12);
+}
+
+.mood-chip-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.mood-chip-grid a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  border: 1px solid #e7d8bf;
+  border-radius: 999px;
+  padding: 0 18px;
+  background: #fff;
+  color: #232323;
+  font-weight: 900;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(43, 26, 18, 0.06);
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.mood-chip-grid a:hover {
+  border-color: #d9a441;
+  background: #fff8ec;
+  transform: translateY(-1px);
+}
+
+.what-cooking-results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.what-cooking-result-card {
+  overflow: hidden;
+  border: 1px solid #e7d8bf;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 20px 46px rgba(43, 26, 18, 0.12);
+}
+
+.what-cooking-result-card figure {
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  background: #f7f2e9;
+}
+
+.what-cooking-result-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.what-cooking-result-card > div {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+}
+
+.what-cooking-result-card h3,
+.what-cooking-result-card p {
+  margin: 0;
+}
+
+.what-cooking-result-card h3 {
+  color: #2b1a12;
+  font-size: 1.3rem;
+}
+
+.what-cooking-result-card p {
+  color: #5f4a3f;
+  line-height: 1.5;
+}
+
+.recipe-card-meta,
+.recipe-card-actions,
+.mini-ingredient-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.recipe-card-meta span,
+.mini-ingredient-list span {
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.recipe-card-meta span {
+  background: #f7f2e9;
+  color: #2b1a12;
+}
+
+.mini-ingredient-list span {
+  background: rgba(125, 146, 112, 0.14);
+  color: #173d2a;
+}
+
 .what-cooking-action-grid,
 .what-cooking-detail-grid {
   display: grid;
@@ -5901,6 +6072,22 @@ button.small-button:is(:hover, :focus-visible) {
 .feature-preview-strip {
   margin-top: 18px;
   color: #5f4a3f;
+}
+
+@media (max-width: 720px) {
+  .serving-choice-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pantry-camera-panel {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .pantry-camera-panel .small-button {
+    justify-content: center;
+    width: 100%;
+  }
 }
 
 .practice-level-section {
