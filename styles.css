@@ -5800,8 +5800,8 @@ button.small-button:is(:hover, :focus-visible) {
 .menu-builder-form {
   display: grid;
   gap: 14px;
-  grid-template-columns: repeat(4, minmax(0, 1fr)) auto;
-  align-items: end;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
   padding: 18px;
   border: 1px solid #e7d8bf;
   border-radius: 22px;
@@ -5812,11 +5812,14 @@ button.small-button:is(:hover, :focus-visible) {
 .menu-builder-form label {
   display: grid;
   gap: 8px;
+  min-width: 0;
   color: #2b1a12;
   font-weight: 900;
 }
 
 .menu-builder-form select {
+  width: 100%;
+  min-width: 0;
   min-height: 46px;
   border: 1px solid #d9c8ad;
   border-radius: 999px;
@@ -5824,6 +5827,19 @@ button.small-button:is(:hover, :focus-visible) {
   background: #fffaf3;
   color: #232323;
   font: inherit;
+}
+
+.menu-builder-form button {
+  grid-column: 1 / -1;
+  justify-self: start;
+  min-height: 46px;
+  white-space: nowrap;
+}
+
+.planner-command-center .menu-builder-section > h2 {
+  max-width: 13ch;
+  font-size: clamp(2.35rem, 5vw, 4.6rem);
+  line-height: 0.98;
 }
 
 .menu-builder-result {
@@ -6075,6 +6091,15 @@ button.small-button:is(:hover, :focus-visible) {
 }
 
 @media (max-width: 720px) {
+  .menu-builder-form {
+    grid-template-columns: 1fr;
+    padding: 14px;
+  }
+
+  .menu-builder-form button {
+    justify-self: stretch;
+  }
+
   .serving-choice-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
