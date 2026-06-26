@@ -231,6 +231,22 @@ const cuisineCoverImages = {
   global: "assets/lc-african-food.jpg"
 };
 
+const midwestCoverImages = {
+  midwest: "images/recipes/audit-2026-06/italian-beef.jpg",
+  chicago: "images/recipes/audit-2026-06/italian-beef.jpg",
+  wisconsin: "images/recipes/audit-2026-06/wisconsin-friday-fish-fry.jpg",
+  michigan: "images/recipes/audit-2026-06/detroit-style-pizza.jpg",
+  minnesota: "images/recipes/audit-2026-06/tater-tot-hotdish.jpg",
+  indiana: "images/recipes/audit-2026-06/breaded-pork-tenderloin-sandwich.jpg",
+  ohio: "images/recipes/audit-2026-06/cincinnati-chili.jpg",
+  iowa: "images/recipes/audit-2026-06/maid-rite-loose-meat-sandwich.jpg",
+  missouri: "images/recipes/audit-2026-06/kansas-city-burnt-ends.jpg",
+  kansas: "images/recipes/audit-2026-06/bierocks.jpg",
+  nebraska: "images/recipes/audit-2026-06/runza.jpg",
+  "north-dakota": "images/recipes/audit-2026-06/knoephla-soup.jpg",
+  "south-dakota": "images/recipes/audit-2026-06/south-dakota-chislic.jpg"
+};
+
 const categoryCoverImages = {
   "Kid-Friendly Cooking": "assets/kid-friendly.jpeg",
   "Party Cups": "assets/lc-desserts.jpg",
@@ -388,19 +404,19 @@ const cuisines = [
   { id: "italian", name: "Italian Comfort", image: cuisineCoverImages.italian, blurb: "Pasta nights, red sauce, baked mains, and beginner-friendly classics." },
   { id: "hosting", name: "Party & Hosting", image: cuisineCoverImages.hosting, blurb: "Boards, bites, desserts, and dinner-party helpers that make people feel cared for." },
   { id: "global", name: "Global Flavors", image: cuisineCoverImages.global, blurb: "Practical recipes and flavor lessons that help cooks move between regional food traditions with respect." },
-  { id: "midwest", name: "Midwest Regional", image: "assets/logo.png", blurb: "Chicago counters, Great Lakes fish fries, church hotdish tables, state fair sweets, and winter comfort food." },
-  { id: "chicago", name: "Chicago / Illinois", image: "assets/logo.png", blurb: "Italian beef, hot dogs, mild sauce, tavern pizza, rib tips, pizza puffs, and South Side counter food." },
-  { id: "wisconsin", name: "Wisconsin", image: "assets/logo.png", blurb: "Cheese curds, brats, Friday fish fry, kringle, butter burgers, and supper-club comfort." },
-  { id: "michigan", name: "Michigan", image: "assets/logo.png", blurb: "Detroit pizza, Coney dogs, pasties, cherry pie, whitefish, paczki, and Great Lakes foodways." },
-  { id: "minnesota", name: "Minnesota", image: "assets/logo.png", blurb: "Hotdish, wild rice soup, walleye, Jucy Lucy burgers, lefse, and dessert bars." },
-  { id: "indiana", name: "Indiana", image: "assets/logo.png", blurb: "Breaded pork tenderloin sandwiches, sugar cream pie, chicken and noodles, and persimmon pudding." },
-  { id: "ohio", name: "Ohio", image: "assets/logo.png", blurb: "Cincinnati chili, buckeyes, pierogies, Polish Boys, goetta, and city-rooted comfort food." },
-  { id: "iowa", name: "Iowa", image: "assets/logo.png", blurb: "Loose-meat sandwiches, pork tenderloin, corn casserole, rhubarb pie, and county-fair plates." },
-  { id: "missouri", name: "Missouri", image: "assets/logo.png", blurb: "Kansas City burnt ends and ribs meet St. Louis pizza, toasted ravioli, pork steaks, and gooey butter cake." },
-  { id: "kansas", name: "Kansas", image: "assets/logo.png", blurb: "Burnt ends, bierocks, chicken fried steak, wheat-country suppers, and plains comfort." },
-  { id: "nebraska", name: "Nebraska", image: "assets/logo.png", blurb: "Runzas, steak, kolaches, beef-country family tables, and community bakery traditions." },
-  { id: "north-dakota", name: "North Dakota", image: "assets/logo.png", blurb: "Knoephla soup, kuchen, fry bread where culturally appropriate, and cold-weather prairie meals." },
-  { id: "south-dakota", name: "South Dakota", image: "assets/logo.png", blurb: "Chislic, kuchen, fry bread where culturally appropriate, steak suppers, and prairie gatherings." },
+  { id: "midwest", name: "Midwest Regional", image: midwestCoverImages.midwest, blurb: "Chicago counters, Great Lakes fish fries, church hotdish tables, state fair sweets, and winter comfort food." },
+  { id: "chicago", name: "Chicago / Illinois", image: midwestCoverImages.chicago, blurb: "Italian beef, hot dogs, mild sauce, tavern pizza, rib tips, pizza puffs, and South Side counter food." },
+  { id: "wisconsin", name: "Wisconsin", image: midwestCoverImages.wisconsin, blurb: "Cheese curds, brats, Friday fish fry, kringle, butter burgers, and supper-club comfort." },
+  { id: "michigan", name: "Michigan", image: midwestCoverImages.michigan, blurb: "Detroit pizza, Coney dogs, pasties, cherry pie, whitefish, paczki, and Great Lakes foodways." },
+  { id: "minnesota", name: "Minnesota", image: midwestCoverImages.minnesota, blurb: "Hotdish, wild rice soup, walleye, Jucy Lucy burgers, lefse, and dessert bars." },
+  { id: "indiana", name: "Indiana", image: midwestCoverImages.indiana, blurb: "Breaded pork tenderloin sandwiches, sugar cream pie, chicken and noodles, and persimmon pudding." },
+  { id: "ohio", name: "Ohio", image: midwestCoverImages.ohio, blurb: "Cincinnati chili, buckeyes, pierogies, Polish Boys, goetta, and city-rooted comfort food." },
+  { id: "iowa", name: "Iowa", image: midwestCoverImages.iowa, blurb: "Loose-meat sandwiches, pork tenderloin, corn casserole, rhubarb pie, and county-fair plates." },
+  { id: "missouri", name: "Missouri", image: midwestCoverImages.missouri, blurb: "Kansas City burnt ends and ribs meet St. Louis pizza, toasted ravioli, pork steaks, and gooey butter cake." },
+  { id: "kansas", name: "Kansas", image: midwestCoverImages.kansas, blurb: "Burnt ends, bierocks, chicken fried steak, wheat-country suppers, and plains comfort." },
+  { id: "nebraska", name: "Nebraska", image: midwestCoverImages.nebraska, blurb: "Runzas, steak, kolaches, beef-country family tables, and community bakery traditions." },
+  { id: "north-dakota", name: "North Dakota", image: midwestCoverImages["north-dakota"], blurb: "Knoephla soup, kuchen, fry bread where culturally appropriate, and cold-weather prairie meals." },
+  { id: "south-dakota", name: "South Dakota", image: midwestCoverImages["south-dakota"], blurb: "Chislic, kuchen, fry bread where culturally appropriate, steak suppers, and prairie gatherings." },
   { id: "nigerian", name: "Nigerian", image: photoFor("cuisines", "global"), blurb: "Jollof rice, egusi, suya, moi moi, pepper soup, and layered tomato-pepper stew bases." },
   { id: "ghanaian", name: "Ghanaian", image: photoFor("cuisines", "global", 1), blurb: "Waakye, red red, kelewele, groundnut soup, jollof, shito, and generous rice-and-bean plates." },
   { id: "ethiopian", name: "Ethiopian", image: photoFor("cuisines", "global", 2), blurb: "Injera, berbere, lentil stews, shiro, tibs, doro wat, and shared platter hospitality." },
@@ -731,7 +747,7 @@ const cuisineExplorerGroups = [
   {
     id: "midwest",
     title: "Midwest Regional Food",
-    image: "assets/logo.png",
+    image: midwestCoverImages.midwest,
     note: "Cook through Chicago counters, Great Lakes fish fries, supper clubs, church basements, county fairs, winter soups, barbecue cities, and prairie bakery traditions.",
     regions: ["Chicago", "Wisconsin", "Michigan", "Minnesota", "Indiana", "Ohio", "Iowa", "Missouri", "Kansas City", "St. Louis", "Kansas", "Nebraska", "North Dakota", "South Dakota"]
   },
@@ -5669,7 +5685,7 @@ const midwestRegionalPages = {
   "chicago-midwest": {
     state: "Chicago / Illinois",
     title: "Chicago Foodways",
-    image: "assets/logo.png",
+    image: midwestCoverImages.chicago,
     intro: "Chicago food is counter food, immigrant food, South Side and West Side flavor, tavern pizza, hot dog stands, mild sauce, beef sandwiches, and neighborhood loyalty.",
     history: "The city's food identity grew through Black migration, Polish, Italian, Mexican, Puerto Rican, Greek, Jewish, and many other communities feeding workers, families, sports crowds, and late-night neighborhoods.",
     hospitality: "A Chicago table should feel specific: Italian beef with jus, a true Chicago dog, a pizza puff, mild sauce, rib tips, tavern pizza, and something cold or sweet.",
@@ -5683,7 +5699,7 @@ const midwestRegionalPages = {
   "wisconsin-midwest": {
     state: "Wisconsin",
     title: "Wisconsin Supper Club & Fish Fry",
-    image: "assets/logo.png",
+    image: midwestCoverImages.wisconsin,
     intro: "Wisconsin food is dairy country, Friday fish fry, brats, supper clubs, cheese curds, beer cheese soup, butter burgers, and bakery boxes.",
     history: "German, Polish, Scandinavian, dairy-farm, tavern, church, and Great Lakes foodways shape the state table.",
     hospitality: "Set out fried fish, slaw, rye bread, curds, brats, soup, kringle, and a table that feels like Friday night after work.",
@@ -5697,7 +5713,7 @@ const midwestRegionalPages = {
   "michigan-midwest": {
     state: "Michigan",
     title: "Michigan Great Lakes Table",
-    image: "assets/logo.png",
+    image: midwestCoverImages.michigan,
     intro: "Michigan food moves from Detroit pizza and Coney dogs to Upper Peninsula pasties, Great Lakes whitefish, cherry pie, and paczki.",
     history: "Auto-worker lunches, Greek Coney shops, Polish bakeries, mining-region pasties, fruit orchards, and freshwater fishing all shape Michigan cuisine.",
     hospitality: "Serve pizza, Coney dogs, pasties, fish, cherry pie, and bakery sweets with the confidence of a state that knows winter and water.",
@@ -5711,7 +5727,7 @@ const midwestRegionalPages = {
   "minnesota-midwest": {
     state: "Minnesota",
     title: "Minnesota Hotdish & Lake Food",
-    image: "assets/logo.png",
+    image: midwestCoverImages.minnesota,
     intro: "Minnesota food is hotdish, wild rice soup, walleye, Jucy Lucy burgers, lefse, dessert bars, lake cabins, church basements, and winter warmth.",
     history: "Indigenous wild rice traditions, Scandinavian baking, church potlucks, lake fishing, and Minneapolis burger culture all sit at the table.",
     hospitality: "Make something warm, sturdy, creamy, and shareable: soup, hotdish, fish, bars, and coffee.",
@@ -5725,7 +5741,7 @@ const midwestRegionalPages = {
   "indiana-midwest": {
     state: "Indiana",
     title: "Indiana Tenderloin & Pie Table",
-    image: "assets/logo.png",
+    image: midwestCoverImages.indiana,
     intro: "Indiana food is breaded pork tenderloin sandwiches, sugar cream pie, chicken and noodles, persimmon pudding, fairs, farms, and supper tables.",
     history: "Pork production, farm kitchens, Hoosier pie traditions, local persimmons, and county fair food shape Indiana's table.",
     hospitality: "Build a plate around a giant tenderloin, noodles or pie, and the kind of dessert people ask about before dinner is done.",
@@ -5739,7 +5755,7 @@ const midwestRegionalPages = {
   "ohio-midwest": {
     state: "Ohio",
     title: "Ohio City Comforts",
-    image: "assets/logo.png",
+    image: midwestCoverImages.ohio,
     intro: "Ohio food is Cincinnati chili, buckeyes, pierogies, Polish Boys, goetta, city neighborhoods, immigrant kitchens, and game-day sweets.",
     history: "Greek chili parlors, Polish and Eastern European communities, Cleveland sandwich culture, Cincinnati breakfast traditions, and Ohio State candy tables all contribute.",
     hospitality: "Serve chili over spaghetti, fry pierogies, build Polish Boys, and finish with buckeyes.",
@@ -5753,7 +5769,7 @@ const midwestRegionalPages = {
   "iowa-midwest": {
     state: "Iowa",
     title: "Iowa County Fair & Farm Table",
-    image: "assets/logo.png",
+    image: midwestCoverImages.iowa,
     intro: "Iowa food is loose-meat sandwiches, pork tenderloins, corn casseroles, rhubarb pie, fairs, farms, and food that feeds a line.",
     history: "Pork, corn, county fairs, church dinners, and farm kitchens make Iowa food straightforward, hearty, and specific.",
     hospitality: "Offer a sandwich, a corn side, pie, and enough coffee or lemonade for everybody.",
@@ -5767,7 +5783,7 @@ const midwestRegionalPages = {
   "missouri-midwest": {
     state: "Missouri / Kansas City / St. Louis",
     title: "Missouri BBQ & St. Louis Classics",
-    image: "assets/logo.png",
+    image: midwestCoverImages.missouri,
     intro: "Missouri food splits beautifully between Kansas City barbecue and St. Louis party food: burnt ends, ribs, sauce, toasted ravioli, pork steaks, pizza, and gooey butter cake.",
     history: "Kansas City stockyards and barbecue culture meet St. Louis Italian American neighborhoods, taverns, bakeries, and backyard pork steaks.",
     hospitality: "Put smoke and party trays together: ribs, burnt ends, toasted ravioli, pork steaks, sauce, and cake.",
@@ -5781,7 +5797,7 @@ const midwestRegionalPages = {
   "kansas-midwest": {
     state: "Kansas",
     title: "Kansas Plains Comfort",
-    image: "assets/logo.png",
+    image: midwestCoverImages.kansas,
     intro: "Kansas food carries barbecue, bierocks, chicken fried steak, wheat fields, cattle country, and filled bread traditions.",
     history: "Plains agriculture, German-Russian immigrant foodways, cattle culture, and Kansas City barbecue influence shape the table.",
     hospitality: "Serve something beefy, something baked, something sauced, and enough bread for the plate.",
@@ -5795,7 +5811,7 @@ const midwestRegionalPages = {
   "nebraska-midwest": {
     state: "Nebraska",
     title: "Nebraska Beef & Bakery Table",
-    image: "assets/logo.png",
+    image: midwestCoverImages.nebraska,
     intro: "Nebraska food is runzas, steak, kolaches, beef-country suppers, Czech bakery memory, and family meals built for cold and work.",
     history: "Cattle country, Czech and German communities, field work, and small-town bakeries shape Nebraska food identity.",
     hospitality: "A Nebraska table can be as simple as steak, filled bread, a bakery sweet, and coffee.",
@@ -5809,7 +5825,7 @@ const midwestRegionalPages = {
   "north-dakota-midwest": {
     state: "North Dakota",
     title: "North Dakota Prairie Kitchen",
-    image: "assets/logo.png",
+    image: midwestCoverImages["north-dakota"],
     intro: "North Dakota food is knoephla soup, kuchen, filled breads, prairie winter cooking, and food that warms people after cold work.",
     history: "German-Russian, Scandinavian, Indigenous, and prairie farming foodways shape the state's soups, breads, desserts, and community meals.",
     hospitality: "Soup, bread, kuchen, coffee, and practical abundance define the table.",
@@ -5823,7 +5839,7 @@ const midwestRegionalPages = {
   "south-dakota-midwest": {
     state: "South Dakota",
     title: "South Dakota Chislic & Prairie Food",
-    image: "assets/logo.png",
+    image: midwestCoverImages["south-dakota"],
     intro: "South Dakota food includes chislic, kuchen, fry bread where culturally appropriate, steak suppers, and prairie gathering food.",
     history: "Dakota communities, ranching, German-Russian baking, tavern food, and Indigenous food histories all require specific, respectful treatment.",
     hospitality: "Small bites, steak, fried bread, coffee, and dessert make a practical gathering table.",
@@ -6106,7 +6122,7 @@ function renderMidwestRegionalPage(id) {
   const page = midwestRegionalPages[id] || midwestRegionalPages["chicago-midwest"];
   const firstMenu = page.menus[0];
   app.innerHTML = `
-    ${hero(page.title, page.intro, page.image || "assets/logo.png", `<a class="small-button" href="#cuisine-explorer/midwest">Midwest Hub</a><a class="small-button secondary" href="#what-yall-cooking">Build A Menu</a>`)}
+    ${hero(page.title, page.intro, page.image || midwestCoverImages.midwest, `<a class="small-button" href="#cuisine-explorer/midwest">Midwest Hub</a><a class="small-button secondary" href="#what-yall-cooking">Build A Menu</a>`)}
     ${cookSubnav()}
     <section class="cream-section regional-soul-detail">
       <div class="section-heading">
@@ -7366,7 +7382,7 @@ function renderCuisineExplorer(id) {
   const midwestId = id ? midwestRegionalAliases[id] || id : "";
   if (midwestId === "midwest") {
     app.innerHTML = `
-      ${hero("Midwest Regional Food", "Cook through America by way of Chicago counters, Great Lakes fish fries, potluck pans, barbecue cities, prairie bakeries, winter soups, and state-fair comfort.", "assets/logo.png", `<a class="small-button" href="#cuisine-explorer">All Cuisines</a><a class="small-button secondary" href="#what-yall-cooking">Build A Midwest Menu</a>`)}
+      ${hero("Midwest Regional Food", "Cook through America by way of Chicago counters, Great Lakes fish fries, potluck pans, barbecue cities, prairie bakeries, winter soups, and state-fair comfort.", midwestCoverImages.midwest, `<a class="small-button" href="#cuisine-explorer">All Cuisines</a><a class="small-button secondary" href="#what-yall-cooking">Build A Midwest Menu</a>`)}
       ${cookSubnav()}
       ${midwestRegionalHub()}
     `;
