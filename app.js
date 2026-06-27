@@ -6782,6 +6782,73 @@ function comingUpNextSection() {
   `;
 }
 
+function shayKitchenData() {
+  const personal = personalRecipes();
+  const fallbackIds = ["smothered-chicken", "shrimp-and-grits", "orange-chicken", "white-chicken-chili", "baked-spaghetti", "banana-pudding"];
+  const featured = personal.length
+    ? personal
+    : fallbackIds.map(recipeByIdSafe).filter(Boolean);
+  const categories = [
+    {
+      title: "Southern Comfort",
+      text: "Sunday food, supper plates, and the kind of recipes that make the kitchen feel full.",
+      ids: ["smothered-chicken", "shrimp-and-grits", "chicken-and-dumplings", "hamburger-steak-with-gravy", "chicken-rice-casserole", "baked-spaghetti"]
+    },
+    {
+      title: "Holiday + Homecoming",
+      text: "Recipes built for repasts, church tables, holidays, family reunions, and people coming back for seconds.",
+      ids: ["chicken-and-dressing", "baked-ham", "banana-pudding", "peach-cobbler", "pound-cake", "bourbon-praline-bread-pudding"]
+    },
+    {
+      title: "Weeknight Favorites",
+      text: "Fast, flavorful, real-life meals for busy nights when folks still need something good.",
+      ids: ["orange-chicken", "shrimp-fried-rice", "chicken-alfredo", "taco-soup", "lemon-pepper-wings", "loaded-baked-potato-soup"]
+    }
+  ].map((section) => ({
+    ...section,
+    recipes: section.ids.map(recipeByIdSafe).filter(Boolean)
+  })).filter((section) => section.recipes.length);
+
+  return { featured, categories };
+}
+
+function shayKitchenSectionMarkup({ includeCategories = true } = {}) {
+  const { featured, categories } = shayKitchenData();
+  return `
+    <section class="cream-section shay-kitchen-section" id="shay-kitchen">
+      <div class="shay-kitchen-intro detail-panel">
+        <div>
+          <p class="eyebrow">Shay's Kitchen</p>
+          <h2>Comfort food, family food, holiday food, and real-life weeknight plates.</h2>
+          <p>These are the recipes that give Let's Cook Y'all its home base: cookable, warm, practical, and ready for the table. Start here when you want something that feels familiar, generous, and made with care.</p>
+        </div>
+        <div class="shay-kitchen-tags" aria-label="Shay's Kitchen categories">
+          <span>Southern</span>
+          <span>Comfort</span>
+          <span>Holiday</span>
+          <span>Family Table</span>
+        </div>
+      </div>
+      <div class="hero-actions"><a class="small-button" href="#add-recipe">Add Recipe</a><a class="small-button secondary" href="#account">My Kitchen Profile</a><a class="small-button secondary" href="#recipes">Browse Recipes</a></div>
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Featured Shay recipes</p>
+        <h2>Cook something from the kitchen.</h2>
+      </div>
+      <div class="recipe-grid">${featured.slice(0, 6).map(recipeCard).join("")}</div>
+    </section>
+    ${includeCategories ? categories.map((section) => `
+      <section class="cream-section shay-category-section">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">Shay's Kitchen</p>
+          <h2>${section.title}</h2>
+          <p>${section.text}</p>
+        </div>
+        <div class="recipe-grid">${section.recipes.map(recipeCard).join("")}</div>
+      </section>
+    `).join("") : ""}
+  `;
+}
+
 function renderLetsCookHome() {
   const publishableRecipes = recipes.filter(recipeHasPublishReadyPhoto);
   const recipeOfWeek = recipeById("yakamein") || publishableRecipes[0];
@@ -6820,12 +6887,12 @@ function renderLetsCookHome() {
     <section class="green-section personal-band">
       <div class="section-heading">
         <p class="eyebrow">From my kitchen</p>
-        <h2>Shay's Kitchen</h2>
-        <p>Meals already cooked, loved, talked about, or planned for the next Brent & Co. table. This is also where cooks can upload food videos.</p>
+        <h2>Shay's Recipes</h2>
+        <p>Meals already cooked, loved, talked about, or planned for the next Brent & Co. table.</p>
       </div>
-      <div class="recipe-grid">${personalRecipes().slice(0, 6).map(recipeCard).join("")}</div>
       <div class="hero-actions"><a class="small-button" href="#kitchen">Open Shay's Kitchen</a><a class="small-button secondary" href="#add-recipe">Add Recipe</a><a class="small-button secondary" href="#kitchen">Upload Food Video</a></div>
     </section>
+    ${shayKitchenSectionMarkup()}
     <section class="cream-section rollout-section">
       <div class="section-heading">
         <p class="eyebrow">Share-ready picks</p>
@@ -8142,69 +8209,16 @@ function missionValuesSection() {
 }
 
 function renderKitchen() {
-  const personal = personalRecipes();
-  const shayFeatured = personal.length
-    ? personal
-    : ["smothered-chicken", "shrimp-and-grits", "orange-chicken", "white-chicken-chili", "baked-spaghetti", "banana-pudding"].map(recipeByIdSafe).filter(Boolean);
-  const shayCategories = [
-    {
-      title: "Southern Comfort",
-      text: "Sunday food, supper plates, and the kind of recipes that make the kitchen feel full.",
-      ids: ["smothered-chicken", "shrimp-and-grits", "chicken-and-dumplings", "hamburger-steak-with-gravy", "chicken-rice-casserole", "baked-spaghetti"]
-    },
-    {
-      title: "Holiday + Homecoming",
-      text: "Recipes built for repasts, church tables, holidays, family reunions, and people coming back for seconds.",
-      ids: ["chicken-and-dressing", "baked-ham", "banana-pudding", "peach-cobbler", "pound-cake", "bourbon-praline-bread-pudding"]
-    },
-    {
-      title: "Weeknight Favorites",
-      text: "Fast, flavorful, real-life meals for busy nights when folks still need something good.",
-      ids: ["orange-chicken", "shrimp-fried-rice", "chicken-alfredo", "taco-soup", "lemon-pepper-wings", "loaded-baked-potato-soup"]
-    }
-  ].map((section) => ({
-    ...section,
-    recipes: section.ids.map(recipeByIdSafe).filter(Boolean)
-  })).filter((section) => section.recipes.length);
+  const { featured } = shayKitchenData();
   app.innerHTML = `
     ${hero(
       "Shay's Recipes",
       "A personal collection of meals already cooked, already loved, or already planned. This is where Let's Cook Ya'll starts feeling like it grew from a real kitchen.",
-      recipePhotoFor(shayFeatured[0] || recipes[0]),
+      recipePhotoFor(featured[0] || recipes[0]),
       `<a class="small-button" href="#add-recipe">Add Recipe</a><a class="small-button secondary" href="#recipes">Browse Recipes</a><a class="small-button secondary" href="#what-yall-cooking">What Y'all Cooking?</a>`
     )}
     ${cookSubnav()}
-    <section class="cream-section shay-kitchen-section">
-      <div class="shay-kitchen-intro detail-panel">
-        <div>
-          <p class="eyebrow">Shay's Kitchen</p>
-          <h2>Comfort food, family food, holiday food, and real-life weeknight plates.</h2>
-          <p>These are the recipes that give Let's Cook Y'all its home base: cookable, warm, practical, and ready for the table. Start here when you want something that feels familiar, generous, and made with care.</p>
-        </div>
-        <div class="shay-kitchen-tags" aria-label="Shay's Kitchen categories">
-          <span>Southern</span>
-          <span>Comfort</span>
-          <span>Holiday</span>
-          <span>Family Table</span>
-        </div>
-      </div>
-      <div class="hero-actions"><a class="small-button" href="#add-recipe">Add Recipe</a><a class="small-button secondary" href="#account">My Kitchen Profile</a></div>
-      <div class="section-heading compact-heading">
-        <p class="eyebrow">Featured Shay recipes</p>
-        <h2>Cook something from the kitchen.</h2>
-      </div>
-      <div class="recipe-grid">${shayFeatured.slice(0, 6).map(recipeCard).join("")}</div>
-    </section>
-    ${shayCategories.map((section) => `
-      <section class="cream-section shay-category-section">
-        <div class="section-heading compact-heading">
-          <p class="eyebrow">Shay's Kitchen</p>
-          <h2>${section.title}</h2>
-          <p>${section.text}</p>
-        </div>
-        <div class="recipe-grid">${section.recipes.map(recipeCard).join("")}</div>
-      </section>
-    `).join("")}
+    ${shayKitchenSectionMarkup()}
   `;
 }
 
