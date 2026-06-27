@@ -218,7 +218,7 @@ const cuisineCoverImages = {
   "soul-food": "images/cuisines/southern/southern-02.png",
   creole: "assets/editorial-cajun-pasta.jpg",
   cajun: "assets/editorial-cajun-pasta.jpg",
-  bbq: "images/juneteenth/smoked-sliced-brisket.png",
+  bbq: "images/recipes/audit-2026-06/kansas-city-ribs.jpg",
   "low-country": "images/cuisines/southern/southern-09.png",
   "mississippi-favorites": "images/regional/mississippi-buffalo-fish.png",
   mexican: "assets/lc-birria-tacos.jpg",
