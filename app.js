@@ -214,21 +214,25 @@ function stableIndex(value = "", modulo = 25) {
 }
 
 const cuisineCoverImages = {
-  southern: "images/cuisines/southern/southern-01.png",
-  "soul-food": "images/cuisines/southern/southern-02.png",
-  creole: "assets/editorial-cajun-pasta.jpg",
-  cajun: "assets/editorial-cajun-pasta.jpg",
+  southern: "images/recipes/audit-2026-06/southern-crispy-fried-chicken.jpg",
+  "soul-food": "images/recipes/audit-2026-06/shrimp-and-grits.jpg",
+  creole: "images/recipes/audit-2026-06/creole-seafood-gumbo.jpg",
+  cajun: "images/recipes/audit-2026-06/cajun-jambalaya.jpg",
   bbq: "images/recipes/audit-2026-06/kansas-city-ribs.jpg",
-  "low-country": "images/cuisines/southern/southern-09.png",
+  "low-country": "images/regional/frogmore-stew.png",
   "mississippi-favorites": "images/regional/mississippi-buffalo-fish.png",
-  mexican: "assets/lc-birria-tacos.jpg",
-  indian: "assets/lc-indian-food.jpg",
-  caribbean: "assets/lc-african-food.jpg",
-  mediterranean: "assets/lc-mediterranean-food.jpg",
-  "asian-inspired": "assets/lc-asian-food.jpg",
-  italian: "assets/lc-pasta.jpg",
-  hosting: "assets/lc-desserts.jpg",
-  global: "assets/lc-african-food.jpg"
+  mexican: "images/recipes/audit-2026-06/birria-style-tacos.jpg",
+  indian: "images/recipes/audit-2026-06/butter-chicken.jpg",
+  caribbean: "images/recipes/audit-2026-06/rice-and-peas.jpg",
+  mediterranean: "images/recipes/audit-2026-06/greek-salad.jpg",
+  "asian-inspired": "images/recipes/audit-2026-06/shrimp-fried-rice.jpg",
+  italian: "images/recipes/audit-2026-06/chicken-parmesan.jpg",
+  hosting: "images/recipes/audit-2026-06/charcuterie-boards.jpg",
+  global: "images/cuisines/africa/nigeria/jollof-rice.jpg",
+  nigerian: "images/cuisines/africa/nigeria/jollof-rice.jpg",
+  ghanaian: "images/cuisines/africa/ghana/waakye.jpg",
+  ethiopian: "images/cuisines/africa/ethiopia/doro-wat.jpg",
+  moroccan: "images/cuisines/africa/morocco/chicken-tagine.jpg"
 };
 
 const midwestCoverImages = {
@@ -417,10 +421,10 @@ const cuisines = [
   { id: "nebraska", name: "Nebraska", image: midwestCoverImages.nebraska, blurb: "Runzas, steak, kolaches, beef-country family tables, and community bakery traditions." },
   { id: "north-dakota", name: "North Dakota", image: midwestCoverImages["north-dakota"], blurb: "Knoephla soup, kuchen, fry bread where culturally appropriate, and cold-weather prairie meals." },
   { id: "south-dakota", name: "South Dakota", image: midwestCoverImages["south-dakota"], blurb: "Chislic, kuchen, fry bread where culturally appropriate, steak suppers, and prairie gatherings." },
-  { id: "nigerian", name: "Nigerian", image: photoFor("cuisines", "global"), blurb: "Jollof rice, egusi, suya, moi moi, pepper soup, and layered tomato-pepper stew bases." },
-  { id: "ghanaian", name: "Ghanaian", image: photoFor("cuisines", "global", 1), blurb: "Waakye, red red, kelewele, groundnut soup, jollof, shito, and generous rice-and-bean plates." },
-  { id: "ethiopian", name: "Ethiopian", image: photoFor("cuisines", "global", 2), blurb: "Injera, berbere, lentil stews, shiro, tibs, doro wat, and shared platter hospitality." },
-  { id: "moroccan", name: "Moroccan", image: cuisineCoverImages.mediterranean, blurb: "Tagines, couscous, harira, preserved lemon, olives, mint tea, and warm spice layering." }
+  { id: "nigerian", name: "Nigerian", image: cuisineCoverImages.nigerian, blurb: "Jollof rice, egusi, suya, moi moi, pepper soup, and layered tomato-pepper stew bases." },
+  { id: "ghanaian", name: "Ghanaian", image: cuisineCoverImages.ghanaian, blurb: "Waakye, red red, kelewele, groundnut soup, jollof, shito, and generous rice-and-bean plates." },
+  { id: "ethiopian", name: "Ethiopian", image: cuisineCoverImages.ethiopian, blurb: "Injera, berbere, lentil stews, shiro, tibs, doro wat, and shared platter hospitality." },
+  { id: "moroccan", name: "Moroccan", image: cuisineCoverImages.moroccan, blurb: "Tagines, couscous, harira, preserved lemon, olives, mint tea, and warm spice layering." }
 ];
 
 const learningPillars = [
