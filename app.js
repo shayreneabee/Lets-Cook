@@ -261,6 +261,14 @@ const newEnglandCoverImages = {
   connecticut: "images/recipes/new-england-2026/new-haven-apizza.jpg"
 };
 
+const southwestCoverImages = {
+  southwest: "images/regional/texas-beef-ribs.png",
+  texas: "images/juneteenth/smoked-sliced-brisket.png",
+  "new-mexico": "images/recipes/southwest-2026/green-chile-stew.jpg",
+  arizona: "images/recipes/southwest-2026/sonoran-hot-dogs.jpg",
+  oklahoma: "images/recipes/southwest-2026/oklahoma-onion-burgers.jpg"
+};
+
 const categoryCoverImages = {
   "Kid-Friendly Cooking": "assets/kid-friendly.jpeg",
   "Party Cups": "assets/lc-desserts.jpg",
@@ -438,6 +446,11 @@ const cuisines = [
   { id: "massachusetts", name: "Massachusetts / Boston", image: newEnglandCoverImages.massachusetts, blurb: "Boston baked beans, cream pie, clam chowder, fried clams, roast beef sandwiches, and coastal classics." },
   { id: "rhode-island", name: "Rhode Island", image: newEnglandCoverImages["rhode-island"], blurb: "Stuffies, clam cakes, johnnycakes, clear chowder, coffee milk, quahogs, and shore food." },
   { id: "connecticut", name: "Connecticut", image: newEnglandCoverImages.connecticut, blurb: "New Haven apizza, white clam pizza, warm lobster rolls, steamed cheeseburgers, and shoreline seafood." },
+  { id: "southwest", name: "Southwest Regional", image: southwestCoverImages.southwest, blurb: "Desert foodways, chile culture, Texas smoke, Native food histories, borderland kitchens, ranch tables, and Route 66 comfort." },
+  { id: "arizona", name: "Arizona", image: southwestCoverImages.arizona, blurb: "Sonoran hot dogs, fry bread, Navajo tacos, carne asada, chimichangas, elote, prickly pear, and desert-table brightness." },
+  { id: "new-mexico", name: "New Mexico", image: southwestCoverImages["new-mexico"], blurb: "Green chile, red chile, blue corn, posole, carne adovada, sopapillas, biscochitos, and chile harvest traditions." },
+  { id: "texas-southwest", name: "Texas Southwest", image: southwestCoverImages.texas, blurb: "Brisket, beef ribs, chili, kolaches, chicken fried steak, breakfast tacos, barbacoa, Frito pie, and pecan pie." },
+  { id: "oklahoma", name: "Oklahoma", image: southwestCoverImages.oklahoma, blurb: "Onion burgers, chicken fried steak, Indian tacos, fried okra, pinto beans, fried pies, peach cobbler, and plains-road cooking." },
   { id: "nigerian", name: "Nigerian", image: cuisineCoverImages.nigerian, blurb: "Jollof rice, egusi, suya, moi moi, pepper soup, and layered tomato-pepper stew bases." },
   { id: "ghanaian", name: "Ghanaian", image: cuisineCoverImages.ghanaian, blurb: "Waakye, red red, kelewele, groundnut soup, jollof, shito, and generous rice-and-bean plates." },
   { id: "ethiopian", name: "Ethiopian", image: cuisineCoverImages.ethiopian, blurb: "Injera, berbere, lentil stews, shiro, tibs, doro wat, and shared platter hospitality." },
@@ -778,6 +791,13 @@ const cuisineExplorerGroups = [
     image: newEnglandCoverImages["new-england"],
     note: "Cook from Maine down through Connecticut with coastal seafood, baked beans, maple, apples, diners, bakeries, chowder, and old family supper traditions.",
     regions: ["Maine", "New Hampshire", "Vermont", "Massachusetts", "Boston", "Rhode Island", "Connecticut"]
+  },
+  {
+    id: "southwest",
+    title: "Southwest Regional Food",
+    image: southwestCoverImages.southwest,
+    note: "Cook through Arizona, New Mexico, Texas, and Oklahoma with chile, smoke, masa, beans, fry bread, cattle-country comfort, desert produce, and borderland food histories.",
+    regions: ["Arizona", "New Mexico", "Texas Southwest", "Oklahoma"]
   },
   {
     id: "cajun-creole",
@@ -3430,8 +3450,66 @@ const newEnglandExpansionRecipes = [
   newEnglandRecipe("new-haven-apizza", "New Haven Tomato Apizza", "connecticut", "Connecticut Pizza", "A charred, chewy tomato pie with crushed tomato, garlic, oregano, olive oil, and pecorino.", ["1 pizza dough", "3/4 cup crushed tomatoes", "2 garlic cloves minced", "1 tsp oregano", "2 tbsp olive oil", "1/3 cup pecorino", "Cornmeal for peel"], ["Heat oven and stone to 500 F.", "Stretch dough thin and uneven.", "Spread crushed tomatoes lightly.", "Add garlic, oregano, olive oil, and pecorino.", "Bake until charred at the edges and crisp underneath."], ["apizza", "tomato pie", "pizza"], { prep: "25 min", cook: "10 min", servings: 3, level: "Advanced" })
 ];
 
+function southwestRecipe(id, title, cuisine, category, description, ingredients, steps, tags = [], extras = {}) {
+  return expansionRecipe(
+    id,
+    title,
+    category,
+    extras.image || `images/recipes/southwest-2026/${id}.jpg`,
+    extras.prep || "20 min",
+    extras.cook || "35 min",
+    extras.servings || 4,
+    extras.level || "Intermediate",
+    description,
+    ingredients,
+    steps,
+    [...tags, "southwest", cuisine],
+    {
+      cuisine,
+      path: extras.path || "amateur-cooks",
+      kidsKorner: extras.kidsKorner,
+      ageTrack: extras.ageTrack,
+      helperNote: extras.helperNote,
+      storage: extras.storage || "Refrigerate leftovers in a covered container for up to 3 days.",
+      reheating: extras.reheating || "Reheat gently until hot throughout."
+    }
+  );
+}
+
+const southwestExpansionRecipes = [
+  southwestRecipe("breakfast-tacos", "Texas Breakfast Tacos", "texas", "Texas Breakfast", "Warm flour tortillas filled with soft eggs, potatoes, cheese, salsa, and a little chile heat.", ["8 flour tortillas", "6 eggs", "2 cups diced potatoes", "1 cup shredded cheddar", "1/2 cup salsa", "1 tbsp butter", "Cilantro", "Lime"], ["Cook potatoes until browned and tender.", "Scramble eggs softly in butter.", "Warm tortillas.", "Fill with eggs, potatoes, cheese, salsa, cilantro, and lime.", "Serve immediately while tortillas are soft."], ["tacos", "breakfast", "texas"], { prep: "15 min", cook: "20 min", servings: 4 }),
+  southwestRecipe("texas-barbacoa", "Texas Barbacoa", "texas", "Texas Borderland", "Slow-cooked beef chuck seasoned with chiles, garlic, cumin, and lime until it shreds for tacos.", ["3 lb beef chuck", "2 dried guajillo chiles", "2 chipotles", "4 garlic cloves", "1 tbsp cumin", "1 tsp Mexican oregano", "1 cup beef stock", "2 tbsp lime juice", "Corn tortillas"], ["Toast and soak dried chiles.", "Blend chiles with garlic, cumin, oregano, stock, and lime.", "Pour over beef in a Dutch oven or slow cooker.", "Cook until fork-tender.", "Shred and serve in tortillas with onion and cilantro."], ["barbacoa", "beef", "tacos"], { prep: "25 min", cook: "4 hr", servings: 8, level: "Advanced" }),
+  southwestRecipe("frito-pie", "Texas Frito Pie", "texas", "Texas Comfort", "Crunchy corn chips topped with no-bean chili, cheddar, onion, jalapeno, and sour cream.", ["4 cups corn chips", "3 cups Texas chili", "1 cup shredded cheddar", "1/4 cup diced onion", "Pickled jalapenos", "Sour cream optional"], ["Warm chili until bubbling.", "Divide corn chips into bowls.", "Spoon chili over chips.", "Top with cheddar, onion, and jalapenos.", "Serve while the chips still crunch."], ["chili", "corn chips", "texas"], { prep: "10 min", cook: "10 min", servings: 4 }),
+
+  southwestRecipe("green-chile-stew", "New Mexico Green Chile Stew", "new-mexico", "New Mexico Chile", "A bowl of roasted green chile, pork, potatoes, onion, and broth with steady chile flavor.", ["1 1/2 lb pork shoulder cubes", "2 cups roasted green chiles", "1 onion diced", "3 potatoes diced", "4 cups chicken stock", "2 garlic cloves", "1 tsp cumin", "Salt"], ["Brown pork in a heavy pot.", "Cook onion and garlic in the drippings.", "Add green chiles, potatoes, stock, cumin, and salt.", "Simmer until pork and potatoes are tender.", "Serve with warm tortillas."], ["green chile", "stew", "new mexico"], { cook: "1 hr 30 min", servings: 6 }),
+  southwestRecipe("carne-adovada", "Carne Adovada", "new-mexico", "New Mexico Chile", "Pork marinated and braised in red chile sauce until tender, deep, and spoonable.", ["3 lb pork shoulder cubes", "8 dried New Mexico chiles", "4 garlic cloves", "1 tbsp Mexican oregano", "1 tsp cumin", "2 tbsp vinegar", "2 cups stock", "Salt"], ["Toast and soak dried chiles.", "Blend chiles with garlic, oregano, cumin, vinegar, stock, and salt.", "Marinate pork in the chile sauce overnight if possible.", "Bake covered at 325 F until tender.", "Serve with tortillas, beans, or rice."], ["red chile", "pork", "new mexico"], { prep: "30 min", cook: "2 hr 30 min", servings: 8, level: "Advanced" }),
+  southwestRecipe("new-mexico-posole", "New Mexico Posole", "new-mexico", "New Mexico Stews", "Hominy and pork simmered with red chile, garlic, oregano, and garnishes for a holiday-ready bowl.", ["2 lb pork shoulder", "4 cups hominy", "6 dried red chiles", "1 onion", "4 garlic cloves", "1 tsp oregano", "6 cups stock", "Cabbage", "Radish", "Lime"], ["Simmer pork with onion and stock until tender.", "Blend soaked chiles with garlic and oregano.", "Shred pork and return it with chile sauce and hominy.", "Simmer until the broth is rich.", "Serve with cabbage, radish, and lime."], ["posole", "hominy", "red chile"], { cook: "2 hr", servings: 8 }),
+  southwestRecipe("sopapillas", "New Mexico Sopapillas", "new-mexico", "New Mexico Breads", "Puffy fried dough pillows served warm with honey or alongside chile dishes.", ["2 cups flour", "2 tsp baking powder", "1/2 tsp salt", "2 tbsp shortening", "3/4 cup warm water", "Oil for frying", "Honey"], ["Mix flour, baking powder, and salt.", "Cut in shortening and add warm water to make a soft dough.", "Rest 20 minutes, then roll thin and cut squares.", "Fry until puffed and golden.", "Serve warm with honey."], ["sopapillas", "fried bread", "honey"], { prep: "25 min", cook: "15 min", servings: 8 }),
+  southwestRecipe("hatch-chile-burgers", "Hatch Chile Burgers", "new-mexico", "New Mexico Grill", "Juicy burgers topped with roasted Hatch green chiles and melty cheese.", ["1 1/2 lb ground beef", "1 tsp salt", "1/2 tsp pepper", "4 burger buns", "1 cup roasted Hatch chiles", "4 slices cheese", "Lettuce", "Tomato"], ["Shape beef into four patties and season.", "Grill or sear to desired doneness.", "Top with cheese and roasted green chiles.", "Toast buns.", "Build burgers with lettuce and tomato."], ["hatch chile", "burger", "grill"], { cook: "15 min", servings: 4 }),
+  southwestRecipe("blue-corn-pancakes", "Blue Corn Pancakes", "new-mexico", "New Mexico Breakfast", "Blue cornmeal pancakes with nutty flavor, crisp edges, and maple or pinon-style sweetness.", ["1 cup blue cornmeal", "1 cup flour", "2 tsp baking powder", "1 tbsp sugar", "2 eggs", "1 1/2 cups milk", "3 tbsp melted butter"], ["Whisk dry ingredients.", "Whisk eggs, milk, and butter.", "Combine gently without overmixing.", "Cook on a buttered griddle.", "Serve warm with syrup."], ["blue corn", "pancakes", "breakfast"], { prep: "10 min", cook: "15 min", servings: 4 }),
+  southwestRecipe("biscochitos", "Biscochitos", "new-mexico", "New Mexico Desserts", "New Mexico anise-cinnamon cookies traditionally served at holidays and gatherings.", ["3 cups flour", "1 tsp baking powder", "1 cup lard or shortening", "3/4 cup sugar", "1 egg", "1 tbsp anise seed", "1/4 cup orange juice", "Cinnamon sugar"], ["Cream fat and sugar until fluffy.", "Beat in egg, anise, and orange juice.", "Mix in flour and baking powder.", "Roll, cut, and bake at 350 F until set.", "Coat warm cookies in cinnamon sugar."], ["cookies", "anise", "new mexico"], { prep: "30 min", cook: "12 min", servings: 24 }),
+
+  southwestRecipe("sonoran-hot-dogs", "Sonoran Hot Dogs", "arizona", "Arizona Sonoran", "Bacon-wrapped hot dogs in soft buns with beans, tomato, onion, jalapeno salsa, mustard, and mayo.", ["8 hot dogs", "8 slices bacon", "8 soft buns", "1 cup pinto beans", "1 tomato diced", "1 onion diced", "Jalapeno salsa", "Mustard", "Mayonnaise"], ["Wrap hot dogs with bacon.", "Cook on a griddle until bacon is crisp and hot dog is heated through.", "Warm buns and beans.", "Nestle dogs in buns.", "Top with beans, tomato, onion, salsa, mustard, and mayo."], ["hot dogs", "sonoran", "arizona"], { cook: "20 min", servings: 8 }),
+  southwestRecipe("navajo-tacos", "Navajo Tacos", "arizona", "Native Food Context", "Fry bread topped with seasoned beans, lettuce, tomato, cheese, and salsa, presented with respect for Native food histories.", ["4 fry breads", "2 cups pinto beans", "1 tsp cumin", "1 cup lettuce", "1 tomato diced", "1 cup shredded cheese", "Salsa"], ["Warm beans with cumin and salt.", "Place fry bread on plates.", "Spoon beans over the center.", "Add lettuce, tomato, cheese, and salsa.", "Serve hot and include cultural context with the meal."], ["fry bread", "navajo tacos", "beans"], { prep: "20 min", cook: "20 min", servings: 4 }),
+  southwestRecipe("arizona-fry-bread", "Arizona Fry Bread", "arizona", "Native Food Context", "Simple fried bread included with care for Indigenous food histories and best served with context.", ["3 cups flour", "1 tbsp baking powder", "1 tsp salt", "1 1/4 cups warm water", "Oil for frying"], ["Mix flour, baking powder, and salt.", "Add warm water to form a soft dough and rest 20 minutes.", "Divide and flatten rounds.", "Fry until puffed and golden.", "Drain and serve warm."], ["fry bread", "bread", "indigenous foodways"], { prep: "25 min", cook: "20 min", servings: 8, image: "images/recipes/audit-2026-06/northern-plains-fry-bread.jpg" }),
+  southwestRecipe("carne-asada", "Arizona Carne Asada", "arizona", "Arizona Grill", "Citrus-marinated grilled steak sliced for tacos, plates, or cookout spreads.", ["2 lb skirt steak", "1/3 cup orange juice", "1/4 cup lime juice", "3 garlic cloves", "1 tsp cumin", "1 tsp chile powder", "Cilantro", "Tortillas"], ["Marinate steak with citrus, garlic, cumin, chile powder, and salt.", "Grill over high heat until charred outside and medium inside.", "Rest 10 minutes.", "Slice across the grain.", "Serve with tortillas, cilantro, and lime."], ["carne asada", "grill", "steak"], { prep: "20 min", cook: "12 min", servings: 6 }),
+  southwestRecipe("chimichangas", "Arizona Chimichangas", "arizona", "Arizona Comfort", "Crisp fried burritos filled with seasoned meat or beans, then topped with green chile sauce and lettuce.", ["4 large flour tortillas", "2 cups shredded beef or beans", "1 cup cheese", "1 cup green chile sauce", "Oil for frying", "Lettuce", "Tomato"], ["Fill tortillas with meat or beans and cheese.", "Fold tightly into burritos.", "Fry seam-side down until golden and crisp.", "Drain on a rack.", "Top with warm green chile sauce, lettuce, and tomato."], ["chimichanga", "fried burrito", "arizona"], { prep: "20 min", cook: "15 min", servings: 4 }),
+  southwestRecipe("prickly-pear-lemonade", "Prickly Pear Lemonade", "arizona", "Arizona Drinks", "Bright pink lemonade sweetened with prickly pear syrup and fresh citrus.", ["1 cup lemon juice", "1/2 cup prickly pear syrup", "4 cups cold water", "1/4 cup sugar optional", "Ice", "Lemon slices"], ["Stir lemon juice, prickly pear syrup, water, and sugar until dissolved.", "Taste for tartness.", "Chill well.", "Serve over ice.", "Garnish with lemon."], ["prickly pear", "lemonade", "drink"], { prep: "10 min", cook: "0 min", servings: 6, level: "Beginner" }),
+
+  southwestRecipe("oklahoma-onion-burgers", "Oklahoma Onion Burgers", "oklahoma", "Oklahoma Diner", "Thin beef patties smashed with shaved onions until the onions caramelize into the burger.", ["1 1/2 lb ground beef", "2 onions very thinly sliced", "1 tsp salt", "1/2 tsp pepper", "4 buns", "4 slices American cheese", "Pickles", "Mustard"], ["Divide beef into four loose balls.", "Place on a hot griddle and pile onions on top.", "Smash thin and season.", "Flip once onions brown into the meat.", "Add cheese and serve on buns with pickles and mustard."], ["onion burger", "diner", "oklahoma"], { prep: "15 min", cook: "12 min", servings: 4 }),
+  southwestRecipe("oklahoma-chicken-fried-steak", "Oklahoma Chicken Fried Steak", "oklahoma", "Oklahoma Comfort", "Crisp breaded steak with pepper gravy for a cafe-style Oklahoma plate.", ["4 cube steaks", "1 1/2 cups flour", "2 eggs", "1 cup buttermilk", "1 tsp seasoned salt", "Oil for frying", "2 cups cream gravy"], ["Season flour.", "Dip steaks in flour, egg-buttermilk, then flour again.", "Fry until crisp and cooked through.", "Drain on a rack.", "Serve with pepper gravy."], ["chicken fried steak", "gravy", "oklahoma"], { prep: "20 min", cook: "25 min", servings: 4, image: "images/recipes/audit-2026-06/chicken-fried-steak.jpg" }),
+  southwestRecipe("oklahoma-indian-tacos", "Oklahoma Indian Tacos", "oklahoma", "Native Food Context", "Fry bread topped with chili, beans, lettuce, tomato, cheese, and salsa, with cultural context and respect.", ["4 fry breads", "3 cups chili or seasoned beans", "1 cup lettuce", "1 tomato diced", "1 cup shredded cheese", "Salsa", "Sour cream optional"], ["Warm chili or beans.", "Set fry bread on plates.", "Spoon filling over bread.", "Top with lettuce, tomato, cheese, and salsa.", "Serve hot with respectful context for Native food histories."], ["indian tacos", "fry bread", "oklahoma"], { prep: "20 min", cook: "20 min", servings: 4, image: "images/recipes/southwest-2026/navajo-tacos.jpg" }),
+  southwestRecipe("oklahoma-fried-pies", "Oklahoma Fried Pies", "oklahoma", "Oklahoma Desserts", "Hand pies filled with fruit, crimped, fried golden, and dusted with sugar.", ["2 cups fruit filling", "1 pie dough batch", "Oil for frying", "Powdered sugar", "Pinch cinnamon"], ["Roll dough and cut circles.", "Add a spoonful of fruit filling.", "Fold and crimp edges tightly.", "Fry until golden on both sides.", "Drain and dust with sugar."], ["fried pies", "dessert", "oklahoma"], { prep: "30 min", cook: "20 min", servings: 8 }),
+  southwestRecipe("oklahoma-peach-cobbler", "Oklahoma Peach Cobbler", "oklahoma", "Oklahoma Desserts", "A bubbling peach cobbler baked in a deep dish for cookouts, church suppers, and Sunday tables.", ["6 cups sliced peaches", "1 cup sugar", "1 tbsp lemon juice", "1 cup flour", "1 cup milk", "1 stick butter", "2 tsp baking powder", "1 tsp cinnamon"], ["Melt butter in a baking dish.", "Toss peaches with sugar and lemon.", "Whisk flour, milk, baking powder, and cinnamon.", "Pour batter over butter, then add peaches.", "Bake at 350 F until browned and bubbling."], ["peach cobbler", "dessert", "oklahoma"], { prep: "15 min", cook: "45 min", servings: 8, image: "images/regional/mississippi/peach-cobbler.jpg" }),
+
+  southwestRecipe("cactus-cookies", "Decorate a Cactus Cookie", "southwest-kids", "Sweet Treats", "Cactus-shaped sugar cookies with green icing and sprinkle dots for a cheerful decorating activity.", ["12 sugar cookies", "1 cup green icing", "1/4 cup white icing dots or sprinkles", "Turquoise sprinkles optional"], ["Set cooled cookies on parchment.", "Spread or pipe green icing.", "Add white dots for cactus texture.", "Add a few sprinkles.", "Let icing set before serving."], ["kids", "cookies", "decorating"], { prep: "20 min", cook: "0 min", servings: 12, level: "Kid Friendly", kidsKorner: true, ageTrack: "3-5 Little Helpers", path: "kid-chefs", helperNote: "Use cooled cookies and soft decorating tools. A grown-up handles baking if cookies are homemade." }),
+  southwestRecipe("build-your-own-tacos", "Build-Your-Own Taco Tray", "southwest-kids", "Fun Food", "A kid-friendly taco tray with warm tortillas, beans or meat, cheese, lettuce, salsa, avocado, and lime.", ["8 tortillas", "2 cups seasoned beans or cooked meat", "1 cup shredded cheese", "1 cup lettuce", "1/2 cup salsa", "1 avocado diced", "Lime wedges"], ["Warm tortillas with adult help.", "Set fillings in small bowls.", "Let each cook build a taco.", "Add lime and salsa last.", "Name your taco combination."], ["kids", "tacos", "assembly"], { prep: "15 min", cook: "5 min", servings: 4, level: "Kid Friendly", kidsKorner: true, ageTrack: "6-8 Kitchen Explorers", path: "kid-chefs", helperNote: "Kids can arrange toppings. A grown-up warms tortillas and handles any hot filling.", image: "images/recipes/southwest-2026/breakfast-tacos.jpg" }),
+  southwestRecipe("cowboy-trail-mix", "Cowboy Trail Mix", "southwest-kids", "Healthy Heroes", "A crunchy snack mix with cereal, pretzels, dried fruit, pumpkin seeds, and chocolate chips.", ["2 cups cereal", "1 cup pretzels", "1 cup dried cranberries", "1/2 cup pumpkin seeds", "1/2 cup banana chips", "1/2 cup mini chocolate chips"], ["Wash hands.", "Set each ingredient in a bowl.", "Scoop a little of each into jars or bags.", "Shake gently.", "Label for allergies."], ["kids", "trail mix", "snack"], { prep: "10 min", cook: "0 min", servings: 6, level: "Kid Friendly", kidsKorner: true, ageTrack: "3-5 Little Helpers", path: "kid-chefs", helperNote: "Use age-safe pieces and avoid allergens as needed.", image: "images/recipes/audit-2026-06/trail-mix-jars.jpg" }),
+  southwestRecipe("mini-quesadillas", "Mini Quesadillas", "southwest-kids", "Easy Bites", "Small cheese quesadillas cut into triangles for dipping in mild salsa or guacamole.", ["4 small tortillas", "1 cup shredded cheese", "1 tsp butter", "Mild salsa", "Guacamole optional"], ["Sprinkle cheese on tortillas.", "Fold in half.", "Ask a grown-up to cook them in a skillet.", "Cool for 2 minutes.", "Cut into triangles and dip."], ["kids", "quesadillas", "cheese"], { prep: "5 min", cook: "8 min", servings: 4, level: "Kid Friendly", kidsKorner: true, ageTrack: "6-8 Kitchen Explorers", path: "kid-chefs", helperNote: "Kids assemble. A grown-up handles the hot skillet and knife.", image: "images/recipes/audit-2026-06/cheese-quesadilla-triangles.jpg" })
+];
+
 const existingRecipeIds = new Set(recipes.map((recipe) => recipe.id));
-recipes = [...recipes, ...[...nextFeatureRecipes, ...menuIntelligenceRecipes, ...regionalAuthenticityRecipes, ...livingCookbookRecipes, ...kidsKornerRecipes, ...kidsExpansionRecipes, ...familyExpansionRecipes, ...mississippiHeritageRecipes, ...africaExpansionRecipes, ...midwestExpansionRecipes, ...newEnglandExpansionRecipes].filter((recipe) => !existingRecipeIds.has(recipe.id))];
+recipes = [...recipes, ...[...nextFeatureRecipes, ...menuIntelligenceRecipes, ...regionalAuthenticityRecipes, ...livingCookbookRecipes, ...kidsKornerRecipes, ...kidsExpansionRecipes, ...familyExpansionRecipes, ...mississippiHeritageRecipes, ...africaExpansionRecipes, ...midwestExpansionRecipes, ...newEnglandExpansionRecipes, ...southwestExpansionRecipes].filter((recipe) => !existingRecipeIds.has(recipe.id))];
 
 const lessons = [
   {
@@ -3837,6 +3915,34 @@ const newEnglandPhotoReadyRecipeIds = new Set([
   "new-haven-apizza"
 ]);
 
+const southwestPhotoReadyRecipeIds = new Set([
+  "breakfast-tacos",
+  "texas-barbacoa",
+  "frito-pie",
+  "green-chile-stew",
+  "carne-adovada",
+  "new-mexico-posole",
+  "sopapillas",
+  "hatch-chile-burgers",
+  "blue-corn-pancakes",
+  "biscochitos",
+  "sonoran-hot-dogs",
+  "navajo-tacos",
+  "arizona-fry-bread",
+  "carne-asada",
+  "chimichangas",
+  "prickly-pear-lemonade",
+  "oklahoma-onion-burgers",
+  "oklahoma-chicken-fried-steak",
+  "oklahoma-indian-tacos",
+  "oklahoma-fried-pies",
+  "oklahoma-peach-cobbler",
+  "cactus-cookies",
+  "build-your-own-tacos",
+  "cowboy-trail-mix",
+  "mini-quesadillas"
+]);
+
 const recipeImageReplacementQueue = new Set(
   [
     ...midwestExpansionRecipes
@@ -3844,7 +3950,10 @@ const recipeImageReplacementQueue = new Set(
       .filter((recipeId) => !midwestPhotoReadyRecipeIds.has(recipeId)),
     ...newEnglandExpansionRecipes
       .map((recipe) => recipe.id)
-      .filter((recipeId) => !newEnglandPhotoReadyRecipeIds.has(recipeId))
+      .filter((recipeId) => !newEnglandPhotoReadyRecipeIds.has(recipeId)),
+    ...southwestExpansionRecipes
+      .map((recipe) => recipe.id)
+      .filter((recipeId) => !southwestPhotoReadyRecipeIds.has(recipeId))
   ]
 );
 
@@ -4191,6 +4300,10 @@ recipeImageOverrides["white-perch-fry"] = recipeImageOverrides["mississippi-perc
 
 newEnglandExpansionRecipes.forEach((recipe) => {
   recipeImageOverrides[recipe.id] = `images/recipes/new-england-2026/${recipe.id}.jpg`;
+});
+
+southwestExpansionRecipes.forEach((recipe) => {
+  recipeImageOverrides[recipe.id] = recipe.image || `images/recipes/southwest-2026/${recipe.id}.jpg`;
 });
 
 const broadRecipeImageIds = [
@@ -5245,6 +5358,10 @@ const kidsKornerRecipeIds = [
   "sheet-pan-nachos",
   "simple-spaghetti",
   "smoothie-cups",
+  "cactus-cookies",
+  "build-your-own-tacos",
+  "cowboy-trail-mix",
+  "mini-quesadillas",
   "pb-and-j-sandwich",
   "mini-pizza-bagels",
   "fruit-kabobs"
@@ -5272,7 +5389,9 @@ const kidsKornerBadges = [
 const pantryScanQuickIngredients = [
   "chicken", "ground beef", "eggs", "cheese", "milk", "butter", "rice", "pasta", "bread", "tortillas",
   "potatoes", "onion", "bell pepper", "garlic", "tomatoes", "beans", "corn", "flour", "sugar", "oats",
-  "peanut butter", "jelly", "bananas", "apples", "yogurt", "lettuce", "cabbage", "shrimp", "salmon", "bacon"
+  "peanut butter", "jelly", "bananas", "apples", "yogurt", "lettuce", "cabbage", "shrimp", "salmon", "bacon",
+  "cumin", "chile powder", "smoked paprika", "mexican oregano", "masa harina", "chipotle", "guajillo",
+  "ancho chiles", "cilantro", "lime", "pinto beans", "black beans", "avocados"
 ];
 
 const pantryScanAliases = new Map([
@@ -5280,7 +5399,11 @@ const pantryScanAliases = new Map([
   ["hamburger", "ground beef"], ["beef", "ground beef"], ["tomato", "tomatoes"],
   ["egg", "eggs"], ["tortilla", "tortillas"], ["potato", "potatoes"],
   ["banana", "bananas"], ["apple", "apples"], ["bean", "beans"],
-  ["cheddar", "cheese"], ["mozzarella", "cheese"]
+  ["cheddar", "cheese"], ["mozzarella", "cheese"],
+  ["chili powder", "chile powder"], ["oregano", "mexican oregano"],
+  ["ancho", "ancho chiles"], ["guajillo chiles", "guajillo"],
+  ["limes", "lime"], ["cilantro leaves", "cilantro"], ["avocado", "avocados"],
+  ["black bean", "black beans"], ["pinto bean", "pinto beans"]
 ]);
 
 const app = document.querySelector("#app");
@@ -6102,6 +6225,79 @@ const newEnglandRegionalAliases = {
   connecticut: "connecticut-new-england"
 };
 
+const southwestRegionalPages = {
+  "arizona-southwest": {
+    state: "Arizona",
+    title: "Arizona Sonoran & Desert Table",
+    image: southwestCoverImages.arizona,
+    intro: "Arizona food is shaped by Sonoran desert ingredients, Indigenous foodways, Mexican and borderland kitchens, cattle ranching, citrus, chiles, and warm-weather street food.",
+    history: "Long before statehood, Native communities cultivated corn, beans, squash, chiles, and desert plants. Mexican, Spanish, ranching, mining-town, and modern city foodways added tacos, carne asada, chimichangas, and roadside hot dog culture.",
+    hospitality: "An Arizona table should feel bright and generous: grilled meat, beans, tortillas, citrus, roasted chiles, prickly pear drinks, elote, and fry bread taught with care.",
+    culture: "Desert markets, family cookouts, Tucson and Phoenix food neighborhoods, Native food sovereignty work, and Sonoran-style stands all shape the table.",
+    facts: ["Tucson is recognized internationally for its food heritage.", "Sonoran hot dogs are tied to Arizona borderland street food.", "Fry bread and Navajo tacos require respectful cultural context, not casual filler."],
+    ingredients: ["roasted chiles", "mesquite", "beans", "corn", "flour tortillas", "lime", "cilantro", "prickly pear", "beef", "cotija"],
+    signatureRecipeIds: ["sonoran-hot-dogs", "navajo-tacos", "arizona-fry-bread", "carne-asada", "chimichangas", "elote-corn", "prickly-pear-lemonade"],
+    skills: [["Grilling Carne Asada", "#what-yall-cooking"], ["Fry Bread Context", "#culinary-academy/world-foods"], ["Street Food Assembly", "#what-yall-cooking"], ["Chile Balance", "#culinary-academy/seasonings"]],
+    traditions: ["Sonoran-style food reflects desert geography and borderland exchange.", "Carne asada is social food: grill, slice, tortillas, salsa, lime, and shared plates.", "Prickly pear brings color and desert produce identity without turning the food into a stereotype."],
+    features: [["Sonoran Stand", "Hot dogs, carne asada, elote, lime, salsa, and cold lemonade."], ["Desert Family Table", "Beans, tortillas, fry bread with context, chile, and prickly pear drinks."]]
+  },
+  "new-mexico-southwest": {
+    state: "New Mexico",
+    title: "New Mexico Chile & Blue Corn Kitchen",
+    image: southwestCoverImages["new-mexico"],
+    intro: "New Mexico food centers chile: green, red, Christmas, roasted, dried, stewed, and folded into everyday meals.",
+    history: "Pueblo, Hispano, Mexican, Spanish, ranching, and chile-growing traditions shape a cuisine where corn, beans, squash, pork, blue corn, anise cookies, and Hatch chile all carry place.",
+    hospitality: "Serve chile stew, carne adovada, posole, beans, tortillas, sopapillas, biscochitos, and enough red or green chile for people to choose.",
+    culture: "Chile roasting season, feast days, holiday posole, family bakeries, and small restaurants make New Mexico food unmistakable.",
+    facts: ["The red-or-green chile question is a real regional marker.", "Blue corn has deep Indigenous food roots.", "Biscochitos are New Mexico's official state cookie."],
+    ingredients: ["Hatch green chile", "New Mexico red chile", "blue cornmeal", "hominy", "pork", "pinto beans", "anise", "honey", "masa harina", "Mexican oregano"],
+    signatureRecipeIds: ["green-chile-stew", "carne-adovada", "new-mexico-posole", "sopapillas", "hatch-chile-burgers", "blue-corn-pancakes", "biscochitos"],
+    skills: [["Roasting Chiles", "#culinary-academy/seasonings"], ["Braised Pork", "#what-yall-cooking"], ["Fried Dough", "#culinary-academy/baking-basics"], ["Cookie Baking", "#culinary-academy/baking-basics"]],
+    traditions: ["Chile is a backbone ingredient, not a garnish.", "Posole often belongs to holiday and celebration tables.", "Sopapillas can move between bread basket and dessert depending on the table."],
+    features: [["Christmas Chile Supper", "Green chile stew, carne adovada, posole, beans, sopapillas, and biscochitos."], ["Chile Roasting Weekend", "Hatch burgers, blue corn pancakes, and chile-forward sides."]]
+  },
+  "texas-southwest": {
+    state: "Texas",
+    title: "Texas Smoke, Chile & Borderland Table",
+    image: southwestCoverImages.texas,
+    intro: "Texas food is too large for one lane: barbecue smoke, cattle-country comfort, Czech bakery traditions, Tex-Mex breakfasts, borderland braises, chili, and pecan desserts all matter.",
+    history: "Indigenous foodways, Mexican and Tejano kitchens, German and Czech migration, cattle trails, Black barbecue traditions, Gulf and ranching economies, and city food scenes built a layered table.",
+    hospitality: "A Texas spread can be brisket, beef ribs, chili, beans, breakfast tacos, barbacoa, kolaches, chicken fried steak, and pecan pie with plenty of napkins and shade.",
+    culture: "Smokehouses, taquerias, school fundraisers, church suppers, kolache bakeries, and Friday-night football plates keep Texas food practical and proud.",
+    facts: ["Texas chili traditionally skips beans.", "Central Texas barbecue puts smoke, salt, pepper, and slicing skill on display.", "Breakfast tacos are everyday food, not a novelty."],
+    ingredients: ["beef brisket", "beef ribs", "black pepper", "cumin", "dried chiles", "pinto beans", "flour tortillas", "pecans", "smoked sausage", "jalapenos"],
+    signatureRecipeIds: ["bbq-brisket-basics", "texas-beef-ribs", "texas-chili", "king-ranch-chicken", "texas-kolaches", "chicken-fried-steak", "breakfast-tacos", "texas-barbacoa", "frito-pie", "southern-pecan-pie"],
+    skills: [["Low-and-Slow Smoke", "#what-yall-cooking"], ["Chile Gravy", "#culinary-academy/seasonings"], ["Yeast Dough", "#culinary-academy/baking-basics"], ["Cream Gravy", "#culinary-academy"]],
+    traditions: ["Brisket depends on smoke, rest, and slicing across the grain.", "Kolaches and klobasniky connect Texas bakeries to Czech communities.", "Frito pie, chili, and breakfast tacos show the everyday side of the state."],
+    features: [["Pitmaster Tray", "Brisket, beef ribs, sausage, pinto beans, pickles, onions, and bread."], ["Texas Weekday Table", "Breakfast tacos, King Ranch chicken, Frito pie, chili, and pecan pie."]]
+  },
+  "oklahoma-southwest": {
+    state: "Oklahoma",
+    title: "Oklahoma Onion Burger & Plains Table",
+    image: southwestCoverImages.oklahoma,
+    intro: "Oklahoma food sits where plains cooking, Native food histories, cattle-country cafes, Route 66 diners, gardens, beans, fried sides, and fruit desserts meet.",
+    history: "Native nations, forced removal histories, cattle trails, farming communities, oil-boom towns, Black towns, diners, and church suppers all shape Oklahoma's food identity.",
+    hospitality: "A recognizable Oklahoma table can include onion burgers, chicken fried steak, Indian tacos taught respectfully, fried okra, pinto beans, fried pies, and peach cobbler.",
+    culture: "Diners, small-town cafes, tribal communities, county fairs, church kitchens, and roadside pie stops make the table feel specific.",
+    facts: ["Onion burgers are strongly associated with El Reno diner culture.", "Indian tacos should be presented with Native context and respect.", "Fried pies are a road-trip and bakery-counter staple."],
+    ingredients: ["ground beef", "onions", "pinto beans", "cornmeal", "okra", "peaches", "flour", "cream gravy", "chiles", "cheddar"],
+    signatureRecipeIds: ["oklahoma-onion-burgers", "oklahoma-chicken-fried-steak", "oklahoma-indian-tacos", "fried-okra", "texas-pinto-beans", "oklahoma-fried-pies", "oklahoma-peach-cobbler"],
+    skills: [["Smash Burgers", "#what-yall-cooking"], ["Cream Gravy", "#culinary-academy"], ["Respectful Food Context", "#culinary-academy/world-foods"], ["Hand Pies", "#culinary-academy/baking-basics"]],
+    traditions: ["Onions cook into the burger rather than sitting on top as an afterthought.", "Beans, okra, and cobblers connect gardens to large family tables.", "Oklahoma food should hold Native histories with care, not as decoration."],
+    features: [["Route 66 Diner Plate", "Onion burger, fried okra, pinto beans, and fried pie."], ["Plains Supper", "Chicken fried steak, gravy, beans, Indian tacos with context, and peach cobbler."]]
+  }
+};
+
+const southwestRegionalAliases = {
+  southwest: "southwest",
+  arizona: "arizona-southwest",
+  "new-mexico": "new-mexico-southwest",
+  "new mexico": "new-mexico-southwest",
+  texas: "texas-southwest",
+  "texas-southwest": "texas-southwest",
+  oklahoma: "oklahoma-southwest"
+};
+
 const regionalSoulFoodMenuTemplates = [
   {
     id: "sunday-dinner",
@@ -6330,6 +6526,17 @@ Object.entries(newEnglandRegionalPages).forEach(([id, page]) => {
   page.menus = [fallbackMenu];
 });
 
+Object.entries(southwestRegionalPages).forEach(([id, page]) => {
+  const fallbackMenu = {
+    id: `${id}-regional-menu`,
+    title: `${page.state} Regional Table`,
+    recipeIds: page.signatureRecipeIds.slice(0, 8),
+    timeline: ["Two days before: choose recipes, prep chile sauces, beans, doughs, or rubs.", "One day before: braise meats, bake cookies or pies, and prep toppings.", "Day of: grill, fry, warm tortillas, set garnishes, and serve hot food last."],
+    notes: "Build the menu from real Southwest dishes so the table tastes like chile, smoke, masa, beans, desert produce, and local history instead of generic Tex-Mex filler."
+  };
+  page.menus = [fallbackMenu];
+});
+
 function regionalSoulFoodHub() {
   return `
     <section class="regional-soul-section">
@@ -6364,6 +6571,28 @@ function newEnglandRegionalHub() {
         ${Object.entries(newEnglandRegionalPages).map(([id, page]) => `
           <a class="regional-soul-card" href="#cuisine-explorer/${id}">
             <img src="${page.image || newEnglandCoverImages["new-england"]}" alt="${page.title}" />
+            <span>${page.state}</span>
+            <h3>${page.title}</h3>
+            <p>${page.intro}</p>
+          </a>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function southwestRegionalHub() {
+  return `
+    <section class="regional-soul-section">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Southwest by place</p>
+        <h2>Cook through Arizona, New Mexico, Texas, and Oklahoma.</h2>
+        <p>Each state connects food history, regional facts, signature ingredients, real recipe cards, and warm Southwest photography.</p>
+      </div>
+      <div class="regional-soul-grid">
+        ${Object.entries(southwestRegionalPages).map(([id, page]) => `
+          <a class="regional-soul-card" href="#cuisine-explorer/${id}">
+            <img src="${page.image || southwestCoverImages.southwest}" alt="${page.title}" />
             <span>${page.state}</span>
             <h3>${page.title}</h3>
             <p>${page.intro}</p>
@@ -6493,6 +6722,75 @@ function renderNewEnglandRegionalPage(id) {
       </div>
       ${newEnglandRegionalHub()}
       ${progressionNav("#cuisine-explorer/new-england", "New England Hub", "#what-yall-cooking", "Build A Menu", ["#recipes", "#kids-korner"])}
+    </section>
+  `;
+}
+
+function renderSouthwestRegionalPage(id) {
+  const page = southwestRegionalPages[id] || southwestRegionalPages["arizona-southwest"];
+  const firstMenu = page.menus[0];
+  app.innerHTML = `
+    ${hero(page.title, page.intro, page.image || southwestCoverImages.southwest, `<a class="small-button" href="#cuisine-explorer/southwest">Southwest Hub</a><a class="small-button secondary" href="#what-yall-cooking">Build A Menu</a>`)}
+    ${cookSubnav()}
+    <section class="cream-section regional-soul-detail">
+      <div class="section-heading">
+        <p class="eyebrow">${page.state} table</p>
+        <h2>Food identity, history, facts, signature ingredients, recipes, and gatherings that belong to this place.</h2>
+      </div>
+      <div class="regional-identity-grid">
+        <article><h3>State Overview</h3><p>${page.intro}</p></article>
+        <article><h3>Food History</h3><p>${page.history}</p></article>
+        <article><h3>Hospitality</h3><p>${page.hospitality}</p></article>
+        <article><h3>Local Culture</h3><p>${page.culture}</p></article>
+      </div>
+      <div class="regional-story-grid">
+        <article>
+          <p class="eyebrow">Regional facts</p>
+          <h3>What to know before cooking</h3>
+          <ul>${page.facts.map((item) => `<li>${item}</li>`).join("")}</ul>
+        </article>
+        <article>
+          <p class="eyebrow">Signature ingredients</p>
+          <h3>The pantry that shapes the place</h3>
+          <div class="region-chip-row">${page.ingredients.map((ingredient) => `<span>${ingredient}</span>`).join("")}</div>
+        </article>
+      </div>
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Authentic recipes</p>
+        <h2>Real ${page.state} recipes, not generic Southwest filler.</h2>
+      </div>
+      <div class="recipe-grid">${regionalRecipeCards(page.signatureRecipeIds)}</div>
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Gatherings + menus</p>
+        <h2>Build a table that tastes like the place.</h2>
+      </div>
+      <div class="regional-menu-panel" data-regional-menu-section>
+        <div class="regional-menu-tabs">
+          ${page.menus.map((menu, index) => `<button class="small-button ${index ? "secondary" : ""}" type="button" data-regional-menu="${menu.id}" data-region-id="${id}">${menu.title}</button>`).join("")}
+        </div>
+        <div data-regional-output>${regionalMenuOutput(page, firstMenu)}</div>
+      </div>
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Skills + lessons</p>
+        <h2>Practice the techniques behind the food.</h2>
+      </div>
+      <div class="regional-skill-grid">
+        ${page.skills.map(([title, href]) => `<a href="${href}"><span>${title}</span><small>Open lesson</small></a>`).join("")}
+      </div>
+      <div class="regional-story-grid">
+        <article>
+          <p class="eyebrow">Traditions + heritage</p>
+          <h3>Why these dishes matter</h3>
+          <ul>${page.traditions.map((item) => `<li>${item}</li>`).join("")}</ul>
+        </article>
+        <article>
+          <p class="eyebrow">Place markers</p>
+          <h3>What makes this table recognizable</h3>
+          ${page.features.map(([title, text]) => `<div class="feature-note"><strong>${title}</strong><span>${text}</span></div>`).join("")}
+        </article>
+      </div>
+      ${southwestRegionalHub()}
+      ${progressionNav("#cuisine-explorer/southwest", "Southwest Hub", "#what-yall-cooking", "Build A Menu", ["#recipes", "#kids-korner"])}
     </section>
   `;
 }
@@ -7789,6 +8087,16 @@ function renderCuisineExplorer(id) {
     return;
   }
   if (newEnglandId && newEnglandRegionalPages[newEnglandId]) return renderNewEnglandRegionalPage(newEnglandId);
+  const southwestId = id ? southwestRegionalAliases[id] || id : "";
+  if (southwestId === "southwest") {
+    app.innerHTML = `
+      ${hero("Southwest Regional Food", "Cook through Arizona, New Mexico, Texas, and Oklahoma with chile, smoke, masa, beans, desert produce, cattle-country comfort, Native food histories, and family table traditions.", southwestCoverImages.southwest, `<a class="small-button" href="#cuisine-explorer">All Cuisines</a><a class="small-button secondary" href="#what-yall-cooking">Build A Southwest Menu</a>`)}
+      ${cookSubnav()}
+      ${southwestRegionalHub()}
+    `;
+    return;
+  }
+  if (southwestId && southwestRegionalPages[southwestId]) return renderSouthwestRegionalPage(southwestId);
   if (id === "african-cuisines") return africaCuisineHub();
   if (id && africaCountryPages[id]) return renderAfricaCountryPage(id);
   if (id) return renderCuisineExplorerDetail(id);
@@ -9809,6 +10117,7 @@ function handleClick(event) {
     const page = regionalSoulFoodPages[regionalMenuButton.dataset.regionId]
       || midwestRegionalPages[regionalMenuButton.dataset.regionId]
       || newEnglandRegionalPages[regionalMenuButton.dataset.regionId]
+      || southwestRegionalPages[regionalMenuButton.dataset.regionId]
       || regionalSoulFoodPages["mississippi-soul-food"];
     const menu = page.menus.find((item) => item.id === regionalMenuButton.dataset.regionalMenu) || page.menus[0];
     section?.querySelectorAll("[data-regional-menu]").forEach((button) => button.classList.toggle("secondary", button !== regionalMenuButton));
