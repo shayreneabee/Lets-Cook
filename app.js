@@ -773,35 +773,35 @@ const cuisineExplorerGroups = [
   {
     id: "asian-cuisines",
     title: "Asian Cuisines",
-    image: photoFor("cuisines", "asian-inspired"),
+    image: "images/cuisines/asian/asian-01.png",
     note: "Rice, noodles, broths, stir-fries, fermented sauces, pickles, dumplings, heat, balance, and texture.",
     regions: ["Japan", "China", "Korea", "Thailand", "Vietnam", "Philippines", "India"]
   },
   {
     id: "mediterranean-cuisines",
     title: "Mediterranean Cuisines",
-    image: photoFor("cuisines", "mediterranean"),
+    image: cuisineCoverImages.mediterranean,
     note: "Olive oil, herbs, citrus, yogurt sauces, grilled proteins, mezze, breads, vegetables, and shared tables.",
     regions: ["Greece", "Turkey", "Lebanon", "Egypt", "Morocco", "Italy-adjacent regions"]
   },
   {
     id: "caribbean-cuisines",
     title: "Caribbean Cuisines",
-    image: photoFor("cuisines", "caribbean"),
+    image: cuisineCoverImages.caribbean,
     note: "Warm spice, plantains, rice and peas, seafood, curries, jerk seasoning, stews, and celebration food.",
     regions: ["Jamaica", "Trinidad", "Haiti", "Puerto Rico", "Dominican Republic", "Bahamas", "Barbados"]
   },
   {
     id: "european-cuisines",
     title: "European Cuisines",
-    image: photoFor("cuisines", "italian"),
+    image: cuisineCoverImages.italian,
     note: "Pasta, roasts, breads, sauces, preserved foods, pastry, soups, braises, and seasonal cooking.",
     regions: ["Italy", "France", "Spain", "Portugal", "Germany", "United Kingdom", "Eastern Europe"]
   },
   {
     id: "southern-soul-food",
     title: "Southern / Soul Food",
-    image: photoFor("cuisines", "southern"),
+    image: cuisineCoverImages["soul-food"],
     note: "Cast iron, greens, cornbread, fish fries, Sunday dinner, slow cooking, and hospitality at the center.",
     regions: ["Mississippi", "Louisiana", "Georgia", "Alabama", "Carolinas", "Texas", "Tennessee"]
   },
@@ -836,35 +836,35 @@ const cuisineExplorerGroups = [
   {
     id: "cajun-creole",
     title: "Cajun / Creole",
-    image: photoFor("cuisines", "creole"),
+    image: cuisineCoverImages.creole,
     note: "Roux, seafood, rice, holy trinity, spice, gumbo, jambalaya, etouffee, and New Orleans table culture.",
     regions: ["New Orleans", "Acadiana", "Louisiana Gulf Coast", "Creole", "Cajun"]
   },
   {
     id: "latin-american",
     title: "Mexican / Latin American",
-    image: photoFor("cuisines", "mexican"),
+    image: cuisineCoverImages.mexican,
     note: "Chiles, corn, beans, braises, salsas, tortillas, adobo, citrus, herbs, and family-style meals.",
     regions: ["Mexico", "Peru", "Colombia", "Cuba", "Brazil", "Central America", "Tex-Mex"]
   },
   {
     id: "bbq",
     title: "BBQ",
-    image: photoFor("cuisines", "southern", 1),
+    image: cuisineCoverImages.bbq,
     note: "Smoke, rubs, sauces, low-and-slow timing, sides, bread, pickles, and feeding a crowd.",
     regions: ["Memphis", "Texas", "Kansas City", "Carolinas", "Mississippi", "Backyard BBQ"]
   },
   {
     id: "vegetarian",
     title: "Vegetarian",
-    image: photoFor("cuisines", "mediterranean"),
+    image: "images/recipes/audit-2026-06/greek-salad.jpg",
     note: "Beans, grains, vegetables, sauces, herbs, texture, protein balance, and satisfying plant-forward meals.",
     regions: ["Southern vegetarian", "Indian vegetarian", "Mediterranean", "Asian vegetarian", "Meal prep"]
   },
   {
     id: "holiday-sunday",
     title: "Holiday / Sunday Dinner",
-    image: photoFor("cuisines", "hosting"),
+    image: "images/recipes/audit-2026-06/baked-ham.jpg",
     note: "Centerpiece mains, traditional sides, desserts, hosting rhythm, prep lists, and table memory.",
     regions: ["Thanksgiving", "Christmas", "Easter", "Sunday dinner", "Church dinner", "Family reunion"]
   }
@@ -8624,7 +8624,7 @@ function renderCuisineExplorer(id) {
   if (id && africaCountryPages[id]) return renderAfricaCountryPage(id);
   if (id) return renderCuisineExplorerDetail(id);
   app.innerHTML = `
-    ${hero("Cuisine Explorer", "A culinary rolodex for food culture, regional flavor, ingredients, traditions, and the way meals connect across the world.", photoFor("cuisines", "indian"), `<a class="small-button" href="#culinary-academy">Open Culinary Academy</a><a class="small-button secondary" href="#what-yall-cooking">Build A Menu</a>`)}
+    ${hero("Cuisine Explorer", "A culinary rolodex for food culture, regional flavor, ingredients, traditions, and the way meals connect across the world.", cuisineCoverImages.indian, `<a class="small-button" href="#culinary-academy">Open Culinary Academy</a><a class="small-button secondary" href="#what-yall-cooking">Build A Menu</a>`)}
     ${cookSubnav()}
     <section class="cream-section">
       <div class="section-heading">
