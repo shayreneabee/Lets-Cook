@@ -251,6 +251,16 @@ const midwestCoverImages = {
   "south-dakota": "images/recipes/audit-2026-06/south-dakota-chislic.jpg"
 };
 
+const newEnglandCoverImages = {
+  "new-england": "assets/lc-seafood.jpg",
+  maine: "assets/lc-seafood.jpg",
+  "new-hampshire": "assets/ingredients.jpeg",
+  vermont: "assets/ingredients.jpeg",
+  massachusetts: "assets/lc-seafood.jpg",
+  "rhode-island": "assets/lc-seafood.jpg",
+  connecticut: "assets/lc-seafood.jpg"
+};
+
 const categoryCoverImages = {
   "Kid-Friendly Cooking": "assets/kid-friendly.jpeg",
   "Party Cups": "assets/lc-desserts.jpg",
@@ -421,6 +431,13 @@ const cuisines = [
   { id: "nebraska", name: "Nebraska", image: midwestCoverImages.nebraska, blurb: "Runzas, steak, kolaches, beef-country family tables, and community bakery traditions." },
   { id: "north-dakota", name: "North Dakota", image: midwestCoverImages["north-dakota"], blurb: "Knoephla soup, kuchen, fry bread where culturally appropriate, and cold-weather prairie meals." },
   { id: "south-dakota", name: "South Dakota", image: midwestCoverImages["south-dakota"], blurb: "Chislic, kuchen, fry bread where culturally appropriate, steak suppers, and prairie gatherings." },
+  { id: "new-england", name: "New England Regional", image: newEnglandCoverImages["new-england"], blurb: "Lobster rolls, chowder, maple, apples, baked beans, coastal seafood, diners, bakeries, and cold-weather comfort." },
+  { id: "maine", name: "Maine", image: newEnglandCoverImages.maine, blurb: "Lobster rolls, blueberry pie, chowder, whoopie pies, brown bread, and coastal supper tables." },
+  { id: "new-hampshire", name: "New Hampshire", image: newEnglandCoverImages["new-hampshire"], blurb: "Maple, apples, cider doughnuts, pot roast, covered-dish suppers, and mountain-town comfort." },
+  { id: "vermont", name: "Vermont", image: newEnglandCoverImages.vermont, blurb: "Maple syrup, cheddar, apples, baked beans, creemees, cider doughnuts, and farm-table cooking." },
+  { id: "massachusetts", name: "Massachusetts / Boston", image: newEnglandCoverImages.massachusetts, blurb: "Boston baked beans, cream pie, clam chowder, fried clams, roast beef sandwiches, and coastal classics." },
+  { id: "rhode-island", name: "Rhode Island", image: newEnglandCoverImages["rhode-island"], blurb: "Stuffies, clam cakes, johnnycakes, clear chowder, coffee milk, quahogs, and shore food." },
+  { id: "connecticut", name: "Connecticut", image: newEnglandCoverImages.connecticut, blurb: "New Haven apizza, white clam pizza, warm lobster rolls, steamed cheeseburgers, and shoreline seafood." },
   { id: "nigerian", name: "Nigerian", image: cuisineCoverImages.nigerian, blurb: "Jollof rice, egusi, suya, moi moi, pepper soup, and layered tomato-pepper stew bases." },
   { id: "ghanaian", name: "Ghanaian", image: cuisineCoverImages.ghanaian, blurb: "Waakye, red red, kelewele, groundnut soup, jollof, shito, and generous rice-and-bean plates." },
   { id: "ethiopian", name: "Ethiopian", image: cuisineCoverImages.ethiopian, blurb: "Injera, berbere, lentil stews, shiro, tibs, doro wat, and shared platter hospitality." },
@@ -754,6 +771,13 @@ const cuisineExplorerGroups = [
     image: midwestCoverImages.midwest,
     note: "Cook through Chicago counters, Great Lakes fish fries, supper clubs, church basements, county fairs, winter soups, barbecue cities, and prairie bakery traditions.",
     regions: ["Chicago", "Wisconsin", "Michigan", "Minnesota", "Indiana", "Ohio", "Iowa", "Missouri", "Kansas City", "St. Louis", "Kansas", "Nebraska", "North Dakota", "South Dakota"]
+  },
+  {
+    id: "new-england",
+    title: "New England Regional Food",
+    image: newEnglandCoverImages["new-england"],
+    note: "Cook from Maine down through Connecticut with coastal seafood, baked beans, maple, apples, diners, bakeries, chowder, and old family supper traditions.",
+    regions: ["Maine", "New Hampshire", "Vermont", "Massachusetts", "Boston", "Rhode Island", "Connecticut"]
   },
   {
     id: "cajun-creole",
@@ -3345,8 +3369,69 @@ const midwestExpansionRecipes = [
   midwestRecipe("northern-plains-fry-bread", "Northern Plains Fry Bread", "north-dakota", "Dakotas", "A simple fried bread included with respect for Indigenous food histories and best paired with cultural context.", ["3 cups flour", "1 tbsp baking powder", "1 tsp salt", "1 1/4 cups warm water", "Oil for frying"], ["Mix flour, baking powder, and salt.", "Add warm water to make soft dough; rest 20 minutes.", "Divide and flatten rounds.", "Fry until puffed and golden.", "Drain and serve warm."], ["fry bread", "indigenous foodways", "bread"], { cook: "20 min" })
 ];
 
+function newEnglandRecipe(id, title, cuisine, category, description, ingredients, steps, tags = [], extras = {}) {
+  return expansionRecipe(
+    id,
+    title,
+    category,
+    `images/recipes/new-england-2026/${id}.jpg`,
+    extras.prep || "20 min",
+    extras.cook || "35 min",
+    extras.servings || 4,
+    extras.level || "Intermediate",
+    description,
+    ingredients,
+    steps,
+    [...tags, "new england", cuisine],
+    {
+      cuisine,
+      storage: extras.storage || "Refrigerate leftovers in a covered container for up to 3 days.",
+      reheating: extras.reheating || "Reheat gently until hot throughout; seafood should be warmed carefully so it stays tender.",
+      occasion_tags: extras.occasion_tags || ["regional food", "family dinner"],
+      technique_tags: extras.technique_tags || tags
+    }
+  );
+}
+
+const newEnglandExpansionRecipes = [
+  newEnglandRecipe("maine-lobster-roll", "Maine Lobster Roll", "maine", "Maine Coast", "Chilled lobster lightly dressed with mayonnaise and lemon, tucked into a butter-toasted split-top bun.", ["1 lb cooked lobster meat chopped", "3 tbsp mayonnaise", "1 tsp lemon juice", "1 tbsp celery finely diced", "1 tbsp chives", "4 split-top hot dog buns", "3 tbsp butter", "Salt and pepper"], ["Pick through lobster for shells and chill.", "Fold lobster with mayonnaise, lemon, celery, chives, salt, and pepper; keep the dressing light.", "Butter buns and toast both sides in a skillet.", "Fill buns generously with lobster salad.", "Serve immediately with chips, pickle, and lemon."], ["lobster", "seafood", "sandwich"], { prep: "15 min", cook: "5 min", servings: 4, level: "Beginner" }),
+  newEnglandRecipe("new-england-clam-chowder", "New England Clam Chowder", "maine", "Chowders", "Creamy clam chowder with potatoes, onion, salt pork or bacon, clam broth, and tender clams.", ["4 slices bacon diced", "1 onion diced", "2 ribs celery diced", "3 cups diced potatoes", "2 cups clam juice", "2 cans chopped clams with juice", "1 cup heavy cream", "1 bay leaf", "2 tbsp butter", "Salt and pepper"], ["Cook bacon until crisp; reserve some for garnish.", "Cook onion and celery in the drippings until soft.", "Add potatoes, clam juice, bay leaf, and clam liquid; simmer until potatoes are tender.", "Stir in clams, cream, and butter; heat gently without boiling.", "Season with pepper and serve with oyster crackers."], ["clam", "chowder", "seafood"], { cook: "35 min", servings: 6 }),
+  newEnglandRecipe("maine-blueberry-pie", "Maine Blueberry Pie", "maine", "Maine Desserts", "A bright wild-blueberry pie with lemon, a flaky crust, and bubbling deep-blue filling.", ["2 pie crusts", "5 cups Maine blueberries", "3/4 cup sugar", "1/4 cup cornstarch", "1 tbsp lemon juice", "1 tsp lemon zest", "1 tbsp butter", "1 egg for wash"], ["Heat oven to 400 F.", "Toss blueberries with sugar, cornstarch, lemon juice, and zest.", "Fill bottom crust and dot with butter.", "Top with second crust, crimp, vent, and brush with egg wash.", "Bake until golden and bubbling, 45 to 55 minutes; cool before slicing."], ["blueberry", "pie", "dessert"], { prep: "30 min", cook: "50 min", servings: 8, level: "Intermediate" }),
+  newEnglandRecipe("whoopie-pies", "Maine Whoopie Pies", "maine", "Maine Desserts", "Soft chocolate cake rounds sandwiched with fluffy vanilla cream filling.", ["2 cups flour", "1/2 cup cocoa powder", "1 tsp baking soda", "1/2 cup butter", "1 cup brown sugar", "1 egg", "1 cup buttermilk", "2 cups marshmallow creme", "1 cup powdered sugar"], ["Heat oven to 350 F and line sheet pans.", "Cream butter and brown sugar; beat in egg.", "Mix dry ingredients and alternate with buttermilk to make batter.", "Scoop rounds and bake 10 to 12 minutes; cool completely.", "Beat marshmallow creme with powdered sugar and sandwich between cakes."], ["whoopie pie", "cake", "dessert"], { prep: "30 min", cook: "12 min", servings: 10 }),
+  newEnglandRecipe("brown-bread", "New England Brown Bread", "maine", "New England Supper", "Molasses-sweet steamed brown bread traditionally served with baked beans.", ["1 cup whole wheat flour", "1 cup rye flour", "1 cup cornmeal", "1 tsp baking soda", "1 tsp salt", "1 1/2 cups buttermilk", "3/4 cup molasses", "1 cup raisins optional"], ["Grease a coffee can or steaming mold.", "Whisk flours, cornmeal, baking soda, and salt.", "Stir in buttermilk, molasses, and raisins.", "Cover mold tightly with foil.", "Steam in a covered pot with simmering water for 2 hours, adding water as needed."], ["brown bread", "molasses", "steamed bread"], { prep: "15 min", cook: "2 hr", servings: 8, level: "Advanced" }),
+  newEnglandRecipe("fish-chowder", "Maine Fish Chowder", "maine", "Chowders", "A clean, creamy fish chowder with cod or haddock, potatoes, onion, and salt pork.", ["1 1/2 lb cod or haddock", "4 slices salt pork or bacon diced", "1 onion sliced", "3 cups potatoes diced", "3 cups fish stock or water", "1 cup milk", "1 cup cream", "2 tbsp butter", "Salt and pepper"], ["Cook salt pork until rendered.", "Cook onion gently without browning.", "Add potatoes and stock; simmer until potatoes are almost tender.", "Add fish pieces and simmer just until flaky.", "Stir in milk, cream, and butter; season and rest 10 minutes before serving."], ["fish", "chowder", "seafood"], { cook: "40 min", servings: 6 }),
+
+  newEnglandRecipe("apple-cider-doughnuts", "Apple Cider Doughnuts", "new-hampshire", "Orchard Sweets", "Tender fried or baked doughnuts flavored with reduced cider and rolled in cinnamon sugar.", ["2 cups apple cider", "3 1/2 cups flour", "2 tsp baking powder", "1 tsp cinnamon", "1/2 tsp nutmeg", "2 eggs", "3/4 cup sugar", "4 tbsp butter melted", "Oil for frying", "Cinnamon sugar"], ["Boil cider until reduced to 1/2 cup and cool.", "Mix flour, baking powder, cinnamon, nutmeg, and salt.", "Whisk eggs, sugar, butter, and reduced cider.", "Combine into soft dough, chill, cut doughnuts.", "Fry at 350 F until golden and roll in cinnamon sugar."], ["apple", "doughnuts", "orchard"], { prep: "35 min", cook: "20 min", servings: 12, level: "Advanced" }),
+  newEnglandRecipe("yankee-pot-roast", "Yankee Pot Roast", "new-hampshire", "Mountain Suppers", "A slow-braised beef roast with potatoes, carrots, onions, and rich pan gravy.", ["3 lb chuck roast", "1 tbsp salt", "1 tsp pepper", "2 tbsp oil", "1 onion", "3 carrots", "1 lb potatoes", "3 cups beef broth", "1 tbsp tomato paste", "2 sprigs thyme"], ["Season and sear chuck roast on all sides.", "Cook onion with tomato paste.", "Add broth and thyme, then return roast.", "Cover and braise at 325 F for 2 hours.", "Add carrots and potatoes; cook until beef is fork-tender."], ["beef", "braising", "pot roast"], { prep: "25 min", cook: "3 hr", servings: 6 }),
+  newEnglandRecipe("maple-glazed-pork-chops", "Maple-Glazed Pork Chops", "new-hampshire", "Maple Suppers", "Pan-seared pork chops glazed with maple syrup, mustard, cider vinegar, and butter.", ["4 bone-in pork chops", "1 tsp salt", "1/2 tsp pepper", "1 tbsp oil", "1/3 cup maple syrup", "1 tbsp Dijon mustard", "1 tbsp apple cider vinegar", "2 tbsp butter"], ["Season pork chops.", "Sear in oil until browned and nearly 145 F inside.", "Remove chops and lower heat.", "Add maple syrup, mustard, vinegar, and butter; simmer until glossy.", "Return chops and coat with glaze."], ["maple", "pork", "glaze"], { cook: "20 min", servings: 4 }),
+  newEnglandRecipe("apple-crisp", "New England Apple Crisp", "new-hampshire", "Orchard Sweets", "Warm baked apples under an oat-brown sugar crumble.", ["6 cups sliced apples", "2 tbsp lemon juice", "1/2 cup sugar", "1 tsp cinnamon", "1 cup oats", "3/4 cup flour", "3/4 cup brown sugar", "1/2 cup butter"], ["Heat oven to 350 F.", "Toss apples with lemon, sugar, and cinnamon.", "Mix oats, flour, brown sugar, and butter into crumbs.", "Spread apples in a baking dish and top with crumble.", "Bake until bubbling and golden, 40 to 45 minutes."], ["apple", "crisp", "dessert"], { prep: "20 min", cook: "45 min", servings: 8, level: "Beginner" }),
+  newEnglandRecipe("maple-baked-beans", "New England Maple Baked Beans", "new-hampshire", "New England Supper", "Slow baked navy beans sweetened with maple and molasses.", ["1 lb navy beans soaked overnight", "1 onion", "1/3 cup maple syrup", "1/4 cup molasses", "2 tbsp brown sugar", "2 tsp dry mustard", "4 oz salt pork or bacon", "Salt"], ["Simmer soaked beans until nearly tender.", "Place onion and salt pork in a bean pot.", "Add beans, maple, molasses, sugar, mustard, and enough cooking liquid to cover.", "Bake covered at 300 F for 4 hours.", "Uncover near the end to thicken."], ["beans", "maple", "baked"], { prep: "20 min", cook: "4 hr", servings: 8, level: "Advanced" }),
+
+  newEnglandRecipe("vermont-maple-baked-beans", "Vermont Maple Baked Beans", "vermont", "Vermont Farm Table", "Molasses-and-maple baked beans with bacon, mustard, and slow oven flavor.", ["1 lb navy beans soaked overnight", "4 oz bacon diced", "1 onion", "1/2 cup maple syrup", "2 tbsp molasses", "1 tbsp Dijon mustard", "1 tsp salt", "Black pepper"], ["Simmer beans until barely tender.", "Layer beans with bacon and onion in a Dutch oven.", "Stir maple, molasses, mustard, salt, and bean liquid together.", "Pour over beans and bake covered at 300 F.", "Cook 3 to 4 hours until thick and tender."], ["maple", "beans", "vermont"], { cook: "4 hr", servings: 8 }),
+  newEnglandRecipe("vermont-cheddar-apple-pie", "Vermont Cheddar Apple Pie", "vermont", "Vermont Desserts", "Classic apple pie served with sharp Vermont cheddar or baked with cheddar in the crust.", ["2 pie crusts", "6 cups sliced apples", "3/4 cup sugar", "2 tbsp flour", "1 tsp cinnamon", "1 tbsp lemon juice", "1 cup sharp cheddar grated or sliced"], ["Heat oven to 400 F.", "Toss apples with sugar, flour, cinnamon, and lemon.", "Fill crust and top with second crust.", "Bake until golden and bubbling, 45 to 55 minutes.", "Serve warm with sharp cheddar."], ["apple pie", "cheddar", "dessert"], { cook: "50 min", servings: 8 }),
+  newEnglandRecipe("maple-creemee", "Vermont Maple Creemee", "vermont", "Vermont Desserts", "A maple soft-serve inspired frozen treat made with cream, milk, and maple syrup.", ["2 cups heavy cream", "1 cup whole milk", "3/4 cup maple syrup", "1 tsp vanilla", "Pinch salt"], ["Whisk cream, milk, maple syrup, vanilla, and salt.", "Chill mixture until very cold.", "Churn in an ice cream maker until soft-serve texture.", "Serve immediately or freeze briefly for firmer scoops.", "Drizzle with extra maple if desired."], ["maple", "ice cream", "dessert"], { prep: "15 min", cook: "0 min", servings: 6, level: "Beginner" }),
+
+  newEnglandRecipe("boston-baked-beans", "Boston Baked Beans", "massachusetts", "Boston Classics", "Molasses-rich baked beans with salt pork, onion, and mustard slow-cooked until deep and glossy.", ["1 lb navy beans soaked overnight", "4 oz salt pork", "1 onion", "1/3 cup molasses", "2 tbsp brown sugar", "2 tsp dry mustard", "1 tsp salt", "Black pepper"], ["Simmer soaked beans until nearly tender.", "Place onion and salt pork in a bean pot.", "Add beans and a sauce of molasses, sugar, mustard, salt, and bean liquid.", "Bake covered at 300 F for 4 hours.", "Uncover to brown and thicken."], ["beans", "molasses", "boston"], { cook: "4 hr", servings: 8 }),
+  newEnglandRecipe("boston-cream-pie", "Boston Cream Pie", "massachusetts", "Boston Desserts", "Two layers of sponge cake filled with vanilla pastry cream and topped with chocolate glaze.", ["2 8-inch yellow cake layers", "2 cups pastry cream", "1 cup chocolate chips", "1/2 cup heavy cream", "1 tsp vanilla"], ["Bake and cool cake layers.", "Spread pastry cream between layers.", "Heat cream until steaming and pour over chocolate.", "Whisk chocolate glaze smooth.", "Pour over cake and let set before slicing."], ["cake", "custard", "chocolate"], { prep: "45 min", cook: "25 min", servings: 10, level: "Advanced" }),
+  newEnglandRecipe("fried-clams", "Massachusetts Fried Clams", "massachusetts", "Coastal Seafood", "Whole-belly clams dipped in buttermilk and fried crisp with lemon and tartar sauce.", ["1 lb whole-belly clams drained", "1 cup buttermilk", "1 cup corn flour or fine cornmeal", "1 cup flour", "1 tsp salt", "1/2 tsp pepper", "Oil for frying", "Lemon wedges"], ["Soak clams in buttermilk 10 minutes.", "Mix corn flour, flour, salt, and pepper.", "Drain clams and dredge lightly.", "Fry at 360 F until golden and just cooked.", "Drain on a rack and serve with lemon."], ["clams", "fried seafood", "shore food"], { prep: "20 min", cook: "10 min", servings: 4 }),
+  newEnglandRecipe("north-shore-roast-beef-sandwich", "North Shore Roast Beef Sandwich", "massachusetts", "Counter Food", "Thin rare roast beef piled high on an onion roll with cheese, mayo, and barbecue sauce.", ["1 lb thin sliced roast beef", "4 onion rolls", "4 slices American cheese", "1/3 cup mayonnaise", "1/3 cup James River-style BBQ sauce", "Salt and pepper"], ["Warm rolls lightly.", "Warm roast beef gently with a splash of beef jus; do not overcook.", "Stack beef high on each roll.", "Add cheese, mayo, and sauce.", "Serve wrapped or on a tray with pickles."], ["roast beef", "sandwich", "north shore"], { prep: "10 min", cook: "8 min", servings: 4 }),
+  newEnglandRecipe("cranberry-relish", "Cape Cranberry Relish", "massachusetts", "Holiday Sides", "Fresh cranberry-orange relish for holiday tables and roast dinners.", ["12 oz fresh cranberries", "1 orange zested and segmented", "1/2 cup sugar", "1 tbsp lemon juice", "Pinch salt"], ["Pulse cranberries and orange in a food processor until finely chopped.", "Stir in sugar, lemon, zest, and salt.", "Chill at least 1 hour.", "Taste and adjust sugar.", "Serve with turkey, ham, beans, or roast beef."], ["cranberry", "holiday", "relish"], { prep: "10 min", cook: "0 min", servings: 8, level: "Beginner" }),
+
+  newEnglandRecipe("rhode-island-stuffies", "Rhode Island Stuffies", "rhode-island", "Rhode Island Shore Food", "Stuffed quahog shells filled with chopped clam, bread, peppers, onion, herbs, and spice.", ["6 large quahogs or clam shells", "1 cup chopped cooked clams", "2 cups breadcrumbs", "1 onion minced", "1 bell pepper minced", "2 cloves garlic", "2 tbsp butter", "1 tsp paprika", "Lemon wedges"], ["Steam quahogs until open, reserving shells and juices.", "Chop clam meat.", "Cook onion, pepper, and garlic in butter.", "Mix vegetables, clams, breadcrumbs, paprika, and enough clam juice to moisten.", "Pack into shells and bake at 375 F until browned."], ["quahog", "stuffed clams", "seafood"], { prep: "35 min", cook: "25 min", servings: 6, level: "Advanced" }),
+  newEnglandRecipe("clam-cakes", "Rhode Island Clam Cakes", "rhode-island", "Rhode Island Shore Food", "Golden fritters packed with chopped clams and served with chowder or lemon.", ["1 cup chopped clams", "1 1/2 cups flour", "2 tsp baking powder", "1 egg", "3/4 cup clam juice", "1/4 cup milk", "1 tbsp parsley", "Oil for frying"], ["Whisk flour, baking powder, and salt.", "Mix egg, clam juice, and milk.", "Fold wet mixture, clams, and parsley into batter.", "Drop spoonfuls into 350 F oil.", "Fry until brown and cooked through."], ["clam", "fritter", "fried"], { cook: "15 min", servings: 6 }),
+  newEnglandRecipe("rhode-island-clear-chowder", "Rhode Island Clear Chowder", "rhode-island", "Chowders", "A broth-forward clam chowder with potatoes, onion, bacon, and clear clam flavor.", ["4 slices bacon diced", "1 onion diced", "3 cups potatoes diced", "3 cups clam broth", "2 cans chopped clams", "1 bay leaf", "2 tbsp parsley", "Black pepper"], ["Cook bacon until crisp.", "Cook onion in drippings.", "Add potatoes, clam broth, bay leaf, and clam liquid; simmer until tender.", "Add clams and heat gently.", "Finish with parsley and black pepper."], ["clam", "clear chowder", "seafood"], { cook: "30 min", servings: 6 }),
+  newEnglandRecipe("rhode-island-johnnycakes", "Rhode Island Johnnycakes", "rhode-island", "Cornmeal Classics", "Thin cornmeal cakes cooked on a griddle until crisp at the edges.", ["1 cup stone-ground white cornmeal", "1 tsp sugar optional", "1/2 tsp salt", "1 cup boiling water", "2 tbsp milk", "Butter or bacon drippings"], ["Mix cornmeal, sugar, and salt.", "Pour in boiling water and stir into a thick batter.", "Thin with milk if needed.", "Cook spoonfuls on a buttered griddle.", "Flip when edges crisp and serve hot."], ["cornmeal", "johnnycakes", "griddle"], { prep: "10 min", cook: "15 min", servings: 4 }),
+  newEnglandRecipe("coffee-milk", "Rhode Island Coffee Milk", "rhode-island", "Drinks", "Cold milk stirred with sweet coffee syrup, Rhode Island's classic diner drink.", ["2 cups strong brewed coffee", "1 cup sugar", "4 cups cold milk"], ["Simmer coffee and sugar until syrupy, about 15 minutes.", "Cool syrup completely.", "Add 2 to 3 tbsp syrup to each glass.", "Fill with cold milk.", "Stir and serve over ice if desired."], ["coffee milk", "drink", "diner"], { prep: "5 min", cook: "15 min", servings: 4, level: "Beginner" }),
+  newEnglandRecipe("hot-wieners", "Rhode Island Hot Wieners", "rhode-island", "Diner Food", "Small hot dogs topped with seasoned meat sauce, mustard, onions, and celery salt.", ["8 small hot dogs", "8 steamed buns", "1 lb ground beef", "1 onion minced", "1 tbsp chili powder", "1 tsp paprika", "Yellow mustard", "Diced onions", "Celery salt"], ["Cook ground beef and minced onion very fine.", "Add chili powder, paprika, salt, pepper, and a splash of water; simmer into sauce.", "Steam hot dogs and buns.", "Add mustard, hot dog, meat sauce, onions, and celery salt.", "Serve immediately."], ["hot dog", "diner", "meat sauce"], { cook: "25 min", servings: 4 }),
+
+  newEnglandRecipe("new-haven-white-clam-pizza", "New Haven White Clam Pizza", "connecticut", "Connecticut Pizza", "Charred thin-crust pizza topped with chopped clams, garlic, olive oil, oregano, and pecorino.", ["1 pizza dough", "1 cup chopped clams drained", "3 garlic cloves sliced", "2 tbsp olive oil", "1/2 tsp oregano", "1/3 cup grated pecorino", "Cornmeal for peel", "Lemon wedges"], ["Heat oven and stone as hot as possible, ideally 500 F.", "Stretch dough thin.", "Brush with olive oil and scatter garlic, clams, oregano, and pecorino.", "Bake until crust is charred in spots and clams are hot.", "Finish with lemon if desired."], ["clam pizza", "apizza", "seafood"], { prep: "25 min", cook: "10 min", servings: 3, level: "Advanced" }),
+  newEnglandRecipe("connecticut-lobster-roll", "Connecticut Warm Lobster Roll", "connecticut", "Shoreline Seafood", "Warm lobster meat tossed in melted butter and served in a toasted split-top bun.", ["1 lb cooked lobster meat", "5 tbsp butter", "1 tsp lemon juice", "4 split-top buns", "Chives optional", "Salt"], ["Melt butter gently with lemon.", "Warm lobster meat in the butter just until heated through.", "Toast buns in a skillet.", "Fill buns with warm lobster.", "Spoon extra butter over top and serve right away."], ["lobster", "butter", "sandwich"], { prep: "10 min", cook: "8 min", servings: 4 }),
+  newEnglandRecipe("steamed-cheeseburgers", "Connecticut Steamed Cheeseburgers", "connecticut", "Diner Food", "Juicy steamed beef patties topped with melted cheddar and served on soft rolls.", ["1 1/2 lb ground beef", "1 tsp salt", "1/2 tsp pepper", "8 oz cheddar sliced", "4 soft rolls", "Pickles and onions"], ["Shape beef into four thick patties and season.", "Steam patties in a covered steamer or heatproof cups until 160 F.", "Steam cheddar separately or place over patties to melt.", "Place patties on rolls.", "Add pickles and onions."], ["burger", "steamed", "diner"], { cook: "20 min", servings: 4 }),
+  newEnglandRecipe("new-haven-apizza", "New Haven Tomato Apizza", "connecticut", "Connecticut Pizza", "A charred, chewy tomato pie with crushed tomato, garlic, oregano, olive oil, and pecorino.", ["1 pizza dough", "3/4 cup crushed tomatoes", "2 garlic cloves minced", "1 tsp oregano", "2 tbsp olive oil", "1/3 cup pecorino", "Cornmeal for peel"], ["Heat oven and stone to 500 F.", "Stretch dough thin and uneven.", "Spread crushed tomatoes lightly.", "Add garlic, oregano, olive oil, and pecorino.", "Bake until charred at the edges and crisp underneath."], ["apizza", "tomato pie", "pizza"], { prep: "25 min", cook: "10 min", servings: 3, level: "Advanced" })
+];
+
 const existingRecipeIds = new Set(recipes.map((recipe) => recipe.id));
-recipes = [...recipes, ...[...nextFeatureRecipes, ...menuIntelligenceRecipes, ...regionalAuthenticityRecipes, ...livingCookbookRecipes, ...kidsKornerRecipes, ...kidsExpansionRecipes, ...familyExpansionRecipes, ...mississippiHeritageRecipes, ...africaExpansionRecipes, ...midwestExpansionRecipes].filter((recipe) => !existingRecipeIds.has(recipe.id))];
+recipes = [...recipes, ...[...nextFeatureRecipes, ...menuIntelligenceRecipes, ...regionalAuthenticityRecipes, ...livingCookbookRecipes, ...kidsKornerRecipes, ...kidsExpansionRecipes, ...familyExpansionRecipes, ...mississippiHeritageRecipes, ...africaExpansionRecipes, ...midwestExpansionRecipes, ...newEnglandExpansionRecipes].filter((recipe) => !existingRecipeIds.has(recipe.id))];
 
 const lessons = [
   {
@@ -3720,10 +3805,47 @@ const midwestPhotoReadyRecipeIds = new Set([
   "toasted-ravioli"
 ]);
 
+const newEnglandPhotoReadyRecipeIds = new Set([
+  "maine-lobster-roll",
+  "new-england-clam-chowder",
+  "maine-blueberry-pie",
+  "whoopie-pies",
+  "brown-bread",
+  "fish-chowder",
+  "apple-cider-doughnuts",
+  "yankee-pot-roast",
+  "maple-glazed-pork-chops",
+  "apple-crisp",
+  "maple-baked-beans",
+  "vermont-maple-baked-beans",
+  "vermont-cheddar-apple-pie",
+  "maple-creemee",
+  "boston-baked-beans",
+  "boston-cream-pie",
+  "fried-clams",
+  "north-shore-roast-beef-sandwich",
+  "cranberry-relish",
+  "rhode-island-stuffies",
+  "clam-cakes",
+  "rhode-island-clear-chowder",
+  "rhode-island-johnnycakes",
+  "coffee-milk",
+  "hot-wieners",
+  "new-haven-white-clam-pizza",
+  "connecticut-lobster-roll",
+  "steamed-cheeseburgers",
+  "new-haven-apizza"
+]);
+
 const recipeImageReplacementQueue = new Set(
-  midwestExpansionRecipes
-    .map((recipe) => recipe.id)
-    .filter((recipeId) => !midwestPhotoReadyRecipeIds.has(recipeId))
+  [
+    ...midwestExpansionRecipes
+      .map((recipe) => recipe.id)
+      .filter((recipeId) => !midwestPhotoReadyRecipeIds.has(recipeId)),
+    ...newEnglandExpansionRecipes
+      .map((recipe) => recipe.id)
+      .filter((recipeId) => !newEnglandPhotoReadyRecipeIds.has(recipeId))
+  ]
 );
 
 function recipeHasPublishReadyPhoto(recipe) {
@@ -4066,6 +4188,10 @@ auditedRecipeImageIds.forEach((recipeId) => {
   recipeImageOverrides[recipeId] = `images/recipes/audit-2026-06/${recipeId}.jpg`;
 });
 recipeImageOverrides["white-perch-fry"] = recipeImageOverrides["mississippi-perch-fry"];
+
+newEnglandExpansionRecipes.forEach((recipe) => {
+  recipeImageOverrides[recipe.id] = `images/recipes/new-england-2026/${recipe.id}.jpg`;
+});
 
 const broadRecipeImageIds = [
   "pb-and-j-sandwich", "pbj-roll-ups", "mini-pizza-bagels", "mini-pizza-faces",
@@ -5499,7 +5625,10 @@ const monthlySpotlight = {
   upcoming: ["4th of July", "Summer Cookout Season", "Peach Season", "Family Reunion Season", "Hispanic Heritage Month", "Thanksgiving", "Christmas"]
 };
 
-function recipeByIdSafe(id) {
+function recipeByIdSafe(id, options = {}) {
+  if (options.allowQueued) {
+    return [...userRecipeCollection(), ...recipes].find((item) => item.id === id) || null;
+  }
   return recipeById(id);
 }
 
@@ -5881,6 +6010,98 @@ const midwestRegionalAliases = {
   "south-dakota": "south-dakota-midwest"
 };
 
+const newEnglandRegionalPages = {
+  "maine-new-england": {
+    state: "Maine",
+    title: "Maine Coast & Blueberry Country",
+    image: newEnglandCoverImages.maine,
+    intro: "Maine food is lobster shacks, cold-water seafood, blueberries, chowder, brown bread, whoopie pies, and working-coast hospitality.",
+    history: "Fishing communities, Wabanaki foodways, rocky coastal towns, logging camps, dairy farms, and blueberry barrens all shape the Maine table.",
+    hospitality: "A Maine meal should feel direct and generous: lobster roll, chowder, something baked, something blueberry, and plenty of napkins.",
+    culture: "Seafood shacks, church suppers, summer visitors, working harbors, and winter kitchens keep Maine food rooted in place.",
+    signatureRecipeIds: ["maine-lobster-roll", "new-england-clam-chowder", "maine-blueberry-pie", "whoopie-pies", "brown-bread", "fish-chowder"],
+    skills: [["Seafood Handling", "#what-yall-cooking"], ["Chowder Building", "#culinary-academy"], ["Pie Filling", "#culinary-academy"], ["Quick Breads", "#culinary-academy"]],
+    traditions: ["Lobster rolls should taste like lobster first, not filler.", "Blueberries show up in pies, muffins, pancakes, and summer stands.", "Chowder is about gentle heat, tender potatoes, and clean seafood flavor."],
+    features: [["Lobster Shack Lunch", "Lobster roll, chips, pickle, chowder, and blueberry pie."], ["Maine Church Supper", "Baked beans, brown bread, slaw, chowder, and whoopie pies."]]
+  },
+  "new-hampshire-new-england": {
+    state: "New Hampshire",
+    title: "New Hampshire Apple, Maple & Mountain Suppers",
+    image: newEnglandCoverImages["new-hampshire"],
+    intro: "New Hampshire food leans into apples, maple, doughnuts, roast suppers, covered-dish tables, and sturdy mountain-town comfort.",
+    history: "Orchards, maple sugaring, town halls, church suppers, cold winters, and old Yankee cooking shape the state's home table.",
+    hospitality: "The table feels like cider, pot roast, doughnuts, warm rolls, maple glaze, and food that holds after a long day outside.",
+    culture: "Fall fairs, sugar shacks, diners, ski weekends, and community suppers give New Hampshire its rhythm.",
+    signatureRecipeIds: ["apple-cider-doughnuts", "yankee-pot-roast", "maple-glazed-pork-chops", "apple-crisp", "maple-baked-beans"],
+    skills: [["Apple Prep", "#culinary-academy"], ["Braising", "#culinary-academy"], ["Glazing", "#culinary-academy"], ["Doughnut Frying", "#culinary-academy"]],
+    traditions: ["Cider doughnuts belong to orchards, fairs, and fall weekends.", "Pot roast reflects old Yankee one-pot comfort.", "Maple should be used with restraint so it tastes rich, not cloying."],
+    features: [["Fall Orchard Table", "Cider doughnuts, apple crisp, pork chops, and hot cider."], ["Mountain Supper", "Pot roast, beans, rolls, greens, and pie."]]
+  },
+  "vermont-new-england": {
+    state: "Vermont",
+    title: "Vermont Maple, Cheddar & Farm Table",
+    image: newEnglandCoverImages.vermont,
+    intro: "Vermont food is maple syrup, sharp cheddar, apples, baked beans, cider doughnuts, farm stands, creemees, and cold-weather tables.",
+    history: "Dairy farms, maple sugaring, orchards, small-town bakeries, and rural supper traditions make Vermont food feel clean, seasonal, and practical.",
+    hospitality: "Serve beans, cheddar, apples, bread, maple desserts, and something warm enough for a snowy night.",
+    culture: "Sugarhouses, farm stands, harvest suppers, and dairy traditions give Vermont its flavor identity.",
+    signatureRecipeIds: ["vermont-maple-baked-beans", "vermont-cheddar-apple-pie", "apple-cider-doughnuts", "maple-creemee", "maple-glazed-pork-chops"],
+    skills: [["Maple Glazing", "#culinary-academy"], ["Bean Baking", "#culinary-academy"], ["Pie Dough", "#culinary-academy"], ["Dairy Pairing", "#culinary-academy"]],
+    traditions: ["Maple is a backbone ingredient, not just a topping.", "Sharp cheddar with apple pie is a real regional pairing.", "Baked beans and brown bread travel through New England supper culture."],
+    features: [["Sugarhouse Supper", "Maple beans, pork chops, cheddar apple pie, and cider."], ["Farm Stand Dessert Table", "Apple pie, cider doughnuts, and maple creemees."]]
+  },
+  "massachusetts-new-england": {
+    state: "Massachusetts / Boston",
+    title: "Boston & Massachusetts Coastal Classics",
+    image: newEnglandCoverImages.massachusetts,
+    intro: "Massachusetts food is Boston baked beans, clam chowder, fried clams, roast beef sandwiches, Boston cream pie, cranberry bogs, seafood counters, and neighborhood bakeries.",
+    history: "Colonial port cooking, coastal fisheries, Irish and Italian neighborhoods, cranberry farming, North Shore counters, and Boston bakeries all shape the plate.",
+    hospitality: "A Massachusetts table can be chowder and fried clams by the water, beans and brown bread at supper, or cream pie at a family party.",
+    culture: "Cape seafood, Boston bakeries, North Shore roast beef shops, diners, and holiday cranberry dishes make the state recognizable.",
+    signatureRecipeIds: ["boston-baked-beans", "boston-cream-pie", "new-england-clam-chowder", "fried-clams", "north-shore-roast-beef-sandwich", "cranberry-relish"],
+    skills: [["Bean Baking", "#culinary-academy"], ["Custard Filling", "#culinary-academy"], ["Seafood Frying", "#culinary-academy"], ["Chowder Texture", "#culinary-academy"]],
+    traditions: ["Boston baked beans should be slow, molasses-rich, and savory-sweet.", "Fried clams are shore food, crisp outside and tender inside.", "Boston cream pie is cake, custard, and chocolate glaze, not a pie."],
+    features: [["Boston Supper", "Baked beans, brown bread, chowder, and Boston cream pie."], ["North Shore Counter Run", "Roast beef sandwich, fried clams, cranberry relish, and coffee milk."]]
+  },
+  "rhode-island-new-england": {
+    state: "Rhode Island",
+    title: "Rhode Island Shore Food",
+    image: newEnglandCoverImages["rhode-island"],
+    intro: "Rhode Island food is quahogs, stuffies, clam cakes, clear chowder, johnnycakes, coffee milk, hot wieners, and compact coastal flavor.",
+    history: "Narragansett Bay seafood, Portuguese and Italian communities, diner culture, mill-town lunches, and shoreline stands all influence Rhode Island food.",
+    hospitality: "The table should feel like a shore stop: stuffies, chowder, clam cakes, johnnycakes, coffee milk, and something salty from the bay.",
+    culture: "Beach stands, clam shacks, neighborhood bakeries, and family parties make Rhode Island food small-state specific.",
+    signatureRecipeIds: ["rhode-island-stuffies", "clam-cakes", "rhode-island-clear-chowder", "rhode-island-johnnycakes", "coffee-milk", "hot-wieners"],
+    skills: [["Shellfish Prep", "#what-yall-cooking"], ["Frying Batter", "#culinary-academy"], ["Cornmeal Batter", "#culinary-academy"], ["Drink Syrup", "#culinary-academy"]],
+    traditions: ["Stuffies use quahog shells as the serving dish.", "Rhode Island chowder is often clear, letting clam broth lead.", "Coffee milk is the state drink and belongs with diner food."],
+    features: [["Shore Shack Plate", "Stuffies, clam cakes, clear chowder, lemon, and coffee milk."], ["Diner Counter", "Hot wieners, johnnycakes, and coffee milk."]]
+  },
+  "connecticut-new-england": {
+    state: "Connecticut",
+    title: "Connecticut Apizza & Shoreline Classics",
+    image: newEnglandCoverImages.connecticut,
+    intro: "Connecticut food is New Haven apizza, white clam pizza, warm buttered lobster rolls, steamed cheeseburgers, apple orchards, and shoreline seafood.",
+    history: "Italian American pizza ovens, shoreline lobster shacks, central Connecticut diners, apple orchards, and immigrant bakeries build the state's food identity.",
+    hospitality: "A Connecticut menu might be charred apizza, a buttered lobster roll, a steamed cheeseburger, cider doughnuts, and a shoreline view.",
+    culture: "New Haven pizza culture, coastal seafood, diner lunches, and fall orchard trips make Connecticut easy to taste.",
+    signatureRecipeIds: ["new-haven-white-clam-pizza", "connecticut-lobster-roll", "steamed-cheeseburgers", "new-haven-apizza", "apple-cider-doughnuts"],
+    skills: [["High-Heat Pizza", "#culinary-academy"], ["Lobster Warming", "#what-yall-cooking"], ["Burger Doneness", "#culinary-academy"], ["Dough Handling", "#culinary-academy"]],
+    traditions: ["New Haven apizza is about char, chew, restraint, and sauce balance.", "Connecticut lobster rolls are usually warm with butter, not mayonnaise-heavy.", "Steamed cheeseburgers are a central Connecticut specialty."],
+    features: [["New Haven Pizza Night", "White clam pizza, tomato apizza, salad, and Italian ice."], ["Shoreline Lunch", "Warm lobster roll, chips, pickles, lemonade, and cider doughnuts."]]
+  }
+};
+
+const newEnglandRegionalAliases = {
+  "new-england": "new-england",
+  maine: "maine-new-england",
+  "new-hampshire": "new-hampshire-new-england",
+  vermont: "vermont-new-england",
+  massachusetts: "massachusetts-new-england",
+  boston: "massachusetts-new-england",
+  "rhode-island": "rhode-island-new-england",
+  connecticut: "connecticut-new-england"
+};
+
 const regionalSoulFoodMenuTemplates = [
   {
     id: "sunday-dinner",
@@ -6098,6 +6319,17 @@ Object.entries(midwestRegionalPages).forEach(([id, page]) => {
     : [fallbackMenu];
 });
 
+Object.entries(newEnglandRegionalPages).forEach(([id, page]) => {
+  const fallbackMenu = {
+    id: `${id}-regional-menu`,
+    title: `${page.state} Regional Table`,
+    recipeIds: page.signatureRecipeIds.slice(0, 8),
+    timeline: ["Two days before: choose recipes, verify seafood timing, and write the shopping list.", "One day before: bake desserts, prep beans, sauces, or doughs, and chill drinks.", "Day of: cook seafood or hot mains last, warm breads, and set the serving table."],
+    notes: "Build the menu from real New England dishes so the table tastes coastal, orchard-grown, maple-rich, or city-specific instead of generic."
+  };
+  page.menus = [fallbackMenu];
+});
+
 function regionalSoulFoodHub() {
   return `
     <section class="regional-soul-section">
@@ -6120,12 +6352,34 @@ function regionalSoulFoodHub() {
   `;
 }
 
-function regionalRecipeCards(ids = []) {
-  return ids.map((id) => recipeByIdSafe(id)).filter(Boolean).map(recipeCard).join("");
+function newEnglandRegionalHub() {
+  return `
+    <section class="regional-soul-section">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">New England by place</p>
+        <h2>Cook from Maine down to Connecticut.</h2>
+        <p>Each stop connects coastal seafood, apples, maple, baked beans, diners, bakeries, and family supper traditions to real recipes.</p>
+      </div>
+      <div class="regional-soul-grid">
+        ${Object.entries(newEnglandRegionalPages).map(([id, page]) => `
+          <a class="regional-soul-card" href="#cuisine-explorer/${id}">
+            <img src="${page.image || newEnglandCoverImages["new-england"]}" alt="${page.title}" />
+            <span>${page.state}</span>
+            <h3>${page.title}</h3>
+            <p>${page.intro}</p>
+          </a>
+        `).join("")}
+      </div>
+    </section>
+  `;
 }
 
-function regionalRecipeList(ids = []) {
-  return ids.map((id) => recipeByIdSafe(id)).filter(Boolean).map((recipe) => `<li><a href="#recipes/${recipe.id}">${recipe.title}</a></li>`).join("");
+function regionalRecipeCards(ids = [], options = {}) {
+  return ids.map((id) => recipeByIdSafe(id, options)).filter(Boolean).map(recipeCard).join("");
+}
+
+function regionalRecipeList(ids = [], options = {}) {
+  return ids.map((id) => recipeByIdSafe(id, options)).filter(Boolean).map((recipe) => `<li><a href="#recipes/${recipe.id}">${recipe.title}</a></li>`).join("");
 }
 
 function renderMidwestRegionalPage(id) {
@@ -6181,6 +6435,64 @@ function renderMidwestRegionalPage(id) {
       </div>
       ${midwestRegionalHub()}
       ${progressionNav("#cuisine-explorer/midwest", "Midwest Hub", "#what-yall-cooking", "Build A Menu", ["#recipes", "#kids-korner"])}
+    </section>
+  `;
+}
+
+function renderNewEnglandRegionalPage(id) {
+  const page = newEnglandRegionalPages[id] || newEnglandRegionalPages["maine-new-england"];
+  const firstMenu = page.menus[0];
+  const queuedPhotoOptions = { allowQueued: true };
+  app.innerHTML = `
+    ${hero(page.title, page.intro, page.image || newEnglandCoverImages["new-england"], `<a class="small-button" href="#cuisine-explorer/new-england">New England Hub</a><a class="small-button secondary" href="#what-yall-cooking">Build A Menu</a>`)}
+    ${cookSubnav()}
+    <section class="cream-section regional-soul-detail">
+      <div class="section-heading">
+        <p class="eyebrow">${page.state} table</p>
+        <h2>Food identity, local history, shore food, orchards, bakeries, diners, family suppers, and recipes that belong to this place.</h2>
+      </div>
+      <div class="regional-identity-grid">
+        <article><h3>Food Identity</h3><p>${page.intro}</p></article>
+        <article><h3>Regional History</h3><p>${page.history}</p></article>
+        <article><h3>Family + Community Tables</h3><p>${page.hospitality}</p></article>
+        <article><h3>Local Culture</h3><p>${page.culture}</p></article>
+      </div>
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Signature dishes</p>
+        <h2>Real ${page.state} recipes, not generic New England filler.</h2>
+      </div>
+      <div class="recipe-grid">${regionalRecipeCards(page.signatureRecipeIds, queuedPhotoOptions)}</div>
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Gatherings + menus</p>
+        <h2>Build a table that tastes like the place.</h2>
+      </div>
+      <div class="regional-menu-panel" data-regional-menu-section>
+        <div class="regional-menu-tabs">
+          ${page.menus.map((menu, index) => `<button class="small-button ${index ? "secondary" : ""}" type="button" data-regional-menu="${menu.id}" data-region-id="${id}">${menu.title}</button>`).join("")}
+        </div>
+        <div data-regional-output>${regionalMenuOutput(page, firstMenu, queuedPhotoOptions)}</div>
+      </div>
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Skills + lessons</p>
+        <h2>Practice the techniques behind the food.</h2>
+      </div>
+      <div class="regional-skill-grid">
+        ${page.skills.map(([title, href]) => `<a href="${href}"><span>${title}</span><small>Open lesson</small></a>`).join("")}
+      </div>
+      <div class="regional-story-grid">
+        <article>
+          <p class="eyebrow">Traditions + heritage</p>
+          <h3>Why these dishes matter</h3>
+          <ul>${page.traditions.map((item) => `<li>${item}</li>`).join("")}</ul>
+        </article>
+        <article>
+          <p class="eyebrow">Place markers</p>
+          <h3>What makes this table recognizable</h3>
+          ${page.features.map(([title, text]) => `<div class="feature-note"><strong>${title}</strong><span>${text}</span></div>`).join("")}
+        </article>
+      </div>
+      ${newEnglandRegionalHub()}
+      ${progressionNav("#cuisine-explorer/new-england", "New England Hub", "#what-yall-cooking", "Build A Menu", ["#recipes", "#kids-korner"])}
     </section>
   `;
 }
@@ -6264,8 +6576,8 @@ function renderAfricaCountryPage(id) {
   `;
 }
 
-function regionalShoppingList(ids = []) {
-  const items = ids.map((id) => recipeByIdSafe(id)).filter(Boolean).flatMap((recipe) => recipe.structured_ingredients || recipe.ingredients_structured || recipe.ingredients || []);
+function regionalShoppingList(ids = [], options = {}) {
+  const items = ids.map((id) => recipeByIdSafe(id, options)).filter(Boolean).flatMap((recipe) => recipe.structured_ingredients || recipe.ingredients_structured || recipe.ingredients || []);
   const names = items.map((item) => {
     if (typeof item === "string") return item.replace(/^\d+(\s+\d+\/\d+|\/\d+)?\s*(cups?|tbsp|tsp|lb|lbs|oz|cloves?|large|small|medium|cans?|bunches?)?\s*/i, "").trim();
     return item.name || item.ingredient || item.original || "";
@@ -6408,9 +6720,9 @@ function renderLivingCookbook(id) {
   `;
 }
 
-function regionalMenuOutput(page, menu) {
-  const recipesForThisMenu = menu.recipeIds.map((id) => recipeByIdSafe(id)).filter(Boolean);
-  const list = regionalShoppingList(menu.recipeIds);
+function regionalMenuOutput(page, menu, options = {}) {
+  const recipesForThisMenu = menu.recipeIds.map((id) => recipeByIdSafe(id, options)).filter(Boolean);
+  const list = regionalShoppingList(menu.recipeIds, options);
   return `
     <div class="regional-menu-output">
       <div>
@@ -7467,6 +7779,16 @@ function renderCuisineExplorer(id) {
     return;
   }
   if (midwestId && midwestRegionalPages[midwestId]) return renderMidwestRegionalPage(midwestId);
+  const newEnglandId = id ? newEnglandRegionalAliases[id] || id : "";
+  if (newEnglandId === "new-england") {
+    app.innerHTML = `
+      ${hero("New England Regional Food", "Cook from Maine down through Connecticut with lobster rolls, chowders, maple, apples, baked beans, coastal seafood, diners, bakeries, and cold-weather family suppers.", newEnglandCoverImages["new-england"], `<a class="small-button" href="#cuisine-explorer">All Cuisines</a><a class="small-button secondary" href="#what-yall-cooking">Build A New England Menu</a>`)}
+      ${cookSubnav()}
+      ${newEnglandRegionalHub()}
+    `;
+    return;
+  }
+  if (newEnglandId && newEnglandRegionalPages[newEnglandId]) return renderNewEnglandRegionalPage(newEnglandId);
   if (id === "african-cuisines") return africaCuisineHub();
   if (id && africaCountryPages[id]) return renderAfricaCountryPage(id);
   if (id) return renderCuisineExplorerDetail(id);
@@ -9483,10 +9805,14 @@ function handleClick(event) {
   if (regionalMenuButton) {
     const section = regionalMenuButton.closest("[data-regional-menu-section]");
     const output = section?.querySelector("[data-regional-output]");
-    const page = regionalSoulFoodPages[regionalMenuButton.dataset.regionId] || midwestRegionalPages[regionalMenuButton.dataset.regionId] || regionalSoulFoodPages["mississippi-soul-food"];
+    const isNewEnglandRegion = Boolean(newEnglandRegionalPages[regionalMenuButton.dataset.regionId]);
+    const page = regionalSoulFoodPages[regionalMenuButton.dataset.regionId]
+      || midwestRegionalPages[regionalMenuButton.dataset.regionId]
+      || newEnglandRegionalPages[regionalMenuButton.dataset.regionId]
+      || regionalSoulFoodPages["mississippi-soul-food"];
     const menu = page.menus.find((item) => item.id === regionalMenuButton.dataset.regionalMenu) || page.menus[0];
     section?.querySelectorAll("[data-regional-menu]").forEach((button) => button.classList.toggle("secondary", button !== regionalMenuButton));
-    if (output) output.innerHTML = regionalMenuOutput(page, menu);
+    if (output) output.innerHTML = regionalMenuOutput(page, menu, { allowQueued: isNewEnglandRegion });
     return;
   }
   if (juneteenthMenuButton) {
