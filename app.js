@@ -252,12 +252,12 @@ const midwestCoverImages = {
 };
 
 const newEnglandCoverImages = {
-  "new-england": "images/recipes/new-england-2026/new-england-clam-chowder.jpg",
-  maine: "images/recipes/new-england-2026/maine-lobster-roll.jpg",
+  "new-england": "images/recipes/new-england-2026/vermont-cheddar-apple-pie.jpg",
+  maine: "images/recipes/new-england-2026/maine-blueberry-pie.jpg",
   "new-hampshire": "images/recipes/new-england-2026/apple-cider-doughnuts.jpg",
-  vermont: "images/recipes/new-england-2026/maple-creemee.jpg",
+  vermont: "images/recipes/new-england-2026/maple-glazed-pork-chops.jpg",
   massachusetts: "images/recipes/new-england-2026/boston-cream-pie.jpg",
-  "rhode-island": "images/recipes/new-england-2026/rhode-island-stuffies.jpg",
+  "rhode-island": "images/recipes/new-england-2026/coffee-milk.jpg",
   connecticut: "images/recipes/new-england-2026/new-haven-apizza.jpg"
 };
 
