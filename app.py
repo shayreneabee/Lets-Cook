@@ -47,6 +47,14 @@ FACEBOOK_CLIENT_ID = os.getenv("FACEBOOK_CLIENT_ID", "")
 FACEBOOK_CLIENT_SECRET = os.getenv("FACEBOOK_CLIENT_SECRET", "")
 SSO_SHARED_SECRET = os.getenv("SSO_SHARED_SECRET", "dev-sso-change-me")
 BRENT_SSO_URL = os.getenv("BRENT_SSO_URL", "https://www.brentandco.org/sso/start")
+SSO_TOKEN_TTL_SECONDS = int(os.getenv("SSO_TOKEN_TTL_SECONDS", "900"))
+SSO_CLOCK_SKEW_SECONDS = int(os.getenv("SSO_CLOCK_SKEW_SECONDS", "120"))
+SSO_ACCEPTED_ISSUERS = {
+    issuer.strip()
+    for issuer in os.getenv("SSO_ACCEPTED_ISSUERS", "brent-co-identity,brent-co-sso").split(",")
+    if issuer.strip()
+}
+SSO_AUDIENCE = os.getenv("SSO_AUDIENCE", "lets-cook").strip()
 DEBUG_SSO = os.getenv("DEBUG_SSO", "").strip().lower() in {"1", "true", "yes", "on"}
 LETS_COOK_URL = os.getenv("LETS_COOK_URL", "https://letscookyall.com/")
 FOUNDER_PROFILES = [
@@ -508,11 +516,33 @@ def verify_sso_token(token):
             hashlib.sha256,
         ).digest()
         if not hmac.compare_digest(sso_b64decode(signature), expected):
+            app.logger.info("Let's Cook SSO rejected token: signature_mismatch")
             return None
         payload = json.loads(sso_b64decode(body).decode("utf-8"))
     except (ValueError, json.JSONDecodeError, TypeError, binascii.Error):
+        app.logger.info("Let's Cook SSO rejected token: malformed_token")
         return None
-    if payload.get("aud") != "lets-cook" or int(payload.get("exp", 0)) < int(time.time()):
+    now = int(time.time())
+    issuer = payload.get("iss", "")
+    issued_at = int(payload.get("iat", 0) or 0)
+    expires_at = int(payload.get("exp", 0) or 0)
+    if payload.get("aud") != SSO_AUDIENCE:
+        app.logger.info("Let's Cook SSO rejected token: invalid_audience")
+        return None
+    if SSO_ACCEPTED_ISSUERS and issuer not in SSO_ACCEPTED_ISSUERS:
+        app.logger.info("Let's Cook SSO rejected token: invalid_issuer")
+        return None
+    if issued_at and issued_at > now + SSO_CLOCK_SKEW_SECONDS:
+        app.logger.info("Let's Cook SSO rejected token: issued_in_future")
+        return None
+    if expires_at and expires_at < now - SSO_CLOCK_SKEW_SECONDS:
+        app.logger.info("Let's Cook SSO rejected token: token_expired")
+        return None
+    if issued_at and now - issued_at > SSO_TOKEN_TTL_SECONDS + SSO_CLOCK_SKEW_SECONDS:
+        app.logger.info("Let's Cook SSO rejected token: token_too_old")
+        return None
+    if not expires_at and not issued_at:
+        app.logger.info("Let's Cook SSO rejected token: missing_time_claims")
         return None
     return payload
 

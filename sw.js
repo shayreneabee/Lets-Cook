@@ -1,4 +1,4 @@
-const CACHE_NAME = "lets-cook-image-integrity-v24";
+const CACHE_NAME = "lets-cook-account-sso-v25";
 
 const OFFLINE_ASSETS = [
   "./",

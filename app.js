@@ -7048,6 +7048,7 @@ function cookSubnav() {
       <a href="#kids-korner">Kids Korner</a>
       <a href="#what-yall-cooking">What Y'all Cooking?</a>
       <a href="#culinary-academy">Academy</a>
+      <a href="#account">My Profile</a>
     </section>
   `;
 }
