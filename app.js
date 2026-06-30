@@ -269,6 +269,26 @@ const southwestCoverImages = {
   oklahoma: "images/recipes/southwest-2026/oklahoma-onion-burgers.jpg"
 };
 
+const midAtlanticCoverImages = {
+  "mid-atlantic": "images/recipes/mid-atlantic-2026/new-york-pizza.jpg",
+  "new-york": "images/recipes/mid-atlantic-2026/pastrami-on-rye.jpg",
+  "new-jersey": "images/recipes/mid-atlantic-2026/boardwalk-sausage-peppers.jpg",
+  pennsylvania: "images/recipes/mid-atlantic-2026/philly-cheesesteak.jpg",
+  maryland: "images/recipes/mid-atlantic-2026/maryland-crab-cakes.jpg",
+  delaware: "images/recipes/mid-atlantic-2026/boardwalk-fries.jpg",
+  dc: "images/recipes/mid-atlantic-2026/dc-half-smoke.jpg"
+};
+
+const america250Images = {
+  hero: "images/juneteenth/bbq-chicken-quarters.png",
+  badge: "images/juneteenth/watermelon-platter.png",
+  ribs: "images/regional/texas-beef-ribs.png",
+  brisket: "images/juneteenth/smoked-sliced-brisket.png",
+  beans: "images/juneteenth/bbq-baked-beans.png",
+  lemonade: "images/juneteenth/fresh-lemonade.png",
+  cobbler: "images/juneteenth/peach-cobbler.png"
+};
+
 const categoryCoverImages = {
   "Kid-Friendly Cooking": "assets/kid-friendly.jpeg",
   "Party Cups": "assets/lc-desserts.jpg",
@@ -451,6 +471,13 @@ const cuisines = [
   { id: "new-mexico", name: "New Mexico", image: southwestCoverImages["new-mexico"], blurb: "Green chile, red chile, blue corn, posole, carne adovada, sopapillas, biscochitos, and chile harvest traditions." },
   { id: "texas-southwest", name: "Texas Southwest", image: southwestCoverImages.texas, blurb: "Brisket, beef ribs, chili, kolaches, chicken fried steak, breakfast tacos, barbacoa, Frito pie, and pecan pie." },
   { id: "oklahoma", name: "Oklahoma", image: southwestCoverImages.oklahoma, blurb: "Onion burgers, chicken fried steak, Indian tacos, fried okra, pinto beans, fried pies, peach cobbler, and plains-road cooking." },
+  { id: "mid-atlantic", name: "Mid-Atlantic Regional", image: midAtlanticCoverImages["mid-atlantic"], blurb: "City delis, pizzerias, boardwalk food, crab houses, Pennsylvania Dutch tables, immigrant kitchens, and D.C. carryout culture." },
+  { id: "new-york", name: "New York", image: midAtlanticCoverImages["new-york"], blurb: "Pizza, bagels, pastrami on rye, chopped cheese, Buffalo wings, cheesecake, and black and white cookies." },
+  { id: "new-jersey", name: "New Jersey", image: midAtlanticCoverImages["new-jersey"], blurb: "Pork roll, tomato pie, Italian hot dogs, disco fries, salt water taffy, and boardwalk sausage and peppers." },
+  { id: "pennsylvania", name: "Pennsylvania", image: midAtlanticCoverImages.pennsylvania, blurb: "Philly cheesesteaks, soft pretzels, shoofly pie, scrapple, PA Dutch pot pie, whoopie pies, and pierogies." },
+  { id: "maryland", name: "Maryland", image: midAtlanticCoverImages.maryland, blurb: "Crab cakes, cream of crab soup, Maryland crab soup, steamed blue crabs, Smith Island cake, crab dip, and Old Bay fries." },
+  { id: "delaware", name: "Delaware", image: midAtlanticCoverImages.delaware, blurb: "Scrapple, peach pie, blue crab bisque, boardwalk fries, slippery dumplings, succotash, and coastal comfort." },
+  { id: "washington-dc", name: "Washington, D.C.", image: midAtlanticCoverImages.dc, blurb: "Half-smokes, mumbo sauce, chili dogs, Ethiopian food, Salvadoran pupusas, jumbo slices, and carryout culture." },
   { id: "nigerian", name: "Nigerian", image: cuisineCoverImages.nigerian, blurb: "Jollof rice, egusi, suya, moi moi, pepper soup, and layered tomato-pepper stew bases." },
   { id: "ghanaian", name: "Ghanaian", image: cuisineCoverImages.ghanaian, blurb: "Waakye, red red, kelewele, groundnut soup, jollof, shito, and generous rice-and-bean plates." },
   { id: "ethiopian", name: "Ethiopian", image: cuisineCoverImages.ethiopian, blurb: "Injera, berbere, lentil stews, shiro, tibs, doro wat, and shared platter hospitality." },
@@ -798,6 +825,13 @@ const cuisineExplorerGroups = [
     image: southwestCoverImages.southwest,
     note: "Cook through Arizona, New Mexico, Texas, and Oklahoma with chile, smoke, masa, beans, fry bread, cattle-country comfort, desert produce, and borderland food histories.",
     regions: ["Arizona", "New Mexico", "Texas Southwest", "Oklahoma"]
+  },
+  {
+    id: "mid-atlantic",
+    title: "Mid-Atlantic / New York & Neighbors",
+    image: midAtlanticCoverImages["mid-atlantic"],
+    note: "Cook through New York, New Jersey, Pennsylvania, Maryland, Delaware, and Washington, D.C. with city food, boardwalk food, immigrant traditions, seafood, delis, and street food.",
+    regions: ["New York", "New Jersey", "Pennsylvania", "Maryland", "Delaware", "Washington D.C."]
   },
   {
     id: "cajun-creole",
@@ -3508,8 +3542,91 @@ const southwestExpansionRecipes = [
   southwestRecipe("mini-quesadillas", "Mini Quesadillas", "southwest-kids", "Easy Bites", "Small cheese quesadillas cut into triangles for dipping in mild salsa or guacamole.", ["4 small tortillas", "1 cup shredded cheese", "1 tsp butter", "Mild salsa", "Guacamole optional"], ["Sprinkle cheese on tortillas.", "Fold in half.", "Ask a grown-up to cook them in a skillet.", "Cool for 2 minutes.", "Cut into triangles and dip."], ["kids", "quesadillas", "cheese"], { prep: "5 min", cook: "8 min", servings: 4, level: "Kid Friendly", kidsKorner: true, ageTrack: "6-8 Kitchen Explorers", path: "kid-chefs", helperNote: "Kids assemble. A grown-up handles the hot skillet and knife.", image: "images/recipes/audit-2026-06/cheese-quesadilla-triangles.jpg" })
 ];
 
+function midAtlanticRecipe(id, title, cuisine, category, description, ingredients, steps, tags = [], extras = {}) {
+  return expansionRecipe(
+    id,
+    title,
+    category,
+    extras.image || `images/recipes/mid-atlantic-2026/${id}.jpg`,
+    extras.prep || "20 min",
+    extras.cook || "35 min",
+    extras.servings || 4,
+    extras.level || "Intermediate",
+    description,
+    ingredients,
+    steps,
+    [...tags, "mid-atlantic", cuisine],
+    {
+      cuisine,
+      path: extras.path || "amateur-cooks",
+      kidsKorner: extras.kidsKorner,
+      ageTrack: extras.ageTrack,
+      helperNote: extras.helperNote,
+      storage: extras.storage || "Refrigerate leftovers in a covered container for up to 3 days.",
+      reheating: extras.reheating || "Reheat gently until hot throughout."
+    }
+  );
+}
+
+const midAtlanticExpansionRecipes = [
+  midAtlanticRecipe("new-york-pizza", "New York-Style Pizza", "new-york", "New York Pizza", "A foldable thin-crust slice with tomato sauce, mozzarella, crisp edge, and city pizzeria energy.", ["1 pizza dough", "3/4 cup tomato sauce", "2 cups low-moisture mozzarella", "1 tbsp olive oil", "Dried oregano", "Grated Parmesan"], ["Heat oven and stone as hot as possible.", "Stretch dough thin with a raised rim.", "Spread sauce lightly and add mozzarella.", "Bake until spotted, crisp, and bubbling.", "Finish with oregano and Parmesan."], ["pizza", "new york", "slice"], { cook: "12 min", servings: 3, level: "Advanced" }),
+  midAtlanticRecipe("bagels-cream-cheese", "New York Bagels with Cream Cheese", "new-york", "Deli Breakfast", "Chewy boiled bagels served toasted with cream cheese and classic deli toppings.", ["4 bagels", "8 oz cream cheese", "Tomato slices", "Red onion", "Capers", "Everything seasoning"], ["Split and toast bagels.", "Soften cream cheese.", "Spread generously on each half.", "Add tomato, onion, capers, or seasoning.", "Serve right away."], ["bagels", "deli", "breakfast"], { prep: "10 min", cook: "5 min", servings: 4, level: "Beginner" }),
+  midAtlanticRecipe("pastrami-on-rye", "Pastrami on Rye", "new-york", "Deli Classics", "Hot pastrami stacked on rye bread with mustard for a New York deli sandwich.", ["1 lb sliced pastrami", "8 slices rye bread", "Brown mustard", "Pickles", "Optional Swiss cheese"], ["Warm pastrami gently with steam or a skillet splash of water.", "Spread mustard on rye.", "Pile pastrami high.", "Add cheese if using.", "Serve with pickles."], ["pastrami", "deli", "sandwich"], { prep: "10 min", cook: "8 min", servings: 4 }),
+  midAtlanticRecipe("chopped-cheese", "Chopped Cheese", "new-york", "Bodega Sandwiches", "A griddled chopped beef and cheese sandwich with lettuce, tomato, onions, and sauce on a hero roll.", ["1 lb ground beef", "1 onion diced", "4 slices American cheese", "4 hero rolls", "Lettuce", "Tomato", "Mayo", "Ketchup"], ["Cook beef and onions on a griddle.", "Chop together as the beef browns.", "Lay cheese over the meat and melt.", "Toast rolls.", "Build sandwiches with lettuce, tomato, mayo, and ketchup."], ["bodega", "sandwich", "beef"], { cook: "15 min", servings: 4 }),
+  midAtlanticRecipe("buffalo-wings", "Buffalo Wings", "new-york", "Buffalo Classics", "Crisp wings tossed in buttery hot sauce and served with celery and blue cheese.", ["3 lb chicken wings", "1 tsp salt", "Oil for frying or baking", "1/2 cup hot sauce", "4 tbsp butter", "Celery", "Blue cheese dressing"], ["Cook wings until crisp and 165 F.", "Melt butter with hot sauce.", "Toss hot wings in sauce.", "Serve with celery.", "Add blue cheese dressing on the side."], ["buffalo", "wings", "game day"], { prep: "15 min", cook: "45 min", servings: 6 }),
+  midAtlanticRecipe("new-york-cheesecake", "New York Cheesecake", "new-york", "New York Desserts", "Dense, creamy cheesecake with a graham crust and clean slice.", ["1 graham cracker crust", "32 oz cream cheese", "1 cup sugar", "4 eggs", "1 cup sour cream", "1 tsp vanilla", "Lemon zest optional"], ["Beat cream cheese and sugar smooth.", "Add eggs one at a time.", "Blend in sour cream and vanilla.", "Bake gently until edges set.", "Cool slowly and chill overnight."], ["cheesecake", "dessert", "new york"], { prep: "30 min", cook: "1 hr", servings: 12, level: "Advanced" }),
+  midAtlanticRecipe("black-white-cookies", "Black and White Cookies", "new-york", "Bakery Cookies", "Soft cake-like cookies iced half vanilla and half chocolate.", ["12 soft vanilla cookies", "1 cup powdered sugar", "2 tbsp milk", "1 tbsp corn syrup", "2 tbsp cocoa powder", "Vanilla"], ["Make a thick vanilla icing.", "Ice half of each cookie white.", "Stir cocoa into remaining icing.", "Ice the other half chocolate.", "Let set before serving."], ["cookies", "bakery", "new york"], { prep: "25 min", cook: "12 min", servings: 12 }),
+
+  midAtlanticRecipe("pork-roll-egg-cheese", "Pork Roll, Egg, and Cheese", "new-jersey", "Jersey Breakfast", "A New Jersey breakfast sandwich with griddled pork roll, egg, and melted cheese on a roll.", ["8 slices pork roll or Taylor ham", "4 eggs", "4 slices American cheese", "4 kaiser rolls", "Butter", "Salt and pepper"], ["Score pork roll edges and griddle until browned.", "Cook eggs to preference.", "Toast rolls with butter.", "Layer pork roll, egg, and cheese.", "Wrap briefly so the cheese melts."], ["pork roll", "breakfast", "new jersey"], { cook: "15 min", servings: 4 }),
+  midAtlanticRecipe("new-jersey-tomato-pie", "New Jersey Tomato Pie", "new-jersey", "Jersey Pizza", "A thin-crust tomato pie with cheese under bright tomato sauce.", ["1 pizza dough", "2 cups crushed tomatoes", "2 cups mozzarella", "2 garlic cloves", "1 tsp oregano", "Olive oil", "Parmesan"], ["Heat oven and stone to 500 F.", "Stretch dough thin.", "Add mozzarella first.", "Spoon seasoned tomato sauce over top.", "Bake until crisp and bubbling."], ["tomato pie", "pizza", "new jersey"], { cook: "12 min", servings: 3 }),
+  midAtlanticRecipe("italian-hot-dogs", "New Jersey Italian Hot Dogs", "new-jersey", "Jersey Street Food", "Hot dogs tucked into pizza bread with fried potatoes, peppers, and onions.", ["8 hot dogs", "4 pizza bread wedges or rolls", "3 potatoes sliced", "2 bell peppers", "1 onion", "Oil", "Mustard optional"], ["Fry potatoes until tender and browned.", "Cook peppers and onions.", "Griddle hot dogs.", "Warm bread.", "Stuff bread with hot dogs, potatoes, peppers, and onions."], ["hot dogs", "potatoes", "new jersey"], { prep: "20 min", cook: "25 min", servings: 4 }),
+  midAtlanticRecipe("disco-fries", "Disco Fries", "new-jersey", "Diner Food", "Crisp fries covered with brown gravy and melted cheese for a New Jersey diner plate.", ["1 1/2 lb fries", "1 1/2 cups brown gravy", "1 1/2 cups mozzarella or cheese curds", "Black pepper"], ["Cook fries until crisp.", "Warm gravy.", "Scatter cheese over hot fries.", "Pour gravy over top.", "Serve immediately."], ["fries", "gravy", "diner"], { prep: "10 min", cook: "25 min", servings: 4 }),
+  midAtlanticRecipe("salt-water-taffy", "Salt Water Taffy", "new-jersey", "Boardwalk Sweets", "A boardwalk-inspired chewy candy with vanilla flavor and a little sea-salt snap.", ["2 cups sugar", "1 cup corn syrup", "1 tbsp butter", "1 cup water", "1 tsp vanilla", "1/2 tsp salt", "Food coloring optional"], ["Boil sugar, syrup, butter, water, and salt to firm-ball stage.", "Cool until safe to handle.", "Pull until glossy.", "Cut into pieces.", "Wrap individually."], ["taffy", "boardwalk", "candy"], { prep: "45 min", cook: "20 min", servings: 24, level: "Advanced" }),
+  midAtlanticRecipe("boardwalk-sausage-peppers", "Boardwalk Sausage and Peppers", "new-jersey", "Boardwalk Food", "Griddled Italian sausage with peppers and onions on a roll.", ["4 Italian sausages", "2 bell peppers sliced", "1 onion sliced", "4 rolls", "1 tbsp oil", "Marinara optional"], ["Brown sausages and cook through.", "Cook peppers and onions until soft and browned.", "Warm rolls.", "Nestle sausage into rolls.", "Top with peppers, onions, and marinara if desired."], ["sausage", "peppers", "boardwalk"], { cook: "25 min", servings: 4 }),
+
+  midAtlanticRecipe("philly-cheesesteak", "Philly Cheesesteak", "pennsylvania", "Philadelphia Classics", "Thin sliced beef on a roll with onions and melted cheese.", ["1 1/2 lb thin sliced ribeye", "1 onion sliced", "4 hoagie rolls", "8 slices provolone or American cheese", "Salt and pepper", "Oil"], ["Cook onions until browned.", "Sear beef quickly on a hot griddle.", "Chop lightly and season.", "Melt cheese over beef.", "Load into warm rolls."], ["cheesesteak", "philadelphia", "sandwich"], { prep: "15 min", cook: "15 min", servings: 4 }),
+  midAtlanticRecipe("soft-pretzels", "Philadelphia Soft Pretzels", "pennsylvania", "Pennsylvania Breads", "Chewy soft pretzels with salt and a glossy crust.", ["3 cups flour", "1 packet yeast", "1 tbsp sugar", "1 tsp salt", "1 cup warm water", "1/4 cup baking soda", "Pretzel salt"], ["Make yeast dough and let rise.", "Divide and twist into pretzels.", "Dip in baking soda water.", "Sprinkle with salt.", "Bake at 425 F until deep golden."], ["pretzels", "philadelphia", "bread"], { prep: "45 min", cook: "15 min", servings: 8, level: "Advanced" }),
+  midAtlanticRecipe("shoofly-pie", "Shoofly Pie", "pennsylvania", "PA Dutch Desserts", "A molasses crumb pie tied to Pennsylvania Dutch baking.", ["1 pie crust", "1 cup molasses", "3/4 cup hot water", "1 tsp baking soda", "1 1/2 cups flour", "1/2 cup brown sugar", "4 tbsp butter"], ["Place crust in a pie plate.", "Mix molasses, hot water, and baking soda.", "Rub flour, brown sugar, and butter into crumbs.", "Pour molasses mixture into crust and top with crumbs.", "Bake until set."], ["shoofly pie", "molasses", "pa dutch"], { prep: "20 min", cook: "45 min", servings: 8 }),
+  midAtlanticRecipe("scrapple", "Scrapple", "pennsylvania", "Breakfast", "Cornmeal-and-pork loaf sliced and fried crisp for a Mid-Atlantic breakfast plate.", ["1 loaf scrapple", "1 tbsp oil", "Eggs optional", "Toast optional", "Apple butter optional"], ["Slice scrapple about 1/4 inch thick.", "Heat oil in a skillet.", "Cook slices until crisp and browned.", "Drain briefly.", "Serve with eggs or toast."], ["scrapple", "breakfast", "pennsylvania"], { prep: "5 min", cook: "15 min", servings: 4 }),
+  midAtlanticRecipe("pa-dutch-chicken-pot-pie", "PA Dutch Chicken Pot Pie", "pennsylvania", "PA Dutch Comfort", "A Pennsylvania Dutch chicken pot pie with square noodles, potatoes, and rich broth instead of a pastry crust.", ["1 cooked chicken shredded", "8 cups chicken broth", "3 potatoes diced", "2 carrots sliced", "2 cups flour", "1 egg", "1/2 cup milk", "Parsley"], ["Simmer potatoes and carrots in broth.", "Mix flour, egg, milk, and salt into noodle dough.", "Roll and cut into squares.", "Drop noodles into simmering broth.", "Add chicken and cook until thick and tender."], ["pot pie", "pa dutch", "chicken"], { prep: "35 min", cook: "45 min", servings: 8 }),
+
+  midAtlanticRecipe("maryland-crab-cakes", "Maryland Crab Cakes", "maryland", "Maryland Seafood", "Crab-forward cakes with just enough binder, pan-seared until golden.", ["1 lb lump crab", "1 egg", "1/3 cup mayonnaise", "1 tsp Dijon", "1 tsp seafood seasoning", "1/2 cup cracker crumbs", "Lemon"], ["Pick over crab gently.", "Mix egg, mayo, Dijon, seasoning, and crumbs.", "Fold in crab without breaking it up.", "Shape and chill cakes.", "Pan-sear until golden and hot."], ["crab cakes", "maryland", "seafood"], { prep: "25 min", cook: "12 min", servings: 4 }),
+  midAtlanticRecipe("cream-of-crab-soup", "Cream of Crab Soup", "maryland", "Maryland Seafood", "Creamy crab soup with sweet crab, seafood seasoning, and sherry-style richness.", ["1 lb crab meat", "4 cups milk", "1 cup cream", "3 tbsp butter", "3 tbsp flour", "1 tsp seafood seasoning", "Sherry optional"], ["Make a light roux with butter and flour.", "Whisk in milk and cream.", "Season and simmer until lightly thickened.", "Fold in crab gently.", "Finish with sherry if using."], ["crab soup", "cream", "maryland"], { prep: "15 min", cook: "25 min", servings: 6 }),
+  midAtlanticRecipe("maryland-crab-soup", "Maryland Crab Soup", "maryland", "Maryland Seafood", "Tomato-based vegetable crab soup with blue crab flavor and seafood seasoning.", ["1 lb crab meat", "6 cups stock", "1 can crushed tomatoes", "2 cups mixed vegetables", "1 potato diced", "1 tbsp seafood seasoning", "Bay leaf"], ["Simmer stock, tomatoes, potato, vegetables, seasoning, and bay leaf.", "Cook until potatoes are tender.", "Add crab near the end.", "Simmer gently.", "Serve hot with crackers."], ["crab soup", "tomato", "maryland"], { prep: "20 min", cook: "35 min", servings: 8 }),
+  midAtlanticRecipe("steamed-blue-crabs", "Steamed Blue Crabs", "maryland", "Crab House", "Blue crabs steamed with seafood seasoning and served crab-house style.", ["2 dozen live or cooked blue crabs", "1/2 cup seafood seasoning", "1 cup vinegar or beer", "Water", "Melted butter optional"], ["Set up a large steamer pot.", "Layer crabs with seafood seasoning.", "Steam until shells are bright and crabs are cooked.", "Rest briefly.", "Serve on paper with mallets and plenty of napkins."], ["blue crabs", "steamed", "maryland"], { prep: "20 min", cook: "25 min", servings: 6 }),
+  midAtlanticRecipe("smith-island-cake", "Smith Island Cake", "maryland", "Maryland Desserts", "A many-layer cake with thin yellow cake layers and chocolate frosting.", ["8 thin cake layers", "3 cups chocolate frosting", "1 tsp vanilla", "Butter for pans"], ["Bake thin cake layers.", "Cool completely.", "Spread frosting between every layer.", "Coat the outside with frosting.", "Chill briefly before slicing."], ["smith island cake", "layer cake", "maryland"], { prep: "1 hr", cook: "30 min", servings: 12, level: "Advanced" }),
+  midAtlanticRecipe("crab-dip", "Maryland Crab Dip", "maryland", "Maryland Appetizers", "Warm crab dip with cream cheese, cheddar, seafood seasoning, and crackers.", ["1 lb crab meat", "8 oz cream cheese", "1/2 cup sour cream", "1 cup cheddar", "1 tsp seafood seasoning", "Lemon", "Crackers"], ["Mix cream cheese, sour cream, cheddar, seasoning, and lemon.", "Fold in crab gently.", "Spread in a baking dish.", "Bake until bubbling.", "Serve warm with crackers."], ["crab dip", "party", "maryland"], { prep: "15 min", cook: "25 min", servings: 8 }),
+  midAtlanticRecipe("old-bay-fries", "Old Bay Fries", "maryland", "Maryland Sides", "Hot fries dusted with seafood seasoning and served with a creamy dip.", ["1 1/2 lb fries", "1 tbsp seafood seasoning", "1 tbsp parsley", "Lemon wedges", "Ranch or aioli"], ["Cook fries until crisp.", "Toss immediately with seasoning.", "Add parsley.", "Serve with lemon.", "Offer dip on the side."], ["fries", "old bay", "maryland"], { prep: "5 min", cook: "25 min", servings: 4 }),
+
+  midAtlanticRecipe("delaware-peach-pie", "Delaware Peach Pie", "delaware", "Delaware Desserts", "A juicy peach pie honoring Delaware's orchard and summer dessert traditions.", ["2 pie crusts", "6 cups sliced peaches", "3/4 cup sugar", "3 tbsp cornstarch", "1 tbsp lemon juice", "1 tsp cinnamon", "1 egg"], ["Heat oven to 400 F.", "Toss peaches with sugar, cornstarch, lemon, and cinnamon.", "Fill crust and top with second crust.", "Crimp and vent.", "Bake until golden and bubbling."], ["peach pie", "delaware", "dessert"], { prep: "30 min", cook: "50 min", servings: 8 }),
+  midAtlanticRecipe("blue-crab-bisque", "Blue Crab Bisque", "delaware", "Delaware Seafood", "Silky blue crab bisque with cream, stock, crab meat, and gentle seafood seasoning.", ["1 lb crab meat", "4 cups seafood stock", "1 cup cream", "2 tbsp butter", "2 tbsp flour", "1 shallot", "1 tsp seafood seasoning"], ["Cook shallot in butter.", "Stir in flour.", "Whisk in stock and simmer.", "Add cream and seasoning.", "Fold in crab and heat gently."], ["blue crab", "bisque", "delaware"], { prep: "15 min", cook: "30 min", servings: 6 }),
+  midAtlanticRecipe("boardwalk-fries", "Boardwalk Fries", "delaware", "Boardwalk Food", "Crisp boardwalk-style fries served hot with vinegar, salt, and ketchup if desired.", ["2 lb potatoes cut into fries", "Oil for frying", "Salt", "Malt vinegar", "Ketchup optional"], ["Soak cut potatoes and dry well.", "Fry once until tender.", "Rest briefly.", "Fry again until crisp.", "Salt and serve with vinegar."], ["fries", "boardwalk", "delaware"], { prep: "25 min", cook: "20 min", servings: 6 }),
+  midAtlanticRecipe("chicken-slippery-dumplings", "Chicken and Slippery Dumplings", "delaware", "Delaware Comfort", "Chicken simmered with flat slippery dumplings in savory broth.", ["1 cooked chicken shredded", "8 cups chicken broth", "2 cups flour", "1 egg", "1/2 cup milk", "2 carrots", "Celery", "Parsley"], ["Simmer broth with carrots and celery.", "Mix flour, egg, milk, and salt into dough.", "Roll thin and cut strips.", "Drop dumplings into simmering broth.", "Add chicken and cook until tender."], ["dumplings", "chicken", "delaware"], { prep: "35 min", cook: "40 min", servings: 8 }),
+  midAtlanticRecipe("succotash", "Delaware Succotash", "delaware", "Delaware Sides", "Corn and lima beans cooked with butter, herbs, and summer vegetable sweetness.", ["3 cups corn", "2 cups lima beans", "2 tbsp butter", "1/2 onion diced", "1/2 cup cream optional", "Salt and pepper", "Parsley"], ["Cook onion in butter.", "Add corn and lima beans.", "Cook until tender.", "Add cream if using.", "Season and finish with parsley."], ["succotash", "corn", "lima beans"], { prep: "10 min", cook: "20 min", servings: 6 }),
+
+  midAtlanticRecipe("dc-half-smoke", "D.C. Half-Smoke", "washington-dc", "D.C. Carryout", "A smoky sausage in a bun with chili, onions, mustard, and D.C. carryout energy.", ["4 half-smoke sausages", "4 buns", "2 cups chili", "1 onion diced", "Yellow mustard", "Hot sauce optional"], ["Griddle or grill half-smokes until browned.", "Warm buns and chili.", "Place sausages in buns.", "Top with chili, onion, and mustard.", "Serve hot."], ["half-smoke", "dc", "sausage"], { prep: "10 min", cook: "15 min", servings: 4 }),
+  midAtlanticRecipe("mumbo-sauce", "D.C. Mumbo Sauce", "washington-dc", "D.C. Sauces", "Sweet-tangy carryout sauce for wings, fries, and fried chicken.", ["1 cup ketchup", "1/2 cup sugar", "1/4 cup vinegar", "2 tbsp hot sauce", "1 tbsp soy sauce", "1 tsp paprika", "Garlic powder"], ["Whisk all ingredients in a saucepan.", "Simmer until glossy.", "Taste for sweet, tangy, and heat balance.", "Cool slightly.", "Serve with wings or fries."], ["mumbo sauce", "dc", "sauce"], { prep: "5 min", cook: "12 min", servings: 12, image: "images/recipes/mid-atlantic-2026/old-bay-fries.jpg" }),
+  midAtlanticRecipe("dc-chili-dogs", "D.C. Chili Dogs", "washington-dc", "D.C. Carryout", "Hot dogs topped with chili, onions, mustard, and optional mumbo sauce.", ["8 hot dogs", "8 buns", "3 cups chili", "1 onion diced", "Yellow mustard", "Mumbo sauce optional"], ["Cook hot dogs.", "Warm chili and buns.", "Place hot dogs in buns.", "Top with chili, onion, and mustard.", "Add mumbo sauce if desired."], ["chili dog", "dc", "carryout"], { prep: "10 min", cook: "15 min", servings: 8, image: "images/recipes/mid-atlantic-2026/dc-half-smoke.jpg" }),
+  midAtlanticRecipe("salvadoran-pupusas", "Salvadoran Pupusas", "washington-dc", "D.C. Immigrant Foodways", "Masa cakes filled with cheese, beans, or pork and served with curtido.", ["2 cups masa harina", "1 1/2 cups warm water", "1 cup shredded cheese", "1 cup refried beans or chicharron", "Curtido", "Salsa roja"], ["Mix masa with warm water and salt.", "Flatten dough balls and add filling.", "Seal and pat into disks.", "Cook on a hot griddle until browned.", "Serve with curtido and salsa."], ["pupusas", "salvadoran", "dc"], { prep: "30 min", cook: "20 min", servings: 6 }),
+  midAtlanticRecipe("jumbo-slice-pizza", "D.C. Jumbo Slice Pizza", "washington-dc", "D.C. Late Night", "Oversized foldable pizza slices with melty cheese and a crisp bottom.", ["1 large pizza dough", "1 cup tomato sauce", "3 cups mozzarella", "Oregano", "Parmesan"], ["Stretch dough into a very large thin round.", "Add sauce and cheese.", "Bake hot until crisp and bubbling.", "Cut into oversized slices.", "Serve hot and foldable."], ["pizza", "dc", "jumbo slice"], { prep: "20 min", cook: "12 min", servings: 4, image: "images/recipes/mid-atlantic-2026/new-york-pizza.jpg" }),
+
+  midAtlanticRecipe("kids-build-pizza", "Build Your Own Pizza", "mid-atlantic-kids", "Fun Food", "A kid-friendly pizza station with sauce, cheese, and toppings for personal pies.", ["4 mini pizza crusts", "1/2 cup pizza sauce", "1 cup mozzarella", "Bell pepper", "Olives", "Pepperoni optional"], ["Set crusts on a pan.", "Spread sauce.", "Add cheese.", "Choose toppings.", "A grown-up bakes until bubbly."], ["kids", "pizza", "assembly"], { prep: "15 min", cook: "10 min", servings: 4, level: "Kid Friendly", kidsKorner: true, ageTrack: "6-8 Kitchen Explorers", path: "kid-chefs", helperNote: "Kids build pizzas. A grown-up handles the oven." }),
+  midAtlanticRecipe("kids-twist-pretzel", "Twist a Pretzel", "mid-atlantic-kids", "Fun Food", "Soft pretzel dough twisted into simple shapes and baked with salt.", ["1 batch pretzel dough", "Pretzel salt", "Melted butter", "Flour for dusting"], ["Divide dough.", "Roll into ropes.", "Twist into pretzels.", "Add salt.", "A grown-up bakes until golden."], ["kids", "pretzels", "baking"], { prep: "20 min", cook: "15 min", servings: 6, level: "Kid Friendly", kidsKorner: true, ageTrack: "9-12 Rising Chefs", path: "kid-chefs", helperNote: "Kids shape dough. A grown-up handles boiling/dipping steps and the oven." }),
+  midAtlanticRecipe("kids-decorate-cookies", "Decorate Cookies", "mid-atlantic-kids", "Sweet Treats", "Simple black-and-white style cookie decorating with vanilla and chocolate icing.", ["12 plain cookies", "1 cup vanilla icing", "1/2 cup chocolate icing", "Sprinkles optional"], ["Place cookies on parchment.", "Ice half with vanilla.", "Ice half with chocolate.", "Add sprinkles if using.", "Let icing set."], ["kids", "cookies", "decorating"], { prep: "20 min", cook: "0 min", servings: 12, level: "Kid Friendly", kidsKorner: true, ageTrack: "3-5 Little Helpers", path: "kid-chefs", helperNote: "Use cooled cookies and soft spreaders." }),
+  midAtlanticRecipe("kids-crab-coloring", "Simple Crab Coloring Activity", "mid-atlantic-kids", "Kids Activities", "A no-cook seafood lesson plate with crackers, cheese, and a simple crab-themed coloring moment.", ["Round crackers", "Cheese slices", "Pretzel sticks", "Blueberries or raisins", "Crab coloring page"], ["Build a little crab snack from crackers and pretzels.", "Add cheese and fruit details.", "Talk about blue crabs.", "Color the crab page.", "Clean the table."], ["kids", "crab", "activity"], { prep: "15 min", cook: "0 min", servings: 4, level: "Kid Friendly", kidsKorner: true, ageTrack: "3-5 Little Helpers", path: "kid-chefs", helperNote: "Check choking hazards and allergies. This is an activity snack, not seafood handling.", image: "images/recipes/mid-atlantic-2026/maryland-crab-cakes.jpg" }),
+  midAtlanticRecipe("kids-apple-pie-decorating", "Apple Pie Decorating", "mid-atlantic-kids", "Sweet Treats", "Use pastry shapes to decorate the top of a simple apple pie.", ["1 unbaked apple pie", "Pie dough scraps", "Cinnamon sugar", "Egg wash optional"], ["Cut dough shapes with safe cutters.", "Place shapes on pie.", "Sprinkle cinnamon sugar.", "A grown-up brushes egg wash if using.", "A grown-up bakes the pie."], ["kids", "apple pie", "decorating"], { prep: "20 min", cook: "45 min", servings: 8, level: "Kid Friendly", kidsKorner: true, ageTrack: "6-8 Kitchen Explorers", path: "kid-chefs", helperNote: "Kids decorate only. A grown-up handles the oven and hot filling." })
+];
+
+const america250ExpansionRecipes = [
+  midAtlanticRecipe("all-american-burgers", "All-American Burgers", "bbq", "Fourth of July Collection", "Juicy grilled burgers with toasted buns, crisp lettuce, tomato, pickles, onion, and a simple cookout sauce.", ["1 1/2 lb ground beef", "1 tsp kosher salt", "1/2 tsp black pepper", "4 burger buns", "4 slices American cheese", "Lettuce", "Tomato", "Pickles", "Onion", "Burger sauce"], ["Shape beef into four loose patties.", "Season right before cooking.", "Grill or griddle to 160 F.", "Melt cheese during the last minute.", "Toast buns and build with vegetables, pickles, and sauce."], ["america 250", "fourth of july", "burgers", "cookout"], { prep: "15 min", cook: "12 min", servings: 4, image: "images/recipes/audit-2026-06/wisconsin-butter-burgers.jpg" }),
+  midAtlanticRecipe("classic-cookout-hot-dogs", "Classic Cookout Hot Dogs", "bbq", "Fourth of July Collection", "Simple grilled hot dogs with warm buns and a topping bar for mustard, relish, onions, chili, slaw, and pickles.", ["8 all-beef hot dogs", "8 hot dog buns", "Yellow mustard", "Relish", "Diced onion", "Chili optional", "Coleslaw optional", "Pickles"], ["Set toppings in small bowls.", "Grill or griddle hot dogs until hot and lightly blistered.", "Warm buns.", "Place hot dogs in buns.", "Let everyone build their own."], ["america 250", "fourth of july", "hot dogs", "cookout"], { prep: "10 min", cook: "10 min", servings: 8, image: "images/recipes/audit-2026-06/chicago-style-hot-dog.jpg" }),
+  midAtlanticRecipe("classic-apple-pie", "Classic Apple Pie", "southern", "Fourth of July Collection", "A summer holiday apple pie with tender cinnamon apples, flaky crust, and a golden top.", ["2 pie crusts", "6 cups sliced apples", "3/4 cup sugar", "2 tbsp flour", "1 tsp cinnamon", "1 tbsp lemon juice", "2 tbsp butter", "1 egg optional"], ["Heat oven to 400 F.", "Toss apples with sugar, flour, cinnamon, and lemon.", "Fill the bottom crust and dot with butter.", "Top, crimp, vent, and brush with egg if using.", "Bake until golden and bubbling."], ["america 250", "fourth of july", "apple pie", "dessert"], { prep: "30 min", cook: "55 min", servings: 8, image: "images/recipes/new-england-2026/vermont-cheddar-apple-pie.jpg" }),
+  midAtlanticRecipe("strawberry-shortcake", "Strawberry Shortcake", "southern", "Fourth of July Collection", "Tender shortcakes layered with juicy strawberries and whipped cream for a bright July dessert.", ["1 lb strawberries sliced", "2 tbsp sugar", "6 shortcakes or biscuits", "1 1/2 cups whipped cream", "Vanilla optional"], ["Toss strawberries with sugar and rest 15 minutes.", "Split shortcakes.", "Spoon strawberries over the bottom halves.", "Add whipped cream.", "Cap and serve right away."], ["america 250", "fourth of july", "strawberries", "dessert"], { prep: "20 min", cook: "12 min", servings: 6, image: "assets/lc-desserts.jpg" }),
+  midAtlanticRecipe("cookout-watermelon-wedges", "Cookout Watermelon Wedges", "bbq", "Fourth of July Collection", "Cold watermelon wedges with lime, mint, and optional salt for a fast summer table refresher.", ["1 seedless watermelon", "2 limes", "Fresh mint", "Flaky salt optional"], ["Chill watermelon well.", "Slice into wedges.", "Arrange on a platter.", "Squeeze lime over the fruit.", "Add mint and a tiny pinch of salt if desired."], ["america 250", "fourth of july", "watermelon", "fruit"], { prep: "10 min", cook: "0 min", servings: 12, image: "images/juneteenth/watermelon-platter.png" })
+];
+
 const existingRecipeIds = new Set(recipes.map((recipe) => recipe.id));
-recipes = [...recipes, ...[...nextFeatureRecipes, ...menuIntelligenceRecipes, ...regionalAuthenticityRecipes, ...livingCookbookRecipes, ...kidsKornerRecipes, ...kidsExpansionRecipes, ...familyExpansionRecipes, ...mississippiHeritageRecipes, ...africaExpansionRecipes, ...midwestExpansionRecipes, ...newEnglandExpansionRecipes, ...southwestExpansionRecipes].filter((recipe) => !existingRecipeIds.has(recipe.id))];
+recipes = [...recipes, ...[...nextFeatureRecipes, ...menuIntelligenceRecipes, ...regionalAuthenticityRecipes, ...livingCookbookRecipes, ...kidsKornerRecipes, ...kidsExpansionRecipes, ...familyExpansionRecipes, ...mississippiHeritageRecipes, ...africaExpansionRecipes, ...midwestExpansionRecipes, ...newEnglandExpansionRecipes, ...southwestExpansionRecipes, ...midAtlanticExpansionRecipes, ...america250ExpansionRecipes].filter((recipe) => !existingRecipeIds.has(recipe.id))];
 
 const lessons = [
   {
@@ -3943,6 +4060,16 @@ const southwestPhotoReadyRecipeIds = new Set([
   "mini-quesadillas"
 ]);
 
+const midAtlanticPhotoReadyRecipeIds = new Set([
+  "new-york-pizza", "bagels-cream-cheese", "pastrami-on-rye", "chopped-cheese", "buffalo-wings", "new-york-cheesecake", "black-white-cookies",
+  "pork-roll-egg-cheese", "new-jersey-tomato-pie", "italian-hot-dogs", "disco-fries", "salt-water-taffy", "boardwalk-sausage-peppers",
+  "philly-cheesesteak", "soft-pretzels", "shoofly-pie", "scrapple", "pa-dutch-chicken-pot-pie",
+  "maryland-crab-cakes", "cream-of-crab-soup", "maryland-crab-soup", "steamed-blue-crabs", "smith-island-cake", "crab-dip", "old-bay-fries",
+  "delaware-peach-pie", "blue-crab-bisque", "boardwalk-fries", "chicken-slippery-dumplings", "succotash",
+  "dc-half-smoke", "mumbo-sauce", "dc-chili-dogs", "salvadoran-pupusas", "jumbo-slice-pizza",
+  "kids-build-pizza", "kids-twist-pretzel", "kids-decorate-cookies", "kids-crab-coloring", "kids-apple-pie-decorating"
+]);
+
 const recipeImageReplacementQueue = new Set(
   [
     ...midwestExpansionRecipes
@@ -3953,7 +4080,10 @@ const recipeImageReplacementQueue = new Set(
       .filter((recipeId) => !newEnglandPhotoReadyRecipeIds.has(recipeId)),
     ...southwestExpansionRecipes
       .map((recipe) => recipe.id)
-      .filter((recipeId) => !southwestPhotoReadyRecipeIds.has(recipeId))
+      .filter((recipeId) => !southwestPhotoReadyRecipeIds.has(recipeId)),
+    ...midAtlanticExpansionRecipes
+      .map((recipe) => recipe.id)
+      .filter((recipeId) => !midAtlanticPhotoReadyRecipeIds.has(recipeId))
   ]
 );
 
@@ -4304,6 +4434,10 @@ newEnglandExpansionRecipes.forEach((recipe) => {
 
 southwestExpansionRecipes.forEach((recipe) => {
   recipeImageOverrides[recipe.id] = recipe.image || `images/recipes/southwest-2026/${recipe.id}.jpg`;
+});
+
+midAtlanticExpansionRecipes.forEach((recipe) => {
+  recipeImageOverrides[recipe.id] = recipe.image || `images/recipes/mid-atlantic-2026/${recipe.id}.jpg`;
 });
 
 const broadRecipeImageIds = [
@@ -5362,6 +5496,11 @@ const kidsKornerRecipeIds = [
   "build-your-own-tacos",
   "cowboy-trail-mix",
   "mini-quesadillas",
+  "kids-build-pizza",
+  "kids-twist-pretzel",
+  "kids-decorate-cookies",
+  "kids-crab-coloring",
+  "kids-apple-pie-decorating",
   "pb-and-j-sandwich",
   "mini-pizza-bagels",
   "fruit-kabobs"
@@ -5481,6 +5620,7 @@ function render() {
   if (route === "second-chance") return renderSecondChanceHome();
   if (route === "community") return renderCommunity();
   if (route === "kitchen") return renderKitchen();
+  if (route === "america-250") return renderAmerica250();
   if (route === "add-recipe") return renderAddRecipe();
   if (route === "cook101") return id ? renderLesson(id) : renderCook101();
   if (route === "skills-academy") return renderSkillsAcademy();
@@ -5691,9 +5831,9 @@ function renderPlatformHome() {
 }
 
 const monthlySpotlight = {
-  month: "June",
-  headline: "Juneteenth: Food. Family. Freedom.",
-  subhead: "Pull into the yard, hear the music, smell the smoke, and find your people. This month is freedom remembered through family, food, laughter, and a table with room for everybody.",
+  month: "July",
+  headline: "Let's Cook Through America, Y'all!",
+  subhead: "America 250 is live July 1-31 with daily featured states, cookout classics, regional spotlights, fireworks energy, and a table big enough for the whole country.",
   doodleImage: "images/hero/juneteenth-family-reunion-doodle.png",
   heroImages: ["images/hero/hero-01.jpg", "images/hero/hero-02.jpg", "images/hero/hero-03.jpg", "images/hero/hero-04.jpg", "images/hero/hero-05.jpg", "images/hero/hero-06.jpg", "images/hero/hero-07.jpg", "images/hero/hero-08.jpg", "images/hero/hero-09.jpg", "images/hero/hero-10.jpg"],
   aboveFoldRecipeIds: ["bbq-brisket-basics", "bbq-chicken-quarters", "bbq-baked-beans", "southern-collard-greens", "cornbread", "strawberry-soda", "watermelon-platter", "red-velvet-cake"],
@@ -5745,8 +5885,58 @@ const monthlySpotlight = {
       notes: "Keep it simple: one main, two sides, one red drink, one dessert, and time to sit down together."
     }
   ],
-  upcoming: ["4th of July", "Summer Cookout Season", "Peach Season", "Family Reunion Season", "Hispanic Heritage Month", "Thanksgiving", "Christmas"]
+  upcoming: ["America 250", "4th of July", "Summer Cookout Season", "Peach Season", "Family Reunion Season", "Hispanic Heritage Month", "Thanksgiving"]
 };
+
+const america250RecipeIds = [
+  "all-american-burgers",
+  "classic-cookout-hot-dogs",
+  "bbq-smoked-ribs",
+  "bbq-brisket-basics",
+  "bbq-pulled-pork",
+  "bbq-baked-beans",
+  "southern-potato-salad",
+  "creamy-coleslaw",
+  "southern-baked-mac-cheese",
+  "corn-on-the-cob",
+  "cookout-watermelon-wedges",
+  "classic-apple-pie",
+  "peach-cobbler",
+  "banana-pudding",
+  "strawberry-shortcake",
+  "lemonade"
+];
+
+const america250States = [
+  "Delaware", "Pennsylvania", "New Jersey", "Georgia", "Connecticut", "Massachusetts", "Maryland", "South Carolina",
+  "New Hampshire", "Virginia", "New York", "North Carolina", "Rhode Island", "Vermont", "Kentucky", "Tennessee",
+  "Ohio", "Louisiana", "Indiana", "Mississippi", "Illinois", "Alabama", "Maine", "Missouri", "Arkansas", "Michigan",
+  "Florida", "Texas", "Iowa", "Wisconsin", "California"
+];
+
+function america250DayNumber(date = new Date()) {
+  if (date.getMonth() !== 6) return 1;
+  return Math.max(1, Math.min(31, date.getDate()));
+}
+
+function america250FeaturedStates(date = new Date()) {
+  const start = america250DayNumber(date) - 1;
+  return Array.from({ length: 5 }, (_, index) => america250States[(start + index) % america250States.length]);
+}
+
+function america250DisplayDay(offset = 0, date = new Date()) {
+  return ((america250DayNumber(date) + offset - 1) % america250States.length) + 1;
+}
+
+function america250CountdownText(date = new Date()) {
+  const target = new Date(date.getFullYear(), 6, 4);
+  const today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+  const days = Math.ceil((target - today) / 86400000);
+  if (days > 1) return `${days} days until July 4`;
+  if (days === 1) return "1 day until July 4";
+  if (days === 0) return "July 4 is today";
+  return "Fourth of July weekend is on the table";
+}
 
 function recipeByIdSafe(id, options = {}) {
   if (options.allowQueued) {
@@ -6298,6 +6488,119 @@ const southwestRegionalAliases = {
   oklahoma: "oklahoma-southwest"
 };
 
+const midAtlanticRegionalPages = {
+  "new-york-mid-atlantic": {
+    state: "New York",
+    title: "New York Pizza, Deli & Bakery Table",
+    image: midAtlanticCoverImages["new-york"],
+    intro: "New York food is pizzerias, bagel shops, Jewish delis, bodegas, Buffalo wing bars, cheesecake counters, bakery cookies, and immigrant neighborhoods feeding people fast and well.",
+    history: "Jewish, Italian, Black, Puerto Rican, Caribbean, Chinese, Eastern European, and many other communities shaped a city food culture built around transit, rent, late nights, and neighborhood loyalty.",
+    hospitality: "A New York spread should feel like a walk across boroughs: pizza slices, bagels, pastrami, chopped cheese, wings, cheesecake, and cookies.",
+    culture: "Delis, bodegas, slice counters, bakeries, corner stores, and game-day bars make food portable, specific, and deeply local.",
+    facts: ["Bagels and pastrami carry Jewish deli and bakery history.", "Chopped cheese belongs to bodega and neighborhood counter culture.", "Buffalo wings are a New York state food story, not a generic wing plate."],
+    ingredients: ["high-gluten flour", "tomato sauce", "mozzarella", "rye bread", "pastrami", "cream cheese", "hot sauce", "celery", "cream cheese", "cocoa"],
+    signatureRecipeIds: ["new-york-pizza", "bagels-cream-cheese", "pastrami-on-rye", "chopped-cheese", "buffalo-wings", "new-york-cheesecake", "black-white-cookies"],
+    skills: [["Pizza Baking", "#culinary-academy/baking-basics"], ["Deli Sandwiches", "#what-yall-cooking"], ["Wing Sauce", "#culinary-academy/seasonings"], ["Bakery Desserts", "#culinary-academy/baking-basics"]],
+    traditions: ["A slice should be foldable, hot, and simple.", "Deli sandwiches are about meat quality, rye, mustard, and height.", "Bakery sweets carry city memory as much as dessert flavor."],
+    features: [["Borough Lunch Run", "Pizza slice, chopped cheese, bagel, and black and white cookie."], ["Deli Counter", "Pastrami on rye, pickle, cheesecake, and coffee."]]
+  },
+  "new-jersey-mid-atlantic": {
+    state: "New Jersey",
+    title: "New Jersey Diner, Tomato Pie & Boardwalk Food",
+    image: midAtlanticCoverImages["new-jersey"],
+    intro: "New Jersey food is diner breakfasts, pork roll debates, tomato pie, Italian hot dogs, disco fries, salt water taffy, shore food, and boardwalk sausage.",
+    history: "Italian American bakeries, shore towns, diners, farms, commuter towns, and boardwalk food stands all shape a small state with a loud food identity.",
+    hospitality: "Serve breakfast sandwiches, tomato pie, hot dogs with potatoes, gravy fries, taffy, and sausage and peppers like people just walked in from the boardwalk.",
+    culture: "Diners, shore weekends, school trips, boardwalk counters, and neighborhood pizzerias make New Jersey food practical and proud.",
+    facts: ["Pork roll versus Taylor ham is a real regional naming debate.", "Tomato pie puts sauce emphasis front and center.", "Disco fries are diner food, not just loaded fries."],
+    ingredients: ["pork roll", "eggs", "kaiser rolls", "tomatoes", "mozzarella", "potatoes", "peppers", "sausage", "gravy", "taffy"],
+    signatureRecipeIds: ["pork-roll-egg-cheese", "new-jersey-tomato-pie", "italian-hot-dogs", "disco-fries", "salt-water-taffy", "boardwalk-sausage-peppers"],
+    skills: [["Griddle Breakfast", "#what-yall-cooking"], ["Pizza Sauce", "#culinary-academy/tomato-sauce"], ["Boardwalk Frying", "#culinary-academy"], ["Candy Pulling", "#culinary-academy/baking-basics"]],
+    traditions: ["Breakfast sandwiches are a daily ritual.", "Boardwalk food should be hot, salty, portable, and nostalgic.", "Diners make room for both breakfast and late-night plates."],
+    features: [["Shore Boardwalk", "Sausage and peppers, fries, taffy, and lemonade."], ["Jersey Diner Plate", "Pork roll, disco fries, tomato pie, and coffee."]]
+  },
+  "pennsylvania-mid-atlantic": {
+    state: "Pennsylvania",
+    title: "Pennsylvania Philly, Dutch Country & Bakery Table",
+    image: midAtlanticCoverImages.pennsylvania,
+    intro: "Pennsylvania food moves from Philly cheesesteaks and pretzels to Pennsylvania Dutch pot pie, scrapple, shoofly pie, whoopie pies, and pierogies.",
+    history: "Philadelphia street food, German and Pennsylvania Dutch kitchens, Eastern European communities, bakeries, markets, and working-class lunch counters all shape the state.",
+    hospitality: "A Pennsylvania table can hold cheesesteaks, pretzels, pot pie, scrapple, shoofly pie, whoopie pies, and pierogies without feeling random.",
+    culture: "Markets, bakeries, diners, churches, rowhouse neighborhoods, and farm country create a table that is both city and rural.",
+    facts: ["PA Dutch chicken pot pie uses slippery square noodles, not a pastry top.", "Shoofly pie is molasses crumb pie.", "Pierogies speak to Pennsylvania's Eastern European food traditions."],
+    ingredients: ["ribeye", "hoagie rolls", "pretzel dough", "molasses", "scrapple", "chicken broth", "noodles", "potatoes", "cheese", "cocoa"],
+    signatureRecipeIds: ["philly-cheesesteak", "soft-pretzels", "shoofly-pie", "scrapple", "pa-dutch-chicken-pot-pie", "whoopie-pies", "cleveland-pierogies"],
+    skills: [["Griddle Sandwiches", "#what-yall-cooking"], ["Pretzel Dough", "#culinary-academy/baking-basics"], ["Pie Filling", "#culinary-academy/baking-basics"], ["Dumplings", "#culinary-academy"]],
+    traditions: ["Cheesesteaks depend on roll, beef, chop, and cheese timing.", "Soft pretzels are everyday street food.", "PA Dutch cooking prizes broth, noodles, pies, and practical abundance."],
+    features: [["Philly Counter", "Cheesesteak, soft pretzel, and cold drink."], ["Dutch Country Supper", "Chicken pot pie, scrapple, shoofly pie, and whoopie pies."]]
+  },
+  "maryland-mid-atlantic": {
+    state: "Maryland",
+    title: "Maryland Crab House & Chesapeake Table",
+    image: midAtlanticCoverImages.maryland,
+    intro: "Maryland food is Chesapeake crab culture: crab cakes, crab soups, steamed blue crabs, crab dip, fries with seafood seasoning, and Smith Island cake.",
+    history: "Chesapeake Bay fisheries, Black watermen and cooks, crab houses, seafood markets, church suppers, and state pride make crab central to Maryland food identity.",
+    hospitality: "Set crab cakes, soups, steamed crabs, dip, fries, cake, paper-covered tables, mallets, lemon, and plenty of napkins.",
+    culture: "Crab feasts, summer seafood houses, family reunions, and market counters shape how Maryland gathers.",
+    facts: ["Maryland crab cakes should taste like crab first.", "Smith Island cake is Maryland's state dessert.", "Steamed crab tables are participatory meals."],
+    ingredients: ["blue crab", "lump crab", "cracker crumbs", "seafood seasoning", "cream", "tomatoes", "potatoes", "lemon", "butter", "chocolate frosting"],
+    signatureRecipeIds: ["maryland-crab-cakes", "cream-of-crab-soup", "maryland-crab-soup", "steamed-blue-crabs", "smith-island-cake", "crab-dip", "old-bay-fries"],
+    skills: [["Crab Handling", "#what-yall-cooking"], ["Soup Texture", "#culinary-academy"], ["Seafood Seasoning", "#culinary-academy/seasonings"], ["Layer Cakes", "#culinary-academy/baking-basics"]],
+    traditions: ["Crab feasts are about pace, conversation, and shared work.", "Cream and tomato crab soups show two different Maryland moods.", "Crab dip belongs to parties and game-day tables."],
+    features: [["Crab Feast", "Steamed crabs, crab soup, fries, lemon, and cold drinks."], ["Seafood Party", "Crab cakes, crab dip, Old Bay fries, and Smith Island cake."]]
+  },
+  "delaware-mid-atlantic": {
+    state: "Delaware",
+    title: "Delaware Boardwalk, Peach & Bay Table",
+    image: midAtlanticCoverImages.delaware,
+    intro: "Delaware food is small-state coastal comfort: scrapple, peach pie, blue crab bisque, boardwalk fries, slippery dumplings, and succotash.",
+    history: "Chesapeake and Delaware Bay seafood, farm produce, poultry, Pennsylvania Dutch influence, beach towns, and boardwalk food shape the state.",
+    hospitality: "A Delaware table can feel coastal and country at once: crab bisque, fries, chicken and slippery dumplings, succotash, scrapple, and peach pie.",
+    culture: "Beach trips, farm markets, diners, seafood counters, and family kitchens give Delaware its quiet but specific food voice.",
+    facts: ["Scrapple crosses Mid-Atlantic state lines.", "Delaware has deep poultry and farm traditions.", "Boardwalk fries are a beach-town food memory."],
+    ingredients: ["scrapple", "blue crab", "peaches", "potatoes", "vinegar", "chicken", "flat dumplings", "corn", "lima beans", "cream"],
+    signatureRecipeIds: ["scrapple", "delaware-peach-pie", "blue-crab-bisque", "boardwalk-fries", "chicken-slippery-dumplings", "succotash"],
+    skills: [["Bisque Building", "#culinary-academy"], ["Hand Pie and Pie Skills", "#culinary-academy/baking-basics"], ["Dumplings", "#culinary-academy"], ["Boardwalk Frying", "#what-yall-cooking"]],
+    traditions: ["Beach fries should be hot, crisp, salty, and vinegar-friendly.", "Peach pie keeps orchard history at the table.", "Slippery dumplings are flat and tender, not fluffy biscuits."],
+    features: [["Beach Lunch", "Boardwalk fries, crab bisque, and peach pie."], ["Country Supper", "Chicken and slippery dumplings, succotash, and scrapple."]]
+  },
+  "dc-mid-atlantic": {
+    state: "Washington, D.C.",
+    title: "D.C. Carryout, Half-Smoke & Immigrant Foodways",
+    image: midAtlanticCoverImages.dc,
+    intro: "D.C. food is half-smokes, mumbo sauce, chili dogs, Ethiopian restaurants, Salvadoran pupusas, jumbo slice pizza, and carryout counters.",
+    history: "Black Washington food culture, Go-Go-era carryouts, Ethiopian and Salvadoran communities, federal lunch crowds, late-night slice shops, and neighborhood institutions all shape the city.",
+    hospitality: "A D.C. table should feel city-specific: half-smokes, mumbo sauce, wings or fries, pupusas, Ethiopian stews, chili dogs, and jumbo slices.",
+    culture: "Carryouts, U Street, Adams Morgan, immigrant corridors, music culture, and late-night food all matter.",
+    facts: ["Mumbo sauce is a D.C. carryout signature.", "D.C. has one of the country's most important Ethiopian food scenes.", "Pupusas reflect the region's Salvadoran community."],
+    ingredients: ["smoked sausage", "chili", "ketchup", "vinegar", "hot sauce", "teff", "berbere", "masa harina", "cheese", "curtido"],
+    signatureRecipeIds: ["dc-half-smoke", "mumbo-sauce", "dc-chili-dogs", "ethiopian-doro-wat", "ethiopian-injera", "salvadoran-pupusas", "jumbo-slice-pizza"],
+    skills: [["Carryout Sauce", "#culinary-academy/seasonings"], ["Sausage Griddling", "#what-yall-cooking"], ["Ethiopian Stews", "#cuisine-explorer/ethiopia"], ["Masa Shaping", "#culinary-academy/world-foods"]],
+    traditions: ["Half-smokes should be smoky, spicy, and dressed with chili.", "Ethiopian meals are shared with injera and layered stews.", "Pupusas deserve community context, not generic Latin filler."],
+    features: [["D.C. Carryout", "Half-smoke, mumbo sauce, fries, wings, and chili dogs."], ["Immigrant Food Table", "Doro wat, injera, pupusas, curtido, and salsa roja."]]
+  }
+};
+
+const midAtlanticRegionalAliases = {
+  "mid-atlantic": "mid-atlantic",
+  "mid atlantic": "mid-atlantic",
+  "new-york": "new-york-mid-atlantic",
+  "new york": "new-york-mid-atlantic",
+  ny: "new-york-mid-atlantic",
+  "new-jersey": "new-jersey-mid-atlantic",
+  "new jersey": "new-jersey-mid-atlantic",
+  nj: "new-jersey-mid-atlantic",
+  pennsylvania: "pennsylvania-mid-atlantic",
+  pa: "pennsylvania-mid-atlantic",
+  maryland: "maryland-mid-atlantic",
+  md: "maryland-mid-atlantic",
+  delaware: "delaware-mid-atlantic",
+  de: "delaware-mid-atlantic",
+  "washington-dc": "dc-mid-atlantic",
+  "washington dc": "dc-mid-atlantic",
+  dc: "dc-mid-atlantic"
+};
+
 const regionalSoulFoodMenuTemplates = [
   {
     id: "sunday-dinner",
@@ -6537,6 +6840,17 @@ Object.entries(southwestRegionalPages).forEach(([id, page]) => {
   page.menus = [fallbackMenu];
 });
 
+Object.entries(midAtlanticRegionalPages).forEach(([id, page]) => {
+  const fallbackMenu = {
+    id: `${id}-regional-menu`,
+    title: `${page.state} Regional Table`,
+    recipeIds: page.signatureRecipeIds.slice(0, 8),
+    timeline: ["Two days before: choose recipes, bake desserts, and write the shopping list.", "One day before: prep sauces, fillings, doughs, cold salads, or seafood plans.", "Day of: cook hot sandwiches, seafood, fries, pizzas, or dumplings close to serving."],
+    notes: "Build the menu from real Mid-Atlantic foodways: delis, boardwalks, seafood houses, Pennsylvania Dutch kitchens, and city carryouts instead of generic East Coast filler."
+  };
+  page.menus = [fallbackMenu];
+});
+
 function regionalSoulFoodHub() {
   return `
     <section class="regional-soul-section">
@@ -6593,6 +6907,28 @@ function southwestRegionalHub() {
         ${Object.entries(southwestRegionalPages).map(([id, page]) => `
           <a class="regional-soul-card" href="#cuisine-explorer/${id}">
             <img src="${page.image || southwestCoverImages.southwest}" alt="${page.title}" />
+            <span>${page.state}</span>
+            <h3>${page.title}</h3>
+            <p>${page.intro}</p>
+          </a>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function midAtlanticRegionalHub() {
+  return `
+    <section class="regional-soul-section">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Mid-Atlantic by place</p>
+        <h2>Cook through New York, New Jersey, Pennsylvania, Maryland, Delaware, and D.C.</h2>
+        <p>Each stop connects city food, boardwalk food, immigrant food traditions, seafood, delis, street food, regional facts, signature ingredients, and real recipes.</p>
+      </div>
+      <div class="regional-soul-grid">
+        ${Object.entries(midAtlanticRegionalPages).map(([id, page]) => `
+          <a class="regional-soul-card" href="#cuisine-explorer/${id}">
+            <img src="${page.image || midAtlanticCoverImages["mid-atlantic"]}" alt="${page.title}" />
             <span>${page.state}</span>
             <h3>${page.title}</h3>
             <p>${page.intro}</p>
@@ -6791,6 +7127,75 @@ function renderSouthwestRegionalPage(id) {
       </div>
       ${southwestRegionalHub()}
       ${progressionNav("#cuisine-explorer/southwest", "Southwest Hub", "#what-yall-cooking", "Build A Menu", ["#recipes", "#kids-korner"])}
+    </section>
+  `;
+}
+
+function renderMidAtlanticRegionalPage(id) {
+  const page = midAtlanticRegionalPages[id] || midAtlanticRegionalPages["new-york-mid-atlantic"];
+  const firstMenu = page.menus[0];
+  app.innerHTML = `
+    ${hero(page.title, page.intro, page.image || midAtlanticCoverImages["mid-atlantic"], `<a class="small-button" href="#cuisine-explorer/mid-atlantic">Mid-Atlantic Hub</a><a class="small-button secondary" href="#what-yall-cooking">Build A Menu</a>`)}
+    ${cookSubnav()}
+    <section class="cream-section regional-soul-detail">
+      <div class="section-heading">
+        <p class="eyebrow">${page.state} table</p>
+        <h2>Food identity, history, facts, signature ingredients, recipes, and gatherings that belong to this place.</h2>
+      </div>
+      <div class="regional-identity-grid">
+        <article><h3>State Overview</h3><p>${page.intro}</p></article>
+        <article><h3>Food History</h3><p>${page.history}</p></article>
+        <article><h3>Hospitality</h3><p>${page.hospitality}</p></article>
+        <article><h3>Local Culture</h3><p>${page.culture}</p></article>
+      </div>
+      <div class="regional-story-grid">
+        <article>
+          <p class="eyebrow">Regional facts</p>
+          <h3>What to know before cooking</h3>
+          <ul>${page.facts.map((item) => `<li>${item}</li>`).join("")}</ul>
+        </article>
+        <article>
+          <p class="eyebrow">Signature ingredients</p>
+          <h3>The pantry and counter goods that shape the place</h3>
+          <div class="region-chip-row">${page.ingredients.map((ingredient) => `<span>${ingredient}</span>`).join("")}</div>
+        </article>
+      </div>
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Authentic recipes</p>
+        <h2>Real ${page.state} recipes, not generic Mid-Atlantic filler.</h2>
+      </div>
+      <div class="recipe-grid">${regionalRecipeCards(page.signatureRecipeIds)}</div>
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Gatherings + menus</p>
+        <h2>Build a table that tastes like the place.</h2>
+      </div>
+      <div class="regional-menu-panel" data-regional-menu-section>
+        <div class="regional-menu-tabs">
+          ${page.menus.map((menu, index) => `<button class="small-button ${index ? "secondary" : ""}" type="button" data-regional-menu="${menu.id}" data-region-id="${id}">${menu.title}</button>`).join("")}
+        </div>
+        <div data-regional-output>${regionalMenuOutput(page, firstMenu)}</div>
+      </div>
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Skills + lessons</p>
+        <h2>Practice the techniques behind the food.</h2>
+      </div>
+      <div class="regional-skill-grid">
+        ${page.skills.map(([title, href]) => `<a href="${href}"><span>${title}</span><small>Open lesson</small></a>`).join("")}
+      </div>
+      <div class="regional-story-grid">
+        <article>
+          <p class="eyebrow">Traditions + heritage</p>
+          <h3>Why these dishes matter</h3>
+          <ul>${page.traditions.map((item) => `<li>${item}</li>`).join("")}</ul>
+        </article>
+        <article>
+          <p class="eyebrow">Place markers</p>
+          <h3>What makes this table recognizable</h3>
+          ${page.features.map(([title, text]) => `<div class="feature-note"><strong>${title}</strong><span>${text}</span></div>`).join("")}
+        </article>
+      </div>
+      ${midAtlanticRegionalHub()}
+      ${progressionNav("#cuisine-explorer/mid-atlantic", "Mid-Atlantic Hub", "#what-yall-cooking", "Build A Menu", ["#recipes", "#kids-korner"])}
     </section>
   `;
 }
@@ -7201,12 +7606,116 @@ function monthlySpotlightBanner() {
   `;
 }
 
+function america250HeroBanner() {
+  const featuredStates = america250FeaturedStates();
+  const topRecipes = america250RecipeIds.map(recipeByIdSafe).filter(Boolean).slice(0, 5);
+  return `
+    <section class="america-250-hero">
+      <div class="america-250-fireworks" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="america-250-copy">
+        <p class="eyebrow">America 250 / July 1-31</p>
+        <h1>Let's Cook Through America, Y'all!</h1>
+        <p>All July long, Let's Cook Y'all is celebrating regional food, cookout tables, travel memories, and the dishes that make every state taste like home.</p>
+        <div class="america-250-stats" aria-label="America 250 event highlights">
+          <span>Daily featured states</span>
+          <span>Fourth of July collection</span>
+          <span>${america250CountdownText()}</span>
+        </div>
+        <div class="hero-actions">
+          <a class="small-button" href="#america-250">Open America 250</a>
+          <a class="small-button secondary" href="#recipes/classic-cookout-hot-dogs">Start With Hot Dogs</a>
+        </div>
+      </div>
+      <figure class="america-250-photo">
+        <img src="${america250Images.hero}" alt="Fourth of July cookout plate" />
+        <figcaption>America 250 badge</figcaption>
+      </figure>
+      <div class="america-250-state-ribbon" aria-label="Featured states">
+        ${featuredStates.map((state, index) => `<span><strong>Day ${america250DisplayDay(index)}</strong>${state}</span>`).join("")}
+      </div>
+      <div class="america-250-recipe-strip">
+        ${topRecipes.map((recipe) => `<a href="#recipes/${recipe.id}"><img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" /><span>${recipe.title}</span></a>`).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function america250SpotlightSection() {
+  const featuredStates = america250FeaturedStates();
+  return `
+    <section class="cream-section america-250-spotlight-section">
+      <div class="section-heading">
+        <p class="eyebrow">Cook Through America</p>
+        <h2>Today's state spotlight starts the road trip.</h2>
+        <p>Use the daily states as a prompt: cook one recipe, learn one food story, or plan a family plate inspired by where people are traveling, gathering, and remembering this month.</p>
+      </div>
+      <div class="america-250-state-grid">
+        ${featuredStates.map((state, index) => `
+          <article>
+            <span>Day ${america250DisplayDay(index)}</span>
+            <h3>${state}</h3>
+            <p>${index === 0 ? "Featured today" : "Coming up this week"}</p>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function america250ChallengeBanner() {
+  return `
+    <section class="america-250-challenge-banner">
+      <div>
+        <p class="eyebrow">July Challenge</p>
+        <h2>Cook one state, one cookout classic, and one family story this week.</h2>
+      </div>
+      <a class="small-button" href="#america-250">See the Collection</a>
+    </section>
+  `;
+}
+
+function america250CollectionSection(limit = 16) {
+  const collection = america250RecipeIds.map(recipeByIdSafe).filter(Boolean).slice(0, limit);
+  return `
+    <section class="cream-section america-250-collection">
+      <div class="section-heading">
+        <p class="eyebrow">Fourth of July Collection</p>
+        <h2>Burgers, hot dogs, barbecue, sides, fruit, pie, pudding, shortcake, and lemonade.</h2>
+      </div>
+      <div class="recipe-grid">${collection.map(recipeCard).join("")}</div>
+    </section>
+  `;
+}
+
+function renderAmerica250() {
+  app.innerHTML = `
+    ${america250HeroBanner()}
+    ${cookSubnav()}
+    ${america250ChallengeBanner()}
+    ${america250SpotlightSection()}
+    ${america250CollectionSection()}
+    <section class="navy-section america-250-planning">
+      <div class="section-heading">
+        <p class="eyebrow">Event Features</p>
+        <h2>Make the whole month feel like a real celebration.</h2>
+        <p>Use the daily state prompts, Fourth collection, Kids Korner activities, and regional explorer to cook through America without losing the clean, mobile-friendly flow of the site.</p>
+      </div>
+      <div class="academy-module-grid">
+        <article class="academy-module-card"><h3>America 250 Badge</h3><p>Save a cookout recipe, then plan a state-inspired table from the regional explorer.</p></article>
+        <article class="academy-module-card"><h3>Countdown</h3><p>${america250CountdownText()}.</p></article>
+        <article class="academy-module-card"><h3>Kids Korner</h3><p>Build mini pizzas, decorate cookies, make trail mix, or help set the cookout table.</p></article>
+        <article class="academy-module-card"><h3>Regional Road Trip</h3><p>Resume regional expansion after this July event push, starting from the Mid-Atlantic deployment.</p></article>
+      </div>
+    </section>
+  `;
+}
+
 function thisMonthSection() {
   return `
     <section class="cream-section this-month-section">
       <div class="section-heading compact-heading">
         <p class="eyebrow">This Month at Let's Cook Y'all</p>
-        <h2>June tastes like freedom, music, smoke, peaches, and everybody coming through.</h2>
+        <h2>July tastes like cookouts, fireworks, travel plates, cold fruit, and the whole country pulling up.</h2>
       </div>
       <div class="month-feature-grid">
         ${monthlySpotlight.features.map((feature) => `<article><h3>${feature.title}</h3><p>${feature.text}</p></article>`).join("")}
@@ -7467,8 +7976,11 @@ function renderLetsCookHome() {
   const globalFlavor = recipeById("chicken-street-tacos") || publishableRecipes.find((recipe) => recipe.cuisine !== "southern");
   const heroImages = Array.from({ length: 10 }, (_, index) => photoFor("hero", "family", index, "assets/cooking-family.jpeg"));
   app.innerHTML = `
-    ${monthlySpotlightBanner()}
+    ${america250HeroBanner()}
     ${cookSubnav()}
+    ${america250ChallengeBanner()}
+    ${america250SpotlightSection()}
+    ${america250CollectionSection(8)}
     <section class="cream-section kitchen-flagship-intro">
       ${kitchenToolSwitcher()}
     </section>
@@ -7654,6 +8166,7 @@ function renderCommunity() {
 function cookSubnav() {
   return `
     <section class="app-subnav" aria-label="Let's Cook Ya'll navigation">
+      <a href="#america-250">America 250</a>
       <a href="#cuisine-explorer">Cuisine Explorer</a>
       <a href="#kids-korner">Kids Korner</a>
       <a href="#what-yall-cooking">What Y'all Cooking?</a>
@@ -8097,6 +8610,16 @@ function renderCuisineExplorer(id) {
     return;
   }
   if (southwestId && southwestRegionalPages[southwestId]) return renderSouthwestRegionalPage(southwestId);
+  const midAtlanticId = id ? midAtlanticRegionalAliases[id] || id : "";
+  if (midAtlanticId === "mid-atlantic") {
+    app.innerHTML = `
+      ${hero("Mid-Atlantic / New York & Neighbors", "Cook through New York, New Jersey, Pennsylvania, Maryland, Delaware, and Washington, D.C. with delis, pizzerias, boardwalk food, seafood, Pennsylvania Dutch comfort, carryout culture, and immigrant food traditions.", midAtlanticCoverImages["mid-atlantic"], `<a class="small-button" href="#cuisine-explorer">All Cuisines</a><a class="small-button secondary" href="#what-yall-cooking">Build A Mid-Atlantic Menu</a>`)}
+      ${cookSubnav()}
+      ${midAtlanticRegionalHub()}
+    `;
+    return;
+  }
+  if (midAtlanticId && midAtlanticRegionalPages[midAtlanticId]) return renderMidAtlanticRegionalPage(midAtlanticId);
   if (id === "african-cuisines") return africaCuisineHub();
   if (id && africaCountryPages[id]) return renderAfricaCountryPage(id);
   if (id) return renderCuisineExplorerDetail(id);
@@ -10118,6 +10641,7 @@ function handleClick(event) {
       || midwestRegionalPages[regionalMenuButton.dataset.regionId]
       || newEnglandRegionalPages[regionalMenuButton.dataset.regionId]
       || southwestRegionalPages[regionalMenuButton.dataset.regionId]
+      || midAtlanticRegionalPages[regionalMenuButton.dataset.regionId]
       || regionalSoulFoodPages["mississippi-soul-food"];
     const menu = page.menus.find((item) => item.id === regionalMenuButton.dataset.regionalMenu) || page.menus[0];
     section?.querySelectorAll("[data-regional-menu]").forEach((button) => button.classList.toggle("secondary", button !== regionalMenuButton));

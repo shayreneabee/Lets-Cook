@@ -248,6 +248,321 @@ button.small-button {
   }
 }
 
+/* America 250 event layer */
+.america-250-announcement {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 38px;
+  padding: 7px clamp(14px, 4vw, 48px);
+  background: linear-gradient(90deg, #9d1b2b, #fffdf7 48%, #174a8b);
+  border-bottom: 1px solid rgba(17, 38, 74, 0.2);
+  color: #11264a;
+  font-size: 0.92rem;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.site-header {
+  top: 38px;
+}
+
+.site-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -11px;
+  height: 13px;
+  background:
+    linear-gradient(135deg, #b61f32 25%, transparent 25%) 0 0 / 28px 13px,
+    linear-gradient(225deg, #fffdf7 25%, transparent 25%) 14px 0 / 28px 13px,
+    linear-gradient(135deg, #174a8b 25%, transparent 25%) 28px 0 / 28px 13px;
+  pointer-events: none;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 38px 0 auto 0;
+  z-index: 1;
+  height: 180px;
+  pointer-events: none;
+  opacity: 0.38;
+  background:
+    radial-gradient(circle at 8% 32%, #b61f32 0 2px, transparent 3px),
+    radial-gradient(circle at 14% 18%, #174a8b 0 2px, transparent 3px),
+    radial-gradient(circle at 87% 24%, #b61f32 0 2px, transparent 3px),
+    radial-gradient(circle at 92% 44%, #174a8b 0 2px, transparent 3px);
+  animation: america250Sparkle 4.8s ease-in-out infinite;
+}
+
+.america-250-hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(280px, 0.88fr);
+  gap: clamp(20px, 4vw, 52px);
+  align-items: center;
+  padding: clamp(42px, 7vw, 92px) clamp(20px, 7vw, 120px) clamp(26px, 5vw, 62px);
+  overflow: hidden;
+  color: #fffdf7;
+  background:
+    linear-gradient(120deg, rgba(14, 43, 91, 0.96), rgba(157, 27, 43, 0.92)),
+    linear-gradient(180deg, #174a8b, #9d1b2b);
+}
+
+.america-250-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.22;
+  background:
+    linear-gradient(90deg, transparent 0 8%, rgba(255, 255, 255, 0.55) 8% 12%, transparent 12% 20%),
+    radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.65), transparent 1.8px);
+  background-size: 120px 100%, 28px 28px;
+}
+
+.america-250-copy h1 {
+  max-width: 820px;
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(3.1rem, 7vw, 7.8rem);
+  font-weight: 400;
+  line-height: 0.96;
+}
+
+.america-250-copy p:not(.eyebrow) {
+  max-width: 700px;
+  color: rgba(255, 253, 247, 0.9);
+  font-size: clamp(1.05rem, 1.5vw, 1.32rem);
+  line-height: 1.7;
+}
+
+.america-250-hero .eyebrow,
+.america-250-challenge-banner .eyebrow,
+.navy-section .eyebrow {
+  color: #fff0bd;
+}
+
+.america-250-stats,
+.america-250-state-ribbon,
+.america-250-recipe-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.america-250-stats span,
+.america-250-state-ribbon span {
+  display: grid;
+  gap: 2px;
+  min-height: 52px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 253, 247, 0.3);
+  border-radius: 999px;
+  background: rgba(255, 253, 247, 0.12);
+  color: #fffdf7;
+  font-weight: 900;
+}
+
+.america-250-state-ribbon {
+  grid-column: 1 / -1;
+  margin-top: 6px;
+}
+
+.america-250-state-ribbon span strong {
+  color: #fff0bd;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.america-250-photo {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border: 8px solid rgba(255, 253, 247, 0.86);
+  border-radius: 28px;
+  aspect-ratio: 4 / 3;
+  box-shadow: 0 24px 70px rgba(10, 22, 48, 0.34);
+}
+
+.america-250-photo img,
+.america-250-recipe-strip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.america-250-photo figcaption {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #fffdf7;
+  color: #9d1b2b;
+  font-weight: 900;
+}
+
+.america-250-recipe-strip {
+  grid-column: 1 / -1;
+}
+
+.america-250-recipe-strip a {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  width: min(220px, 100%);
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(255, 253, 247, 0.94);
+  color: #11264a;
+  font-weight: 900;
+}
+
+.america-250-recipe-strip img {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+}
+
+.america-250-fireworks span {
+  position: absolute;
+  width: 9rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, #fffdf7 0 2px, transparent 3px),
+    conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.74), transparent, rgba(239, 189, 90, 0.7), transparent);
+  opacity: 0.24;
+  animation: america250Burst 3.8s ease-in-out infinite;
+}
+
+.america-250-fireworks span:nth-child(1) { top: 9%; right: 9%; }
+.america-250-fireworks span:nth-child(2) { top: 55%; left: 5%; animation-delay: 1.2s; }
+.america-250-fireworks span:nth-child(3) { bottom: 4%; right: 30%; animation-delay: 2.1s; }
+
+.america-250-challenge-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  padding: clamp(26px, 4vw, 44px) clamp(20px, 7vw, 120px);
+  background:
+    linear-gradient(90deg, rgba(157, 27, 43, 0.96), rgba(23, 74, 139, 0.96));
+  color: #fffdf7;
+}
+
+.america-250-challenge-banner h2 {
+  margin: 0;
+  max-width: 900px;
+  font-family: var(--serif);
+  font-size: clamp(1.9rem, 4vw, 4rem);
+  font-weight: 400;
+}
+
+.america-250-state-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(150px, 1fr));
+  gap: 14px;
+}
+
+.america-250-state-grid article {
+  padding: 18px;
+  border: 1px solid rgba(23, 74, 139, 0.16);
+  border-radius: 18px;
+  background: linear-gradient(180deg, #fffdf7, #fff1e8);
+  box-shadow: var(--bc-lift);
+}
+
+.america-250-state-grid span {
+  color: #9d1b2b;
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.america-250-state-grid h3 {
+  margin: 8px 0 4px;
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 2.6vw, 2.35rem);
+  font-weight: 400;
+  color: #11264a;
+}
+
+.america-250-collection {
+  background:
+    linear-gradient(180deg, rgba(255, 253, 247, 0.96), rgba(255, 246, 230, 0.95)),
+    repeating-linear-gradient(90deg, rgba(157, 27, 43, 0.06) 0 12px, rgba(23, 74, 139, 0.06) 12px 24px);
+}
+
+.america-250-planning {
+  background:
+    linear-gradient(135deg, #11264a, #174a8b 55%, #9d1b2b);
+}
+
+@keyframes america250Burst {
+  0%, 100% {
+    transform: scale(0.7) rotate(0deg);
+    opacity: 0.12;
+  }
+  45% {
+    transform: scale(1.08) rotate(18deg);
+    opacity: 0.36;
+  }
+}
+
+@keyframes america250Sparkle {
+  0%, 100% { opacity: 0.24; }
+  50% { opacity: 0.52; }
+}
+
+@media (max-width: 900px) {
+  .america-250-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .america-250-state-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .america-250-announcement {
+    flex-wrap: wrap;
+    gap: 0.25rem 0.45rem;
+    font-size: 0.82rem;
+  }
+
+  .site-header {
+    top: 52px;
+  }
+
+  .america-250-copy h1 {
+    font-size: clamp(2.8rem, 15vw, 4.5rem);
+  }
+
+  .america-250-state-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .america-250-recipe-strip a {
+    width: 100%;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -8573,5 +8888,22 @@ button.small-button:is(:hover, :focus-visible) {
 
   .review-status-pill {
     white-space: normal;
+  }
+}
+
+/* Final America 250 event overrides */
+.america-250-announcement {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+}
+
+.site-header {
+  top: 38px;
+}
+
+@media (max-width: 620px) {
+  .site-header {
+    top: 52px;
   }
 }

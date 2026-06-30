@@ -1,4 +1,4 @@
-const CACHE_NAME = "lets-cook-southwest-region-v27";
+const CACHE_NAME = "lets-cook-america-250-v29";
 
 const OFFLINE_ASSETS = [
   "./",
