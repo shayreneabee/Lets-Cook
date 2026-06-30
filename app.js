@@ -5833,19 +5833,19 @@ function renderPlatformHome() {
 const monthlySpotlight = {
   month: "July",
   headline: "Let's Cook Through America, Y'all!",
-  subhead: "America 250 is live July 1-31 with daily featured states, cookout classics, regional spotlights, fireworks energy, and a table big enough for the whole country.",
+  subhead: "America 250 is live July 1-31 with daily featured states, cookout classics, regional food stories, seasonal produce, and a table big enough for the whole country.",
   doodleImage: "images/hero/juneteenth-family-reunion-doodle.png",
   heroImages: ["images/hero/hero-01.jpg", "images/hero/hero-02.jpg", "images/hero/hero-03.jpg", "images/hero/hero-04.jpg", "images/hero/hero-05.jpg", "images/hero/hero-06.jpg", "images/hero/hero-07.jpg", "images/hero/hero-08.jpg", "images/hero/hero-09.jpg", "images/hero/hero-10.jpg"],
-  aboveFoldRecipeIds: ["bbq-brisket-basics", "bbq-chicken-quarters", "bbq-baked-beans", "southern-collard-greens", "cornbread", "strawberry-soda", "watermelon-platter", "red-velvet-cake"],
-  gatheringNotes: ["Brisket smoking since sunrise", "Aunties carrying foil pans", "Dominoes on the card table", "Kids running through the yard", "Strawberry soda on ice", "Somebody saving you a seat"],
+  aboveFoldRecipeIds: ["all-american-burgers", "classic-cookout-hot-dogs", "bbq-smoked-ribs", "bbq-brisket-basics", "bbq-baked-beans", "corn-on-the-cob", "cookout-watermelon-wedges", "classic-apple-pie"],
+  gatheringNotes: ["Brisket smoking since sunrise", "Cold lemonade sweating on the table", "A travel plate from another state", "Corn waiting for butter", "Pie cooling by the window", "Somebody saving you a seat"],
   features: [
-    { title: "Family Reunion Season", text: "Tents, folding chairs, matching shirts, coolers, cousins, and somebody telling you to eat before you leave." },
-    { title: "Black Music Month", text: "Blues, gospel, jazz, soul, R&B, and hip-hop playing while the grill works and the aunties talk." },
-    { title: "Summer Cookouts", text: "Smoke, sauce, cold drinks, easy sides, paper plates, and enough shade for the elders." },
-    { title: "Peach Season", text: "Cobblers, shortcakes, preserves, grilled peaches, and Sunday dessert energy." },
-    { title: "Church Homecomings", text: "Covered dishes, tea, red punch, serving spoons, and people hugging across generations." }
+    { title: "Daily State Table", text: "A fresh state prompt every day with recipes, food history, and a reason to come back hungry tomorrow." },
+    { title: "Regional Road Trip", text: "Move from delis to barbecue pits, seafood shacks, farm tables, boardwalk stands, and Sunday kitchens." },
+    { title: "Family Food Stories", text: "Every plate gets treated like memory: who cooked it, why it matters, and where it belongs." },
+    { title: "Summer Cookout Season", text: "Smoke, sauce, cold drinks, easy sides, fruit, shade, and enough food for one more person." },
+    { title: "Peach, Corn & Tomato Season", text: "July produce brings cobblers, shortcakes, buttered corn, tomato plates, and picnic-table color." }
   ],
-  favoriteRecipeIds: ["bbq-brisket-basics", "bbq-chicken-quarters", "bbq-baked-beans", "southern-collard-greens", "cornbread", "red-velvet-cake", "strawberry-soda", "watermelon-platter", "peach-cobbler"],
+  favoriteRecipeIds: ["all-american-burgers", "classic-cookout-hot-dogs", "bbq-smoked-ribs", "bbq-brisket-basics", "bbq-baked-beans", "southern-potato-salad", "corn-on-the-cob", "cookout-watermelon-wedges", "classic-apple-pie", "peach-cobbler"],
   redFoods: [
     { title: "Strawberry soda", recipeId: "strawberry-soda", text: "A bright red, kid-loved drink that keeps the celebration cold and joyful." },
     { title: "Red punch", recipeId: "hibiscus-red-punch", text: "Hibiscus, fruit, and citrus make a deep red drink for big pitchers and long tables." },
@@ -5885,7 +5885,7 @@ const monthlySpotlight = {
       notes: "Keep it simple: one main, two sides, one red drink, one dessert, and time to sit down together."
     }
   ],
-  upcoming: ["America 250", "4th of July", "Summer Cookout Season", "Peach Season", "Family Reunion Season", "Hispanic Heritage Month", "Thanksgiving"]
+  upcoming: ["America 250", "Regional Food Explorer", "Summer Cookout Season", "Peach Season", "Family Reunion Season", "Hispanic Heritage Month", "Thanksgiving"]
 };
 
 const america250RecipeIds = [
@@ -5936,6 +5936,68 @@ function america250CountdownText(date = new Date()) {
   if (days === 1) return "1 day until July 4";
   if (days === 0) return "July 4 is today";
   return "Fourth of July weekend is on the table";
+}
+
+const america250StateRouteMap = {
+  Delaware: "#cuisine-explorer/delaware-mid-atlantic",
+  Pennsylvania: "#cuisine-explorer/pennsylvania-mid-atlantic",
+  "New Jersey": "#cuisine-explorer/new-jersey-mid-atlantic",
+  Georgia: "#cuisine-explorer/georgia-soul-food",
+  Connecticut: "#cuisine-explorer/new-england",
+  Massachusetts: "#cuisine-explorer/new-england",
+  Maryland: "#cuisine-explorer/maryland-mid-atlantic",
+  "South Carolina": "#cuisine-explorer",
+  "New Hampshire": "#cuisine-explorer/new-england",
+  Virginia: "#cuisine-explorer",
+  "New York": "#cuisine-explorer/new-york-mid-atlantic",
+  "North Carolina": "#cuisine-explorer",
+  "Rhode Island": "#cuisine-explorer/new-england",
+  Vermont: "#cuisine-explorer/new-england",
+  Kentucky: "#cuisine-explorer",
+  Tennessee: "#cuisine-explorer",
+  Ohio: "#cuisine-explorer/midwest",
+  Louisiana: "#cuisine-explorer/louisiana-soul-food",
+  Indiana: "#cuisine-explorer/midwest",
+  Mississippi: "#cuisine-explorer/mississippi-soul-food",
+  Illinois: "#cuisine-explorer/midwest",
+  Alabama: "#cuisine-explorer/alabama-soul-food",
+  Maine: "#cuisine-explorer/new-england",
+  Missouri: "#cuisine-explorer/midwest",
+  Arkansas: "#cuisine-explorer",
+  Michigan: "#cuisine-explorer/midwest",
+  Florida: "#cuisine-explorer",
+  Texas: "#cuisine-explorer/texas-southwest",
+  Iowa: "#cuisine-explorer/midwest",
+  Wisconsin: "#cuisine-explorer/midwest",
+  California: "#cuisine-explorer"
+};
+
+const america250StateNotes = {
+  Delaware: "Peach pie, blue crab, boardwalk fries, and slippery dumplings.",
+  Pennsylvania: "Pretzels, cheesesteaks, pies, pierogies, and Pennsylvania Dutch comfort.",
+  "New Jersey": "Tomato pie, pork roll, boardwalk sweets, and sausage-and-pepper stands.",
+  Georgia: "Peaches, pecans, coastal rice, barbecue, and Sunday-table hospitality.",
+  Connecticut: "New Haven pizza, lobster rolls, dairy farms, apples, and shoreline plates.",
+  Massachusetts: "Clam chowder, baked beans, cod, cranberries, and old harbor kitchens.",
+  Maryland: "Blue crabs, Old Bay, crab cakes, crab soup, and summer seafood tables.",
+  "South Carolina": "Lowcountry rice, shrimp, barbecue hash, benne, peaches, and Gullah Geechee foodways.",
+  "New York": "Pizza, bagels, delis, street carts, bakeries, wings, and immigrant food stories.",
+  Louisiana: "Gumbo, jambalaya, po'boys, red beans, seafood, and celebration pots.",
+  Mississippi: "Catfish, hot tamales, Delta barbecue, greens, cornbread, and church supper plates.",
+  Texas: "Brisket, beef ribs, chili, kolaches, breakfast tacos, and smokehouse patience."
+};
+
+function america250DailyRecipeIds(date = new Date(), count = 4) {
+  const start = (america250DayNumber(date) - 1) % america250RecipeIds.length;
+  return Array.from({ length: count }, (_, index) => america250RecipeIds[(start + index) % america250RecipeIds.length]);
+}
+
+function america250StateHref(state) {
+  return america250StateRouteMap[state] || "#cuisine-explorer";
+}
+
+function america250StateNote(state) {
+  return america250StateNotes[state] || "Regional ingredients, local stories, and a plate that helps the journey keep moving.";
 }
 
 function recipeByIdSafe(id, options = {}) {
@@ -7608,30 +7670,30 @@ function monthlySpotlightBanner() {
 
 function america250HeroBanner() {
   const featuredStates = america250FeaturedStates();
-  const topRecipes = america250RecipeIds.map(recipeByIdSafe).filter(Boolean).slice(0, 5);
+  const topRecipes = america250DailyRecipeIds(new Date(), 5).map(recipeByIdSafe).filter(Boolean);
   return `
     <section class="america-250-hero">
       <div class="america-250-fireworks" aria-hidden="true"><span></span><span></span><span></span></div>
       <div class="america-250-copy">
         <p class="eyebrow">America 250 / July 1-31</p>
         <h1>Let's Cook Through America, Y'all!</h1>
-        <p>All July long, Let's Cook Y'all is celebrating regional food, cookout tables, travel memories, and the dishes that make every state taste like home.</p>
+        <p>All July long, Let's Cook Y'all is celebrating America through regional food, family stories, travel memories, and the dishes that make every state taste like home.</p>
         <div class="america-250-stats" aria-label="America 250 event highlights">
           <span>Daily featured states</span>
-          <span>Fourth of July collection</span>
+          <span>Regional food stories</span>
           <span>${america250CountdownText()}</span>
         </div>
         <div class="hero-actions">
-          <a class="small-button" href="#america-250">Open America 250</a>
-          <a class="small-button secondary" href="#recipes/classic-cookout-hot-dogs">Start With Hot Dogs</a>
+          <a class="small-button" href="#america-250">Start Today's Journey</a>
+          <a class="small-button secondary" href="#cuisine-explorer">Explore Regional Food</a>
         </div>
       </div>
       <figure class="america-250-photo">
-        <img src="${america250Images.hero}" alt="Fourth of July cookout plate" />
-        <figcaption>America 250 badge</figcaption>
+        <img src="${america250Images.hero}" alt="America 250 cookout table with family-style summer food" />
+        <figcaption>America's kitchen, one plate at a time</figcaption>
       </figure>
       <div class="america-250-state-ribbon" aria-label="Featured states">
-        ${featuredStates.map((state, index) => `<span><strong>Day ${america250DisplayDay(index)}</strong>${state}</span>`).join("")}
+        ${featuredStates.map((state, index) => `<a href="${america250StateHref(state)}"><strong>Day ${america250DisplayDay(index)}</strong>${state}</a>`).join("")}
       </div>
       <div class="america-250-recipe-strip">
         ${topRecipes.map((recipe) => `<a href="#recipes/${recipe.id}"><img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" /><span>${recipe.title}</span></a>`).join("")}
@@ -7651,11 +7713,11 @@ function america250SpotlightSection() {
       </div>
       <div class="america-250-state-grid">
         ${featuredStates.map((state, index) => `
-          <article>
+          <a href="${america250StateHref(state)}">
             <span>Day ${america250DisplayDay(index)}</span>
             <h3>${state}</h3>
-            <p>${index === 0 ? "Featured today" : "Coming up this week"}</p>
-          </article>
+            <p>${index === 0 ? "Featured today" : "Coming up this week"}: ${america250StateNote(state)}</p>
+          </a>
         `).join("")}
       </div>
     </section>
@@ -7666,10 +7728,10 @@ function america250ChallengeBanner() {
   return `
     <section class="america-250-challenge-banner">
       <div>
-        <p class="eyebrow">July Challenge</p>
+        <p class="eyebrow">Today's America 250 Journey</p>
         <h2>Cook one state, one cookout classic, and one family story this week.</h2>
       </div>
-      <a class="small-button" href="#america-250">See the Collection</a>
+      <a class="small-button" href="#america-250">Open Today's Table</a>
     </section>
   `;
 }
@@ -7679,10 +7741,65 @@ function america250CollectionSection(limit = 16) {
   return `
     <section class="cream-section america-250-collection">
       <div class="section-heading">
-        <p class="eyebrow">Fourth of July Collection</p>
-        <h2>Burgers, hot dogs, barbecue, sides, fruit, pie, pudding, shortcake, and lemonade.</h2>
+        <p class="eyebrow">America 250 Table</p>
+        <h2>Cookout classics, regional favorites, cold sides, fruit, pies, pudding, shortcake, and lemonade.</h2>
       </div>
       <div class="recipe-grid">${collection.map(recipeCard).join("")}</div>
+    </section>
+  `;
+}
+
+function america250DailyRecipeSection() {
+  const dailyRecipes = america250DailyRecipeIds(new Date(), 4).map(recipeByIdSafe).filter(Boolean);
+  return `
+    <section class="cream-section america-250-daily-recipes">
+      <div class="section-heading">
+        <p class="eyebrow">Daily Featured Recipes</p>
+        <h2>Something new for today's table.</h2>
+        <p>Come back tomorrow for a fresh rotation. The goal is not just to browse recipes; it is to travel a little farther through America's kitchens every day.</p>
+      </div>
+      <div class="recipe-grid">${dailyRecipes.map(recipeCard).join("")}</div>
+    </section>
+  `;
+}
+
+function america250FoodHistorySection() {
+  const stories = [
+    ["Corn, Masa & Cast Iron", "#culinary-academy/cornbread", "Corn connects Indigenous foodways, Southern skillets, tortillas, grits, spoonbread, and summer cookout tables."],
+    ["Barbecue Smoke", "#recipes/bbq-brisket-basics", "Pit smoke tells stories of labor, migration, cattle country, church grounds, family reunions, and regional pride."],
+    ["Seafood Coasts", "#cuisine-explorer/maryland-mid-atlantic", "Crab pots, oyster bars, fish fries, chowders, shrimp boils, and waterfront kitchens shape the American table."],
+    ["Immigrant City Food", "#cuisine-explorer/new-york-mid-atlantic", "Delis, pizza ovens, bakeries, pupuserias, Ethiopian cafes, and street carts make city food deeply American."]
+  ];
+  return `
+    <section class="gold-section america-250-history-section">
+      <div class="section-heading">
+        <p class="eyebrow">Food History</p>
+        <h2>America tastes like movement, memory, and many hands at the stove.</h2>
+        <p>These are quick entry points into the stories behind the recipes, built to reward the click with real cooking context.</p>
+      </div>
+      <div class="academy-module-grid">
+        ${stories.map(([title, href, text]) => `<a class="academy-module-card" href="${href}"><h3>${title}</h3><p>${text}</p></a>`).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function america250SeasonalIdeasSection() {
+  const ideas = [
+    ["Set Out A Burger Bar", "#recipes/all-american-burgers", "Toast buns, slice tomatoes, chill pickles, and let the table build its own plate."],
+    ["Make The Cold Sides First", "#recipes/southern-potato-salad", "Potato salad, coleslaw, watermelon, and lemonade give the cookout breathing room."],
+    ["Bring A Pie Or Cobbler", "#recipes/peach-cobbler", "Fruit desserts make the meal feel generous without needing anything fussy."],
+    ["Give Kids A Job", "#kids-korner", "Let them stir lemonade, stack buns, decorate cookies, or build mini plates."]
+  ];
+  return `
+    <section class="cream-section america-250-seasonal-section">
+      <div class="section-heading">
+        <p class="eyebrow">Seasonal Cooking Ideas</p>
+        <h2>Make the table feel lived-in, not staged.</h2>
+      </div>
+      <div class="reunion-planner-grid">
+        ${ideas.map(([title, href, text]) => `<a href="${href}"><strong>${title}</strong><span>${text}</span></a>`).join("")}
+      </div>
     </section>
   `;
 }
@@ -7720,18 +7837,21 @@ function renderAmerica250() {
     ${kitchenTableWelcomeSection()}
     ${america250ChallengeBanner()}
     ${america250SpotlightSection()}
+    ${america250DailyRecipeSection()}
+    ${america250FoodHistorySection()}
+    ${america250SeasonalIdeasSection()}
     ${america250CollectionSection()}
     <section class="navy-section america-250-planning">
       <div class="section-heading">
         <p class="eyebrow">Event Features</p>
-        <h2>Make the whole month feel like a real celebration.</h2>
-        <p>Use the daily state prompts, Fourth collection, Kids Korner activities, and regional explorer to cook through America without losing the clean, mobile-friendly flow of the site.</p>
+        <h2>Make the whole month feel like a real food journey.</h2>
+        <p>Use the daily state prompts, recipe rotation, Kids Korner activities, and regional explorer to cook through America without losing the clean, mobile-friendly flow of the site.</p>
       </div>
       <div class="academy-module-grid">
-        <article class="academy-module-card"><h3>America 250 Badge</h3><p>Save a cookout recipe, then plan a state-inspired table from the regional explorer.</p></article>
-        <article class="academy-module-card"><h3>Countdown</h3><p>${america250CountdownText()}.</p></article>
-        <article class="academy-module-card"><h3>Kids Korner</h3><p>Build mini pizzas, decorate cookies, make trail mix, or help set the cookout table.</p></article>
-        <article class="academy-module-card"><h3>Regional Road Trip</h3><p>Resume regional expansion after this July event push, starting from the Mid-Atlantic deployment.</p></article>
+        <a class="academy-module-card" href="#planner"><h3>Plan Today's Plate</h3><p>Turn a featured state and a cookout recipe into a real shopping list and table plan.</p></a>
+        <a class="academy-module-card" href="#america-250"><h3>Countdown</h3><p>${america250CountdownText()}.</p></a>
+        <a class="academy-module-card" href="#kids-korner"><h3>Kids Korner</h3><p>Build mini pizzas, decorate cookies, make trail mix, or help set the cookout table.</p></a>
+        <a class="academy-module-card" href="#cuisine-explorer"><h3>Regional Road Trip</h3><p>Keep moving through regional recipes, food history, ingredients, and local favorites.</p></a>
       </div>
     </section>
   `;
@@ -7756,9 +7876,9 @@ function thisMonthsTableSection() {
   return `
     <section class="cream-section reunion-table-section">
       <div class="section-heading">
-        <p class="eyebrow">This Month's Table</p>
+        <p class="eyebrow">This Month's America 250 Table</p>
         <h2>The plate people circle back for.</h2>
-        <p>Smoked meat, BBQ chicken, greens, beans, skillet cornbread, cold red drinks, watermelon, and dessert waiting under foil. It should feel like somebody made enough because they hoped you would come.</p>
+        <p>Burgers, hot dogs, barbecue, cold sides, corn, watermelon, pie, cobbler, and lemonade. It should feel like somebody made enough because they hoped you would come.</p>
       </div>
       <div class="reunion-table-spread">
         ${tableRecipes.map((recipe, index) => `
@@ -7770,8 +7890,8 @@ function thisMonthsTableSection() {
         `).join("")}
       </div>
       <div class="hero-actions center-actions">
-        <a class="small-button" href="${menuRouteForOccasion("Juneteenth")}">Cook This Entire Menu</a>
-        <a class="small-button secondary" href="#hosting/family-reunion">Plan The Reunion Table</a>
+        <a class="small-button" href="#america-250">Cook Through America</a>
+        <a class="small-button secondary" href="#hosting/cookout">Plan The Cookout Table</a>
       </div>
     </section>
   `;
@@ -7914,14 +8034,15 @@ function comingUpNextSection() {
   return `
     <section class="cream-section coming-up-section">
       <div class="section-heading compact-heading">
-        <p class="eyebrow">Upcoming Summer Gatherings</p>
-        <h2>Keep the tables full all summer.</h2>
+        <p class="eyebrow">Keep Traveling America's Table</p>
+        <h2>Every click should take you somewhere good.</h2>
       </div>
       <div class="upcoming-chip-grid">${[
-        ["4th of July", "#hosting/cookout"],
-        ["Family Reunions", "#hosting/family-reunion"],
-        ["Cookout Season", "#hosting/cookout"],
-        ["Church Homecomings", "#hosting/church-potluck"],
+        ["Today's America 250 Table", "#america-250"],
+        ["Regional Food Explorer", "#cuisine-explorer"],
+        ["Cookout Hosting", "#hosting/cookout"],
+        ["Kids Kitchen Journey", "#kids-korner"],
+        ["Menu Planner", "#planner"],
         ["Peach Season", "#recipes/peach-cobbler"]
       ].map(([item, href]) => `<a href="${href}">${item}</a>`).join("")}</div>
     </section>
@@ -8008,6 +8129,7 @@ function renderLetsCookHome() {
     ${kitchenTableWelcomeSection()}
     ${america250ChallengeBanner()}
     ${america250SpotlightSection()}
+    ${america250DailyRecipeSection()}
     ${america250CollectionSection(8)}
     <section class="cream-section kitchen-flagship-intro">
       ${kitchenToolSwitcher()}
@@ -8015,11 +8137,9 @@ function renderLetsCookHome() {
     ${ingredientDiscoverySection("chicken strips")}
     ${thisMonthSection()}
     ${thisMonthsTableSection()}
-    ${familyReunionSeasonSection()}
-    ${juneteenthMenuSection()}
-    ${musicCultureSection()}
+    ${america250FoodHistorySection()}
+    ${america250SeasonalIdeasSection()}
     ${pullUpAChairSection()}
-    ${redFoodsHistorySection()}
     <section class="cream-section homepage-photo-strip">
       <div class="section-heading compact-heading">
         <p class="eyebrow">Learn by looking, tasting, and doing</p>
