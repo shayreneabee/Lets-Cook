@@ -252,13 +252,13 @@ const midwestCoverImages = {
 };
 
 const newEnglandCoverImages = {
-  "new-england": "assets/lc-seafood.jpg",
-  maine: "assets/lc-seafood.jpg",
-  "new-hampshire": "assets/ingredients.jpeg",
-  vermont: "assets/ingredients.jpeg",
-  massachusetts: "assets/lc-seafood.jpg",
-  "rhode-island": "assets/lc-seafood.jpg",
-  connecticut: "assets/lc-seafood.jpg"
+  "new-england": "images/recipes/new-england-2026/new-england-clam-chowder.jpg",
+  maine: "images/recipes/new-england-2026/maine-lobster-roll.jpg",
+  "new-hampshire": "images/recipes/new-england-2026/apple-cider-doughnuts.jpg",
+  vermont: "images/recipes/new-england-2026/maple-creemee.jpg",
+  massachusetts: "images/recipes/new-england-2026/boston-cream-pie.jpg",
+  "rhode-island": "images/recipes/new-england-2026/rhode-island-stuffies.jpg",
+  connecticut: "images/recipes/new-england-2026/new-haven-apizza.jpg"
 };
 
 const categoryCoverImages = {
