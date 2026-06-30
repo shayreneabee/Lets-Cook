@@ -7687,10 +7687,37 @@ function america250CollectionSection(limit = 16) {
   `;
 }
 
+function kitchenTableWelcomeSection() {
+  return `
+    <section class="cream-section kitchen-table-welcome">
+      <div class="kitchen-table-copy">
+        <p class="eyebrow">Pull up a chair</p>
+        <h2>Pie cooling, tea sweating, cornbread steaming, and somebody saving you a seat.</h2>
+        <p>This kitchen should feel lived in: a recipe card on the counter, a towel over the bread, herbs by the sink, and enough food on the table for one more person to walk in hungry.</p>
+      </div>
+      <div class="kitchen-table-still-life" aria-label="Warm kitchen table details">
+        <figure class="steam-note">
+          <img src="images/juneteenth/cast-iron-skillet-cornbread.png" alt="Cast iron cornbread cooling on a kitchen table" />
+          <figcaption>Cornbread just came out.</figcaption>
+        </figure>
+        <figure class="condensation-note">
+          <img src="images/juneteenth/fresh-lemonade.png" alt="Cold lemonade glass with summer table setting" />
+          <figcaption>Tea and lemonade go on ice first.</figcaption>
+        </figure>
+        <div class="handwritten-recipe-note">
+          <span>From the recipe box</span>
+          <strong>Set the table before the last pan comes out.</strong>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
 function renderAmerica250() {
   app.innerHTML = `
     ${america250HeroBanner()}
     ${cookSubnav()}
+    ${kitchenTableWelcomeSection()}
     ${america250ChallengeBanner()}
     ${america250SpotlightSection()}
     ${america250CollectionSection()}
@@ -7978,6 +8005,7 @@ function renderLetsCookHome() {
   app.innerHTML = `
     ${america250HeroBanner()}
     ${cookSubnav()}
+    ${kitchenTableWelcomeSection()}
     ${america250ChallengeBanner()}
     ${america250SpotlightSection()}
     ${america250CollectionSection(8)}
@@ -10292,6 +10320,17 @@ function cuisineCard(cuisine) {
   return `<article class="cuisine-card"><a href="#cuisine/${cuisine.id}"><figure><img src="${cuisine.image}" alt="${cuisine.name}" /></figure><h3>${cuisine.name}</h3><p>${cuisine.blurb}</p></a></article>`;
 }
 
+function recipeStoryLabel(recipe = {}) {
+  const text = `${recipe.title || ""} ${recipe.category || ""} ${recipe.cuisine || ""} ${(recipe.tags || []).join(" ")}`.toLowerCase();
+  if (/church|homecoming|potluck|covered dish|casserole|dressing/.test(text)) return "Church Supper Classic";
+  if (/reunion|cookout|bbq|barbecue|ribs|brisket|pulled pork|hot dog|burger|watermelon|lemonade/.test(text)) return "Cookout Favorite";
+  if (/sunday|oxtail|smothered|greens|cornbread|mac|baked ham|fried chicken/.test(text)) return "Sunday Dinner Favorite";
+  if (/family|grandma|passed|heritage|living cookbook|holiday/.test(text)) return "Passed Down Favorite";
+  if (/weeknight|quick|easy|skillet|sheet pan|pasta|tacos|stir-fry|stir fry/.test(text)) return "Weeknight Comfort";
+  if (/kids|kid-friendly|little helpers|rising chefs/.test(text)) return "Kitchen Helper Pick";
+  return "Family Table Recipe";
+}
+
 function lessonCard(lesson) {
   return `
     <article class="lesson-card">
@@ -10317,6 +10356,7 @@ function recipeCard(recipe) {
           ${recipe.isUserRecipe ? `<span>My Kitchen</span>` : isPersonal ? `<span>Shay's Kitchen</span>` : `<span>${cuisineName(recipe.cuisine)}</span>`}
           <span>${recipe.skill_level}</span>
         </div>
+        <div class="recipe-story-label">${recipeStoryLabel(recipe)}</div>
         <h3>${recipe.title}</h3>
         ${recipe.review_status === "pending" ? `<p class="pending-review-note">Pending review. Saved to your recipe collection.</p>` : ""}
         <div class="recipe-mini-meta">
