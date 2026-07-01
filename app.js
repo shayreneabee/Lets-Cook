@@ -5874,6 +5874,7 @@ const nav = document.querySelector(".main-nav");
 const menuToggle = document.querySelector(".menu-toggle");
 
 let saved = readJSON("letsCookSaved", []);
+let cookedRecipes = readJSON("letsCookCookedRecipes", []);
 let planned = readJSON("letsCookPlanned", []);
 let recentlyViewed = readJSON("letsCookRecentlyViewed", []);
 let savedMenus = readJSON("letsCookSavedMenus", []);
@@ -7841,11 +7842,27 @@ function roadTripRecipesForStop(stop) {
 }
 
 function roadTripCompletedRecipeIds(stop) {
-  return roadTripRecipesForStop(stop).map((recipe) => recipe.id).filter((recipeId) => saved.includes(recipeId));
+  return roadTripRecipesForStop(stop).map((recipe) => recipe.id).filter((recipeId) => cookedRecipes.includes(recipeId));
 }
 
 function roadTripIsVisited(stop) {
   return roadTripCompletedRecipeIds(stop).length > 0 || Boolean(roadTripPassport[stop.id]);
+}
+
+const roadTripBadgeDefinitions = [
+  { id: "first-stop", title: "First Stop", icon: "1", goal: 1, text: "Stamped your first state." },
+  { id: "weekend-drive", title: "Weekend Drive", icon: "5", goal: 5, text: "Cooked through five state stops." },
+  { id: "regional-run", title: "Regional Run", icon: "10", goal: 10, text: "Made it through ten state kitchens." },
+  { id: "halfway-home", title: "Halfway Home", icon: "25", goal: 25, text: "Reached the halfway mark across America." },
+  { id: "all-50-table", title: "All 50 Table", icon: "50", goal: 50, text: "Cooked through every state." }
+];
+
+function roadTripBadges(stats = roadTripStats()) {
+  return roadTripBadgeDefinitions.map((badge) => ({
+    ...badge,
+    earned: stats.statesVisited >= badge.goal,
+    progress: Math.min(stats.statesVisited, badge.goal)
+  }));
 }
 
 function roadTripCurrentIndex() {
@@ -7859,10 +7876,11 @@ function roadTripMilesTraveled() {
 
 function roadTripStats() {
   const statesVisited = roadTripRoute.filter(roadTripIsVisited).length;
-  const badgeMilestones = [1, 5, 10, 25, 50].filter((milestone) => statesVisited >= milestone).length;
+  const badgeMilestones = roadTripBadgeDefinitions.filter((badge) => statesVisited >= badge.goal).length;
   return {
     statesVisited,
-    recipesCooked: saved.length,
+    recipesCooked: cookedRecipes.length,
+    recipesSaved: saved.length,
     badgesEarned: badgeMilestones,
     currentIndex: roadTripCurrentIndex(),
     milesTraveled: roadTripMilesTraveled()
@@ -7876,9 +7894,10 @@ function syncRoadTripPassport(recipeId = "") {
       roadTripPassport[stop.id] = {
         state: stop.state,
         recipeId: completedIds.includes(recipeId) ? recipeId : roadTripPassport[stop.id]?.recipeId || completedIds[0],
-        completedAt: roadTripPassport[stop.id]?.completedAt || new Date().toISOString()
+        completedAt: roadTripPassport[stop.id]?.completedAt || new Date().toISOString(),
+        source: "cooked"
       };
-    } else if (roadTripPassport[stop.id]) {
+    } else if (roadTripPassport[stop.id]?.source === "cooked") {
       delete roadTripPassport[stop.id];
     }
   });
@@ -7953,24 +7972,42 @@ function roadTripMapArtwork() {
   `;
 }
 
+function roadTripStateFillLayer(stats) {
+  return `
+    <svg class="road-trip-state-fill-layer" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+      ${roadTripRoute.map((stop, index) => {
+        const visited = roadTripIsVisited(stop);
+        const isCurrent = index === stats.currentIndex;
+        const status = visited ? "visited" : isCurrent ? "current" : "future";
+        const isTinyEast = ["maine", "new-hampshire", "vermont", "massachusetts", "rhode-island", "connecticut", "delaware", "new-jersey"].includes(stop.id);
+        const rx = stop.id === "alaska" ? 7 : stop.id === "hawaii" ? 5 : isTinyEast ? 3.2 : 4.5;
+        const ry = stop.id === "alaska" ? 4.8 : stop.id === "hawaii" ? 2.6 : isTinyEast ? 2.5 : 3.5;
+        return `<ellipse class="road-trip-state-fill ${status}" cx="${stop.x}" cy="${stop.y}" rx="${rx}" ry="${ry}"><title>${stop.state} ${visited ? "completed" : isCurrent ? "current stop" : "not completed yet"}</title></ellipse>`;
+      }).join("")}
+    </svg>
+  `;
+}
+
 function roadTripMapSection() {
   syncRoadTripPassport();
   const stats = roadTripStats();
   const currentStop = roadTripRoute[stats.currentIndex];
   const nextStop = roadTripRoute[Math.min(stats.currentIndex + 1, roadTripRoute.length - 1)];
   const entries = roadTripPassportEntries().slice(-6).reverse();
+  const badges = roadTripBadges(stats);
   const routePoints = roadTripRoute.map((stop) => `${stop.x},${stop.y}`).join(" ");
   return `
     <section class="cream-section road-trip-section" id="cook-through-america">
       <div class="section-heading">
         <p class="eyebrow">The Great American Road Trip</p>
         <h2>Cook your way across all 50 states.</h2>
-        <p>Save a recipe from a state stop to stamp your passport, color the map, and move the family station wagon to the next bite. This is America's neighborhood cookbook on wheels.</p>
+        <p>Mark a recipe as cooked from a state stop to stamp your passport, color the map, earn badges, and move the family station wagon to the next bite. This is America's neighborhood cookbook on wheels.</p>
       </div>
       <div class="road-trip-layout">
         <div class="road-trip-map-card" aria-label="Interactive Cook Through America map">
           <div class="road-trip-map">
             ${roadTripMapArtwork()}
+            ${roadTripStateFillLayer(stats)}
             <svg class="road-trip-route-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
               <polyline points="${routePoints}"></polyline>
             </svg>
@@ -8009,6 +8046,21 @@ function roadTripMapSection() {
             <article><span>Current Location</span><strong>${currentStop.state}</strong></article>
             <article><span>Miles Traveled</span><strong>${stats.milesTraveled.toLocaleString()}</strong></article>
           </div>
+          <article class="road-trip-badge-case">
+            <div>
+              <p class="eyebrow">Cooking Badges</p>
+              <h3>${stats.badgesEarned ? `${stats.badgesEarned} earned on the road` : "Earn your first road badge."}</h3>
+            </div>
+            <div class="road-trip-badge-grid">
+              ${badges.map((badge) => `
+                <div class="road-trip-badge ${badge.earned ? "earned" : ""}" aria-label="${badge.title}: ${badge.progress} of ${badge.goal} states">
+                  <span>${badge.icon}</span>
+                  <strong>${badge.title}</strong>
+                  <small>${badge.earned ? "Earned" : `${badge.progress}/${badge.goal}`}</small>
+                </div>
+              `).join("")}
+            </div>
+          </article>
           <article class="road-trip-passport">
             <div>
               <p class="eyebrow">Road Trip Passport</p>
@@ -8026,7 +8078,7 @@ function roadTripMapSection() {
                 <a class="passport-stamp empty" href="${currentStop.href}">
                   <span>${currentStop.abbr}</span>
                   <strong>${currentStop.state}</strong>
-                  <small>Save one state recipe to stamp your passport.</small>
+                  <small>Cook one state recipe to stamp your passport.</small>
                   <em>Ready when you are</em>
                 </a>
               `}
@@ -8066,6 +8118,69 @@ function roadTripWelcomeSection(page, id = "") {
         <a class="small-button secondary" href="${nextStop.href}">Next stop: ${nextStop.state}</a>
       </div>
     </section>
+  `;
+}
+
+function roadTripJourneyProfileSection() {
+  syncRoadTripPassport();
+  const stats = roadTripStats();
+  const currentStop = roadTripRoute[stats.currentIndex];
+  const entries = roadTripPassportEntries().slice(-5).reverse();
+  const badges = roadTripBadges(stats);
+  const completion = Math.round((stats.statesVisited / roadTripRoute.length) * 100);
+  return `
+    <article class="account-panel road-trip-profile-panel">
+      <div class="road-trip-profile-head">
+        <div>
+          <p class="eyebrow">My Journey</p>
+          <h2>The Great American Road Trip</h2>
+          <p>Every recipe marked cooked moves your station wagon, fills the map, stamps your passport, and builds your badge case.</p>
+        </div>
+        <a class="small-button" href="#lets-cook">Open Map</a>
+      </div>
+      <div class="road-trip-profile-meter">
+        <div><strong>${stats.statesVisited}/50</strong><span>states completed</span></div>
+        <div class="completion-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${completion}" aria-label="Road trip completion"><span style="width:${completion}%"></span></div>
+        <p>${completion}% complete. Current stop: <strong>${currentStop.state}</strong>.</p>
+      </div>
+      <div class="road-trip-profile-grid">
+        <div class="road-trip-stats profile-stats" aria-label="Road trip account stats">
+          <article><span>Recipes Cooked</span><strong>${stats.recipesCooked}</strong></article>
+          <article><span>Recipes Saved</span><strong>${stats.recipesSaved}</strong></article>
+          <article><span>Badges Earned</span><strong>${stats.badgesEarned}/${roadTripBadgeDefinitions.length}</strong></article>
+          <article><span>Miles Traveled</span><strong>${stats.milesTraveled.toLocaleString()}</strong></article>
+        </div>
+        <div class="road-trip-badge-grid profile-badges">
+          ${badges.map((badge) => `
+            <div class="road-trip-badge ${badge.earned ? "earned" : ""}">
+              <span>${badge.icon}</span>
+              <strong>${badge.title}</strong>
+              <small>${badge.earned ? "Earned" : `${badge.progress}/${badge.goal}`}</small>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+      <div class="road-trip-profile-passport">
+        <h3>${entries.length ? "Recent Passport Stamps" : "No passport stamps yet"}</h3>
+        <div class="passport-stamp-grid compact">
+          ${entries.length ? entries.map((entry) => `
+            <a class="passport-stamp" href="${entry.href}">
+              <span>${entry.abbr}</span>
+              <strong>${entry.state}</strong>
+              <small>${entry.favoriteTitle}</small>
+              <em>${roadTripDateLabel(entry.completedAt)}</em>
+            </a>
+          `).join("") : `
+            <a class="passport-stamp empty" href="${currentStop.href}">
+              <span>${currentStop.abbr}</span>
+              <strong>${currentStop.state}</strong>
+              <small>Cook one state recipe to earn your first stamp.</small>
+              <em>Start here</em>
+            </a>
+          `}
+        </div>
+      </div>
+    </article>
   `;
 }
 
@@ -11092,6 +11207,7 @@ function renderRecipe(id) {
         </div>
         <div class="hero-actions">
           <button class="small-button" data-save="${recipe.id}">${saved.includes(recipe.id) ? "Saved" : "Save Recipe"}</button>
+          <button class="small-button secondary road-trip-cooked-button ${cookedRecipes.includes(recipe.id) ? "cooked" : ""}" data-cooked="${recipe.id}">${cookedRecipes.includes(recipe.id) ? "Cooked It" : "I Cooked This"}</button>
           ${recipe.video_url ? `<a class="small-button secondary" href="${recipe.video_url}" target="_blank" rel="noreferrer">Watch Video</a>` : `<a class="small-button secondary" href="#kitchen">Upload Food Video</a>`}
           <button class="small-button secondary" data-plan="${recipe.id}">${planned.includes(recipe.id) ? "Planned" : "Add to Meal Plan"}</button>
         </div>
@@ -11648,6 +11764,7 @@ function renderAccount() {
           <h2>Your Kitchen Stats</h2>
           <div class="account-stats">
             <div><strong>${saved.length}</strong><span>Saved recipes</span></div>
+            <div><strong>${cookedRecipes.length}</strong><span>Cooked recipes</span></div>
             <div><strong>${planned.length}</strong><span>Meal plan items</span></div>
             <div><strong>${submissions.length}</strong><span>Food videos</span></div>
           </div>
@@ -11658,6 +11775,7 @@ function renderAccount() {
           </div>
         </article>
       </div>
+      ${roadTripJourneyProfileSection()}
     </section>
   `;
 }
@@ -11807,7 +11925,7 @@ function recipeCard(recipe) {
         </div>
         <p>${recipe.description}</p>
         <div class="ingredient-preview"><strong>Ingredients:</strong> ${recipe.ingredients.slice(0, 4).join(", ")}</div>
-        <div class="card-actions"><a class="small-button" href="#recipes/${recipe.id}">View Recipe</a><button class="small-button secondary" data-save="${recipe.id}">${saved.includes(recipe.id) ? "Saved" : "&#9825; Save"}</button>${recipe.video_url ? `<a class="small-button secondary" href="${recipe.video_url}" target="_blank" rel="noreferrer">&#9654; Watch</a>` : ""}</div>
+        <div class="card-actions"><a class="small-button" href="#recipes/${recipe.id}">View Recipe</a><button class="small-button secondary" data-save="${recipe.id}">${saved.includes(recipe.id) ? "Saved" : "&#9825; Save"}</button><button class="small-button secondary road-trip-cooked-button ${cookedRecipes.includes(recipe.id) ? "cooked" : ""}" data-cooked="${recipe.id}">${cookedRecipes.includes(recipe.id) ? "Cooked" : "Cooked It"}</button>${recipe.video_url ? `<a class="small-button secondary" href="${recipe.video_url}" target="_blank" rel="noreferrer">&#9654; Watch</a>` : ""}</div>
       </div>
     </article>
   `;
@@ -12027,6 +12145,7 @@ function handleClick(event) {
   const dinnerChecklist = event.target.closest("[data-dinner-checklist]");
   const quickFilter = event.target.closest("[data-quick-filter]");
   const saveButton = event.target.closest("[data-save]");
+  const cookedButton = event.target.closest("[data-cooked]");
   const planButton = event.target.closest("[data-plan]");
   const printButton = event.target.closest("[data-print-recipe]");
   const pantryChip = event.target.closest("[data-pantry-chip]");
@@ -12145,7 +12264,12 @@ function handleClick(event) {
   }
   if (saveButton) {
     saved = toggleValue(saved, saveButton.dataset.save);
-    syncRoadTripPassport(saveButton.dataset.save);
+    persistLetsCookState();
+    render();
+  }
+  if (cookedButton) {
+    cookedRecipes = toggleValue(cookedRecipes, cookedButton.dataset.cooked);
+    syncRoadTripPassport(cookedButton.dataset.cooked);
     persistLetsCookState();
     render();
   }
@@ -12386,6 +12510,7 @@ function applyLetsCookState(payload, status = "") {
     status
   };
   saved = payload.saved || saved || [];
+  cookedRecipes = payload.cookedRecipes || cookedRecipes || [];
   planned = payload.planned || planned || [];
   recentlyViewed = payload.recentlyViewed || recentlyViewed || [];
   savedMenus = payload.savedMenus || savedMenus || [];
@@ -12409,6 +12534,7 @@ async function submitLetsCookAuth(url, payload) {
 
 async function persistLetsCookState() {
   localStorage.setItem("letsCookSaved", JSON.stringify(saved));
+  localStorage.setItem("letsCookCookedRecipes", JSON.stringify(cookedRecipes));
   localStorage.setItem("letsCookPlanned", JSON.stringify(planned));
   localStorage.setItem("letsCookRecentlyViewed", JSON.stringify(recentlyViewed));
   localStorage.setItem("letsCookSavedMenus", JSON.stringify(savedMenus));
@@ -12421,7 +12547,7 @@ async function persistLetsCookState() {
   const response = await fetch("/api/lets-cook/state", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ saved, planned, recentlyViewed, savedMenus, lessonProgress, userRecipes })
+    body: JSON.stringify({ saved, cookedRecipes, planned, recentlyViewed, savedMenus, lessonProgress, userRecipes })
   });
   const payload = await response.json().catch(() => ({}));
   applyLetsCookState(payload, response.ok ? "Saved to your Let's Cook account." : payload.error || "Save failed.");
