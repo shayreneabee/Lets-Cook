@@ -9488,6 +9488,72 @@ function kitchenTableWelcomeSection() {
   `;
 }
 
+function frontPorchAmericaSection() {
+  const porchRecipes = ["fried-chicken", "southern-potato-salad", "peach-cobbler", "lemonade"].map(recipeByIdSafe).filter(Boolean);
+  return `
+    <section class="cream-section front-porch-home-section" aria-labelledby="frontPorchTitle">
+      <div class="front-porch-copy">
+        <p class="eyebrow">Welcome home</p>
+        <h2 id="frontPorchTitle">This is the front porch of America's kitchen.</h2>
+        <p>Not a recipe database. Not a school project. A warm place to wander, get hungry, learn a little, laugh a little, and find one more dish worth making tonight.</p>
+        <blockquote>"There's always room for one more at the table."</blockquote>
+        <div class="hero-actions">
+          <a class="small-button" href="#what-yall-cooking">Tell Me What's In Your Kitchen</a>
+          <a class="small-button secondary" href="#cuisine-explorer">Go Taste Somewhere New</a>
+        </div>
+      </div>
+      <div class="front-porch-photo-wall" aria-label="Food and hospitality moments from the Let's Cook Y'all kitchen">
+        ${porchRecipes.map((recipe, index) => `
+          <a class="porch-photo-card card-${index + 1}" href="#recipes/${recipe.id}">
+            <img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" />
+            <span>${["Sunday Dinner Favorite", "Family Reunion Staple", "Passed Down Favorite", "Porch Sip"][index] || "Kitchen Favorite"}</span>
+            <strong>${recipe.title}</strong>
+          </a>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function shayHouseNotesSection() {
+  const notes = [
+    ["Good food tastes even better when it's shared.", "#recipes/fried-chicken"],
+    ["Every recipe has a story. Some start in church kitchens. Some start at a gas station counter.", "#cuisine-explorer/mississippi"],
+    ["Take your time. Great meals aren't rushed.", "#culinary-academy"],
+    ["Pull up a chair, y'all.", "#pull-up-chair"]
+  ];
+  return `
+    <section class="gold-section shay-house-notes-section">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Little notes from the recipe box</p>
+        <h2>Every corner should feel like somebody cared enough to leave the light on.</h2>
+        <p>These small moments are the brand: hospitality, curiosity, community, and the kind of encouragement that makes people want to keep cooking.</p>
+      </div>
+      <div class="shay-note-grid">
+        ${notes.map(([text, href]) => `<a href="${href}"><span>${text}</span></a>`).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function homepageMarketInvitationSection() {
+  const marketStops = cuisines.filter((item) => ["southern", "asian-inspired", "mexican", "indian", "italian", "holiday-sunday"].includes(item.id));
+  return `
+    <section class="cream-section homepage-market-invitation">
+      <div class="section-heading">
+        <p class="eyebrow">Explore the world through food</p>
+        <h2>Walk the market, follow the smell, and click whatever makes you hungry.</h2>
+        <p>The cuisine hub is where the site starts feeling like travel: woven baskets, spice bowls, lemons, seafood, BBQ smoke, family tables, and city food windows.</p>
+      </div>
+      <div class="cuisine-grid">${marketStops.map(cuisineCard).join("")}</div>
+      <div class="hero-actions centered-actions">
+        <a class="small-button" href="#cuisine-explorer">Open The Cuisine Market</a>
+        <a class="small-button secondary" href="#recipes">Browse All Recipes</a>
+      </div>
+    </section>
+  `;
+}
+
 function renderAmerica250() {
   app.innerHTML = `
     ${america250HeroBanner()}
@@ -9788,8 +9854,13 @@ function renderLetsCookHome() {
   app.innerHTML = `
     ${america250HeroBanner()}
     ${cookSubnav()}
-    ${roadTripMapSection()}
+    ${frontPorchAmericaSection()}
+    ${summerCravingsSection()}
     ${kitchenTableWelcomeSection()}
+    ${roadTripMapSection()}
+    ${aroundAmericaTableSection()}
+    ${neighborhoodCookbookSection()}
+    ${shayHouseNotesSection()}
     ${america250ChallengeBanner()}
     ${america250SpotlightSection()}
     ${america250DailyRecipeSection(dailyRecipeIds)}
@@ -9803,7 +9874,7 @@ function renderLetsCookHome() {
     ${america250FoodHistorySection()}
     ${america250SeasonalIdeasSection()}
     ${pullUpAChairSection()}
-    ${aroundAmericaTableSection()}
+    ${homepageMarketInvitationSection()}
     ${comingUpNextSection()}
     ${learningArchitectureSection()}
     <section class="cream-section">
@@ -9833,13 +9904,6 @@ function renderLetsCookHome() {
           ["Global Flavor", globalFlavor]
         ].map(([label, recipe]) => recipe ? `<article><span>${label}</span>${recipeCard(recipe)}</article>` : "").join("")}
       </div>
-    </section>
-    <section class="gold-section">
-      <div class="section-heading">
-        <p class="eyebrow">Southern fresh meets global flavor</p>
-        <h2>Start With What Feels Good</h2>
-      </div>
-      <div class="cuisine-grid">${cuisines.map(cuisineCard).join("")}</div>
     </section>
     <section class="cream-section">
       <div class="section-heading">
