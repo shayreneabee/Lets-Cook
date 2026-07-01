@@ -5676,6 +5676,293 @@ button.small-button:is(:hover, :focus-visible) {
   gap: 18px;
 }
 
+.cuisine-market-hero {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+  gap: clamp(22px, 4vw, 44px);
+  align-items: center;
+  padding: clamp(44px, 7vw, 92px) clamp(18px, 5vw, 72px);
+  background:
+    linear-gradient(120deg, rgba(42, 24, 18, 0.88), rgba(126, 48, 31, 0.78)),
+    url("images/cuisines/africa/nigeria/jollof-rice.jpg") center / cover;
+  color: #fffef8;
+}
+
+.cuisine-market-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.22;
+  background:
+    repeating-linear-gradient(45deg, rgba(255, 254, 248, 0.22) 0 1px, transparent 1px 18px),
+    radial-gradient(circle at 76% 24%, rgba(247, 199, 91, 0.45), transparent 28%);
+  pointer-events: none;
+}
+
+.cuisine-market-hero-copy,
+.cuisine-market-stalls {
+  position: relative;
+  z-index: 1;
+}
+
+.cuisine-market-hero h1 {
+  max-width: 860px;
+  margin: 0;
+  color: #fffef8;
+  font-size: clamp(3.2rem, 8vw, 7rem);
+  line-height: 0.88;
+}
+
+.cuisine-market-hero p:not(.eyebrow) {
+  max-width: 680px;
+  color: rgba(255, 254, 248, 0.9);
+  font-size: clamp(1.05rem, 1.7vw, 1.35rem);
+}
+
+.cuisine-market-stalls {
+  min-height: clamp(320px, 42vw, 560px);
+}
+
+.cuisine-market-stalls figure {
+  position: absolute;
+  overflow: hidden;
+  margin: 0;
+  border: 8px solid rgba(255, 254, 248, 0.86);
+  border-radius: 18px;
+  background: #fffef8;
+  box-shadow: 0 28px 58px rgba(0, 0, 0, 0.32);
+}
+
+.cuisine-market-stalls figure:nth-child(1) {
+  inset: 8% 24% 20% 0;
+  transform: rotate(-4deg);
+}
+
+.cuisine-market-stalls figure:nth-child(2) {
+  inset: 0 0 42% 44%;
+  transform: rotate(5deg);
+}
+
+.cuisine-market-stalls figure:nth-child(3) {
+  inset: 48% 7% 0 32%;
+  transform: rotate(2deg);
+}
+
+.cuisine-market-stalls img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cuisine-market-section {
+  background:
+    linear-gradient(180deg, rgba(255, 254, 248, 0.98), rgba(255, 244, 220, 0.96)),
+    repeating-linear-gradient(0deg, rgba(83, 53, 35, 0.04) 0 1px, transparent 1px 12px);
+}
+
+.cuisine-market-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.cuisine-market-card {
+  --market-accent: #b85c38;
+  --market-accent-2: #f7c75b;
+  --market-ink: #2f2018;
+  position: relative;
+  overflow: hidden;
+  grid-column: span 4;
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  border: 1px solid rgba(83, 53, 35, 0.16);
+  border-radius: 16px;
+  background:
+    linear-gradient(135deg, rgba(255, 254, 248, 0.96), rgba(255, 244, 220, 0.94)),
+    radial-gradient(circle at 100% 0, color-mix(in srgb, var(--market-accent) 22%, transparent), transparent 34%);
+  box-shadow: 0 18px 42px rgba(67, 42, 24, 0.13);
+}
+
+.cuisine-market-card.feature {
+  grid-column: span 6;
+}
+
+.cuisine-market-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.16;
+  background-image:
+    linear-gradient(45deg, var(--market-accent) 12%, transparent 12% 88%, var(--market-accent) 88%),
+    linear-gradient(-45deg, var(--market-accent-2) 12%, transparent 12% 88%, var(--market-accent-2) 88%);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+
+.cuisine-market-photo {
+  position: relative;
+  z-index: 1;
+  min-height: 240px;
+  display: block;
+  overflow: hidden;
+  color: #fffef8;
+  text-decoration: none;
+}
+
+.cuisine-market-card.feature .cuisine-market-photo {
+  min-height: 320px;
+}
+
+.cuisine-market-photo img {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  display: block;
+  object-fit: cover;
+  filter: saturate(1.04) contrast(1.03);
+  transition: transform 260ms ease;
+}
+
+.cuisine-market-card:hover .cuisine-market-photo img,
+.cuisine-market-card:focus-within .cuisine-market-photo img {
+  transform: scale(1.04);
+}
+
+.cuisine-market-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 42%, rgba(20, 12, 8, 0.72));
+}
+
+.cuisine-market-photo span {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  z-index: 2;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: var(--market-accent);
+  color: #fffef8;
+  font-weight: 900;
+}
+
+.cuisine-market-copy {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  padding: 18px;
+}
+
+.cuisine-market-copy h3 {
+  margin: 0;
+  font-size: clamp(1.65rem, 2.6vw, 2.55rem);
+  line-height: 0.98;
+}
+
+.cuisine-market-copy h3 a {
+  color: var(--market-ink);
+  text-decoration: none;
+}
+
+.cuisine-market-copy p {
+  margin: 0;
+  color: #5f4433;
+}
+
+.market-chip-row,
+.market-dish-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.market-chip-row span,
+.market-dish-row strong {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 254, 248, 0.78);
+  border: 1px solid rgba(83, 53, 35, 0.12);
+  color: #432a18;
+  font-size: 0.84rem;
+  font-weight: 850;
+}
+
+.market-dish-row strong {
+  background: color-mix(in srgb, var(--market-accent-2) 38%, #fffef8);
+}
+
+.cuisine-market-card.earth { --market-accent: #9b4f2d; --market-accent-2: #d9a441; }
+.cuisine-market-card.jade { --market-accent: #236f5b; --market-accent-2: #e79aa2; }
+.cuisine-market-card.olive { --market-accent: #6f7f3a; --market-accent-2: #f0c75e; }
+.cuisine-market-card.sea { --market-accent: #007c89; --market-accent-2: #ffb347; }
+.cuisine-market-card.lemon { --market-accent: #4d7f54; --market-accent-2: #f6d65f; }
+.cuisine-market-card.castiron { --market-accent: #6b2f1f; --market-accent-2: #d7833f; }
+.cuisine-market-card.prairie { --market-accent: #8b5b2b; --market-accent-2: #e8be62; }
+.cuisine-market-card.harbor { --market-accent: #2f6f8f; --market-accent-2: #d95f45; }
+.cuisine-market-card.desert { --market-accent: #b85630; --market-accent-2: #28a4a0; }
+.cuisine-market-card.boardwalk { --market-accent: #c72436; --market-accent-2: #f7c75b; }
+.cuisine-market-card.evergreen { --market-accent: #2d694f; --market-accent-2: #9bc0c7; }
+.cuisine-market-card.mountain { --market-accent: #556b7b; --market-accent-2: #d4a94f; }
+.cuisine-market-card.sunset { --market-accent: #d65f3d; --market-accent-2: #ffd36d; }
+.cuisine-market-card.island { --market-accent: #008a9a; --market-accent-2: #f4a261; }
+.cuisine-market-card.jazz { --market-accent: #5b3b76; --market-accent-2: #d6a53f; }
+.cuisine-market-card.fiesta { --market-accent: #d22f27; --market-accent-2: #26a69a; }
+.cuisine-market-card.smoke { --market-accent: #4a3329; --market-accent-2: #c66a35; }
+.cuisine-market-card.garden { --market-accent: #4f8a44; --market-accent-2: #e2bf57; }
+.cuisine-market-card.heirloom { --market-accent: #8f394d; --market-accent-2: #d9b36a; }
+
+@media (max-width: 1040px) {
+  .cuisine-market-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .cuisine-market-stalls {
+    min-height: 360px;
+  }
+
+  .cuisine-market-card,
+  .cuisine-market-card.feature {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 720px) {
+  .cuisine-market-hero {
+    padding-inline: 18px;
+  }
+
+  .cuisine-market-stalls {
+    min-height: 300px;
+  }
+
+  .cuisine-market-stalls figure {
+    border-width: 5px;
+  }
+
+  .cuisine-market-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cuisine-market-card,
+  .cuisine-market-card.feature {
+    grid-column: auto;
+  }
+
+  .cuisine-market-photo,
+  .cuisine-market-card.feature .cuisine-market-photo {
+    min-height: 220px;
+  }
+}
+
 .cuisine-rolodex {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }

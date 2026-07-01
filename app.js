@@ -937,6 +937,177 @@ const cuisineExplorerGroups = [
   }
 ];
 
+const cuisineMarketProfiles = {
+  "african-cuisines": {
+    mood: "Woven market baskets, clay pots, tomato stews, smoke, grains, peppers, and celebration tables.",
+    ingredients: ["tomatoes", "peppers", "rice", "plantains", "teff", "spices"],
+    dishes: ["Jollof rice", "Suya", "Injera", "Tagines"],
+    highlights: ["Market cooking", "Shared platters", "Street grills"],
+    accent: "earth"
+  },
+  "asian-cuisines": {
+    mood: "Steam, bamboo, noodles, rice bowls, broths, pickles, street stalls, and quiet balance.",
+    ingredients: ["rice", "noodles", "soy", "ginger", "chiles", "sesame"],
+    dishes: ["Ramen", "Dumplings", "Pad Thai", "Korean BBQ"],
+    highlights: ["Broth shops", "Night markets", "Fermentation"],
+    accent: "jade"
+  },
+  "mediterranean-cuisines": {
+    mood: "Olive branches, citrus, grilled seafood, herbs, yogurt sauces, tiled courtyards, and long tables.",
+    ingredients: ["olive oil", "lemon", "herbs", "yogurt", "grains", "seafood"],
+    dishes: ["Mezze", "Grilled fish", "Flatbreads", "Stuffed vegetables"],
+    highlights: ["Shared plates", "Coastal cooking", "Herb gardens"],
+    accent: "olive"
+  },
+  "caribbean-cuisines": {
+    mood: "Jerk smoke, plantains, rice and peas, seafood, fruit, curries, music, and bright island counters.",
+    ingredients: ["allspice", "plantains", "coconut", "seafood", "beans", "scotch bonnet"],
+    dishes: ["Jerk chicken", "Rice and peas", "Doubles", "Patties"],
+    highlights: ["Beach stands", "Sunday pots", "Festival food"],
+    accent: "sea"
+  },
+  "european-cuisines": {
+    mood: "Hanging pasta, lemon groves, pastry windows, rustic roasts, bread ovens, and old market streets.",
+    ingredients: ["pasta", "butter", "bread", "olive oil", "cheese", "wine"],
+    dishes: ["Fresh pasta", "Roasts", "Paella", "Pastries"],
+    highlights: ["Rustic kitchens", "Bakeries", "Seasonal markets"],
+    accent: "lemon"
+  },
+  "southern-soul-food": {
+    mood: "Cast iron, fish fries, greens, cornbread, Sunday dinner, church plates, and family reunion pans.",
+    ingredients: ["cornmeal", "greens", "sweet potatoes", "catfish", "okra", "pork"],
+    dishes: ["Fried catfish", "Greens", "Cornbread", "Banana pudding"],
+    highlights: ["Church suppers", "Fish fries", "Sunday tables"],
+    accent: "castiron"
+  },
+  midwest: {
+    mood: "Supper clubs, lake fish fries, Chicago counters, fair food, potluck pans, and winter kitchens.",
+    ingredients: ["cheese", "walleye", "beef", "corn", "berries", "potatoes"],
+    dishes: ["Italian beef", "Fish fry", "Hotdish", "Gooey butter cake"],
+    highlights: ["County fairs", "Supper clubs", "Counter food"],
+    accent: "prairie"
+  },
+  "new-england": {
+    mood: "Harbor shacks, maple sugarhouses, apple orchards, chowder pots, diners, and cold-weather suppers.",
+    ingredients: ["lobster", "clams", "maple", "apples", "cranberries", "cod"],
+    dishes: ["Lobster rolls", "Clam chowder", "Baked beans", "Blueberry pie"],
+    highlights: ["Coastal shacks", "Orchards", "Sugarhouses"],
+    accent: "harbor"
+  },
+  southwest: {
+    mood: "Chile roasters, adobe kitchens, cast iron, smoke, masa, beans, desert light, and woven textiles.",
+    ingredients: ["chiles", "masa", "beans", "cumin", "lime", "beef"],
+    dishes: ["Brisket", "Green chile stew", "Sopapillas", "Sonoran hot dogs"],
+    highlights: ["Smokehouses", "Chile harvest", "Borderland tables"],
+    accent: "desert"
+  },
+  "mid-atlantic": {
+    mood: "Delis, boardwalk fries, crab houses, pizza ovens, carryout counters, bakeries, and city food.",
+    ingredients: ["blue crab", "pretzels", "bagels", "pizza dough", "Old Bay", "peaches"],
+    dishes: ["Crab cakes", "Bagels", "Cheesesteaks", "Half-smokes"],
+    highlights: ["Street food", "Seafood houses", "Immigrant kitchens"],
+    accent: "boardwalk"
+  },
+  "pacific-northwest": {
+    mood: "Rainy markets, salmon, apples, berries, coffee, mushrooms, hazelnuts, and coastal comfort.",
+    ingredients: ["salmon", "apples", "berries", "coffee", "hazelnuts", "mushrooms"],
+    dishes: ["Cedar salmon", "Teriyaki chicken", "Marionberry pie", "Crab melts"],
+    highlights: ["Fish markets", "Coffee counters", "Forest foods"],
+    accent: "evergreen"
+  },
+  "mountain-west": {
+    mood: "National park picnics, ranch suppers, trout streams, green chile, bison, fry sauce, and lodge tables.",
+    ingredients: ["bison", "trout", "green chile", "potatoes", "honey", "beans"],
+    dishes: ["Bison burgers", "Green chile", "Funeral potatoes", "Trout skillet"],
+    highlights: ["Ranch tables", "Camp cooking", "Mountain cafes"],
+    accent: "mountain"
+  },
+  california: {
+    mood: "Farmers markets, tacos, sourdough, citrus, avocado, seafood, fruit carts, and beach cookouts.",
+    ingredients: ["avocado", "citrus", "sourdough", "seafood", "tri-tip", "tortillas"],
+    dishes: ["Fish tacos", "Tri-tip", "Mission burritos", "Cioppino"],
+    highlights: ["Fruit carts", "Taquerias", "Farm markets"],
+    accent: "sunset"
+  },
+  "alaska-hawaii": {
+    mood: "Salmon bakes, berries, sourdough, poke, plate lunch, tropical fruit, and generous island tables.",
+    ingredients: ["salmon", "halibut", "berries", "rice", "pork", "coconut"],
+    dishes: ["Poke", "Kalua pork", "Halibut chowder", "Spam musubi"],
+    highlights: ["Fish camps", "Plate lunch", "Family gatherings"],
+    accent: "island"
+  },
+  "cajun-creole": {
+    mood: "Jazz, wrought iron, roux, seafood, rice pots, beignets, second lines, and late-night flavor.",
+    ingredients: ["roux", "shrimp", "rice", "okra", "andouille", "cayenne"],
+    dishes: ["Gumbo", "Jambalaya", "Etouffee", "Beignets"],
+    highlights: ["Jazz kitchens", "Seafood boils", "Roux pots"],
+    accent: "jazz"
+  },
+  "latin-american": {
+    mood: "Papel picado, colorful tile, corn, chiles, salsas, street tacos, fruit, and family tables.",
+    ingredients: ["corn", "beans", "chiles", "cilantro", "lime", "tomatoes"],
+    dishes: ["Tacos", "Arepas", "Ceviche", "Tamales"],
+    highlights: ["Street food", "Salsa bars", "Market fruit"],
+    accent: "fiesta"
+  },
+  bbq: {
+    mood: "Smoke, bark, sauce, pickles, white bread, pitmasters, picnic tables, and sides made for crowds.",
+    ingredients: ["smoke", "beef", "pork", "rub", "sauce", "pickles"],
+    dishes: ["Brisket", "Ribs", "Pulled pork", "BBQ chicken"],
+    highlights: ["Smokehouses", "Backyard pits", "Cookout sides"],
+    accent: "smoke"
+  },
+  vegetarian: {
+    mood: "Garden baskets, beans, grains, herbs, roasted vegetables, sauces, texture, and colorful plates.",
+    ingredients: ["beans", "grains", "herbs", "greens", "lentils", "vegetables"],
+    dishes: ["Greek salad", "Vegetable curry", "Grain bowls", "Bean stews"],
+    highlights: ["Garden cooking", "Sauce building", "Meal prep"],
+    accent: "garden"
+  },
+  "holiday-sunday": {
+    mood: "Polished platters, handwritten recipe cards, pies cooling, carved roasts, church tables, and memory.",
+    ingredients: ["turkey", "ham", "butter", "pecans", "sweet potatoes", "cranberries"],
+    dishes: ["Roast turkey", "Baked ham", "Pecan pie", "Dressing"],
+    highlights: ["Holiday tables", "Church dinners", "Family recipes"],
+    accent: "heirloom"
+  }
+};
+
+function cuisineMarketProfile(group) {
+  return cuisineMarketProfiles[group.id] || {
+    mood: group.note,
+    ingredients: group.regions.slice(0, 6),
+    dishes: group.regions.slice(0, 4),
+    highlights: ["Family tables", "Market food", "Regional cooking"],
+    accent: "market"
+  };
+}
+
+function cuisineMarketCard(group, index = 0) {
+  const profile = cuisineMarketProfile(group);
+  const featured = index % 5 === 0 ? " feature" : "";
+  return `
+    <article class="cuisine-market-card ${profile.accent}${featured}">
+      <a class="cuisine-market-photo" href="#cuisine-explorer/${group.id}">
+        <img src="${group.image}" alt="${group.title}" />
+        <span>${profile.highlights[0]}</span>
+      </a>
+      <div class="cuisine-market-copy">
+        <p class="eyebrow">${profile.highlights.slice(0, 2).join(" / ")}</p>
+        <h3><a href="#cuisine-explorer/${group.id}">${group.title}</a></h3>
+        <p>${profile.mood}</p>
+        <div class="market-chip-row" aria-label="${group.title} signature ingredients">
+          ${profile.ingredients.slice(0, 6).map((item) => `<span>${item}</span>`).join("")}
+        </div>
+        <div class="market-dish-row">
+          ${profile.dishes.slice(0, 4).map((dish) => `<strong>${dish}</strong>`).join("")}
+        </div>
+        <div class="region-chip-row linked-chip-row">${group.regions.slice(0, 8).map((region) => `<a href="#cuisine-explorer/${slugify(region)}">${region}</a>`).join("")}</div>
+      </div>
+    </article>
+  `;
+}
+
 const countryCuisineProfiles = {
   nigeria: {
     title: "Nigeria",
@@ -10190,25 +10361,31 @@ function renderCuisineExplorer(id) {
   if (id && africaCountryPages[id]) return renderAfricaCountryPage(id);
   if (id) return renderCuisineExplorerDetail(id);
   app.innerHTML = `
-    ${hero("Cuisine Explorer", "Find what people actually cook: neighborhood favorites, family tables, carryout cravings, church pans, food trucks, cookouts, and dishes locals swear by.", cuisineCoverImages.indian, `<a class="small-button" href="#culinary-academy">Open Culinary Academy</a><a class="small-button secondary" href="#what-yall-cooking">Build A Menu</a>`)}
-    ${cookSubnav()}
-    <section class="cream-section">
-      <div class="section-heading">
-        <p class="eyebrow">America's neighborhood cookbook</p>
-        <h2>Choose a place and ask, "What are y'all cookin'?"</h2>
-        <p>Start with the plates people crave, then learn the ingredients, traditions, techniques, and stories that make those meals belong.</p>
+    <section class="cuisine-market-hero">
+      <div class="cuisine-market-hero-copy">
+        <p class="eyebrow">Cuisine Explorer</p>
+        <h1>Explore the world through food.</h1>
+        <p>Walk the market lanes: spice bowls, citrus crates, smokehouses, pasta tables, street stalls, seafood counters, garden baskets, and family recipes that make every cuisine feel alive.</p>
+        <div class="hero-actions">
+          <a class="small-button" href="#what-yall-cooking">Build A Menu</a>
+          <a class="small-button secondary" href="#culinary-academy/world-foods">Learn World Foods</a>
+        </div>
       </div>
-      <div class="cuisine-rolodex">
-        ${cuisineExplorerGroups.map((group) => `
-          <article class="cuisine-region-card">
-            <figure><img src="${group.image}" alt="${group.title}" /></figure>
-            <div>
-              <h3><a href="#cuisine-explorer/${group.id}">${group.title}</a></h3>
-              <p>${group.note}</p>
-              <div class="region-chip-row linked-chip-row">${group.regions.map((region) => `<a href="#cuisine-explorer/${slugify(region)}">${region}</a>`).join("")}</div>
-            </div>
-          </article>
-        `).join("")}
+      <div class="cuisine-market-stalls" aria-hidden="true">
+        <figure><img src="${cuisineCoverImages.indian}" alt="" /></figure>
+        <figure><img src="${cuisineCoverImages.mexican}" alt="" /></figure>
+        <figure><img src="${cuisineCoverImages.italian}" alt="" /></figure>
+      </div>
+    </section>
+    ${cookSubnav()}
+    <section class="cream-section cuisine-market-section">
+      <div class="section-heading">
+        <p class="eyebrow">International food market</p>
+        <h2>Choose a destination that feels like a place, not a category.</h2>
+        <p>Each cuisine lane leads with atmosphere, ingredients, signature dishes, cultural highlights, and real paths into recipes and regional food stories.</p>
+      </div>
+      <div class="cuisine-market-grid">
+        ${cuisineExplorerGroups.map(cuisineMarketCard).join("")}
       </div>
     </section>
     <section class="gold-section">
