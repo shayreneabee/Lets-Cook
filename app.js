@@ -9200,9 +9200,16 @@ function america250HeroBanner() {
   return `
     <section class="america-250-hero">
       <div class="america-250-fireworks" aria-hidden="true"><span></span><span></span><span></span></div>
+      <aside class="america-250-memory-board" aria-label="Let's Cook Y'all kitchen motto">
+        <span>Good Food.</span>
+        <span>Good People.</span>
+        <span>Good Times.</span>
+        <strong>That's what it's all about.</strong>
+      </aside>
       <div class="america-250-copy">
-        <p class="eyebrow">America 250 / July 1-31</p>
-        <h1>Let's Cook Through America, Y'all!</h1>
+        <p class="eyebrow">Welcome home, y'all / America 250</p>
+        <h1>Where America Comes Together</h1>
+        <p class="america-250-script-line">One recipe at a time.</p>
         <p>Pull up to the biggest neighborhood cookout in America: burgers on the grill, cold lemonade, crab cakes, brisket, peach cobbler, boardwalk fries, and a new state to crave every day.</p>
         <div class="america-250-stats" aria-label="America 250 event highlights">
           <span>Daily craveable plates</span>
@@ -9226,6 +9233,10 @@ function america250HeroBanner() {
           <img src="${america250Images.badge}" alt="" />
         </div>
       </figure>
+      <aside class="america-250-warm-reminder" aria-label="Today's warm reminder">
+        <span>Today's Warm Reminder</span>
+        <strong>Be kind. Cook with love. Feed your people. Repeat.</strong>
+      </aside>
       <div class="america-250-state-ribbon" aria-label="Featured states">
         ${featuredStates.map((state, index) => `<a href="${america250StateHref(state)}"><strong>Day ${america250DisplayDay(index)}</strong>${state}</a>`).join("")}
       </div>
