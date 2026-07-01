@@ -79,66 +79,68 @@ const appHubSections = {
 const paths = [
   {
     id: "kid-chefs",
-    title: "Kid Chefs",
-    eyebrow: "Small hands, big confidence",
+    title: "Kids Korner",
+    eyebrow: "Junior chefs, big kitchen joy",
     level: "Beginner",
     image: "assets/kid-friendly.jpeg",
-    description: "Short, safe lessons for young cooks and families cooking together.",
-    promise: "Make the kitchen feel safe, fun, and confidence-building before the stove ever feels scary.",
-    pace: "10-25 minute lessons",
-    focus: "PB&J, mac and cheese, eggs, snacks, simple meals",
-    badges: ["Family guided", "No-fear basics", "Hands-on"],
-    steps: ["Wash hands and set up a clean station", "Practice spreading, stirring, measuring, mixing, and tasting", "Build PB&J, mac and cheese, eggs, mini pizzas, and simple snacks"],
+    description: "Bright, simple recipes, games, activities, and Junior Chef badges for young cooks and their grown-ups.",
+    promise: "Make the kitchen feel playful, safe, colorful, and confidence-building from the very first recipe.",
+    pace: "10-25 minute adventures",
+    focus: "Snack plates, mini pizzas, cookies, badges, games, and simple family recipes",
+    badges: ["Junior Chef", "Let's Cook!", "Family guided"],
+    steps: ["Wash hands and set up a cheerful station", "Practice spreading, stirring, measuring, mixing, and tasting", "Earn badges with mini pizzas, snack plates, cookies, and simple meals"],
     modules: [
-      { title: "Kitchen Safety", text: "Hand washing, clean counters, safe tools, and grown-up help around heat." },
-      { title: "Spread & Build", text: "PB&J, snack plates, mini sandwiches, and learning how to assemble food neatly." },
-      { title: "Stir & Melt", text: "Mac and cheese, oatmeal, eggs, and safe stovetop skills with grown-up help." },
-      { title: "Snack Builder", text: "Simple, colorful food kids can assemble and feel proud serving." }
+      { title: "Kitchen Safety Quest", text: "Hand washing, clean counters, safe tools, and grown-up help around heat." },
+      { title: "Build & Decorate", text: "PB&J, snack plates, mini sandwiches, colorful toppings, and food kids can proudly serve." },
+      { title: "Stir, Scoop & Sprinkle", text: "Mac and cheese, oatmeal, eggs, cookie decorating, and safe heat skills with grown-up help." },
+      { title: "Junior Chef Badges", text: "Little wins for trying, helping, cleaning up, tasting, and learning kitchen words." }
     ],
     skills: ["Wash and prep a station", "Measure dry and wet ingredients", "Mix without overworking", "Use kid-safe tools", "Taste and describe flavor"],
-    outcomes: ["Make a no-cook lunch", "Practice one stovetop recipe with help", "Build a colorful snack plate"],
+    outcomes: ["Make a no-cook lunch", "Earn a Junior Chef badge", "Build a colorful snack plate"],
     recipes: ["pb-and-j-sandwich", "stovetop-mac-and-cheese", "mini-pizza-bagels", "fruit-kabobs", "soft-scrambled-eggs"]
   },
   {
     id: "amateur-home-chef",
-    title: "Amateur Home Chef",
-    eyebrow: "Dinner gets easier from here",
+    title: "Home Cook",
+    eyebrow: "The heart of the kitchen",
     level: "Beginner to Intermediate",
     image: "assets/cooking-family.jpeg",
-    description: "Everyday cooking skills for the person who wants dinner to feel less stressful.",
-    promise: "Turn weeknight cooking into something calmer, tastier, and easier to repeat.",
+    description: "Warm, practical cooking for weeknight dinners, comfort food, holidays, meal planning, and family favorites.",
+    promise: "Turn everyday cooking into something calmer, cozier, tastier, and easier to share.",
     pace: "25-45 minute lessons",
-    focus: "Seasoning, timing, proteins, sides, meal flow",
-    badges: ["Weeknight ready", "Confidence builder", "Family meals"],
-    steps: ["Learn seasoning and timing", "Cook proteins without guessing", "Plan two or three meals ahead"],
+    focus: "Weeknight meals, comfort food, meal planning, sides, holidays, and confidence",
+    badges: ["Weeknight Comfort", "Family Table", "Meal Planner"],
+    steps: ["Learn seasoning and timing", "Cook proteins without guessing", "Plan two or three meals ahead for your real life"],
     modules: [
       { title: "Season With Sense", text: "Salt, acid, herbs, spice, and how to fix food that tastes flat." },
-      { title: "Protein Confidence", text: "Chicken, shrimp, salmon, and ground meats without panic or dryness." },
-      { title: "Dinner Flow", text: "Prep order, sides, sauces, and getting everything hot at the same time." }
+      { title: "Weeknight Comfort", text: "Chicken, shrimp, salmon, ground meats, pasta, casseroles, and sides without panic." },
+      { title: "Dinner Flow", text: "Prep order, grocery rhythm, leftovers, sauces, and getting everything hot at the same time." },
+      { title: "Family & Holiday Favorites", text: "The cozy dishes people ask for again: Sunday dinner, cookouts, potlucks, and celebration tables." }
     ],
     skills: ["Build a balanced plate", "Season in layers", "Read doneness cues", "Prep ahead", "Save leftovers with purpose"],
-    outcomes: ["Cook one confident weeknight dinner", "Make one side without a box", "Plan leftovers before cooking"],
+    outcomes: ["Cook one confident weeknight dinner", "Plan a family meal", "Make one side without a box"],
     recipes: ["chicken-street-tacos", "lemon-herb-salmon", "cajun-cream-salmon-rotini", "shrimp-and-grits-green-beans", "chicken-parmesan"]
   },
   {
     id: "professional-mode",
-    title: "Professional Mode",
-    eyebrow: "Cook like you mean it",
+    title: "Chef's Table",
+    eyebrow: "A seat at the table",
     level: "Advanced",
     image: "assets/ingredients.jpeg",
-    description: "Technique-driven recipes, hosting flow, plating, prep lists, and stronger kitchen rhythm.",
-    promise: "Practice the rhythm, organization, and finishing touches that make food feel restaurant-level at home.",
+    description: "An elegant studio for advanced techniques, plating inspiration, regional specialties, seasonal menus, and challenges.",
+    promise: "Practice the rhythm, organization, and finishing touches that make food feel restaurant-level without losing warmth.",
     pace: "45-90 minute sessions",
-    focus: "Mise en place, sauces, braises, plating, hosting",
-    badges: ["Technique driven", "Hosting flow", "Plating polish"],
-    steps: ["Prep like a line cook", "Build sauces, reductions, braises, and layered flavor", "Plate and host with calm"],
+    focus: "Mise en place, sauces, braises, plating, multi-course menus, and seasonal challenges",
+    badges: ["Technique Lab", "Plating Polish", "Seasonal Menu"],
+    steps: ["Prep like a calm chef", "Build sauces, reductions, braises, and layered flavor", "Plate, host, and serve with confidence"],
     modules: [
       { title: "Mise En Place", text: "Prep lists, stations, timing, and the calm that comes from being ready." },
       { title: "Sauce & Braise Lab", text: "Roux, pan sauces, reductions, slow cooking, and flavor concentration." },
-      { title: "Plate & Host", text: "Finishing salt, garnish, contrast, serving flow, and table timing." }
+      { title: "Plate & Host", text: "Finishing salt, garnish, contrast, serving flow, and table timing." },
+      { title: "Seasonal Challenges", text: "Regional specialties, fine-dining inspiration, and multi-course menus that feel earned." }
     ],
     skills: ["Write a prep list", "Build a sauce base", "Control heat and reduction", "Plate with contrast", "Host without rushing"],
-    outcomes: ["Write a prep timeline", "Cook a sauce or braise", "Plate and serve without rushing"],
+    outcomes: ["Write a prep timeline", "Build a seasonal menu", "Plate and serve without rushing"],
     recipes: ["oxtails", "jerk-chicken", "biryani", "smothered-pork-chops", "bourbon-praline-bread-pudding"]
   }
 ];
@@ -536,7 +538,7 @@ const academyCategories = [
   { id: "food-science", title: "Food Science", text: "Heat, texture, browning, emulsions, thickening, acidity, salt, fat, and flavor balance.", entries: ["food-science", "sauces"] },
   { id: "world-foods", title: "World Foods", text: "Culture, history, etiquette, ingredients, regional identity, and traditional dishes.", entries: ["world-foods", "ingredients"] },
   { id: "sauces-seasonings", title: "Sauces & Seasonings", text: "Spice blends, marinades, gravies, dips, sauces, finishing herbs, and flavor bases.", entries: ["sauces", "gravy", "roux", "pan-sauce", "bechamel", "tomato-sauce", "reduction-sauce", "marinades", "seasonings"] },
-  { id: "professional-skills", title: "Professional Skills", text: "Prep lists, station setup, costing, batching, service flow, catering, and consistency.", entries: ["professional-skills", "measurements"] }
+  { id: "professional-skills", title: "Chef's Table Skills", text: "Prep lists, station setup, costing, batching, service flow, catering, and consistency.", entries: ["professional-skills", "measurements"] }
 ];
 
 const academyModules = [
@@ -689,9 +691,9 @@ const academyModules = [
   },
   {
     id: "professional-skills",
-    title: "Professional Skills",
-    category: "Professional Skills",
-    overview: "Professional skills turn cooking into a repeatable system for service, catering, meal prep, and consistency.",
+    title: "Chef's Table Skills",
+    category: "Chef's Table Skills",
+    overview: "Chef's Table skills turn cooking into a repeatable system for service, catering, meal prep, and consistency.",
     why: "Prep lists, costing, timing, and station setup keep bigger meals from becoming chaos.",
     beginner: "Write a prep list and timeline before cooking for anyone besides yourself.",
     keyConcepts: ["Mise en place", "Prep lists", "Batching", "Costing", "Service flow"],
@@ -759,7 +761,7 @@ academyModules.push(...techniqueAcademyModules);
 const learningLevels = [
   {
     id: "kid-chef",
-    title: "Kid Chef",
+    title: "Junior Chef",
     depth: "Tiny wins, safety, language, and kitchen confidence.",
     image: "assets/kid-friendly.jpeg",
     topics: ["Hand washing", "No-heat snacks", "Measuring", "Spreading", "Mixing", "Cleaning up"],
@@ -791,8 +793,8 @@ const learningLevels = [
   },
   {
     id: "professional-chef",
-    title: "Professional Chef",
-    depth: "Operations, cost, scaling, service flow, catering prep, plating, and hospitality systems.",
+    title: "Chef's Table",
+    depth: "Advanced technique, seasonal menus, service flow, catering prep, plating, and hospitality systems.",
     image: "assets/lc-desserts.jpg",
     topics: ["Menu costing", "Batch prep", "Service timing", "Catering sheets", "Plating polish"],
     supports: ["food science", "professional operations", "menu planning"]
@@ -3005,7 +3007,7 @@ const nextFeatureRecipes = [
   cookTime: cook_time,
   time: cook_time,
   cookTimeMinutes: Number(cook_time.match(/\d+/)?.[0] || 30),
-  skill_level: difficulty === "Beginner" ? "Amateur" : "Professional",
+  skill_level: difficulty === "Beginner" ? "Home Cook" : "Chef's Table",
   difficulty,
   level: difficulty,
   servings,
@@ -3092,7 +3094,7 @@ const menuIntelligenceRecipes = [
   cookTime: cook_time,
   time: cook_time,
   cookTimeMinutes: Number(cook_time.match(/\d+/)?.[0] || 30),
-  skill_level: difficulty === "Beginner" ? "Amateur" : "Professional",
+  skill_level: difficulty === "Beginner" ? "Home Cook" : "Chef's Table",
   difficulty,
   level: difficulty,
   servings,
@@ -3181,7 +3183,7 @@ const regionalAuthenticityRecipes = [
   cookTime: cook_time,
   time: cook_time,
   cookTimeMinutes: Number(cook_time.match(/\d+/)?.[0] || 30),
-  skill_level: difficulty === "Beginner" ? "Amateur" : "Professional",
+  skill_level: difficulty === "Beginner" ? "Home Cook" : "Chef's Table",
   difficulty,
   level: difficulty,
   servings,
@@ -3232,7 +3234,7 @@ const livingCookbookRecipes = [
   cookTime: cook_time,
   time: cook_time,
   cookTimeMinutes: Number(cook_time.match(/\d+/)?.[0] || 30),
-  skill_level: difficulty === "Beginner" ? "Amateur" : "Professional",
+  skill_level: difficulty === "Beginner" ? "Home Cook" : "Chef's Table",
   difficulty,
   level: difficulty,
   servings,
@@ -3275,7 +3277,7 @@ const kidsKornerRecipes = [
   cookTime: cook_time,
   time: cook_time === "0 min" ? prep_time : cook_time,
   cookTimeMinutes: Number(cook_time.match(/\d+/)?.[0] || 0),
-  skill_level: "Kid Chef",
+  skill_level: "Junior Chef",
   difficulty: "Kid Friendly",
   level: "Kid Friendly",
   servings,
@@ -5006,7 +5008,10 @@ function normalizeRecipe(recipe) {
   recipe.cookTime ||= recipe.cook_time;
   recipe.difficulty ||= recipe.level || "Beginner";
   recipe.level ||= recipe.difficulty;
-  recipe.skill_level ||= recipe.path === "kid-chefs" ? "Kid Chef" : recipe.path === "professional-mode" ? "Professional" : "Amateur";
+  recipe.skill_level ||= recipe.path === "kid-chefs" ? "Junior Chef" : recipe.path === "professional-mode" ? "Chef's Table" : "Home Cook";
+  if (recipe.skill_level === "Kid Chef") recipe.skill_level = "Junior Chef";
+  if (recipe.skill_level === "Amateur") recipe.skill_level = "Home Cook";
+  if (recipe.skill_level === "Professional") recipe.skill_level = "Chef's Table";
   recipe.directions ||= recipe.steps || [];
   recipe.steps ||= recipe.directions;
   recipe.tags ||= [recipe.category, recipe.cuisine, recipe.path].filter(Boolean);
@@ -8879,7 +8884,7 @@ function shayKitchenSectionMarkup({ includeCategories = true } = {}) {
 function renderLetsCookHome() {
   const publishableRecipes = recipes.filter(recipeHasPublishReadyPhoto);
   const recipeOfWeek = recipeById("yakamein") || publishableRecipes[0];
-  const kidPick = recipeById("pb-and-j-sandwich") || publishableRecipes.find((recipe) => recipe.skill_level === "Kid Chef");
+  const kidPick = recipeById("pb-and-j-sandwich") || publishableRecipes.find((recipe) => recipe.skill_level === "Junior Chef");
   const southernClassic = recipeById("oxtails") || publishableRecipes.find((recipe) => recipe.cuisine === "southern");
   const globalFlavor = recipeById("chicken-street-tacos") || publishableRecipes.find((recipe) => recipe.cuisine !== "southern");
   const heroRecipeIds = america250DailyRecipeIds(new Date(), 5);
@@ -8926,7 +8931,7 @@ function renderLetsCookHome() {
       <div class="rollout-grid">
         ${[
           ["Recipe of the Week", recipeOfWeek],
-          ["Kid Chef Pick", kidPick],
+          ["Junior Chef Pick", kidPick],
           ["Southern Classic", southernClassic],
           ["Global Flavor", globalFlavor]
         ].map(([label, recipe]) => recipe ? `<article><span>${label}</span>${recipeCard(recipe)}</article>` : "").join("")}
@@ -9726,7 +9731,7 @@ function menuPairingCard(menu) {
       ${alternateLinks.length ? `<div class="alternate-menu-links"><strong>Alternate ideas</strong><span class="recipe-link-list">${alternateLinks.join("")}</span></div>` : ""}
       <div class="chef-note-grid">
         <section><strong>Beginner</strong><p>${menu.beginner_level}</p></section>
-        <section><strong>Professional</strong><p>${menu.pro_level}</p></section>
+        <section><strong>Chef's Table</strong><p>${menu.pro_level}</p></section>
       </div>
       <p class="hosting-note">${menu.hosting_notes}</p>
     </article>
@@ -10472,9 +10477,9 @@ function renderRecipes() {
     ["Mediterranean", "cuisine:mediterranean"],
     ["Desserts", "category:Desserts"],
     ["Party Cups", "category:Party Cups"],
-    ["Kid Friendly", "skill:Kid Chef"],
+    ["Junior Chef", "skill:Junior Chef"],
     ["Quick Meals", "category:Quick Meals"],
-    ["Professional", "skill:Professional"]
+    ["Chef's Table", "skill:Chef's Table"]
   ];
   app.innerHTML = `
     ${hero("Recipes", "Southern classics, quick weeknight meals, global flavor, family dinners, beginner basics, party bites, and kid-friendly cooking.", photoFor("hero", "learning", 3, "assets/lc-pasta.jpg"))}
@@ -10659,12 +10664,17 @@ function renderRecipe(id) {
 
 function renderPaths() {
   app.innerHTML = `
-    ${hero("Cooking Paths", "Choose the pace that fits your kitchen today: Kid Chefs, Amateur Home Chef, or Professional Mode.", photoFor("hero", "learning", 4, "assets/cooking-family.jpeg"))}
+    ${hero("Cooking Paths", "From your first recipe to mastering the kitchen, choose the next step in your cooking journey.", photoFor("hero", "learning", 4, "assets/cooking-family.jpeg"))}
     ${cookSubnav()}
     <section class="cream-section path-intro-section">
       <div class="section-heading">
         <p class="eyebrow">Learn your way</p>
-        <h2>Three warm paths for every kind of cook.</h2>
+        <h2>Grow from curious beginner to confident home cook to Chef's Table.</h2>
+      </div>
+      <div class="cooking-journey-strip" aria-label="Cooking journey">
+        <span>First recipe</span>
+        <span>Family table</span>
+        <span>Master the kitchen</span>
       </div>
       <div class="path-showcase-grid">${paths.map(pathCard).join("")}</div>
     </section>
@@ -10679,7 +10689,7 @@ function renderPath(id) {
   app.innerHTML = `
     ${hero(path.title, path.description, pathPhotoFor(path), `<a class="small-button" href="#paths">All Paths</a>`)}
     ${cookSubnav()}
-    <section class="cream-section path-detail-section">
+    <section class="cream-section path-detail-section path-theme-${path.id}">
       <div class="path-detail-hero">
         <div>
           <p class="eyebrow">${path.eyebrow}</p>
@@ -11201,7 +11211,7 @@ function platformLinkCard(item) {
 
 function pathCard(path) {
   return `
-    <article class="path-card">
+    <article class="path-card path-card-${path.id}">
       <img src="${pathPhotoFor(path)}" alt="${path.title}" />
       <div class="path-card-body">
         <p class="eyebrow">${path.eyebrow}</p>

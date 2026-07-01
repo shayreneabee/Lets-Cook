@@ -2623,12 +2623,89 @@ select {
   gap: clamp(18px, 3vw, 34px);
 }
 
+.cooking-journey-strip {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0 auto clamp(20px, 4vw, 34px);
+  max-width: 900px;
+}
+
+.cooking-journey-strip::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 12%;
+  right: 12%;
+  height: 3px;
+  background: linear-gradient(90deg, #d9555b, #d9a441, #24304a);
+  transform: translateY(-50%);
+  opacity: 0.42;
+}
+
+.cooking-journey-strip span {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  min-height: 46px;
+  padding: 9px 12px;
+  border: 1px solid rgba(35, 35, 35, 0.12);
+  border-radius: 999px;
+  background: #fffdf7;
+  color: #2b1a12;
+  font-size: 0.82rem;
+  font-weight: 950;
+  text-align: center;
+  box-shadow: 0 12px 28px rgba(35, 35, 35, 0.1);
+}
+
+@media (max-width: 760px) {
+  .cooking-journey-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .cooking-journey-strip::before {
+    top: 12%;
+    bottom: 12%;
+    left: 50%;
+    right: auto;
+    width: 3px;
+    height: auto;
+    background: linear-gradient(180deg, #d9555b, #d9a441, #24304a);
+    transform: translateX(-50%);
+  }
+}
+
 .path-card {
   display: grid;
   overflow: hidden;
   gap: 0;
   padding: 0;
   transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.path-card-kid-chefs {
+  background:
+    radial-gradient(circle at 16% 12%, rgba(245, 189, 62, 0.34), transparent 7rem),
+    radial-gradient(circle at 92% 24%, rgba(75, 123, 236, 0.22), transparent 8rem),
+    #fffdf8;
+  border-color: rgba(217, 85, 91, 0.28);
+}
+
+.path-card-amateur-home-chef {
+  background:
+    linear-gradient(145deg, rgba(255, 248, 233, 0.98), rgba(255, 253, 247, 0.98)),
+    radial-gradient(circle at 88% 0%, rgba(181, 107, 69, 0.16), transparent 9rem);
+  border-color: rgba(181, 107, 69, 0.22);
+}
+
+.path-card-professional-mode {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(241, 238, 232, 0.98)),
+    radial-gradient(circle at 12% 0%, rgba(36, 48, 74, 0.18), transparent 9rem);
+  border-color: rgba(36, 48, 74, 0.2);
 }
 
 .path-card:hover,
@@ -2644,6 +2721,18 @@ select {
   aspect-ratio: 16 / 10;
   object-fit: cover;
   border-radius: 0;
+}
+
+.path-card-kid-chefs img {
+  border-bottom: 7px solid #f5bd3e;
+}
+
+.path-card-amateur-home-chef img {
+  border-bottom: 7px solid #b56b45;
+}
+
+.path-card-professional-mode img {
+  border-bottom: 7px solid #24304a;
 }
 
 .path-card-body {
@@ -2684,9 +2773,62 @@ select {
   font-weight: 850;
 }
 
+.path-card-kid-chefs .path-badges span,
+.path-theme-kid-chefs .path-badges span,
+.path-theme-kid-chefs .path-outcome-strip span {
+  background: #fff3bd;
+  color: #24304a;
+  border-color: rgba(217, 85, 91, 0.28);
+}
+
+.path-card-amateur-home-chef .path-badges span,
+.path-theme-amateur-home-chef .path-badges span,
+.path-theme-amateur-home-chef .path-outcome-strip span {
+  background: #fff0dc;
+  color: #4d2f1c;
+  border-color: rgba(181, 107, 69, 0.28);
+}
+
+.path-card-professional-mode .path-badges span,
+.path-theme-professional-mode .path-badges span,
+.path-theme-professional-mode .path-outcome-strip span {
+  background: #eef0f4;
+  color: #24304a;
+  border-color: rgba(36, 48, 74, 0.22);
+}
+
 .path-detail-section {
   display: grid;
   gap: 24px;
+}
+
+.path-theme-kid-chefs .path-detail-hero > div,
+.path-theme-kid-chefs .path-stat-card,
+.path-theme-kid-chefs .path-module-grid article,
+.path-theme-kid-chefs .path-learning-panel {
+  background:
+    radial-gradient(circle at 92% 12%, rgba(75, 123, 236, 0.12), transparent 9rem),
+    #fffdf8;
+  border-color: rgba(217, 85, 91, 0.22);
+}
+
+.path-theme-amateur-home-chef .path-detail-hero > div,
+.path-theme-amateur-home-chef .path-stat-card,
+.path-theme-amateur-home-chef .path-module-grid article,
+.path-theme-amateur-home-chef .path-learning-panel {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(181, 107, 69, 0.12), transparent 9rem),
+    #fffaf2;
+  border-color: rgba(181, 107, 69, 0.22);
+}
+
+.path-theme-professional-mode .path-detail-hero > div,
+.path-theme-professional-mode .path-stat-card,
+.path-theme-professional-mode .path-module-grid article,
+.path-theme-professional-mode .path-learning-panel {
+  background:
+    linear-gradient(145deg, #ffffff, #f8f7f3);
+  border-color: rgba(36, 48, 74, 0.2);
 }
 
 .path-detail-hero {
