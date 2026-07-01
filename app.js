@@ -6020,13 +6020,36 @@ const kidsKornerBadges = [
   { id: "rising-chef", icon: "👩🏾‍🍳", title: "Rising Chef", text: "Save or complete five Kids Korner recipes.", goal: 5 }
 ];
 
-const pantryScanQuickIngredients = [
-  "chicken", "ground beef", "eggs", "cheese", "milk", "butter", "rice", "pasta", "bread", "tortillas",
-  "potatoes", "onion", "bell pepper", "garlic", "tomatoes", "beans", "corn", "flour", "sugar", "oats",
-  "peanut butter", "jelly", "bananas", "apples", "yogurt", "lettuce", "cabbage", "shrimp", "salmon", "bacon",
-  "cumin", "chile powder", "smoked paprika", "mexican oregano", "masa harina", "chipotle", "guajillo",
-  "ancho chiles", "cilantro", "lime", "pinto beans", "black beans", "avocados"
-];
+const pantryIngredientCategories = {
+  Proteins: ["chicken", "chicken thighs", "chicken breast", "ground beef", "beef", "steak", "pork chops", "pork shoulder", "ground pork", "turkey", "ground turkey", "sausage", "hot dogs", "bacon", "ham", "spam", "duck", "shrimp", "salmon", "tuna", "catfish", "tilapia", "cod", "crab", "canned tuna", "eggs", "tofu", "tempeh", "black beans", "pinto beans", "kidney beans", "chickpeas", "lentils"],
+  Vegetables: ["corn", "cabbage", "broccoli", "spinach", "kale", "collard greens", "turnip greens", "mustard greens", "onion", "red onion", "green onion", "bell pepper", "jalapeno", "poblano", "mushrooms", "bean sprouts", "carrots", "celery", "squash", "zucchini", "okra", "green beans", "peas", "sweet peas", "lettuce", "cucumber", "tomatoes", "cherry tomatoes", "canned tomatoes", "tomato paste", "sweet potatoes", "potatoes", "russet potatoes", "red potatoes"],
+  Fruits: ["apples", "bananas", "pineapple", "peaches", "lemons", "limes", "strawberries", "blueberries", "blackberries", "raspberries", "grapes", "oranges", "mangoes", "watermelon", "cantaloupe", "pears", "cranberries", "avocados"],
+  "Grains & Starches": ["rice", "white rice", "brown rice", "jasmine rice", "leftover rice", "pasta", "spaghetti", "macaroni", "ramen", "noodles", "grits", "oats", "potatoes", "sweet potatoes", "tortillas", "corn tortillas", "flour tortillas", "bread", "buns", "biscuits", "cornbread mix", "stuffing mix", "flour", "cornmeal", "masa harina", "crackers", "breadcrumbs"],
+  Dairy: ["milk", "butter", "cheese", "cheddar", "mozzarella", "cream cheese", "sour cream", "yogurt", "heavy cream", "half and half", "buttermilk", "parmesan", "evaporated milk", "condensed milk"],
+  "Pantry Staples": ["sugar", "brown sugar", "powdered sugar", "baking powder", "baking soda", "yeast", "chicken broth", "beef broth", "vegetable broth", "canned vegetables", "canned corn", "canned fruit", "canned beans", "peanut butter", "jelly", "oil", "olive oil", "vegetable oil", "vinegar", "apple cider vinegar", "hot sauce", "bbq sauce", "ketchup", "mustard", "mayonnaise", "soy sauce", "worcestershire sauce", "honey", "maple syrup", "vanilla", "cocoa powder"],
+  "Spices & Herbs": ["salt", "black pepper", "garlic powder", "onion powder", "paprika", "smoked paprika", "cumin", "chile powder", "cayenne", "creole seasoning", "old bay", "italian seasoning", "mexican oregano", "oregano", "thyme", "rosemary", "bay leaves", "cinnamon", "nutmeg", "ginger", "cilantro", "parsley", "basil", "dill"],
+  "International Ingredients": ["kimchi", "curry paste", "red curry paste", "green curry paste", "coconut milk", "plantains", "yuca", "gochujang", "fish sauce", "miso", "tahini", "hoisin sauce", "oyster sauce", "sesame oil", "rice vinegar", "salsa", "salsa verde", "chipotle", "guajillo", "ancho chiles", "adobo", "harissa", "za'atar", "garam masala", "turmeric", "curry powder"]
+};
+
+const pantryScanQuickIngredients = [...new Set(Object.values(pantryIngredientCategories).flat())];
+
+const pantryScanModes = {
+  strict: {
+    label: "Cook With What I Have",
+    eyebrow: "No-store-run energy",
+    copy: "Prioritizes recipes with the strongest overlap and almost nothing missing."
+  },
+  flexible: {
+    label: "I'm Willing to Buy a Few Things",
+    eyebrow: "Quick grocery trip",
+    copy: "Shows recipes where you are close and only need a few helper ingredients."
+  },
+  surprise: {
+    label: "Surprise Me!",
+    eyebrow: "Creative pantry remix",
+    copy: "Looks across cuisines for fun ways to turn random ingredients into dinner."
+  }
+};
 
 const pantryScanAliases = new Map([
   ["macaroni", "pasta"], ["noodles", "pasta"], ["noodle", "pasta"],
@@ -6037,7 +6060,14 @@ const pantryScanAliases = new Map([
   ["chili powder", "chile powder"], ["oregano", "mexican oregano"],
   ["ancho", "ancho chiles"], ["guajillo chiles", "guajillo"],
   ["limes", "lime"], ["cilantro leaves", "cilantro"], ["avocado", "avocados"],
-  ["black bean", "black beans"], ["pinto bean", "pinto beans"]
+  ["black bean", "black beans"], ["pinto bean", "pinto beans"],
+  ["garbanzo beans", "chickpeas"], ["garbanzo", "chickpeas"], ["scallions", "green onion"],
+  ["spring onion", "green onion"], ["capsicum", "bell pepper"], ["collards", "collard greens"],
+  ["greens", "collard greens"], ["spam lite", "spam"], ["luncheon meat", "spam"],
+  ["canned salmon", "salmon"], ["sriracha", "hot sauce"], ["stock", "chicken broth"],
+  ["broth", "chicken broth"], ["coconut cream", "coconut milk"], ["soy", "soy sauce"],
+  ["sesame", "sesame oil"], ["mayo", "mayonnaise"], ["bbq", "bbq sauce"],
+  ["barbecue sauce", "bbq sauce"], ["red pepper flakes", "chile powder"], ["chili flakes", "chile powder"]
 ]);
 
 const app = document.querySelector("#app");
@@ -6053,6 +6083,7 @@ let userRecipes = readJSON("letsCookUserRecipes", []);
 let submissions = readJSON("letsCookSubmissions", []);
 let lessonProgress = readJSON("letsCookLessonProgress", {});
 let pantryScanState = readJSON("letsCookPantryScan", { ingredients: [], notes: "" });
+let pantryFavoriteIngredients = readJSON("letsCookPantryFavorites", []);
 let roadTripPassport = readJSON("letsCookRoadTripPassport", {});
 let letsCookSession = {
   authenticated: false,
@@ -10142,35 +10173,99 @@ function pantryRecipeText(recipe = {}) {
   return normalizePantryIngredient(`${ingredientText} ${recipe.title || ""} ${recipe.description || ""} ${recipe.category || ""} ${recipe.cuisine || ""} ${(recipe.tags || []).join(" ")}`);
 }
 
-function pantryScanMatches(ingredients = []) {
+function pantryRecipeKnownIngredients(recipe = {}) {
+  const text = pantryRecipeText(recipe);
+  const known = pantryScanQuickIngredients.filter((item) => text.includes(item));
+  const rawIngredients = (recipe.ingredients || recipe.structured_ingredients || recipe.ingredients_structured || [])
+    .map((item) => normalizePantryIngredient(typeof item === "string" ? item : item.name || item.original || ""))
+    .filter(Boolean)
+    .map((item) => pantryScanQuickIngredients.find((knownItem) => item.includes(knownItem) || knownItem.includes(item)) || item)
+    .slice(0, 12);
+  return [...new Set([...known, ...rawIngredients])].slice(0, 14);
+}
+
+function pantryIngredientMatchesRecipe(pantryItem, recipeText, recipeKnown = []) {
+  return recipeText.includes(pantryItem)
+    || recipeKnown.some((known) => known.includes(pantryItem) || pantryItem.includes(known));
+}
+
+function pantryMissingIngredients(recipeKnown = [], pantry = []) {
+  const pantryText = pantry.join(" ");
+  const optionalPantryHelpers = new Set(["salt", "black pepper", "oil", "olive oil", "vegetable oil", "water"]);
+  return recipeKnown
+    .filter((item) => !optionalPantryHelpers.has(item))
+    .filter((item) => !pantryText.includes(item) && !pantry.some((pantryItem) => item.includes(pantryItem) || pantryItem.includes(item)))
+    .slice(0, 5);
+}
+
+function pantryModeFromState() {
+  return pantryScanModes[pantryScanState.mode] ? pantryScanState.mode : "flexible";
+}
+
+function pantryScanMatches(ingredients = [], mode = pantryModeFromState()) {
   const pantry = uniquePantryIngredients(ingredients);
+  const modeRules = {
+    strict: { maxMissing: 1, limit: 18, cuisineBonus: 0 },
+    flexible: { maxMissing: 3, limit: 24, cuisineBonus: 0 },
+    surprise: { maxMissing: 5, limit: 24, cuisineBonus: 2 }
+  }[mode] || { maxMissing: 3, limit: 24, cuisineBonus: 0 };
   return recipes.map((recipe) => {
     const recipeText = pantryRecipeText(recipe);
-    const matches = pantry.filter((item) => recipeText.includes(item));
+    const knownIngredients = pantryRecipeKnownIngredients(recipe);
+    const matches = pantry.filter((item) => pantryIngredientMatchesRecipe(item, recipeText, knownIngredients));
+    const missing = pantryMissingIngredients(knownIngredients, pantry);
     const practicalBonus = /quick|weeknight|kid|snack|pizza|sandwich|parfait|smoothie|mac|taco|rice|bowl/i.test(
       [recipe.category, recipe.path, recipe.title, ...(recipe.tags || [])].join(" ")
     ) ? 1 : 0;
-    return { recipe, matches, score: matches.length * 3 + practicalBonus };
-  }).filter((item) => item.matches.length)
+    const surpriseBonus = modeRules.cuisineBonus && /asian|mexican|caribbean|indian|mediterranean|creole|cajun|thai|japanese|korean|latin/i.test(
+      [recipe.cuisine, recipe.category, recipe.title, ...(recipe.tags || [])].join(" ")
+    ) ? modeRules.cuisineBonus : 0;
+    const closenessBonus = Math.max(0, 5 - missing.length);
+    return { recipe, matches, missing, knownIngredients, score: matches.length * 5 + closenessBonus + practicalBonus + surpriseBonus - missing.length };
+  }).filter((item) => item.matches.length && item.missing.length <= modeRules.maxMissing)
     .sort((a, b) => b.score - a.score || a.recipe.title.localeCompare(b.recipe.title))
-    .slice(0, 12);
+    .slice(0, modeRules.limit);
 }
 
-function pantryScanResultsMarkup(ingredients = []) {
+function pantryFallbackIdeas(ingredients = [], mode = pantryModeFromState()) {
+  const pantry = uniquePantryIngredients(ingredients);
+  const has = (item) => pantry.includes(item);
+  const ideas = [
+    { title: "Spam Fried Rice", cuisine: "Asian Inspired", need: ["spam", "rice"], buy: ["soy sauce", "eggs"], text: "Dice Spam, crisp it, then stir-fry with rice, vegetables, and a salty-sweet sauce." },
+    { title: "Hawaiian Spam Bowls", cuisine: "Island Pantry", need: ["spam", "pineapple", "rice"], buy: ["soy sauce"], text: "Sweet pineapple, salty Spam, rice, and quick vegetables make a bowl fast." },
+    { title: "Pineapple Fried Rice", cuisine: "Thai Inspired", need: ["pineapple", "rice"], buy: ["eggs", "soy sauce"], text: "Fruit, rice, vegetables, and a quick sauce turn leftovers into dinner." },
+    { title: "Bean Sprout Stir Fry", cuisine: "Weeknight Stir Fry", need: ["bean sprouts"], buy: ["soy sauce", "garlic"], text: "Use sprouts with any protein, onion, peppers, or cabbage for a crisp skillet meal." },
+    { title: "Loaded Potato Skillet", cuisine: "Comfort Food", need: ["potatoes", "cheese"], buy: ["eggs"], text: "Crisp potatoes with cheese, onions, peppers, bacon, sausage, or eggs." },
+    { title: "Taco Rice Bowls", cuisine: "Mexican Inspired", need: ["rice", "beans"], buy: ["salsa", "cheese"], text: "Rice, beans, corn, peppers, salsa, cheese, and lime make a pantry bowl." },
+    { title: "Coconut Curry Pantry Bowl", cuisine: "Global Pantry", need: ["coconut milk"], buy: ["curry paste"], text: "Coconut milk turns vegetables, beans, chicken, shrimp, or tofu into a cozy curry." },
+    { title: "Breakfast-for-Dinner Hash", cuisine: "Home Cook", need: ["eggs", "potatoes"], buy: ["cheese"], text: "A skillet of potatoes, eggs, vegetables, and whatever breakfast meat is around." }
+  ];
+  return ideas
+    .map((idea) => {
+      const matched = idea.need.filter(has);
+      const missing = idea.buy.filter((item) => !has(item));
+      return { ...idea, matched, missing, score: matched.length * 5 - missing.length };
+    })
+    .filter((idea) => idea.matched.length)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, mode === "surprise" ? 6 : 4);
+}
+
+function pantryScanResultsMarkup(ingredients = [], mode = pantryModeFromState()) {
+  const modeProfile = pantryScanModes[mode] || pantryScanModes.flexible;
   if (!ingredients.length) {
-    return `<div class="empty-state">Add ingredients or tap the quick ingredient buttons to get ideas from the real recipe library.</div>`;
+    return `<div class="empty-state">Add ingredients or browse the grocery categories to get meal ideas from the real recipe library.</div>`;
   }
-  const matches = pantryScanMatches(ingredients);
-  if (!matches.length) {
-    return `<div class="empty-state">No strong recipe matches yet. Add a protein, starch, or vegetable and try again.</div>`;
-  }
-  return matches.map(({ recipe, matches: matchedIngredients }) => `
+  const matches = pantryScanMatches(ingredients, mode);
+  const fallbackIdeas = pantryFallbackIdeas(ingredients, mode);
+  const recipeMarkup = matches.map(({ recipe, matches: matchedIngredients, missing }) => `
     <article class="planner-recipe-card pantry-result-card">
       <img src="${recipePhotoFor(recipe)}" alt="${escapeHTML(recipe.title)}" />
       <div>
         <p class="eyebrow">Uses ${matchedIngredients.slice(0, 4).map(titleizeSlug).join(", ")}</p>
         <h3>${recipe.title}</h3>
         <p>${recipe.description || "A pantry-friendly Let's Cook Y'all recipe."}</p>
+        ${missing.length ? `<p class="pantry-missing-note">You're only missing ${missing.slice(0, 3).map(titleizeSlug).join(", ")}${missing.length > 3 ? " and a few basics" : ""}.</p>` : `<p class="pantry-missing-note ready">You can cook this with what you selected.</p>`}
         <div class="recipe-card-meta compact-meta">
           <span>${recipe.prep_time || recipe.prepTime || "15 min"} prep</span>
           <span>${recipe.cook_time || recipe.cookTime || recipe.time || "30 min"} cook</span>
@@ -10183,20 +10278,50 @@ function pantryScanResultsMarkup(ingredients = []) {
       </div>
     </article>
   `).join("");
+  const fallbackMarkup = fallbackIdeas.length ? `
+    <div class="pantry-inspiration-grid">
+      ${fallbackIdeas.map((idea) => `
+        <article class="pantry-inspiration-card">
+          <span>${idea.cuisine}</span>
+          <h3>${idea.title}</h3>
+          <p>${idea.text}</p>
+          <small>${idea.missing.length ? `Add ${idea.missing.map(titleizeSlug).join(", ")} to make it sing.` : "You have the core ingredients."}</small>
+        </article>
+      `).join("")}
+    </div>
+  ` : "";
+  if (!matches.length && !fallbackIdeas.length) {
+    return `<div class="empty-state">No strong recipe matches yet, but we can still work with this. Add one protein, one starch, or one vegetable and the meal ideas will open up.</div>`;
+  }
+  return `
+    <div class="pantry-results-summary">
+      <p class="eyebrow">${modeProfile.eyebrow}</p>
+      <h3>Here are ${matches.length + fallbackIdeas.length} meals you can make or nearly make tonight.</h3>
+      <p>${modeProfile.copy}</p>
+    </div>
+    ${recipeMarkup}
+    ${fallbackMarkup}
+  `;
 }
 
 function pantryIngredientsFromDom() {
   const notes = document.querySelector("#pantryScanNotes")?.value || "";
   const chips = [...document.querySelectorAll("[data-pantry-chip].active")].map((chip) => chip.dataset.pantryChip);
+  const mode = document.querySelector("[data-pantry-mode].active")?.dataset.pantryMode || pantryModeFromState();
   const ingredients = uniquePantryIngredients([...pantryIngredientsFromText(notes), ...chips]);
-  pantryScanState = { ingredients, notes };
+  pantryScanState = { ingredients, notes, mode };
   localStorage.setItem("letsCookPantryScan", JSON.stringify(pantryScanState));
   return ingredients;
 }
 
 function updatePantryScanResults() {
+  const ingredients = pantryIngredientsFromDom();
+  const shelf = document.querySelector(".pantry-selected-shelf");
+  if (shelf) {
+    shelf.innerHTML = ingredients.length ? ingredients.map((item) => `<span>${titleizeSlug(item)}</span>`).join("") : `<span>No ingredients selected yet.</span>`;
+  }
   const target = document.querySelector("#pantryScanResults");
-  if (target) target.innerHTML = pantryScanResultsMarkup(pantryIngredientsFromDom());
+  if (target) target.innerHTML = pantryScanResultsMarkup(ingredients, pantryModeFromState());
 }
 
 function renderPantryScan(id = "pantry") {
@@ -10207,14 +10332,38 @@ function renderPantryScan(id = "pantry") {
     ? "Confirm what is in the fridge or freezer, then turn fresh food and leftovers into real recipe matches."
     : "Upload a pantry photo, confirm what is visible, and turn those ingredients into real recipe matches.";
   const scanPrompt = isColdStorage ? "Add a refrigerator or freezer photo" : "Add a pantry photo";
-  const quickIngredients = isColdStorage
-    ? ["eggs", "cheese", "milk", "chicken", "ground beef", "leftover rice", "spinach", "bell pepper", "yogurt", "butter"]
-    : pantryScanQuickIngredients;
+  const categoryEntries = isColdStorage
+    ? Object.entries({
+      Proteins: pantryIngredientCategories.Proteins,
+      Vegetables: pantryIngredientCategories.Vegetables,
+      Fruits: pantryIngredientCategories.Fruits,
+      Dairy: pantryIngredientCategories.Dairy,
+      "Leftovers & Staples": ["leftover rice", "rice", "pasta", "tortillas", "bread", "broth", "salsa", "soy sauce"]
+    })
+    : Object.entries(pantryIngredientCategories);
   const ingredients = uniquePantryIngredients(pantryScanState.ingredients || []);
+  const favoriteIngredients = uniquePantryIngredients(pantryFavoriteIngredients || []);
+  const activeMode = pantryModeFromState();
   app.innerHTML = `
     ${hero(scanTitle, scanCopy, photoFor("skills", "measuring"), `<a class="small-button" href="#what-yall-cooking">What Y'all Cooking?</a><a class="small-button secondary" href="#kitchen-search">Cook With What I Have</a>`)}
     ${cookSubnav()}
     <section class="cream-section kitchen-tool-switcher">${kitchenToolSwitcher(isColdStorage ? "refrigerator-scan" : "pantry-scan")}</section>
+    <section class="cream-section pantry-market-intro">
+      <div class="section-heading">
+        <p class="eyebrow">Kroger brain, kitchen soul</p>
+        <h2>Pick anything you actually have at home.</h2>
+        <p>Proteins, vegetables, fruit, starches, dairy, pantry staples, sauces, spices, and international ingredients all count. Random pantry? Good. That's where dinner ideas get interesting.</p>
+      </div>
+      <div class="pantry-mode-row" aria-label="Pantry matching mode">
+        ${Object.entries(pantryScanModes).map(([mode, profile]) => `
+          <button class="pantry-mode-button ${activeMode === mode ? "active" : ""}" type="button" data-pantry-mode="${mode}">
+            <span>${profile.eyebrow}</span>
+            <strong>${profile.label}</strong>
+            <small>${profile.copy}</small>
+          </button>
+        `).join("")}
+      </div>
+    </section>
     <section class="cream-section pantry-scan-workbench">
       <div class="pantry-scan-layout">
         <article class="pantry-photo-card">
@@ -10233,15 +10382,35 @@ function renderPantryScan(id = "pantry") {
         <article class="pantry-confirm-card">
           <p class="eyebrow">2. Confirm the ingredients</p>
           <h2>What can you see?</h2>
-          <p>Type ingredients separated by commas, then tap any quick ingredients that also belong in the list.</p>
-          <textarea id="pantryScanNotes" rows="5" placeholder="Example: rice, chicken, eggs, cheese, bell pepper, onion">${escapeHTML(pantryScanState.notes || "")}</textarea>
-          <div class="pantry-chip-row">
-            ${quickIngredients.map((item) => `
-              <button type="button" class="pantry-chip ${ingredients.includes(item) ? "active" : ""}" data-pantry-chip="${item}">${item}</button>
+          <p>Type ingredients separated by commas, then browse the grocery aisles below and tap anything you have.</p>
+          <textarea id="pantryScanNotes" rows="5" placeholder="Example: Spam, pineapple, bean sprouts, leftover rice, eggs">${escapeHTML(pantryScanState.notes || "")}</textarea>
+          <div class="pantry-selected-shelf" aria-live="polite">
+            ${ingredients.length ? ingredients.map((item) => `<span>${titleizeSlug(item)}</span>`).join("") : `<span>No ingredients selected yet.</span>`}
+          </div>
+          ${favoriteIngredients.length ? `
+            <div class="pantry-favorites-shelf">
+              <p class="eyebrow">Saved pantry favorites</p>
+              <div class="pantry-chip-row">
+                ${favoriteIngredients.map((item) => `<button type="button" class="pantry-chip ${ingredients.includes(item) ? "active" : ""}" data-pantry-chip="${item}">${titleizeSlug(item)}</button>`).join("")}
+              </div>
+            </div>
+          ` : ""}
+          <div class="pantry-category-grid">
+            ${categoryEntries.map(([category, items]) => `
+              <details class="pantry-category-card" ${["Proteins", "Vegetables", "Pantry Staples"].includes(category) ? "open" : ""}>
+                <summary>${category}<span>${items.length}</span></summary>
+                <div class="pantry-chip-row">
+                  ${items.map((item) => {
+                    const normalizedItem = normalizePantryIngredient(item);
+                    return `<button type="button" class="pantry-chip ${ingredients.includes(normalizedItem) ? "active" : ""}" data-pantry-chip="${normalizedItem}">${item}</button>`;
+                  }).join("")}
+                </div>
+              </details>
             `).join("")}
           </div>
           <div class="planner-card-actions">
             <button class="small-button" type="button" data-run-pantry-scan>Find Meal Ideas</button>
+            <button class="small-button secondary" type="button" data-save-pantry-favorites>Save Pantry Favorites</button>
             <button class="small-button secondary" type="button" data-clear-pantry-scan>Clear Items</button>
           </div>
         </article>
@@ -10250,10 +10419,10 @@ function renderPantryScan(id = "pantry") {
     <section class="cream-section pantry-results-section">
       <div class="section-heading">
         <p class="eyebrow">3. Cook from what you have</p>
-        <h2>Recipe matches from the Let's Cook Y'all library.</h2>
-        <p>Matches are ranked by how many confirmed ingredients appear in each real recipe.</p>
+        <h2>Recipe matches and pantry inspiration.</h2>
+        <p>Matches look for exact ingredients, close matches, recipes missing only a few things, and creative ways to turn a random pantry into dinner.</p>
       </div>
-      <div id="pantryScanResults" class="planner-recipe-list">${pantryScanResultsMarkup(ingredients)}</div>
+      <div id="pantryScanResults" class="planner-recipe-list">${pantryScanResultsMarkup(ingredients, activeMode)}</div>
     </section>
   `;
 }
@@ -12326,7 +12495,9 @@ function handleClick(event) {
   const planButton = event.target.closest("[data-plan]");
   const printButton = event.target.closest("[data-print-recipe]");
   const pantryChip = event.target.closest("[data-pantry-chip]");
+  const pantryModeButton = event.target.closest("[data-pantry-mode]");
   const pantryRunButton = event.target.closest("[data-run-pantry-scan]");
+  const pantryFavoriteButton = event.target.closest("[data-save-pantry-favorites]");
   const pantryClearButton = event.target.closest("[data-clear-pantry-scan]");
   const juneteenthMenuButton = event.target.closest("[data-juneteenth-menu]");
   const regionalMenuButton = event.target.closest("[data-regional-menu]");
@@ -12362,12 +12533,25 @@ function handleClick(event) {
     updatePantryScanResults();
     return;
   }
+  if (pantryModeButton) {
+    document.querySelectorAll("[data-pantry-mode]").forEach((button) => button.classList.toggle("active", button === pantryModeButton));
+    pantryScanState = { ...pantryScanState, mode: pantryModeButton.dataset.pantryMode };
+    localStorage.setItem("letsCookPantryScan", JSON.stringify(pantryScanState));
+    updatePantryScanResults();
+    return;
+  }
   if (pantryRunButton) {
     updatePantryScanResults();
     return;
   }
+  if (pantryFavoriteButton) {
+    pantryFavoriteIngredients = pantryIngredientsFromDom();
+    localStorage.setItem("letsCookPantryFavorites", JSON.stringify(pantryFavoriteIngredients));
+    renderPantryScan();
+    return;
+  }
   if (pantryClearButton) {
-    pantryScanState = { ingredients: [], notes: "" };
+    pantryScanState = { ingredients: [], notes: "", mode: pantryModeFromState() };
     localStorage.removeItem("letsCookPantryScan");
     renderPantryScan();
     return;
