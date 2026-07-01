@@ -279,6 +279,26 @@ const midAtlanticCoverImages = {
   dc: "images/recipes/mid-atlantic-2026/dc-half-smoke.jpg"
 };
 
+const westernCoverImages = {
+  "pacific-northwest": "images/recipes/audit-2026-06/grilled-swordfish-lemon-herb.jpg",
+  washington: "images/recipes/audit-2026-06/grilled-swordfish-lemon-herb.jpg",
+  oregon: "images/recipes/new-england-2026/maine-blueberry-pie.jpg",
+  idaho: "images/recipes/audit-2026-06/loaded-baked-potato-soup.jpg",
+  "mountain-west": "images/recipes/audit-2026-06/funeral-potatoes.jpg",
+  colorado: "images/recipes/southwest-2026/green-chile-stew.jpg",
+  utah: "images/recipes/audit-2026-06/funeral-potatoes.jpg",
+  montana: "images/recipes/audit-2026-06/nebraska-steak.jpg",
+  wyoming: "images/recipes/audit-2026-06/kansas-chicken-fried-steak.jpg",
+  nevada: "assets/fresh-bread.jpeg",
+  california: "images/recipes/mid-atlantic-2026/new-york-pizza.jpg",
+  "northern-california": "images/recipes/audit-2026-06/grilled-swordfish-lemon-herb.jpg",
+  "central-california": "images/recipes/audit-2026-06/beef-tacos.jpg",
+  "southern-california": "images/recipes/audit-2026-06/birria-style-tacos.jpg",
+  "alaska-hawaii": "images/recipes/audit-2026-06/grilled-swordfish-lemon-herb.jpg",
+  alaska: "images/recipes/audit-2026-06/blackened-fish.jpg",
+  hawaii: "images/recipes/audit-2026-06/pineapple-fried-rice.jpg"
+};
+
 const america250Images = {
   hero: "images/juneteenth/bbq-chicken-quarters.png",
   badge: "images/juneteenth/watermelon-platter.png",
@@ -478,6 +498,23 @@ const cuisines = [
   { id: "maryland", name: "Maryland", image: midAtlanticCoverImages.maryland, blurb: "Crab cakes, cream of crab soup, Maryland crab soup, steamed blue crabs, Smith Island cake, crab dip, and Old Bay fries." },
   { id: "delaware", name: "Delaware", image: midAtlanticCoverImages.delaware, blurb: "Scrapple, peach pie, blue crab bisque, boardwalk fries, slippery dumplings, succotash, and coastal comfort." },
   { id: "washington-dc", name: "Washington, D.C.", image: midAtlanticCoverImages.dc, blurb: "Half-smokes, mumbo sauce, chili dogs, Ethiopian food, Salvadoran pupusas, jumbo slices, and carryout culture." },
+  { id: "pacific-northwest", name: "Pacific Northwest Regional", image: westernCoverImages["pacific-northwest"], blurb: "Salmon, berries, hazelnuts, coffee, apples, potatoes, seafood, forest foods, and rain-coast comfort." },
+  { id: "washington-state", name: "Washington State", image: westernCoverImages.washington, blurb: "Cedar-plank salmon, apples, coffee, teriyaki, Dungeness crab, berries, and market food." },
+  { id: "oregon", name: "Oregon", image: westernCoverImages.oregon, blurb: "Marionberries, hazelnuts, salmon, mushrooms, Tillamook-style dairy, pears, and farm-market cooking." },
+  { id: "idaho", name: "Idaho", image: westernCoverImages.idaho, blurb: "Potatoes, trout, huckleberries, finger steaks, fry sauce, and mountain-family suppers." },
+  { id: "mountain-west", name: "Mountain West Regional", image: westernCoverImages["mountain-west"], blurb: "Green chile, funeral potatoes, trout, steak, fry bread, Basque tables, ranch food, and ski-town comfort." },
+  { id: "colorado", name: "Colorado", image: westernCoverImages.colorado, blurb: "Pueblo green chile, Denver omelets, bison burgers, trout, peaches, and mountain cookout plates." },
+  { id: "utah", name: "Utah", image: westernCoverImages.utah, blurb: "Funeral potatoes, fry sauce, scones, honey, Dutch-oven suppers, and family-table casseroles." },
+  { id: "montana", name: "Montana", image: westernCoverImages.montana, blurb: "Bison, huckleberries, trout, pasties, flathead cherries, wheat, and ranch-house cooking." },
+  { id: "wyoming", name: "Wyoming", image: westernCoverImages.wyoming, blurb: "Beef, trout, chicken-fried steak, sourdough, beans, jerky, chokecherries, and cowboy suppers." },
+  { id: "nevada", name: "Nevada", image: westernCoverImages.nevada, blurb: "Basque boardinghouse food, shrimp cocktail, steakhouse plates, sourdough, chiles, and desert diner culture." },
+  { id: "california", name: "California Regional", image: westernCoverImages.california, blurb: "Northern seafood and sourdough, Central Valley produce, and Southern California tacos, burgers, salads, and immigrant foodways." },
+  { id: "northern-california", name: "Northern California", image: westernCoverImages["northern-california"], blurb: "Sourdough, cioppino, Dungeness crab, mission burritos, wine-country vegetables, and farmers-market cooking." },
+  { id: "central-california", name: "Central California", image: westernCoverImages["central-california"], blurb: "Tri-tip, artichokes, almonds, grapes, stone fruit, chile verde, and Central Valley field-to-table food." },
+  { id: "southern-california", name: "Southern California", image: westernCoverImages["southern-california"], blurb: "Fish tacos, California burritos, avocado, citrus, Korean-Mexican foodways, burgers, and beach cookouts." },
+  { id: "alaska-hawaii", name: "Alaska & Hawaii Regional", image: westernCoverImages["alaska-hawaii"], blurb: "Alaska salmon, halibut, berries, sourdough, and Hawaii poke, plate lunches, kalua pork, haupia, rice, and island produce." },
+  { id: "alaska", name: "Alaska", image: westernCoverImages.alaska, blurb: "Salmon, halibut, crab, reindeer sausage, berries, sourdough, and subsistence food traditions." },
+  { id: "hawaii", name: "Hawaii", image: westernCoverImages.hawaii, blurb: "Poke, kalua pork, loco moco, plate lunch, spam musubi, haupia, shave ice, rice, and island food culture." },
   { id: "nigerian", name: "Nigerian", image: cuisineCoverImages.nigerian, blurb: "Jollof rice, egusi, suya, moi moi, pepper soup, and layered tomato-pepper stew bases." },
   { id: "ghanaian", name: "Ghanaian", image: cuisineCoverImages.ghanaian, blurb: "Waakye, red red, kelewele, groundnut soup, jollof, shito, and generous rice-and-bean plates." },
   { id: "ethiopian", name: "Ethiopian", image: cuisineCoverImages.ethiopian, blurb: "Injera, berbere, lentil stews, shiro, tibs, doro wat, and shared platter hospitality." },
@@ -832,6 +869,34 @@ const cuisineExplorerGroups = [
     image: midAtlanticCoverImages["mid-atlantic"],
     note: "Cook through New York, New Jersey, Pennsylvania, Maryland, Delaware, and Washington, D.C. with city food, boardwalk food, immigrant traditions, seafood, delis, and street food.",
     regions: ["New York", "New Jersey", "Pennsylvania", "Maryland", "Delaware", "Washington D.C."]
+  },
+  {
+    id: "pacific-northwest",
+    title: "Pacific Northwest Regional Food",
+    image: westernCoverImages["pacific-northwest"],
+    note: "Cook through Washington, Oregon, and Idaho with salmon, crab, berries, apples, hazelnuts, potatoes, trout, coffee culture, and rain-country comfort.",
+    regions: ["Washington State", "Oregon", "Idaho"]
+  },
+  {
+    id: "mountain-west",
+    title: "Mountain West Regional Food",
+    image: westernCoverImages["mountain-west"],
+    note: "Cook through Colorado, Utah, Montana, Wyoming, and Nevada with green chile, trout, bison, beef, Basque foodways, fry sauce, potatoes, and ranch-table traditions.",
+    regions: ["Colorado", "Utah", "Montana", "Wyoming", "Nevada"]
+  },
+  {
+    id: "california",
+    title: "California Regional Food",
+    image: westernCoverImages.california,
+    note: "Cook Northern, Central, and Southern California through seafood, sourdough, produce, tri-tip, tacos, citrus, avocado, immigrant food traditions, and farmers-market abundance.",
+    regions: ["Northern California", "Central California", "Southern California"]
+  },
+  {
+    id: "alaska-hawaii",
+    title: "Alaska & Hawaii Regional Food",
+    image: westernCoverImages["alaska-hawaii"],
+    note: "Cook Alaska and Hawaii with salmon, halibut, crab, berries, sourdough, poke, plate lunch, kalua pork, rice, tropical fruit, and island hospitality.",
+    regions: ["Alaska", "Hawaii"]
   },
   {
     id: "cajun-creole",
@@ -3617,6 +3682,119 @@ const midAtlanticExpansionRecipes = [
   midAtlanticRecipe("kids-apple-pie-decorating", "Apple Pie Decorating", "mid-atlantic-kids", "Sweet Treats", "Use pastry shapes to decorate the top of a simple apple pie.", ["1 unbaked apple pie", "Pie dough scraps", "Cinnamon sugar", "Egg wash optional"], ["Cut dough shapes with safe cutters.", "Place shapes on pie.", "Sprinkle cinnamon sugar.", "A grown-up brushes egg wash if using.", "A grown-up bakes the pie."], ["kids", "apple pie", "decorating"], { prep: "20 min", cook: "45 min", servings: 8, level: "Kid Friendly", kidsKorner: true, ageTrack: "6-8 Kitchen Explorers", path: "kid-chefs", helperNote: "Kids decorate only. A grown-up handles the oven and hot filling." })
 ];
 
+function westernRecipe(id, title, cuisine, category, description, ingredients, steps, tags = [], extras = {}) {
+  return expansionRecipe(
+    id,
+    title,
+    category,
+    extras.image || westernCoverImages[cuisine] || westernCoverImages["pacific-northwest"],
+    extras.prep || "20 min",
+    extras.cook || "35 min",
+    extras.servings || 4,
+    extras.level || "Intermediate",
+    description,
+    ingredients,
+    steps,
+    [...tags, "western regional", cuisine],
+    {
+      cuisine,
+      path: extras.path || "amateur-cooks",
+      kidsKorner: extras.kidsKorner,
+      ageTrack: extras.ageTrack,
+      helperNote: extras.helperNote,
+      storage: extras.storage || "Refrigerate leftovers in a covered container for up to 3 days.",
+      reheating: extras.reheating || "Reheat gently until hot throughout."
+    }
+  );
+}
+
+const westernExpansionRecipes = [
+  westernRecipe("cedar-plank-salmon", "Washington Cedar-Plank Salmon", "washington-state", "Pacific Northwest Seafood", "Salmon roasted or grilled over cedar with lemon, herbs, and gentle smoke for a Washington table.", ["4 salmon fillets", "1 soaked cedar plank", "2 tbsp olive oil", "1 lemon", "1 tbsp chopped dill", "1 tsp salt", "Black pepper"], ["Soak cedar plank at least 1 hour.", "Season salmon with oil, lemon, dill, salt, and pepper.", "Set salmon on plank.", "Grill covered or roast until salmon flakes.", "Rest briefly and serve with lemon."], ["salmon", "washington", "seafood"], { image: "images/recipes/audit-2026-06/grilled-swordfish-lemon-herb.jpg" }),
+  westernRecipe("seattle-teriyaki-chicken", "Seattle Teriyaki Chicken", "washington-state", "Seattle Counter Food", "Griddled chicken glazed with sweet-savory teriyaki sauce, served with rice and crisp salad.", ["1 1/2 lb chicken thighs", "1/2 cup soy sauce", "1/3 cup brown sugar", "2 tbsp mirin or rice vinegar", "2 garlic cloves", "1 tsp ginger", "Steamed rice", "Cabbage salad"], ["Marinate chicken with soy, sugar, vinegar, garlic, and ginger.", "Grill or griddle until chicken reaches 165 F.", "Simmer marinade separately into a glaze.", "Slice chicken over rice.", "Serve with cabbage salad."], ["teriyaki", "seattle", "chicken"], { image: "assets/beautiful-chicken.jpeg" }),
+  westernRecipe("washington-apple-crisp", "Washington Apple Crisp", "washington-state", "Orchard Desserts", "Warm apple crisp with cinnamon, oats, and brown sugar for Washington orchard season.", ["6 cups sliced apples", "1 tbsp lemon juice", "1/2 cup sugar", "1 tsp cinnamon", "1 cup oats", "3/4 cup flour", "3/4 cup brown sugar", "1/2 cup butter"], ["Toss apples with lemon, sugar, and cinnamon.", "Spread in a baking dish.", "Mix oats, flour, brown sugar, and butter into crumbs.", "Top apples.", "Bake at 350 F until bubbling and golden."], ["apples", "crisp", "dessert"], { image: "images/recipes/new-england-2026/apple-crisp.jpg", servings: 8 }),
+  westernRecipe("dungeness-crab-melt", "Dungeness Crab Melt", "washington-state", "Coastal Sandwiches", "Sweet crab folded with lemon and herbs, toasted open-faced with cheese.", ["1 lb Dungeness crab meat", "2 tbsp mayonnaise", "1 tsp lemon juice", "1 tbsp chives", "4 slices sourdough", "4 slices cheese", "Black pepper"], ["Fold crab with mayo, lemon, chives, and pepper.", "Toast sourdough lightly.", "Pile crab onto bread.", "Top with cheese.", "Broil until melted and hot."], ["crab", "sandwich", "coastal"], { image: "images/recipes/mid-atlantic-2026/crab-dip.jpg" }),
+
+  westernRecipe("oregon-marionberry-pie", "Oregon Marionberry Pie", "oregon", "Oregon Desserts", "A juicy blackberry-style marionberry pie with lemon and a flaky crust.", ["2 pie crusts", "5 cups marionberries or blackberries", "3/4 cup sugar", "1/4 cup cornstarch", "1 tbsp lemon juice", "1 tbsp butter"], ["Heat oven to 400 F.", "Toss berries with sugar, cornstarch, and lemon.", "Fill crust and dot with butter.", "Top, crimp, and vent.", "Bake until bubbling and cool before slicing."], ["berries", "pie", "oregon"], { image: "images/recipes/new-england-2026/maine-blueberry-pie.jpg", servings: 8 }),
+  westernRecipe("oregon-hazelnut-salad", "Oregon Hazelnut Pear Salad", "oregon", "Farm Market Sides", "Pears, greens, toasted hazelnuts, cheese, and cider vinaigrette for a Northwest table.", ["6 cups greens", "2 pears sliced", "1/2 cup toasted hazelnuts", "1/2 cup blue cheese or cheddar", "2 tbsp cider vinegar", "1 tsp mustard", "1/4 cup olive oil"], ["Toast hazelnuts and cool.", "Whisk vinegar, mustard, oil, salt, and pepper.", "Arrange greens and pears.", "Add cheese and hazelnuts.", "Dress just before serving."], ["hazelnuts", "pear", "salad"], { image: "assets/ingredients.jpeg", prep: "15 min", cook: "5 min" }),
+  westernRecipe("oregon-mushroom-risotto", "Oregon Mushroom Risotto", "oregon", "Forest Foodways", "Creamy risotto with mushrooms, Parmesan, herbs, and patient stirring.", ["1 1/2 cups arborio rice", "8 oz mushrooms", "1 shallot", "5 cups warm stock", "1/2 cup Parmesan", "2 tbsp butter", "Thyme"], ["Cook mushrooms until browned.", "Cook shallot and rice in butter.", "Add warm stock gradually, stirring often.", "Fold mushrooms back in.", "Finish with Parmesan and thyme."], ["mushrooms", "risotto", "oregon"], { image: "images/recipes/audit-2026-06/rice-pilaf.jpg" }),
+
+  westernRecipe("idaho-loaded-baked-potatoes", "Idaho Loaded Baked Potatoes", "idaho", "Idaho Potato Table", "Fluffy baked potatoes split open with butter, sour cream, cheese, scallions, and crisp toppings.", ["4 large russet potatoes", "2 tbsp oil", "1 tsp salt", "4 tbsp butter", "1/2 cup sour cream", "1 cup cheddar", "Scallions"], ["Rub potatoes with oil and salt.", "Bake at 425 F until tender.", "Split and fluff the centers.", "Add butter, sour cream, cheese, and scallions.", "Serve hot."], ["potatoes", "idaho", "side"], { image: "images/recipes/audit-2026-06/loaded-baked-potato-soup.jpg" }),
+  westernRecipe("idaho-finger-steaks", "Idaho Finger Steaks", "idaho", "Idaho Counter Food", "Strips of beef battered, fried crisp, and served with fry sauce.", ["1 1/2 lb sirloin strips", "1 cup flour", "1 egg", "1 cup buttermilk", "1 tsp seasoned salt", "Oil for frying", "Fry sauce"], ["Season beef strips.", "Dip in flour, egg-buttermilk, then flour.", "Fry at 350 F until browned.", "Drain on a rack.", "Serve with fry sauce."], ["beef", "fried", "idaho"], { image: "images/recipes/audit-2026-06/kansas-chicken-fried-steak.jpg" }),
+  westernRecipe("idaho-huckleberry-pancakes", "Idaho Huckleberry Pancakes", "idaho", "Mountain Breakfast", "Tender pancakes dotted with huckleberries or blueberries and served with butter.", ["1 1/2 cups flour", "2 tbsp sugar", "2 tsp baking powder", "1 egg", "1 1/4 cups milk", "2 tbsp butter", "1 cup huckleberries or blueberries"], ["Whisk dry ingredients.", "Whisk egg, milk, and butter.", "Combine gently.", "Fold in berries.", "Cook on a buttered griddle."], ["huckleberry", "pancakes", "breakfast"], { image: "images/recipes/southwest-2026/blue-corn-pancakes.jpg" }),
+
+  westernRecipe("pueblo-green-chile", "Colorado Pueblo Green Chile", "colorado", "Colorado Chile", "Pork and roasted green chiles simmered into a spoonable sauce for burritos, eggs, or bowls.", ["2 lb pork shoulder cubes", "3 cups roasted green chiles", "1 onion", "3 garlic cloves", "4 cups stock", "1 tsp cumin", "Potatoes optional"], ["Brown pork.", "Cook onion and garlic.", "Add chiles, stock, cumin, and potatoes if using.", "Simmer until pork is tender.", "Serve over beans, eggs, or tortillas."], ["green chile", "colorado", "pork"], { image: "images/recipes/southwest-2026/green-chile-stew.jpg", cook: "1 hr 45 min" }),
+  westernRecipe("denver-omelet", "Denver Omelet", "colorado", "Diner Breakfast", "Eggs folded around ham, peppers, onion, and cheese for a classic Western breakfast.", ["6 eggs", "1/2 cup diced ham", "1/2 bell pepper", "1/4 onion", "1/2 cup cheddar", "2 tbsp butter"], ["Cook ham, pepper, and onion.", "Whisk eggs.", "Cook eggs in butter until almost set.", "Add filling and cheese.", "Fold and serve."], ["omelet", "breakfast", "denver"], { image: "assets/brunch.jpg", prep: "10 min", cook: "10 min" }),
+  westernRecipe("colorado-bison-burgers", "Colorado Bison Burgers", "colorado", "Mountain Grill", "Lean bison burgers cooked gently and topped with cheese, onion, lettuce, and tomato.", ["1 1/2 lb ground bison", "1 tsp salt", "1/2 tsp pepper", "4 buns", "4 slices cheese", "Lettuce", "Tomato", "Onion"], ["Shape bison into patties.", "Season just before cooking.", "Grill or sear to desired doneness without overcooking.", "Melt cheese.", "Build burgers with vegetables."], ["bison", "burger", "colorado"], { image: "images/recipes/audit-2026-06/wisconsin-butter-burgers.jpg" }),
+
+  westernRecipe("utah-funeral-potatoes", "Utah Funeral Potatoes", "utah", "Utah Casseroles", "Cheesy potato casserole with a crisp topping, built for church tables and family gatherings.", ["2 lb frozen hash browns", "2 cups sour cream", "1 can cream soup or white sauce", "2 cups cheddar", "1/2 cup melted butter", "2 cups cornflakes"], ["Mix potatoes, sour cream, sauce, cheese, and half the butter.", "Spread in a baking dish.", "Toss cornflakes with remaining butter.", "Top casserole.", "Bake at 350 F until bubbling."], ["potatoes", "casserole", "utah"], { image: "images/recipes/audit-2026-06/funeral-potatoes.jpg", servings: 10 }),
+  westernRecipe("utah-fry-sauce", "Utah Fry Sauce", "utah", "Utah Sauces", "A pink dipping sauce of mayonnaise, ketchup, pickle tang, and seasoning for fries and burgers.", ["1/2 cup mayonnaise", "1/3 cup ketchup", "1 tbsp pickle juice", "1 tsp Worcestershire optional", "Black pepper"], ["Whisk all ingredients.", "Taste for tang.", "Chill 20 minutes.", "Serve with fries or burgers.", "Keep cold."], ["fry sauce", "utah", "sauce"], { image: "images/recipes/mid-atlantic-2026/boardwalk-fries.jpg", prep: "5 min", cook: "0 min" }),
+  westernRecipe("utah-honey-scones", "Utah Honey Scones", "utah", "Utah Breads", "Fried yeast-dough scones served warm with honey butter.", ["1 batch soft roll dough", "Oil for frying", "1/2 cup butter", "1/3 cup honey", "Pinch salt"], ["Divide dough and stretch into rounds.", "Fry until puffed and golden.", "Drain briefly.", "Beat honey, butter, and salt.", "Serve scones warm with honey butter."], ["scones", "fried bread", "honey"], { image: "images/recipes/southwest-2026/sopapillas.jpg", level: "Advanced" }),
+
+  westernRecipe("montana-bison-meatloaf", "Montana Bison Meatloaf", "montana", "Ranch Suppers", "A lean bison meatloaf with onion, breadcrumbs, and a tangy glaze.", ["1 1/2 lb ground bison", "1 egg", "1/2 cup breadcrumbs", "1 onion grated", "1/3 cup ketchup", "1 tbsp Worcestershire", "1 tsp salt"], ["Mix bison, egg, crumbs, onion, Worcestershire, and salt.", "Shape into a loaf.", "Brush with ketchup.", "Bake at 375 F until 160 F.", "Rest before slicing."], ["bison", "meatloaf", "montana"], { image: "images/recipes/audit-2026-06/hamburger-steak-with-gravy.jpg" }),
+  westernRecipe("montana-huckleberry-crisp", "Montana Huckleberry Crisp", "montana", "Mountain Desserts", "Wild huckleberries or blueberries baked under an oat crumble.", ["5 cups huckleberries or blueberries", "1/2 cup sugar", "1 tbsp lemon juice", "1 cup oats", "3/4 cup flour", "3/4 cup brown sugar", "1/2 cup butter"], ["Toss berries with sugar and lemon.", "Spread in a dish.", "Mix oats, flour, brown sugar, and butter.", "Top berries.", "Bake until bubbling."], ["huckleberry", "crisp", "montana"], { image: "images/recipes/new-england-2026/maine-blueberry-pie.jpg", servings: 8 }),
+  westernRecipe("montana-trout-skillet", "Montana Trout Skillet", "montana", "River Fish", "Pan-seared trout with butter, lemon, and herbs.", ["4 trout fillets", "1/2 cup flour", "1 tsp salt", "2 tbsp oil", "3 tbsp butter", "1 lemon", "Parsley"], ["Pat trout dry.", "Dust lightly with seasoned flour.", "Sear skin-side down until crisp.", "Flip briefly.", "Finish with butter, lemon, and parsley."], ["trout", "fish", "montana"], { image: "images/recipes/audit-2026-06/great-lakes-whitefish.jpg" }),
+
+  westernRecipe("wyoming-chicken-fried-steak", "Wyoming Chicken Fried Steak", "wyoming", "Cowboy Suppers", "Crisp breaded steak with pepper gravy for a ranch-style supper.", ["4 cube steaks", "1 cup flour", "2 eggs", "1/2 cup buttermilk", "1 tsp seasoned salt", "Oil", "2 cups pepper gravy"], ["Season flour.", "Dip steaks in flour, egg-buttermilk, then flour.", "Fry until crisp.", "Drain on a rack.", "Serve with pepper gravy."], ["steak", "fried", "wyoming"], { image: "images/recipes/audit-2026-06/chicken-fried-steak.jpg" }),
+  westernRecipe("wyoming-cowboy-beans", "Wyoming Cowboy Beans", "wyoming", "Ranch Sides", "Pinto beans simmered with onion, bacon or smoked meat, molasses, and chile.", ["1 lb pinto beans soaked", "1 onion", "4 oz bacon or smoked turkey", "2 tbsp molasses", "1 tbsp chile powder", "6 cups stock"], ["Simmer beans until almost tender.", "Cook onion and bacon if using.", "Add aromatics, molasses, chile, and stock.", "Simmer until creamy.", "Season to taste."], ["beans", "ranch", "wyoming"], { image: "images/recipes/audit-2026-06/texas-pinto-beans.jpg", cook: "2 hr" }),
+  westernRecipe("wyoming-sourdough-biscuits", "Wyoming Sourdough Biscuits", "wyoming", "Camp Breads", "Tender skillet biscuits with sourdough tang and butter.", ["2 cups flour", "1 cup sourdough discard", "1/2 cup buttermilk", "1 tbsp baking powder", "1 tsp salt", "6 tbsp cold butter"], ["Cut butter into flour, baking powder, and salt.", "Stir in discard and buttermilk.", "Pat and cut biscuits.", "Bake in a hot skillet at 425 F.", "Brush with butter."], ["sourdough", "biscuits", "wyoming"], { image: "assets/fresh-bread.jpeg" }),
+
+  westernRecipe("nevada-basque-garlic-soup", "Nevada Basque Garlic Soup", "nevada", "Basque Boardinghouse", "A simple garlic, bread, broth, and egg soup tied to Basque boardinghouse foodways.", ["6 garlic cloves sliced", "4 cups chicken stock", "2 cups torn bread", "2 eggs", "1 tsp paprika", "2 tbsp olive oil", "Parsley"], ["Cook garlic gently in oil.", "Add paprika and stock.", "Simmer with bread until softened.", "Stir in beaten eggs slowly.", "Finish with parsley."], ["basque", "soup", "nevada"], { image: "assets/fresh-bread.jpeg" }),
+  westernRecipe("nevada-shrimp-cocktail", "Nevada Shrimp Cocktail", "nevada", "Casino Classics", "Chilled shrimp with lemon and cocktail sauce for a classic Nevada steakhouse starter.", ["1 lb cooked shrimp", "1/2 cup cocktail sauce", "1 lemon", "Ice", "Parsley optional"], ["Chill shrimp well.", "Arrange over ice.", "Spoon cocktail sauce into cups.", "Add lemon wedges.", "Serve cold."], ["shrimp", "cocktail", "nevada"], { image: "images/recipes/audit-2026-06/crawfish-boil.jpg", prep: "10 min", cook: "0 min" }),
+  westernRecipe("nevada-steakhouse-potatoes", "Nevada Steakhouse Potatoes", "nevada", "Steakhouse Sides", "Crisp roasted potatoes with garlic butter for steakhouse-style plates.", ["2 lb potatoes", "3 tbsp oil", "1 tsp salt", "1/2 tsp pepper", "3 tbsp butter", "2 garlic cloves", "Parsley"], ["Cut potatoes and toss with oil, salt, and pepper.", "Roast at 425 F until crisp.", "Melt butter with garlic.", "Toss potatoes with garlic butter.", "Finish with parsley."], ["potatoes", "steakhouse", "nevada"], { image: "images/recipes/audit-2026-06/funeral-potatoes.jpg" }),
+
+  westernRecipe("san-francisco-cioppino", "San Francisco Cioppino", "northern-california", "Northern California Seafood", "Tomato seafood stew with crab, fish, shellfish, wine, garlic, and sourdough on the side.", ["1 lb mixed fish", "1 lb crab or shrimp", "1 onion", "4 garlic cloves", "1 can crushed tomatoes", "3 cups seafood stock", "1/2 cup wine or broth", "Sourdough"], ["Cook onion and garlic.", "Add tomatoes, stock, and wine; simmer.", "Add seafood in stages by cooking time.", "Simmer gently until just cooked.", "Serve with sourdough."], ["cioppino", "seafood", "san francisco"], { image: "images/recipes/audit-2026-06/florida-blue-crab.jpg", cook: "45 min", servings: 6 }),
+  westernRecipe("mission-burritos", "Mission-Style Burritos", "northern-california", "Bay Area Counter Food", "Large foil-wrapped burritos with rice, beans, meat, salsa, cheese, and crema.", ["4 large tortillas", "2 cups rice", "2 cups beans", "2 cups carne asada or chicken", "1 cup salsa", "1 cup cheese", "Crema"], ["Warm tortillas until pliable.", "Layer rice, beans, meat, salsa, cheese, and crema.", "Fold sides and roll tightly.", "Toast seam-side down if desired.", "Wrap in foil."], ["burrito", "mission", "bay area"], { image: "assets/lc-birria-tacos.jpg" }),
+  westernRecipe("california-sourdough-toast", "California Sourdough Toast", "northern-california", "Sourdough Table", "Thick sourdough toast with avocado, herbs, lemon, and a little chile.", ["4 slices sourdough", "2 avocados", "1 lemon", "Chile flakes", "Herbs", "Olive oil", "Salt"], ["Toast sourdough.", "Mash avocado with lemon and salt.", "Spread over toast.", "Add herbs and chile flakes.", "Finish with olive oil."], ["sourdough", "avocado", "california"], { image: "assets/fresh-bread.jpeg", prep: "10 min", cook: "5 min" }),
+
+  westernRecipe("santa-maria-tri-tip", "Santa Maria Tri-Tip", "central-california", "Central Coast BBQ", "Tri-tip seasoned with garlic, pepper, and salt, grilled and sliced across the grain.", ["2 1/2 lb tri-tip", "1 tbsp salt", "1 tbsp black pepper", "1 tbsp garlic powder", "1 tsp paprika", "Salsa or beans"], ["Season tri-tip generously.", "Grill over medium-high heat, turning often.", "Cook to desired temperature.", "Rest 15 minutes.", "Slice thin across the grain."], ["tri-tip", "bbq", "central california"], { image: "images/recipes/audit-2026-06/nebraska-steak.jpg", cook: "35 min", servings: 6 }),
+  westernRecipe("central-valley-fruit-salad", "Central Valley Fruit Salad", "central-california", "Produce Bowl", "Stone fruit, grapes, citrus, and mint in a bright California produce bowl.", ["2 peaches", "2 nectarines", "2 cups grapes", "2 oranges", "1 tbsp honey", "1 lime", "Mint"], ["Slice fruit.", "Whisk honey and lime.", "Toss fruit gently.", "Add mint.", "Chill briefly before serving."], ["fruit", "central valley", "california"], { image: "assets/ingredients.jpeg", prep: "15 min", cook: "0 min" }),
+  westernRecipe("california-artichokes", "Central Coast Steamed Artichokes", "central-california", "Coastal Produce", "Whole artichokes steamed until tender and served with lemon-garlic dip.", ["4 artichokes", "1 lemon", "2 garlic cloves", "1/2 cup mayonnaise or yogurt", "1 tbsp olive oil", "Salt"], ["Trim artichokes.", "Steam with lemon until leaves pull free.", "Mix dip with garlic, lemon, oil, and salt.", "Drain artichokes.", "Serve warm or chilled."], ["artichokes", "central coast", "california"], { image: "assets/ingredients.jpeg" }),
+
+  westernRecipe("san-diego-fish-tacos", "San Diego Fish Tacos", "southern-california", "SoCal Beach Food", "Crisp or grilled fish in tortillas with cabbage, crema, salsa, and lime.", ["1 1/2 lb white fish", "8 tortillas", "2 cups cabbage", "1/2 cup crema", "1 lime", "Salsa", "Cilantro"], ["Season and cook fish.", "Warm tortillas.", "Fill with fish and cabbage.", "Add crema and salsa.", "Finish with lime and cilantro."], ["fish tacos", "san diego", "california"], { image: "images/recipes/audit-2026-06/swordfish-tacos.jpg", servings: 4 }),
+  westernRecipe("california-burritos", "California Burritos", "southern-california", "SoCal Counter Food", "Carne asada burritos with fries, cheese, salsa, and crema.", ["4 large tortillas", "2 cups carne asada", "2 cups fries", "1 cup cheese", "1/2 cup salsa", "Crema", "Guacamole optional"], ["Warm tortillas.", "Layer carne asada, fries, cheese, salsa, and crema.", "Roll tightly.", "Toast seam-side down.", "Serve hot."], ["burrito", "fries", "southern california"], { image: "assets/lc-birria-tacos.jpg" }),
+  westernRecipe("korean-bbq-tacos", "Korean BBQ Tacos", "southern-california", "Los Angeles Foodways", "Marinated beef in tortillas with slaw, sesame, lime, and chile sauce.", ["1 lb thin beef", "1/4 cup soy sauce", "2 tbsp brown sugar", "1 tsp sesame oil", "8 tortillas", "2 cups slaw", "Chile sauce"], ["Marinate beef.", "Sear quickly in a hot skillet.", "Warm tortillas.", "Fill with beef and slaw.", "Finish with chile sauce and sesame."], ["korean mexican", "tacos", "los angeles"], { image: "images/recipes/audit-2026-06/beef-tacos.jpg" }),
+
+  westernRecipe("alaska-salmon-bake", "Alaska Salmon Bake", "alaska", "Alaska Seafood", "Salmon baked with butter, lemon, herbs, and simple sides for a lodge-style table.", ["4 salmon fillets", "3 tbsp butter", "1 lemon", "1 tbsp dill", "1 tsp salt", "Black pepper"], ["Place salmon on a lined pan.", "Season with salt, pepper, lemon, and dill.", "Dot with butter.", "Bake at 400 F until flaky.", "Rest briefly before serving."], ["salmon", "alaska", "seafood"], { image: "images/recipes/audit-2026-06/grilled-swordfish-lemon-herb.jpg" }),
+  westernRecipe("alaska-halibut-chowder", "Alaska Halibut Chowder", "alaska", "Alaska Chowders", "Creamy halibut chowder with potatoes, onion, celery, and gentle seafood flavor.", ["1 1/2 lb halibut", "3 cups potatoes", "1 onion", "2 celery ribs", "4 cups stock", "1 cup cream", "2 tbsp butter"], ["Cook onion and celery in butter.", "Add potatoes and stock; simmer until tender.", "Add halibut pieces.", "Stir in cream.", "Warm gently until fish flakes."], ["halibut", "chowder", "alaska"], { image: "images/recipes/new-england-2026/fish-chowder.jpg", cook: "40 min", servings: 6 }),
+  westernRecipe("alaska-berry-cobbler", "Alaska Berry Cobbler", "alaska", "Wild Berry Desserts", "Mixed berries baked under a simple biscuit topping.", ["5 cups mixed berries", "1/2 cup sugar", "1 tbsp lemon juice", "1 cup flour", "1/3 cup sugar", "1 tsp baking powder", "1/2 cup milk", "4 tbsp butter"], ["Toss berries with sugar and lemon.", "Spread in a dish.", "Mix biscuit topping.", "Dollop over berries.", "Bake until bubbling and golden."], ["berries", "cobbler", "alaska"], { image: "images/regional/mississippi/blackberry-cobbler.jpg", servings: 8 }),
+
+  westernRecipe("hawaiian-poke-bowls", "Hawaiian Poke Bowls", "hawaii", "Hawaii Seafood", "Seasoned fish over rice with cucumber, avocado, scallion, sesame, and seaweed.", ["1 lb sushi-grade tuna or cooked salmon alternative", "3 cups rice", "2 tbsp soy sauce", "1 tsp sesame oil", "Scallions", "Cucumber", "Avocado", "Sesame"], ["Cook and cool rice slightly.", "Cube fish or prepared alternative.", "Season with soy and sesame.", "Build bowls with rice and vegetables.", "Top with scallions and sesame."], ["poke", "hawaii", "rice bowl"], { image: "images/recipes/audit-2026-06/grilled-swordfish-lemon-herb.jpg", prep: "20 min", cook: "20 min" }),
+  westernRecipe("kalua-pork", "Kalua Pork", "hawaii", "Hawaii Plate Lunch", "Slow-cooked smoky pork shoulder shredded for rice plates, cabbage, and family tables.", ["4 lb pork shoulder", "1 tbsp salt", "1 tbsp smoked paprika", "1 cup broth", "1/2 cabbage sliced"], ["Season pork with salt and smoked paprika.", "Cook covered low and slow with broth until shreddable.", "Shred pork with juices.", "Steam cabbage in some pork liquid.", "Serve with rice."], ["pork", "hawaii", "plate lunch"], { image: "images/juneteenth/pulled-pork-shoulder.png", cook: "4 hr", servings: 8 }),
+  westernRecipe("loco-moco", "Loco Moco", "hawaii", "Hawaii Comfort", "Rice topped with a hamburger patty, brown gravy, and a fried egg.", ["3 cups cooked rice", "4 burger patties", "2 cups brown gravy", "4 eggs", "Scallions"], ["Cook rice.", "Sear burger patties to 160 F.", "Warm gravy.", "Fry eggs.", "Layer rice, patty, gravy, egg, and scallions."], ["loco moco", "hawaii", "rice"], { image: "images/recipes/audit-2026-06/hamburger-steak-with-gravy.jpg" }),
+  westernRecipe("spam-musubi", "Spam Musubi", "hawaii", "Hawaii Snack Food", "Rice and crisp canned meat wrapped with nori for a portable Hawaii snack.", ["2 cups cooked sushi rice", "1 can luncheon meat sliced", "2 tbsp soy sauce", "1 tbsp sugar", "Nori sheets"], ["Pan-fry slices until browned.", "Glaze with soy and sugar.", "Press rice into rectangles.", "Top with meat.", "Wrap with nori."], ["musubi", "hawaii", "snack"], { image: "images/recipes/audit-2026-06/white-rice.jpg" }),
+  westernRecipe("haupia", "Haupia", "hawaii", "Hawaii Desserts", "Coconut milk pudding chilled into soft squares.", ["1 can coconut milk", "1/3 cup sugar", "1/4 cup cornstarch", "1/2 cup water", "Pinch salt"], ["Whisk cornstarch with water.", "Warm coconut milk, sugar, and salt.", "Whisk in slurry.", "Cook until thick.", "Pour into a pan and chill until set."], ["coconut", "haupia", "hawaii"], { image: "assets/lc-desserts.jpg", prep: "10 min", cook: "10 min", servings: 8 }),
+
+  westernRecipe("kids-salmon-rice-bowls", "Build a Salmon Rice Bowl", "western-kids", "Kids Activities", "A kid-friendly bowl station with rice, cooked salmon, cucumber, fruit, and a simple sauce.", ["Cooked rice", "Cooked salmon flakes", "Cucumber", "Pineapple or apple", "Soy-honey sauce"], ["Scoop rice into bowls.", "Add cooked salmon.", "Add cucumber and fruit.", "Drizzle a little sauce.", "Name the bowl."], ["kids", "rice bowl", "salmon"], { image: "images/recipes/audit-2026-06/grilled-swordfish-lemon-herb.jpg", prep: "15 min", cook: "0 min", level: "Kid Friendly", kidsKorner: true, ageTrack: "6-8 Kitchen Explorers", path: "kid-chefs", helperNote: "Use fully cooked fish and keep cold ingredients chilled." }),
+  westernRecipe("kids-potato-stamp-art", "Potato Stamp Art", "western-kids", "Kids Activities", "A no-cook Idaho-inspired activity using potato stamps, paper, and washable paint.", ["1 potato for stamping", "Washable paint", "Paper", "Cookie cutters optional"], ["A grown-up cuts the potato stamp.", "Dip stamp lightly in paint.", "Press onto paper.", "Make patterns.", "Wash hands and table."], ["kids", "potato", "activity"], { image: "images/recipes/audit-2026-06/loaded-baked-potato-soup.jpg", prep: "15 min", cook: "0 min", level: "Kid Friendly", kidsKorner: true, ageTrack: "3-5 Little Helpers", path: "kid-chefs", helperNote: "This is an art activity. A grown-up handles the knife." }),
+  westernRecipe("kids-fruit-rainbow-plates", "California Fruit Rainbow Plates", "western-kids", "Kids Activities", "A bright produce activity with sliced fruit arranged by color.", ["Sliced strawberries", "Orange wedges", "Pineapple", "Grapes", "Blueberries", "Yogurt dip"], ["Wash hands.", "Sort fruit by color.", "Arrange a rainbow.", "Add a small yogurt dip.", "Taste each color."], ["kids", "fruit", "california"], { image: "assets/ingredients.jpeg", prep: "15 min", cook: "0 min", level: "Kid Friendly", kidsKorner: true, ageTrack: "3-5 Little Helpers", path: "kid-chefs", helperNote: "Use age-safe fruit pieces and check allergies." }),
+  westernRecipe("kids-mini-poke-cups", "Mini Island Rice Cups", "western-kids", "Kids Activities", "A Hawaii-inspired no-raw-fish rice cup with rice, pineapple, cucumber, and cooked chicken or tofu.", ["Cooked rice", "Cooked chicken or tofu", "Pineapple", "Cucumber", "Sesame seeds optional"], ["Scoop rice into cups.", "Add cooked protein.", "Add pineapple and cucumber.", "Sprinkle sesame if safe.", "Serve chilled or room temperature."], ["kids", "rice", "hawaii"], { image: "images/recipes/audit-2026-06/pineapple-fried-rice.jpg", prep: "15 min", cook: "0 min", level: "Kid Friendly", kidsKorner: true, ageTrack: "6-8 Kitchen Explorers", path: "kid-chefs", helperNote: "Use fully cooked protein. Skip sesame for allergy-sensitive tables." })
+];
+
+const holidayExpansionRecipes = [
+  midAtlanticRecipe("roast-turkey", "Classic Roast Turkey", "holiday", "Thanksgiving Mains", "A golden holiday turkey seasoned with butter, herbs, onion, lemon, and a simple pan gravy base.", ["1 turkey 12 to 14 lb", "1 stick butter", "2 tbsp salt", "1 onion", "1 lemon", "Herbs", "2 cups stock"], ["Pat turkey dry and season ahead if possible.", "Rub with herb butter.", "Fill cavity loosely with onion, lemon, and herbs.", "Roast until breast reaches 165 F and thigh reaches 175 F.", "Rest before carving."], ["thanksgiving", "turkey", "holiday"], { image: "assets/beautiful-chicken.jpeg", cook: "3 hr", servings: 12, level: "Advanced" }),
+  midAtlanticRecipe("smoked-turkey", "Smoked Turkey", "holiday", "Thanksgiving Mains", "Turkey cooked low with smoke, herbs, and crisp skin for holiday tables and leftovers.", ["1 turkey 10 to 12 lb", "Dry brine", "2 tbsp oil", "Poultry herbs", "Wood chips or pellets"], ["Dry-brine turkey overnight.", "Pat dry and oil the skin.", "Smoke at 275 F until cooked through.", "Rest at least 30 minutes.", "Carve and serve with gravy."], ["thanksgiving", "smoked", "turkey"], { image: "images/juneteenth/bbq-chicken-quarters.png", cook: "4 hr", servings: 12, level: "Advanced" }),
+  midAtlanticRecipe("deep-fried-turkey", "Deep Fried Turkey", "holiday", "Thanksgiving Mains", "A crisp-skinned turkey for outdoor frying with serious safety planning and a dry bird.", ["1 small turkey", "Dry rub", "Peanut or frying oil", "Thermometer"], ["Thaw and dry turkey completely.", "Measure oil displacement before heating.", "Heat oil outdoors away from structures.", "Lower turkey slowly and fry to safe temperature.", "Rest before carving."], ["thanksgiving", "fried turkey", "holiday safety"], { image: "images/recipes/audit-2026-06/fried-chicken.jpg", cook: "1 hr", servings: 10, level: "Advanced" }),
+  midAtlanticRecipe("honey-glazed-ham", "Honey Glazed Ham", "holiday", "Holiday Mains", "A glossy ham brushed with honey, mustard, brown sugar, and warm spice.", ["1 spiral ham", "1/2 cup honey", "1/2 cup brown sugar", "2 tbsp Dijon", "1 tbsp apple cider vinegar", "Cloves optional"], ["Warm ham covered.", "Simmer honey, sugar, mustard, vinegar, and spice.", "Brush ham with glaze.", "Bake uncovered until sticky.", "Rest before slicing."], ["ham", "christmas", "easter"], { image: "images/recipes/audit-2026-06/baked-ham.jpg", cook: "1 hr 45 min", servings: 14 }),
+  midAtlanticRecipe("roast-duck", "Roast Duck", "holiday", "Holiday Mains", "Crisp-skinned duck roasted with citrus, herbs, and careful fat rendering.", ["1 whole duck", "1 orange", "1 tbsp salt", "Pepper", "Thyme", "Honey glaze optional"], ["Score skin without cutting meat.", "Season duck inside and out.", "Roast on a rack, draining fat as needed.", "Glaze near the end if desired.", "Rest and carve."], ["duck", "holiday", "roast"], { image: "images/recipes/audit-2026-06/baked-chicken-tenders.jpg", cook: "2 hr", servings: 4, level: "Advanced" }),
+  midAtlanticRecipe("turducken", "Turducken", "holiday", "Holiday Mains", "A festive layered turkey, duck, and chicken centerpiece with dressing between each bird.", ["Deboned turkey", "Deboned duck", "Deboned chicken", "Cornbread dressing", "Seasoning"], ["Season each bird.", "Layer turkey, dressing, duck, dressing, chicken, and dressing.", "Tie securely.", "Roast slowly until the center reaches safe temperature.", "Rest well before slicing."], ["turducken", "thanksgiving", "christmas"], { image: "images/recipes/audit-2026-06/southern-cornbread-dressing.jpg", cook: "5 hr", servings: 16, level: "Advanced" }),
+  midAtlanticRecipe("oyster-dressing", "Oyster Dressing", "holiday", "Thanksgiving Sides", "Savory bread or cornbread dressing with oysters, celery, onion, herbs, and stock.", ["8 cups bread or cornbread cubes", "1 pint oysters", "1 onion", "2 celery ribs", "2 eggs", "2 cups stock", "Sage"], ["Cook onion and celery.", "Combine bread, oysters, herbs, eggs, and stock.", "Spread in a baking dish.", "Bake until set and browned.", "Rest before serving."], ["oysters", "dressing", "thanksgiving"], { image: "images/recipes/audit-2026-06/southern-cornbread-dressing.jpg", cook: "45 min", servings: 10 }),
+  midAtlanticRecipe("giblet-gravy", "Giblet Gravy", "holiday", "Thanksgiving Sides", "Turkey drippings gravy enriched with chopped giblets, stock, and a smooth roux.", ["Turkey giblets", "3 cups stock", "3 tbsp fat", "3 tbsp flour", "Drippings", "Pepper"], ["Simmer giblets in stock until tender.", "Chop giblets.", "Make roux with fat and flour.", "Whisk in stock and drippings.", "Add giblets and simmer until smooth."], ["gravy", "thanksgiving", "turkey"], { image: "images/recipes/audit-2026-06/hamburger-steak-with-gravy.jpg", prep: "15 min", cook: "35 min", servings: 10 }),
+  midAtlanticRecipe("pumpkin-pie", "Pumpkin Pie", "holiday", "Thanksgiving Desserts", "Classic pumpkin custard pie with cinnamon, ginger, nutmeg, and a flaky crust.", ["1 pie crust", "1 can pumpkin", "3 eggs", "3/4 cup brown sugar", "1 cup evaporated milk", "Cinnamon", "Ginger", "Nutmeg"], ["Whisk pumpkin, eggs, sugar, milk, and spices.", "Pour into crust.", "Bake until edges set and center jiggles slightly.", "Cool completely.", "Serve with whipped cream."], ["pumpkin pie", "thanksgiving", "dessert"], { image: "images/regional/mississippi/sweet-potato-pie.jpg", cook: "55 min", servings: 8 }),
+  midAtlanticRecipe("prime-rib", "Prime Rib", "holiday", "Christmas Mains", "A special-occasion beef roast with a seasoned crust and rosy center.", ["1 standing rib roast", "2 tbsp salt", "1 tbsp pepper", "4 garlic cloves", "Rosemary", "Oil"], ["Season roast ahead.", "Roast hot to start the crust.", "Lower heat and cook to desired temperature.", "Rest at least 30 minutes.", "Slice thickly."], ["prime rib", "christmas", "beef"], { image: "images/recipes/audit-2026-06/nebraska-steak.jpg", cook: "2 hr 30 min", servings: 10, level: "Advanced" }),
+  midAtlanticRecipe("standing-rib-roast", "Standing Rib Roast", "holiday", "Christmas Mains", "Bone-in rib roast with garlic herb paste, pan drippings, and a carved-at-the-table feel.", ["1 bone-in rib roast", "Garlic", "Rosemary", "Thyme", "Salt", "Pepper", "Oil"], ["Rub roast with garlic, herbs, salt, pepper, and oil.", "Let stand before roasting.", "Roast to desired temperature.", "Rest well.", "Carve along the bones."], ["rib roast", "christmas", "beef"], { image: "images/recipes/audit-2026-06/nebraska-steak.jpg", cook: "2 hr 30 min", servings: 10, level: "Advanced" }),
+  midAtlanticRecipe("beef-tenderloin", "Beef Tenderloin", "holiday", "Christmas Mains", "Tender beef roast with pepper crust and simple pan sauce.", ["1 beef tenderloin", "1 tbsp salt", "2 tsp pepper", "2 tbsp oil", "Butter", "Garlic", "Herbs"], ["Tie tenderloin if needed.", "Season with salt and pepper.", "Sear in oil.", "Roast until desired temperature.", "Rest and slice with pan sauce."], ["beef tenderloin", "christmas", "holiday"], { image: "images/recipes/audit-2026-06/nebraska-steak.jpg", cook: "45 min", servings: 8, level: "Advanced" }),
+  midAtlanticRecipe("roast-goose", "Roast Goose", "holiday", "Christmas Mains", "Traditional roast goose with crisp skin, citrus, herbs, and careful fat rendering.", ["1 goose", "Salt", "Pepper", "Orange", "Onion", "Thyme"], ["Prick skin carefully.", "Season inside and out.", "Roast on a rack, draining fat.", "Cook until safe and deeply browned.", "Rest before carving."], ["goose", "christmas", "roast"], { image: "assets/beautiful-chicken.jpeg", cook: "3 hr", servings: 8, level: "Advanced" }),
+  midAtlanticRecipe("eggnog", "Homemade Eggnog", "holiday", "Christmas Drinks", "Creamy holiday eggnog with milk, cream, eggs, nutmeg, and vanilla.", ["4 eggs", "1/2 cup sugar", "2 cups milk", "1 cup cream", "1 tsp vanilla", "Nutmeg"], ["Whisk eggs and sugar.", "Warm milk and temper eggs if cooking.", "Cook gently to 160 F or use pasteurized eggs.", "Stir in cream and vanilla.", "Chill and top with nutmeg."], ["eggnog", "christmas", "drink"], { image: "assets/lc-desserts.jpg", prep: "15 min", cook: "10 min", servings: 8 }),
+  midAtlanticRecipe("christmas-cookies", "Christmas Sugar Cookies", "holiday", "Christmas Desserts", "Cutout sugar cookies for decorating with icing, sprinkles, and family help.", ["3 cups flour", "1 cup butter", "1 cup sugar", "1 egg", "1 tsp vanilla", "Icing", "Sprinkles"], ["Cream butter and sugar.", "Beat in egg and vanilla.", "Mix in flour.", "Chill, roll, and cut shapes.", "Bake and decorate when cool."], ["cookies", "christmas", "kids"], { image: "images/recipes/mid-atlantic-2026/kids-decorate-cookies.jpg", prep: "45 min", cook: "10 min", servings: 24 }),
+  midAtlanticRecipe("fruitcake", "Holiday Fruitcake", "holiday", "Christmas Desserts", "A dense spiced cake with dried fruit, nuts, citrus, and old-fashioned holiday character.", ["2 cups dried fruit", "1 cup nuts", "2 cups flour", "1 cup brown sugar", "4 eggs", "Spices", "Citrus zest"], ["Soak fruit if desired.", "Mix batter with fruit, nuts, and spices.", "Bake low and slow.", "Cool completely.", "Wrap and rest before slicing."], ["fruitcake", "christmas", "dessert"], { image: "assets/lc-desserts.jpg", cook: "1 hr 30 min", servings: 12, level: "Advanced" }),
+  midAtlanticRecipe("yule-log", "Chocolate Yule Log", "holiday", "Christmas Desserts", "Rolled chocolate sponge cake filled with cream and frosted like a holiday log.", ["Chocolate sponge cake", "Whipped cream", "Chocolate frosting", "Cocoa", "Powdered sugar"], ["Bake a thin sponge cake.", "Roll while warm in a towel.", "Cool and fill with cream.", "Reroll and frost.", "Decorate lightly."], ["yule log", "christmas", "cake"], { image: "assets/lc-desserts.jpg", prep: "1 hr", cook: "15 min", servings: 10, level: "Advanced" }),
+  midAtlanticRecipe("holiday-punch", "Holiday Punch", "holiday", "Christmas Drinks", "A bright party punch with cranberry, citrus, pineapple, bubbles, and fruit garnish.", ["4 cups cranberry juice", "2 cups pineapple juice", "1 cup orange juice", "1 bottle ginger ale", "Orange slices", "Cranberries"], ["Chill all juices.", "Combine juices in a punch bowl.", "Add ginger ale just before serving.", "Float citrus and cranberries.", "Keep cold."], ["punch", "christmas", "drink"], { image: "images/juneteenth/fresh-lemonade.png", prep: "10 min", cook: "0 min", servings: 16 }),
+  midAtlanticRecipe("roast-lamb", "Roast Lamb", "holiday", "Easter Mains", "Garlic-herb lamb roasted for Easter with lemon, rosemary, and pan juices.", ["1 leg of lamb", "4 garlic cloves", "Rosemary", "Lemon", "Olive oil", "Salt", "Pepper"], ["Season lamb with garlic, herbs, lemon, oil, salt, and pepper.", "Roast to desired temperature.", "Rest well.", "Slice across the grain.", "Serve with spring vegetables."], ["lamb", "easter", "holiday"], { image: "images/recipes/audit-2026-06/nebraska-steak.jpg", cook: "1 hr 45 min", servings: 8, level: "Advanced" }),
+  midAtlanticRecipe("carrot-cake", "Carrot Cake", "holiday", "Easter Desserts", "Moist spiced carrot cake with cream cheese frosting.", ["2 cups grated carrots", "2 cups flour", "1 cup sugar", "1 cup oil", "4 eggs", "Cinnamon", "Cream cheese frosting"], ["Mix dry ingredients.", "Whisk oil, eggs, and sugar.", "Fold in carrots.", "Bake until set.", "Cool and frost."], ["carrot cake", "easter", "dessert"], { image: "assets/lc-desserts.jpg", cook: "35 min", servings: 12 }),
+  midAtlanticRecipe("coconut-cake", "Coconut Cake", "holiday", "Easter Desserts", "Tender layer cake with coconut frosting and fluffy coconut all over.", ["2 cake layers", "Coconut milk", "Vanilla frosting", "2 cups shredded coconut", "Sugar"], ["Bake cake layers.", "Cool completely.", "Brush lightly with coconut milk if desired.", "Frost layers and outside.", "Press coconut onto frosting."], ["coconut cake", "easter", "dessert"], { image: "assets/lc-desserts.jpg", prep: "45 min", cook: "30 min", servings: 12 }),
+  midAtlanticRecipe("spring-vegetables", "Spring Vegetables", "holiday", "Easter Sides", "Asparagus, peas, carrots, and herbs sauteed lightly for Easter plates.", ["1 bunch asparagus", "2 cups peas", "3 carrots", "2 tbsp butter", "Lemon", "Mint or parsley"], ["Cut vegetables evenly.", "Blanch carrots and asparagus until crisp-tender.", "Saute with butter.", "Add peas.", "Finish with lemon and herbs."], ["spring vegetables", "easter", "side"], { image: "assets/ingredients.jpeg", prep: "15 min", cook: "12 min", servings: 6 })
+];
+
 const america250ExpansionRecipes = [
   midAtlanticRecipe("all-american-burgers", "All-American Burgers", "bbq", "Fourth of July Collection", "Juicy grilled burgers with toasted buns, crisp lettuce, tomato, pickles, onion, and a simple cookout sauce.", ["1 1/2 lb ground beef", "1 tsp kosher salt", "1/2 tsp black pepper", "4 burger buns", "4 slices American cheese", "Lettuce", "Tomato", "Pickles", "Onion", "Burger sauce"], ["Shape beef into four loose patties.", "Season right before cooking.", "Grill or griddle to 160 F.", "Melt cheese during the last minute.", "Toast buns and build with vegetables, pickles, and sauce."], ["america 250", "fourth of july", "burgers", "cookout"], { prep: "15 min", cook: "12 min", servings: 4, image: "images/recipes/audit-2026-06/wisconsin-butter-burgers.jpg" }),
   midAtlanticRecipe("classic-cookout-hot-dogs", "Classic Cookout Hot Dogs", "bbq", "Fourth of July Collection", "Simple grilled hot dogs with warm buns and a topping bar for mustard, relish, onions, chili, slaw, and pickles.", ["8 all-beef hot dogs", "8 hot dog buns", "Yellow mustard", "Relish", "Diced onion", "Chili optional", "Coleslaw optional", "Pickles"], ["Set toppings in small bowls.", "Grill or griddle hot dogs until hot and lightly blistered.", "Warm buns.", "Place hot dogs in buns.", "Let everyone build their own."], ["america 250", "fourth of july", "hot dogs", "cookout"], { prep: "10 min", cook: "10 min", servings: 8, image: "images/recipes/audit-2026-06/chicago-style-hot-dog.jpg" }),
@@ -3626,7 +3804,7 @@ const america250ExpansionRecipes = [
 ];
 
 const existingRecipeIds = new Set(recipes.map((recipe) => recipe.id));
-recipes = [...recipes, ...[...nextFeatureRecipes, ...menuIntelligenceRecipes, ...regionalAuthenticityRecipes, ...livingCookbookRecipes, ...kidsKornerRecipes, ...kidsExpansionRecipes, ...familyExpansionRecipes, ...mississippiHeritageRecipes, ...africaExpansionRecipes, ...midwestExpansionRecipes, ...newEnglandExpansionRecipes, ...southwestExpansionRecipes, ...midAtlanticExpansionRecipes, ...america250ExpansionRecipes].filter((recipe) => !existingRecipeIds.has(recipe.id))];
+recipes = [...recipes, ...[...nextFeatureRecipes, ...menuIntelligenceRecipes, ...regionalAuthenticityRecipes, ...livingCookbookRecipes, ...kidsKornerRecipes, ...kidsExpansionRecipes, ...familyExpansionRecipes, ...mississippiHeritageRecipes, ...africaExpansionRecipes, ...midwestExpansionRecipes, ...newEnglandExpansionRecipes, ...southwestExpansionRecipes, ...midAtlanticExpansionRecipes, ...westernExpansionRecipes, ...holidayExpansionRecipes, ...america250ExpansionRecipes].filter((recipe) => !existingRecipeIds.has(recipe.id))];
 
 const lessons = [
   {
@@ -5969,7 +6147,7 @@ const america250StateRouteMap = {
   Texas: "#cuisine-explorer/texas-southwest",
   Iowa: "#cuisine-explorer/midwest",
   Wisconsin: "#cuisine-explorer/midwest",
-  California: "#cuisine-explorer"
+  California: "#cuisine-explorer/california"
 };
 
 const america250StateNotes = {
@@ -6663,6 +6841,244 @@ const midAtlanticRegionalAliases = {
   dc: "dc-mid-atlantic"
 };
 
+const westernRegionalPages = {
+  "washington-state-pacific-northwest": {
+    region: "Pacific Northwest",
+    state: "Washington",
+    title: "Washington Salmon, Apples, Coffee & Market Food",
+    image: westernCoverImages.washington,
+    intro: "Washington food is cedar-plank salmon, Dungeness crab, apples, berries, coffee shops, teriyaki counters, Pike Place energy, and mountain-to-water cooking.",
+    history: "Coastal Salish foodways, salmon stewardship, orchard agriculture, Asian American restaurants, seafood markets, and Seattle counter food all shape Washington's table.",
+    hospitality: "A Washington spread can move from salmon and crab to apple crisp, rice bowls, coffee, and farmers market sides without losing its sense of place.",
+    culture: "Rainy kitchens, ferries, markets, coffee counters, seafood docks, orchards, and trail food make the food feel practical and fresh.",
+    facts: ["Salmon is both a food and a stewardship story in the region.", "Washington is one of America's major apple-growing states.", "Seattle-style teriyaki is a real local counter-food tradition."],
+    ingredients: ["salmon", "Dungeness crab", "apples", "berries", "coffee", "rice", "soy sauce", "mushrooms", "hazelnuts", "herbs"],
+    signatureRecipeIds: ["cedar-plank-salmon", "seattle-teriyaki-chicken", "washington-apple-crisp", "dungeness-crab-melt", "kids-salmon-rice-bowls"],
+    skills: [["Fish Timing", "#culinary-academy/seafood"], ["Rice Bowls", "#culinary-academy/rice-grits-pasta"], ["Fruit Desserts", "#culinary-academy/baking-basics"], ["Market Cooking", "#what-yall-cooking"]],
+    traditions: ["Salmon belongs with respect for Indigenous foodways and present-day stewardship.", "Orchard desserts and coffee culture make everyday Washington meals recognizable.", "Teriyaki counters show how immigrant food traditions become local American food."],
+    features: [["Market Supper", "Salmon, crab melt, apple crisp, coffee, and greens."], ["Seattle Counter Plate", "Teriyaki chicken, rice, salad, and a cold drink."]]
+  },
+  "oregon-pacific-northwest": {
+    region: "Pacific Northwest",
+    state: "Oregon",
+    title: "Oregon Berries, Hazelnuts, Mushrooms & Coast Food",
+    image: westernCoverImages.oregon,
+    intro: "Oregon food is marionberry pie, hazelnuts, pears, mushrooms, salmon, dairy, farmers markets, food carts, and coastal comfort.",
+    history: "Indigenous foodways, orchard farming, berry breeding, dairy co-ops, mushroom foraging, and Portland food carts all shaped Oregon's modern table.",
+    hospitality: "Serve a table that feels farm-market fresh: berry pie, pear-hazelnut salad, mushrooms, salmon, bread, and simple seasonal vegetables.",
+    culture: "Rain, forests, farms, food carts, coastal towns, and small producers give Oregon food a handmade, ingredient-aware rhythm.",
+    facts: ["Marionberries were developed in Oregon.", "Hazelnuts are a signature Oregon crop.", "Food carts are an important part of Portland food culture."],
+    ingredients: ["marionberries", "hazelnuts", "pears", "mushrooms", "salmon", "cheese", "apples", "greens", "coffee", "bread"],
+    signatureRecipeIds: ["oregon-marionberry-pie", "oregon-hazelnut-salad", "oregon-mushroom-risotto", "cedar-plank-salmon", "kids-fruit-rainbow-plates"],
+    skills: [["Pie Filling", "#culinary-academy/baking-basics"], ["Mushroom Cooking", "#what-yall-cooking"], ["Salad Balance", "#culinary-academy/seasonings"], ["Seafood", "#culinary-academy/seafood"]],
+    traditions: ["Berry desserts should taste like the fruit first.", "Hazelnuts and pears make Oregon salads and baked goods specific.", "Forest foods and coastal seafood connect the state beyond city food culture."],
+    features: [["Farm Market Table", "Pear salad, mushroom risotto, berry pie, bread, and coffee."], ["Coastal Weekend", "Salmon, greens, potatoes, and fruit dessert."]]
+  },
+  "idaho-pacific-northwest": {
+    region: "Pacific Northwest",
+    state: "Idaho",
+    title: "Idaho Potatoes, Trout, Huckleberries & Mountain Suppers",
+    image: westernCoverImages.idaho,
+    intro: "Idaho food is more than potatoes, but potatoes matter: baked potatoes, finger steaks, trout, huckleberries, fry sauce, and mountain suppers.",
+    history: "Agriculture, rivers, ranching, Basque communities nearby in the region, and outdoor cooking shape Idaho's practical food identity.",
+    hospitality: "An Idaho table should feel filling and unfussy: potatoes, beef, trout, berry pancakes or cobbler, and a sauce people ask for twice.",
+    culture: "Camp kitchens, diners, potato farms, trout streams, county fairs, and winter meals give Idaho food its sturdy personality.",
+    facts: ["Idaho potatoes became a national food identity through agriculture and marketing.", "Finger steaks are a beloved Idaho counter food.", "Huckleberries show up in breakfasts, desserts, syrups, and roadside foods."],
+    ingredients: ["russet potatoes", "trout", "beef", "huckleberries", "fry sauce", "dairy", "onions", "wheat", "butter", "herbs"],
+    signatureRecipeIds: ["idaho-loaded-baked-potatoes", "idaho-finger-steaks", "idaho-huckleberry-pancakes", "montana-trout-skillet", "kids-potato-stamp-art"],
+    skills: [["Baked Potatoes", "#what-yall-cooking"], ["Frying", "#culinary-academy/frying"], ["Fish Skillet", "#culinary-academy/seafood"], ["Breakfast Griddle", "#what-yall-cooking"]],
+    traditions: ["Potato dishes should still feel like real cooking, not filler.", "Finger steaks belong to diners, fairs, and local pride.", "Huckleberry foods connect mountain gathering and regional memory."],
+    features: [["Potato Supper", "Loaded baked potatoes, finger steaks, fry sauce, and salad."], ["Mountain Breakfast", "Huckleberry pancakes, coffee, and fruit."]]
+  },
+  "colorado-mountain-west": {
+    region: "Mountain West",
+    state: "Colorado",
+    title: "Colorado Green Chile, Bison, Trout & Mountain Plates",
+    image: westernCoverImages.colorado,
+    intro: "Colorado food is Pueblo green chile, Denver omelets, bison burgers, trout, peaches, craft food culture, and mountain-town comfort.",
+    history: "Hispano and Mexican foodways, ranching, mining towns, orchard valleys, trout streams, and Denver diner culture all shape Colorado cooking.",
+    hospitality: "Build the table around green chile, a mountain grill dish, fruit, potatoes, and something warm after a day outside.",
+    culture: "Ski towns, ranch country, city diners, farmers markets, and chile harvests give Colorado food range.",
+    facts: ["Pueblo chiles are a Colorado point of pride.", "The Denver omelet carries Western diner history.", "Colorado peaches and trout bring produce and rivers into the plate."],
+    ingredients: ["Pueblo chiles", "pork", "bison", "trout", "eggs", "ham", "peaches", "potatoes", "beans", "tortillas"],
+    signatureRecipeIds: ["pueblo-green-chile", "denver-omelet", "colorado-bison-burgers", "montana-trout-skillet", "kids-salmon-rice-bowls"],
+    skills: [["Chile Stews", "#culinary-academy/seasonings"], ["Omelets", "#what-yall-cooking"], ["Burger Timing", "#what-yall-cooking"], ["Fish", "#culinary-academy/seafood"]],
+    traditions: ["Green chile is a sauce, stew, topping, and regional identity marker.", "Mountain food should feed people after outdoor days.", "Diner breakfasts and ranch proteins belong together in Colorado food history."],
+    features: [["Chile Supper", "Green chile, tortillas, beans, rice, and fruit."], ["Mountain Grill", "Bison burgers, trout, potatoes, and salad."]]
+  },
+  "utah-mountain-west": {
+    region: "Mountain West",
+    state: "Utah",
+    title: "Utah Funeral Potatoes, Fry Sauce, Honey & Family Tables",
+    image: westernCoverImages.utah,
+    intro: "Utah food is funeral potatoes, fry sauce, honey, scones, Dutch-oven suppers, family casseroles, and generous church-table cooking.",
+    history: "Latter-day Saint food culture, pioneer settlement, Dutch-oven cooking, community gatherings, and regional fast-food habits shaped Utah's table.",
+    hospitality: "Utah cooking should feel generous and practical: casserole pans, sauces, rolls, honey, potatoes, and food that travels well.",
+    culture: "Church kitchens, family reunions, picnic tables, camping, and casserole hospitality make Utah food recognizable.",
+    facts: ["Funeral potatoes are tied to community care and covered-dish meals.", "Fry sauce is a Utah signature condiment.", "Dutch-oven cooking is part of Mountain West outdoor food culture."],
+    ingredients: ["potatoes", "cheddar", "sour cream", "honey", "fry sauce", "roll dough", "beef", "beans", "butter", "cornflakes"],
+    signatureRecipeIds: ["utah-funeral-potatoes", "utah-fry-sauce", "utah-honey-scones", "wyoming-cowboy-beans", "kids-potato-stamp-art"],
+    skills: [["Casseroles", "#living-cookbook/casseroles"], ["Sauces", "#culinary-academy/seasonings"], ["Frying", "#culinary-academy/frying"], ["Hosting", "#hosting"]],
+    traditions: ["Funeral potatoes tell a story of feeding people in practical moments.", "Fry sauce belongs with fries, burgers, and local counter food.", "Honey and scones bring sweetness to family and community tables."],
+    features: [["Covered-Dish Table", "Funeral potatoes, beans, rolls, salad, and dessert."], ["Fry Sauce Counter", "Fries, burgers, scones, honey butter, and sauce."]]
+  },
+  "montana-mountain-west": {
+    region: "Mountain West",
+    state: "Montana",
+    title: "Montana Bison, Trout, Huckleberries & Ranch Suppers",
+    image: westernCoverImages.montana,
+    intro: "Montana food is bison, beef, trout, huckleberries, pasties, wheat, cherries, and ranch-house meals built for cold air and big country.",
+    history: "Indigenous foodways, ranching, mining communities, wheat farms, rivers, and berry country shaped Montana's food identity.",
+    hospitality: "A Montana table should be hearty but not heavy-handed: bison or beef, trout, potatoes, bread, berries, and coffee.",
+    culture: "Ranch kitchens, fly-fishing trips, county fairs, mining-town pasties, and berry desserts all matter.",
+    facts: ["Huckleberries are a Mountain West marker in syrups, pies, pancakes, and desserts.", "Bison and beef reflect ranch country and Indigenous histories differently.", "Trout connects food to rivers and outdoor life."],
+    ingredients: ["bison", "beef", "trout", "huckleberries", "wheat", "cherries", "potatoes", "butter", "coffee", "herbs"],
+    signatureRecipeIds: ["montana-bison-meatloaf", "montana-huckleberry-crisp", "montana-trout-skillet", "idaho-huckleberry-pancakes", "kids-fruit-rainbow-plates"],
+    skills: [["Lean Meat Cooking", "#what-yall-cooking"], ["Fruit Crisps", "#culinary-academy/baking-basics"], ["Fish Skillet", "#culinary-academy/seafood"], ["Ranch Suppers", "#hosting"]],
+    traditions: ["Bison dishes should be handled with respect for both leanness and history.", "Berry desserts are part of the mountain food memory.", "Trout suppers connect cooking to place, season, and water."],
+    features: [["Ranch Supper", "Bison meatloaf, potatoes, vegetables, and berry crisp."], ["River Table", "Trout, bread, salad, and huckleberry dessert."]]
+  },
+  "wyoming-mountain-west": {
+    region: "Mountain West",
+    state: "Wyoming",
+    title: "Wyoming Beef, Trout, Beans & Cowboy Suppers",
+    image: westernCoverImages.wyoming,
+    intro: "Wyoming food is beef, trout, chicken-fried steak, sourdough biscuits, beans, jerky, chokecherries, and cowboy suppers.",
+    history: "Ranching, railroads, Indigenous food histories, camp cooking, and small-town cafes shape Wyoming meals.",
+    hospitality: "Feed people plainly and well: beef or trout, beans, potatoes, biscuits, gravy, and fruit when the season gives it.",
+    culture: "Rodeos, ranch kitchens, diners, campfires, and long drives make portable and sturdy food important.",
+    facts: ["Beef and ranching shape much of Wyoming's public food identity.", "Chicken-fried steak is a cafe and ranch supper classic.", "Sourdough and beans belong to camp and cowboy food traditions."],
+    ingredients: ["beef", "trout", "pinto beans", "sourdough", "potatoes", "gravy", "chokecherries", "coffee", "butter", "onions"],
+    signatureRecipeIds: ["wyoming-chicken-fried-steak", "wyoming-cowboy-beans", "wyoming-sourdough-biscuits", "montana-trout-skillet", "kids-potato-stamp-art"],
+    skills: [["Cream Gravy", "#culinary-academy/gravies"], ["Beans", "#what-yall-cooking"], ["Biscuits", "#culinary-academy/baking-basics"], ["Fish", "#culinary-academy/seafood"]],
+    traditions: ["Cowboy suppers should be useful, filling, and cooked with care.", "Beans and biscuits turn pantry staples into a meal.", "Cafe plates and ranch food overlap in Wyoming cooking."],
+    features: [["Cowboy Supper", "Chicken-fried steak, beans, biscuits, gravy, and coffee."], ["River Plate", "Trout, potatoes, greens, and bread."]]
+  },
+  "nevada-mountain-west": {
+    region: "Mountain West",
+    state: "Nevada",
+    title: "Nevada Basque Tables, Steakhouses & Desert Diners",
+    image: westernCoverImages.nevada,
+    intro: "Nevada food is Basque boardinghouse soup, steakhouse plates, shrimp cocktail, sourdough, chiles, diner food, and desert hospitality.",
+    history: "Basque sheepherders, mining towns, casino dining, ranching, and immigrant communities shaped Nevada's table beyond the Strip.",
+    hospitality: "A Nevada table can feel like a boardinghouse or steakhouse: soup, bread, beef, potatoes, shrimp cocktail, salad, and coffee.",
+    culture: "Basque family-style meals, casino classics, rural diners, ranch roads, and desert travel all shape the food experience.",
+    facts: ["Basque boardinghouse restaurants are a distinctive Nevada food story.", "Shrimp cocktail became a casino-era icon.", "Steakhouse plates connect ranch country and celebration dining."],
+    ingredients: ["garlic", "bread", "beef", "potatoes", "shrimp", "peppers", "beans", "wine vinegar", "olive oil", "coffee"],
+    signatureRecipeIds: ["nevada-basque-garlic-soup", "nevada-shrimp-cocktail", "nevada-steakhouse-potatoes", "santa-maria-tri-tip", "kids-fruit-rainbow-plates"],
+    skills: [["Soup Building", "#culinary-academy/soups"], ["Steak Timing", "#what-yall-cooking"], ["Cold Seafood", "#culinary-academy/seafood"], ["Hosting", "#hosting"]],
+    traditions: ["Basque meals are family-style and generous.", "Casino classics are part of Nevada food history, not just novelty.", "Rural Nevada food leans on ranch, road, and desert practicality."],
+    features: [["Basque Boardinghouse", "Garlic soup, bread, beans, steak, salad, and coffee."], ["Steakhouse Starter", "Shrimp cocktail, potatoes, beef, and dessert."]]
+  },
+  "northern-california": {
+    region: "California",
+    state: "Northern California",
+    title: "Northern California Sourdough, Seafood & Farmers Markets",
+    image: westernCoverImages["northern-california"],
+    intro: "Northern California food is sourdough, cioppino, Dungeness crab, mission burritos, wine-country vegetables, farmers markets, and coastal cooking.",
+    history: "Indigenous foodways, Gold Rush ports, Italian fishermen, Chinese and Mexican communities, agriculture, and Bay Area counter food shaped the region.",
+    hospitality: "Serve seafood, sourdough, market vegetables, burritos, fruit, and simple food that lets ingredients show off.",
+    culture: "Ferry buildings, taquerias, vineyards, docks, farms, and neighborhood bakeries make Northern California food layered and local.",
+    facts: ["Cioppino grew from San Francisco fishing communities.", "Mission burritos are Bay Area food, not generic burritos.", "Sourdough became a Northern California marker through bakery and port history."],
+    ingredients: ["sourdough", "Dungeness crab", "tomatoes", "seafood", "avocado", "rice", "beans", "wine grapes", "greens", "citrus"],
+    signatureRecipeIds: ["san-francisco-cioppino", "mission-burritos", "california-sourdough-toast", "dungeness-crab-melt", "kids-fruit-rainbow-plates"],
+    skills: [["Seafood Stew", "#culinary-academy/seafood"], ["Burrito Building", "#what-yall-cooking"], ["Bread", "#culinary-academy/baking-basics"], ["Seasonal Cooking", "#what-yall-cooking"]],
+    traditions: ["Seafood stews and sourdough belong to port-city history.", "Farmers market cooking should feel abundant and simple.", "Taquerias and immigrant foodways are central to California food."],
+    features: [["Bay Supper", "Cioppino, sourdough, salad, fruit, and coffee."], ["Mission Lunch", "Burritos, salsa, avocado, and citrus."]]
+  },
+  "central-california": {
+    region: "California",
+    state: "Central California",
+    title: "Central California Tri-Tip, Produce & Valley Tables",
+    image: westernCoverImages["central-california"],
+    intro: "Central California food is Santa Maria tri-tip, artichokes, almonds, grapes, stone fruit, chile verde, farm labor foodways, and Central Valley abundance.",
+    history: "Chumash foodways, Spanish and Mexican ranching, Portuguese and Basque communities, farm labor, Central Valley agriculture, and barbecue traditions shaped the region.",
+    hospitality: "A Central California table should show produce and fire: tri-tip, beans, salsa, artichokes, fruit, tortillas, bread, and salad.",
+    culture: "Ranch barbecue, farm markets, field lunches, coastal produce, and valley fruit stands make the region distinct.",
+    facts: ["Santa Maria tri-tip is a Central Coast barbecue marker.", "The Central Valley is one of America's major agricultural regions.", "Artichokes, almonds, grapes, and stone fruit all matter to local food identity."],
+    ingredients: ["tri-tip", "pinquito-style beans", "artichokes", "almonds", "grapes", "stone fruit", "chiles", "tortillas", "garlic", "lettuce"],
+    signatureRecipeIds: ["santa-maria-tri-tip", "central-valley-fruit-salad", "california-artichokes", "pueblo-green-chile", "kids-fruit-rainbow-plates"],
+    skills: [["Grilling", "#what-yall-cooking"], ["Produce Prep", "#culinary-academy/knife-skills"], ["Sauces", "#culinary-academy/seasonings"], ["Seasonal Menus", "#planner"]],
+    traditions: ["Tri-tip should be sliced correctly and served with beans or salsa.", "Produce is not garnish here; it is the story.", "Agricultural labor and immigrant food traditions belong in the food history."],
+    features: [["Santa Maria Table", "Tri-tip, beans, salsa, salad, bread, and fruit."], ["Valley Produce Plate", "Artichokes, stone fruit, grapes, and citrus."]]
+  },
+  "southern-california": {
+    region: "California",
+    state: "Southern California",
+    title: "Southern California Tacos, Avocado, Citrus & Beach Food",
+    image: westernCoverImages["southern-california"],
+    intro: "Southern California food is fish tacos, California burritos, avocado, citrus, Korean-Mexican foodways, burgers, salads, beach cookouts, and immigrant kitchens.",
+    history: "Mexican and Indigenous foodways, Asian American communities, car culture, beach towns, agriculture, and Los Angeles street food shaped Southern California cooking.",
+    hospitality: "A SoCal table can be casual and bright: tacos, burritos, slaw, citrus, avocado, grilled food, fruit, and cold drinks.",
+    culture: "Taquerias, food trucks, beach picnics, Korean BBQ, burger stands, produce markets, and family cookouts all belong.",
+    facts: ["Fish tacos are strongly tied to Baja and San Diego food culture.", "Korean-Mexican tacos reflect Los Angeles food creativity and immigrant communities.", "Avocado and citrus shape the region's everyday table."],
+    ingredients: ["tortillas", "fish", "avocado", "citrus", "carne asada", "fries", "kimchi slaw", "salsa", "cilantro", "rice"],
+    signatureRecipeIds: ["san-diego-fish-tacos", "california-burritos", "korean-bbq-tacos", "california-sourdough-toast", "kids-fruit-rainbow-plates"],
+    skills: [["Taco Assembly", "#what-yall-cooking"], ["Slaw Balance", "#culinary-academy/seasonings"], ["Grilling", "#what-yall-cooking"], ["Rice", "#culinary-academy/rice-grits-pasta"]],
+    traditions: ["Southern California food should honor Mexican and Asian American roots, not flatten them.", "Beach food needs freshness, portability, and brightness.", "Car culture and counter food shape the way people eat."],
+    features: [["Beach Taco Table", "Fish tacos, slaw, avocado, fruit, and lemonade."], ["LA Counter Plate", "Korean BBQ tacos, burritos, salsa, and citrus."]]
+  },
+  "alaska": {
+    region: "Alaska & Hawaii",
+    state: "Alaska",
+    title: "Alaska Salmon, Halibut, Berries & Sourdough",
+    image: westernCoverImages.alaska,
+    intro: "Alaska food is salmon, halibut, crab, berries, sourdough, reindeer sausage, chowder, smokehouses, and subsistence food traditions.",
+    history: "Alaska Native foodways, fishing, canneries, Russian influence, sourdough history, and remote-community practicality shape the table.",
+    hospitality: "An Alaska table should respect seafood and season: salmon, halibut chowder, berries, bread, simple vegetables, and hot drinks.",
+    culture: "Fishing camps, smokehouses, berry picking, winter kitchens, and community sharing are central to the food story.",
+    facts: ["Salmon is tied to ecology, culture, and subsistence, not just a dinner protein.", "Sourdough has deep Alaska and northern travel associations.", "Berries preserve summer into long winters."],
+    ingredients: ["salmon", "halibut", "crab", "berries", "sourdough", "potatoes", "dill", "butter", "cream", "coffee"],
+    signatureRecipeIds: ["alaska-salmon-bake", "alaska-halibut-chowder", "alaska-berry-cobbler", "wyoming-sourdough-biscuits", "kids-salmon-rice-bowls"],
+    skills: [["Fish Timing", "#culinary-academy/seafood"], ["Chowders", "#culinary-academy/soups"], ["Fruit Cobbler", "#culinary-academy/baking-basics"], ["Bread", "#culinary-academy/baking-basics"]],
+    traditions: ["Seafood should be treated with respect for Native communities and sustainable harvest.", "Berry desserts carry seasonality and preservation memory.", "Sourdough and chowder bring warmth to cold-weather tables."],
+    features: [["Fish Camp Supper", "Salmon, chowder, sourdough, potatoes, and berry cobbler."], ["Winter Table", "Hot soup, bread, berries, and coffee."]]
+  },
+  "hawaii": {
+    region: "Alaska & Hawaii",
+    state: "Hawaii",
+    title: "Hawaii Poke, Plate Lunch, Kalua Pork & Island Sweets",
+    image: westernCoverImages.hawaii,
+    intro: "Hawaii food is poke, kalua pork, loco moco, plate lunch, spam musubi, haupia, shave ice, rice, tropical fruit, and multicultural island hospitality.",
+    history: "Native Hawaiian foodways, plantation labor communities, Japanese, Filipino, Portuguese, Chinese, Korean, and other influences shaped Hawaii's local food.",
+    hospitality: "A Hawaii table should be generous and local: rice, pork, fish, gravy, macaroni salad, fruit, coconut sweets, and food meant to share.",
+    culture: "Plate lunch counters, family gatherings, luaus, lunch boxes, beach days, and neighborhood shops give Hawaii food its rhythm.",
+    facts: ["Poke has Native Hawaiian roots and should not be treated as a generic bowl trend.", "Plate lunch reflects multicultural plantation-era and local food histories.", "Rice is central to everyday Hawaii meals."],
+    ingredients: ["rice", "fish", "pork", "coconut", "pineapple", "soy sauce", "sesame", "nori", "macaroni", "green onion"],
+    signatureRecipeIds: ["hawaiian-poke-bowls", "kalua-pork", "loco-moco", "spam-musubi", "haupia", "kids-mini-poke-cups"],
+    skills: [["Rice Bowls", "#culinary-academy/rice-grits-pasta"], ["Slow Pork", "#what-yall-cooking"], ["Food Safety", "#culinary-academy/kitchen-safety"], ["Desserts", "#culinary-academy/baking-basics"]],
+    traditions: ["Local food is multicultural and specific, not generic tropical decoration.", "Plate lunches are filling, practical, and community-rooted.", "Poke and fish dishes require food safety and cultural respect."],
+    features: [["Plate Lunch", "Kalua pork, rice, gravy, macaroni salad, and fruit."], ["Island Snack Table", "Musubi, poke cups, haupia, and cold drinks."]]
+  }
+};
+
+const westernRegionalAliases = {
+  "pacific-northwest": "pacific-northwest",
+  "pacific northwest": "pacific-northwest",
+  "washington-state": "washington-state-pacific-northwest",
+  washington: "washington-state-pacific-northwest",
+  oregon: "oregon-pacific-northwest",
+  idaho: "idaho-pacific-northwest",
+  "mountain-west": "mountain-west",
+  "mountain west": "mountain-west",
+  colorado: "colorado-mountain-west",
+  utah: "utah-mountain-west",
+  montana: "montana-mountain-west",
+  wyoming: "wyoming-mountain-west",
+  nevada: "nevada-mountain-west",
+  california: "california",
+  "northern-california": "northern-california",
+  "northern california": "northern-california",
+  "central-california": "central-california",
+  "central california": "central-california",
+  "southern-california": "southern-california",
+  "southern california": "southern-california",
+  "alaska-hawaii": "alaska-hawaii",
+  "alaska and hawaii": "alaska-hawaii",
+  alaska: "alaska",
+  hawaii: "hawaii"
+};
+
 const regionalSoulFoodMenuTemplates = [
   {
     id: "sunday-dinner",
@@ -6913,6 +7329,17 @@ Object.entries(midAtlanticRegionalPages).forEach(([id, page]) => {
   page.menus = [fallbackMenu];
 });
 
+Object.entries(westernRegionalPages).forEach(([id, page]) => {
+  const fallbackMenu = {
+    id: `${id}-regional-menu`,
+    title: `${page.state} Regional Table`,
+    recipeIds: page.signatureRecipeIds.slice(0, 8),
+    timeline: ["Two days before: choose recipes and write the shopping list around regional ingredients.", "One day before: prep sauces, doughs, desserts, marinades, or cold sides.", "Day of: cook seafood, grilled meats, hot breads, or rice dishes close to serving."],
+    notes: `Build the menu from real ${page.region} foodways so the table tastes specific, useful, and rooted in place.`
+  };
+  page.menus = [fallbackMenu];
+});
+
 function regionalSoulFoodHub() {
   return `
     <section class="regional-soul-section">
@@ -6991,6 +7418,42 @@ function midAtlanticRegionalHub() {
         ${Object.entries(midAtlanticRegionalPages).map(([id, page]) => `
           <a class="regional-soul-card" href="#cuisine-explorer/${id}">
             <img src="${page.image || midAtlanticCoverImages["mid-atlantic"]}" alt="${page.title}" />
+            <span>${page.state}</span>
+            <h3>${page.title}</h3>
+            <p>${page.intro}</p>
+          </a>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function westernRegionalHub(groupId = "") {
+  const regionNames = {
+    "pacific-northwest": "Pacific Northwest",
+    "mountain-west": "Mountain West",
+    california: "California",
+    "alaska-hawaii": "Alaska & Hawaii"
+  };
+  const regionName = regionNames[groupId] || "Western U.S.";
+  const entries = Object.entries(westernRegionalPages).filter(([, page]) => {
+    if (groupId === "pacific-northwest") return page.region === "Pacific Northwest";
+    if (groupId === "mountain-west") return page.region === "Mountain West";
+    if (groupId === "california") return page.region === "California";
+    if (groupId === "alaska-hawaii") return page.region === "Alaska & Hawaii";
+    return true;
+  });
+  return `
+    <section class="regional-soul-section">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">${regionName} by place</p>
+        <h2>Cook the last stretch of America through real regional food.</h2>
+        <p>Each stop includes overview, food history, facts, signature ingredients, recipe cards, kids activities, and a menu that rewards the click.</p>
+      </div>
+      <div class="regional-soul-grid">
+        ${entries.map(([id, page]) => `
+          <a class="regional-soul-card" href="#cuisine-explorer/${id}">
+            <img src="${page.image || westernCoverImages["pacific-northwest"]}" alt="${page.title}" />
             <span>${page.state}</span>
             <h3>${page.title}</h3>
             <p>${page.intro}</p>
@@ -7262,6 +7725,82 @@ function renderMidAtlanticRegionalPage(id) {
   `;
 }
 
+function renderWesternRegionalPage(id) {
+  const page = westernRegionalPages[id] || westernRegionalPages["washington-state-pacific-northwest"];
+  const firstMenu = page.menus[0];
+  const parentRoute = page.region === "Pacific Northwest"
+    ? "#cuisine-explorer/pacific-northwest"
+    : page.region === "Mountain West"
+      ? "#cuisine-explorer/mountain-west"
+      : page.region === "California"
+        ? "#cuisine-explorer/california"
+        : "#cuisine-explorer/alaska-hawaii";
+  app.innerHTML = `
+    ${hero(page.title, page.intro, page.image || westernCoverImages["pacific-northwest"], `<a class="small-button" href="${parentRoute}">${page.region} Hub</a><a class="small-button secondary" href="#what-yall-cooking">Build A Menu</a>`)}
+    ${cookSubnav()}
+    <section class="cream-section regional-soul-detail">
+      <div class="section-heading">
+        <p class="eyebrow">${page.state} table</p>
+        <h2>State overview, food history, facts, signature ingredients, authentic recipes, and kids activities that belong to this place.</h2>
+      </div>
+      <div class="regional-identity-grid">
+        <article><h3>State Overview</h3><p>${page.intro}</p></article>
+        <article><h3>Food History</h3><p>${page.history}</p></article>
+        <article><h3>Hospitality</h3><p>${page.hospitality}</p></article>
+        <article><h3>Local Culture</h3><p>${page.culture}</p></article>
+      </div>
+      <div class="regional-story-grid">
+        <article>
+          <p class="eyebrow">Regional facts</p>
+          <h3>What to know before cooking</h3>
+          <ul>${page.facts.map((item) => `<li>${item}</li>`).join("")}</ul>
+        </article>
+        <article>
+          <p class="eyebrow">Signature ingredients</p>
+          <h3>The pantry and landscape that shape the place</h3>
+          <div class="region-chip-row">${page.ingredients.map((ingredient) => `<span>${ingredient}</span>`).join("")}</div>
+        </article>
+      </div>
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Authentic recipes</p>
+        <h2>Real ${page.state} recipes, not generic filler.</h2>
+      </div>
+      <div class="recipe-grid">${regionalRecipeCards(page.signatureRecipeIds)}</div>
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Gatherings + menus</p>
+        <h2>Build a table that tastes like the place.</h2>
+      </div>
+      <div class="regional-menu-panel" data-regional-menu-section>
+        <div class="regional-menu-tabs">
+          ${page.menus.map((menu, index) => `<button class="small-button ${index ? "secondary" : ""}" type="button" data-regional-menu="${menu.id}" data-region-id="${id}">${menu.title}</button>`).join("")}
+        </div>
+        <div data-regional-output>${regionalMenuOutput(page, firstMenu)}</div>
+      </div>
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Skills + lessons</p>
+        <h2>Practice the techniques behind the food.</h2>
+      </div>
+      <div class="regional-skill-grid">
+        ${page.skills.map(([title, href]) => `<a href="${href}"><span>${title}</span><small>Open lesson</small></a>`).join("")}
+      </div>
+      <div class="regional-story-grid">
+        <article>
+          <p class="eyebrow">Traditions + heritage</p>
+          <h3>Why these dishes matter</h3>
+          <ul>${page.traditions.map((item) => `<li>${item}</li>`).join("")}</ul>
+        </article>
+        <article>
+          <p class="eyebrow">Place markers</p>
+          <h3>What makes this table recognizable</h3>
+          ${page.features.map(([title, text]) => `<div class="feature-note"><strong>${title}</strong><span>${text}</span></div>`).join("")}
+        </article>
+      </div>
+      ${westernRegionalHub(page.region === "Pacific Northwest" ? "pacific-northwest" : page.region === "Mountain West" ? "mountain-west" : page.region === "California" ? "california" : "alaska-hawaii")}
+      ${progressionNav(parentRoute, `${page.region} Hub`, "#what-yall-cooking", "Build A Menu", ["#recipes", "#kids-korner"])}
+    </section>
+  `;
+}
+
 function africaCuisineHub() {
   return `
     ${hero("Africa Cuisine Hub", "Travel country by country through the ingredients, family meals, celebration dishes, street foods, and holiday traditions that make Africa's food cultures distinct.", "images/cuisines/africa/nigeria/jollof-rice.jpg", `<a class="small-button" href="#cuisine-explorer">All Cuisines</a><a class="small-button secondary" href="#what-yall-cooking">Build A Menu</a>`)}
@@ -7387,13 +7926,14 @@ const livingCookbookChapters = [
     subtitle: "Menus, shopping starters, prep timelines, recipes, and hosting guidance for the big family days.",
     intro: "Holiday cooking is less stressful when the table is planned like a chapter: mains, sides, bread, dessert, drinks, timing, and who is bringing what.",
     heritage: "Thanksgiving, Christmas, Easter, Mother's Day, Father's Day, Juneteenth, and family reunions each have their own rhythm, but the center is the same: people gathered and fed.",
-    recipeIds: ["baked-ham", "chicken-and-dressing", "southern-collard-greens", "southern-baked-mac-cheese", "cornbread", "dinner-rolls", "sweet-potato-casserole", "green-bean-casserole", "bbq-brisket-basics", "bbq-chicken-quarters", "bbq-baked-beans", "watermelon-platter", "strawberry-soda", "red-velvet-cake", "peach-cobbler", "pound-cake"],
+    recipeIds: ["roast-turkey", "smoked-turkey", "deep-fried-turkey", "baked-ham", "honey-glazed-ham", "roast-duck", "turducken", "southern-cornbread-dressing", "oyster-dressing", "giblet-gravy", "sweet-potato-casserole", "green-bean-casserole", "cranberry-relish", "dinner-rolls", "pumpkin-pie", "sweet-potato-pie", "southern-pecan-pie", "prime-rib", "beef-tenderloin", "eggnog", "christmas-cookies", "fruitcake", "yule-log", "holiday-punch", "roast-lamb", "deviled-eggs", "southern-potato-salad", "carrot-cake", "coconut-cake", "spring-vegetables", "all-american-burgers", "classic-cookout-hot-dogs", "bbq-brisket-basics", "bbq-chicken-quarters", "bbq-pulled-pork", "bbq-smoked-ribs", "bbq-baked-beans", "southern-baked-mac-cheese", "creamy-coleslaw", "corn-on-the-cob", "cookout-watermelon-wedges", "classic-apple-pie", "peach-cobbler", "banana-pudding", "strawberry-shortcake", "lemonade"],
     guidance: ["Write the oven schedule before cooking starts.", "Choose one main dish, three sides, one bread, one dessert, and one drink for smaller tables.", "For large gatherings, assign dishes by family instead of by person.", "Put desserts on a separate table so the main line keeps moving."],
     hostingNotes: ["Thanksgiving: prep dressing, casseroles, greens, and desserts ahead.", "Christmas: plan breakfast, dinner, drinks, and leftovers.", "Family reunion: think stations, shade, ice, trash flow, and refills."],
     holidays: [
-      { title: "Thanksgiving", recipeIds: ["chicken-and-dressing", "baked-ham", "sweet-potato-casserole", "green-bean-casserole", "southern-collard-greens", "dinner-rolls", "pound-cake"], shopping: ["cornbread", "chicken or ham", "sweet potatoes", "green beans", "greens", "roll ingredients", "cake ingredients"], hosting: ["Bake desserts the day before.", "Prep casseroles before the oven gets crowded.", "Assign drink and trash stations."] },
-      { title: "Christmas", recipeIds: ["baked-ham", "chicken-rice-casserole", "southern-baked-mac-cheese", "smothered-green-beans", "dinner-rolls", "pound-cake", "sweet-tea"], shopping: ["ham", "chicken", "rice", "cheese", "green beans", "tea", "rolls"], hosting: ["Keep breakfast simple.", "Use slow warmers for ham and sides.", "Send guests home with labeled leftovers."] },
-      { title: "Easter", recipeIds: ["baked-ham", "deviled-eggs", "southern-potato-salad", "smothered-green-beans", "dinner-rolls", "peach-cobbler", "sweet-tea"], shopping: ["ham", "eggs", "potatoes", "green beans", "roll ingredients", "peaches", "tea"], hosting: ["Make deviled eggs and potato salad ahead.", "Slice ham before guests line up.", "Keep cold foods chilled after service."] },
+      { title: "Thanksgiving", recipeIds: ["roast-turkey", "smoked-turkey", "deep-fried-turkey", "baked-ham", "honey-glazed-ham", "roast-duck", "turducken", "southern-cornbread-dressing", "oyster-dressing", "giblet-gravy", "sweet-potato-casserole", "green-bean-casserole", "cranberry-relish", "dinner-rolls", "pumpkin-pie", "sweet-potato-pie", "southern-pecan-pie"], shopping: ["turkey", "ham", "duck or turducken ingredients", "cornbread", "oysters", "giblets", "sweet potatoes", "green beans", "cranberries", "roll ingredients", "pumpkin", "pecans"], hosting: ["Choose one main bird and one backup centerpiece for large tables.", "Bake pies, rolls, and casseroles ahead where possible.", "Write the oven schedule before Thanksgiving morning."] },
+      { title: "Christmas", recipeIds: ["prime-rib", "standing-rib-roast", "beef-tenderloin", "baked-ham", "honey-glazed-ham", "roast-turkey", "roast-duck", "roast-goose", "turducken", "eggnog", "christmas-cookies", "fruitcake", "yule-log", "holiday-punch"], shopping: ["rib roast or tenderloin", "ham", "turkey or duck", "eggs", "cream", "cookie ingredients", "dried fruit", "chocolate", "cranberry juice", "citrus"], hosting: ["Plan one showpiece main and one easy make-ahead dessert.", "Keep drinks and cookies away from the hot-food traffic.", "Rest roasts before carving so the table feels calm."] },
+      { title: "Easter", recipeIds: ["honey-glazed-ham", "baked-ham", "roast-lamb", "deviled-eggs", "southern-potato-salad", "carrot-cake", "coconut-cake", "spring-vegetables", "dinner-rolls"], shopping: ["ham", "lamb", "eggs", "potatoes", "carrots", "coconut", "asparagus", "peas", "roll ingredients", "lemons"], hosting: ["Make deviled eggs, potato salad, and cakes ahead.", "Slice ham before guests line up.", "Keep spring vegetables bright and cook them close to serving."] },
+      { title: "Fourth of July", recipeIds: ["all-american-burgers", "classic-cookout-hot-dogs", "bbq-brisket-basics", "bbq-chicken-quarters", "bbq-pulled-pork", "bbq-smoked-ribs", "bbq-baked-beans", "southern-baked-mac-cheese", "creamy-coleslaw", "corn-on-the-cob", "cookout-watermelon-wedges", "classic-apple-pie", "peach-cobbler", "banana-pudding", "strawberry-shortcake", "lemonade"], shopping: ["ground beef", "hot dogs", "brisket", "chicken", "pork shoulder", "ribs", "beans", "macaroni", "slaw mix", "corn", "watermelon", "apples", "peaches", "bananas", "strawberries", "lemons"], hosting: ["Start smoked meats early and hold them safely.", "Make cold sides, desserts, and lemonade before guests arrive.", "Set separate stations for raw grilling tools, finished food, drinks, and trash."] },
       { title: "Mother's Day", recipeIds: ["shrimp-and-grits", "seven-layer-salad", "grape-salad", "dinner-rolls", "pound-cake", "lemonade"], shopping: ["shrimp", "grits", "salad vegetables", "grapes", "rolls", "lemons"], hosting: ["Choose a pretty but simple table.", "Cook the main close to serving.", "Let someone else handle cleanup."] },
       { title: "Father's Day", recipeIds: ["bbq-brisket-basics", "bbq-chicken-quarters", "bbq-baked-beans", "cornbread", "watermelon-platter", "sweet-tea"], shopping: ["brisket", "chicken", "beans", "cornmeal", "watermelon", "tea"], hosting: ["Start smoked meats early.", "Keep sides easy and plentiful.", "Have a sauce and napkin station."] },
       { title: "Juneteenth", recipeIds: ["bbq-brisket-basics", "bbq-chicken-quarters", "bbq-baked-beans", "southern-collard-greens", "cornbread", "strawberry-soda", "watermelon-platter", "red-velvet-cake"], shopping: ["brisket", "chicken", "beans", "greens", "cornmeal", "strawberries", "watermelon", "red velvet cake ingredients"], hosting: ["Use the Juneteenth flag and family-reunion energy.", "Keep red drinks cold.", "Set a table that tells food, family, and freedom."] },
@@ -8768,6 +9308,22 @@ function renderCuisineExplorer(id) {
     return;
   }
   if (midAtlanticId && midAtlanticRegionalPages[midAtlanticId]) return renderMidAtlanticRegionalPage(midAtlanticId);
+  const westernId = id ? westernRegionalAliases[id] || id : "";
+  if (["pacific-northwest", "mountain-west", "california", "alaska-hawaii"].includes(westernId)) {
+    const hubCopy = {
+      "pacific-northwest": ["Pacific Northwest Regional Food", "Cook through Washington, Oregon, and Idaho with salmon, crab, apples, berries, hazelnuts, potatoes, trout, coffee, and rain-country comfort.", westernCoverImages["pacific-northwest"], "Build A Pacific Northwest Menu"],
+      "mountain-west": ["Mountain West Regional Food", "Cook through Colorado, Utah, Montana, Wyoming, and Nevada with green chile, trout, bison, beef, potatoes, fry sauce, Basque foodways, and ranch-table traditions.", westernCoverImages["mountain-west"], "Build A Mountain West Menu"],
+      california: ["California Regional Food", "Cook Northern, Central, and Southern California through seafood, sourdough, produce, tri-tip, tacos, citrus, avocado, immigrant food traditions, and farmers-market abundance.", westernCoverImages.california, "Build A California Menu"],
+      "alaska-hawaii": ["Alaska & Hawaii Regional Food", "Cook Alaska and Hawaii with salmon, halibut, crab, berries, sourdough, poke, plate lunch, kalua pork, rice, tropical fruit, and island hospitality.", westernCoverImages["alaska-hawaii"], "Build An Alaska & Hawaii Menu"]
+    }[westernId];
+    app.innerHTML = `
+      ${hero(hubCopy[0], hubCopy[1], hubCopy[2], `<a class="small-button" href="#cuisine-explorer">All Cuisines</a><a class="small-button secondary" href="#what-yall-cooking">${hubCopy[3]}</a>`)}
+      ${cookSubnav()}
+      ${westernRegionalHub(westernId)}
+    `;
+    return;
+  }
+  if (westernId && westernRegionalPages[westernId]) return renderWesternRegionalPage(westernId);
   if (id === "african-cuisines") return africaCuisineHub();
   if (id && africaCountryPages[id]) return renderAfricaCountryPage(id);
   if (id) return renderCuisineExplorerDetail(id);
@@ -10437,7 +10993,14 @@ function pathCard(path) {
 }
 
 function cuisineCard(cuisine) {
-  return `<article class="cuisine-card"><a href="#cuisine/${cuisine.id}"><figure><img src="${cuisine.image}" alt="${cuisine.name}" /></figure><h3>${cuisine.name}</h3><p>${cuisine.blurb}</p></a></article>`;
+  const regionalExplorerId = regionalSoulFoodAliases[cuisine.id]
+    || midwestRegionalAliases[cuisine.id]
+    || newEnglandRegionalAliases[cuisine.id]
+    || southwestRegionalAliases[cuisine.id]
+    || midAtlanticRegionalAliases[cuisine.id]
+    || westernRegionalAliases[cuisine.id];
+  const href = regionalExplorerId ? `#cuisine-explorer/${cuisine.id}` : `#cuisine/${cuisine.id}`;
+  return `<article class="cuisine-card"><a href="${href}"><figure><img src="${cuisine.image}" alt="${cuisine.name}" /></figure><h3>${cuisine.name}</h3><p>${cuisine.blurb}</p></a></article>`;
 }
 
 function recipeStoryLabel(recipe = {}) {
@@ -10802,6 +11365,7 @@ function handleClick(event) {
       || newEnglandRegionalPages[regionalMenuButton.dataset.regionId]
       || southwestRegionalPages[regionalMenuButton.dataset.regionId]
       || midAtlanticRegionalPages[regionalMenuButton.dataset.regionId]
+      || westernRegionalPages[regionalMenuButton.dataset.regionId]
       || regionalSoulFoodPages["mississippi-soul-food"];
     const menu = page.menus.find((item) => item.id === regionalMenuButton.dataset.regionalMenu) || page.menus[0];
     section?.querySelectorAll("[data-regional-menu]").forEach((button) => button.classList.toggle("secondary", button !== regionalMenuButton));
