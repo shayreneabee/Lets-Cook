@@ -8175,61 +8175,33 @@ function roadTripDateLabel(value) {
   return Number.isNaN(date.getTime()) ? "Stamped today" : date.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
 }
 
-function roadTripMapArtwork() {
-  return `
-    <svg class="road-trip-us-art" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-      <defs>
-        <clipPath id="roadTripLower48Clip">
-          <path d="M7 28 L15 24 L27 22 L38 19 L50 20 L61 19 L72 23 L80 28 L87 32 L92 39 L89 45 L85 47 L84 54 L80 59 L77 66 L74 76 L69 80 L62 76 L56 71 L50 70 L43 72 L36 68 L30 69 L24 63 L19 58 L16 51 L12 45 L8 37 Z"></path>
-        </clipPath>
-      </defs>
-      <g clip-path="url(#roadTripLower48Clip)">
-        <rect x="5" y="17" width="29" height="58" class="map-region west"></rect>
-        <rect x="30" y="17" width="17" height="60" class="map-region mountain"></rect>
-        <rect x="44" y="18" width="24" height="58" class="map-region midwest"></rect>
-        <rect x="51" y="45" width="34" height="38" class="map-region south"></rect>
-        <rect x="69" y="21" width="25" height="42" class="map-region east"></rect>
-      </g>
-      <path class="map-outline" d="M7 28 L15 24 L27 22 L38 19 L50 20 L61 19 L72 23 L80 28 L87 32 L92 39 L89 45 L85 47 L84 54 L80 59 L77 66 L74 76 L69 80 L62 76 L56 71 L50 70 L43 72 L36 68 L30 69 L24 63 L19 58 L16 51 L12 45 L8 37 Z"></path>
-      <g class="map-boundaries">
-        <path d="M17 24 L18 37 L16 51 L21 60"></path>
-        <path d="M27 22 L27 36 L29 49 L30 69"></path>
-        <path d="M38 19 L37 34 L39 49 L36 68"></path>
-        <path d="M50 20 L49 34 L51 49 L50 70"></path>
-        <path d="M61 19 L61 33 L64 47 L62 76"></path>
-        <path d="M72 23 L70 35 L73 47 L69 80"></path>
-        <path d="M80 28 L78 38 L82 48 L80 59"></path>
-        <path d="M8 37 L25 37 L42 35 L61 33 L84 34"></path>
-        <path d="M12 45 L31 47 L51 49 L73 47 L89 45"></path>
-        <path d="M19 58 L36 58 L55 58 L77 60"></path>
-        <path d="M24 63 L43 64 L62 66 L77 66"></path>
-      </g>
-      <g class="map-insets">
-        <path class="map-outline alaska" d="M5 79 L12 73 L20 75 L24 82 L18 88 L9 86 Z"></path>
-        <path class="map-outline hawaii" d="M27 86 C29 84 31 85 32 87 C30 89 28 89 27 86 Z M34 88 C36 86 38 87 39 89 C37 91 35 91 34 88 Z M42 90 C44 88 46 89 47 91 C45 93 43 93 42 90 Z"></path>
-      </g>
-      <g class="map-labels">
-        <text x="21" y="31">Pacific</text>
-        <text x="42" y="30">Mountain</text>
-        <text x="57" y="39">Midwest</text>
-        <text x="67" y="62">South</text>
-        <text x="80" y="38">East</text>
-      </g>
-    </svg>
-  `;
+function roadTripFeaturedRecipe(stop) {
+  const page = stop.pageId ? regionalPages.find((item) => item.id === stop.pageId) : null;
+  const recipe = page?.recipeIds?.map((id) => recipeByIdSafe(id)).find(Boolean);
+  return recipe?.title || stop.tagline.split(",")[0];
 }
 
-function roadTripStateFillLayer(stats) {
+function roadTripMapStatus(stop, index, stats) {
+  if (roadTripIsVisited(stop)) return "visited";
+  return index === stats.currentIndex ? "current" : "future";
+}
+
+function roadTripMapArtwork(stats) {
   return `
-    <svg class="road-trip-state-fill-layer" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+    <svg class="road-trip-us-art real-us-map" viewBox="192 9 1028 746" role="img" aria-labelledby="roadTripMapTitle roadTripMapDesc" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <title id="roadTripMapTitle">Cook Through America road trip map</title>
+      <desc id="roadTripMapDesc">Clickable United States map showing completed, current, and upcoming road trip states.</desc>
       ${roadTripRoute.map((stop, index) => {
-        const visited = roadTripIsVisited(stop);
-        const isCurrent = index === stats.currentIndex;
-        const status = visited ? "visited" : isCurrent ? "current" : "future";
-        const isTinyEast = ["maine", "new-hampshire", "vermont", "massachusetts", "rhode-island", "connecticut", "delaware", "new-jersey"].includes(stop.id);
-        const rx = stop.id === "alaska" ? 7 : stop.id === "hawaii" ? 5 : isTinyEast ? 3.2 : 4.5;
-        const ry = stop.id === "alaska" ? 4.8 : stop.id === "hawaii" ? 2.6 : isTinyEast ? 2.5 : 3.5;
-        return `<ellipse class="road-trip-state-fill ${status}" cx="${stop.x}" cy="${stop.y}" rx="${rx}" ry="${ry}"><title>${stop.state} ${visited ? "completed" : isCurrent ? "current stop" : "not completed yet"}</title></ellipse>`;
+        const status = roadTripMapStatus(stop, index, stats);
+        const featuredRecipe = roadTripFeaturedRecipe(stop);
+        const mapId = stop.abbr.toLowerCase();
+        const statusLabel = status === "visited" ? "Visited" : status === "current" ? "Current stop" : "Upcoming stop";
+        return `
+          <a class="road-trip-state-shape-link ${status}" href="${stop.href}" aria-label="${statusLabel}: ${stop.state}. Featured recipe: ${featuredRecipe}. ${stop.tagline}">
+            <title>${stop.state} - ${featuredRecipe}</title>
+            <use class="road-trip-state-shape ${status}" href="./assets/us-road-trip-map.svg#${mapId}" xlink:href="./assets/us-road-trip-map.svg#${mapId}"></use>
+          </a>
+        `;
       }).join("")}
     </svg>
   `;
@@ -8253,8 +8225,7 @@ function roadTripMapSection() {
       <div class="road-trip-layout">
         <div class="road-trip-map-card" aria-label="Interactive Cook Through America map">
           <div class="road-trip-map">
-            ${roadTripMapArtwork()}
-            ${roadTripStateFillLayer(stats)}
+            ${roadTripMapArtwork(stats)}
             <svg class="road-trip-route-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
               <polyline points="${routePoints}"></polyline>
             </svg>
