@@ -7628,6 +7628,52 @@ function regionalRecipeList(ids = [], options = {}) {
   return ids.map((id) => recipeByIdSafe(id, options)).filter(Boolean).map((recipe) => `<li><a href="#recipes/${recipe.id}">${recipe.title}</a></li>`).join("");
 }
 
+const craveLeadTerms = [
+  "crab", "lobster", "shrimp", "seafood", "fish", "salmon", "taco", "pizza", "burger", "hot dog", "brisket", "ribs", "bbq", "barbecue",
+  "fried", "crispy", "cheese", "melt", "fries", "pie", "cobbler", "shortcake", "cake", "cookie", "ice cream", "lemonade", "watermelon",
+  "peach", "blueberry", "apple", "chili", "steak", "chicken", "sandwich", "roll", "wings"
+];
+
+function recipeCraveScore(recipe = {}) {
+  const text = `${recipe.title || ""} ${recipe.category || ""} ${recipe.description || ""} ${(recipe.tags || []).join(" ")}`.toLowerCase();
+  const termScore = craveLeadTerms.reduce((score, term) => score + (text.includes(term) ? 3 : 0), 0);
+  const photoScore = recipeHasPublishReadyPhoto(recipe) ? 6 : 0;
+  const dinnerScore = /main|sandwich|seafood|bbq|dessert|cookout|comfort|street|boardwalk/i.test(`${recipe.category || ""} ${recipe.tags?.join(" ") || ""}`) ? 2 : 0;
+  return termScore + photoScore + dinnerScore;
+}
+
+function regionalCravingRecipes(page, options = {}) {
+  return (page.signatureRecipeIds || [])
+    .map((id) => recipeByIdSafe(id, options))
+    .filter(Boolean)
+    .sort((a, b) => recipeCraveScore(b) - recipeCraveScore(a))
+    .slice(0, 6);
+}
+
+function regionalCravingSection(page, options = {}) {
+  const cravingRecipes = regionalCravingRecipes(page, options);
+  if (!cravingRecipes.length) return "";
+  return `
+    <section class="regional-craving-panel">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">You Gotta Try This</p>
+        <h2>The ${page.state} dishes most likely to make you say, "I'm making that tonight."</h2>
+        <p>Start with the crowd-pleasers. The history, pantry, and local context are still here, but the craving comes first.</p>
+      </div>
+      <div class="regional-craving-grid">
+        ${cravingRecipes.map((recipe, index) => `
+          <a class="regional-craving-card ${index === 0 ? "feature" : ""}" href="#recipes/${recipe.id}">
+            <img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" />
+            <span>${index === 0 ? "Start here" : recipe.category || "Local favorite"}</span>
+            <h3>${recipe.title}</h3>
+            <p>${recipe.description || "A local plate worth bringing to the table."}</p>
+          </a>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderMidwestRegionalPage(id) {
   const page = midwestRegionalPages[id] || midwestRegionalPages["chicago-midwest"];
   const firstMenu = page.menus[0];
@@ -7639,6 +7685,7 @@ function renderMidwestRegionalPage(id) {
         <p class="eyebrow">${page.state} table</p>
         <h2>Food identity, local history, gatherings, fair food, holidays, and recipes that belong to this place.</h2>
       </div>
+      ${regionalCravingSection(page)}
       <div class="regional-identity-grid">
         <article><h3>Food Identity</h3><p>${page.intro}</p></article>
         <article><h3>Regional History</h3><p>${page.history}</p></article>
@@ -7646,8 +7693,8 @@ function renderMidwestRegionalPage(id) {
         <article><h3>Fair Food + Community</h3><p>${page.culture}</p></article>
       </div>
       <div class="section-heading compact-heading">
-        <p class="eyebrow">Signature dishes</p>
-        <h2>Real ${page.state} recipes, not generic filler.</h2>
+        <p class="eyebrow">Hidden local favorites</p>
+        <h2>More ${page.state} plates to keep the road trip going.</h2>
       </div>
       <div class="recipe-grid">${regionalRecipeCards(page.signatureRecipeIds)}</div>
       <div class="section-heading compact-heading">
@@ -7697,6 +7744,7 @@ function renderNewEnglandRegionalPage(id) {
         <p class="eyebrow">${page.state} table</p>
         <h2>Food identity, local history, shore food, orchards, bakeries, diners, family suppers, and recipes that belong to this place.</h2>
       </div>
+      ${regionalCravingSection(page, queuedPhotoOptions)}
       <div class="regional-identity-grid">
         <article><h3>Food Identity</h3><p>${page.intro}</p></article>
         <article><h3>Regional History</h3><p>${page.history}</p></article>
@@ -7704,8 +7752,8 @@ function renderNewEnglandRegionalPage(id) {
         <article><h3>Local Culture</h3><p>${page.culture}</p></article>
       </div>
       <div class="section-heading compact-heading">
-        <p class="eyebrow">Signature dishes</p>
-        <h2>Real ${page.state} recipes, not generic New England filler.</h2>
+        <p class="eyebrow">Hidden local favorites</p>
+        <h2>More ${page.state} plates to keep the road trip going.</h2>
       </div>
       <div class="recipe-grid">${regionalRecipeCards(page.signatureRecipeIds, queuedPhotoOptions)}</div>
       <div class="section-heading compact-heading">
@@ -7754,6 +7802,7 @@ function renderSouthwestRegionalPage(id) {
         <p class="eyebrow">${page.state} table</p>
         <h2>Food identity, history, facts, signature ingredients, recipes, and gatherings that belong to this place.</h2>
       </div>
+      ${regionalCravingSection(page)}
       <div class="regional-identity-grid">
         <article><h3>State Overview</h3><p>${page.intro}</p></article>
         <article><h3>Food History</h3><p>${page.history}</p></article>
@@ -7773,8 +7822,8 @@ function renderSouthwestRegionalPage(id) {
         </article>
       </div>
       <div class="section-heading compact-heading">
-        <p class="eyebrow">Authentic recipes</p>
-        <h2>Real ${page.state} recipes, not generic Southwest filler.</h2>
+        <p class="eyebrow">Hidden local favorites</p>
+        <h2>More ${page.state} plates to keep the road trip going.</h2>
       </div>
       <div class="recipe-grid">${regionalRecipeCards(page.signatureRecipeIds)}</div>
       <div class="section-heading compact-heading">
@@ -7823,6 +7872,7 @@ function renderMidAtlanticRegionalPage(id) {
         <p class="eyebrow">${page.state} table</p>
         <h2>Food identity, history, facts, signature ingredients, recipes, and gatherings that belong to this place.</h2>
       </div>
+      ${regionalCravingSection(page)}
       <div class="regional-identity-grid">
         <article><h3>State Overview</h3><p>${page.intro}</p></article>
         <article><h3>Food History</h3><p>${page.history}</p></article>
@@ -7842,8 +7892,8 @@ function renderMidAtlanticRegionalPage(id) {
         </article>
       </div>
       <div class="section-heading compact-heading">
-        <p class="eyebrow">Authentic recipes</p>
-        <h2>Real ${page.state} recipes, not generic Mid-Atlantic filler.</h2>
+        <p class="eyebrow">Hidden local favorites</p>
+        <h2>More ${page.state} plates to keep the road trip going.</h2>
       </div>
       <div class="recipe-grid">${regionalRecipeCards(page.signatureRecipeIds)}</div>
       <div class="section-heading compact-heading">
@@ -7899,6 +7949,7 @@ function renderWesternRegionalPage(id) {
         <p class="eyebrow">${page.state} table</p>
         <h2>State overview, food history, facts, signature ingredients, authentic recipes, and kids activities that belong to this place.</h2>
       </div>
+      ${regionalCravingSection(page)}
       <div class="regional-identity-grid">
         <article><h3>State Overview</h3><p>${page.intro}</p></article>
         <article><h3>Food History</h3><p>${page.history}</p></article>
@@ -7918,8 +7969,8 @@ function renderWesternRegionalPage(id) {
         </article>
       </div>
       <div class="section-heading compact-heading">
-        <p class="eyebrow">Authentic recipes</p>
-        <h2>Real ${page.state} recipes, not generic filler.</h2>
+        <p class="eyebrow">Hidden local favorites</p>
+        <h2>More ${page.state} plates to keep the road trip going.</h2>
       </div>
       <div class="recipe-grid">${regionalRecipeCards(page.signatureRecipeIds)}</div>
       <div class="section-heading compact-heading">
@@ -8271,6 +8322,7 @@ function renderRegionalSoulFoodPage(id) {
         <p class="eyebrow">${page.state} table</p>
         <h2>Food, history, hospitality, music, and recipes that belong together.</h2>
       </div>
+      ${regionalCravingSection(page)}
       <div class="regional-identity-grid">
         <article><h3>Food Identity</h3><p>${page.intro}</p></article>
         <article><h3>Cultural Background</h3><p>${page.history}</p></article>
@@ -8279,8 +8331,8 @@ function renderRegionalSoulFoodPage(id) {
       </div>
 
       <div class="section-heading compact-heading">
-        <p class="eyebrow">Signature dishes</p>
-        <h2>Recipes tied to ${page.state} food memory.</h2>
+        <p class="eyebrow">Hidden local favorites</p>
+        <h2>More recipes tied to ${page.state} food memory.</h2>
       </div>
       <div class="recipe-grid">${regionalRecipeCards(page.signatureRecipeIds)}</div>
 
@@ -8374,10 +8426,10 @@ function america250HeroBanner() {
       <div class="america-250-copy">
         <p class="eyebrow">America 250 / July 1-31</p>
         <h1>Let's Cook Through America, Y'all!</h1>
-        <p>All July long, Let's Cook Y'all is celebrating America through regional food, family stories, travel memories, and the dishes that make every state taste like home.</p>
+        <p>Pull up to the biggest neighborhood cookout in America: burgers on the grill, cold lemonade, crab cakes, brisket, peach cobbler, boardwalk fries, and a new state to crave every day.</p>
         <div class="america-250-stats" aria-label="America 250 event highlights">
-          <span>Daily featured states</span>
-          <span>Regional food stories</span>
+          <span>Daily craveable plates</span>
+          <span>Summer road trip food</span>
           <span>${america250CountdownText()}</span>
         </div>
         <div class="hero-actions">
@@ -8402,6 +8454,44 @@ function america250HeroBanner() {
       </div>
       <div class="america-250-recipe-strip">
         ${topRecipes.map((recipe) => `<a href="#recipes/${recipe.id}"><img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" /><span>${recipe.title}</span></a>`).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function summerCravingsSection() {
+  const summerRecipeIds = [
+    "all-american-burgers",
+    "classic-cookout-hot-dogs",
+    "maryland-crab-cakes",
+    "bbq-brisket-basics",
+    "southern-potato-salad",
+    "corn-on-the-cob",
+    "cookout-watermelon-wedges",
+    "peach-cobbler"
+  ];
+  const summerRecipes = summerRecipeIds.map(recipeByIdSafe).filter(Boolean);
+  return `
+    <section class="cream-section summer-cravings-section">
+      <div class="summer-graphic-row" aria-hidden="true">
+        <span class="sunflower"></span>
+        <span class="watermelon-slice"></span>
+        <span class="lemonade-glass"></span>
+        <span class="picnic-blanket"></span>
+      </div>
+      <div class="section-heading">
+        <p class="eyebrow">First day of summer vacation</p>
+        <h2>Start with the food people actually want to eat.</h2>
+        <p>Cookouts, boardwalk fries, cold sides, seafood, fruit desserts, smoky mains, and plates that make somebody stop scrolling and say, "I'm making that tonight."</p>
+      </div>
+      <div class="summer-craving-grid">
+        ${summerRecipes.map((recipe, index) => `
+          <a class="summer-craving-card ${index === 0 ? "feature" : ""}" href="#recipes/${recipe.id}">
+            <img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" />
+            <span>${["Grill it", "Pile it up", "Serve it cold", "Bring dessert"][index % 4]}</span>
+            <h3>${recipe.title}</h3>
+          </a>
+        `).join("")}
       </div>
     </section>
   `;
@@ -8599,6 +8689,7 @@ function renderAmerica250() {
   app.innerHTML = `
     ${america250HeroBanner()}
     ${cookSubnav()}
+    ${summerCravingsSection()}
     ${kitchenTableWelcomeSection()}
     ${america250ChallengeBanner()}
     ${america250SpotlightSection()}

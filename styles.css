@@ -9522,6 +9522,167 @@ button.small-button:hover,
     repeating-linear-gradient(0deg, rgba(75, 51, 36, 0.035) 0 1px, transparent 1px 10px);
 }
 
+.summer-cravings-section {
+  background:
+    radial-gradient(circle at 10% 12%, rgba(247, 199, 91, 0.32), transparent 17rem),
+    radial-gradient(circle at 92% 8%, rgba(199, 36, 54, 0.16), transparent 18rem),
+    linear-gradient(180deg, #fff8eb, #f8e6c9);
+}
+
+.summer-graphic-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(12px, 3vw, 26px);
+  margin-bottom: clamp(18px, 3vw, 30px);
+}
+
+.summer-graphic-row span {
+  position: relative;
+  display: inline-block;
+  width: clamp(54px, 8vw, 86px);
+  aspect-ratio: 1;
+  filter: drop-shadow(0 12px 18px rgba(75, 51, 36, 0.14));
+}
+
+.sunflower {
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, #5b341f 0 18%, transparent 19%),
+    repeating-conic-gradient(from 0deg, #f7c75b 0 18deg, #e7a736 18deg 36deg);
+}
+
+.watermelon-slice {
+  border-radius: 0 0 999px 999px;
+  background:
+    radial-gradient(circle at 34% 55%, #222 0 2px, transparent 3px),
+    radial-gradient(circle at 58% 45%, #222 0 2px, transparent 3px),
+    radial-gradient(circle at 72% 62%, #222 0 2px, transparent 3px),
+    linear-gradient(180deg, #ef4454 0 68%, #f7f2d6 69% 76%, #2f8f57 77%);
+  transform: rotate(-4deg);
+}
+
+.lemonade-glass {
+  border: 5px solid rgba(255, 255, 255, 0.9);
+  border-radius: 12px 12px 22px 22px;
+  background:
+    radial-gradient(circle at 68% 22%, rgba(255,255,255,0.9) 0 3px, transparent 4px),
+    linear-gradient(180deg, rgba(255,255,255,0.7) 0 16%, #f8d564 17% 82%, #e8b947 83%);
+}
+
+.picnic-blanket {
+  border-radius: 18px;
+  background:
+    linear-gradient(90deg, rgba(199,36,54,0.86) 0 25%, transparent 25% 50%, rgba(199,36,54,0.86) 50% 75%, transparent 75%),
+    linear-gradient(0deg, rgba(199,36,54,0.7) 0 25%, #fffdf7 25% 50%, rgba(199,36,54,0.7) 50% 75%, #fffdf7 75%);
+  transform: rotate(3deg);
+}
+
+.summer-craving-grid,
+.regional-craving-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(14px, 2vw, 22px);
+}
+
+.summer-craving-card,
+.regional-craving-card {
+  display: grid;
+  gap: 10px;
+  min-height: 100%;
+  padding: 12px;
+  border: 1px solid rgba(183, 119, 63, 0.2);
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 253, 247, 0.98), rgba(255, 244, 225, 0.98));
+  color: #2b1a12;
+  text-decoration: none;
+  box-shadow: 0 18px 42px rgba(75, 51, 36, 0.12);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.summer-craving-card:hover,
+.regional-craving-card:hover {
+  border-color: rgba(199, 36, 54, 0.34);
+  transform: translateY(-4px);
+  box-shadow: 0 26px 58px rgba(75, 51, 36, 0.18);
+}
+
+.summer-craving-card.feature,
+.regional-craving-card.feature {
+  grid-column: span 2;
+}
+
+.summer-craving-card img,
+.regional-craving-card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+.summer-craving-card.feature img,
+.regional-craving-card.feature img {
+  aspect-ratio: 16 / 8.5;
+}
+
+.summer-craving-card span,
+.regional-craving-card span {
+  width: fit-content;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #ffe9b2;
+  color: #7b3f1f;
+  font-size: 0.78rem;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.summer-craving-card h3,
+.regional-craving-card h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.45rem, 2.2vw, 2.3rem);
+  line-height: 1;
+}
+
+.regional-craving-card p {
+  margin: 0;
+  color: #5f4a3f;
+  line-height: 1.5;
+}
+
+.regional-craving-panel {
+  display: grid;
+  gap: clamp(16px, 3vw, 28px);
+  margin: clamp(18px, 4vw, 42px) 0;
+  padding: clamp(16px, 3vw, 28px);
+  border: 1px solid rgba(183, 119, 63, 0.18);
+  border-radius: 32px;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(247, 199, 91, 0.22), transparent 18rem),
+    linear-gradient(180deg, rgba(255, 252, 245, 0.96), rgba(255, 241, 218, 0.96));
+  box-shadow: 0 24px 62px rgba(75, 51, 36, 0.12);
+}
+
+@media (max-width: 900px) {
+  .summer-craving-grid,
+  .regional-craving-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .summer-craving-grid,
+  .regional-craving-grid,
+  .summer-craving-card.feature,
+  .regional-craving-card.feature {
+    grid-template-columns: 1fr;
+    grid-column: auto;
+  }
+}
+
 .month-feature-grid article {
   border-left: 5px solid var(--butcher-block);
   background:
