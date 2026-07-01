@@ -5900,8 +5900,18 @@ function scrollToRouteTop(behavior = "auto") {
   });
 }
 
+function announceRouteChange() {
+  const main = document.querySelector("#app");
+  const status = document.querySelector("#routeStatus");
+  const heading = main?.querySelector("h1, h2");
+  const title = heading?.textContent?.trim() || "Let's Cook Y'all";
+  if (status) status.textContent = `Loaded ${title}`;
+  main?.focus({ preventScroll: true });
+}
+
 window.addEventListener("hashchange", () => {
   render();
+  announceRouteChange();
   scrollToRouteTop("smooth");
 });
 document.addEventListener("click", handleClick);
@@ -5997,7 +6007,7 @@ function updateAppChrome(route) {
   const mark = document.querySelector(".active-app-mark");
   if (!mark || !activeApp) return;
   mark.className = `active-app-mark ${activeApp.accent || "platform"}`;
-  mark.innerHTML = `<img src="${activeApp.image}" alt="" /><span>${activeApp.title}</span>`;
+  mark.innerHTML = `<img src="${activeApp.image}" alt="${activeApp.title} app mark" /><span>${activeApp.title}</span>`;
 }
 
 function linkAttrs(href) {
@@ -6073,7 +6083,7 @@ function hero(title, text, image = "assets/logo.png", actions = "") {
         <p>${text}</p>
         ${actions ? `<div class="hero-actions">${actions}</div>` : ""}
       </div>
-      <figure class="hero-media"><img src="${image}" alt="" /></figure>
+      <figure class="hero-media"><img src="${image}" alt="${title}" /></figure>
     </section>
   `;
 }
@@ -6089,7 +6099,7 @@ function heroRotator(title, text, images = [], actions = "") {
         ${actions ? `<div class="hero-actions">${actions}</div>` : ""}
       </div>
       <figure class="hero-media hero-rotator">
-        ${rotationImages.map((image, index) => `<img src="${image}" alt="" style="--slide: ${index};" />`).join("")}
+        ${rotationImages.map((image, index) => `<img src="${image}" alt="${title} kitchen scene ${index + 1}" style="--slide: ${index};" />`).join("")}
       </figure>
     </section>
   `;
@@ -8949,7 +8959,7 @@ function renderAppHub(id) {
         <p>${currentApp.tagline}</p>
         <div class="hero-actions">${currentApp.links.map(([label, href], index) => `<a class="small-button ${index === 0 ? "" : "secondary"}" ${linkAttrs(href)}>${label}</a>`).join("")}</div>
       </div>
-      <figure><img src="${currentApp.image}" alt="" /></figure>
+      <figure><img src="${currentApp.image}" alt="${currentApp.title} app preview" /></figure>
     </section>
     <section class="cream-section">
       <div class="about-layout">
@@ -10471,11 +10481,17 @@ function renderRecipes() {
     ${cookSubnav()}
     <section class="band">
       <div class="toolbar search-toolbar">
+        <label class="sr-only" for="searchBox">Search recipes</label>
         <input id="searchBox" class="search-input" type="search" placeholder="Search Yakamein, shrimp, beginner, hosting..." />
+        <label class="sr-only" for="pantryBox">Search by ingredients you have</label>
         <input id="pantryBox" class="search-input" type="search" placeholder="What do you have? chicken, rice, garlic..." />
+        <label class="sr-only" for="categoryFilter">Filter by category</label>
         <select id="categoryFilter" class="filter-select"><option value="">All categories</option>${categories.map((category) => `<option>${category}</option>`).join("")}</select>
+        <label class="sr-only" for="cuisineFilter">Filter by cuisine</label>
         <select id="cuisineFilter" class="filter-select"><option value="">All cuisines</option>${cuisines.map((cuisine) => `<option value="${cuisine.id}">${cuisine.name}</option>`).join("")}</select>
+        <label class="sr-only" for="timeFilter">Filter by cook time</label>
         <select id="timeFilter" class="filter-select"><option value="">Any cook time</option><option value="15">15 min or less</option><option value="30">30 min or less</option><option value="45">45 min or less</option><option value="60">1 hour or less</option></select>
+        <label class="sr-only" for="levelFilter">Filter by skill level</label>
         <select id="levelFilter" class="filter-select"><option value="">All levels</option><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select>
       </div>
       <div class="quick-filter-row">${quickFilters.map(([label, value]) => `<button class="quick-filter" type="button" data-quick-filter="${value}">${label}</button>`).join("")}</div>
@@ -11153,7 +11169,7 @@ function appCard(item) {
   return `
     <article class="app-card ${item.accent}">
       <a class="app-card-main" ${linkAttrs(item.externalUrl || item.route)}>
-        <figure><img src="${item.image}" alt="" /></figure>
+        <figure><img src="${item.image}" alt="${item.title}" /></figure>
         <div>
           <span>${item.status}</span>
           <h3>${item.title}</h3>
@@ -11172,7 +11188,7 @@ function platformLinkCard(item) {
   return `
     <article class="direct-link-card ${item.accent}">
       <div>
-        <img src="${item.image}" alt="" />
+      <img src="${item.image}" alt="${item.title}" />
         <span>${item.status}</span>
       </div>
       <h3>${item.title}</h3>
@@ -11186,7 +11202,7 @@ function platformLinkCard(item) {
 function pathCard(path) {
   return `
     <article class="path-card">
-      <img src="${pathPhotoFor(path)}" alt="" />
+      <img src="${pathPhotoFor(path)}" alt="${path.title}" />
       <div class="path-card-body">
         <p class="eyebrow">${path.eyebrow}</p>
         <h3>${path.title}</h3>
@@ -11222,7 +11238,7 @@ function recipeStoryLabel(recipe = {}) {
 function lessonCard(lesson) {
   return `
     <article class="lesson-card">
-      <figure><img src="${academyPhotoFor(lesson.id)}" alt="" /></figure>
+      <figure><img src="${academyPhotoFor(lesson.id)}" alt="${lesson.title}" /></figure>
       <div>
         <p class="eyebrow">${lesson.level}</p>
         <h3>${lesson.title}</h3>
@@ -11267,7 +11283,7 @@ function personalRecipes() {
 
 function compactRecipe(recipe) {
   if (!recipe) return "";
-  return `<div class="compact-recipe"><img src="${recipePhotoFor(recipe)}" alt="" /><div><strong>${recipe.title}</strong><span>${recipe.time} / ${recipe.level}</span></div><button class="small-button secondary" data-plan="${recipe.id}">${planned.includes(recipe.id) ? "Remove" : "Plan"}</button></div>`;
+  return `<div class="compact-recipe"><img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" /><div><strong>${recipe.title}</strong><span>${recipe.time} / ${recipe.level}</span></div><button class="small-button secondary" data-plan="${recipe.id}">${planned.includes(recipe.id) ? "Remove" : "Plan"}</button></div>`;
 }
 
 function userRecipeCollection() {
@@ -11899,5 +11915,6 @@ function accountAvatar(user = {}, className = "profile-avatar") {
 
 Promise.all([loadRecipeDatabase(), loadLetsCookState()]).finally(() => {
   render();
+  announceRouteChange();
   scrollToRouteTop("auto");
 });
