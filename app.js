@@ -8182,7 +8182,7 @@ function roadTripDateLabel(value) {
 }
 
 function roadTripFeaturedRecipe(stop) {
-  const page = stop.pageId ? regionalPages.find((item) => item.id === stop.pageId) : null;
+  const page = roadTripPageForStop(stop);
   const recipe = page?.recipeIds?.map((id) => recipeByIdSafe(id)).find(Boolean);
   return recipe?.title || stop.tagline.split(",")[0];
 }
