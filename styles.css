@@ -10878,8 +10878,11 @@ body {
 .america-250-copy::after {
   content: "pull up a chair";
   color: #f6c768;
-  font-family: var(--handwritten);
-  font-size: clamp(1.25rem, 2vw, 1.8rem);
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .america-250-memory-board,
@@ -10901,9 +10904,10 @@ body {
     linear-gradient(180deg, rgba(28, 31, 24, 0.96), rgba(14, 18, 14, 0.96)),
     repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.045) 0 1px, transparent 1px 15px);
   color: #fff6dc;
-  font-family: var(--handwritten);
-  font-size: clamp(1.25rem, 2.1vw, 2rem);
-  line-height: 1.05;
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 1.75vw, 1.55rem);
+  font-weight: 800;
+  line-height: 1.12;
   transform: rotate(-2deg);
 }
 
@@ -10961,9 +10965,12 @@ body {
 .america-250-warm-reminder span {
   display: block;
   color: #b3202e;
-  font-family: var(--handwritten);
-  font-size: 1.45rem;
-  line-height: 1;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
 }
 
 .america-250-warm-reminder strong {

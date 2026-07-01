@@ -9271,17 +9271,16 @@ function america250HeroBanner() {
       </aside>
       <div class="america-250-copy">
         <p class="eyebrow">Welcome home, y'all / America 250</p>
-        <h1>Where America Comes Together</h1>
-        <p class="america-250-script-line">One recipe at a time.</p>
-        <p>Pull up to the biggest neighborhood cookout in America: burgers on the grill, cold lemonade, crab cakes, brisket, peach cobbler, boardwalk fries, and a new state to crave every day.</p>
+        <h1>Pull up a chair, y'all.</h1>
+        <p>Burgers on the grill. Lemonade on ice. A new state to taste today.</p>
         <div class="america-250-stats" aria-label="America 250 event highlights">
           <span>Daily craveable plates</span>
           <span>Summer road trip food</span>
           <span>${america250CountdownText()}</span>
         </div>
         <div class="hero-actions">
-          <a class="small-button" href="#america-250">Start Today's Journey</a>
-          <a class="small-button secondary" href="#cuisine-explorer">Explore Regional Food</a>
+          <a class="small-button" href="#america-250">What's Cookin' Today?</a>
+          <a class="small-button secondary" href="#cuisine-explorer">Find A New Favorite</a>
         </div>
         <div class="america-250-kitchen-notes" aria-label="America 250 kitchen notes">
           ${kitchenNotes.map((note) => `<span>${note}</span>`).join("")}
@@ -9289,7 +9288,7 @@ function america250HeroBanner() {
       </div>
       <figure class="america-250-photo">
         <img src="${america250Images.hero}" alt="America 250 cookout table with family-style summer food" />
-        <figcaption>America's kitchen, one plate at a time</figcaption>
+        <figcaption>Come hungry.</figcaption>
         <div class="america-250-photo-stack" aria-hidden="true">
           <img src="${america250Images.brisket}" alt="" />
           <img src="${america250Images.lemonade}" alt="" />
@@ -9331,9 +9330,8 @@ function summerCravingsSection() {
         <span class="picnic-blanket"></span>
       </div>
       <div class="section-heading">
-        <p class="eyebrow">First day of summer vacation</p>
-        <h2>Start with the food people actually want to eat.</h2>
-        <p>Cookouts, boardwalk fries, cold sides, seafood, fruit desserts, smoky mains, and plates that make somebody stop scrolling and say, "I'm making that tonight."</p>
+        <p class="eyebrow">What's cookin' today?</p>
+        <h2>Worth making tonight.</h2>
       </div>
       <div class="summer-craving-grid">
         ${summerRecipes.map((recipe, index) => `
@@ -9358,9 +9356,8 @@ function neighborhoodCookbookSection() {
   return `
     <section class="cream-section neighborhood-cookbook-section">
       <div class="section-heading">
-        <p class="eyebrow">America's Neighborhood Cookbook</p>
-        <h2>Show me what Grandma makes, what the church serves, and what the block orders on Friday night.</h2>
-        <p>Let's Cook Y'all is not a museum shelf of official state foods. It is a road trip through the plates people actually cook, crave, carry home, and pass down.</p>
+        <p class="eyebrow">Fresh from the neighborhood</p>
+        <h2>Grandma's pan. Church plates. Friday carryout.</h2>
       </div>
       <div class="neighborhood-example-grid">
         ${examples.map(([place, text]) => `
@@ -9379,9 +9376,8 @@ function america250SpotlightSection() {
   return `
     <section class="cream-section america-250-spotlight-section">
       <div class="section-heading">
-        <p class="eyebrow">Cook Through America</p>
-        <h2>Today's state spotlight starts the road trip.</h2>
-        <p>Use the daily states as a prompt: cook one recipe, learn one food story, or plan a family plate inspired by where people are traveling, gathering, and remembering this month.</p>
+        <p class="eyebrow">Today's stop</p>
+        <h2>Pick a state. Make a plate.</h2>
       </div>
       <div class="america-250-state-grid">
         ${featuredStates.map((state, index) => `
@@ -9486,9 +9482,8 @@ function america250DailyRecipeSection(recipeIds = america250DailyRecipeIds(new D
   return `
     <section class="cream-section america-250-daily-recipes">
       <div class="section-heading">
-        <p class="eyebrow">Daily Featured Recipes</p>
-        <h2>Something new for today's table.</h2>
-        <p>Come back tomorrow for a fresh rotation. The goal is not just to browse recipes; it is to travel a little farther through America's kitchens every day.</p>
+        <p class="eyebrow">Today's favorites</p>
+        <h2>Something good for the table.</h2>
       </div>
       <div class="recipe-grid">${dailyRecipes.map(recipeCard).join("")}</div>
     </section>
@@ -9505,9 +9500,8 @@ function america250FoodHistorySection() {
   return `
     <section class="gold-section america-250-history-section">
       <div class="section-heading">
-        <p class="eyebrow">Food History</p>
-        <h2>America tastes like movement, memory, and many hands at the stove.</h2>
-        <p>These are quick entry points into the stories behind the recipes, built to reward the click with real cooking context.</p>
+        <p class="eyebrow">A little backstory</p>
+        <h2>Every recipe came from somewhere.</h2>
       </div>
       <div class="academy-module-grid">
         ${stories.map(([title, href, text]) => `<a class="academy-module-card" href="${href}"><h3>${title}</h3><p>${text}</p></a>`).join("")}
@@ -9526,8 +9520,8 @@ function america250SeasonalIdeasSection() {
   return `
     <section class="cream-section america-250-seasonal-section">
       <div class="section-heading">
-        <p class="eyebrow">Seasonal Cooking Ideas</p>
-        <h2>Make the table feel lived-in, not staged.</h2>
+        <p class="eyebrow">Seasonal ideas</p>
+        <h2>Easy wins for the cookout table.</h2>
       </div>
       <div class="reunion-planner-grid">
         ${ideas.map(([title, href, text]) => `<a href="${href}"><strong>${title}</strong><span>${text}</span></a>`).join("")}
@@ -9541,8 +9535,7 @@ function kitchenTableWelcomeSection() {
     <section class="cream-section kitchen-table-welcome">
       <div class="kitchen-table-copy">
         <p class="eyebrow">Pull up a chair</p>
-        <h2>Pie cooling, tea sweating, cornbread steaming, and somebody saving you a seat.</h2>
-        <p>This kitchen should feel lived in: a recipe card on the counter, a towel over the bread, herbs by the sink, and enough food on the table for one more person to walk in hungry.</p>
+        <h2>Pie cooling. Tea sweating. Cornbread steaming.</h2>
       </div>
       <div class="kitchen-table-still-life" aria-label="Warm kitchen table details">
         <figure class="steam-note">
@@ -9568,12 +9561,11 @@ function frontPorchAmericaSection() {
     <section class="cream-section front-porch-home-section" aria-labelledby="frontPorchTitle">
       <div class="front-porch-copy">
         <p class="eyebrow">Welcome home</p>
-        <h2 id="frontPorchTitle">This is the front porch of America's kitchen.</h2>
-        <p>Not a recipe database. Not a school project. A warm place to wander, get hungry, learn a little, laugh a little, and find one more dish worth making tonight.</p>
+        <h2 id="frontPorchTitle">Found a new favorite.</h2>
         <blockquote>"There's always room for one more at the table."</blockquote>
         <div class="hero-actions">
-          <a class="small-button" href="#what-yall-cooking">Tell Me What's In Your Kitchen</a>
-          <a class="small-button secondary" href="#cuisine-explorer">Go Taste Somewhere New</a>
+          <a class="small-button" href="#what-yall-cooking">Use What You Have</a>
+          <a class="small-button secondary" href="#cuisine-explorer">Taste Somewhere New</a>
         </div>
       </div>
       <div class="front-porch-photo-wall" aria-label="Food and hospitality moments from the Let's Cook Y'all kitchen">
@@ -9599,9 +9591,8 @@ function shayHouseNotesSection() {
   return `
     <section class="gold-section shay-house-notes-section">
       <div class="section-heading compact-heading">
-        <p class="eyebrow">Little notes from the recipe box</p>
-        <h2>Every corner should feel like somebody cared enough to leave the light on.</h2>
-        <p>These small moments are the brand: hospitality, curiosity, community, and the kind of encouragement that makes people want to keep cooking.</p>
+        <p class="eyebrow">Recipe box notes</p>
+        <h2>Made with love.</h2>
       </div>
       <div class="shay-note-grid">
         ${notes.map(([text, href]) => `<a href="${href}"><span>${text}</span></a>`).join("")}
@@ -9615,9 +9606,8 @@ function homepageMarketInvitationSection() {
   return `
     <section class="cream-section homepage-market-invitation">
       <div class="section-heading">
-        <p class="eyebrow">Explore the world through food</p>
-        <h2>Walk the market, follow the smell, and click whatever makes you hungry.</h2>
-        <p>The cuisine hub is where the site starts feeling like travel: woven baskets, spice bowls, lemons, seafood, BBQ smoke, family tables, and city food windows.</p>
+        <p class="eyebrow">Cuisine market</p>
+        <h2>Follow the smell.</h2>
       </div>
       <div class="cuisine-grid">${marketStops.map(cuisineCard).join("")}</div>
       <div class="hero-actions centered-actions">
@@ -9645,14 +9635,13 @@ function renderAmerica250() {
     <section class="navy-section america-250-planning">
       <div class="section-heading">
         <p class="eyebrow">Event Features</p>
-        <h2>Make the whole month feel like a real food journey.</h2>
-        <p>Use the daily state prompts, recipe rotation, Kids Korner activities, and regional explorer to cook through America without losing the clean, mobile-friendly flow of the site.</p>
+        <h2>More to try this month.</h2>
       </div>
       <div class="academy-module-grid">
-        <a class="academy-module-card" href="#planner"><h3>Plan Today's Plate</h3><p>Turn a featured state and a cookout recipe into a real shopping list and table plan.</p></a>
+        <a class="academy-module-card" href="#planner"><h3>Plan Today's Plate</h3><p>Make a shopping list from today's picks.</p></a>
         <a class="academy-module-card" href="#america-250"><h3>Countdown</h3><p>${america250CountdownText()}.</p></a>
-        <a class="academy-module-card" href="#kids-korner"><h3>Kids Korner</h3><p>Build mini pizzas, decorate cookies, make trail mix, or help set the cookout table.</p></a>
-        <a class="academy-module-card" href="#cuisine-explorer"><h3>Regional Road Trip</h3><p>Keep moving through regional recipes, food history, ingredients, and local favorites.</p></a>
+        <a class="academy-module-card" href="#kids-korner"><h3>Kids Korner</h3><p>Little hands, simple recipes, big smiles.</p></a>
+        <a class="academy-module-card" href="#cuisine-explorer"><h3>Regional Road Trip</h3><p>Find the next stop.</p></a>
       </div>
     </section>
   `;
@@ -9691,7 +9680,7 @@ function thisMonthsTableSection() {
         `).join("")}
       </div>
       <div class="hero-actions center-actions">
-        <a class="small-button" href="#america-250">Cook Through America</a>
+        <a class="small-button" href="#america-250">Today's Table</a>
         <a class="small-button secondary" href="#hosting/cookout">Plan The Cookout Table</a>
       </div>
     </section>
