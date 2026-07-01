@@ -5563,6 +5563,7 @@ const strictCuisineIds = new Set([
   "soul-food",
   "low-country",
   "mississippi-favorites",
+  "holiday-sunday",
   "caribbean",
   "midwest",
   "chicago",
@@ -5608,6 +5609,68 @@ function recipesForCuisine(cuisineId, limit = 12) {
   if (!strictCuisineIds.has(canonical) && picked.length < Math.min(4, limit)) {
     add(publishableRecipes.filter((recipe) => recipe.ingredients?.length && (recipe.directions?.length || recipe.steps?.length)));
   }
+  return picked.slice(0, limit);
+}
+
+const holidaySundayRecipeIds = [
+  "roast-turkey",
+  "smoked-turkey",
+  "deep-fried-turkey",
+  "baked-ham",
+  "honey-glazed-ham",
+  "roast-duck",
+  "turducken",
+  "southern-cornbread-dressing",
+  "oyster-dressing",
+  "giblet-gravy",
+  "sweet-potato-casserole",
+  "green-bean-casserole",
+  "cranberry-relish",
+  "dinner-rolls",
+  "pumpkin-pie",
+  "sweet-potato-pie",
+  "southern-pecan-pie",
+  "prime-rib",
+  "standing-rib-roast",
+  "beef-tenderloin",
+  "roast-goose",
+  "eggnog",
+  "christmas-cookies",
+  "fruitcake",
+  "yule-log",
+  "holiday-punch",
+  "roast-lamb",
+  "deviled-eggs",
+  "southern-potato-salad",
+  "carrot-cake",
+  "coconut-cake",
+  "spring-vegetables",
+  "all-american-burgers",
+  "classic-cookout-hot-dogs",
+  "bbq-brisket-basics",
+  "bbq-chicken-quarters",
+  "bbq-pulled-pork",
+  "bbq-smoked-ribs",
+  "bbq-baked-beans",
+  "southern-baked-mac-cheese",
+  "creamy-coleslaw",
+  "corn-on-the-cob",
+  "cookout-watermelon-wedges",
+  "classic-apple-pie",
+  "peach-cobbler",
+  "banana-pudding",
+  "strawberry-shortcake",
+  "lemonade"
+];
+
+function holidaySundayRecipes(limit = 24) {
+  const picked = [];
+  holidaySundayRecipeIds.forEach((recipeId) => {
+    const recipe = recipeByIdSafe(recipeId);
+    if (recipe && !picked.some((item) => item.id === recipe.id) && recipeHasPublishReadyPhoto(recipe)) {
+      picked.push(recipe);
+    }
+  });
   return picked.slice(0, limit);
 }
 
@@ -12291,7 +12354,8 @@ function renderAccount() {
 function renderCuisine(id) {
   const cuisineId = canonicalCuisineId(id);
   const cuisine = cuisines.find((item) => item.id === cuisineId) || cuisines[0];
-  const cuisineRecipes = recipesForCuisine(cuisine.id, 18);
+  const isHolidaySunday = cuisine.id === "holiday-sunday";
+  const cuisineRecipes = isHolidaySunday ? holidaySundayRecipes(24) : recipesForCuisine(cuisine.id, 18);
   const education = cuisineEducationProfiles[cuisine.id] || cuisineEducationProfiles.global || {
     culture: cuisine.blurb,
     ingredients: ["salt", "acid", "fat", "heat", "fresh herbs"],
@@ -12313,8 +12377,8 @@ function renderCuisine(id) {
         <article class="academy-module-card"><h3>Menu Ideas</h3><ul>${education.menus.map((item) => `<li>${item}</li>`).join("")}</ul></article>
       </div>
       <div class="section-heading">
-        <p class="eyebrow">Cook this cuisine</p>
-        <h2>Recipe choices that belong here.</h2>
+        <p class="eyebrow">${isHolidaySunday ? "Holiday Hub" : "Cook this cuisine"}</p>
+        <h2>${isHolidaySunday ? "Turkey, ham, dressing, roasts, holiday sides, desserts, and cookout classics." : "Recipe choices that belong here."}</h2>
       </div>
       <div class="recipe-grid">${cuisineRecipes.map(recipeCard).join("")}</div>
       ${["southern", "soul-food"].includes(cuisine.id) ? livingCookbookHub() : ""}
