@@ -9295,3 +9295,262 @@ button.small-button:hover,
     transition: none;
   }
 }
+
+/* America 250 hero fix: brighter, tighter, more food-forward above the fold */
+:root {
+  --america-cream: #fff8eb;
+  --america-white: #fffef8;
+  --america-cherry: #c72436;
+  --america-navy: #102f62;
+  --america-navy-deep: #071d3d;
+  --america-gold: #f7c75b;
+}
+
+.america-250-announcement {
+  background: linear-gradient(90deg, var(--america-cherry), var(--america-white) 48%, var(--america-navy));
+  color: var(--america-navy-deep);
+}
+
+.america-250-hero {
+  min-height: min(760px, calc(100vh - 86px));
+  grid-template-columns: minmax(0, 1.04fr) minmax(300px, 0.96fr);
+  gap: clamp(16px, 3vw, 34px);
+  align-items: center;
+  padding: clamp(28px, 4.8vw, 66px) clamp(18px, 5.8vw, 92px) clamp(18px, 3.5vw, 42px);
+  color: var(--america-white);
+  background:
+    linear-gradient(180deg, rgba(255, 248, 235, 0.12), transparent 42%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.045) 0 1px, transparent 1px 18px),
+    radial-gradient(circle at 12% 18%, rgba(247, 199, 91, 0.28), transparent 18rem),
+    linear-gradient(118deg, rgba(7, 29, 61, 0.98) 0%, rgba(16, 47, 98, 0.95) 46%, rgba(199, 36, 54, 0.94) 100%),
+    var(--america-navy-deep);
+}
+
+.america-250-hero::before {
+  opacity: 0.52;
+  background:
+    linear-gradient(135deg, var(--america-cherry) 0 24%, transparent 24%) 0 0 / 34px 17px,
+    linear-gradient(225deg, var(--america-white) 0 24%, transparent 24%) 17px 0 / 34px 17px,
+    linear-gradient(135deg, var(--america-gold) 0 24%, transparent 24%) 34px 0 / 34px 17px,
+    radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.9) 0 1.5px, transparent 2px) 0 22px / 30px 30px;
+  mask-image: linear-gradient(180deg, #000 0 88px, transparent 230px);
+}
+
+.america-250-hero::after {
+  inset: auto 0 0 0;
+  width: auto;
+  height: 120px;
+  border-radius: 0;
+  filter: none;
+  opacity: 0.42;
+  background:
+    linear-gradient(90deg, rgba(199, 36, 54, 0.5), rgba(255, 248, 235, 0.08), rgba(247, 199, 91, 0.32)),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 12px);
+}
+
+.america-250-copy {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  align-content: center;
+  gap: clamp(10px, 1.8vw, 18px);
+  max-width: 880px;
+}
+
+.america-250-copy h1 {
+  max-width: 760px;
+  color: var(--america-white);
+  font-size: clamp(3.4rem, 7.6vw, 8.2rem);
+  line-height: 0.9;
+  text-shadow: 0 8px 30px rgba(3, 15, 34, 0.35);
+}
+
+.america-250-copy p:not(.eyebrow) {
+  max-width: 680px;
+  margin: 0;
+  color: rgba(255, 254, 248, 0.94);
+  font-size: clamp(1.03rem, 1.32vw, 1.22rem);
+  line-height: 1.52;
+}
+
+.america-250-hero .eyebrow {
+  width: fit-content;
+  margin: 0;
+  padding: 7px 12px;
+  border: 1px solid rgba(255, 254, 248, 0.34);
+  border-radius: 999px;
+  background: rgba(255, 248, 235, 0.14);
+  color: var(--america-gold);
+  box-shadow: inset 0 0 0 1px rgba(247, 199, 91, 0.12);
+}
+
+.america-250-copy::after {
+  content: "pull up a chair";
+  margin-top: 0;
+  color: var(--america-gold);
+}
+
+.america-250-stats,
+.america-250-state-ribbon,
+.america-250-recipe-strip {
+  gap: 8px;
+  margin-top: 0;
+}
+
+.america-250-stats span,
+.america-250-state-ribbon a {
+  min-height: 44px;
+  border-color: rgba(255, 254, 248, 0.28);
+  background: rgba(255, 254, 248, 0.13);
+  color: var(--america-white);
+  box-shadow: 0 10px 24px rgba(3, 15, 34, 0.12);
+}
+
+.america-250-kitchen-notes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.america-250-kitchen-notes span {
+  padding: 8px 11px;
+  border-radius: 999px;
+  background: rgba(255, 248, 235, 0.94);
+  color: var(--america-navy-deep);
+  font-size: 0.86rem;
+  font-weight: 900;
+  box-shadow: 0 12px 24px rgba(3, 15, 34, 0.18);
+}
+
+.america-250-photo {
+  z-index: 2;
+  border: 7px solid rgba(255, 254, 248, 0.94);
+  border-radius: 20px;
+  aspect-ratio: 1 / 0.86;
+  transform: rotate(1.25deg);
+  box-shadow:
+    0 28px 64px rgba(3, 15, 34, 0.36),
+    -18px 18px 0 rgba(247, 199, 91, 0.42);
+}
+
+.america-250-photo::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  z-index: 2;
+  border: 1px solid rgba(255, 254, 248, 0.55);
+  border-radius: 14px;
+  pointer-events: none;
+}
+
+.america-250-photo figcaption {
+  z-index: 4;
+  right: 12px;
+  bottom: 12px;
+  background: var(--america-white);
+  color: var(--america-cherry);
+  box-shadow: 0 12px 24px rgba(3, 15, 34, 0.2);
+}
+
+.america-250-photo-stack {
+  position: absolute;
+  left: -22px;
+  right: 16px;
+  bottom: -20px;
+  z-index: 3;
+  display: flex;
+  align-items: end;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.america-250-photo-stack img {
+  width: clamp(64px, 8vw, 112px);
+  height: clamp(64px, 8vw, 112px);
+  border: 5px solid var(--america-white);
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 16px 34px rgba(3, 15, 34, 0.32);
+}
+
+.america-250-photo-stack img:nth-child(2) {
+  transform: translateY(-16px) rotate(-5deg);
+}
+
+.america-250-photo-stack img:nth-child(3) {
+  margin-left: auto;
+  transform: translateY(-8px) rotate(5deg);
+}
+
+.america-250-state-ribbon {
+  position: relative;
+  z-index: 2;
+}
+
+.america-250-recipe-strip {
+  position: relative;
+  z-index: 2;
+  align-items: center;
+}
+
+.america-250-recipe-strip a {
+  width: min(205px, 100%);
+  min-height: 68px;
+  background: rgba(255, 254, 248, 0.97);
+  color: var(--america-navy-deep);
+  box-shadow: 0 16px 34px rgba(3, 15, 34, 0.18);
+}
+
+.america-250-recipe-strip img {
+  border: 2px solid rgba(199, 36, 54, 0.22);
+}
+
+.america-250-fireworks span {
+  opacity: 0.34;
+  background:
+    radial-gradient(circle, var(--america-white) 0 2px, transparent 3px),
+    conic-gradient(from 0deg, transparent, rgba(247, 199, 91, 0.95), transparent, rgba(255, 254, 248, 0.72), transparent, rgba(199, 36, 54, 0.78), transparent);
+}
+
+.america-250-fireworks span:nth-child(1) { top: 7%; right: 7%; }
+.america-250-fireworks span:nth-child(2) { top: 47%; left: 3%; }
+.america-250-fireworks span:nth-child(3) { bottom: 9%; right: 33%; }
+
+@media (max-width: 900px) {
+  .america-250-hero {
+    min-height: 0;
+    grid-template-columns: 1fr;
+    padding-top: 34px;
+  }
+
+  .america-250-photo {
+    transform: none;
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (max-width: 620px) {
+  .america-250-hero {
+    padding-inline: 16px;
+    padding-bottom: 22px;
+  }
+
+  .america-250-copy {
+    gap: 10px;
+  }
+
+  .america-250-copy h1 {
+    font-size: clamp(3.05rem, 15vw, 4.6rem);
+  }
+
+  .america-250-photo-stack {
+    left: 8px;
+    bottom: -12px;
+  }
+
+  .america-250-photo-stack img {
+    width: 62px;
+    height: 62px;
+    border-width: 3px;
+  }
+}

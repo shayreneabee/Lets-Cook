@@ -8352,6 +8352,7 @@ function monthlySpotlightBanner() {
 function america250HeroBanner() {
   const featuredStates = america250FeaturedStates();
   const topRecipes = america250DailyRecipeIds(new Date(), 5).map(recipeByIdSafe).filter(Boolean);
+  const kitchenNotes = monthlySpotlight.gatheringNotes.slice(0, 3);
   return `
     <section class="america-250-hero">
       <div class="america-250-fireworks" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -8368,10 +8369,18 @@ function america250HeroBanner() {
           <a class="small-button" href="#america-250">Start Today's Journey</a>
           <a class="small-button secondary" href="#cuisine-explorer">Explore Regional Food</a>
         </div>
+        <div class="america-250-kitchen-notes" aria-label="America 250 kitchen notes">
+          ${kitchenNotes.map((note) => `<span>${note}</span>`).join("")}
+        </div>
       </div>
       <figure class="america-250-photo">
         <img src="${america250Images.hero}" alt="America 250 cookout table with family-style summer food" />
         <figcaption>America's kitchen, one plate at a time</figcaption>
+        <div class="america-250-photo-stack" aria-hidden="true">
+          <img src="${america250Images.brisket}" alt="" />
+          <img src="${america250Images.lemonade}" alt="" />
+          <img src="${america250Images.badge}" alt="" />
+        </div>
       </figure>
       <div class="america-250-state-ribbon" aria-label="Featured states">
         ${featuredStates.map((state, index) => `<a href="${america250StateHref(state)}"><strong>Day ${america250DisplayDay(index)}</strong>${state}</a>`).join("")}
