@@ -6306,8 +6306,8 @@ const america250StateNotes = {
   Texas: "Brisket, beef ribs, chili, kolaches, breakfast tacos, and smokehouse patience."
 };
 
-function america250DailyRecipeIds(date = new Date(), count = 4) {
-  const start = (america250DayNumber(date) - 1) % america250RecipeIds.length;
+function america250DailyRecipeIds(date = new Date(), count = 4, offset = 0) {
+  const start = (america250DayNumber(date) - 1 + offset) % america250RecipeIds.length;
   return Array.from({ length: count }, (_, index) => america250RecipeIds[(start + index) % america250RecipeIds.length]);
 }
 
@@ -8426,8 +8426,9 @@ function america250ChallengeBanner() {
   `;
 }
 
-function america250CollectionSection(limit = 16) {
-  const collection = america250RecipeIds.map(recipeByIdSafe).filter(Boolean).slice(0, limit);
+function america250CollectionSection(limit = 16, excludeIds = []) {
+  const excluded = new Set(excludeIds);
+  const collection = america250RecipeIds.filter((id) => !excluded.has(id)).map(recipeByIdSafe).filter(Boolean).slice(0, limit);
   return `
     <section class="cream-section america-250-collection">
       <div class="section-heading">
@@ -8439,8 +8440,67 @@ function america250CollectionSection(limit = 16) {
   `;
 }
 
-function america250DailyRecipeSection() {
-  const dailyRecipes = america250DailyRecipeIds(new Date(), 4).map(recipeByIdSafe).filter(Boolean);
+function aroundAmericaTableSection() {
+  const tableStops = [
+    {
+      title: "Mississippi Soul Food",
+      kicker: "Church Supper Classic",
+      text: "Catfish, greens, cornbread, tamales, barbecue, and family reunion plates with a Delta heartbeat.",
+      image: "images/regional/mississippi/fish-fry-plate.jpg",
+      href: "#cuisine-explorer/mississippi"
+    },
+    {
+      title: "Texas BBQ",
+      kicker: "Smokehouse Road Trip",
+      text: "Brisket, beef ribs, chili, breakfast tacos, kolaches, and the patience that turns smoke into supper.",
+      image: "images/juneteenth/smoked-sliced-brisket.png",
+      href: "#cuisine-explorer/texas-southwest"
+    },
+    {
+      title: "Maryland Crab Cakes",
+      kicker: "Coastal Table",
+      text: "Blue crabs, crab cakes, crab soup, boardwalk fries, and seafood traditions built around summer water.",
+      image: "images/recipes/mid-atlantic-2026/maryland-crab-cakes.jpg",
+      href: "#cuisine-explorer/maryland-mid-atlantic"
+    },
+    {
+      title: "Maine Lobster Rolls",
+      kicker: "New England Shore",
+      text: "Cold-water seafood, blueberry pie, chowder, maple, diners, and weathered coastal comfort.",
+      image: "images/recipes/new-england-2026/maine-lobster-roll.jpg",
+      href: "#cuisine-explorer/new-england"
+    },
+    {
+      title: "California Fish Tacos",
+      kicker: "Pacific Summer",
+      text: "Citrus, avocado, seafood, farm markets, immigrant foodways, and sunny plates that taste like travel.",
+      image: "images/recipes/audit-2026-06/swordfish-tacos.jpg",
+      href: "#cuisine-explorer/california"
+    }
+  ];
+  return `
+    <section class="cream-section around-america-table">
+      <div class="section-heading">
+        <p class="eyebrow">Around America's Table</p>
+        <h2>Pick a plate and start the road trip.</h2>
+        <p>Every card has a job: send you somewhere delicious, teach a little food geography, and make the next click feel worth it.</p>
+      </div>
+      <div class="america-table-grid">
+        ${tableStops.map((stop) => `
+          <a class="america-table-card" href="${stop.href}">
+            <img src="${stop.image}" alt="${stop.title}" />
+            <span>${stop.kicker}</span>
+            <h3>${stop.title}</h3>
+            <p>${stop.text}</p>
+          </a>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function america250DailyRecipeSection(recipeIds = america250DailyRecipeIds(new Date(), 4)) {
+  const dailyRecipes = recipeIds.map(recipeByIdSafe).filter(Boolean);
   return `
     <section class="cream-section america-250-daily-recipes">
       <div class="section-heading">
@@ -8812,15 +8872,16 @@ function renderLetsCookHome() {
   const kidPick = recipeById("pb-and-j-sandwich") || publishableRecipes.find((recipe) => recipe.skill_level === "Kid Chef");
   const southernClassic = recipeById("oxtails") || publishableRecipes.find((recipe) => recipe.cuisine === "southern");
   const globalFlavor = recipeById("chicken-street-tacos") || publishableRecipes.find((recipe) => recipe.cuisine !== "southern");
-  const heroImages = Array.from({ length: 10 }, (_, index) => photoFor("hero", "family", index, "assets/cooking-family.jpeg"));
+  const heroRecipeIds = america250DailyRecipeIds(new Date(), 5);
+  const dailyRecipeIds = america250DailyRecipeIds(new Date(), 4, 5);
   app.innerHTML = `
     ${america250HeroBanner()}
     ${cookSubnav()}
     ${kitchenTableWelcomeSection()}
     ${america250ChallengeBanner()}
     ${america250SpotlightSection()}
-    ${america250DailyRecipeSection()}
-    ${america250CollectionSection(8)}
+    ${america250DailyRecipeSection(dailyRecipeIds)}
+    ${america250CollectionSection(8, [...heroRecipeIds, ...dailyRecipeIds])}
     <section class="cream-section kitchen-flagship-intro">
       ${kitchenToolSwitcher()}
     </section>
@@ -8830,13 +8891,7 @@ function renderLetsCookHome() {
     ${america250FoodHistorySection()}
     ${america250SeasonalIdeasSection()}
     ${pullUpAChairSection()}
-    <section class="cream-section homepage-photo-strip">
-      <div class="section-heading compact-heading">
-        <p class="eyebrow">Learn by looking, tasting, and doing</p>
-        <h2>Real meals, real technique, real confidence.</h2>
-      </div>
-      <div class="hero-photo-grid">${heroImages.slice(0, 6).map((image, index) => `<figure><img src="${image}" alt="Let's Cook Y'all kitchen moment ${index + 1}" /></figure>`).join("")}</div>
-    </section>
+    ${aroundAmericaTableSection()}
     ${comingUpNextSection()}
     ${learningArchitectureSection()}
     <section class="cream-section">
