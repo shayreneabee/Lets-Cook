@@ -290,10 +290,10 @@ const westernCoverImages = {
   montana: "images/recipes/audit-2026-06/nebraska-steak.jpg",
   wyoming: "images/recipes/audit-2026-06/kansas-chicken-fried-steak.jpg",
   nevada: "assets/fresh-bread.jpeg",
-  california: "images/recipes/mid-atlantic-2026/new-york-pizza.jpg",
-  "northern-california": "images/recipes/audit-2026-06/grilled-swordfish-lemon-herb.jpg",
-  "central-california": "images/recipes/audit-2026-06/beef-tacos.jpg",
-  "southern-california": "images/recipes/audit-2026-06/birria-style-tacos.jpg",
+  california: "images/recipes/audit-2026-06/swordfish-tacos.jpg",
+  "northern-california": "images/recipes/audit-2026-06/florida-blue-crab.jpg",
+  "central-california": "images/recipes/audit-2026-06/nebraska-steak.jpg",
+  "southern-california": "images/recipes/audit-2026-06/swordfish-tacos.jpg",
   "alaska-hawaii": "images/recipes/audit-2026-06/grilled-swordfish-lemon-herb.jpg",
   alaska: "images/recipes/audit-2026-06/blackened-fish.jpg",
   hawaii: "images/recipes/audit-2026-06/pineapple-fried-rice.jpg"
@@ -4618,6 +4618,10 @@ midAtlanticExpansionRecipes.forEach((recipe) => {
   recipeImageOverrides[recipe.id] = recipe.image || `images/recipes/mid-atlantic-2026/${recipe.id}.jpg`;
 });
 
+westernExpansionRecipes.forEach((recipe) => {
+  recipeImageOverrides[recipe.id] = recipe.image || westernCoverImages[recipe.cuisine] || westernCoverImages["pacific-northwest"];
+});
+
 const broadRecipeImageIds = [
   "pb-and-j-sandwich", "pbj-roll-ups", "mini-pizza-bagels", "mini-pizza-faces",
   "cheese-quesadilla-triangles", "english-muffin-pizzas", "tailgate-cups", "fruit-kabobs",
@@ -4665,7 +4669,20 @@ Object.assign(recipeImageOverrides, {
   "shrimp-and-grits": "images/recipes/audit-2026-06/shrimp-and-grits.jpg",
   "southern-shrimp-and-grits": "images/recipes/audit-2026-06/southern-shrimp-and-grits.jpg",
   "fried-chicken": "images/recipes/audit-2026-06/fried-chicken.jpg",
+  "southern-fried-chicken": "images/recipes/audit-2026-06/fried-chicken.jpg",
   "southern-crispy-fried-chicken": "images/recipes/audit-2026-06/southern-crispy-fried-chicken.jpg",
+  "harolds-style-fried-chicken": "images/recipes/audit-2026-06/harolds-style-fried-chicken.jpg",
+  "nashville-hot-chicken": "images/recipes/audit-2026-06/nashville-hot-chicken.jpg",
+  "san-francisco-cioppino": "images/recipes/audit-2026-06/florida-blue-crab.jpg",
+  "mission-burritos": "assets/lc-birria-tacos.jpg",
+  "california-sourdough-toast": "assets/fresh-bread.jpeg",
+  "santa-maria-tri-tip": "images/recipes/audit-2026-06/nebraska-steak.jpg",
+  "central-valley-fruit-salad": "assets/ingredients.jpeg",
+  "california-artichokes": "assets/ingredients.jpeg",
+  "san-diego-fish-tacos": "images/recipes/audit-2026-06/swordfish-tacos.jpg",
+  "california-burritos": "assets/lc-birria-tacos.jpg",
+  "korean-bbq-tacos": "images/recipes/audit-2026-06/beef-tacos.jpg",
+  "kids-fruit-rainbow-plates": "assets/ingredients.jpeg",
   "carolina-hush-puppies": "images/recipes/audit-2026-06/carolina-hush-puppies.jpg",
   "white-perch-fry": "images/recipes/audit-2026-06/white-perch-fry.jpg",
   "alabama-pulled-pork-sandwiches": "images/recipes/audit-2026-06/alabama-pulled-pork-sandwiches.jpg",
@@ -6226,7 +6243,7 @@ const regionalSoulFoodPages = {
   "georgia-soul-food": {
     state: "Georgia",
     title: "Georgia Soul Food",
-    image: cuisineCoverImages.southern,
+    image: "images/recipes/audit-2026-06/georgia-brunswick-stew.jpg",
     intro: "Georgia soul food is peach country, church suppers, coastal rice, backyard smoke, fried chicken, greens, and dessert plates people remember.",
     history: "Georgia food carries Black farming traditions, coastal Gullah Geechee influence, city soul food, and family tables built around seasonal produce.",
     hospitality: "The plate is balanced with fried or smoked meat, greens, cornbread, fruit desserts, tea, and a welcome that does not rush people away.",
