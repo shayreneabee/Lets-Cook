@@ -7674,6 +7674,98 @@ function regionalCravingSection(page, options = {}) {
   `;
 }
 
+const neighborhoodFavoriteSeeds = {
+  "mississippi-soul-food": [
+    ["Fish Fry Fridays", "Catfish, spaghetti, hot-water cornbread, slaw, sauce, and a cold drink after work or church."],
+    ["Delta Gas Station Snacks", "Kool-Aid pickles, hot sausage sandwiches, pork skins, Moon Pies, and whatever is hot behind the counter."],
+    ["Church Dinner Pans", "Chicken and dressing, baked beans, potato salad, greens, cobbler, and tea made for a crowd."],
+    ["Delta Tamales", "Small, spicy tamales served with crackers, hot sauce, chili, or slaw."]
+  ],
+  "chicago-midwest": [
+    ["South Side Counter Plate", "Harold's-style fried chicken, mild sauce, fries, white bread, and hot sauce."],
+    ["Neighborhood Sandwich Run", "Italian beef, jibaritos, Maxwell Street Polish, pork chop sandwiches, and pizza puffs."],
+    ["Friday Night Wings", "Lemon pepper wings, rib tips, mild sauce, and a stack of napkins."],
+    ["Sweet Stop", "Caramel-cheese popcorn mix, rainbow cone, Italian ice, and bakery treats."]
+  ],
+  "new-york-mid-atlantic": [
+    ["Bodega Classics", "Chopped cheese, bacon-egg-and-cheese energy, hot coffee, and a bag of chips."],
+    ["Immigrant City Plates", "Jamaican patties, Dominican plates, Puerto Rican comfort, halal platters, and neighborhood bakery sweets."],
+    ["Deli Counter", "Pastrami on rye, pickles, bagels, cheesecake, and black-and-white cookies."],
+    ["Slice Run", "Foldable pizza, garlic knots, soda, and a walk home with the box still hot."]
+  ],
+  "washington-dc-mid-atlantic": [
+    ["D.C. Carryout", "Mumbo sauce, wings, fries, half-smokes, chili dogs, and late-night jumbo slices."],
+    ["Ethiopian Table", "Doro wat, injera, lentils, greens, and shared platters with real community roots."],
+    ["Salvadoran Favorites", "Pupusas, curtido, salsa roja, tamales, and neighborhood bakery stops."],
+    ["Caribbean D.C.", "Jerk, patties, rice and peas, plantains, and carryout plates people crave."]
+  ],
+  "delaware-mid-atlantic": [
+    ["Beach Lunch", "Boardwalk fries, crab bisque, seafood baskets, lemonade, and peach pie."],
+    ["Church Supper", "Chicken and slippery dumplings, succotash, scrapple, and dessert pans."],
+    ["Summer Seafood", "Blue crab, bisque, crab cakes, fries, and cold drinks after the beach."],
+    ["Orchard Dessert Table", "Peach pie, cobbler, ice cream, and fruit desserts that taste like July."]
+  ],
+  "texas-soul-food": [
+    ["Juneteenth Cookout", "Brisket, BBQ chicken, red drinks, watermelon, beans, cornbread, and red velvet cake."],
+    ["Pitmaster Tray", "Brisket, beef ribs, sausage, pickles, onions, bread, and sauce."],
+    ["Weekday Texas", "Breakfast tacos, Frito pie, chili, barbacoa, King Ranch chicken, and kolaches."],
+    ["Cafe Plate", "Chicken fried steak, cream gravy, pinto beans, and pie."]
+  ],
+  "texas-southwest": [
+    ["Pitmaster Tray", "Brisket, beef ribs, sausage, pickles, onions, bread, and sauce."],
+    ["Weekday Texas", "Breakfast tacos, Frito pie, chili, barbacoa, King Ranch chicken, and kolaches."],
+    ["Juneteenth Cookout", "Brisket, BBQ chicken, red drinks, watermelon, beans, cornbread, and red velvet cake."],
+    ["Cafe Plate", "Chicken fried steak, cream gravy, pinto beans, and pie."]
+  ],
+  "southern-california-california": [
+    ["Beach Taco Table", "Fish tacos, slaw, avocado, citrus, salsa, and cold lemonade."],
+    ["LA Counter Plate", "Korean BBQ tacos, California burritos, fruit carts, and salsa-heavy plates."],
+    ["Family Cookout", "Tri-tip, tortillas, beans, salad, fruit, and paletas."],
+    ["Food Truck Night", "Tacos, burritos, fusion plates, grilled meats, and fresh fruit drinks."]
+  ],
+  "hawaii-alaska-hawaii": [
+    ["Plate Lunch", "Kalua pork, rice, macaroni salad, gravy, and fruit."],
+    ["Snack Table", "Spam musubi, poke cups, haupia, and cold drinks."],
+    ["Local Breakfast", "Loco moco, rice, eggs, gravy, and coffee."],
+    ["Family Gathering", "Poke, pork, rice, tropical fruit, and dessert shared generously."]
+  ]
+};
+
+function neighborhoodFavoritesFor(page, id = "") {
+  const seeded = neighborhoodFavoriteSeeds[id];
+  if (seeded?.length) return seeded;
+  const featureFavorites = (page.features || []).map(([title, text]) => [title, text]);
+  const recipeFavorites = (page.signatureRecipeIds || [])
+    .map((recipeId) => recipeByIdSafe(recipeId, { allowQueued: true }))
+    .filter(Boolean)
+    .slice(0, 4)
+    .map((recipe) => [recipe.title, recipe.description || `${recipe.title} is one of the plates locals would point you toward first.`]);
+  return [...featureFavorites, ...recipeFavorites].slice(0, 6);
+}
+
+function neighborhoodFavoritesSection(page, id = "") {
+  const favorites = neighborhoodFavoritesFor(page, id);
+  if (!favorites.length) return "";
+  return `
+    <section class="neighborhood-favorites-panel">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Neighborhood Favorites</p>
+        <h2>What locals would tell you to try first.</h2>
+        <p>Not just official state foods. These are the church plates, carryout orders, family reunion pans, food-truck bites, beach snacks, and counter favorites people actually remember.</p>
+      </div>
+      <div class="neighborhood-favorites-grid">
+        ${favorites.map(([title, text]) => `
+          <article>
+            <span>What y'all cookin'?</span>
+            <h3>${title}</h3>
+            <p>${text}</p>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderMidwestRegionalPage(id) {
   const page = midwestRegionalPages[id] || midwestRegionalPages["chicago-midwest"];
   const firstMenu = page.menus[0];
@@ -7686,6 +7778,7 @@ function renderMidwestRegionalPage(id) {
         <h2>Food identity, local history, gatherings, fair food, holidays, and recipes that belong to this place.</h2>
       </div>
       ${regionalCravingSection(page)}
+      ${neighborhoodFavoritesSection(page, id)}
       <div class="regional-identity-grid">
         <article><h3>Food Identity</h3><p>${page.intro}</p></article>
         <article><h3>Regional History</h3><p>${page.history}</p></article>
@@ -7745,6 +7838,7 @@ function renderNewEnglandRegionalPage(id) {
         <h2>Food identity, local history, shore food, orchards, bakeries, diners, family suppers, and recipes that belong to this place.</h2>
       </div>
       ${regionalCravingSection(page, queuedPhotoOptions)}
+      ${neighborhoodFavoritesSection(page, id)}
       <div class="regional-identity-grid">
         <article><h3>Food Identity</h3><p>${page.intro}</p></article>
         <article><h3>Regional History</h3><p>${page.history}</p></article>
@@ -7803,6 +7897,7 @@ function renderSouthwestRegionalPage(id) {
         <h2>Food identity, history, facts, signature ingredients, recipes, and gatherings that belong to this place.</h2>
       </div>
       ${regionalCravingSection(page)}
+      ${neighborhoodFavoritesSection(page, id)}
       <div class="regional-identity-grid">
         <article><h3>State Overview</h3><p>${page.intro}</p></article>
         <article><h3>Food History</h3><p>${page.history}</p></article>
@@ -7873,6 +7968,7 @@ function renderMidAtlanticRegionalPage(id) {
         <h2>Food identity, history, facts, signature ingredients, recipes, and gatherings that belong to this place.</h2>
       </div>
       ${regionalCravingSection(page)}
+      ${neighborhoodFavoritesSection(page, id)}
       <div class="regional-identity-grid">
         <article><h3>State Overview</h3><p>${page.intro}</p></article>
         <article><h3>Food History</h3><p>${page.history}</p></article>
@@ -7950,6 +8046,7 @@ function renderWesternRegionalPage(id) {
         <h2>State overview, food history, facts, signature ingredients, authentic recipes, and kids activities that belong to this place.</h2>
       </div>
       ${regionalCravingSection(page)}
+      ${neighborhoodFavoritesSection(page, id)}
       <div class="regional-identity-grid">
         <article><h3>State Overview</h3><p>${page.intro}</p></article>
         <article><h3>Food History</h3><p>${page.history}</p></article>
@@ -8323,6 +8420,7 @@ function renderRegionalSoulFoodPage(id) {
         <h2>Food, history, hospitality, music, and recipes that belong together.</h2>
       </div>
       ${regionalCravingSection(page)}
+      ${neighborhoodFavoritesSection(page, id)}
       <div class="regional-identity-grid">
         <article><h3>Food Identity</h3><p>${page.intro}</p></article>
         <article><h3>Cultural Background</h3><p>${page.history}</p></article>
@@ -8491,6 +8589,32 @@ function summerCravingsSection() {
             <span>${["Grill it", "Pile it up", "Serve it cold", "Bring dessert"][index % 4]}</span>
             <h3>${recipe.title}</h3>
           </a>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function neighborhoodCookbookSection() {
+  const examples = [
+    ["Mississippi", "Catfish and spaghetti, Delta tamales, Kool-Aid pickles, fish fry Fridays, and church dinner pans."],
+    ["Chicago", "Jibaritos, mild sauce, Harold's-style fried chicken, pizza puffs, Italian beef, and South Side BBQ."],
+    ["D.C.", "Mumbo sauce, half-smokes, carryout wings, Ethiopian plates, Salvadoran pupusas, and Caribbean food."],
+    ["New York", "Chopped cheese, Jamaican patties, Dominican plates, Puerto Rican comfort, Jewish deli classics, and halal carts."]
+  ];
+  return `
+    <section class="cream-section neighborhood-cookbook-section">
+      <div class="section-heading">
+        <p class="eyebrow">America's Neighborhood Cookbook</p>
+        <h2>Show me what Grandma makes, what the church serves, and what the block orders on Friday night.</h2>
+        <p>Let's Cook Y'all is not a museum shelf of official state foods. It is a road trip through the plates people actually cook, crave, carry home, and pass down.</p>
+      </div>
+      <div class="neighborhood-example-grid">
+        ${examples.map(([place, text]) => `
+          <article>
+            <span>${place}</span>
+            <p>${text}</p>
+          </article>
         `).join("")}
       </div>
     </section>
@@ -8690,6 +8814,7 @@ function renderAmerica250() {
     ${america250HeroBanner()}
     ${cookSubnav()}
     ${summerCravingsSection()}
+    ${neighborhoodCookbookSection()}
     ${kitchenTableWelcomeSection()}
     ${america250ChallengeBanner()}
     ${america250SpotlightSection()}
@@ -9639,13 +9764,13 @@ function renderCuisineExplorer(id) {
   if (id && africaCountryPages[id]) return renderAfricaCountryPage(id);
   if (id) return renderCuisineExplorerDetail(id);
   app.innerHTML = `
-    ${hero("Cuisine Explorer", "A culinary rolodex for food culture, regional flavor, ingredients, traditions, and the way meals connect across the world.", cuisineCoverImages.indian, `<a class="small-button" href="#culinary-academy">Open Culinary Academy</a><a class="small-button secondary" href="#what-yall-cooking">Build A Menu</a>`)}
+    ${hero("Cuisine Explorer", "Find what people actually cook: neighborhood favorites, family tables, carryout cravings, church pans, food trucks, cookouts, and dishes locals swear by.", cuisineCoverImages.indian, `<a class="small-button" href="#culinary-academy">Open Culinary Academy</a><a class="small-button secondary" href="#what-yall-cooking">Build A Menu</a>`)}
     ${cookSubnav()}
     <section class="cream-section">
       <div class="section-heading">
-        <p class="eyebrow">Cuisine rolodex</p>
-        <h2>Explore regions, countries, traditions, and flavor systems.</h2>
-        <p>Choose a region to learn its ingredients, table traditions, beginner dishes, cooking techniques, and menus that make sense together.</p>
+        <p class="eyebrow">America's neighborhood cookbook</p>
+        <h2>Choose a place and ask, "What are y'all cookin'?"</h2>
+        <p>Start with the plates people crave, then learn the ingredients, traditions, techniques, and stories that make those meals belong.</p>
       </div>
       <div class="cuisine-rolodex">
         ${cuisineExplorerGroups.map((group) => `
