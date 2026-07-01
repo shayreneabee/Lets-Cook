@@ -6024,10 +6024,10 @@ const pantryIngredientCategories = {
   Proteins: ["chicken", "chicken thighs", "chicken breast", "ground beef", "beef", "steak", "pork chops", "pork shoulder", "ground pork", "turkey", "ground turkey", "sausage", "hot dogs", "bacon", "ham", "spam", "duck", "shrimp", "salmon", "tuna", "catfish", "tilapia", "cod", "crab", "canned tuna", "eggs", "tofu", "tempeh", "black beans", "pinto beans", "kidney beans", "chickpeas", "lentils"],
   Vegetables: ["corn", "cabbage", "broccoli", "spinach", "kale", "collard greens", "turnip greens", "mustard greens", "onion", "red onion", "green onion", "bell pepper", "jalapeno", "poblano", "mushrooms", "bean sprouts", "carrots", "celery", "squash", "zucchini", "okra", "green beans", "peas", "sweet peas", "lettuce", "cucumber", "tomatoes", "cherry tomatoes", "canned tomatoes", "tomato paste", "sweet potatoes", "potatoes", "russet potatoes", "red potatoes"],
   Fruits: ["apples", "bananas", "pineapple", "peaches", "lemons", "limes", "strawberries", "blueberries", "blackberries", "raspberries", "grapes", "oranges", "mangoes", "watermelon", "cantaloupe", "pears", "cranberries", "avocados"],
-  "Grains & Starches": ["rice", "white rice", "brown rice", "jasmine rice", "leftover rice", "pasta", "spaghetti", "macaroni", "ramen", "noodles", "grits", "oats", "potatoes", "sweet potatoes", "tortillas", "corn tortillas", "flour tortillas", "bread", "buns", "biscuits", "cornbread mix", "stuffing mix", "flour", "cornmeal", "masa harina", "crackers", "breadcrumbs"],
+  "Grains & Starches": ["rice", "white rice", "brown rice", "jasmine rice", "leftover rice", "pasta", "spaghetti", "macaroni", "ramen", "noodles", "mac and cheese", "grits", "oats", "potatoes", "instant mashed potatoes", "hash browns", "pancake mix", "sweet potatoes", "tortillas", "corn tortillas", "flour tortillas", "bread", "buns", "biscuits", "cornbread mix", "stuffing mix", "flour", "cornmeal", "masa harina", "crackers", "breadcrumbs"],
   Dairy: ["milk", "butter", "cheese", "cheddar", "mozzarella", "cream cheese", "sour cream", "yogurt", "heavy cream", "half and half", "buttermilk", "parmesan", "evaporated milk", "condensed milk"],
-  "Pantry Staples": ["sugar", "brown sugar", "powdered sugar", "baking powder", "baking soda", "yeast", "chicken broth", "beef broth", "vegetable broth", "canned vegetables", "canned corn", "canned fruit", "canned beans", "peanut butter", "jelly", "oil", "olive oil", "vegetable oil", "vinegar", "apple cider vinegar", "hot sauce", "bbq sauce", "ketchup", "mustard", "mayonnaise", "soy sauce", "worcestershire sauce", "honey", "maple syrup", "vanilla", "cocoa powder"],
-  "Spices & Herbs": ["salt", "black pepper", "garlic powder", "onion powder", "paprika", "smoked paprika", "cumin", "chile powder", "cayenne", "creole seasoning", "old bay", "italian seasoning", "mexican oregano", "oregano", "thyme", "rosemary", "bay leaves", "cinnamon", "nutmeg", "ginger", "cilantro", "parsley", "basil", "dill"],
+  "Pantry Staples": ["sugar", "brown sugar", "powdered sugar", "baking powder", "baking soda", "yeast", "chicken broth", "beef broth", "vegetable broth", "canned vegetables", "canned corn", "canned fruit", "canned beans", "canned tomatoes and chiles", "canned soup", "cream of mushroom soup", "cream of chicken soup", "peanut butter", "jelly", "oil", "olive oil", "vegetable oil", "vinegar", "apple cider vinegar", "hot sauce", "bbq sauce", "ketchup", "mustard", "mayonnaise", "soy sauce", "worcestershire sauce", "honey", "maple syrup", "vanilla", "cocoa powder", "cake mix", "brownie mix", "gravy mix", "seasoning mix"],
+  "Spices & Herbs": ["salt", "black pepper", "garlic powder", "onion powder", "paprika", "smoked paprika", "cumin", "chile powder", "cayenne", "creole seasoning", "old bay", "italian seasoning", "taco seasoning", "ranch seasoning", "onion soup mix", "mexican oregano", "oregano", "thyme", "rosemary", "bay leaves", "cinnamon", "nutmeg", "ginger", "cilantro", "parsley", "basil", "dill"],
   "International Ingredients": ["kimchi", "curry paste", "red curry paste", "green curry paste", "coconut milk", "plantains", "yuca", "gochujang", "fish sauce", "miso", "tahini", "hoisin sauce", "oyster sauce", "sesame oil", "rice vinegar", "salsa", "salsa verde", "chipotle", "guajillo", "ancho chiles", "adobo", "harissa", "za'atar", "garam masala", "turmeric", "curry powder"]
 };
 
@@ -6051,6 +6051,47 @@ const pantryScanModes = {
   }
 };
 
+const pantryPackagedItemRules = [
+  { terms: ["hungry jack"], excludes: ["hash"], ingredient: "pancake mix", label: "Hungry Jack box" },
+  { terms: ["hungry jack", "pancake"], ingredient: "pancake mix", label: "Hungry Jack pancake box" },
+  { terms: ["hungry jack", "hash"], ingredient: "hash browns", label: "Hungry Jack hashbrown box" },
+  { terms: ["idahoan"], ingredient: "instant mashed potatoes", label: "Idahoan pack" },
+  { terms: ["kraft"], ingredient: "mac and cheese", label: "Kraft box" },
+  { terms: ["kraft", "mac"], ingredient: "mac and cheese", label: "Kraft mac and cheese box" },
+  { terms: ["kraft", "cheese"], ingredient: "mac and cheese", label: "Kraft dinner box" },
+  { terms: ["jiffy"], ingredient: "cornbread mix", label: "Jiffy box" },
+  { terms: ["rotel"], ingredient: "canned tomatoes and chiles", label: "Rotel can" },
+  { terms: ["goya", "can"], ingredient: "beans", label: "Goya can" },
+  { terms: ["goya", "seasoning"], ingredient: "seasoning mix", label: "Goya seasoning" },
+  { terms: ["goya", "beans"], ingredient: "beans", label: "Goya beans can" },
+  { terms: ["goya", "black"], ingredient: "black beans", label: "Goya black beans can" },
+  { terms: ["goya", "pinto"], ingredient: "pinto beans", label: "Goya pinto beans can" },
+  { terms: ["goya", "coconut"], ingredient: "coconut milk", label: "Goya coconut milk can" },
+  { terms: ["goya", "adobo"], ingredient: "adobo", label: "Goya adobo seasoning" },
+  { terms: ["spam"], ingredient: "spam", label: "Spam can" },
+  { terms: ["stovetop"], ingredient: "stuffing mix", label: "Stove Top box" },
+  { terms: ["stove top"], ingredient: "stuffing mix", label: "Stove Top box" },
+  { terms: ["mccormick", "taco"], ingredient: "taco seasoning", label: "McCormick taco seasoning packet" },
+  { terms: ["mccormick", "gravy"], ingredient: "gravy mix", label: "McCormick gravy packet" },
+  { terms: ["mccormick"], ingredient: "seasoning mix", label: "McCormick seasoning packet" },
+  { terms: ["lipton", "onion"], ingredient: "onion soup mix", label: "Lipton onion soup mix" },
+  { terms: ["hidden valley"], ingredient: "ranch seasoning", label: "Hidden Valley ranch packet" },
+  { terms: ["bisquick"], ingredient: "pancake mix", label: "Bisquick box" },
+  { terms: ["betty crocker", "cake"], ingredient: "cake mix", label: "Betty Crocker cake mix" },
+  { terms: ["duncan hines", "cake"], ingredient: "cake mix", label: "Duncan Hines cake mix" },
+  { terms: ["brownie mix"], ingredient: "brownie mix", label: "Brownie mix box" },
+  { terms: ["hamburger helper"], ingredient: "pasta", label: "Hamburger Helper box" },
+  { terms: ["ramen"], ingredient: "ramen", label: "Instant ramen pack" },
+  { terms: ["maruchan"], ingredient: "ramen", label: "Maruchan ramen pack" },
+  { terms: ["top ramen"], ingredient: "ramen", label: "Top Ramen pack" },
+  { terms: ["minute rice"], ingredient: "rice", label: "Minute Rice box" },
+  { terms: ["success rice"], ingredient: "rice", label: "Success rice box" },
+  { terms: ["velveeta"], ingredient: "cheese", label: "Velveeta box" },
+  { terms: ["cream of mushroom"], ingredient: "cream of mushroom soup", label: "Cream of mushroom soup can" },
+  { terms: ["cream of chicken"], ingredient: "cream of chicken soup", label: "Cream of chicken soup can" },
+  { terms: ["campbell"], ingredient: "canned soup", label: "Campbell's soup can" }
+];
+
 const pantryScanAliases = new Map([
   ["macaroni", "pasta"], ["noodles", "pasta"], ["noodle", "pasta"],
   ["hamburger", "ground beef"], ["beef", "ground beef"], ["tomato", "tomatoes"],
@@ -6067,7 +6108,11 @@ const pantryScanAliases = new Map([
   ["canned salmon", "salmon"], ["sriracha", "hot sauce"], ["stock", "chicken broth"],
   ["broth", "chicken broth"], ["coconut cream", "coconut milk"], ["soy", "soy sauce"],
   ["sesame", "sesame oil"], ["mayo", "mayonnaise"], ["bbq", "bbq sauce"],
-  ["barbecue sauce", "bbq sauce"], ["red pepper flakes", "chile powder"], ["chili flakes", "chile powder"]
+  ["barbecue sauce", "bbq sauce"], ["red pepper flakes", "chile powder"], ["chili flakes", "chile powder"],
+  ["taco packet", "taco seasoning"], ["ranch packet", "ranch seasoning"], ["onion soup packet", "onion soup mix"],
+  ["macaroni and cheese", "mac and cheese"], ["boxed mac and cheese", "mac and cheese"],
+  ["instant potatoes", "instant mashed potatoes"], ["mashed potato packet", "instant mashed potatoes"],
+  ["diced tomatoes with green chilies", "canned tomatoes and chiles"], ["tomatoes and chilies", "canned tomatoes and chiles"]
 ]);
 
 const app = document.querySelector("#app");
@@ -10160,11 +10205,24 @@ function uniquePantryIngredients(values = []) {
   return [...new Set(values.map(normalizePantryIngredient).filter(Boolean))];
 }
 
+function pantryPackagedRecognitionsFromText(text = "") {
+  const normalized = String(text).toLowerCase().replace(/[^a-z0-9\s-]/g, " ").replace(/\s+/g, " ").trim();
+  if (!normalized) return [];
+  return pantryPackagedItemRules
+    .filter((rule) => rule.terms.every((term) => normalized.includes(term)) && !(rule.excludes || []).some((term) => normalized.includes(term)))
+    .map((rule) => ({
+      label: rule.label,
+      ingredient: normalizePantryIngredient(rule.ingredient)
+    }))
+    .filter((item, index, list) => list.findIndex((other) => other.label === item.label && other.ingredient === item.ingredient) === index);
+}
+
 function pantryIngredientsFromText(text = "") {
   const normalized = String(text).toLowerCase();
   const typed = normalized.split(/,|\n| and /).map((item) => item.trim()).filter(Boolean);
   const spotted = pantryScanQuickIngredients.filter((item) => normalized.includes(item));
-  return uniquePantryIngredients([...typed, ...spotted]);
+  const packaged = pantryPackagedRecognitionsFromText(text).map((item) => item.ingredient);
+  return uniquePantryIngredients([...typed, ...spotted, ...packaged]);
 }
 
 function pantryRecipeText(recipe = {}) {
@@ -10315,10 +10373,18 @@ function pantryIngredientsFromDom() {
 }
 
 function updatePantryScanResults() {
+  const notes = document.querySelector("#pantryScanNotes")?.value || "";
   const ingredients = pantryIngredientsFromDom();
   const shelf = document.querySelector(".pantry-selected-shelf");
   if (shelf) {
     shelf.innerHTML = ingredients.length ? ingredients.map((item) => `<span>${titleizeSlug(item)}</span>`).join("") : `<span>No ingredients selected yet.</span>`;
+  }
+  const confirmation = document.querySelector(".pantry-recognition-list");
+  if (confirmation) {
+    const recognitions = pantryPackagedRecognitionsFromText(notes);
+    confirmation.innerHTML = recognitions.length
+      ? recognitions.map((item) => `<div><strong>${escapeHTML(item.label)}</strong><span>→ ${titleizeSlug(item.ingredient)}</span></div>`).join("")
+      : `<div><strong>No packaged foods recognized yet.</strong><span>Type brands or labels like Rotel, Jiffy, Kraft, Idahoan, Hungry Jack, or Stove Top.</span></div>`;
   }
   const target = document.querySelector("#pantryScanResults");
   if (target) target.innerHTML = pantryScanResultsMarkup(ingredients, pantryModeFromState());
@@ -10343,6 +10409,7 @@ function renderPantryScan(id = "pantry") {
     : Object.entries(pantryIngredientCategories);
   const ingredients = uniquePantryIngredients(pantryScanState.ingredients || []);
   const favoriteIngredients = uniquePantryIngredients(pantryFavoriteIngredients || []);
+  const packagedRecognitions = pantryPackagedRecognitionsFromText(pantryScanState.notes || "");
   const activeMode = pantryModeFromState();
   app.innerHTML = `
     ${hero(scanTitle, scanCopy, photoFor("skills", "measuring"), `<a class="small-button" href="#what-yall-cooking">What Y'all Cooking?</a><a class="small-button secondary" href="#kitchen-search">Cook With What I Have</a>`)}
@@ -10386,6 +10453,18 @@ function renderPantryScan(id = "pantry") {
           <textarea id="pantryScanNotes" rows="5" placeholder="Example: Spam, pineapple, bean sprouts, leftover rice, eggs">${escapeHTML(pantryScanState.notes || "")}</textarea>
           <div class="pantry-selected-shelf" aria-live="polite">
             ${ingredients.length ? ingredients.map((item) => `<span>${titleizeSlug(item)}</span>`).join("") : `<span>No ingredients selected yet.</span>`}
+          </div>
+          <div class="pantry-recognition-card">
+            <div>
+              <p class="eyebrow">Is this right?</p>
+              <h3>Packaged item recognition</h3>
+              <p>Edit the text above or tap grocery chips below if the scanner guessed wrong.</p>
+            </div>
+            <div class="pantry-recognition-list" aria-live="polite">
+              ${packagedRecognitions.length
+                ? packagedRecognitions.map((item) => `<div><strong>${escapeHTML(item.label)}</strong><span>→ ${titleizeSlug(item.ingredient)}</span></div>`).join("")
+                : `<div><strong>No packaged foods recognized yet.</strong><span>Type brands or labels like Rotel, Jiffy, Kraft, Idahoan, Hungry Jack, or Stove Top.</span></div>`}
+            </div>
           </div>
           ${favoriteIngredients.length ? `
             <div class="pantry-favorites-shelf">

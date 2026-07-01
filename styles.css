@@ -9291,6 +9291,56 @@ button.small-button:is(:hover, :focus-visible) {
   font-weight: 850;
 }
 
+.pantry-recognition-card {
+  display: grid;
+  gap: 12px;
+  margin: 14px 0;
+  padding: 14px;
+  border: 1px solid #e7d8bf;
+  border-radius: 16px;
+  background:
+    linear-gradient(135deg, rgba(255, 254, 248, 0.96), rgba(255, 244, 223, 0.92)),
+    repeating-linear-gradient(0deg, rgba(83, 53, 35, 0.05) 0 1px, transparent 1px 10px);
+}
+
+.pantry-recognition-card h3 {
+  margin: 2px 0 4px;
+  font-family: var(--serif);
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+}
+
+.pantry-recognition-card p:not(.eyebrow) {
+  margin: 0;
+  color: #5f4a3f;
+  font-size: 0.92rem;
+}
+
+.pantry-recognition-list {
+  display: grid;
+  gap: 8px;
+}
+
+.pantry-recognition-list div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 9px 11px;
+  border: 1px solid rgba(13, 79, 29, 0.16);
+  border-radius: 12px;
+  background: rgba(255, 254, 248, 0.82);
+}
+
+.pantry-recognition-list strong {
+  color: #2b1a12;
+}
+
+.pantry-recognition-list span {
+  color: #0d4f1d;
+  font-weight: 900;
+}
+
 .pantry-favorites-shelf {
   margin: 14px 0;
   padding: 12px;
