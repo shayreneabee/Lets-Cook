@@ -10104,6 +10104,67 @@ button.small-button:hover,
     radial-gradient(circle at 82% 31%, rgba(30, 78, 121, 0.18), transparent 23%);
 }
 
+.road-trip-us-art {
+  position: absolute;
+  inset: 4% 3% 3%;
+  z-index: 1;
+  width: 94%;
+  height: 93%;
+  filter: drop-shadow(0 20px 26px rgba(67, 42, 24, 0.16));
+}
+
+.map-region {
+  opacity: 0.92;
+}
+
+.map-region.west {
+  fill: #8bb7a0;
+}
+
+.map-region.mountain {
+  fill: #f7c75b;
+}
+
+.map-region.midwest {
+  fill: #fff4dc;
+}
+
+.map-region.south {
+  fill: #e7a08c;
+}
+
+.map-region.east {
+  fill: #b9d9df;
+}
+
+.map-outline {
+  fill: rgba(255, 254, 248, 0.18);
+  stroke: rgba(83, 53, 35, 0.62);
+  stroke-width: 0.75;
+  vector-effect: non-scaling-stroke;
+}
+
+.map-outline.alaska,
+.map-outline.hawaii {
+  fill: rgba(255, 254, 248, 0.78);
+}
+
+.map-boundaries path {
+  fill: none;
+  stroke: rgba(83, 53, 35, 0.22);
+  stroke-width: 0.38;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.map-labels text {
+  fill: rgba(67, 42, 24, 0.56);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.7px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
 .road-trip-map::before {
   content: "Cook Through America";
   position: absolute;
@@ -10120,26 +10181,28 @@ button.small-button:hover,
 
 .road-trip-route-line {
   position: absolute;
-  inset: 7% 5%;
-  width: 90%;
-  height: 86%;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
   overflow: visible;
 }
 
 .road-trip-route-line polyline {
   fill: none;
-  stroke: rgba(199, 36, 54, 0.62);
-  stroke-width: 1.2;
+  stroke: rgba(199, 36, 54, 0.74);
+  stroke-width: 0.82;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-dasharray: 2.2 2.1;
+  vector-effect: non-scaling-stroke;
 }
 
 .road-trip-state-dot {
   position: absolute;
   left: var(--x);
   top: var(--y);
-  z-index: 3;
+  z-index: 4;
   width: 34px;
   height: 34px;
   display: grid;
