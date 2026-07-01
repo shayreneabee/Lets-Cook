@@ -5881,6 +5881,7 @@ let userRecipes = readJSON("letsCookUserRecipes", []);
 let submissions = readJSON("letsCookSubmissions", []);
 let lessonProgress = readJSON("letsCookLessonProgress", {});
 let pantryScanState = readJSON("letsCookPantryScan", { ingredients: [], notes: "" });
+let roadTripPassport = readJSON("letsCookRoadTripPassport", {});
 let letsCookSession = {
   authenticated: false,
   user: null,
@@ -7766,6 +7767,263 @@ function neighborhoodFavoritesSection(page, id = "") {
   `;
 }
 
+const roadTripRoute = [
+  { id: "maine", state: "Maine", abbr: "ME", pageId: "maine-new-england", href: "#cuisine-explorer/maine-new-england", x: 91, y: 14, miles: 0, tagline: "Lobster rolls, blueberry pie, chowder, and cold harbor kitchens." },
+  { id: "new-hampshire", state: "New Hampshire", abbr: "NH", pageId: "new-hampshire-new-england", href: "#cuisine-explorer/new-hampshire-new-england", x: 87, y: 18, miles: 110, tagline: "Maple, cider doughnuts, lake lunches, and mountain breakfasts." },
+  { id: "vermont", state: "Vermont", abbr: "VT", pageId: "vermont-new-england", href: "#cuisine-explorer/vermont-new-england", x: 84, y: 18, miles: 95, tagline: "Maple syrup, cheddar, apples, dairy farms, and cozy table food." },
+  { id: "massachusetts", state: "Massachusetts", abbr: "MA", pageId: "massachusetts-new-england", href: "#cuisine-explorer/massachusetts-new-england", x: 89, y: 22, miles: 160, tagline: "Clam chowder, baked beans, cod, cranberries, and old harbor kitchens." },
+  { id: "rhode-island", state: "Rhode Island", abbr: "RI", pageId: "rhode-island-new-england", href: "#cuisine-explorer/rhode-island-new-england", x: 90, y: 24, miles: 55, tagline: "Stuffies, coffee milk, clam cakes, and beach-town counters." },
+  { id: "connecticut", state: "Connecticut", abbr: "CT", pageId: "connecticut-new-england", href: "#cuisine-explorer/connecticut-new-england", x: 87, y: 25, miles: 85, tagline: "New Haven pizza, lobster rolls, apples, dairies, and shoreline plates." },
+  { id: "delaware", state: "Delaware", abbr: "DE", pageId: "delaware-mid-atlantic", href: "#cuisine-explorer/delaware-mid-atlantic", x: 81, y: 39, miles: 235, tagline: "Blue crab cakes, boardwalk fries, peach pie, and summer seafood." },
+  { id: "new-jersey", state: "New Jersey", abbr: "NJ", pageId: "new-jersey-mid-atlantic", href: "#cuisine-explorer/new-jersey-mid-atlantic", x: 83, y: 34, miles: 95, tagline: "Tomato pie, pork roll, boardwalk sweets, and sausage-and-pepper stands." },
+  { id: "new-york", state: "New York", abbr: "NY", pageId: "new-york-mid-atlantic", href: "#cuisine-explorer/new-york-mid-atlantic", x: 80, y: 28, miles: 95, tagline: "Pizza, bagels, delis, street carts, bakeries, wings, and immigrant food stories." },
+  { id: "pennsylvania", state: "Pennsylvania", abbr: "PA", pageId: "pennsylvania-mid-atlantic", href: "#cuisine-explorer/pennsylvania-mid-atlantic", x: 76, y: 35, miles: 195, tagline: "Cheesesteaks, soft pretzels, shoofly pie, pierogies, and Dutch comfort." },
+  { id: "maryland", state: "Maryland", abbr: "MD", pageId: "maryland-mid-atlantic", href: "#cuisine-explorer/maryland-mid-atlantic", x: 79, y: 41, miles: 115, tagline: "Blue crabs, Old Bay, crab cakes, crab soup, and summer seafood tables." },
+  { id: "virginia", state: "Virginia", abbr: "VA", pageId: "virginia-soul-food", href: "#cuisine-explorer/virginia-soul-food", x: 76, y: 46, miles: 145, tagline: "Ham biscuits, coastal seafood, peanuts, barbecue, and Sunday sides." },
+  { id: "north-carolina", state: "North Carolina", abbr: "NC", pageId: "north-carolina-soul-food", href: "#cuisine-explorer/north-carolina-soul-food", x: 74, y: 53, miles: 200, tagline: "Whole-hog barbecue, biscuits, fish camps, pies, and cookout plates." },
+  { id: "south-carolina", state: "South Carolina", abbr: "SC", pageId: "south-carolina-soul-food", href: "#cuisine-explorer/south-carolina-soul-food", x: 72, y: 59, miles: 180, tagline: "Lowcountry rice, shrimp, barbecue hash, benne, peaches, and Gullah Geechee foodways." },
+  { id: "georgia", state: "Georgia", abbr: "GA", pageId: "georgia-soul-food", href: "#cuisine-explorer/georgia-soul-food", x: 69, y: 65, miles: 170, tagline: "Peaches, pecans, coastal rice, fried chicken, and Sunday-table hospitality." },
+  { id: "florida", state: "Florida", abbr: "FL", pageId: "florida-soul-food", href: "#cuisine-explorer/florida-soul-food", x: 72, y: 78, miles: 345, tagline: "Citrus, seafood, Cuban sandwiches, Caribbean plates, and beach desserts." },
+  { id: "alabama", state: "Alabama", abbr: "AL", pageId: "alabama-soul-food", href: "#cuisine-explorer/alabama-soul-food", x: 64, y: 66, miles: 380, tagline: "White sauce barbecue, fried green tomatoes, greens, biscuits, and cake pans." },
+  { id: "mississippi", state: "Mississippi", abbr: "MS", pageId: "mississippi-soul-food", href: "#cuisine-explorer/mississippi-soul-food", x: 60, y: 66, miles: 160, tagline: "Home of the Blues, catfish, Delta tamales, church suppers, and fish-fry Fridays." },
+  { id: "louisiana", state: "Louisiana", abbr: "LA", pageId: "louisiana-soul-food", href: "#cuisine-explorer/louisiana-soul-food", x: 57, y: 73, miles: 190, tagline: "Gumbo, jambalaya, po'boys, red beans, seafood, and celebration pots." },
+  { id: "arkansas", state: "Arkansas", abbr: "AR", pageId: "arkansas-soul-food", href: "#cuisine-explorer/arkansas-soul-food", x: 55, y: 61, miles: 325, tagline: "Delta catfish, barbecue, chocolate gravy, fried pies, and potluck sides." },
+  { id: "tennessee", state: "Tennessee", abbr: "TN", pageId: "tennessee-soul-food", href: "#cuisine-explorer/tennessee-soul-food", x: 62, y: 56, miles: 210, tagline: "Hot chicken, barbecue, meat-and-three plates, banana pudding, and music food." },
+  { id: "kentucky", state: "Kentucky", abbr: "KY", pageId: "", href: "#cuisine-explorer", x: 61, y: 50, miles: 175, tagline: "Hot Browns, burgoo, spoonbread, country ham, pies, and derby tables." },
+  { id: "west-virginia", state: "West Virginia", abbr: "WV", pageId: "", href: "#cuisine-explorer", x: 70, y: 45, miles: 210, tagline: "Pepperoni rolls, ramps, beans, cornbread, apple butter, and mountain comfort." },
+  { id: "ohio", state: "Ohio", abbr: "OH", pageId: "ohio-midwest", href: "#cuisine-explorer/ohio-midwest", x: 68, y: 39, miles: 170, tagline: "Buckeyes, chili parlors, pierogies, barbecue, and neighborhood bakery cases." },
+  { id: "indiana", state: "Indiana", abbr: "IN", pageId: "indiana-midwest", href: "#cuisine-explorer/indiana-midwest", x: 62, y: 41, miles: 190, tagline: "Pork tenderloins, sugar cream pie, corn, casseroles, and fairground food." },
+  { id: "michigan", state: "Michigan", abbr: "MI", pageId: "michigan-midwest", href: "#cuisine-explorer/michigan-midwest", x: 63, y: 29, miles: 275, tagline: "Detroit pizza, coneys, cherries, pasties, lake fish, and bakery sweets." },
+  { id: "wisconsin", state: "Wisconsin", abbr: "WI", pageId: "wisconsin-midwest", href: "#cuisine-explorer/wisconsin-midwest", x: 55, y: 29, miles: 380, tagline: "Cheese curds, brats, fish fries, frozen custard, cranberries, and supper clubs." },
+  { id: "illinois", state: "Illinois", abbr: "IL", pageId: "chicago-midwest", href: "#cuisine-explorer/chicago-midwest", x: 57, y: 43, miles: 150, tagline: "Italian beef, mild sauce, pizza puffs, jibaritos, deep dish, and neighborhood counters." },
+  { id: "missouri", state: "Missouri", abbr: "MO", pageId: "missouri-midwest", href: "#cuisine-explorer/missouri-midwest", x: 52, y: 50, miles: 300, tagline: "Burnt ends, toasted ravioli, gooey butter cake, chili, and river-town plates." },
+  { id: "iowa", state: "Iowa", abbr: "IA", pageId: "iowa-midwest", href: "#cuisine-explorer/iowa-midwest", x: 49, y: 39, miles: 250, tagline: "Loose meat sandwiches, sweet corn, pork chops, pies, and county fair favorites." },
+  { id: "minnesota", state: "Minnesota", abbr: "MN", pageId: "minnesota-midwest", href: "#cuisine-explorer/minnesota-midwest", x: 48, y: 27, miles: 245, tagline: "Hotdish, wild rice, walleye, bars, berry desserts, and lake cabin food." },
+  { id: "north-dakota", state: "North Dakota", abbr: "ND", pageId: "north-dakota-midwest", href: "#cuisine-explorer/north-dakota-midwest", x: 41, y: 20, miles: 410, tagline: "Knoephla soup, kuchen, lefse, bison, prairie grains, and church suppers." },
+  { id: "south-dakota", state: "South Dakota", abbr: "SD", pageId: "south-dakota-midwest", href: "#cuisine-explorer/south-dakota-midwest", x: 42, y: 33, miles: 210, tagline: "Chislic, fry bread, kuchen, beef, corn, and Black Hills road food." },
+  { id: "nebraska", state: "Nebraska", abbr: "NE", pageId: "nebraska-midwest", href: "#cuisine-explorer/nebraska-midwest", x: 42, y: 44, miles: 300, tagline: "Runzas, steaks, corn, kolaches, chili, cinnamon rolls, and potluck pans." },
+  { id: "kansas", state: "Kansas", abbr: "KS", pageId: "kansas-midwest", href: "#cuisine-explorer/kansas-midwest", x: 43, y: 53, miles: 190, tagline: "Smoked meats, bierocks, pies, wheat-country breakfasts, and county fair plates." },
+  { id: "oklahoma", state: "Oklahoma", abbr: "OK", pageId: "oklahoma-southwest", href: "#cuisine-explorer/oklahoma-southwest", x: 45, y: 61, miles: 210, tagline: "Onion burgers, Indian tacos, fried okra, pinto beans, and fried pies." },
+  { id: "texas", state: "Texas", abbr: "TX", pageId: "texas-southwest", href: "#cuisine-explorer/texas-southwest", x: 43, y: 75, miles: 320, tagline: "Brisket, beef ribs, chili, kolaches, breakfast tacos, and smokehouse patience." },
+  { id: "new-mexico", state: "New Mexico", abbr: "NM", pageId: "new-mexico-southwest", href: "#cuisine-explorer/new-mexico-southwest", x: 32, y: 65, miles: 560, tagline: "Green chile stew, carne adovada, posole, sopapillas, and Hatch chile everything." },
+  { id: "arizona", state: "Arizona", abbr: "AZ", pageId: "arizona-southwest", href: "#cuisine-explorer/arizona-southwest", x: 24, y: 66, miles: 420, tagline: "Sonoran hot dogs, fry bread, carne asada, elote, and prickly pear lemonade." },
+  { id: "nevada", state: "Nevada", abbr: "NV", pageId: "nevada-mountain-west", href: "#cuisine-explorer/nevada-mountain-west", x: 20, y: 52, miles: 300, tagline: "Basque tables, casino breakfasts, desert diners, tacos, and buffet memories." },
+  { id: "california", state: "California", abbr: "CA", pageId: "southern-california", href: "#cuisine-explorer/southern-california", x: 14, y: 58, miles: 270, tagline: "Fish tacos, tri-tip, farmers markets, sourdough, Korean tacos, and fruit carts." },
+  { id: "oregon", state: "Oregon", abbr: "OR", pageId: "oregon-pacific-northwest", href: "#cuisine-explorer/oregon-pacific-northwest", x: 15, y: 40, miles: 635, tagline: "Salmon, berries, hazelnuts, food carts, coffee, and coastal chowders." },
+  { id: "washington", state: "Washington", abbr: "WA", pageId: "washington-state-pacific-northwest", href: "#cuisine-explorer/washington-state-pacific-northwest", x: 16, y: 26, miles: 175, tagline: "Salmon, apples, coffee, oysters, teriyaki, and Pike Place inspiration." },
+  { id: "idaho", state: "Idaho", abbr: "ID", pageId: "idaho-pacific-northwest", href: "#cuisine-explorer/idaho-pacific-northwest", x: 25, y: 36, miles: 500, tagline: "Potatoes, trout, huckleberries, fry sauce, and mountain supper plates." },
+  { id: "montana", state: "Montana", abbr: "MT", pageId: "montana-mountain-west", href: "#cuisine-explorer/montana-mountain-west", x: 34, y: 25, miles: 380, tagline: "Bison, trout, huckleberries, pasties, steaks, and lodge dinners." },
+  { id: "wyoming", state: "Wyoming", abbr: "WY", pageId: "wyoming-mountain-west", href: "#cuisine-explorer/wyoming-mountain-west", x: 34, y: 39, miles: 360, tagline: "Bison burgers, trout, chuckwagon beans, steaks, and national park picnic food." },
+  { id: "utah", state: "Utah", abbr: "UT", pageId: "utah-mountain-west", href: "#cuisine-explorer/utah-mountain-west", x: 29, y: 51, miles: 330, tagline: "Fry sauce, funeral potatoes, scones, honey, Dutch oven dinners, and peach desserts." },
+  { id: "colorado", state: "Colorado", abbr: "CO", pageId: "colorado-mountain-west", href: "#cuisine-explorer/colorado-mountain-west", x: 38, y: 53, miles: 370, tagline: "Green chile, bison, trout, Palisade peaches, and mountain cookout food." },
+  { id: "alaska", state: "Alaska", abbr: "AK", pageId: "alaska", href: "#cuisine-explorer/alaska", x: 8, y: 82, miles: 2300, tagline: "Salmon, halibut, sourdough, berries, crab, and long-table frontier food." },
+  { id: "hawaii", state: "Hawaii", abbr: "HI", pageId: "hawaii", href: "#cuisine-explorer/hawaii", x: 23, y: 88, miles: 2800, tagline: "Plate lunch, poke, Spam musubi, haupia, fruit, and family gatherings." }
+];
+
+function allRegionalPagesById() {
+  return {
+    ...regionalSoulFoodPages,
+    ...midwestRegionalPages,
+    ...newEnglandRegionalPages,
+    ...southwestRegionalPages,
+    ...midAtlanticRegionalPages,
+    ...westernRegionalPages
+  };
+}
+
+function roadTripPageForStop(stop) {
+  return stop.pageId ? allRegionalPagesById()[stop.pageId] || null : null;
+}
+
+function roadTripRecipesForStop(stop) {
+  const page = roadTripPageForStop(stop);
+  return (page?.signatureRecipeIds || []).map((recipeId) => recipeByIdSafe(recipeId, { allowQueued: true })).filter(Boolean);
+}
+
+function roadTripCompletedRecipeIds(stop) {
+  return roadTripRecipesForStop(stop).map((recipe) => recipe.id).filter((recipeId) => saved.includes(recipeId));
+}
+
+function roadTripIsVisited(stop) {
+  return roadTripCompletedRecipeIds(stop).length > 0 || Boolean(roadTripPassport[stop.id]);
+}
+
+function roadTripCurrentIndex() {
+  const nextIndex = roadTripRoute.findIndex((stop) => !roadTripIsVisited(stop));
+  return nextIndex === -1 ? roadTripRoute.length - 1 : nextIndex;
+}
+
+function roadTripMilesTraveled() {
+  return roadTripRoute.reduce((total, stop) => total + (roadTripIsVisited(stop) ? stop.miles : 0), 0);
+}
+
+function roadTripStats() {
+  const statesVisited = roadTripRoute.filter(roadTripIsVisited).length;
+  const badgeMilestones = [1, 5, 10, 25, 50].filter((milestone) => statesVisited >= milestone).length;
+  return {
+    statesVisited,
+    recipesCooked: saved.length,
+    badgesEarned: badgeMilestones,
+    currentIndex: roadTripCurrentIndex(),
+    milesTraveled: roadTripMilesTraveled()
+  };
+}
+
+function syncRoadTripPassport(recipeId = "") {
+  roadTripRoute.forEach((stop) => {
+    const completedIds = roadTripCompletedRecipeIds(stop);
+    if (completedIds.length) {
+      roadTripPassport[stop.id] = {
+        state: stop.state,
+        recipeId: completedIds.includes(recipeId) ? recipeId : roadTripPassport[stop.id]?.recipeId || completedIds[0],
+        completedAt: roadTripPassport[stop.id]?.completedAt || new Date().toISOString()
+      };
+    } else if (roadTripPassport[stop.id]) {
+      delete roadTripPassport[stop.id];
+    }
+  });
+}
+
+function roadTripStopByPageId(pageId, page = null) {
+  return roadTripRoute.find((stop) => stop.pageId === pageId)
+    || roadTripRoute.find((stop) => page?.state && stop.state === page.state)
+    || null;
+}
+
+function roadTripPassportEntries() {
+  return roadTripRoute
+    .filter(roadTripIsVisited)
+    .map((stop) => {
+      const entry = roadTripPassport[stop.id] || {};
+      const favorite = recipeByIdSafe(entry.recipeId, { allowQueued: true }) || roadTripRecipesForStop(stop)[0];
+      return {
+        ...stop,
+        favoriteTitle: favorite?.title || "Favorite recipe saved",
+        completedAt: entry.completedAt || new Date().toISOString()
+      };
+    });
+}
+
+function roadTripDateLabel(value) {
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? "Stamped today" : date.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
+}
+
+function roadTripMapSection() {
+  syncRoadTripPassport();
+  const stats = roadTripStats();
+  const currentStop = roadTripRoute[stats.currentIndex];
+  const nextStop = roadTripRoute[Math.min(stats.currentIndex + 1, roadTripRoute.length - 1)];
+  const entries = roadTripPassportEntries().slice(-6).reverse();
+  const routePoints = roadTripRoute.map((stop) => `${stop.x},${stop.y}`).join(" ");
+  return `
+    <section class="cream-section road-trip-section" id="cook-through-america">
+      <div class="section-heading">
+        <p class="eyebrow">The Great American Road Trip</p>
+        <h2>Cook your way across all 50 states.</h2>
+        <p>Save a recipe from a state stop to stamp your passport, color the map, and move the family station wagon to the next bite. This is America's neighborhood cookbook on wheels.</p>
+      </div>
+      <div class="road-trip-layout">
+        <div class="road-trip-map-card" aria-label="Interactive Cook Through America map">
+          <div class="road-trip-map">
+            <svg class="road-trip-route-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              <polyline points="${routePoints}"></polyline>
+            </svg>
+            ${roadTripRoute.map((stop, index) => {
+              const visited = roadTripIsVisited(stop);
+              const isCurrent = index === stats.currentIndex;
+              const status = visited ? "visited" : isCurrent ? "current" : "future";
+              return `
+                <a class="road-trip-state-dot ${status}" href="${stop.href}" style="--x:${stop.x}%; --y:${stop.y}%;" aria-label="${visited ? "Visited" : isCurrent ? "Current stop" : "Upcoming stop"}: ${stop.state}. ${stop.tagline}">
+                  <span>${stop.abbr}</span>
+                </a>
+              `;
+            }).join("")}
+            <div class="road-trip-wagon" style="--x:${currentStop.x}%; --y:${currentStop.y}%;" aria-hidden="true">
+              <span class="wagon-body"></span>
+              <span class="wagon-window"></span>
+              <span class="wagon-wheel one"></span>
+              <span class="wagon-wheel two"></span>
+            </div>
+          </div>
+        </div>
+        <div class="road-trip-dashboard">
+          <article class="road-trip-welcome-sign">
+            <span class="route-badge">Route Stop ${stats.currentIndex + 1} of ${roadTripRoute.length}</span>
+            <h3>Welcome to ${currentStop.state}!</h3>
+            <p>${currentStop.tagline}</p>
+            <div class="hero-actions">
+              <a class="small-button" href="${currentStop.href}">Pull Into ${currentStop.state}</a>
+              <a class="small-button secondary" href="${nextStop.href}">Peek At ${nextStop.state}</a>
+            </div>
+          </article>
+          <div class="road-trip-stats" aria-label="Road trip progress">
+            <article><span>States Visited</span><strong>${stats.statesVisited}/50</strong></article>
+            <article><span>Recipes Cooked</span><strong>${stats.recipesCooked}</strong></article>
+            <article><span>Badges Earned</span><strong>${stats.badgesEarned}</strong></article>
+            <article><span>Current Location</span><strong>${currentStop.state}</strong></article>
+            <article><span>Miles Traveled</span><strong>${stats.milesTraveled.toLocaleString()}</strong></article>
+          </div>
+          <article class="road-trip-passport">
+            <div>
+              <p class="eyebrow">Road Trip Passport</p>
+              <h3>${entries.length ? "Latest stamps" : "Your first stamp is waiting."}</h3>
+            </div>
+            <div class="passport-stamp-grid">
+              ${entries.length ? entries.map((entry) => `
+                <a class="passport-stamp" href="${entry.href}" aria-label="${entry.state} passport stamp earned ${roadTripDateLabel(entry.completedAt)}">
+                  <span>${entry.abbr}</span>
+                  <strong>${entry.state}</strong>
+                  <small>${entry.favoriteTitle}</small>
+                  <em>${roadTripDateLabel(entry.completedAt)}</em>
+                </a>
+              `).join("") : `
+                <a class="passport-stamp empty" href="${currentStop.href}">
+                  <span>${currentStop.abbr}</span>
+                  <strong>${currentStop.state}</strong>
+                  <small>Save one state recipe to stamp your passport.</small>
+                  <em>Ready when you are</em>
+                </a>
+              `}
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function roadTripWelcomeSection(page, id = "") {
+  const stop = roadTripStopByPageId(id, page);
+  if (!stop) return "";
+  syncRoadTripPassport();
+  const stats = roadTripStats();
+  const index = roadTripRoute.findIndex((item) => item.id === stop.id);
+  const nextStop = roadTripRoute[Math.min(index + 1, roadTripRoute.length - 1)];
+  const visited = roadTripIsVisited(stop);
+  return `
+    <section class="road-trip-stop-banner ${visited ? "stamped" : ""}">
+      <div class="road-trip-mini-map" aria-hidden="true">
+        <div class="road-trip-wagon mini">
+          <span class="wagon-body"></span>
+          <span class="wagon-window"></span>
+          <span class="wagon-wheel one"></span>
+          <span class="wagon-wheel two"></span>
+        </div>
+      </div>
+      <div class="road-trip-welcome-sign small">
+        <span class="route-badge">${visited ? "Passport stamped" : `Route Stop ${index + 1} of ${roadTripRoute.length}`}</span>
+        <h3>Welcome to ${stop.state}!</h3>
+        <p>${stop.tagline}</p>
+      </div>
+      <div class="road-trip-stop-actions">
+        <span>${stats.statesVisited}/50 states visited</span>
+        <a class="small-button secondary" href="${nextStop.href}">Next stop: ${nextStop.state}</a>
+      </div>
+    </section>
+  `;
+}
+
 function renderMidwestRegionalPage(id) {
   const page = midwestRegionalPages[id] || midwestRegionalPages["chicago-midwest"];
   const firstMenu = page.menus[0];
@@ -7777,6 +8035,7 @@ function renderMidwestRegionalPage(id) {
         <p class="eyebrow">${page.state} table</p>
         <h2>Food identity, local history, gatherings, fair food, holidays, and recipes that belong to this place.</h2>
       </div>
+      ${roadTripWelcomeSection(page, id)}
       ${regionalCravingSection(page)}
       ${neighborhoodFavoritesSection(page, id)}
       <div class="regional-identity-grid">
@@ -7837,6 +8096,7 @@ function renderNewEnglandRegionalPage(id) {
         <p class="eyebrow">${page.state} table</p>
         <h2>Food identity, local history, shore food, orchards, bakeries, diners, family suppers, and recipes that belong to this place.</h2>
       </div>
+      ${roadTripWelcomeSection(page, id)}
       ${regionalCravingSection(page, queuedPhotoOptions)}
       ${neighborhoodFavoritesSection(page, id)}
       <div class="regional-identity-grid">
@@ -7896,6 +8156,7 @@ function renderSouthwestRegionalPage(id) {
         <p class="eyebrow">${page.state} table</p>
         <h2>Food identity, history, facts, signature ingredients, recipes, and gatherings that belong to this place.</h2>
       </div>
+      ${roadTripWelcomeSection(page, id)}
       ${regionalCravingSection(page)}
       ${neighborhoodFavoritesSection(page, id)}
       <div class="regional-identity-grid">
@@ -7967,6 +8228,7 @@ function renderMidAtlanticRegionalPage(id) {
         <p class="eyebrow">${page.state} table</p>
         <h2>Food identity, history, facts, signature ingredients, recipes, and gatherings that belong to this place.</h2>
       </div>
+      ${roadTripWelcomeSection(page, id)}
       ${regionalCravingSection(page)}
       ${neighborhoodFavoritesSection(page, id)}
       <div class="regional-identity-grid">
@@ -8045,6 +8307,7 @@ function renderWesternRegionalPage(id) {
         <p class="eyebrow">${page.state} table</p>
         <h2>State overview, food history, facts, signature ingredients, authentic recipes, and kids activities that belong to this place.</h2>
       </div>
+      ${roadTripWelcomeSection(page, id)}
       ${regionalCravingSection(page)}
       ${neighborhoodFavoritesSection(page, id)}
       <div class="regional-identity-grid">
@@ -8419,6 +8682,7 @@ function renderRegionalSoulFoodPage(id) {
         <p class="eyebrow">${page.state} table</p>
         <h2>Food, history, hospitality, music, and recipes that belong together.</h2>
       </div>
+      ${roadTripWelcomeSection(page, id)}
       ${regionalCravingSection(page)}
       ${neighborhoodFavoritesSection(page, id)}
       <div class="regional-identity-grid">
@@ -8813,6 +9077,7 @@ function renderAmerica250() {
   app.innerHTML = `
     ${america250HeroBanner()}
     ${cookSubnav()}
+    ${roadTripMapSection()}
     ${summerCravingsSection()}
     ${neighborhoodCookbookSection()}
     ${kitchenTableWelcomeSection()}
@@ -9108,6 +9373,7 @@ function renderLetsCookHome() {
   app.innerHTML = `
     ${america250HeroBanner()}
     ${cookSubnav()}
+    ${roadTripMapSection()}
     ${kitchenTableWelcomeSection()}
     ${america250ChallengeBanner()}
     ${america250SpotlightSection()}
@@ -11834,6 +12100,7 @@ function handleClick(event) {
   }
   if (saveButton) {
     saved = toggleValue(saved, saveButton.dataset.save);
+    syncRoadTripPassport(saveButton.dataset.save);
     persistLetsCookState();
     render();
   }
@@ -12102,6 +12369,7 @@ async function persistLetsCookState() {
   localStorage.setItem("letsCookSavedMenus", JSON.stringify(savedMenus));
   localStorage.setItem("letsCookUserRecipes", JSON.stringify(userRecipes));
   localStorage.setItem("letsCookLessonProgress", JSON.stringify(lessonProgress));
+  localStorage.setItem("letsCookRoadTripPassport", JSON.stringify(roadTripPassport));
   if (!letsCookSession.authenticated) {
     return false;
   }

@@ -10041,3 +10041,457 @@ button.small-button:hover,
     border-width: 3px;
   }
 }
+
+.road-trip-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(255, 254, 248, 0.94), rgba(255, 244, 220, 0.94)),
+    radial-gradient(circle at 12% 12%, rgba(247, 199, 91, 0.3), transparent 30%),
+    radial-gradient(circle at 90% 10%, rgba(30, 78, 121, 0.16), transparent 28%);
+}
+
+.road-trip-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.22;
+  pointer-events: none;
+  background-image:
+    linear-gradient(45deg, rgba(199, 36, 54, 0.12) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(199, 36, 54, 0.12) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(30, 78, 121, 0.12) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(30, 78, 121, 0.12) 75%);
+  background-size: 34px 34px;
+  background-position: 0 0, 0 17px, 17px -17px, -17px 0;
+}
+
+.road-trip-layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+.road-trip-map-card,
+.road-trip-dashboard > article,
+.road-trip-stats article,
+.road-trip-stop-banner {
+  border: 1px solid rgba(83, 53, 35, 0.16);
+  box-shadow: 0 18px 42px rgba(67, 42, 24, 0.14);
+}
+
+.road-trip-map-card {
+  border-radius: 18px;
+  padding: clamp(14px, 2vw, 24px);
+  background:
+    linear-gradient(180deg, rgba(255, 254, 248, 0.94), rgba(255, 244, 220, 0.98)),
+    repeating-linear-gradient(0deg, rgba(83, 53, 35, 0.05) 0 1px, transparent 1px 9px);
+}
+
+.road-trip-map {
+  position: relative;
+  min-height: clamp(330px, 46vw, 560px);
+  border: 3px solid rgba(83, 53, 35, 0.18);
+  border-radius: 16px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(179, 216, 219, 0.5), rgba(255, 254, 248, 0.82)),
+    radial-gradient(circle at 18% 72%, rgba(244, 179, 91, 0.34), transparent 20%),
+    radial-gradient(circle at 70% 56%, rgba(113, 150, 94, 0.25), transparent 26%),
+    radial-gradient(circle at 82% 31%, rgba(30, 78, 121, 0.18), transparent 23%);
+}
+
+.road-trip-map::before {
+  content: "Cook Through America";
+  position: absolute;
+  left: 18px;
+  bottom: 16px;
+  padding: 8px 13px;
+  border: 2px solid rgba(83, 53, 35, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 254, 248, 0.9);
+  color: #532f1e;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+.road-trip-route-line {
+  position: absolute;
+  inset: 7% 5%;
+  width: 90%;
+  height: 86%;
+  overflow: visible;
+}
+
+.road-trip-route-line polyline {
+  fill: none;
+  stroke: rgba(199, 36, 54, 0.62);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 2.2 2.1;
+}
+
+.road-trip-state-dot {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  z-index: 3;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 2px solid rgba(83, 53, 35, 0.24);
+  border-radius: 999px;
+  background: #fffef8;
+  color: #1e4e79;
+  font-size: 0.72rem;
+  font-weight: 950;
+  text-decoration: none;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 10px 18px rgba(67, 42, 24, 0.16);
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.road-trip-state-dot:hover,
+.road-trip-state-dot:focus-visible {
+  transform: translate(-50%, -50%) scale(1.12);
+  box-shadow: 0 0 0 4px rgba(247, 199, 91, 0.38), 0 14px 24px rgba(67, 42, 24, 0.2);
+}
+
+.road-trip-state-dot.visited {
+  background: #c72436;
+  color: #fffef8;
+}
+
+.road-trip-state-dot.current {
+  background: #f7c75b;
+  color: #432a18;
+  box-shadow: 0 0 0 5px rgba(199, 36, 54, 0.18), 0 14px 24px rgba(67, 42, 24, 0.22);
+}
+
+.road-trip-state-dot.future {
+  opacity: 0.78;
+}
+
+.road-trip-wagon {
+  position: absolute;
+  left: var(--x, 50%);
+  top: var(--y, 50%);
+  z-index: 5;
+  width: 54px;
+  height: 30px;
+  transform: translate(-50%, -120%);
+  animation: roadWagonBob 2.8s ease-in-out infinite;
+}
+
+.wagon-body,
+.wagon-window,
+.wagon-wheel {
+  position: absolute;
+  display: block;
+}
+
+.wagon-body {
+  inset: 10px 3px 6px 2px;
+  border: 2px solid #432a18;
+  border-radius: 12px 16px 9px 9px;
+  background: linear-gradient(90deg, #8bb7a0, #f7c75b 58%, #c72436 59%);
+  box-shadow: 0 7px 12px rgba(67, 42, 24, 0.2);
+}
+
+.wagon-window {
+  left: 18px;
+  top: 3px;
+  width: 20px;
+  height: 14px;
+  border: 2px solid #432a18;
+  border-radius: 10px 10px 4px 4px;
+  background: #d8f0f2;
+}
+
+.wagon-wheel {
+  bottom: 1px;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #fffef8;
+  border-radius: 999px;
+  background: #432a18;
+}
+
+.wagon-wheel.one {
+  left: 10px;
+}
+
+.wagon-wheel.two {
+  right: 8px;
+}
+
+.road-trip-dashboard {
+  display: grid;
+  gap: 16px;
+}
+
+.road-trip-welcome-sign {
+  position: relative;
+  border-radius: 12px;
+  padding: 22px;
+  background:
+    linear-gradient(135deg, #1e4e79, #143451),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.08) 0 1px, transparent 1px 10px);
+  color: #fffef8;
+  overflow: hidden;
+  animation: roadSignSettle 520ms ease-out both;
+}
+
+.road-trip-welcome-sign::after {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border: 2px dashed rgba(255, 254, 248, 0.42);
+  border-radius: 9px;
+  pointer-events: none;
+}
+
+.road-trip-welcome-sign h3 {
+  position: relative;
+  z-index: 1;
+  margin: 8px 0;
+  font-size: clamp(1.7rem, 3vw, 2.45rem);
+  color: #fffef8;
+}
+
+.road-trip-welcome-sign p,
+.road-trip-welcome-sign .hero-actions,
+.road-trip-welcome-sign .route-badge {
+  position: relative;
+  z-index: 1;
+}
+
+.route-badge {
+  display: inline-flex;
+  width: fit-content;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(247, 199, 91, 0.94);
+  color: #432a18;
+  font-weight: 900;
+  font-size: 0.78rem;
+}
+
+.road-trip-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.road-trip-stats article {
+  min-height: 92px;
+  border-radius: 12px;
+  padding: 14px;
+  background: rgba(255, 254, 248, 0.94);
+}
+
+.road-trip-stats span {
+  display: block;
+  color: #654330;
+  font-size: 0.78rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.road-trip-stats strong {
+  display: block;
+  margin-top: 6px;
+  color: #c72436;
+  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+}
+
+.road-trip-passport {
+  border-radius: 14px;
+  padding: 18px;
+  background:
+    linear-gradient(135deg, rgba(255, 254, 248, 0.95), rgba(255, 244, 220, 0.97)),
+    repeating-linear-gradient(0deg, transparent 0 22px, rgba(83, 53, 35, 0.07) 22px 23px);
+}
+
+.passport-stamp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.passport-stamp {
+  min-height: 132px;
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  padding: 12px;
+  border: 2px solid rgba(199, 36, 54, 0.42);
+  border-radius: 12px;
+  background: rgba(255, 254, 248, 0.9);
+  color: #432a18;
+  text-decoration: none;
+  transform: rotate(-1.5deg);
+  animation: passportStampPop 360ms ease-out both;
+}
+
+.passport-stamp:nth-child(even) {
+  transform: rotate(1.4deg);
+}
+
+.passport-stamp span {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  color: #c72436;
+  font-weight: 950;
+}
+
+.passport-stamp strong,
+.passport-stamp small,
+.passport-stamp em {
+  display: block;
+}
+
+.passport-stamp small {
+  color: #654330;
+  line-height: 1.25;
+}
+
+.passport-stamp em {
+  margin-top: auto;
+  color: #1e4e79;
+  font-style: normal;
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+.passport-stamp.empty {
+  border-style: dashed;
+  transform: none;
+}
+
+.road-trip-stop-banner {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 22px;
+  padding: 16px;
+  border-radius: 16px;
+  background:
+    linear-gradient(135deg, rgba(255, 254, 248, 0.96), rgba(255, 244, 220, 0.96)),
+    linear-gradient(90deg, rgba(199, 36, 54, 0.08), rgba(30, 78, 121, 0.08));
+}
+
+.road-trip-stop-banner.stamped {
+  box-shadow: 0 0 0 4px rgba(247, 199, 91, 0.22), 0 18px 42px rgba(67, 42, 24, 0.14);
+}
+
+.road-trip-mini-map {
+  position: relative;
+  width: 92px;
+  height: 66px;
+  border: 2px solid rgba(83, 53, 35, 0.18);
+  border-radius: 12px;
+  background:
+    linear-gradient(135deg, rgba(216, 240, 242, 0.92), rgba(255, 254, 248, 0.92)),
+    radial-gradient(circle at 40% 62%, rgba(199, 36, 54, 0.2), transparent 28%);
+}
+
+.road-trip-wagon.mini {
+  left: 54%;
+  top: 58%;
+  transform: translate(-50%, -50%) scale(0.85);
+}
+
+.road-trip-welcome-sign.small {
+  padding: 16px 18px;
+  box-shadow: none;
+}
+
+.road-trip-welcome-sign.small h3 {
+  font-size: clamp(1.35rem, 2.2vw, 1.9rem);
+}
+
+.road-trip-stop-actions {
+  display: grid;
+  justify-items: end;
+  gap: 8px;
+}
+
+.road-trip-stop-actions span {
+  font-weight: 950;
+  color: #c72436;
+}
+
+@keyframes roadWagonBob {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -4px; }
+}
+
+@keyframes roadSignSettle {
+  0% { opacity: 0; transform: translateY(12px) rotate(-1deg); }
+  70% { opacity: 1; transform: translateY(-2px) rotate(0.4deg); }
+  100% { opacity: 1; transform: translateY(0) rotate(0); }
+}
+
+@keyframes passportStampPop {
+  0% { opacity: 0; scale: 0.88; }
+  100% { opacity: 1; scale: 1; }
+}
+
+@media (max-width: 960px) {
+  .road-trip-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .road-trip-map {
+    min-height: 430px;
+  }
+}
+
+@media (max-width: 720px) {
+  .road-trip-map {
+    min-height: 520px;
+  }
+
+  .road-trip-state-dot {
+    width: 30px;
+    height: 30px;
+    font-size: 0.66rem;
+  }
+
+  .road-trip-stats,
+  .passport-stamp-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .road-trip-stop-banner {
+    grid-template-columns: 1fr;
+  }
+
+  .road-trip-stop-actions {
+    justify-items: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .road-trip-wagon,
+  .road-trip-welcome-sign,
+  .passport-stamp {
+    animation: none;
+  }
+
+  .road-trip-state-dot {
+    transition: none;
+  }
+}
