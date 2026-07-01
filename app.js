@@ -5455,7 +5455,6 @@ const cuisineAliases = {
   "mediterranean-cuisines": "mediterranean",
   "caribbean-cuisines": "caribbean",
   "european-cuisines": "italian",
-  "holiday-sunday": "hosting",
   "african-cuisines": "global",
   midwest: "midwest",
   illinois: "chicago",
@@ -5530,6 +5529,7 @@ const cuisineRecipeAliases = {
   mediterranean: ["italian", "global"],
   italian: ["mediterranean"],
   hosting: ["southern", "global"],
+  "holiday-sunday": ["holiday", "southern", "bbq"],
   midwest: ["chicago", "wisconsin", "michigan", "minnesota", "indiana", "ohio", "iowa", "missouri", "kansas", "nebraska", "north-dakota", "south-dakota"],
   chicago: ["midwest"],
   wisconsin: ["midwest"],
@@ -5892,6 +5892,12 @@ const cuisineEducationProfiles = {
     ingredients: ["catfish", "cornmeal", "comeback sauce", "Gulf shrimp", "greens", "pecans", "buttermilk", "hot sauce"],
     techniques: ["cornmeal dredging", "cast iron frying", "grits whisking", "sauce station setup", "large-batch sides"],
     menus: ["fried catfish, spaghetti, slaw, hushpuppies, sweet tea", "shrimp and grits, greens, cornbread, pound cake"]
+  },
+  "holiday-sunday": {
+    culture: "Holiday and Sunday cooking is built around centerpiece mains, family sides, desserts, drinks, prep timing, and recipes people ask for year after year.",
+    ingredients: ["turkey", "ham", "sweet potatoes", "cranberries", "green beans", "pecans", "butter", "fresh herbs"],
+    techniques: ["roasting", "glazing", "gravy making", "dressing assembly", "make-ahead casseroles", "dessert staging"],
+    menus: ["roast turkey, cornbread dressing, giblet gravy, green beans, cranberry sauce, rolls, pie", "honey glazed ham, deviled eggs, potato salad, spring vegetables, carrot cake"]
   }
 };
 
@@ -8966,6 +8972,37 @@ function renderLivingCookbook(id) {
       ` : ""}
       ${livingCookbookHub()}
       ${progressionNav("#cuisine/southern", "Southern Recipes", "#hosting", "Hosting Guides", ["#what-yall-cooking", "#culinary-academy/world-foods"])}
+    </section>
+  `;
+}
+
+function holidayTablesFeature() {
+  const chapter = livingCookbookById("holiday-tables");
+  if (!chapter) return "";
+  const featuredRecipes = chapter.recipeIds.map((recipeId) => recipeByIdSafe(recipeId)).filter(Boolean).slice(0, 12);
+  return `
+    <section class="cream-section holiday-tables-feature" aria-labelledby="holidayTablesFeatureTitle">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Holiday Hub</p>
+        <h2 id="holidayTablesFeatureTitle">Thanksgiving, Christmas, Easter, Fourth of July, and Sunday tables.</h2>
+        <p>${chapter.intro}</p>
+      </div>
+      <div class="recipe-grid">${featuredRecipes.map(recipeCard).join("")}</div>
+      <div class="regional-story-grid">
+        ${chapter.holidays.map((holiday) => `
+          <article>
+            <p class="eyebrow">Holiday table</p>
+            <h3>${holiday.title}</h3>
+            <div class="mini-recipe-list">${holiday.recipeIds.map((recipeId) => recipeByIdSafe(recipeId)).filter(Boolean).map((recipe) => `<a href="#recipes/${recipe.id}">${recipe.title}<small>${recipe.category || cuisineName(recipe.cuisine)}</small></a>`).join("")}</div>
+            <h4>Shopping List</h4>
+            <ul>${holiday.shopping.map((item) => `<li>${item}</li>`).join("")}</ul>
+          </article>
+        `).join("")}
+      </div>
+      <div class="hero-actions centered-actions">
+        <a class="small-button" href="#living-cookbook/holiday-tables">Open Complete Holiday Tables</a>
+        <a class="small-button secondary" href="#hosting">Holiday Hosting Help</a>
+      </div>
     </section>
   `;
 }
@@ -12207,6 +12244,7 @@ function renderCuisine(id) {
       <div class="recipe-grid">${cuisineRecipes.map(recipeCard).join("")}</div>
       ${["southern", "soul-food"].includes(cuisine.id) ? livingCookbookHub() : ""}
       ${cuisine.id === "soul-food" ? regionalSoulFoodHub() : ""}
+      ${cuisine.id === "holiday-sunday" ? holidayTablesFeature() : ""}
       <div class="next-step-strip">
         <a class="small-button secondary" href="${cuisineGuideRoute(cuisine.id)}">Open Cuisine Guide</a>
         <a class="small-button secondary" href="#what-yall-cooking">Build A Menu</a>
