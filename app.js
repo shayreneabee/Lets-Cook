@@ -1776,6 +1776,98 @@ const menuPairings = [
     hosting_notes: "Make dessert and greens ahead so the final hour is calmer."
   },
   {
+    cuisine: "Holiday / Sunday",
+    country_or_region: "United States",
+    occasion: "Thanksgiving",
+    main_dish: "Roast turkey, ham, or duck",
+    main_recipe_ids: ["roast-turkey", "smoked-turkey", "baked-ham", "roast-duck"],
+    side_recipe_ids: ["southern-cornbread-dressing", "oyster-dressing", "giblet-gravy", "sweet-potato-casserole", "green-bean-casserole", "cranberry-relish"],
+    bread_recipe_ids: ["dinner-rolls", "cornbread"],
+    sauce_recipe_ids: ["giblet-gravy"],
+    drink_recipe_ids: ["sweet-tea", "lemonade"],
+    dessert_recipe_ids: ["pumpkin-pie", "sweet-potato-pie", "southern-pecan-pie"],
+    alternate_recipe_ids: ["deep-fried-turkey", "turducken", "honey-glazed-ham"],
+    traditional_sides: ["cornbread dressing", "oyster dressing", "giblet gravy", "sweet potatoes", "green beans", "cranberry sauce"],
+    breads: ["dinner rolls", "cornbread"],
+    sauces_condiments: ["giblet gravy", "cranberry sauce", "butter"],
+    drinks: ["sweet tea", "lemonade", "holiday punch"],
+    desserts: ["pumpkin pie", "sweet potato pie", "pecan pie"],
+    cultural_notes: "Thanksgiving menus work best when the centerpiece, dressing, gravy, casseroles, rolls, and pies all have a written oven plan.",
+    beginner_level: "Choose one main, two make-ahead sides, rolls, and one pie.",
+    pro_level: "Prep desserts and casseroles ahead, write oven times, and rest the turkey before carving.",
+    cook_time: "3-6 hours",
+    hosting_notes: "Stage serving dishes, foil, storage containers, and reheating windows before Thanksgiving morning."
+  },
+  {
+    cuisine: "Holiday / Sunday",
+    country_or_region: "United States",
+    occasion: "Christmas",
+    main_dish: "Prime rib, tenderloin, ham, turkey, duck, or goose",
+    main_recipe_ids: ["prime-rib", "standing-rib-roast", "beef-tenderloin", "honey-glazed-ham", "roast-turkey", "roast-goose"],
+    side_recipe_ids: ["green-bean-casserole", "sweet-potato-casserole", "southern-cornbread-dressing", "dinner-rolls"],
+    bread_recipe_ids: ["dinner-rolls"],
+    sauce_recipe_ids: ["southern-gravy"],
+    drink_recipe_ids: ["eggnog", "holiday-punch"],
+    dessert_recipe_ids: ["christmas-cookies", "fruitcake", "yule-log", "southern-pecan-pie"],
+    alternate_recipe_ids: ["roast-duck", "turducken", "baked-ham"],
+    traditional_sides: ["green bean casserole", "sweet potato casserole", "dressing", "rolls"],
+    breads: ["dinner rolls"],
+    sauces_condiments: ["gravy", "horseradish cream", "cranberry sauce"],
+    drinks: ["eggnog", "holiday punch"],
+    desserts: ["Christmas cookies", "fruitcake", "yule log", "pecan pie"],
+    cultural_notes: "Christmas tables often center one showpiece main with warm sides, cookies, punch, and leftovers people look forward to.",
+    beginner_level: "Pick ham or turkey, two sides, rolls, cookies, and punch.",
+    pro_level: "Rest roasts properly, keep drinks away from hot-food traffic, and slice the showpiece at the table.",
+    cook_time: "2-5 hours",
+    hosting_notes: "Set a cookie and drink station away from the oven line so the kitchen stays calm."
+  },
+  {
+    cuisine: "Holiday / Sunday",
+    country_or_region: "United States",
+    occasion: "Easter",
+    main_dish: "Honey ham or roast lamb",
+    main_recipe_ids: ["honey-glazed-ham", "baked-ham", "roast-lamb"],
+    side_recipe_ids: ["deviled-eggs", "southern-potato-salad", "spring-vegetables", "dinner-rolls"],
+    bread_recipe_ids: ["dinner-rolls"],
+    sauce_recipe_ids: [],
+    drink_recipe_ids: ["lemonade", "sweet-tea"],
+    dessert_recipe_ids: ["carrot-cake", "coconut-cake", "strawberry-shortcake"],
+    alternate_recipe_ids: ["roast-turkey", "green-bean-casserole", "sweet-potato-casserole"],
+    traditional_sides: ["deviled eggs", "potato salad", "spring vegetables", "rolls"],
+    breads: ["dinner rolls"],
+    sauces_condiments: ["mustard", "relish", "butter"],
+    drinks: ["lemonade", "sweet tea"],
+    desserts: ["carrot cake", "coconut cake", "strawberry shortcake"],
+    cultural_notes: "Easter menus feel lighter: ham or lamb, chilled sides, spring vegetables, rolls, and cakes that can be made ahead.",
+    beginner_level: "Use ham, deviled eggs, potato salad, rolls, and one cake.",
+    pro_level: "Slice ham before the line starts and keep spring vegetables bright by cooking them close to serving.",
+    cook_time: "90 min-3 hours",
+    hosting_notes: "Make deviled eggs, potato salad, and cake ahead so the day feels easy."
+  },
+  {
+    cuisine: "Holiday / Sunday",
+    country_or_region: "United States",
+    occasion: "Fourth of July",
+    main_dish: "Burgers, hot dogs, brisket, pulled pork, ribs, or BBQ chicken",
+    main_recipe_ids: ["all-american-burgers", "classic-cookout-hot-dogs", "bbq-brisket-basics", "bbq-pulled-pork", "bbq-smoked-ribs", "bbq-chicken-quarters"],
+    side_recipe_ids: ["bbq-baked-beans", "southern-baked-mac-cheese", "creamy-coleslaw", "corn-on-the-cob", "cookout-watermelon-wedges"],
+    bread_recipe_ids: ["slider-buns", "cornbread"],
+    sauce_recipe_ids: ["bbq-sauce-trio"],
+    drink_recipe_ids: ["lemonade", "sweet-tea"],
+    dessert_recipe_ids: ["classic-apple-pie", "peach-cobbler", "banana-pudding", "strawberry-shortcake"],
+    alternate_recipe_ids: ["fried-chicken", "southern-potato-salad"],
+    traditional_sides: ["baked beans", "mac and cheese", "coleslaw", "corn", "watermelon"],
+    breads: ["buns", "cornbread"],
+    sauces_condiments: ["barbecue sauce", "pickles", "mustard", "relish"],
+    drinks: ["lemonade", "sweet tea", "ice water"],
+    desserts: ["apple pie", "peach cobbler", "banana pudding", "strawberry shortcake"],
+    cultural_notes: "Fourth of July menus are built for grills, coolers, fruit, cold sides, desserts, and food people can come back to between fireworks.",
+    beginner_level: "Grill burgers and hot dogs, make two cold sides, cut watermelon, and serve lemonade.",
+    pro_level: "Start smoked meats early, hold them safely, and keep raw grilling tools away from finished food.",
+    cook_time: "45 min-8 hours",
+    hosting_notes: "Set separate stations for raw prep, cooked food, drinks, trash, and dessert."
+  },
+  {
     cuisine: "Caribbean",
     country_or_region: "Jamaica and broader Caribbean",
     occasion: "Family plate",
@@ -6664,8 +6756,40 @@ function recipeLinkList(ids = []) {
 }
 
 function menuRouteForOccasion(occasion) {
-  const index = menuPairings.findIndex((menu) => menu.occasion.toLowerCase() === occasion.toLowerCase());
+  const normalized = String(occasion || "").trim().toLowerCase();
+  let index = menuPairings.findIndex((menu) => menu.occasion.toLowerCase() === normalized);
+  if (index < 0) {
+    index = menuPairings.findIndex((menu) => menu.occasion.toLowerCase().includes(normalized) || normalized.includes(menu.occasion.toLowerCase()));
+  }
+  if (index < 0 && /holiday|thanksgiving|christmas|easter|fourth|july/.test(normalized)) {
+    index = menuPairings.findIndex((menu) => menu.cuisine === "Holiday / Sunday");
+  }
   return `#what-yall-cooking/${index >= 0 ? index : 0}`;
+}
+
+function menuTitle(menu = {}) {
+  const linkedTitles = (menu.main_recipe_ids || []).map((id) => recipeById(id)).filter(Boolean).map((recipe) => recipe.title);
+  return linkedTitles.join(" or ") || menu.main_dish || "Menu";
+}
+
+function resolveMenuIndex({ selectedIndex = 0, cuisine = "", occasion = "" } = {}) {
+  const selectedMenu = menuPairings[selectedIndex];
+  const normalizedCuisine = String(cuisine || "").trim();
+  const normalizedOccasion = String(occasion || "").trim();
+  if (selectedMenu
+    && (!normalizedCuisine || selectedMenu.cuisine === normalizedCuisine)
+    && (!normalizedOccasion || selectedMenu.occasion === normalizedOccasion)) {
+    return selectedIndex;
+  }
+  const exact = menuPairings.findIndex((menu) =>
+    (!normalizedCuisine || menu.cuisine === normalizedCuisine)
+    && (!normalizedOccasion || menu.occasion === normalizedOccasion)
+  );
+  if (exact >= 0) return exact;
+  const byOccasion = normalizedOccasion ? menuPairings.findIndex((menu) => menu.occasion === normalizedOccasion) : -1;
+  if (byOccasion >= 0) return byOccasion;
+  const byCuisine = normalizedCuisine ? menuPairings.findIndex((menu) => menu.cuisine === normalizedCuisine) : -1;
+  return byCuisine >= 0 ? byCuisine : Math.max(0, Math.min(menuPairings.length - 1, Number(selectedIndex) || 0));
 }
 
 const regionalSoulFoodPages = {
@@ -11940,6 +12064,8 @@ function renderPlanner(id) {
   const audienceId = audienceParts.join("-");
   const selectedIndex = Number.isFinite(Number(menuIdPart)) ? Math.max(0, Math.min(menuPairings.length - 1, Number(menuIdPart))) : 0;
   const selectedMenu = menuPairings[selectedIndex];
+  const cuisineOptions = [...new Set(menuPairings.map((menu) => menu.cuisine))];
+  const occasionOptions = [...new Set(menuPairings.map((menu) => menu.occasion))];
   const selectedAudience = menuAudienceOptions.find((item) => item.id === audienceId) || menuAudienceOptions[0];
   const menuRecipes = recipesForMenu(selectedMenu);
   const menuRecipeCount = menuRecipes.length;
@@ -11977,8 +12103,9 @@ function renderPlanner(id) {
           <form class="menu-builder-form" data-menu-planner-form>
             <label>Audience<select name="audience">${menuAudienceOptions.filter((item) => plannerAudienceIds.includes(item.id)).map((item) => `<option value="${item.id}"${item.id === selectedAudience.id ? " selected" : ""}>${item.title}</option>`).join("")}</select></label>
             <label>Serving Size<select name="servings">${plannerServingOptions.map((item) => `<option value="${item}"${item === selectedServingSize ? " selected" : ""}>${item}</option>`).join("")}</select></label>
-            <label>Cuisine<select name="cuisine">${[...new Set(menuPairings.map((menu) => menu.cuisine))].map((item) => `<option${item === selectedMenu.cuisine ? " selected" : ""}>${item}</option>`).join("")}</select></label>
-            <label>Main Dish<select name="main">${menuPairings.map((menu, index) => `<option value="${index}"${index === selectedIndex ? " selected" : ""}>${recipeLinksFor(menu.main_recipe_ids).map((link) => link.replace(/<[^>]+>/g, "")).join(" or ") || menu.main_dish}</option>`).join("")}</select></label>
+            <label>Cuisine<select name="cuisine">${cuisineOptions.map((item) => `<option${item === selectedMenu.cuisine ? " selected" : ""}>${item}</option>`).join("")}</select></label>
+            <label>Occasion<select name="occasion">${occasionOptions.map((item) => `<option${item === selectedMenu.occasion ? " selected" : ""}>${item}</option>`).join("")}</select></label>
+            <label>Main Dish<select name="main">${menuPairings.map((menu, index) => `<option value="${index}"${index === selectedIndex ? " selected" : ""}>${menuTitle(menu)} (${menu.cuisine} / ${menu.occasion})</option>`).join("")}</select></label>
             <button class="small-button" type="submit">Generate Menu</button>
           </form>
           <div class="planner-menu-actions">
@@ -12920,9 +13047,14 @@ async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const selected = Number(formData.get("main"));
+    const resolved = resolveMenuIndex({
+      selectedIndex: Number.isFinite(selected) ? selected : 0,
+      cuisine: formData.get("cuisine")?.toString() || "",
+      occasion: formData.get("occasion")?.toString() || ""
+    });
     const servings = Number(formData.get("servings"));
     const audience = formData.get("audience")?.toString() || "single";
-    window.location.hash = `#planner/${Number.isFinite(selected) ? selected : 0}-${plannerServingOptions.includes(servings) ? servings : 6}-${audience}`;
+    window.location.hash = `#planner/${resolved}-${plannerServingOptions.includes(servings) ? servings : 6}-${audience}`;
     return;
   }
 
