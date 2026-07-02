@@ -2601,6 +2601,42 @@ function menuShoppingList(menu) {
 
 const plannerServingOptions = [1, 2, 4, 6, 8, 12, 25, 50, 100];
 
+const plannerMainDishIds = [
+  "fried-chicken", "smothered-chicken", "smothered-pork-chops", "oxtails", "chicken-and-dumplings",
+  "chicken-and-dressing", "hamburger-steak-with-gravy", "baked-pork-chops", "chicken-fried-steak",
+  "fried-catfish", "mississippi-buffalo-fish", "nashville-hot-chicken", "georgia-brunswick-stew",
+  "bbq-brisket-basics", "bbq-chicken-quarters", "bbq-pulled-pork", "bbq-smoked-ribs",
+  "texas-beef-ribs", "texas-chili", "texas-barbacoa", "king-ranch-chicken", "frito-pie",
+  "breakfast-tacos", "all-american-burgers", "classic-cookout-hot-dogs",
+  "roast-turkey", "smoked-turkey", "deep-fried-turkey", "baked-ham", "honey-glazed-ham",
+  "roast-duck", "roast-goose", "turducken", "prime-rib", "standing-rib-roast", "beef-tenderloin",
+  "roast-lamb", "maryland-crab-cakes", "cream-of-crab-soup", "maryland-crab-soup",
+  "shrimp-and-grits", "fried-oysters", "fried-clams", "maine-lobster-roll", "connecticut-lobster-roll",
+  "frogmore-stew", "crawfish-boil", "stone-crab-claws", "florida-blue-crab", "cedar-plank-salmon",
+  "alaska-salmon-bake", "san-francisco-cioppino", "hawaiian-poke-bowls", "san-diego-fish-tacos",
+  "cajun-chicken-sausage-gumbo", "cajun-jambalaya", "red-beans-and-rice", "creole-shrimp-creole",
+  "cajun-shrimp-etouffee", "creole-seafood-gumbo", "creole-courtbouillon", "cajun-dirty-rice",
+  "birria-style-tacos", "chicken-street-tacos", "swordfish-tacos", "black-bean-enchiladas",
+  "cheese-quesadillas", "sonoran-hot-dogs", "navajo-tacos", "carne-asada", "chimichangas",
+  "green-chile-stew", "carne-adovada", "new-mexico-posole", "hatch-chile-burgers",
+  "jerk-chicken", "caribbean-curry-chicken", "rice-and-peas", "cuban-sandwich-press",
+  "griot", "mofongo", "butter-chicken", "chana-masala", "indian-dal-tadka", "biryani",
+  "chicken-tikka-masala", "tandoori-chicken", "palak-paneer", "vegetable-stir-fry",
+  "orange-chicken", "pineapple-fried-rice", "shrimp-fried-rice", "new-york-pizza",
+  "philly-cheesesteak", "chopped-cheese", "pastrami-on-rye", "buffalo-wings", "italian-beef",
+  "chicago-style-hot-dog", "maxwell-street-polish", "pizza-puff", "jibarito", "dc-half-smoke",
+  "salvadoran-pupusas", "baked-spaghetti", "chicken-alfredo", "chicken-parmesan",
+  "simple-spaghetti", "tuscan-chicken", "chicken-vesuvio"
+];
+
+function plannerMainDishOptions() {
+  const menuMainIds = menuPairings.flatMap((menu) => menu.main_recipe_ids || []);
+  return [...new Set([...plannerMainDishIds, ...menuMainIds])]
+    .map((id) => recipeById(id))
+    .filter(Boolean)
+    .sort((a, b) => a.title.localeCompare(b.title));
+}
+
 const plannerAudienceIds = ["single", "date-night", "family", "large-family", "sunday-dinner", "church-homecoming", "tailgate", "thanksgiving", "juneteenth", "family-reunion"];
 
 const mealPrepModes = [
@@ -12365,6 +12401,9 @@ function renderPlanner(id) {
   const selectedMenu = menuPairings[selectedIndex];
   const cuisineOptions = [...new Set(menuPairings.map((menu) => menu.cuisine))];
   const occasionOptions = [...new Set(menuPairings.map((menu) => menu.occasion))];
+  const mainDishOptions = plannerMainDishOptions();
+  const plannedRecipeIds = new Set(plannedRecipes.map((recipe) => recipe.id));
+  const selectedMainDishId = mainDishOptions.find((recipe) => plannedRecipeIds.has(recipe.id))?.id || "";
   const selectedAudience = menuAudienceOptions.find((item) => item.id === audienceId) || menuAudienceOptions[0];
   const menuRecipes = recipesForMenu(selectedMenu);
   const menuRecipeCount = menuRecipes.length;
@@ -12398,13 +12437,14 @@ function renderPlanner(id) {
       <div class="planner-primary-grid">
         <article class="detail-panel menu-builder-section">
           <p class="eyebrow">Build a Menu</p>
-          <h2>Start with an audience, occasion, and main dish.</h2>
+          <h2>Start with an audience, occasion, and the dish you're craving.</h2>
           <form class="menu-builder-form" data-menu-planner-form>
             <label>Audience<select name="audience">${menuAudienceOptions.filter((item) => plannerAudienceIds.includes(item.id)).map((item) => `<option value="${item.id}"${item.id === selectedAudience.id ? " selected" : ""}>${item.title}</option>`).join("")}</select></label>
             <label>Serving Size<select name="servings">${plannerServingOptions.map((item) => `<option value="${item}"${item === selectedServingSize ? " selected" : ""}>${item}</option>`).join("")}</select></label>
             <label>Cuisine<select name="cuisine">${cuisineOptions.map((item) => `<option${item === selectedMenu.cuisine ? " selected" : ""}>${item}</option>`).join("")}</select></label>
             <label>Occasion<select name="occasion">${occasionOptions.map((item) => `<option${item === selectedMenu.occasion ? " selected" : ""}>${item}</option>`).join("")}</select></label>
-            <label>Main Dish<select name="main">${menuPairings.map((menu, index) => `<option value="${index}"${index === selectedIndex ? " selected" : ""}>${menuTitle(menu)} (${menu.cuisine} / ${menu.occasion})</option>`).join("")}</select></label>
+            <label>Menu Style<select name="main">${menuPairings.map((menu, index) => `<option value="${index}"${index === selectedIndex ? " selected" : ""}>${menuTitle(menu)} (${menu.cuisine} / ${menu.occasion})</option>`).join("")}</select></label>
+            <label>Main Dish Library<select name="mainRecipe"><option value="">Choose a featured main</option>${mainDishOptions.map((recipe) => `<option value="${recipe.id}"${recipe.id === selectedMainDishId ? " selected" : ""}>${escapeHTML(recipe.title)} (${escapeHTML(recipe.cuisine)})</option>`).join("")}</select></label>
             <button class="small-button" type="submit">Generate Menu</button>
           </form>
           <div class="planner-menu-actions">
@@ -13346,11 +13386,20 @@ async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const selected = Number(formData.get("main"));
-    const resolved = resolveMenuIndex({
+    const selectedMainRecipe = recipeById(formData.get("mainRecipe")?.toString() || "");
+    let resolved = resolveMenuIndex({
       selectedIndex: Number.isFinite(selected) ? selected : 0,
       cuisine: formData.get("cuisine")?.toString() || "",
       occasion: formData.get("occasion")?.toString() || ""
     });
+    if (selectedMainRecipe) {
+      const pairedMenuIndex = menuPairings.indexOf(smartPairingFor(selectedMainRecipe));
+      if (pairedMenuIndex >= 0) {
+        resolved = pairedMenuIndex;
+      }
+      planned = [...new Set([selectedMainRecipe.id, ...planned])];
+      await persistLetsCookState();
+    }
     const servings = Number(formData.get("servings"));
     const audience = formData.get("audience")?.toString() || "single";
     window.location.hash = `#planner/${resolved}-${plannerServingOptions.includes(servings) ? servings : 6}-${audience}`;
