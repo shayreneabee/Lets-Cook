@@ -807,14 +807,56 @@ const cuisineExplorerGroups = [
     title: "Africa Cuisine Hub",
     image: "images/cuisines/africa/nigeria/jollof-rice.jpg",
     note: "Explore distinct country foodways across West, East, Southern, and North Africa through real dishes, ingredients, traditions, street foods, and celebration tables.",
-    regions: ["Nigeria", "Ghana", "Senegal", "Ivory Coast", "Ethiopia", "Kenya", "Tanzania", "South Africa", "Zimbabwe", "Morocco", "Egypt", "Tunisia"]
+    regions: ["Nigeria", "Ghana", "Senegal", "Ethiopia", "Eritrea", "Kenya", "South Africa", "Morocco", "Algeria", "Tunisia", "Egypt", "Cameroon", "Zimbabwe", "Tanzania"]
+  },
+  {
+    id: "north-american-cuisines",
+    title: "North America Cuisine Hub",
+    image: westernCoverImages.california,
+    note: "Explore United States regional cooking, Canada, Mexico, Greenland, Indigenous food traditions, borderlands, seafood coasts, barbecue, soul food, and neighborhood classics.",
+    regions: ["United States", "Canada", "Mexico", "Greenland", "Cajun", "Creole", "Gullah Geechee", "Appalachian", "Southwest", "Pacific Northwest", "New England", "Soul Food", "Tex-Mex", "Native American"]
   },
   {
     id: "asian-cuisines",
     title: "Asian Cuisines",
     image: "images/cuisines/asian/asian-01.png",
     note: "Rice, noodles, broths, stir-fries, fermented sauces, pickles, dumplings, heat, balance, and texture.",
-    regions: ["Japan", "China", "Korea", "Thailand", "Vietnam", "Philippines", "India"]
+    regions: ["Japan", "China", "Korea", "Taiwan", "Mongolia", "India", "Pakistan", "Bangladesh", "Nepal", "Sri Lanka", "Thailand", "Vietnam", "Laos", "Cambodia", "Malaysia", "Singapore", "Indonesia", "Philippines", "Myanmar"]
+  },
+  {
+    id: "middle-eastern-cuisines",
+    title: "Middle East Cuisine Hub",
+    image: cuisineCoverImages.mediterranean,
+    note: "Flatbreads, rice, grilled meats, legumes, herbs, yogurt, dates, tea, mezze, stews, spice blends, and hospitality tables across the Levant, Gulf, Persia, and Anatolia.",
+    regions: ["Lebanon", "Israel", "Palestine", "Jordan", "Syria", "Iraq", "Iran", "Saudi Arabia", "UAE", "Qatar", "Oman", "Yemen", "Turkey"]
+  },
+  {
+    id: "caribbean-cuisines",
+    title: "Caribbean Cuisines",
+    image: cuisineCoverImages.caribbean,
+    note: "Warm spice, plantains, rice and peas, seafood, curries, jerk seasoning, stews, and celebration food.",
+    regions: ["Jamaica", "Haiti", "Trinidad & Tobago", "Bahamas", "Cuba", "Puerto Rico", "Dominican Republic", "Barbados", "St. Lucia", "Grenada"]
+  },
+  {
+    id: "south-american-cuisines",
+    title: "South America Cuisine Hub",
+    image: cuisineCoverImages.mexican,
+    note: "Andean potatoes and corn, coastal seafood, barbecue, beans, rice, cassava, tropical fruit, empanadas, stews, and market cooking across South America.",
+    regions: ["Brazil", "Argentina", "Peru", "Chile", "Colombia", "Venezuela", "Ecuador", "Bolivia", "Paraguay", "Uruguay"]
+  },
+  {
+    id: "european-cuisines",
+    title: "European Cuisines",
+    image: cuisineCoverImages.italian,
+    note: "Pasta, roasts, breads, sauces, preserved foods, pastry, soups, braises, and seasonal cooking.",
+    regions: ["Italy", "France", "Spain", "Portugal", "Greece", "Germany", "Poland", "Hungary", "Romania", "Ireland", "Scotland", "England", "Wales", "Netherlands", "Belgium", "Switzerland", "Austria", "Sweden", "Norway", "Denmark", "Finland", "Ukraine", "Czech Republic"]
+  },
+  {
+    id: "oceania-cuisines",
+    title: "Oceania Cuisine Hub",
+    image: westernCoverImages["alaska-hawaii"],
+    note: "Explore Australia, New Zealand, Pacific Island, and Hawaii foodways through seafood, barbecue, tropical fruit, taro, coconut, lamb, meat pies, and family celebration tables.",
+    regions: ["Australia", "New Zealand", "Fiji", "Samoa", "Tonga", "Papua New Guinea", "Hawaii"]
   },
   {
     id: "mediterranean-cuisines",
@@ -822,20 +864,6 @@ const cuisineExplorerGroups = [
     image: cuisineCoverImages.mediterranean,
     note: "Olive oil, herbs, citrus, yogurt sauces, grilled proteins, mezze, breads, vegetables, and shared tables.",
     regions: ["Greece", "Turkey", "Lebanon", "Egypt", "Morocco", "Italy-adjacent regions"]
-  },
-  {
-    id: "caribbean-cuisines",
-    title: "Caribbean Cuisines",
-    image: cuisineCoverImages.caribbean,
-    note: "Warm spice, plantains, rice and peas, seafood, curries, jerk seasoning, stews, and celebration food.",
-    regions: ["Jamaica", "Trinidad", "Haiti", "Puerto Rico", "Dominican Republic", "Bahamas", "Barbados"]
-  },
-  {
-    id: "european-cuisines",
-    title: "European Cuisines",
-    image: cuisineCoverImages.italian,
-    note: "Pasta, roasts, breads, sauces, preserved foods, pastry, soups, braises, and seasonal cooking.",
-    regions: ["Italy", "France", "Spain", "Portugal", "Germany", "United Kingdom", "Eastern Europe"]
   },
   {
     id: "southern-soul-food",
@@ -951,6 +979,34 @@ const cuisineMarketProfiles = {
     dishes: ["Ramen", "Dumplings", "Pad Thai", "Korean BBQ"],
     highlights: ["Broth shops", "Night markets", "Fermentation"],
     accent: "jade"
+  },
+  "north-american-cuisines": {
+    mood: "Roadside diners, smokehouses, Indigenous foodways, taco counters, seafood shacks, maple tables, and neighborhood cookouts.",
+    ingredients: ["corn", "beans", "maple", "seafood", "beef", "berries"],
+    dishes: ["BBQ", "Tacos", "Poutine", "Fry bread"],
+    highlights: ["Road trips", "Regional tables", "Cookouts"],
+    accent: "prairie"
+  },
+  "south-american-cuisines": {
+    mood: "Andean markets, coastal ceviche, grilled meats, cassava, corn, tropical fruit, empanadas, and family lunch plates.",
+    ingredients: ["corn", "potatoes", "cassava", "beans", "beef", "lime"],
+    dishes: ["Ceviche", "Empanadas", "Feijoada", "Arepas"],
+    highlights: ["Market plates", "Asado", "Coastal food"],
+    accent: "fiesta"
+  },
+  "middle-eastern-cuisines": {
+    mood: "Flatbread, mezze, saffron rice, grilled meats, dates, tea, yogurt sauces, spice markets, and generous hospitality.",
+    ingredients: ["rice", "flatbread", "lentils", "chickpeas", "yogurt", "dates"],
+    dishes: ["Mezze", "Kebabs", "Pilaf", "Falafel"],
+    highlights: ["Mezze tables", "Spice markets", "Tea service"],
+    accent: "olive"
+  },
+  "oceania-cuisines": {
+    mood: "Island tables, seafood, barbecue, taro, coconut, meat pies, tropical fruit, plate lunch, and family feasts.",
+    ingredients: ["seafood", "taro", "coconut", "rice", "lamb", "fruit"],
+    dishes: ["Poke", "Hangi", "Meat pies", "Pavlova"],
+    highlights: ["Island feasts", "Seafood", "Barbecue"],
+    accent: "island"
   },
   "mediterranean-cuisines": {
     mood: "Olive branches, citrus, grilled seafood, herbs, yogurt sauces, tiled courtyards, and long tables.",
@@ -1508,6 +1564,261 @@ const globalCuisineProfileExpansions = [
 globalCuisineProfileExpansions.forEach(([id, title, region, cuisine, overview, culture, ingredients, dishes, techniques, menu]) => {
   countryCuisineProfiles[id] = { title, region, cuisine, overview, culture, ingredients, dishes, techniques, menu, beginnerRecipes: dishes };
 });
+
+const globalCuisineRegionTemplates = {
+  africa: {
+    cuisine: "global",
+    image: "images/cuisines/africa/nigeria/jollof-rice.jpg",
+    ingredients: ["rice", "grains", "beans", "tomatoes", "peppers", "onions", "spice blends", "greens"],
+    dishes: ["rice dishes", "stews", "grilled meats", "bean dishes", "flatbreads", "festival sweets"],
+    streetFood: ["grilled skewers", "fried dough", "spiced nuts", "market rice plates"],
+    breakfast: ["porridge", "bread with tea", "beans or eggs", "fruit"],
+    lunch: ["rice and stew", "grilled protein", "beans", "vegetable sides"],
+    dinner: ["slow stew", "staple grain", "greens", "pepper sauce"],
+    desserts: ["fried sweets", "fruit", "spiced cakes"],
+    drinks: ["ginger drink", "hibiscus drink", "tea"],
+    techniques: ["building stew bases", "grilling over charcoal", "cooking staple grains", "balancing peppers and aromatics"],
+    pantry: ["rice", "beans", "tomatoes", "onions", "chiles", "stock", "oil"],
+    spices: ["ginger", "garlic", "cumin", "coriander", "chile", "black pepper"],
+    etiquette: ["Many meals are shared from common platters or served family-style; accept hospitality with care and ask how the dish is traditionally eaten."],
+    equipment: ["heavy pot", "mortar or blender", "grill", "wide serving platter"]
+  },
+  northAmerica: {
+    cuisine: "global",
+    image: westernCoverImages.california,
+    ingredients: ["corn", "beans", "wheat", "seafood", "beef", "pork", "berries", "maple"],
+    dishes: ["barbecue", "stews", "seafood plates", "pies", "tacos", "regional sandwiches"],
+    streetFood: ["hot dogs", "tacos", "food truck bowls", "poutine", "fry bread"],
+    breakfast: ["eggs", "biscuits or toast", "pancakes", "breakfast tacos"],
+    lunch: ["sandwiches", "soups", "salads", "rice bowls"],
+    dinner: ["grilled meats", "seafood", "casseroles", "beans and cornbread"],
+    desserts: ["pies", "cobblers", "cookies", "ice cream"],
+    drinks: ["lemonade", "iced tea", "coffee", "fruit drinks"],
+    techniques: ["grilling", "smoking", "baking pies", "slow simmering", "cast iron cooking"],
+    pantry: ["flour", "cornmeal", "beans", "rice", "broth", "canned tomatoes", "seasoning blends"],
+    spices: ["paprika", "chile powder", "black pepper", "garlic powder", "mustard"],
+    etiquette: ["Food is often informal and generous; potlucks, cookouts, and family tables usually value sharing and helping."],
+    equipment: ["grill", "cast iron skillet", "sheet pan", "stockpot"]
+  },
+  caribbean: {
+    cuisine: "caribbean",
+    image: cuisineCoverImages.caribbean,
+    ingredients: ["rice", "peas", "plantains", "coconut milk", "seafood", "allspice", "thyme", "Scotch bonnet"],
+    dishes: ["jerk chicken", "rice and peas", "stews", "curries", "fried plantains", "patties"],
+    streetFood: ["patties", "doubles", "bakes", "grilled seafood", "fruit cups"],
+    breakfast: ["porridge", "saltfish dishes", "fried bakes", "fruit"],
+    lunch: ["rice plates", "stewed chicken", "curry", "plantains"],
+    dinner: ["seafood", "jerk meats", "rice and peas", "cabbage"],
+    desserts: ["rum cake", "coconut sweets", "fruit desserts"],
+    drinks: ["sorrel", "ginger beer", "tropical punch"],
+    techniques: ["marinating with green seasoning", "rice and bean cooking", "plantain frying", "slow stewing"],
+    pantry: ["rice", "beans", "coconut milk", "allspice", "thyme", "hot sauce", "plantains"],
+    spices: ["allspice", "thyme", "ginger", "garlic", "curry powder", "Scotch bonnet"],
+    etiquette: ["Sunday meals and celebration plates are generous; bring appetite, respect the seasoning, and share the table."],
+    equipment: ["Dutch oven", "griddle", "rice pot", "grill"]
+  },
+  southAmerica: {
+    cuisine: "mexican",
+    image: cuisineCoverImages.mexican,
+    ingredients: ["corn", "potatoes", "rice", "beans", "cassava", "beef", "seafood", "tropical fruit"],
+    dishes: ["empanadas", "ceviche", "grilled meats", "stews", "rice plates", "corn cakes"],
+    streetFood: ["empanadas", "arepas", "skewers", "sandwiches", "fruit juices"],
+    breakfast: ["bread with coffee", "arepas", "fruit", "eggs"],
+    lunch: ["large rice plates", "soups", "grilled meats", "beans"],
+    dinner: ["stews", "seafood", "barbecue", "vegetable sides"],
+    desserts: ["dulce de leche sweets", "flans", "fruit desserts"],
+    drinks: ["fruit juices", "mate", "lime drinks"],
+    techniques: ["grilling", "quick citrus marinating", "bean simmering", "corn or cassava dough shaping"],
+    pantry: ["rice", "beans", "cornmeal", "cassava flour", "cumin", "lime", "chiles"],
+    spices: ["cumin", "oregano", "paprika", "garlic", "cilantro"],
+    etiquette: ["Lunch may be the biggest meal in many places; food is often social, abundant, and tied to region."],
+    equipment: ["griddle", "stockpot", "grill", "mixing bowl"]
+  },
+  europe: {
+    cuisine: "global",
+    image: cuisineCoverImages.italian,
+    ingredients: ["bread", "potatoes", "pasta", "butter", "olive oil", "cheese", "cabbage", "herbs"],
+    dishes: ["soups", "roasts", "dumplings", "pastas", "pies", "pastries"],
+    streetFood: ["sausages", "fries", "savory pies", "crepes", "sandwiches"],
+    breakfast: ["bread or pastry", "eggs", "cheese", "coffee or tea"],
+    lunch: ["soups", "sandwiches", "salads", "pasta"],
+    dinner: ["roasts", "stews", "fish", "vegetables", "bread"],
+    desserts: ["cakes", "pastries", "fruit tarts", "cookies"],
+    drinks: ["coffee", "tea", "sparkling water", "warm punches"],
+    techniques: ["braising", "roasting", "bread baking", "sauce making", "dumpling forming"],
+    pantry: ["flour", "potatoes", "butter", "olive oil", "beans", "pasta", "stock"],
+    spices: ["parsley", "dill", "paprika", "bay leaf", "nutmeg", "black pepper"],
+    etiquette: ["Meals vary by country, but bread, shared courses, and respect for pace and tradition matter."],
+    equipment: ["soup pot", "roasting pan", "rolling pin", "baking dish"]
+  },
+  middleEast: {
+    cuisine: "mediterranean",
+    image: cuisineCoverImages.mediterranean,
+    ingredients: ["rice", "flatbread", "lentils", "chickpeas", "yogurt", "olive oil", "dates", "herbs"],
+    dishes: ["mezze", "kebabs", "rice pilafs", "stews", "flatbreads", "stuffed vegetables"],
+    streetFood: ["shawarma", "falafel", "mana'eesh", "kebabs", "tea stalls"],
+    breakfast: ["flatbread", "labneh", "eggs", "beans", "tea"],
+    lunch: ["rice and grilled meats", "salads", "lentils", "bread"],
+    dinner: ["mezze", "stews", "pilaf", "yogurt sauces"],
+    desserts: ["baklava", "date sweets", "milk puddings"],
+    drinks: ["mint tea", "coffee", "yogurt drinks", "fruit juices"],
+    techniques: ["spice blooming", "grilling", "rice pilaf cooking", "flatbread service", "mezze assembly"],
+    pantry: ["rice", "lentils", "chickpeas", "tahini", "olive oil", "yogurt", "sumac"],
+    spices: ["cumin", "coriander", "sumac", "za'atar", "cardamom", "cinnamon"],
+    etiquette: ["Hospitality is central; accept tea or coffee graciously and respect shared bread and platter customs."],
+    equipment: ["grill pan", "rice pot", "serving platters", "mortar or spice grinder"]
+  },
+  asia: {
+    cuisine: "asian-inspired",
+    image: "images/cuisines/asian/asian-01.png",
+    ingredients: ["rice", "noodles", "soy sauce", "ginger", "garlic", "scallions", "chiles", "sesame"],
+    dishes: ["dumplings", "curries", "noodle soups", "rice bowls", "stir-fries", "grilled skewers"],
+    streetFood: ["dumplings", "noodle bowls", "satay", "fried snacks", "tea stalls"],
+    breakfast: ["rice porridge", "noodles", "flatbreads", "eggs", "tea"],
+    lunch: ["rice bowl", "noodle soup", "curry", "dumplings"],
+    dinner: ["shared stir-fries", "soups", "grilled meats", "vegetables"],
+    desserts: ["rice sweets", "fruit", "custards", "sweet breads"],
+    drinks: ["tea", "lassi", "fruit drinks", "milk tea"],
+    techniques: ["stir-frying", "steaming", "dumpling folding", "broth building", "fermentation"],
+    pantry: ["rice", "noodles", "soy sauce", "vinegar", "sesame oil", "coconut milk", "lentils"],
+    spices: ["ginger", "garlic", "chile", "turmeric", "cumin", "star anise"],
+    etiquette: ["Dining customs differ widely; learn local chopstick, hand-eating, shared platter, and tea customs by country."],
+    equipment: ["wok", "rice cooker", "steamer", "soup pot"]
+  },
+  oceania: {
+    cuisine: "global",
+    image: westernCoverImages["alaska-hawaii"],
+    ingredients: ["seafood", "lamb", "taro", "coconut", "rice", "tropical fruit", "sweet potatoes"],
+    dishes: ["barbecue", "meat pies", "poke", "hangi-style meals", "luau foods", "seafood plates"],
+    streetFood: ["meat pies", "fish and chips", "plate lunch", "fruit stands"],
+    breakfast: ["toast", "eggs", "fruit", "porridge"],
+    lunch: ["seafood", "rice plates", "sandwiches", "salads"],
+    dinner: ["barbecue", "roasts", "fish", "root vegetables"],
+    desserts: ["pavlova", "coconut sweets", "fruit desserts"],
+    drinks: ["tea", "fruit drinks", "lemonade"],
+    techniques: ["grilling", "earth-oven style cooking", "seafood handling", "root vegetable cooking"],
+    pantry: ["rice", "coconut milk", "flour", "taro", "soy sauce", "sea salt"],
+    spices: ["ginger", "garlic", "chile", "black pepper", "curry powder"],
+    etiquette: ["Food is often tied to land, sea, family, and ceremony; respect Indigenous and island foodways as living cultures."],
+    equipment: ["grill", "roasting pan", "rice pot", "large serving trays"]
+  }
+};
+
+const globalCuisineCountrySeed = [
+  ["united-states", "United States", "North America", "northAmerica", "barbecue, soul food, Indigenous foodways, immigrant neighborhoods, regional seafood, state fairs, diners, delis, cookouts, and holiday tables", ["barbecue ribs", "fried chicken", "burgers", "clam chowder", "gumbo", "apple pie"]],
+  ["canada", "Canada", "North America", "northAmerica", "prairie grains, seafood coasts, maple, Indigenous foodways, immigrant city food, comfort dishes, and winter cooking", ["poutine", "butter tarts", "tourtiere", "Nanaimo bars", "Montreal bagels"]],
+  ["greenland", "Greenland", "North America", "northAmerica", "Arctic seafood, preserved foods, soups, berries, game traditions, and cold-climate resourcefulness", ["seafood soup", "dried fish", "berry desserts", "stews"]],
+  ["algeria", "Algeria", "North Africa", "africa", "couscous, chakhchoukha, chorba, flatbreads, dates, lamb, peppers, and North African spice traditions", ["couscous", "chorba", "chakhchoukha", "brik", "makroud"]],
+  ["eritrea", "Eritrea", "East Africa", "africa", "injera, tsebhi stews, lentils, berbere, coffee traditions, and Red Sea influences", ["tsebhi", "injera", "shiro", "zigni", "lentil stews"]],
+  ["cameroon", "Cameroon", "Central Africa", "africa", "pepper soups, ndole, plantains, grilled fish, groundnut stews, cassava, and market food", ["ndole", "achu", "poulet DG", "grilled fish", "plantains"]],
+  ["trinidad-tobago", "Trinidad & Tobago", "Caribbean", "caribbean", "roti, doubles, pelau, curry, callaloo, chadon beni, pepper sauce, and festival street food", ["doubles", "pelau", "curry chicken", "callaloo", "bake and shark"]],
+  ["st-lucia", "St. Lucia", "Caribbean", "caribbean", "green fig and saltfish, cocoa tea, seafood, breadfruit, plantains, and island Sunday meals", ["green fig and saltfish", "cocoa tea", "stewed fish", "breadfruit"]],
+  ["grenada", "Grenada", "Caribbean", "caribbean", "nutmeg, cocoa, oil down, seafood, callaloo, coconut, and spice island cooking", ["oil down", "cocoa tea", "nutmeg desserts", "fish stew"]],
+  ["argentina", "Argentina", "South America", "southAmerica", "asado, beef, empanadas, chimichurri, Italian influence, dulce de leche, and mate culture", ["asado", "empanadas", "milanesa", "chimichurri", "alfajores"]],
+  ["chile", "Chile", "South America", "southAmerica", "seafood, empanadas, pastel de choclo, beans, corn, merken, and long coastal cooking", ["pastel de choclo", "empanadas", "curanto", "cazuela", "sopaipillas"]],
+  ["venezuela", "Venezuela", "South America", "southAmerica", "arepas, pabellon criollo, plantains, beans, cheeses, empanadas, and family breakfast tables", ["arepas", "pabellon criollo", "tequenos", "cachapas"]],
+  ["ecuador", "Ecuador", "South America", "southAmerica", "ceviche, plantains, potatoes, seafood, soups, corn, peanuts, and Andean/coastal regional plates", ["encebollado", "ceviche", "llapingachos", "locro de papa"]],
+  ["bolivia", "Bolivia", "South America", "southAmerica", "potatoes, corn, quinoa, saltenas, soups, grilled meats, and highland comfort food", ["saltenas", "silpancho", "sopa de mani", "anticuchos"]],
+  ["paraguay", "Paraguay", "South America", "southAmerica", "corn breads, mandioca, cheese, soups, grilled meats, terere, and family staples", ["sopa paraguaya", "chipa", "mbeju", "asado"]],
+  ["uruguay", "Uruguay", "South America", "southAmerica", "asado, chivito, pasta, dulce de leche, mate, and neighborhood grill culture", ["chivito", "asado", "pasta", "alfajores"]],
+  ["poland", "Poland", "Europe", "europe", "pierogi, soups, cabbage, potatoes, mushrooms, smoked meats, sour cream, and holiday baking", ["pierogi", "bigos", "barszcz", "golabki", "paczki"]],
+  ["hungary", "Hungary", "Europe", "europe", "paprika, goulash, stews, dumplings, sour cream, peppers, pastries, and market soups", ["goulash", "paprikash", "langos", "dobos torte"]],
+  ["romania", "Romania", "Europe", "europe", "sarmale, mamaliga, soups, grilled sausages, sour cream, pickles, and holiday breads", ["sarmale", "mamaliga", "mititei", "cozonac"]],
+  ["ireland", "Ireland", "Europe", "europe", "potatoes, stews, soda bread, seafood, butter, tea, roasts, and pub comfort", ["Irish stew", "soda bread", "boxty", "colcannon"]],
+  ["scotland", "Scotland", "Europe", "europe", "oats, seafood, game, soups, shortbread, neeps and tatties, and bakery traditions", ["cullen skink", "shortbread", "haggis", "oatcakes"]],
+  ["england", "England", "Europe", "europe", "Sunday roast, pies, puddings, curries, tea, fish and chips, and pub food", ["fish and chips", "Sunday roast", "shepherd's pie", "scones"]],
+  ["wales", "Wales", "Europe", "europe", "leeks, lamb, seaweed traditions, cakes, rarebit, soups, and tea-table baking", ["Welsh rarebit", "cawl", "bara brith", "Welsh cakes"]],
+  ["netherlands", "Netherlands", "Europe", "europe", "breads, cheeses, fries, pancakes, seafood, stews, and market snacks", ["stroopwafels", "bitterballen", "pannekoeken", "haring"]],
+  ["belgium", "Belgium", "Europe", "europe", "waffles, fries, mussels, chocolate, stews, endive, and cafe food", ["moules frites", "Belgian waffles", "carbonnade", "chocolate"]],
+  ["switzerland", "Switzerland", "Europe", "europe", "cheese, potatoes, chocolate, breads, rosti, fondue, and mountain comfort", ["fondue", "rosti", "raclette", "chocolate"]],
+  ["austria", "Austria", "Europe", "europe", "schnitzel, pastries, dumplings, coffeehouse desserts, soups, and Alpine comfort", ["wiener schnitzel", "strudel", "sacher torte", "knodel"]],
+  ["sweden", "Sweden", "Europe", "europe", "meatballs, seafood, potatoes, dill, rye, cardamom buns, and fika traditions", ["Swedish meatballs", "gravlax", "cinnamon buns", "prinsesstarta"]],
+  ["norway", "Norway", "Europe", "europe", "seafood, potatoes, flatbreads, waffles, preserved fish, berries, and cold-climate cooking", ["fiskesuppe", "lefse", "waffles", "salmon"]],
+  ["denmark", "Denmark", "Europe", "europe", "open sandwiches, pastries, pork, potatoes, seafood, rye, and cozy home meals", ["smorrebrod", "Danish pastries", "frikadeller", "roast pork"]],
+  ["finland", "Finland", "Europe", "europe", "rye bread, fish, berries, mushrooms, soups, pastries, and Nordic comfort", ["salmon soup", "karjalanpiirakka", "rye bread", "berry desserts"]],
+  ["ukraine", "Ukraine", "Europe", "europe", "borscht, varenyky, cabbage rolls, breads, sour cream, dill, and holiday dishes", ["borscht", "varenyky", "holubtsi", "pampushky"]],
+  ["czech-republic", "Czech Republic", "Europe", "europe", "dumplings, roast meats, soups, pastries, cabbage, and pub comfort", ["svickova", "knedliky", "kolache", "goulash"]],
+  ["israel", "Israel", "Middle East", "middleEast", "market salads, breads, grilled meats, falafel, shakshuka, Jewish diaspora dishes, and fresh herbs", ["shakshuka", "falafel", "hummus", "schnitzel"]],
+  ["palestine", "Palestine", "Middle East", "middleEast", "olive oil, za'atar, sumac, breads, rice dishes, musakhan, maqluba, and family platters", ["musakhan", "maqluba", "knafeh", "falafel"]],
+  ["jordan", "Jordan", "Middle East", "middleEast", "mansaf, rice, yogurt sauce, grilled meats, flatbreads, tea, and Bedouin hospitality", ["mansaf", "maqluba", "kebabs", "flatbread"]],
+  ["syria", "Syria", "Middle East", "middleEast", "Aleppo pepper, kibbeh, mezze, flatbreads, stuffed vegetables, sweets, and generous tables", ["kibbeh", "fattoush", "mahshi", "baklava"]],
+  ["iraq", "Iraq", "Middle East", "middleEast", "rice, fish, dates, stews, kubba, grilled meats, and river food traditions", ["masgouf", "kubba", "tepsi baytinijan", "date sweets"]],
+  ["iran", "Iran", "Middle East", "middleEast", "saffron rice, herbs, stews, kebabs, pomegranates, yogurt, and tea culture", ["chelow kebab", "ghormeh sabzi", "tahdig", "fesenjan"]],
+  ["saudi-arabia", "Saudi Arabia", "Middle East", "middleEast", "rice platters, lamb, chicken, dates, coffee, breads, spice blends, and celebration meals", ["kabsa", "mandi", "dates", "saleeg"]],
+  ["uae", "UAE", "Middle East", "middleEast", "rice, seafood, dates, spices, grilled meats, harees, luqaimat, and Gulf hospitality", ["machboos", "harees", "luqaimat", "grilled fish"]],
+  ["qatar", "Qatar", "Middle East", "middleEast", "machboos, seafood, dates, breads, rice, cardamom coffee, and Gulf family meals", ["machboos", "thareed", "balaleet", "luqaimat"]],
+  ["oman", "Oman", "Middle East", "middleEast", "shuwa, rice, seafood, dates, limes, spice marinades, and coastal/desert traditions", ["shuwa", "majboos", "Omani halwa", "grilled fish"]],
+  ["yemen", "Yemen", "Middle East", "middleEast", "spiced stews, breads, rice, lamb, fenugreek, honey, coffee, and communal plates", ["saltah", "fahsa", "mandi", "malawah"]],
+  ["taiwan", "Taiwan", "East Asia", "asia", "night markets, noodles, rice bowls, dumplings, braises, boba tea, and street snacks", ["beef noodle soup", "gua bao", "bubble tea", "scallion pancakes"]],
+  ["mongolia", "Mongolia", "East Asia", "asia", "meat, dairy, noodles, dumplings, soups, tea, and cold-climate nomadic foodways", ["buuz", "khuushuur", "milk tea", "noodle soup"]],
+  ["pakistan", "Pakistan", "South Asia", "asia", "biryani, kebabs, curries, lentils, breads, rice, yogurt, and spice-rich family meals", ["biryani", "nihari", "chapli kebab", "chana"]],
+  ["bangladesh", "Bangladesh", "South Asia", "asia", "rice, fish, lentils, mustard oil, vegetables, sweets, and river delta food traditions", ["ilish fish", "dal", "bhorta", "pitha"]],
+  ["nepal", "Nepal", "South Asia", "asia", "momo dumplings, dal bhat, noodles, pickles, rice, lentils, and mountain comfort", ["momo", "dal bhat", "sel roti", "achar"]],
+  ["sri-lanka", "Sri Lanka", "South Asia", "asia", "rice, coconut, curry leaves, seafood, hoppers, sambols, and layered curries", ["hoppers", "kottu", "fish curry", "coconut sambol"]],
+  ["laos", "Laos", "Southeast Asia", "asia", "sticky rice, herbs, larb, grilled meats, fermented flavors, soups, and fresh vegetables", ["larb", "sticky rice", "tam mak hoong", "khao piak"]],
+  ["cambodia", "Cambodia", "Southeast Asia", "asia", "rice, fish, kroeung pastes, coconut, herbs, soups, and market grilling", ["fish amok", "nom banh chok", "lok lak", "kuy teav"]],
+  ["malaysia", "Malaysia", "Southeast Asia", "asia", "Malay, Chinese, Indian, and Indigenous foodways through rice, noodles, coconut, sambal, and street food", ["nasi lemak", "laksa", "satay", "roti canai"]],
+  ["singapore", "Singapore", "Southeast Asia", "asia", "hawker centers, noodles, rice, seafood, Indian, Malay, Chinese, and Peranakan dishes", ["Hainanese chicken rice", "laksa", "chili crab", "roti prata"]],
+  ["indonesia", "Indonesia", "Southeast Asia", "asia", "rice, sambal, coconut, satay, noodles, tempeh, rendang, and island spice traditions", ["nasi goreng", "rendang", "satay", "gado-gado"]],
+  ["myanmar", "Myanmar", "Southeast Asia", "asia", "rice, noodles, tea leaves, fish sauce, curries, salads, and market snacks", ["mohinga", "tea leaf salad", "shan noodles", "curries"]],
+  ["australia", "Australia", "Oceania", "oceania", "barbecue, seafood, meat pies, Indigenous ingredients, cafe food, pavlova, and multicultural city cooking", ["meat pies", "barbecue prawns", "pavlova", "lamingtons"]],
+  ["new-zealand", "New Zealand", "Oceania", "oceania", "lamb, seafood, Maori hangi traditions, pavlova, meat pies, dairy, and coastal cooking", ["hangi", "lamb roast", "pavlova", "seafood chowder"]],
+  ["fiji", "Fiji", "Oceania", "oceania", "kokoda, taro, coconut, cassava, seafood, Indian-Fijian curries, and island gatherings", ["kokoda", "lovo", "taro", "curry"]],
+  ["samoa", "Samoa", "Oceania", "oceania", "umu cooking, taro, coconut cream, seafood, breadfruit, and family feasts", ["palusami", "oka", "taro", "panipopo"]],
+  ["tonga", "Tonga", "Oceania", "oceania", "umu meals, taro, coconut, seafood, pork, root vegetables, and celebration tables", ["lu pulu", "ota ika", "taro", "coconut sweets"]],
+  ["papua-new-guinea", "Papua New Guinea", "Oceania", "oceania", "root vegetables, greens, coconut, pork, seafood, sago, and village cooking traditions", ["mumu", "sago", "greens", "coconut fish"]],
+  ["hawaii", "Hawaii", "Oceania / United States", "oceania", "poke, plate lunch, kalua pork, rice, macaroni salad, tropical fruit, and Native Hawaiian food traditions", ["poke", "kalua pork", "spam musubi", "loco moco"]]
+];
+
+function buildGlobalCuisineProfile([id, title, region, templateId, identity, dishes]) {
+  const template = globalCuisineRegionTemplates[templateId] || globalCuisineRegionTemplates.europe;
+  const dishList = dishes.length ? dishes : template.dishes;
+  return {
+    title,
+    region,
+    cuisine: template.cuisine,
+    image: template.image,
+    overview: `${title} foodways center ${identity}. This page gives home cooks a starting map: what people eat for everyday meals, what shows up at celebrations, and what to practice first.`,
+    culture: `${title} is treated here as a living food culture, not a single recipe. Look for family meals, street foods, holiday tables, pantry staples, cooking techniques, and regional differences.`,
+    ingredients: template.ingredients,
+    dishes: dishList,
+    streetFood: template.streetFood,
+    breakfast: template.breakfast,
+    lunch: template.lunch,
+    dinner: template.dinner,
+    desserts: template.desserts,
+    drinks: template.drinks,
+    holidayMeals: [`${title} celebration table`, ...dishList.slice(0, 3)],
+    techniques: template.techniques,
+    pantry: template.pantry,
+    spices: template.spices,
+    substitutions: [`Use the closest staple you can find: ${template.pantry.slice(0, 3).join(", ")}.`, "Swap proteins by cooking method, not just by name.", "Use mild chiles first, then build heat after tasting."],
+    etiquette: template.etiquette,
+    equipment: template.equipment,
+    regionalDifferences: [`Regional cooking inside ${title} can vary by climate, coast, city, religion, migration, and family tradition.`],
+    pronunciation: dishList.slice(0, 4).map((dish) => `${dish}: listen for local pronunciation and spelling variations.`),
+    beginnerRecipes: dishList.slice(0, 4),
+    advancedRecipes: dishList.slice(2, 6),
+    familyFavorites: dishList.slice(0, 5),
+    quickMeals: template.lunch,
+    menu: [`${dishList[0] || "regional main"}`, template.lunch[0], template.drinks[0], template.desserts[0]]
+  };
+}
+
+globalCuisineCountrySeed.forEach((entry) => {
+  const profile = buildGlobalCuisineProfile(entry);
+  countryCuisineProfiles[entry[0]] = { ...profile, ...(countryCuisineProfiles[entry[0]] || {}) };
+});
+
+const globalCuisineSearchFamilies = {
+  jollof: ["nigeria", "ghana", "senegal"],
+  curry: ["india", "thailand", "japan", "jamaica", "south-africa"],
+  dumplings: ["china", "poland", "nepal", "italy", "germany"],
+  rice: ["nigeria", "ghana", "japan", "india", "puerto-rico", "brazil"],
+  barbecue: ["united-states", "jamaica", "argentina", "korea", "south-africa"],
+  noodles: ["china", "japan", "vietnam", "thailand", "singapore"],
+  bread: ["france", "italy", "lebanon", "ethiopia", "india", "mexico"]
+};
 
 const foodEncyclopedia = [
   {
@@ -6825,6 +7136,8 @@ let lessonProgress = readJSON("letsCookLessonProgress", {});
 let pantryScanState = readJSON("letsCookPantryScan", { ingredients: [], notes: "" });
 let pantryFavoriteIngredients = readJSON("letsCookPantryFavorites", []);
 let roadTripPassport = readJSON("letsCookRoadTripPassport", {});
+let savedCuisineCountries = readJSON("letsCookSavedCuisineCountries", []);
+let cuisinePassportStamps = readJSON("letsCookCuisinePassportStamps", {});
 let letsCookSession = {
   authenticated: false,
   user: null,
@@ -9474,6 +9787,7 @@ function renderWesternRegionalPage(id) {
 }
 
 function africaCuisineHub() {
+  const africaRegions = cuisineExplorerGroups.find((group) => group.id === "african-cuisines")?.regions || Object.values(africaCountryPages).map((page) => page.country);
   return `
     ${hero("Africa Cuisine Hub", "Travel country by country through the ingredients, family meals, celebration dishes, street foods, and holiday traditions that make Africa's food cultures distinct.", "images/cuisines/africa/nigeria/jollof-rice.jpg", `<a class="small-button" href="#cuisine-explorer">All Cuisines</a><a class="small-button secondary" href="#what-yall-cooking">Build A Menu</a>`)}
     ${cookSubnav()}
@@ -9484,17 +9798,26 @@ function africaCuisineHub() {
         <p>Choose a country to learn its food identity through real dishes, everyday staples, gathering foods, market and street traditions, and recipes with matching photography.</p>
       </div>
       <div class="africa-country-grid">
-        ${Object.entries(africaCountryPages).map(([id, page]) => `
+        ${africaRegions.map((countryName) => {
+          const id = slugify(countryName);
+          const page = africaCountryPages[id];
+          const profile = countryCuisineProfiles[id];
+          const cardTitle = page?.country || profile?.title || countryName;
+          const cardRegion = page?.region || profile?.region || "Africa";
+          const cardOverview = page?.overview || profile?.overview || `Explore ${countryName} through everyday meals, street foods, celebration dishes, pantry staples, and family tables.`;
+          const cardImage = page?.image || profile?.image || "images/cuisines/africa/nigeria/jollof-rice.jpg";
+          return `
           <a class="africa-country-card" href="#cuisine-explorer/${id}">
-            <img src="${page.image}" alt="${page.country} cuisine" />
+            <img src="${cardImage}" alt="${cardTitle} cuisine" />
             <div>
-              <span>${page.region}</span>
-              <h3>${page.country}</h3>
-              <p>${page.overview}</p>
-              <strong>Explore ${page.country}</strong>
+              <span>${cardRegion}</span>
+              <h3>${cardTitle}</h3>
+              <p>${cardOverview}</p>
+              <strong>Explore ${cardTitle}</strong>
             </div>
           </a>
-        `).join("")}
+        `;
+        }).join("")}
       </div>
     </section>
   `;
@@ -9511,7 +9834,7 @@ function africaFoodList(title, items) {
 
 function renderAfricaCountryPage(id) {
   const page = africaCountryPages[id];
-  if (!page) return africaCuisineHub();
+  if (!page) return renderCuisineExplorerDetail(id);
   const pageRecipes = page.recipeIds.map((recipeId) => recipeByIdSafe(recipeId)).filter(Boolean);
   app.innerHTML = `
     ${hero(page.country, page.overview, page.image, `<a class="small-button" href="#cuisine-explorer/african-cuisines">Africa Hub</a><a class="small-button secondary" href="#what-yall-cooking">Build A Menu</a>`)}
@@ -11184,6 +11507,72 @@ function updatePantryScanResults() {
   if (target) target.innerHTML = pantryScanResultsMarkup(ingredients, pantryModeFromState());
 }
 
+function cuisineProfileList(profile, key, fallback = []) {
+  const value = profile?.[key];
+  return Array.isArray(value) && value.length ? value : fallback;
+}
+
+function globalCuisinePassportPanel(id, profile, title) {
+  const savedCountry = savedCuisineCountries.includes(id);
+  const stamped = Boolean(cuisinePassportStamps[id]);
+  const stampCount = Object.keys(cuisinePassportStamps || {}).length;
+  return `
+    <aside class="detail-panel cuisine-passport-panel">
+      <p class="eyebrow">World Cuisine Passport</p>
+      <h2>${stamped ? `${title} stamped` : `Stamp ${title}`}</h2>
+      <p>${stamped ? `Cooked or explored on ${new Date(cuisinePassportStamps[id]).toLocaleDateString()}.` : "Save the country, cook one dish, then stamp your passport."}</p>
+      <div class="planner-summary mini-summary">
+        <article><strong>${savedCuisineCountries.length}</strong><span>Saved countries</span></article>
+        <article><strong>${stampCount}</strong><span>Passport stamps</span></article>
+        <article><strong>${profile.region || "World"}</strong><span>Region</span></article>
+      </div>
+      <div class="planner-card-actions">
+        <button class="small-button" type="button" data-save-country="${id}">${savedCountry ? "Saved Country" : "Save Country"}</button>
+        <button class="small-button secondary" type="button" data-stamp-cuisine="${id}">${stamped ? "Stamped" : "Stamp Passport"}</button>
+      </div>
+    </aside>
+  `;
+}
+
+function globalCuisineChallengePanel(id, profile, title) {
+  const dishes = cuisineProfileList(profile, "dishes", ["signature dish", "family meal", "street food"]);
+  const ingredients = cuisineProfileList(profile, "ingredients", ["regional staple", "spice", "fresh herb"]);
+  return `
+    <article class="detail-panel cuisine-challenge-panel">
+      <p class="eyebrow">Regional Cooking Challenge</p>
+      <h2>Cook ${title} in three small steps.</h2>
+      <ol>
+        <li>Learn one pantry staple: ${ingredients[0]}.</li>
+        <li>Try one beginner dish: ${dishes[0]}.</li>
+        <li>Compare it with a related dish from another country.</li>
+      </ol>
+      <a class="small-button secondary" href="#recipes">Find a practice recipe</a>
+    </article>
+  `;
+}
+
+function globalCuisineDiscoveryPanel(query) {
+  const normalized = slugify(query || "");
+  const familyKey = Object.keys(globalCuisineSearchFamilies).find((key) => normalized.includes(key));
+  const countryIds = familyKey ? globalCuisineSearchFamilies[familyKey] : [];
+  if (!countryIds.length) return "";
+  return `
+    <section class="detail-panel global-search-family-panel">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Search Discovery</p>
+        <h2>${titleizeSlug(familyKey)} changes across cultures.</h2>
+        <p>Explore how one idea travels, adapts, and becomes something local.</p>
+      </div>
+      <div class="region-chip-row linked-chip-row">
+        ${countryIds.map((countryId) => {
+          const profile = countryCuisineProfiles[countryId];
+          return profile ? `<a href="#cuisine-explorer/${countryId}">${profile.title}</a>` : "";
+        }).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderPantryScan(id = "pantry") {
   const scanMode = slugify(id || "pantry");
   const isColdStorage = ["refrigerator", "fridge", "freezer", "refrigerator-freezer"].includes(scanMode);
@@ -11306,13 +11695,30 @@ function renderCuisineExplorerDetail(id) {
   const profile = countryCuisineProfiles[normalized];
   const parentGroup = cuisineExplorerGroups.find((item) => item.regions.some((region) => slugify(region) === normalized));
   const title = profile?.title || group?.title || titleizeSlug(normalized);
-  const image = profile ? parentGroup?.image : group?.image;
+  const image = profile ? (profile.image || parentGroup?.image) : group?.image;
   const recipeCuisineId = canonicalCuisineId(profile?.cuisine || group?.id || parentGroup?.id || normalized);
   const overview = profile?.overview || group?.note || "Explore the ingredients, dishes, techniques, and hosting traditions that shape this food culture.";
   const ingredients = profile?.ingredients || ["regional staples", "fresh herbs", "spices", "grains", "seasonal produce"];
   const dishes = profile?.dishes || group?.regions || ["traditional mains", "family sides", "shared breads", "celebration dishes"];
   const techniques = profile?.techniques || ["building flavor bases", "seasoning in layers", "balancing texture", "serving family-style"];
   const menu = profile?.menu || ["main dish", "starch or bread", "vegetable side", "sauce or condiment", "drink"];
+  const streetFood = cuisineProfileList(profile, "streetFood", dishes.slice(0, 4));
+  const breakfast = cuisineProfileList(profile, "breakfast", ["simple bread or grain", "fruit", "tea or coffee"]);
+  const lunch = cuisineProfileList(profile, "lunch", menu.slice(0, 4));
+  const dinner = cuisineProfileList(profile, "dinner", menu.slice(0, 4));
+  const desserts = cuisineProfileList(profile, "desserts", ["fruit", "sweet pastry", "celebration dessert"]);
+  const drinks = cuisineProfileList(profile, "drinks", ["tea", "coffee", "fruit drink"]);
+  const holidayMeals = cuisineProfileList(profile, "holidayMeals", dishes.slice(0, 4));
+  const pantry = cuisineProfileList(profile, "pantry", ingredients.slice(0, 6));
+  const spices = cuisineProfileList(profile, "spices", ingredients.slice(0, 6));
+  const substitutions = cuisineProfileList(profile, "substitutions", ["Use a similar staple grain or bean if the traditional one is hard to find.", "Match substitutions by texture, cook time, and flavor intensity."]);
+  const etiquette = cuisineProfileList(profile, "etiquette", [profile?.culture || "Learn serving customs before recreating a dish for guests."]);
+  const equipment = cuisineProfileList(profile, "equipment", ["heavy pot", "skillet", "serving platter"]);
+  const pronunciation = cuisineProfileList(profile, "pronunciation", dishes.slice(0, 4).map((dish) => `${dish}: learn the local pronunciation before serving.`));
+  const advancedRecipes = cuisineProfileList(profile, "advancedRecipes", dishes.slice(2, 6));
+  const familyFavorites = cuisineProfileList(profile, "familyFavorites", dishes.slice(0, 5));
+  const quickMeals = cuisineProfileList(profile, "quickMeals", lunch);
+  const regionalDifferences = cuisineProfileList(profile, "regionalDifferences", [`${title} includes regional differences by city, coast, climate, community, and family tradition.`]);
   const practiceTrack = practiceTrackForCuisine(normalized, recipeCuisineId, profile, group, parentGroup);
   const regions = group?.regions || [];
   app.innerHTML = `
@@ -11321,17 +11727,38 @@ function renderCuisineExplorerDetail(id) {
     <section class="cream-section cuisine-detail-page">
       <div class="section-heading">
         <p class="eyebrow">${profile?.region || group?.title || "Cuisine Explorer"}</p>
-        <h2>${title} food culture, ingredients, dishes, and beginner paths.</h2>
+        <h2>${title} food culture, meals, pantry, techniques, and passport progress.</h2>
       </div>
+      ${profile ? globalCuisinePassportPanel(normalized, profile, title) : ""}
       <div class="academy-module-grid">
         <article class="academy-module-card"><h3>Overview</h3><p>${overview}</p></article>
         <article class="academy-module-card"><h3>Food Culture</h3><p>${profile?.culture || "This food lane is shaped by geography, family memory, ingredients, migration, celebration, and everyday hospitality."}</p></article>
         <article class="academy-module-card"><h3>Common Ingredients</h3><ul>${ingredients.map((item) => `<li>${item}</li>`).join("")}</ul></article>
         <article class="academy-module-card"><h3>Traditional Dishes</h3><ul>${dishes.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article class="academy-module-card"><h3>Street Food</h3><ul>${streetFood.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article class="academy-module-card"><h3>Breakfast</h3><ul>${breakfast.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article class="academy-module-card"><h3>Lunch</h3><ul>${lunch.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article class="academy-module-card"><h3>Dinner</h3><ul>${dinner.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article class="academy-module-card"><h3>Desserts</h3><ul>${desserts.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article class="academy-module-card"><h3>Drinks</h3><ul>${drinks.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article class="academy-module-card"><h3>Holiday Meals</h3><ul>${holidayMeals.map((item) => `<li>${item}</li>`).join("")}</ul></article>
         <article class="academy-module-card"><h3>Cooking Techniques</h3><ul>${techniques.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article class="academy-module-card"><h3>Pantry Staples</h3><ul>${pantry.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article class="academy-module-card"><h3>Common Spices</h3><ul>${spices.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article class="academy-module-card"><h3>Beginner Recipes</h3><ul>${(profile?.beginnerRecipes || dishes).slice(0, 6).map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article class="academy-module-card"><h3>Advanced Recipes</h3><ul>${advancedRecipes.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article class="academy-module-card"><h3>Family Favorites</h3><ul>${familyFavorites.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article class="academy-module-card"><h3>Quick Meals</h3><ul>${quickMeals.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article class="academy-module-card"><h3>Pronunciation Notes</h3><ul>${pronunciation.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article class="academy-module-card"><h3>Ingredient Substitutions</h3><ul>${substitutions.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article class="academy-module-card"><h3>Dining Etiquette</h3><ul>${etiquette.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article class="academy-module-card"><h3>Equipment</h3><ul>${equipment.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article class="academy-module-card"><h3>Regional Differences</h3><ul>${regionalDifferences.map((item) => `<li>${item}</li>`).join("")}</ul></article>
         <article class="academy-module-card"><h3>Menu Example</h3><ul>${menu.map((item) => `<li>${item}</li>`).join("")}</ul></article>
         ${practiceTrackSummary(practiceTrack)}
       </div>
+      ${profile ? globalCuisineChallengePanel(normalized, profile, title) : ""}
+      ${globalCuisineDiscoveryPanel(title)}
       <div class="section-heading compact-heading"><p class="eyebrow">Cuisine-specific practice</p><h2>Practice recipes for ${title}.</h2><p>Each practice card uses ingredients, techniques, and images that belong to this cuisine path.</p></div>
       ${practiceTrackMarkup(practiceTrack, title)}
       ${regions.length ? `<div class="section-heading compact-heading"><p class="eyebrow">Country paths</p><h2>Choose a country or region next.</h2></div><div class="region-chip-row linked-chip-row">${regions.map((region) => `<a href="#cuisine-explorer/${slugify(region)}">${region}</a>`).join("")}</div>` : ""}
@@ -11400,6 +11827,7 @@ function renderCuisineExplorer(id) {
   }
   if (westernId && westernRegionalPages[westernId]) return renderWesternRegionalPage(westernId);
   if (id === "african-cuisines") return africaCuisineHub();
+  if (id && countryCuisineProfiles[id]) return renderCuisineExplorerDetail(id);
   if (id && africaCountryPages[id]) return renderAfricaCountryPage(id);
   if (id) return renderCuisineExplorerDetail(id);
   app.innerHTML = `
@@ -13306,6 +13734,17 @@ function learningSearchResults(query) {
       .filter((group) => [group.title, group.note, ...group.regions].join(" ").toLowerCase().includes(normalized))
       .slice(0, 2)
       .map((group) => ({ type: "Cuisine", title: group.title, text: group.note, href: `#cuisine-explorer/${group.id}` })),
+    ...Object.entries(countryCuisineProfiles)
+      .filter(([, profile]) => [profile.title, profile.region, profile.overview, profile.culture, ...(profile.dishes || []), ...(profile.ingredients || [])].join(" ").toLowerCase().includes(normalized))
+      .slice(0, 5)
+      .map(([id, profile]) => ({ type: "Country Cuisine", title: profile.title, text: `${profile.region || "World"} / ${(profile.dishes || []).slice(0, 3).join(", ")}`, href: `#cuisine-explorer/${id}` })),
+    ...Object.entries(globalCuisineSearchFamilies)
+      .filter(([term]) => normalized.includes(term))
+      .flatMap(([term, countryIds]) => countryIds.map((countryId) => {
+        const profile = countryCuisineProfiles[countryId];
+        return profile ? { type: `${titleizeSlug(term)} Variation`, title: profile.title, text: `Compare ${titleizeSlug(term)} through ${profile.title}'s food traditions.`, href: `#cuisine-explorer/${countryId}` } : null;
+      }).filter(Boolean))
+      .slice(0, 6),
     ...menuPairings
       .filter((menu) => [menu.cuisine, menu.occasion, menu.main_dish, menu.cultural_notes, ...menu.traditional_sides].join(" ").toLowerCase().includes(normalized))
       .slice(0, 2)
@@ -13410,6 +13849,8 @@ function handleClick(event) {
   const saveCurrentMenuButton = event.target.closest("[data-save-current-menu]");
   const useSavedMenuButton = event.target.closest("[data-use-saved-menu]");
   const clearPlannedButton = event.target.closest("[data-clear-planned]");
+  const saveCountryButton = event.target.closest("[data-save-country]");
+  const stampCuisineButton = event.target.closest("[data-stamp-cuisine]");
   if (kidsAnswer) {
     const result = kidsAnswer.closest(".kids-game-card")?.querySelector("[data-kids-game-result]");
     const correct = kidsAnswer.dataset.kidsAnswer === "true";
@@ -13463,6 +13904,24 @@ function handleClick(event) {
   }
   if (clearPlannedButton) {
     planned = [];
+    persistLetsCookState();
+    render();
+    return;
+  }
+  if (saveCountryButton) {
+    savedCuisineCountries = toggleValue(savedCuisineCountries, saveCountryButton.dataset.saveCountry);
+    persistLetsCookState();
+    render();
+    return;
+  }
+  if (stampCuisineButton) {
+    const countryId = stampCuisineButton.dataset.stampCuisine;
+    if (cuisinePassportStamps[countryId]) {
+      delete cuisinePassportStamps[countryId];
+    } else {
+      cuisinePassportStamps[countryId] = new Date().toISOString();
+      savedCuisineCountries = [...new Set([...savedCuisineCountries, countryId])];
+    }
     persistLetsCookState();
     render();
     return;
@@ -13829,6 +14288,8 @@ async function persistLetsCookState() {
   localStorage.setItem("letsCookUserRecipes", JSON.stringify(userRecipes));
   localStorage.setItem("letsCookLessonProgress", JSON.stringify(lessonProgress));
   localStorage.setItem("letsCookRoadTripPassport", JSON.stringify(roadTripPassport));
+  localStorage.setItem("letsCookSavedCuisineCountries", JSON.stringify(savedCuisineCountries));
+  localStorage.setItem("letsCookCuisinePassportStamps", JSON.stringify(cuisinePassportStamps));
   if (!letsCookSession.authenticated) {
     return false;
   }
