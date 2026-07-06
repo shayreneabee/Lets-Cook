@@ -930,10 +930,10 @@ const cuisineExplorerGroups = [
   },
   {
     id: "holiday-sunday",
-    title: "Holiday / Sunday Dinner",
+    title: "Holiday Table",
     image: "images/recipes/audit-2026-06/baked-ham.jpg",
-    note: "Centerpiece mains, traditional sides, desserts, hosting rhythm, prep lists, and table memory.",
-    regions: ["Thanksgiving", "Christmas", "Easter", "Sunday dinner", "Church dinner", "Family reunion"]
+    note: "Curated holiday tables with centerpiece mains, traditional sides, desserts, drinks, timelines, shopping lists, and leftovers.",
+    regions: ["Thanksgiving", "Christmas", "Easter", "Fourth of July", "Halloween", "Juneteenth", "Sunday dinner", "Church dinner", "Family reunion"]
   }
 ];
 
@@ -2526,6 +2526,9 @@ const menuAudienceOptions = [
   { id: "juneteenth", title: "Juneteenth Celebration", serves: "10-100", focus: "Freedom, family, smoke, red drinks, watermelon, cake, music, and a table with room for everybody.", scale: "Build around one smoked/grilled main, red drinks, make-ahead sides, fruit, and dessert.", prep: ["Chill drinks the day before.", "Start smoked meats early.", "Set shade, chairs, trash bags, and handwashing."] },
   { id: "thanksgiving", title: "Thanksgiving", serves: "6-30", focus: "Oven schedules, make-ahead sides, dressing, desserts, and a calm serving plan.", scale: "Write the oven timeline before shopping.", prep: ["Bake desserts ahead.", "Prep casseroles the day before.", "Assign reheating windows."] },
   { id: "christmas", title: "Christmas", serves: "6-30", focus: "Special mains, warm sides, breakfast/brunch options, desserts, and leftovers.", scale: "Plan one centerpiece and two dishes that can be made ahead.", prep: ["Stage serving dishes.", "Make desserts early.", "Save containers for take-home plates."] },
+  { id: "easter", title: "Easter", serves: "6-30", focus: "Ham or lamb, deviled eggs, chilled sides, spring vegetables, cakes, and a calmer make-ahead rhythm.", scale: "Make cold sides and dessert ahead; finish vegetables close to serving.", prep: ["Make deviled eggs ahead.", "Slice ham before the line starts.", "Keep spring vegetables bright."] },
+  { id: "fourth-of-july", title: "Fourth of July", serves: "8-60", focus: "Grills, smoked meat, cold sides, watermelon, lemonade, summer desserts, and food people can revisit between fireworks.", scale: "Plan in stations: grill, cold sides, drinks, dessert, trash, and shade.", prep: ["Start smoked meats early.", "Make cold sides the day before.", "Keep raw and cooked trays separate."] },
+  { id: "halloween", title: "Halloween", serves: "4-30", focus: "Chili, hot dogs, walking-taco energy, quick snacks, cookie treats, candy bowls, and easy refill food.", scale: "Use warm pots and handheld foods so people can eat between doorbells.", prep: ["Make chili ahead.", "Prep toppings in bowls.", "Keep treats ready for kids."] },
   { id: "graduation", title: "Graduation Party", serves: "15-75", focus: "Open-house food, refillable trays, handheld portions, drinks, and photo-table flow.", scale: "Use small plates and refill trays instead of putting everything out at once.", prep: ["Keep food away from photo displays.", "Refill in waves.", "Set drinks near the entrance."] },
   { id: "baby-shower", title: "Baby Shower", serves: "10-40", focus: "Brunch bites, pretty drinks, small plates, desserts, and gentle pacing.", scale: "Choose foods that look good at room temperature and are easy to hold.", prep: ["Prep fruit and cups early.", "Use labels.", "Keep one warm dish covered."] },
   { id: "tailgate", title: "Tailgate", serves: "6-30", focus: "Portable food, dips, grilled mains, cooler drinks, and easy cleanup.", scale: "Pack in containers that can serve and store.", prep: ["Pre-chill everything.", "Pack trash bags.", "Keep sauces sealed until serving."] },
@@ -2554,7 +2557,7 @@ const hostingKnowledge = [
   { title: "Brunch", text: "Eggs, breads, fruit, one savory main, one sweet item, coffee, juice, and make-ahead pacing.", pairing: "Brunch cups and fruit cups" },
   { title: "Baby Shower", text: "Small bites, pretty cups, alcohol-free drinks, desserts, and food that stays neat.", pairing: "Party cups and dessert cups" },
   { title: "Holiday Dinner", text: "A centerpiece, traditional sides, oven schedule, dessert plan, and a written prep timeline.", pairing: "Turkey, ham, dressing, yams" },
-  { title: "Holiday Menus", text: "Plan the centerpiece, oven schedule, classic sides, make-ahead desserts, drinks, and leftover storage before the holiday rush starts.", pairing: "Ham, turkey, dressing, greens, yams, pies" },
+  { title: "Holiday Tables", text: "Plan the centerpiece, oven schedule, classic sides, make-ahead desserts, drinks, and leftover storage before the holiday rush starts.", pairing: "Ham, turkey, dressing, greens, yams, pies" },
   { title: "Date Night", text: "One impressive but calm main, one side, one dessert, and minimal last-minute cleanup.", pairing: "Seafood pasta or steakhouse-style plate" },
   { title: "Sunday Dinner Menus", text: "Build around a comforting main, greens or beans, a starch, bread, dessert, and time for people to linger.", pairing: "Oxtails, pork chops, fried chicken, collards, cornbread" },
   { title: "Church Potluck Menus", text: "Choose portable pans, labeled dishes, allergy notes, serving spoons, and foods that hold safely on a table.", pairing: "Baked chicken, casseroles, greens, pasta salad, sheet cake" },
@@ -2572,6 +2575,96 @@ const menuRecipeSections = [
   ["Sauces", "sauce_recipe_ids"],
   ["Drinks", "drink_recipe_ids"],
   ["Dessert", "dessert_recipe_ids"]
+];
+
+const holidayAudienceMap = {
+  thanksgiving: "Thanksgiving",
+  christmas: "Christmas",
+  easter: "Easter",
+  "fourth-of-july": "Fourth of July",
+  halloween: "Halloween",
+  juneteenth: "Juneteenth"
+};
+
+const curatedHolidayTables = [
+  {
+    title: "Thanksgiving",
+    hero: "images/recipes/audit-2026-06/baked-ham.jpg",
+    main_recipe_ids: ["roast-turkey", "smoked-turkey", "deep-fried-turkey", "baked-ham", "honey-glazed-ham", "roast-duck", "turducken"],
+    appetizer_recipe_ids: ["deviled-eggs", "holiday-cups"],
+    side_recipe_ids: ["southern-cornbread-dressing", "oyster-dressing", "giblet-gravy", "sweet-potato-casserole", "green-bean-casserole", "candied-yams", "southern-baked-mac-cheese", "southern-collard-greens", "cranberry-relish", "dinner-rolls"],
+    dessert_recipe_ids: ["pumpkin-pie", "sweet-potato-pie", "southern-pecan-pie", "peach-cobbler"],
+    drink_recipe_ids: ["sweet-tea", "lemonade", "holiday-punch"],
+    leftoverIdeas: ["Turkey sandwiches with cranberry sauce", "Ham and roll sliders", "Dressing waffles with gravy", "Turkey soup with greens", "Pie slices packed for take-home plates"],
+    regional: ["Southern Thanksgiving", "Cajun Thanksgiving", "New England Thanksgiving", "Hawaiian Thanksgiving"],
+    timeline: ["3 days before: shop, thaw turkey, and check serving dishes.", "2 days before: bake cornbread, pies, and prep casseroles.", "Day before: assemble dressing, casseroles, cranberry relish, and desserts.", "Morning of: roast or smoke the main, warm sides, and write the oven order.", "Before serving: rest the main, carve, set gravy, rolls, and drinks."],
+    shopping: ["turkey or ham", "cornbread", "celery", "onion", "sage", "green beans", "sweet potatoes", "cranberries", "macaroni", "cheese", "collards", "roll ingredients", "pumpkin", "pecans"]
+  },
+  {
+    title: "Christmas",
+    hero: "images/recipes/audit-2026-06/baked-ham.jpg",
+    main_recipe_ids: ["prime-rib", "standing-rib-roast", "beef-tenderloin", "honey-glazed-ham", "baked-ham", "roast-turkey", "roast-duck", "roast-goose", "turducken"],
+    appetizer_recipe_ids: ["holiday-cups", "deviled-eggs", "charcuterie-cups"],
+    side_recipe_ids: ["corn-casserole", "green-bean-casserole", "smothered-green-beans", "sweet-potato-casserole", "dinner-rolls", "southern-baked-mac-cheese"],
+    dessert_recipe_ids: ["christmas-cookies", "fruitcake", "yule-log", "red-velvet-cake", "new-york-cheesecake", "southern-pecan-pie"],
+    drink_recipe_ids: ["eggnog", "holiday-punch", "sweet-tea"],
+    leftoverIdeas: ["Prime rib sandwiches", "Ham breakfast biscuits", "Turkey and dressing plates", "Cookie tins for guests", "Punch and dessert station refills"],
+    regional: ["Southern Christmas", "Cajun Christmas", "New England Christmas", "Caribbean Christmas"],
+    timeline: ["3 days before: buy roast or ham and confirm dessert plan.", "2 days before: bake cookies, fruitcake, or cake.", "Day before: prep sides, punch base, and serving trays.", "Day of: roast centerpiece, warm sides, and keep cookies/drinks separate from the hot line.", "After dinner: pack roast and ham leftovers for sandwiches."],
+    shopping: ["rib roast", "ham", "turkey or duck", "cream", "eggs", "cookie ingredients", "cranberry juice", "citrus", "green beans", "potatoes", "rolls", "cake ingredients"]
+  },
+  {
+    title: "Easter",
+    hero: "images/recipes/audit-2026-06/baked-ham.jpg",
+    main_recipe_ids: ["baked-ham", "honey-glazed-ham", "roast-lamb"],
+    appetizer_recipe_ids: ["deviled-eggs", "holiday-cups"],
+    side_recipe_ids: ["southern-potato-salad", "spring-vegetables", "smothered-green-beans", "green-bean-casserole", "dinner-rolls"],
+    dessert_recipe_ids: ["carrot-cake", "coconut-cake", "strawberry-shortcake"],
+    drink_recipe_ids: ["lemonade", "sweet-tea"],
+    leftoverIdeas: ["Ham sandwiches", "Deviled egg snack tray", "Potato salad lunch plates", "Cake slices for guests", "Ham and green bean skillet"],
+    regional: ["Southern Easter", "Spring Brunch Easter", "Coastal Easter"],
+    timeline: ["2 days before: bake cakes and shop produce.", "Day before: make deviled eggs and potato salad.", "Morning of: warm ham, prep vegetables, and chill drinks.", "Before serving: slice ham and uncover cold sides.", "After dinner: pack ham for sandwiches."],
+    shopping: ["ham", "lamb", "eggs", "potatoes", "asparagus", "green beans", "carrots", "coconut", "strawberries", "lemons", "rolls"]
+  },
+  {
+    title: "Fourth of July",
+    hero: "images/juneteenth/bbq-chicken-quarters.png",
+    main_recipe_ids: ["all-american-burgers", "classic-cookout-hot-dogs", "bbq-chicken-quarters", "bbq-pulled-pork", "bbq-smoked-ribs", "bbq-brisket-basics"],
+    appetizer_recipe_ids: ["charcuterie-cups", "fruit-cups", "rotel-dip"],
+    side_recipe_ids: ["southern-potato-salad", "bbq-baked-beans", "creamy-coleslaw", "corn-on-the-cob", "southern-baked-mac-cheese", "cookout-watermelon-wedges"],
+    dessert_recipe_ids: ["classic-apple-pie", "peach-cobbler", "banana-pudding", "strawberry-shortcake"],
+    drink_recipe_ids: ["lemonade", "sweet-tea"],
+    leftoverIdeas: ["Pulled pork sandwiches", "Burger salad bowls", "Hot dog chili cups", "Rib plates with cold sides", "Cobbler and ice cream"],
+    regional: ["Southern Cookout", "Texas BBQ Fourth", "Coastal Seafood Fourth", "Backyard Burger Table"],
+    timeline: ["2 days before: buy meats, drinks, ice, and paper goods.", "Day before: make cold sides, desserts, and lemonade.", "Morning of: start smoked meats and prep grill station.", "Before guests: set raw/cooked trays, sauces, trash, drinks, and dessert.", "Fireworks time: cover food and refill drinks."],
+    shopping: ["ground beef", "hot dogs", "chicken", "pork shoulder", "ribs", "beans", "cabbage", "corn", "watermelon", "lemons", "peaches", "strawberries", "ice"]
+  },
+  {
+    title: "Halloween",
+    hero: "images/recipes/audit-2026-06/texas-chili.jpg",
+    main_recipe_ids: ["texas-chili", "classic-cookout-hot-dogs", "taco-cups", "sheet-pan-nachos"],
+    appetizer_recipe_ids: ["rotel-dip", "tailgate-cups", "cheese-quesadilla-triangles"],
+    side_recipe_ids: ["bbq-baked-beans", "cornbread", "corn-on-the-cob"],
+    dessert_recipe_ids: ["chewy-chocolate-cookies", "crispy-rice-treats", "no-bake-cereal-bars", "dessert-cups"],
+    drink_recipe_ids: ["lemonade", "sweet-tea"],
+    leftoverIdeas: ["Chili dogs", "Nacho bowls", "Taco cup lunch boxes", "Cookie treat bags", "Cornbread with leftover chili"],
+    regional: ["Trick-or-Treat Chili Night", "School Party Table", "Fall Tailgate Halloween"],
+    timeline: ["Day before: make chili and dessert bars.", "Afternoon of: prep hot dogs, toppings, and cups.", "Before trick-or-treating: keep chili warm and drinks cold.", "After candy: set out cookies and simple snacks.", "Next day: turn chili into dogs or nachos."],
+    shopping: ["ground beef", "beans", "tomatoes", "hot dogs", "tortilla chips", "cheese", "cornbread mix", "cookie ingredients", "cereal", "marshmallows"]
+  },
+  {
+    title: "Juneteenth",
+    hero: "images/juneteenth/red-velvet-cake.png",
+    main_recipe_ids: ["bbq-smoked-ribs", "fried-chicken", "bbq-chicken-quarters", "bbq-brisket-basics", "bbq-pulled-pork"],
+    appetizer_recipe_ids: ["holiday-cups", "fruit-cups"],
+    side_recipe_ids: ["southern-baked-mac-cheese", "southern-collard-greens", "southern-black-eyed-peas", "cornbread", "bbq-baked-beans", "southern-potato-salad"],
+    dessert_recipe_ids: ["peach-cobbler", "red-velvet-cake", "strawberry-shortcake"],
+    drink_recipe_ids: ["strawberry-soda", "hibiscus-red-punch", "sorrel-drink", "lemonade"],
+    leftoverIdeas: ["Rib plates with greens", "Fried chicken picnic boxes", "Pulled pork sandwiches", "Red drink refills", "Cobbler take-home cups"],
+    regional: ["Texas Juneteenth", "Southern Family Reunion Juneteenth", "Backyard BBQ Juneteenth"],
+    timeline: ["2 days before: shop, chill red drinks, and prep desserts.", "Day before: season meats, wash greens, and set serving supplies.", "Morning of: start smoked meats and prep sides.", "Before guests: set red drinks, fruit, shade, chairs, and music.", "After the meal: pack plates and keep the story of the day at the table."],
+    shopping: ["ribs", "chicken", "brisket", "greens", "black-eyed peas", "cornmeal", "macaroni", "cheese", "peaches", "red velvet ingredients", "strawberries", "hibiscus or red punch"]
+  }
 ];
 
 function recipeById(id) {
@@ -2593,6 +2686,111 @@ function recipeLinksFor(ids = []) {
 function recipesForMenu(menu) {
   const ids = menuRecipeSections.flatMap(([, key]) => menu[key] || []);
   return [...new Set(ids)].map((id) => recipeById(id)).filter(Boolean);
+}
+
+function holidayTableByTitle(title = "") {
+  const normalized = slugify(title);
+  const chapterHoliday = livingCookbookById("holiday-tables")?.holidays?.find((holiday) => slugify(holiday.title) === normalized);
+  const curated = curatedHolidayTables.find((holiday) => slugify(holiday.title) === normalized);
+  return curated || chapterHoliday || null;
+}
+
+function holidayTitleForPlanner(menu, audience = {}) {
+  const audienceTitle = holidayAudienceMap[audience.id];
+  if (audienceTitle) return audienceTitle;
+  if (/thanksgiving|christmas|easter|fourth|july|juneteenth|halloween/i.test(menu?.occasion || "")) {
+    return menu.occasion;
+  }
+  return "";
+}
+
+function holidayTableForPlanner(menu, audience = {}) {
+  const title = holidayTitleForPlanner(menu, audience);
+  return title ? holidayTableByTitle(title) : null;
+}
+
+function recipeIdsForHolidayTable(table = {}) {
+  return [...new Set([
+    ...(table.main_recipe_ids || []),
+    ...(table.appetizer_recipe_ids || []),
+    ...(table.side_recipe_ids || []),
+    ...(table.bread_recipe_ids || []),
+    ...(table.sauce_recipe_ids || []),
+    ...(table.drink_recipe_ids || []),
+    ...(table.dessert_recipe_ids || []),
+    ...(table.recipeIds || [])
+  ])];
+}
+
+function holidayRecipesFor(table = {}) {
+  return recipeIdsForHolidayTable(table).map((id) => recipeById(id)).filter(Boolean);
+}
+
+function holidayMenuIndexForAudience(audienceId = "") {
+  const title = holidayAudienceMap[audienceId];
+  if (!title) return -1;
+  return menuPairings.findIndex((menu) => slugify(menu.occasion) === slugify(title));
+}
+
+function holidayRecipeLinks(ids = []) {
+  const links = recipeLinksFor(ids);
+  return links.length ? links.join("") : `<span class="empty-state">Recipes coming soon for this part of the table.</span>`;
+}
+
+function holidayTablePlannerPanel(table, servings = 6) {
+  if (!table) return "";
+  const desserts = table.dessert_recipe_ids || [];
+  const drinks = table.drink_recipe_ids || [];
+  const appetizers = table.appetizer_recipe_ids || [];
+  const quickIds = [...(table.main_recipe_ids || []).slice(0, 2), ...(table.side_recipe_ids || []).slice(0, 2), ...(table.dessert_recipe_ids || []).slice(0, 1)];
+  const shopping = table.shopping?.length ? table.shopping : [...new Set(holidayRecipesFor(table).flatMap((recipe) => recipe.ingredients || []).slice(0, 20))];
+  return `
+    <section class="detail-panel holiday-table-planner" aria-label="${table.title} Holiday Table">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Holiday Table</p>
+        <h2>${table.title} should feel like a real celebration, not a random recipe search.</h2>
+        <p>Curated recipes only. No scrambled eggs, plain toast, or unrelated weekday dinners in this collection.</p>
+      </div>
+      <div class="holiday-table-grid">
+        <article>
+          <h3>Traditional Menu</h3>
+          <div class="mini-recipe-list">${holidayRecipeLinks(recipeIdsForHolidayTable(table))}</div>
+        </article>
+        <article>
+          <h3>Quick Holiday Recipes</h3>
+          <div class="mini-recipe-list">${holidayRecipeLinks(quickIds)}</div>
+        </article>
+        <article>
+          <h3>Appetizers</h3>
+          <div class="mini-recipe-list">${holidayRecipeLinks(appetizers)}</div>
+        </article>
+        <article>
+          <h3>Desserts</h3>
+          <div class="mini-recipe-list">${holidayRecipeLinks(desserts)}</div>
+        </article>
+        <article>
+          <h3>Drinks</h3>
+          <div class="mini-recipe-list">${holidayRecipeLinks(drinks)}</div>
+        </article>
+        <article>
+          <h3>Leftovers</h3>
+          <ul>${(table.leftoverIdeas || ["Pack sturdy leftovers in shallow containers.", "Label dates before refrigerating.", "Use cooked mains within 3 to 4 days."]).map((item) => `<li>${item}</li>`).join("")}</ul>
+        </article>
+        <article>
+          <h3>Cooking Timeline</h3>
+          <ul>${(table.timeline || table.hosting || []).map((item) => `<li>${item}</li>`).join("")}</ul>
+        </article>
+        <article>
+          <h3>Shopping List for ${servings}+</h3>
+          <ul>${shopping.map((item) => `<li>${item}</li>`).join("")}</ul>
+        </article>
+        <article>
+          <h3>Regional Variations</h3>
+          <ul>${(table.regional || ["Southern table", "Cajun table", "New England table", "Hawaiian table"]).map((item) => `<li>${item}</li>`).join("")}</ul>
+        </article>
+      </div>
+    </section>
+  `;
 }
 
 function menuShoppingList(menu) {
@@ -2637,7 +2835,7 @@ function plannerMainDishOptions() {
     .sort((a, b) => a.title.localeCompare(b.title));
 }
 
-const plannerAudienceIds = ["single", "date-night", "family", "large-family", "sunday-dinner", "church-homecoming", "tailgate", "thanksgiving", "juneteenth", "family-reunion"];
+const plannerAudienceIds = ["single", "date-night", "family", "large-family", "sunday-dinner", "church-homecoming", "tailgate", "thanksgiving", "christmas", "easter", "fourth-of-july", "halloween", "juneteenth", "family-reunion"];
 
 const mealPrepModes = [
   { id: "single-prep", title: "Single Person Meal Prep", days: [3, 5, 7], ids: ["lemon-herb-salmon", "cilantro-lime-rice", "roasted-vegetables"], notes: ["Stores well for 3 days refrigerated.", "Keep sauce and citrus separate until serving.", "Repurpose leftovers into rice bowls or wraps."] },
@@ -3641,6 +3839,7 @@ const menuIntelligenceRecipes = [
   ["coco-bread", "Coco Bread", "caribbean", "Breads", "assets/fresh-bread.jpeg", "25 min", "18 min", "Intermediate", 8, "Soft folded Caribbean bread with coconut milk richness.", ["3 cups flour", "2 tsp yeast", "1 cup coconut milk", "2 tbsp sugar", "4 tbsp butter", "1 tsp salt"], ["Mix dough ingredients.", "Knead until smooth.", "Rise until doubled.", "Roll and fold with butter.", "Bake until lightly golden."], ["caribbean", "bread", "coconut", "family plate"]],
   ["jerk-sauce", "Jerk Sauce", "caribbean", "Sauces", "assets/editorial-kitchen-prep.jpg", "15 min", "0 min", "Intermediate", 12, "A bold sauce of scallion, thyme, allspice, chile, garlic, ginger, and lime.", ["6 scallions", "2 Scotch bonnets", "4 garlic cloves", "1 tbsp thyme", "1 tbsp allspice", "1 tbsp brown sugar", "2 tbsp lime juice", "2 tbsp vinegar"], ["Blend all ingredients until saucy.", "Taste carefully for heat.", "Use as marinade or table sauce.", "Refrigerate leftovers."], ["caribbean", "jerk", "sauce", "spicy"]],
   ["sorrel-drink", "Sorrel Drink", "caribbean", "Drinks", "assets/editorial-cooking-hero.jpg", "10 min", "20 min", "Beginner", 8, "Hibiscus drink steeped with ginger, cloves, citrus, and sweetened to taste.", ["2 cups dried sorrel hibiscus", "8 cups water", "2 inch ginger sliced", "6 cloves", "1 orange peel", "1/2 cup sugar"], ["Boil water with ginger and cloves.", "Add sorrel and orange peel.", "Steep 20 minutes.", "Strain and sweeten.", "Chill well."], ["caribbean", "drink", "holiday", "hibiscus"]],
+  ["hibiscus-red-punch", "Hibiscus Red Punch", "southern", "Drinks", "images/juneteenth/hibiscus-red-punch.png", "10 min", "20 min", "Beginner", 12, "A deep red Juneteenth punch steeped with hibiscus, citrus, pineapple, ginger, and enough ice for the whole table.", ["2 cups dried hibiscus or sorrel", "10 cups water", "1 inch ginger sliced", "1 cup pineapple juice", "1/2 cup orange juice", "3/4 cup sugar", "2 lemons sliced", "Ice"], ["Simmer water with ginger.", "Add hibiscus and steep 20 minutes.", "Strain and stir in sugar while warm.", "Chill completely.", "Add pineapple juice, orange juice, lemon slices, and ice before serving."], ["juneteenth", "red drink", "punch", "holiday"]],
   ["rum-cake", "Caribbean Rum Cake", "caribbean", "Desserts", "assets/lc-desserts.jpg", "20 min", "55 min", "Intermediate", 12, "A moist bundt cake brushed with buttery rum syrup for celebrations.", ["1 box yellow cake mix", "1 box vanilla pudding mix", "4 eggs", "1/2 cup oil", "1/2 cup rum or rum syrup", "1/2 cup water", "1 cup sugar", "1/2 cup butter"], ["Mix cake batter with pudding, eggs, oil, rum, and water.", "Bake in a bundt pan.", "Simmer butter, sugar, and a splash of rum or extract.", "Brush warm cake with syrup.", "Cool before slicing."], ["caribbean", "dessert", "holiday", "celebration"]],
   ["greek-salad", "Greek Salad", "mediterranean", "Salads", "images/cuisines/mediterranean/mediterranean-04.png", "15 min", "0 min", "Beginner", 4, "Tomato, cucumber, olives, feta, herbs, and lemony olive oil dressing.", ["2 cups tomatoes", "1 cucumber", "1/2 red onion", "1/2 cup olives", "1/2 cup feta", "3 tbsp olive oil", "1 tbsp lemon juice", "1 tsp oregano"], ["Chop vegetables.", "Whisk oil, lemon, oregano, salt, and pepper.", "Toss vegetables and olives.", "Top with feta.", "Serve fresh."], ["mediterranean", "salad", "vegetarian", "quick"]],
   ["creamy-hummus", "Creamy Hummus", "mediterranean", "Dips", "images/cuisines/mediterranean/mediterranean-05.png", "10 min", "0 min", "Beginner", 8, "Chickpeas blended with tahini, lemon, garlic, and olive oil until smooth.", ["2 cans chickpeas", "1/3 cup tahini", "1/4 cup lemon juice", "2 garlic cloves", "3 tbsp olive oil", "1/2 tsp cumin", "Salt to taste"], ["Drain chickpeas.", "Blend tahini, lemon, garlic, and oil.", "Add chickpeas and cumin.", "Blend with water until smooth.", "Finish with olive oil."], ["mediterranean", "dip", "vegetarian", "party"]],
@@ -9399,7 +9598,7 @@ const livingCookbookChapters = [
     subtitle: "Menus, shopping starters, prep timelines, recipes, and hosting guidance for the big family days.",
     intro: "Holiday cooking is less stressful when the table is planned like a chapter: mains, sides, bread, dessert, drinks, timing, and who is bringing what.",
     heritage: "Thanksgiving, Christmas, Easter, Mother's Day, Father's Day, Juneteenth, and family reunions each have their own rhythm, but the center is the same: people gathered and fed.",
-    recipeIds: ["roast-turkey", "smoked-turkey", "deep-fried-turkey", "baked-ham", "honey-glazed-ham", "roast-duck", "turducken", "southern-cornbread-dressing", "oyster-dressing", "giblet-gravy", "sweet-potato-casserole", "green-bean-casserole", "cranberry-relish", "dinner-rolls", "pumpkin-pie", "sweet-potato-pie", "southern-pecan-pie", "prime-rib", "beef-tenderloin", "eggnog", "christmas-cookies", "fruitcake", "yule-log", "holiday-punch", "roast-lamb", "deviled-eggs", "southern-potato-salad", "carrot-cake", "coconut-cake", "spring-vegetables", "all-american-burgers", "classic-cookout-hot-dogs", "bbq-brisket-basics", "bbq-chicken-quarters", "bbq-pulled-pork", "bbq-smoked-ribs", "bbq-baked-beans", "southern-baked-mac-cheese", "creamy-coleslaw", "corn-on-the-cob", "cookout-watermelon-wedges", "classic-apple-pie", "peach-cobbler", "banana-pudding", "strawberry-shortcake", "lemonade"],
+    recipeIds: ["roast-turkey", "smoked-turkey", "deep-fried-turkey", "baked-ham", "honey-glazed-ham", "roast-duck", "turducken", "southern-cornbread-dressing", "oyster-dressing", "giblet-gravy", "sweet-potato-casserole", "green-bean-casserole", "cranberry-relish", "dinner-rolls", "pumpkin-pie", "sweet-potato-pie", "southern-pecan-pie", "prime-rib", "beef-tenderloin", "eggnog", "christmas-cookies", "fruitcake", "yule-log", "holiday-punch", "roast-lamb", "deviled-eggs", "southern-potato-salad", "carrot-cake", "coconut-cake", "spring-vegetables", "all-american-burgers", "classic-cookout-hot-dogs", "bbq-brisket-basics", "bbq-chicken-quarters", "bbq-pulled-pork", "bbq-smoked-ribs", "bbq-baked-beans", "southern-baked-mac-cheese", "creamy-coleslaw", "corn-on-the-cob", "cookout-watermelon-wedges", "classic-apple-pie", "peach-cobbler", "banana-pudding", "strawberry-shortcake", "lemonade", "texas-chili", "taco-cups", "sheet-pan-nachos", "chewy-chocolate-cookies", "crispy-rice-treats"],
     guidance: ["Write the oven schedule before cooking starts.", "Choose one main dish, three sides, one bread, one dessert, and one drink for smaller tables.", "For large gatherings, assign dishes by family instead of by person.", "Put desserts on a separate table so the main line keeps moving."],
     hostingNotes: ["Thanksgiving: prep dressing, casseroles, greens, and desserts ahead.", "Christmas: plan breakfast, dinner, drinks, and leftovers.", "Family reunion: think stations, shade, ice, trash flow, and refills."],
     holidays: [
@@ -9407,6 +9606,7 @@ const livingCookbookChapters = [
       { title: "Christmas", recipeIds: ["prime-rib", "standing-rib-roast", "beef-tenderloin", "baked-ham", "honey-glazed-ham", "roast-turkey", "roast-duck", "roast-goose", "turducken", "eggnog", "christmas-cookies", "fruitcake", "yule-log", "holiday-punch"], shopping: ["rib roast or tenderloin", "ham", "turkey or duck", "eggs", "cream", "cookie ingredients", "dried fruit", "chocolate", "cranberry juice", "citrus"], hosting: ["Plan one showpiece main and one easy make-ahead dessert.", "Keep drinks and cookies away from the hot-food traffic.", "Rest roasts before carving so the table feels calm."] },
       { title: "Easter", recipeIds: ["honey-glazed-ham", "baked-ham", "roast-lamb", "deviled-eggs", "southern-potato-salad", "carrot-cake", "coconut-cake", "spring-vegetables", "dinner-rolls"], shopping: ["ham", "lamb", "eggs", "potatoes", "carrots", "coconut", "asparagus", "peas", "roll ingredients", "lemons"], hosting: ["Make deviled eggs, potato salad, and cakes ahead.", "Slice ham before guests line up.", "Keep spring vegetables bright and cook them close to serving."] },
       { title: "Fourth of July", recipeIds: ["all-american-burgers", "classic-cookout-hot-dogs", "bbq-brisket-basics", "bbq-chicken-quarters", "bbq-pulled-pork", "bbq-smoked-ribs", "bbq-baked-beans", "southern-baked-mac-cheese", "creamy-coleslaw", "corn-on-the-cob", "cookout-watermelon-wedges", "classic-apple-pie", "peach-cobbler", "banana-pudding", "strawberry-shortcake", "lemonade"], shopping: ["ground beef", "hot dogs", "brisket", "chicken", "pork shoulder", "ribs", "beans", "macaroni", "slaw mix", "corn", "watermelon", "apples", "peaches", "bananas", "strawberries", "lemons"], hosting: ["Start smoked meats early and hold them safely.", "Make cold sides, desserts, and lemonade before guests arrive.", "Set separate stations for raw grilling tools, finished food, drinks, and trash."] },
+      { title: "Halloween", recipeIds: ["texas-chili", "classic-cookout-hot-dogs", "taco-cups", "sheet-pan-nachos", "rotel-dip", "chewy-chocolate-cookies", "crispy-rice-treats"], shopping: ["ground beef", "beans", "hot dogs", "taco shells", "chips", "cheese", "Rotel", "cookie ingredients", "marshmallows", "crispy rice cereal", "candy"], hosting: ["Keep food handheld and easy between costumes, candy, and porch traffic.", "Make chili and dips ahead so dinner is ready before trick-or-treating.", "Set a candy and snack station away from hot pots and cords."] },
       { title: "Mother's Day", recipeIds: ["shrimp-and-grits", "seven-layer-salad", "grape-salad", "dinner-rolls", "pound-cake", "lemonade"], shopping: ["shrimp", "grits", "salad vegetables", "grapes", "rolls", "lemons"], hosting: ["Choose a pretty but simple table.", "Cook the main close to serving.", "Let someone else handle cleanup."] },
       { title: "Father's Day", recipeIds: ["bbq-brisket-basics", "bbq-chicken-quarters", "bbq-baked-beans", "cornbread", "watermelon-platter", "sweet-tea"], shopping: ["brisket", "chicken", "beans", "cornmeal", "watermelon", "tea"], hosting: ["Start smoked meats early.", "Keep sides easy and plentiful.", "Have a sauce and napkin station."] },
       { title: "Juneteenth", recipeIds: ["bbq-brisket-basics", "bbq-chicken-quarters", "bbq-baked-beans", "southern-collard-greens", "cornbread", "strawberry-soda", "watermelon-platter", "red-velvet-cake"], shopping: ["brisket", "chicken", "beans", "greens", "cornmeal", "strawberries", "watermelon", "red velvet cake ingredients"], hosting: ["Use the Juneteenth flag and family-reunion energy.", "Keep red drinks cold.", "Set a table that tells food, family, and freedom."] },
@@ -9506,7 +9706,7 @@ function holidayTablesFeature() {
     <section class="cream-section holiday-tables-feature" aria-labelledby="holidayTablesFeatureTitle">
       <div class="section-heading compact-heading">
         <p class="eyebrow">Holiday Hub</p>
-        <h2 id="holidayTablesFeatureTitle">Thanksgiving, Christmas, Easter, Fourth of July, and Sunday tables.</h2>
+        <h2 id="holidayTablesFeatureTitle">Thanksgiving, Christmas, Easter, Fourth of July, Halloween, Juneteenth, and Sunday tables.</h2>
         <p>${chapter.intro}</p>
       </div>
       <div class="recipe-grid">${featuredRecipes.map(recipeCard).join("")}</div>
@@ -12408,22 +12608,29 @@ function renderPlanner(id) {
   const menuRecipes = recipesForMenu(selectedMenu);
   const menuRecipeCount = menuRecipes.length;
   const selectedServingSize = plannerServingOptions.includes(Number(servingPart)) ? Number(servingPart) : 6;
-  const combinedRecipes = [...new Map([...menuRecipes, ...plannedRecipes].map((recipe) => [recipe.id, recipe])).values()];
+  const holidayTable = holidayTableForPlanner(selectedMenu, selectedAudience);
+  const holidayRecipes = holidayRecipesFor(holidayTable);
+  const activeMenuRecipes = holidayTable ? holidayRecipes : menuRecipes;
+  const combinedRecipes = [...new Map([...activeMenuRecipes, ...plannedRecipes].map((recipe) => [recipe.id, recipe])).values()];
   const groupedShopping = groupedShoppingList(combinedShoppingList(combinedRecipes, selectedServingSize));
   const savedRecipes = recipesByIds(saved);
   const recentRecipes = recipesByIds(recentlyViewed).filter((recipe) => !saved.includes(recipe.id)).slice(0, 6);
   const favoriteRecipes = savedRecipes.filter((recipe) => recipe.featured || (recipe.tags || []).some((tag) => /favorite|sunday|comfort|family|holiday|juneteenth/i.test(tag))).slice(0, 6);
   const pairingAnchor = plannedRecipes[0] || menuRecipes[0];
-  const smartMenu = pairingAnchor ? smartPairingFor(pairingAnchor) : selectedMenu;
-  const smartRecipes = recipesForMenu(smartMenu).filter((recipe) => recipe.id !== pairingAnchor?.id);
-  const quickPlan = [
+  const smartMenu = holidayTable ? selectedMenu : (pairingAnchor ? smartPairingFor(pairingAnchor) : selectedMenu);
+  const smartRecipes = (holidayTable ? holidayRecipes : recipesForMenu(smartMenu)).filter((recipe) => recipe.id !== pairingAnchor?.id);
+  const quickPlan = holidayTable ? [
+    { title: `${holidayTable.title} essentials`, ids: [...(holidayTable.main_recipe_ids || []).slice(0, 2), ...(holidayTable.side_recipe_ids || []).slice(0, 2)] },
+    { title: `${holidayTable.title} desserts`, ids: (holidayTable.dessert_recipe_ids || []).slice(0, 4) },
+    { title: `${holidayTable.title} drinks & starters`, ids: [...(holidayTable.appetizer_recipe_ids || []).slice(0, 2), ...(holidayTable.drink_recipe_ids || []).slice(0, 2)] }
+  ] : [
     { title: "Kid-friendly start", ids: ["pb-and-j-sandwich", "stovetop-mac-and-cheese", "fruit-kabobs"] },
     { title: "Weeknight dinner", ids: ["chicken-street-tacos", "cilantro-lime-rice", "greek-salad"] },
     { title: "Sunday comfort", ids: ["oxtails", "collard-greens", "cornbread"] }
   ];
-  const featuredPlanRecipes = ["chicken-street-tacos", "caribbean-curry-chicken", "lemon-herb-salmon", "stovetop-mac-and-cheese"].map((id) => recipeById(id)).filter(Boolean);
+  const featuredPlanRecipes = (holidayTable ? recipeIdsForHolidayTable(holidayTable).slice(0, 6) : ["chicken-street-tacos", "caribbean-curry-chicken", "lemon-herb-salmon", "stovetop-mac-and-cheese"]).map((id) => recipeById(id)).filter(Boolean);
   const savedRail = savedRecipes.length ? savedRecipes : featuredPlanRecipes;
-  const favoriteRail = favoriteRecipes.length ? favoriteRecipes : recipesByIds(["fried-chicken", "bbq-brisket-basics", "cajun-chicken-sausage-gumbo", "shrimp-and-grits", "red-velvet-cake"]);
+  const favoriteRail = holidayTable ? featuredPlanRecipes : (favoriteRecipes.length ? favoriteRecipes : recipesByIds(["fried-chicken", "bbq-brisket-basics", "cajun-chicken-sausage-gumbo", "shrimp-and-grits", "red-velvet-cake"]));
   app.innerHTML = `
     ${hero("Menu Planner", "Your command center for saved recipes, family menus, meal prep, shopping lists, serving-size planning, and warm hosting flow.", photoFor("hero", "learning", 5, "assets/lc-orange-chicken.jpg"), `<a class="small-button" href="#recipes">Find Recipes</a><button class="small-button secondary" data-print-recipe>Print Planner</button>`)}
     ${cookSubnav()}
@@ -12431,13 +12638,13 @@ function renderPlanner(id) {
       <div class="planner-summary">
         <article><strong>${plannedRecipes.length}</strong><span>Meals planned</span></article>
         <article><strong>${combinedShoppingList(combinedRecipes, selectedServingSize).length}</strong><span>Shopping items</span></article>
-        <article><strong>${menuRecipeCount}</strong><span>Linked menu recipes</span></article>
+        <article><strong>${activeMenuRecipes.length}</strong><span>${holidayTable ? "Holiday table recipes" : "Linked menu recipes"}</span></article>
         <article><strong>${saved.length}</strong><span>Saved recipes</span></article>
       </div>
       <div class="planner-primary-grid">
         <article class="detail-panel menu-builder-section">
-          <p class="eyebrow">Build a Menu</p>
-          <h2>Start with an audience, occasion, and the dish you're craving.</h2>
+          <p class="eyebrow">${holidayTable ? "Build a Holiday Table" : "Build a Menu"}</p>
+          <h2>${holidayTable ? `${holidayTable.title} gets its own curated table.` : "Start with an audience, occasion, and the dish you're craving."}</h2>
           <form class="menu-builder-form" data-menu-planner-form>
             <label>Audience<select name="audience">${menuAudienceOptions.filter((item) => plannerAudienceIds.includes(item.id)).map((item) => `<option value="${item.id}"${item.id === selectedAudience.id ? " selected" : ""}>${item.title}</option>`).join("")}</select></label>
             <label>Serving Size<select name="servings">${plannerServingOptions.map((item) => `<option value="${item}"${item === selectedServingSize ? " selected" : ""}>${item}</option>`).join("")}</select></label>
@@ -12449,10 +12656,10 @@ function renderPlanner(id) {
           </form>
           <div class="planner-menu-actions">
             <button class="small-button secondary" data-save-current-menu="${selectedIndex}">Save Menu</button>
-            <button class="small-button secondary" data-use-recipe-set="${menuRecipes.map((recipe) => recipe.id).join(",")}">Add Full Menu</button>
+            <button class="small-button secondary" data-use-recipe-set="${activeMenuRecipes.map((recipe) => recipe.id).join(",")}">Add Full ${holidayTable ? "Holiday Table" : "Menu"}</button>
             <button class="small-button secondary" data-clear-planned>Clear Current Menu</button>
           </div>
-          ${menuPairingCard(selectedMenu)}
+          ${holidayTable ? `<p class="hosting-note">Holiday Table mode is using curated ${holidayTable.title} recipes only. Everyday breakfasts and random weekday dishes are kept out of this table.</p>` : menuPairingCard(selectedMenu)}
         </article>
         <article class="detail-panel planner-shopping-panel">
           <p class="eyebrow">Combined Shopping List</p>
@@ -12483,21 +12690,21 @@ function renderPlanner(id) {
           </section>
         </div>
       </section>
-      <section class="detail-panel">
+      ${holidayTable ? "" : `<section class="detail-panel">
         <div class="section-heading compact-heading">
           <p class="eyebrow">Smart Pairings</p>
           <h2>${pairingAnchor ? `${pairingAnchor.title} goes with...` : "Choose a main dish and build the rest of the plate."}</h2>
           <p>Pairings only use real recipe records, so every side, bread, dessert, drink, and sauce has a home.</p>
         </div>
         <div class="recipe-grid">${smartRecipes.slice(0, 8).map(recipeCard).join("")}</div>
-      </section>
-      <article class="detail-panel menu-builder-section">
+      </section>`}
+      ${holidayTable ? holidayTablePlannerPanel(holidayTable, selectedServingSize) : `<article class="detail-panel menu-builder-section">
         <p class="eyebrow">Meal Prep Mode</p>
         <h2>Plan for 3, 5, or 7 days with leftovers that make sense.</h2>
         <div class="planner-layout compact-planner-layout">
           ${mealPrepModes.map(mealPrepCard).join("")}
         </div>
-      </article>
+      </article>`}
       <div class="planner-layout">
         <article class="detail-panel">
           <p class="eyebrow">Start fast</p>
@@ -12522,23 +12729,39 @@ function renderPlanner(id) {
         </article>
       </div>
       <section class="detail-panel weekly-planner-panel">
-        <div class="section-heading compact-heading">
-          <p class="eyebrow">Weekly Meal Planning</p>
-          <h2>Plan by day: breakfast, lunch, dinner, and snack.</h2>
-          <p>Use this as a starter plan, then save recipes into your own weekly rhythm.</p>
-        </div>
-        <div class="weekly-plan-grid">
-          ${weeklyMealPlan.map((day) => `
-            <article>
-              <h3>${day.day}</h3>
-              ${["breakfast", "lunch", "dinner", "snack"].map((slot) => {
-                const recipe = recipeById(day[slot]);
-                return recipe ? `<p><strong>${slot}</strong><a href="#recipes/${recipe.id}">${recipe.title}</a></p>` : "";
-              }).join("")}
-            </article>
-          `).join("")}
-        </div>
-        <button class="small-button secondary" data-use-recipe-set="${weeklyMealPlan.flatMap((day) => [day.breakfast, day.lunch, day.dinner, day.snack]).filter(Boolean).join(",")}">Add Weekly Plan</button>
+        ${holidayTable ? `
+          <div class="section-heading compact-heading">
+            <p class="eyebrow">${holidayTable.title} Prep Flow</p>
+            <h2>Cook the holiday table in the right order.</h2>
+            <p>This view replaces the everyday weekly plan with a holiday-first prep timeline, shopping flow, and curated table recipes.</p>
+          </div>
+          <div class="weekly-plan-grid holiday-prep-grid">
+            ${(holidayTable.timeline || []).map((item, index) => `
+              <article>
+                <h3>Step ${index + 1}</h3>
+                <p>${item}</p>
+              </article>
+            `).join("")}
+          </div>
+        ` : `
+          <div class="section-heading compact-heading">
+            <p class="eyebrow">Weekly Meal Planning</p>
+            <h2>Plan by day: breakfast, lunch, dinner, and snack.</h2>
+            <p>Use this as a starter plan, then save recipes into your own weekly rhythm.</p>
+          </div>
+          <div class="weekly-plan-grid">
+            ${weeklyMealPlan.map((day) => `
+              <article>
+                <h3>${day.day}</h3>
+                ${["breakfast", "lunch", "dinner", "snack"].map((slot) => {
+                  const recipe = recipeById(day[slot]);
+                  return recipe ? `<p><strong>${slot}</strong><a href="#recipes/${recipe.id}">${recipe.title}</a></p>` : "";
+                }).join("")}
+              </article>
+            `).join("")}
+          </div>
+        `}
+        <button class="small-button secondary" data-use-recipe-set="${(holidayTable ? recipeIdsForHolidayTable(holidayTable) : weeklyMealPlan.flatMap((day) => [day.breakfast, day.lunch, day.dinner, day.snack])).filter(Boolean).join(",")}">${holidayTable ? `Add ${holidayTable.title} Table` : "Add Weekly Plan"}</button>
       </section>
     </section>
   `;
@@ -13254,11 +13477,15 @@ function handleClick(event) {
   if (saveCurrentMenuButton) {
     const index = Number(saveCurrentMenuButton.dataset.saveCurrentMenu || 0);
     const menu = menuPairings[Math.max(0, Math.min(menuPairings.length - 1, index))] || menuPairings[0];
-    const menuRecipes = recipesForMenu(menu);
+    const plannerId = (window.location.hash.replace("#", "").split("/")[1] || "");
+    const audienceId = plannerId.split("-").slice(2).join("-");
+    const audience = menuAudienceOptions.find((item) => item.id === audienceId) || menuAudienceOptions[0];
+    const holidayTable = holidayTableForPlanner(menu, audience);
+    const menuRecipes = holidayTable ? holidayRecipesFor(holidayTable) : recipesForMenu(menu);
     const savedMenu = {
       id: `menu-${Date.now()}`,
-      title: `${menu.cuisine} ${menu.occasion}`,
-      audience: "Menu Planner",
+      title: holidayTable ? `${holidayTable.title} Holiday Table` : `${menu.cuisine} ${menu.occasion}`,
+      audience: holidayTable ? "Holiday Table" : "Menu Planner",
       recipeIds: menuRecipes.map((recipe) => recipe.id),
       createdAt: new Date().toISOString()
     };
@@ -13386,22 +13613,26 @@ async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const selected = Number(formData.get("main"));
+    const audience = formData.get("audience")?.toString() || "single";
     const selectedMainRecipe = recipeById(formData.get("mainRecipe")?.toString() || "");
     let resolved = resolveMenuIndex({
       selectedIndex: Number.isFinite(selected) ? selected : 0,
       cuisine: formData.get("cuisine")?.toString() || "",
       occasion: formData.get("occasion")?.toString() || ""
     });
+    const holidayMenuIndex = holidayMenuIndexForAudience(audience);
+    if (holidayMenuIndex >= 0) {
+      resolved = holidayMenuIndex;
+    }
     if (selectedMainRecipe) {
       const pairedMenuIndex = menuPairings.indexOf(smartPairingFor(selectedMainRecipe));
-      if (pairedMenuIndex >= 0) {
+      if (pairedMenuIndex >= 0 && holidayMenuIndex < 0) {
         resolved = pairedMenuIndex;
       }
       planned = [...new Set([selectedMainRecipe.id, ...planned])];
       await persistLetsCookState();
     }
     const servings = Number(formData.get("servings"));
-    const audience = formData.get("audience")?.toString() || "single";
     window.location.hash = `#planner/${resolved}-${plannerServingOptions.includes(servings) ? servings : 6}-${audience}`;
     return;
   }
