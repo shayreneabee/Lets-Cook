@@ -4983,10 +4983,33 @@ const globalCuisineExpansionRecipes = [
   globalCuisineRecipe("cuban-sandwich-press", "Cuban Sandwich Press", "caribbean", "Cuban Counter", "Pressed bread layered with roast pork, ham, Swiss, pickles, and mustard.", ["Cuban bread or soft rolls", "Roast pork", "Ham", "Swiss cheese", "Pickles", "Yellow mustard", "Butter"], ["Split bread and spread mustard.", "Layer pork, ham, cheese, and pickles.", "Butter the outside lightly.", "Press in a skillet or sandwich press.", "Cook until crisp and melted."], ["cuba", "sandwich", "pressed"], { image: "images/regional/cuban-sandwich.png", prep: "15 min", cook: "10 min" }),
   globalCuisineRecipe("brazilian-feijoada-style-beans", "Brazilian Feijoada-Style Beans", "global", "Brazilian Bean Pot", "Black beans simmered with smoky sausage, garlic, onion, bay, and orange for a home-friendly feijoada-style pot.", ["1 lb black beans or 3 cans", "Smoked sausage", "1 onion", "4 garlic cloves", "2 bay leaves", "Stock", "Orange slices", "Rice"], ["Cook onion, garlic, and sausage.", "Add beans, bay, and stock.", "Simmer until thick and tender.", "Taste for salt.", "Serve with rice and orange slices."], ["brazil", "beans", "comfort"], { image: "images/recipes/audit-2026-06/rice-and-peas.jpg", cook: "50 min" }),
   globalCuisineRecipe("tex-mex-breakfast-tacos", "Tex-Mex Breakfast Tacos", "mexican", "Borderlands Breakfast", "Warm tortillas filled with eggs, potatoes, cheese, salsa, and optional bacon or beans.", ["8 flour tortillas", "6 eggs", "2 cups diced potatoes", "1 cup cheese", "Salsa", "Cilantro", "Bacon or beans optional"], ["Cook potatoes until crisp-tender.", "Scramble eggs softly.", "Warm tortillas.", "Fill with eggs, potatoes, cheese, and salsa.", "Serve with cilantro and lime."], ["tex-mex", "breakfast tacos", "tortillas"], { image: "assets/lc-birria-tacos.jpg", cook: "25 min" }),
+  globalCuisineRecipe("argentinian-beef-empanadas", "Argentinian Beef Empanadas", "global", "Argentina Bakery", "Hand pies filled with seasoned beef, onion, paprika, olives, and egg for parties, lunch boxes, and asado tables.", ["Empanada dough", "1 lb ground beef", "1 onion diced", "1 tsp paprika", "1 tsp cumin", "Green olives", "2 boiled eggs", "Egg wash"], ["Cook onion until soft.", "Brown beef with paprika, cumin, salt, and pepper.", "Fold in olives and chopped egg; cool filling.", "Fill dough rounds and seal edges.", "Brush with egg wash and bake until golden."], ["argentina", "empanadas", "beef"], { image: "assets/german-food.jpeg", prep: "35 min", cook: "25 min", level: "Intermediate" }),
+  globalCuisineRecipe("argentinian-chimichurri-steak", "Argentinian Chimichurri Steak", "global", "Argentina Asado", "Grilled steak with parsley, garlic, oregano, vinegar, and olive oil chimichurri for an asado-style plate.", ["1 1/2 lb flank or skirt steak", "1 cup parsley", "3 garlic cloves", "1 tsp oregano", "2 tbsp red wine vinegar", "1/3 cup olive oil", "Chile flakes"], ["Season steak and let stand 20 minutes.", "Stir parsley, garlic, oregano, vinegar, oil, chile, and salt.", "Grill steak hot and fast.", "Rest, then slice across the grain.", "Spoon chimichurri over the steak."], ["argentina", "asado", "chimichurri"], { image: "images/recipes/audit-2026-06/nebraska-steak.jpg", prep: "15 min", cook: "12 min" }),
+  globalCuisineRecipe("venezuelan-arepas", "Venezuelan Arepas", "mexican", "Venezuelan Griddle", "Crisp-edged corn cakes split and stuffed with beans, cheese, avocado, shredded chicken, or beef.", ["2 cups precooked cornmeal", "2 1/2 cups warm water", "1 tsp salt", "Beans", "Cheese", "Avocado", "Shredded chicken optional"], ["Mix cornmeal, warm water, and salt into a soft dough.", "Rest 5 minutes.", "Shape thick patties.", "Griddle until browned and cooked through.", "Split and fill while warm."], ["venezuela", "arepas", "corn cakes"], { image: "assets/lc-birria-tacos.jpg", prep: "15 min", cook: "20 min" }),
+  globalCuisineRecipe("chilean-pastel-de-choclo", "Chilean Pastel de Choclo", "mexican", "Chilean Corn Bake", "A savory corn-topped casserole layered with beef, onion, chicken, olives, raisins, and basil-scented corn.", ["4 cups corn kernels", "1/2 cup milk", "Basil", "1 lb ground beef", "1 onion", "Cooked chicken pieces", "Olives", "Raisins optional"], ["Blend corn with milk and basil until coarse.", "Cook beef and onion with cumin, salt, and pepper.", "Layer beef, chicken, olives, and raisins in a baking dish.", "Spread corn mixture on top.", "Bake until bubbling and browned."], ["chile", "pastel de choclo", "corn"], { image: "images/recipes/audit-2026-06/mexican-cornbread-casserole.jpg", prep: "30 min", cook: "45 min", level: "Intermediate" }),
+  globalCuisineRecipe("polish-bigos", "Polish Bigos", "global", "Polish Stew Pot", "A hearty hunter's stew of sauerkraut, cabbage, mushrooms, smoked sausage, and slow-simmered meat.", ["1 lb sauerkraut", "1/2 head cabbage", "Smoked sausage", "Cooked pork or beef", "Mushrooms", "Onion", "Tomato paste", "Bay leaf"], ["Rinse sauerkraut if very sharp.", "Cook onion, sausage, and mushrooms.", "Add cabbage, sauerkraut, meat, tomato paste, and bay.", "Simmer low until rich and tender.", "Rest overnight if possible and reheat gently."], ["poland", "bigos", "stew"], { image: "assets/german-food.jpeg", prep: "20 min", cook: "1 hr 30 min", level: "Intermediate" }),
+  globalCuisineRecipe("hungarian-chicken-paprikash", "Hungarian Chicken Paprikash", "global", "Hungarian Comfort", "Tender chicken simmered in onion, sweet paprika, broth, and sour cream sauce.", ["2 lb chicken thighs", "1 onion", "2 tbsp sweet paprika", "1 cup chicken stock", "1/2 cup sour cream", "2 tbsp flour", "Egg noodles"], ["Brown chicken lightly.", "Cook onion until soft.", "Bloom paprika briefly.", "Add stock and chicken; simmer until tender.", "Temper sour cream with flour and stir into sauce."], ["hungary", "paprikash", "chicken"], { image: "assets/beautiful-chicken.jpeg", prep: "15 min", cook: "45 min" }),
+  globalCuisineRecipe("irish-beef-stew", "Irish Beef Stew", "global", "Irish Comfort", "Slow-simmered beef stew with potatoes, carrots, onion, herbs, and a rich broth.", ["2 lb beef stew meat", "Potatoes", "Carrots", "Onion", "Beef stock", "Thyme", "Bay leaf"], ["Brown beef in batches.", "Cook onion in the pot.", "Add stock, thyme, bay, and beef.", "Simmer until beef is nearly tender.", "Add potatoes and carrots and cook until soft."], ["ireland", "irish stew", "beef stew"], { image: "assets/german-food.jpeg", prep: "20 min", cook: "2 hr" }),
+  globalCuisineRecipe("swedish-meatballs", "Swedish Meatballs", "global", "Swedish Supper", "Tender meatballs in creamy gravy with potatoes, noodles, or lingonberry-style jam.", ["1 lb ground beef or beef-pork mix", "Breadcrumbs", "Milk", "1 egg", "Allspice", "Butter", "Flour", "Beef stock", "Cream"], ["Soak breadcrumbs in milk.", "Mix with meat, egg, salt, pepper, and allspice.", "Roll and brown meatballs.", "Make a butter-flour roux and whisk in stock and cream.", "Simmer meatballs in gravy."], ["sweden", "meatballs", "gravy"], { image: "assets/german-food.jpeg", prep: "25 min", cook: "30 min" }),
+  globalCuisineRecipe("persian-herb-stew", "Persian Ghormeh Sabzi", "mediterranean", "Persian Herb Stew", "A deeply green herb, bean, and beef stew brightened with dried lime and served with rice.", ["1 lb stew beef", "Parsley", "Cilantro", "Scallions", "Kidney beans", "Dried lime or lemon", "Turmeric", "Rice"], ["Brown beef with onion and turmeric.", "Chop and saute herbs until fragrant.", "Combine beef, herbs, beans, and dried lime.", "Simmer until tender and savory.", "Serve with rice."], ["iran", "ghormeh sabzi", "herb stew"], { image: "assets/lc-mediterranean-food.jpg", prep: "30 min", cook: "2 hr", level: "Advanced" }),
+  globalCuisineRecipe("palestinian-musakhan-style-chicken", "Palestinian Musakhan-Style Chicken", "mediterranean", "Palestinian Sumac Chicken", "Roasted sumac chicken with soft onions, olive oil, flatbread, toasted nuts, and lemon.", ["Chicken pieces", "4 onions sliced", "2 tbsp sumac", "Olive oil", "Flatbread", "Toasted almonds or pine nuts", "Lemon"], ["Season chicken with sumac, salt, and pepper.", "Cook onions slowly in olive oil until soft.", "Roast chicken until cooked through.", "Layer flatbread with onions and chicken.", "Finish with nuts, lemon, and extra sumac."], ["palestine", "musakhan", "sumac chicken"], { image: "assets/lc-mediterranean-food.jpg", prep: "20 min", cook: "50 min" }),
+  globalCuisineRecipe("saudi-kabsa-chicken", "Saudi Chicken Kabsa", "mediterranean", "Saudi Rice Platter", "Spiced chicken and rice with tomatoes, warm spices, raisins, almonds, and a family-style platter feel.", ["2 lb chicken", "2 cups basmati rice", "1 onion", "Tomatoes", "Cardamom", "Cinnamon", "Cloves", "Raisins", "Almonds"], ["Brown chicken and set aside.", "Cook onion, tomatoes, and spices.", "Add rice, stock, and chicken.", "Cover and simmer until rice is tender.", "Garnish with raisins and almonds."], ["saudi arabia", "kabsa", "rice"], { image: "images/recipes/audit-2026-06/rice-pilaf.jpg", prep: "20 min", cook: "45 min", level: "Intermediate" }),
+  globalCuisineRecipe("taiwanese-beef-noodle-soup", "Taiwanese Beef Noodle Soup", "asian-inspired", "Taiwan Noodle Bowl", "Braised beef, wheat noodles, greens, scallions, and a soy-star-anise broth.", ["2 lb beef shank or chuck", "Wheat noodles", "Soy sauce", "Ginger", "Garlic", "Star anise", "Tomato", "Bok choy"], ["Brown beef pieces.", "Simmer with soy, ginger, garlic, star anise, tomato, and water until tender.", "Cook noodles separately.", "Blanch greens.", "Serve noodles with beef, broth, greens, and scallions."], ["taiwan", "beef noodle soup", "noodles"], { image: "images/cuisines/asian/asian-02.png", prep: "25 min", cook: "2 hr", level: "Advanced" }),
+  globalCuisineRecipe("pakistani-chicken-biryani", "Pakistani Chicken Biryani", "asian-inspired", "Pakistani Rice Pot", "Layered spiced chicken and basmati rice with yogurt, fried onions, herbs, and warm whole spices.", ["2 lb chicken", "2 cups basmati rice", "Yogurt", "Fried onions", "Ginger garlic paste", "Biryani spice", "Mint", "Cilantro"], ["Marinate chicken with yogurt and spices.", "Parboil rice until almost tender.", "Cook chicken until saucy.", "Layer rice, chicken, herbs, and onions.", "Steam covered until fragrant and fully cooked."], ["pakistan", "biryani", "rice"], { image: "assets/tandoori-chicken.jpeg", prep: "40 min", cook: "1 hr", level: "Advanced" }),
+  globalCuisineRecipe("nepali-momo-dumplings", "Nepali Momo Dumplings", "asian-inspired", "Nepal Dumpling Table", "Steamed dumplings filled with seasoned meat or vegetables and served with tomato-chile achar.", ["Dumpling wrappers", "1 lb ground chicken or vegetables", "Cabbage", "Scallions", "Ginger", "Garlic", "Soy sauce", "Tomato achar"], ["Mix filling with cabbage, scallions, ginger, garlic, and soy.", "Fill wrappers and pleat closed.", "Steam until cooked through.", "Warm or blend achar.", "Serve momos hot with sauce."], ["nepal", "momo", "dumplings"], { image: "assets/lc-asian-food.jpg", prep: "40 min", cook: "12 min", level: "Intermediate" }),
+  globalCuisineRecipe("sri-lankan-fish-curry", "Sri Lankan Fish Curry", "asian-inspired", "Sri Lankan Coconut Curry", "Fish simmered in coconut milk, curry leaves, spices, chile, and lime for a bright coastal curry.", ["1 1/2 lb firm fish", "Coconut milk", "Curry leaves optional", "Onion", "Garlic", "Ginger", "Turmeric", "Chile", "Lime"], ["Cook onion, garlic, ginger, and spices.", "Add coconut milk and simmer.", "Slide in fish pieces.", "Cook gently until fish flakes.", "Finish with lime and herbs."], ["sri lanka", "fish curry", "coconut"], { image: "assets/lc-seafood.jpg", prep: "15 min", cook: "25 min" }),
+  globalCuisineRecipe("malaysian-nasi-lemak", "Malaysian Nasi Lemak", "asian-inspired", "Malaysian Coconut Rice", "Coconut rice with sambal, cucumber, egg, peanuts, and optional chicken or fish.", ["2 cups rice", "Coconut milk", "Pandan optional", "Sambal", "Cucumber", "Eggs", "Peanuts", "Chicken or fish optional"], ["Cook rice with coconut milk and salt.", "Prepare sambal or use a good jarred version.", "Boil or fry eggs.", "Slice cucumber.", "Serve rice with sambal, peanuts, egg, and protein."], ["malaysia", "nasi lemak", "coconut rice"], { image: "assets/lc-fried-rice.jpg", prep: "20 min", cook: "25 min" }),
+  globalCuisineRecipe("indonesian-nasi-goreng", "Indonesian Nasi Goreng", "asian-inspired", "Indonesian Fried Rice", "Savory fried rice with shallot, garlic, kecap manis, chile, egg, and crisp vegetables.", ["4 cups cold rice", "Shallot", "Garlic", "Chile", "Kecap manis or sweet soy", "Soy sauce", "Eggs", "Scallions"], ["Cook shallot, garlic, and chile in oil.", "Add rice and stir-fry until hot.", "Season with kecap manis and soy.", "Fry eggs separately.", "Serve rice with egg and scallions."], ["indonesia", "nasi goreng", "fried rice"], { image: "assets/lc-fried-rice.jpg", prep: "15 min", cook: "15 min" }),
+  globalCuisineRecipe("australian-lamingtons", "Australian Lamingtons", "global", "Australian Bakery", "Sponge cake squares dipped in chocolate icing and coconut for a classic bakery sweet.", ["Sponge cake squares", "2 cups powdered sugar", "1/4 cup cocoa", "1/2 cup milk", "2 tbsp butter", "Shredded coconut"], ["Freeze cake squares briefly for cleaner dipping.", "Warm cocoa, sugar, milk, and butter into a thin icing.", "Dip cake squares in icing.", "Roll in coconut.", "Let set before serving."], ["australia", "lamingtons", "dessert"], { image: "assets/lc-desserts.jpg", prep: "35 min", cook: "0 min" }),
+  globalCuisineRecipe("australian-barbecue-prawns", "Australian Barbecue Prawns", "global", "Australian Grill", "Garlic-lime prawns grilled hot and served with herbs, lemon, and summer salad.", ["1 1/2 lb prawns or shrimp", "Garlic", "Lime", "Olive oil", "Parsley", "Chile flakes optional", "Lemon"], ["Toss prawns with garlic, lime, oil, salt, and chile.", "Heat grill or grill pan.", "Cook prawns until pink and lightly charred.", "Finish with herbs and lemon.", "Serve immediately."], ["australia", "barbecue prawns", "seafood"], { image: "assets/lc-seafood.jpg", prep: "15 min", cook: "8 min" }),
   globalCuisineRecipe("new-zealand-roast-lamb", "New Zealand Roast Lamb", "global", "New Zealand Sunday Roast", "Herb-roasted lamb with garlic, rosemary, potatoes, carrots, and pan juices for a classic New Zealand-style family table.", ["1 leg of lamb or lamb shoulder", "4 garlic cloves", "2 tbsp rosemary", "2 tbsp olive oil", "1 lemon", "1 1/2 lb potatoes", "4 carrots", "2 cups stock"], ["Heat oven to 375 F.", "Rub lamb with garlic, rosemary, oil, lemon zest, salt, and pepper.", "Nestle potatoes and carrots around the lamb.", "Roast until lamb reaches desired temperature and vegetables are tender.", "Rest lamb 20 minutes and serve with pan juices."], ["new zealand", "roast lamb", "sunday roast"], { image: "images/recipes/audit-2026-06/nebraska-steak.jpg", prep: "20 min", cook: "1 hr 45 min", level: "Intermediate" }),
   globalCuisineRecipe("new-zealand-pavlova", "New Zealand Pavlova", "global", "New Zealand Dessert", "Crisp-edged meringue with a marshmallowy center, whipped cream, and fresh fruit.", ["4 egg whites", "1 cup sugar", "1 tsp cornstarch", "1 tsp vinegar", "1 tsp vanilla", "1 cup cream", "Kiwi", "Berries"], ["Heat oven to 275 F and line a baking sheet.", "Beat egg whites to soft peaks, then add sugar gradually until glossy.", "Fold in cornstarch, vinegar, and vanilla.", "Shape into a round and bake until crisp outside; cool in the oven.", "Top with whipped cream, kiwi, and berries."], ["new zealand", "pavlova", "dessert"], { image: "assets/lc-desserts.jpg", prep: "25 min", cook: "1 hr 15 min", level: "Intermediate" }),
   globalCuisineRecipe("new-zealand-seafood-chowder", "New Zealand Seafood Chowder", "global", "New Zealand Coastal Soup", "Creamy seafood chowder with fish, shrimp or mussels, potatoes, herbs, and sweet corn.", ["1 lb mixed seafood", "2 potatoes diced", "1 onion diced", "2 tbsp butter", "2 tbsp flour", "3 cups seafood or chicken stock", "1 cup milk or cream", "1 cup corn", "Parsley"], ["Cook onion in butter until soft.", "Stir in flour and cook 1 minute.", "Whisk in stock, then add potatoes and simmer until tender.", "Add seafood and corn; simmer gently until seafood reaches 145 F.", "Finish with milk or cream, parsley, salt, and pepper."], ["new zealand", "seafood chowder", "coastal"], { image: "assets/lc-seafood.jpg", prep: "20 min", cook: "30 min" }),
-  globalCuisineRecipe("new-zealand-meat-pies", "New Zealand Meat Pies", "global", "New Zealand Bakery", "Individual savory pies filled with beef gravy and tucked under flaky pastry.", ["1 lb ground beef or diced beef", "1 onion diced", "2 tbsp flour", "1 1/2 cups beef stock", "1 tbsp Worcestershire sauce", "1 tsp tomato paste", "Pie pastry", "1 egg"], ["Cook beef and onion until browned.", "Stir in flour, tomato paste, Worcestershire, and stock.", "Simmer until thick and cool the filling.", "Line small tins with pastry, fill, and top with pastry lids.", "Brush with egg and bake at 400 F until deeply golden."], ["new zealand", "meat pies", "bakery"], { image: "assets/german-food.jpeg", prep: "35 min", cook: "35 min", level: "Intermediate" })
+  globalCuisineRecipe("new-zealand-meat-pies", "New Zealand Meat Pies", "global", "New Zealand Bakery", "Individual savory pies filled with beef gravy and tucked under flaky pastry.", ["1 lb ground beef or diced beef", "1 onion diced", "2 tbsp flour", "1 1/2 cups beef stock", "1 tbsp Worcestershire sauce", "1 tsp tomato paste", "Pie pastry", "1 egg"], ["Cook beef and onion until browned.", "Stir in flour, tomato paste, Worcestershire, and stock.", "Simmer until thick and cool the filling.", "Line small tins with pastry, fill, and top with pastry lids.", "Brush with egg and bake at 400 F until deeply golden."], ["new zealand", "meat pies", "bakery"], { image: "assets/german-food.jpeg", prep: "35 min", cook: "35 min", level: "Intermediate" }),
+  globalCuisineRecipe("fijian-kokoda", "Fijian Kokoda", "global", "Fijian Coastal Bowl", "Citrus-cured fish folded with coconut milk, lime, chile, tomato, cucumber, and herbs.", ["1 lb very fresh firm fish", "1/2 cup lime juice", "1 cup coconut milk", "Tomato", "Cucumber", "Red onion", "Chile", "Cilantro"], ["Dice fish and cover with lime juice.", "Chill until opaque and cured.", "Drain most of the lime.", "Fold with coconut milk, vegetables, chile, and herbs.", "Serve cold with taro chips or rice."], ["fiji", "kokoda", "seafood"], { image: "assets/lc-seafood.jpg", prep: "25 min", cook: "0 min", level: "Intermediate" }),
+  globalCuisineRecipe("samoan-palusami", "Samoan Palusami", "global", "Samoan Coconut Greens", "Taro or leafy greens baked with coconut cream, onion, and salt until tender and rich.", ["Taro leaves or collard greens", "1 can coconut cream", "1 onion minced", "Salt", "Foil or baking dish"], ["Wash greens well and remove tough stems.", "Mix coconut cream with onion and salt.", "Layer greens with coconut mixture.", "Wrap or cover tightly.", "Bake until greens are tender and creamy."], ["samoa", "palusami", "coconut"], { image: "images/recipes/audit-2026-06/smothered-green-beans.jpg", prep: "20 min", cook: "1 hr" }),
+  globalCuisineRecipe("tongan-lu-pulu", "Tongan Lu Pulu", "global", "Tongan Feast", "Corned beef and coconut cream wrapped with taro-style greens for a rich island celebration dish.", ["Taro leaves or collards", "1 can corned beef", "1 can coconut cream", "Onion", "Black pepper", "Foil"], ["Layer greens on foil or in a baking dish.", "Add corned beef, onion, pepper, and coconut cream.", "Fold or cover tightly.", "Bake until greens are tender.", "Serve with taro, rice, or root vegetables."], ["tonga", "lu pulu", "coconut"], { image: "images/recipes/audit-2026-06/ham-hocks-beans.jpg", prep: "20 min", cook: "1 hr 15 min" }),
+  globalCuisineRecipe("papua-new-guinea-coconut-fish", "Papua New Guinea Coconut Fish", "global", "Papua New Guinea Coastal Pot", "Fish gently cooked with coconut milk, greens, ginger, lime, and sweet root vegetables.", ["1 1/2 lb firm fish", "Coconut milk", "Sweet potato or taro", "Greens", "Ginger", "Garlic", "Lime"], ["Simmer diced root vegetables until almost tender.", "Add coconut milk, ginger, garlic, and greens.", "Nestle fish into the pot.", "Cook gently until fish flakes.", "Finish with lime."], ["papua new guinea", "coconut fish", "seafood"], { image: "assets/lc-seafood.jpg", prep: "15 min", cook: "30 min" })
 ];
 
 const holidayExpansionRecipes = [
@@ -6617,15 +6640,56 @@ function holidaySundayRecipes(limit = 24) {
 
 function recipeForPracticeTitle(title = "") {
   const wanted = slugify(title);
+  const directAliases = {
+    asado: "argentinian-chimichurri-steak",
+    chimichurri: "argentinian-chimichurri-steak",
+    empanadas: "argentinian-beef-empanadas",
+    arepas: "venezuelan-arepas",
+    "pastel-de-choclo": "chilean-pastel-de-choclo",
+    pierogi: "eastern-european-pierogies",
+    pierogies: "eastern-european-pierogies",
+    bigos: "polish-bigos",
+    paprikash: "hungarian-chicken-paprikash",
+    "irish-stew": "irish-beef-stew",
+    "swedish-meatballs": "swedish-meatballs",
+    "ghormeh-sabzi": "persian-herb-stew",
+    musakhan: "palestinian-musakhan-style-chicken",
+    kabsa: "saudi-kabsa-chicken",
+    "beef-noodle-soup": "taiwanese-beef-noodle-soup",
+    biryani: "pakistani-chicken-biryani",
+    momo: "nepali-momo-dumplings",
+    "fish-curry": "sri-lankan-fish-curry",
+    "nasi-lemak": "malaysian-nasi-lemak",
+    "nasi-goreng": "indonesian-nasi-goreng",
+    "barbecue-prawns": "australian-barbecue-prawns",
+    lamingtons: "australian-lamingtons",
+    pavlova: "new-zealand-pavlova",
+    "roast-lamb": "new-zealand-roast-lamb",
+    "seafood-chowder": "new-zealand-seafood-chowder",
+    "meat-pies": "new-zealand-meat-pies",
+    kokoda: "fijian-kokoda",
+    palusami: "samoan-palusami",
+    "lu-pulu": "tongan-lu-pulu",
+    "coconut-fish": "papua-new-guinea-coconut-fish",
+    koshari: "egyptian-koshari-bowls",
+    couscous: "moroccan-vegetable-couscous",
+    "jerk-chicken": "jamaican-jerk-chicken",
+    doubles: "trinidad-doubles-style-chickpeas",
+    mofongo: "puerto-rican-mofongo-bowls"
+  };
+  const aliasRecipe = directAliases[wanted] ? recipeByIdSafe(directAliases[wanted]) : null;
+  if (aliasRecipe && recipeHasPublishReadyPhoto(aliasRecipe)) return aliasRecipe;
   const publishableRecipes = recipes.filter(recipeHasPublishReadyPhoto);
   const exact = publishableRecipes.find((recipe) => {
     const options = [recipe.id, recipe.slug, recipe.title].map((value) => slugify(value || ""));
     return options.includes(wanted);
   });
   if (exact) return exact;
+  const tooBroadForPartialMatch = !wanted || wanted.length < 5 || /^(egg|eggs|toast|fruit|rice|beans|bread|tea|coffee|pasta|curry|stew|soup|salad|barbecue|bbq|chocolate|dates|fish|taro|greens|pork|beef|chicken|seafood|dessert|pastries|roasts|soups|pies|dumplings|noodles)$/.test(wanted);
+  if (tooBroadForPartialMatch) return null;
   return publishableRecipes.find((recipe) => {
     const options = [recipe.id, recipe.slug, recipe.title].map((value) => slugify(value || ""));
-    return options.some((value) => value && (value.includes(wanted) || wanted.includes(value)));
+    return options.some((value) => value && value.includes(wanted));
   });
 }
 
@@ -6668,7 +6732,7 @@ function generatedPracticeTrack(profile, cuisineId) {
   }
   const cuisineRecipes = recipesForCuisine(cuisineId, 18).filter((recipe) => {
     const haystack = recipeSearchText(recipe);
-    return !/pb&j|peanut butter|fruit kabob|kids korner|apple nachos|ants on a log|scrambled eggs|plain toast/i.test(haystack);
+    return !/pb&j|peanut butter|fruit kabob|kids korner|apple nachos|ants on a log|scrambled eggs|plain toast|mini pizza|mac and cheese bites|smoothie cups/i.test(haystack) && recipe.path !== "kid-chefs";
   });
   const byDifficulty = (pattern, fallback) => {
     const matches = cuisineRecipes.filter((recipe) => pattern.test(`${recipe.difficulty} ${recipe.skill_level} ${recipe.category} ${recipe.tags?.join(" ")}`));
@@ -6690,20 +6754,42 @@ function generatedPracticeTrack(profile, cuisineId) {
   };
 }
 
+function cuisineGroupPracticeProfile(group, parentGroup) {
+  const sourceGroup = group || parentGroup;
+  if (!sourceGroup) return null;
+  const market = cuisineMarketProfile(sourceGroup);
+  return {
+    title: sourceGroup.title,
+    region: sourceGroup.title,
+    cuisine: canonicalCuisineId(sourceGroup.id),
+    image: sourceGroup.image,
+    overview: sourceGroup.note,
+    culture: market.mood,
+    ingredients: market.ingredients || [],
+    dishes: market.dishes || sourceGroup.regions || [],
+    beginnerRecipes: market.dishes || sourceGroup.regions || [],
+    familyFavorites: market.dishes || sourceGroup.regions || [],
+    advancedRecipes: market.dishes || sourceGroup.regions || [],
+    techniques: market.highlights || [],
+    menu: market.dishes || sourceGroup.regions || []
+  };
+}
+
 function practiceTrackForCuisine(normalizedId, recipeCuisineId, profile, group, parentGroup) {
+  const practiceProfile = profile || cuisineGroupPracticeProfile(group, parentGroup);
   const candidates = [
     normalizedId,
     recipeCuisineId,
-    profile?.cuisine,
+    practiceProfile?.cuisine,
     group?.id,
     parentGroup?.id,
     ...(parentGroup?.regions || []).map(slugify)
   ].filter(Boolean).map(canonicalCuisineId);
   const explicitKey = candidates.find((key) => cuisinePracticeRecipeTracks[key]);
-  const track = explicitKey ? cuisinePracticeRecipeTracks[explicitKey] : generatedPracticeTrack(profile, recipeCuisineId);
+  const track = explicitKey ? cuisinePracticeRecipeTracks[explicitKey] : generatedPracticeTrack(practiceProfile, recipeCuisineId);
   return ["beginner", "intermediate", "advanced"].reduce((acc, level) => {
     const sourceItems = track?.[level] || [];
-    acc[level] = sourceItems.slice(0, 5).map((item, index) => normalizePracticeItem(item, recipeCuisineId, level, index, profile));
+    acc[level] = sourceItems.slice(0, 5).map((item, index) => normalizePracticeItem(item, recipeCuisineId, level, index, practiceProfile));
     return acc;
   }, {});
 }
@@ -6718,7 +6804,7 @@ function practiceTrackSummary(track) {
 
 function practiceRecipeCard(item, index) {
   const href = item.recipe ? `#recipes/${item.recipe.id}` : `#kitchen-search/${encodeURIComponent(item.title)}`;
-  const action = item.recipe ? "Open Recipe" : "Find Similar Recipes";
+  const action = item.recipe ? "Open Recipe" : "Find Related Real Recipes";
   return `
     <article class="practice-recipe-card">
       <img src="${item.image}" alt="${item.title}" />
@@ -6727,6 +6813,7 @@ function practiceRecipeCard(item, index) {
         <h3>${item.title}</h3>
         <p><strong>Ingredients:</strong> ${item.ingredients.slice(0, 5).join(", ")}</p>
         <p><strong>Skills:</strong> ${item.techniques.slice(0, 3).join(", ")}</p>
+        ${item.recipe ? "" : `<p class="content-note">This dish is on the cuisine roadmap; related results stay in this food lane.</p>`}
         <a class="small-button ${item.recipe ? "" : "secondary"}" href="${href}">${action}</a>
       </div>
     </article>
