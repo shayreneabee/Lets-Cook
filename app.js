@@ -1762,7 +1762,7 @@ const globalCuisineCountrySeed = [
   ["indonesia", "Indonesia", "Southeast Asia", "asia", "rice, sambal, coconut, satay, noodles, tempeh, rendang, and island spice traditions", ["nasi goreng", "rendang", "satay", "gado-gado"]],
   ["myanmar", "Myanmar", "Southeast Asia", "asia", "rice, noodles, tea leaves, fish sauce, curries, salads, and market snacks", ["mohinga", "tea leaf salad", "shan noodles", "curries"]],
   ["australia", "Australia", "Oceania", "oceania", "barbecue, seafood, meat pies, Indigenous ingredients, cafe food, pavlova, and multicultural city cooking", ["meat pies", "barbecue prawns", "pavlova", "lamingtons"]],
-  ["new-zealand", "New Zealand", "Oceania", "oceania", "lamb, seafood, Maori hangi traditions, pavlova, meat pies, dairy, and coastal cooking", ["hangi", "lamb roast", "pavlova", "seafood chowder"]],
+  ["new-zealand", "New Zealand", "Oceania", "oceania", "lamb, seafood, Maori hangi traditions, pavlova, meat pies, dairy, and coastal cooking", ["roast lamb", "pavlova", "seafood chowder", "meat pies", "hangi-style vegetables"]],
   ["fiji", "Fiji", "Oceania", "oceania", "kokoda, taro, coconut, cassava, seafood, Indian-Fijian curries, and island gatherings", ["kokoda", "lovo", "taro", "curry"]],
   ["samoa", "Samoa", "Oceania", "oceania", "umu cooking, taro, coconut cream, seafood, breadfruit, and family feasts", ["palusami", "oka", "taro", "panipopo"]],
   ["tonga", "Tonga", "Oceania", "oceania", "umu meals, taro, coconut, seafood, pork, root vegetables, and celebration tables", ["lu pulu", "ota ika", "taro", "coconut sweets"]],
@@ -4982,7 +4982,11 @@ const globalCuisineExpansionRecipes = [
   globalCuisineRecipe("colombian-arepa-plates", "Colombian Arepa Plates", "mexican", "Colombian Griddle", "Golden arepas served with beans, avocado, cheese, and a bright cilantro sauce.", ["2 cups masarepa", "2 1/2 cups warm water", "1 tsp salt", "Cheese", "Beans", "Avocado", "Cilantro"], ["Mix masarepa, water, and salt.", "Rest dough briefly.", "Shape into patties.", "Griddle until browned and cooked through.", "Serve with beans, avocado, cheese, and sauce."], ["colombia", "arepas", "griddle"], { image: "assets/lc-birria-tacos.jpg", cook: "20 min" }),
   globalCuisineRecipe("cuban-sandwich-press", "Cuban Sandwich Press", "caribbean", "Cuban Counter", "Pressed bread layered with roast pork, ham, Swiss, pickles, and mustard.", ["Cuban bread or soft rolls", "Roast pork", "Ham", "Swiss cheese", "Pickles", "Yellow mustard", "Butter"], ["Split bread and spread mustard.", "Layer pork, ham, cheese, and pickles.", "Butter the outside lightly.", "Press in a skillet or sandwich press.", "Cook until crisp and melted."], ["cuba", "sandwich", "pressed"], { image: "images/regional/cuban-sandwich.png", prep: "15 min", cook: "10 min" }),
   globalCuisineRecipe("brazilian-feijoada-style-beans", "Brazilian Feijoada-Style Beans", "global", "Brazilian Bean Pot", "Black beans simmered with smoky sausage, garlic, onion, bay, and orange for a home-friendly feijoada-style pot.", ["1 lb black beans or 3 cans", "Smoked sausage", "1 onion", "4 garlic cloves", "2 bay leaves", "Stock", "Orange slices", "Rice"], ["Cook onion, garlic, and sausage.", "Add beans, bay, and stock.", "Simmer until thick and tender.", "Taste for salt.", "Serve with rice and orange slices."], ["brazil", "beans", "comfort"], { image: "images/recipes/audit-2026-06/rice-and-peas.jpg", cook: "50 min" }),
-  globalCuisineRecipe("tex-mex-breakfast-tacos", "Tex-Mex Breakfast Tacos", "mexican", "Borderlands Breakfast", "Warm tortillas filled with eggs, potatoes, cheese, salsa, and optional bacon or beans.", ["8 flour tortillas", "6 eggs", "2 cups diced potatoes", "1 cup cheese", "Salsa", "Cilantro", "Bacon or beans optional"], ["Cook potatoes until crisp-tender.", "Scramble eggs softly.", "Warm tortillas.", "Fill with eggs, potatoes, cheese, and salsa.", "Serve with cilantro and lime."], ["tex-mex", "breakfast tacos", "tortillas"], { image: "assets/lc-birria-tacos.jpg", cook: "25 min" })
+  globalCuisineRecipe("tex-mex-breakfast-tacos", "Tex-Mex Breakfast Tacos", "mexican", "Borderlands Breakfast", "Warm tortillas filled with eggs, potatoes, cheese, salsa, and optional bacon or beans.", ["8 flour tortillas", "6 eggs", "2 cups diced potatoes", "1 cup cheese", "Salsa", "Cilantro", "Bacon or beans optional"], ["Cook potatoes until crisp-tender.", "Scramble eggs softly.", "Warm tortillas.", "Fill with eggs, potatoes, cheese, and salsa.", "Serve with cilantro and lime."], ["tex-mex", "breakfast tacos", "tortillas"], { image: "assets/lc-birria-tacos.jpg", cook: "25 min" }),
+  globalCuisineRecipe("new-zealand-roast-lamb", "New Zealand Roast Lamb", "global", "New Zealand Sunday Roast", "Herb-roasted lamb with garlic, rosemary, potatoes, carrots, and pan juices for a classic New Zealand-style family table.", ["1 leg of lamb or lamb shoulder", "4 garlic cloves", "2 tbsp rosemary", "2 tbsp olive oil", "1 lemon", "1 1/2 lb potatoes", "4 carrots", "2 cups stock"], ["Heat oven to 375 F.", "Rub lamb with garlic, rosemary, oil, lemon zest, salt, and pepper.", "Nestle potatoes and carrots around the lamb.", "Roast until lamb reaches desired temperature and vegetables are tender.", "Rest lamb 20 minutes and serve with pan juices."], ["new zealand", "roast lamb", "sunday roast"], { image: "images/recipes/audit-2026-06/nebraska-steak.jpg", prep: "20 min", cook: "1 hr 45 min", level: "Intermediate" }),
+  globalCuisineRecipe("new-zealand-pavlova", "New Zealand Pavlova", "global", "New Zealand Dessert", "Crisp-edged meringue with a marshmallowy center, whipped cream, and fresh fruit.", ["4 egg whites", "1 cup sugar", "1 tsp cornstarch", "1 tsp vinegar", "1 tsp vanilla", "1 cup cream", "Kiwi", "Berries"], ["Heat oven to 275 F and line a baking sheet.", "Beat egg whites to soft peaks, then add sugar gradually until glossy.", "Fold in cornstarch, vinegar, and vanilla.", "Shape into a round and bake until crisp outside; cool in the oven.", "Top with whipped cream, kiwi, and berries."], ["new zealand", "pavlova", "dessert"], { image: "assets/lc-desserts.jpg", prep: "25 min", cook: "1 hr 15 min", level: "Intermediate" }),
+  globalCuisineRecipe("new-zealand-seafood-chowder", "New Zealand Seafood Chowder", "global", "New Zealand Coastal Soup", "Creamy seafood chowder with fish, shrimp or mussels, potatoes, herbs, and sweet corn.", ["1 lb mixed seafood", "2 potatoes diced", "1 onion diced", "2 tbsp butter", "2 tbsp flour", "3 cups seafood or chicken stock", "1 cup milk or cream", "1 cup corn", "Parsley"], ["Cook onion in butter until soft.", "Stir in flour and cook 1 minute.", "Whisk in stock, then add potatoes and simmer until tender.", "Add seafood and corn; simmer gently until seafood reaches 145 F.", "Finish with milk or cream, parsley, salt, and pepper."], ["new zealand", "seafood chowder", "coastal"], { image: "assets/lc-seafood.jpg", prep: "20 min", cook: "30 min" }),
+  globalCuisineRecipe("new-zealand-meat-pies", "New Zealand Meat Pies", "global", "New Zealand Bakery", "Individual savory pies filled with beef gravy and tucked under flaky pastry.", ["1 lb ground beef or diced beef", "1 onion diced", "2 tbsp flour", "1 1/2 cups beef stock", "1 tbsp Worcestershire sauce", "1 tsp tomato paste", "Pie pastry", "1 egg"], ["Cook beef and onion until browned.", "Stir in flour, tomato paste, Worcestershire, and stock.", "Simmer until thick and cool the filling.", "Line small tins with pastry, fill, and top with pastry lids.", "Brush with egg and bake at 400 F until deeply golden."], ["new zealand", "meat pies", "bakery"], { image: "assets/german-food.jpeg", prep: "35 min", cook: "35 min", level: "Intermediate" })
 ];
 
 const holidayExpansionRecipes = [
@@ -6647,9 +6651,24 @@ function normalizePracticeItem(item, cuisineId, level, index, profile) {
 }
 
 function generatedPracticeTrack(profile, cuisineId) {
+  if (profile?.dishes?.length || profile?.beginnerRecipes?.length) {
+    const makeItems = (items = [], fallback = []) => (items.length ? items : fallback).slice(0, 5).map((title) => [
+      title,
+      profile?.ingredients?.slice(0, 5) || [],
+      profile?.techniques?.slice(0, 3) || []
+    ]);
+    const beginnerSource = profile.beginnerRecipes || profile.dishes || [];
+    const intermediateSource = profile.familyFavorites || profile.menu || profile.dishes || [];
+    const advancedSource = profile.advancedRecipes || profile.holidayMeals || profile.dishes || [];
+    return {
+      beginner: makeItems(beginnerSource, profile.dishes),
+      intermediate: makeItems(intermediateSource, beginnerSource),
+      advanced: makeItems(advancedSource, intermediateSource)
+    };
+  }
   const cuisineRecipes = recipesForCuisine(cuisineId, 18).filter((recipe) => {
     const haystack = recipeSearchText(recipe);
-    return !/pb&j|peanut butter|fruit kabob|kids korner|apple nachos|ants on a log/i.test(haystack);
+    return !/pb&j|peanut butter|fruit kabob|kids korner|apple nachos|ants on a log|scrambled eggs|plain toast/i.test(haystack);
   });
   const byDifficulty = (pattern, fallback) => {
     const matches = cuisineRecipes.filter((recipe) => pattern.test(`${recipe.difficulty} ${recipe.skill_level} ${recipe.category} ${recipe.tags?.join(" ")}`));
