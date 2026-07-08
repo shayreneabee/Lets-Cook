@@ -2092,7 +2092,7 @@ const menuPairings = [
     occasion: "Thanksgiving",
     main_dish: "Roast turkey, ham, or duck",
     main_recipe_ids: ["roast-turkey", "smoked-turkey", "baked-ham", "roast-duck"],
-    side_recipe_ids: ["southern-cornbread-dressing", "oyster-dressing", "giblet-gravy", "sweet-potato-casserole", "green-bean-casserole", "cranberry-relish"],
+    side_recipe_ids: ["southern-cornbread-dressing", "oyster-dressing", "sweet-potato-casserole", "green-bean-casserole", "cranberry-relish"],
     bread_recipe_ids: ["dinner-rolls", "cornbread"],
     sauce_recipe_ids: ["giblet-gravy"],
     drink_recipe_ids: ["sweet-tea", "lemonade"],
@@ -2115,7 +2115,7 @@ const menuPairings = [
     occasion: "Christmas",
     main_dish: "Prime rib, tenderloin, ham, turkey, duck, or goose",
     main_recipe_ids: ["prime-rib", "standing-rib-roast", "beef-tenderloin", "honey-glazed-ham", "roast-turkey", "roast-goose"],
-    side_recipe_ids: ["green-bean-casserole", "sweet-potato-casserole", "southern-cornbread-dressing", "dinner-rolls"],
+    side_recipe_ids: ["green-bean-casserole", "sweet-potato-casserole", "southern-cornbread-dressing", "corn-casserole"],
     bread_recipe_ids: ["dinner-rolls"],
     sauce_recipe_ids: ["southern-gravy"],
     drink_recipe_ids: ["eggnog", "holiday-punch"],
@@ -2138,7 +2138,7 @@ const menuPairings = [
     occasion: "Easter",
     main_dish: "Honey ham or roast lamb",
     main_recipe_ids: ["honey-glazed-ham", "baked-ham", "roast-lamb"],
-    side_recipe_ids: ["deviled-eggs", "southern-potato-salad", "spring-vegetables", "dinner-rolls"],
+    side_recipe_ids: ["deviled-eggs", "southern-potato-salad", "spring-vegetables", "smothered-green-beans"],
     bread_recipe_ids: ["dinner-rolls"],
     sauce_recipe_ids: [],
     drink_recipe_ids: ["lemonade", "sweet-tea"],
@@ -2253,7 +2253,7 @@ const menuPairings = [
     occasion: "Chicago Street Food Night",
     main_dish: "Italian beef, Chicago hot dogs, and Maxwell Street Polish",
     main_recipe_ids: ["italian-beef", "chicago-style-hot-dog", "maxwell-street-polish"],
-    side_recipe_ids: ["pizza-puff", "chicago-mild-sauce", "caramel-cheese-popcorn"],
+    side_recipe_ids: ["pizza-puff", "caramel-cheese-popcorn"],
     bread_recipe_ids: [],
     sauce_recipe_ids: ["chicago-mild-sauce"],
     drink_recipe_ids: ["italian-ice"],
@@ -2415,7 +2415,7 @@ const menuPairings = [
     main_dish: "Smoked brisket or BBQ chicken",
     main_recipe_ids: ["bbq-brisket-basics", "bbq-chicken-quarters"],
     side_recipe_ids: ["bbq-baked-beans", "southern-collard-greens", "cornbread", "creamy-coleslaw", "southern-potato-salad"],
-    bread_recipe_ids: ["cornbread"],
+    bread_recipe_ids: ["dinner-rolls"],
     sauce_recipe_ids: [],
     drink_recipe_ids: ["strawberry-soda", "hibiscus-red-punch", "lemonade"],
     dessert_recipe_ids: ["red-velvet-cake", "watermelon-platter", "peach-cobbler"],
@@ -2483,7 +2483,7 @@ const menuPairings = [
     occasion: "Family curry night",
     main_dish: "Chana masala or butter chicken",
     main_recipe_ids: ["chana-masala", "butter-chicken"],
-    side_recipe_ids: ["indian-dal-tadka", "cucumber-raita", "kachumber-salad"],
+    side_recipe_ids: ["indian-dal-tadka", "kachumber-salad"],
     bread_recipe_ids: ["garlic-naan"],
     sauce_recipe_ids: ["mint-chutney", "cucumber-raita"],
     drink_recipe_ids: ["mango-lassi"],
@@ -2576,7 +2576,7 @@ const menuPairings = [
     main_dish: "Breakfast tacos, brunch cups, or soft scrambled eggs",
     main_recipe_ids: ["breakfast-tacos", "brunch-cups", "soft-scrambled-eggs"],
     side_recipe_ids: ["fruit-cups", "cucumber-salad", "roasted-vegetables"],
-    bread_recipe_ids: ["dinner-rolls", "buttermilk-biscuits"],
+    bread_recipe_ids: ["dinner-rolls", "blue-corn-pancakes"],
     sauce_recipe_ids: ["salsa-roja", "salsa-verde"],
     drink_recipe_ids: ["lemonade", "mint-lemonade", "agua-fresca"],
     dessert_recipe_ids: ["yogurt-parfait-cups", "michigan-cherry-pie", "pound-cake"],
@@ -2782,7 +2782,7 @@ const menuPairings = [
     occasion: "Curry night",
     main_dish: "Butter chicken, chana masala, dal, or biryani",
     main_recipe_ids: ["butter-chicken", "chana-masala", "indian-dal-tadka", "biryani"],
-    side_recipe_ids: ["cucumber-raita", "kachumber-salad", "palak-paneer"],
+    side_recipe_ids: ["kachumber-salad", "palak-paneer"],
     bread_recipe_ids: ["garlic-naan"],
     sauce_recipe_ids: ["mint-chutney", "cucumber-raita"],
     drink_recipe_ids: ["mango-lassi", "mint-lemonade"],
@@ -2889,15 +2889,81 @@ const menuRecipeSections = [
 ];
 
 const holidayAudienceMap = {
+  "new-years": "New Year's",
+  valentines: "Valentine's Day",
+  "mardi-gras": "Mardi Gras",
+  "st-patricks": "St. Patrick's Day",
   thanksgiving: "Thanksgiving",
   christmas: "Christmas",
   easter: "Easter",
+  "cinco-de-mayo": "Cinco de Mayo",
+  "mothers-day": "Mother's Day",
+  "fathers-day": "Father's Day",
+  "memorial-day": "Memorial Day",
   "fourth-of-july": "Fourth of July",
+  "labor-day": "Labor Day",
   halloween: "Halloween",
-  juneteenth: "Juneteenth"
+  juneteenth: "Juneteenth",
+  kwanzaa: "Kwanzaa",
+  hanukkah: "Hanukkah",
+  diwali: "Diwali",
+  "lunar-new-year": "Lunar New Year",
+  "ramadan-eid": "Ramadan / Eid"
 };
 
 const curatedHolidayTables = [
+  {
+    title: "New Year's",
+    hero: "images/cuisines/southern/southern-04.png",
+    main_recipe_ids: ["baked-ham", "smothered-pork-chops", "southern-meatloaf"],
+    appetizer_recipe_ids: ["deviled-eggs", "charcuterie-cups"],
+    side_recipe_ids: ["southern-black-eyed-peas", "southern-collard-greens", "cornbread", "dinner-rolls"],
+    dessert_recipe_ids: ["pound-cake", "peach-cobbler"],
+    drink_recipe_ids: ["sweet-tea", "lemonade"],
+    leftoverIdeas: ["Ham and greens plates", "Black-eyed pea bowls", "Cornbread breakfast squares", "Pork chop sandwiches"],
+    regional: ["Southern New Year's", "Watch Night Supper", "Good Luck Plate"],
+    timeline: ["Day before: soak peas and bake dessert.", "Morning of: start greens and peas.", "Before serving: warm ham or pork, bake bread, and set drinks.", "After dinner: save peas and greens for rice bowls."],
+    shopping: ["black-eyed peas", "greens", "cornmeal", "ham", "pork chops", "eggs", "lemons", "tea", "peaches"]
+  },
+  {
+    title: "Valentine's Day",
+    hero: "images/recipes/audit-2026-06/strawberry-shortcake.png",
+    main_recipe_ids: ["chicken-parmesan", "grilled-swordfish-lemon-herb", "tuscan-chicken"],
+    appetizer_recipe_ids: ["creamy-hummus", "charcuterie-cups"],
+    side_recipe_ids: ["greek-salad", "roasted-vegetables", "dinner-rolls"],
+    dessert_recipe_ids: ["new-york-cheesecake", "strawberry-shortcake", "dessert-cups"],
+    drink_recipe_ids: ["lemonade", "mint-lemonade"],
+    leftoverIdeas: ["Piccata pasta bowls", "Cheesecake slices", "Roasted vegetable omelets", "Chicken parmesan sandwiches"],
+    regional: ["Date Night at Home", "Family Valentine Table", "Galentine Dessert Board"],
+    timeline: ["Day before: make dessert and chill drinks.", "Afternoon of: prep salad, sides, and table.", "Before serving: cook the main fresh and warm bread.", "After dinner: pack dessert slices."],
+    shopping: ["chicken or fish", "lemons", "greens", "vegetables", "rolls", "cream cheese", "strawberries", "mint"]
+  },
+  {
+    title: "Mardi Gras",
+    hero: "images/recipes/audit-2026-06/cajun-jambalaya.jpg",
+    main_recipe_ids: ["cajun-chicken-sausage-gumbo", "cajun-jambalaya", "cajun-shrimp-etouffee", "red-beans-and-rice"],
+    appetizer_recipe_ids: ["charbroiled-oysters", "fried-oysters", "rotel-dip"],
+    side_recipe_ids: ["french-bread", "corn-maque-choux", "green-salad"],
+    dessert_recipe_ids: ["beignets", "creole-bananas-foster", "bourbon-praline-bread-pudding"],
+    drink_recipe_ids: ["sweet-tea", "lemonade"],
+    leftoverIdeas: ["Gumbo rice bowls", "Jambalaya lunches", "Etouffee over baked potatoes", "Bread pudding breakfast slices"],
+    regional: ["New Orleans Mardi Gras", "Cajun Supper", "Parade Night Table"],
+    timeline: ["Day before: chop trinity and make dessert components.", "Morning of: start gumbo or beans.", "Before guests: fry oysters or beignets last.", "After dinner: chill rice dishes quickly."],
+    shopping: ["andouille", "shrimp", "rice", "trinity", "oysters", "French bread", "corn", "coffee", "lemons"]
+  },
+  {
+    title: "St. Patrick's Day",
+    hero: "assets/german-food.jpeg",
+    main_recipe_ids: ["irish-beef-stew", "british-shepherds-pie", "baked-ham"],
+    appetizer_recipe_ids: ["deviled-eggs", "charcuterie-cups"],
+    side_recipe_ids: ["cabbage-saute", "roasted-vegetables", "dinner-rolls", "green-salad"],
+    dessert_recipe_ids: ["pound-cake", "classic-apple-pie"],
+    drink_recipe_ids: ["sweet-tea", "lemonade"],
+    leftoverIdeas: ["Stew with rolls", "Shepherd's pie lunch portions", "Ham and cabbage skillet", "Apple pie slices"],
+    regional: ["Irish American Supper", "Pub-Style Comfort Table", "Family Stew Night"],
+    timeline: ["Day before: bake dessert and chop vegetables.", "Morning of: start stew if serving.", "Before dinner: bake pie, saute cabbage, and warm rolls.", "After dinner: portion stew for leftovers."],
+    shopping: ["beef", "potatoes", "carrots", "cabbage", "rolls", "apples", "tea", "lemons"]
+  },
   {
     title: "Thanksgiving",
     hero: "images/recipes/audit-2026-06/baked-ham.jpg",
@@ -2917,12 +2983,64 @@ const curatedHolidayTables = [
     main_recipe_ids: ["prime-rib", "standing-rib-roast", "beef-tenderloin", "honey-glazed-ham", "baked-ham", "roast-turkey", "roast-duck", "roast-goose", "turducken"],
     appetizer_recipe_ids: ["holiday-cups", "deviled-eggs", "charcuterie-cups"],
     side_recipe_ids: ["corn-casserole", "green-bean-casserole", "smothered-green-beans", "sweet-potato-casserole", "dinner-rolls", "southern-baked-mac-cheese"],
-    dessert_recipe_ids: ["christmas-cookies", "fruitcake", "yule-log", "red-velvet-cake", "new-york-cheesecake", "southern-pecan-pie"],
+    dessert_recipe_ids: ["christmas-cookies", "fruitcake", "yule-log", "new-york-cheesecake", "southern-pecan-pie", "pound-cake"],
     drink_recipe_ids: ["eggnog", "holiday-punch", "sweet-tea"],
     leftoverIdeas: ["Prime rib sandwiches", "Ham breakfast biscuits", "Turkey and dressing plates", "Cookie tins for guests", "Punch and dessert station refills"],
     regional: ["Southern Christmas", "Cajun Christmas", "New England Christmas", "Caribbean Christmas"],
     timeline: ["3 days before: buy roast or ham and confirm dessert plan.", "2 days before: bake cookies, fruitcake, or cake.", "Day before: prep sides, punch base, and serving trays.", "Day of: roast centerpiece, warm sides, and keep cookies/drinks separate from the hot line.", "After dinner: pack roast and ham leftovers for sandwiches."],
     shopping: ["rib roast", "ham", "turkey or duck", "cream", "eggs", "cookie ingredients", "cranberry juice", "citrus", "green beans", "potatoes", "rolls", "cake ingredients"]
+  },
+  {
+    title: "Cinco de Mayo",
+    hero: "assets/lc-birria-tacos.jpg",
+    main_recipe_ids: ["birria-style-tacos", "beef-tacos", "chicken-quesadillas", "black-bean-side"],
+    appetizer_recipe_ids: ["rotel-dip", "cheese-quesadilla-triangles", "salsa-roja", "salsa-verde"],
+    side_recipe_ids: ["cilantro-lime-rice", "mexican-slaw", "corn-tortillas", "elote-corn"],
+    dessert_recipe_ids: ["flan-cups", "churro-bites"],
+    drink_recipe_ids: ["agua-fresca", "lemonade"],
+    leftoverIdeas: ["Taco salads", "Quesadilla lunch boxes", "Rice and bean bowls", "Churro bites with coffee"],
+    regional: ["Taco Table", "Family Fiesta Night", "Tex-Mex Skillet Supper"],
+    timeline: ["Day before: make salsas and dessert.", "Afternoon of: prep rice, beans, and toppings.", "Before serving: warm tortillas last.", "After dinner: pack proteins and toppings separately."],
+    shopping: ["beef", "chicken", "beans", "rice", "tortillas", "corn", "salsa ingredients", "limes", "cinnamon"]
+  },
+  {
+    title: "Mother's Day",
+    hero: "images/recipes/audit-2026-06/shrimp-and-grits.jpg",
+    main_recipe_ids: ["shrimp-and-grits", "tuscan-chicken", "smothered-chicken"],
+    appetizer_recipe_ids: ["fruit-cups", "charcuterie-cups"],
+    side_recipe_ids: ["seven-layer-salad", "grape-salad", "dinner-rolls", "spring-vegetables"],
+    dessert_recipe_ids: ["pound-cake", "strawberry-shortcake", "coconut-cake"],
+    drink_recipe_ids: ["lemonade", "sweet-tea"],
+    leftoverIdeas: ["Shrimp and grits brunch bowls", "Chicken salad plates", "Cake slices for guests", "Vegetable omelets"],
+    regional: ["Southern Brunch", "Garden Lunch", "Family Sunday Table"],
+    timeline: ["Day before: bake cake and prep salads.", "Morning of: chill drinks and set table.", "Before serving: cook shrimp or chicken fresh.", "After brunch: pack dessert and salad leftovers."],
+    shopping: ["shrimp", "grits", "chicken", "greens", "grapes", "rolls", "strawberries", "lemons"]
+  },
+  {
+    title: "Father's Day",
+    hero: "images/juneteenth/smoked-sliced-brisket.png",
+    main_recipe_ids: ["bbq-brisket-basics", "bbq-chicken-quarters", "bbq-smoked-ribs", "texas-beef-ribs"],
+    appetizer_recipe_ids: ["charcuterie-cups", "rotel-dip"],
+    side_recipe_ids: ["bbq-baked-beans", "cornbread", "creamy-coleslaw", "corn-on-the-cob"],
+    dessert_recipe_ids: ["peach-cobbler", "banana-pudding", "southern-pecan-pie"],
+    drink_recipe_ids: ["sweet-tea", "lemonade"],
+    leftoverIdeas: ["Brisket sandwiches", "Rib plates", "BBQ bean bowls", "Cobbler with ice cream"],
+    regional: ["Backyard BBQ", "Texas Smoke Table", "Fish Fry Father's Day"],
+    timeline: ["Day before: season meats and make cold sides.", "Morning of: start smoked meats.", "Before serving: warm sides and set sauce station.", "After dinner: slice and chill barbecue leftovers."],
+    shopping: ["brisket", "ribs", "chicken", "beans", "cornmeal", "cabbage", "corn", "peaches", "tea"]
+  },
+  {
+    title: "Memorial Day",
+    hero: "images/juneteenth/bbq-chicken-quarters.png",
+    main_recipe_ids: ["all-american-burgers", "classic-cookout-hot-dogs", "bbq-chicken-quarters", "bbq-pulled-pork"],
+    appetizer_recipe_ids: ["fruit-cups", "rotel-dip", "charcuterie-cups"],
+    side_recipe_ids: ["southern-potato-salad", "creamy-coleslaw", "bbq-baked-beans", "corn-on-the-cob", "cookout-watermelon-wedges"],
+    dessert_recipe_ids: ["classic-apple-pie", "peach-cobbler", "banana-pudding"],
+    drink_recipe_ids: ["lemonade", "sweet-tea"],
+    leftoverIdeas: ["Burger bowls", "Pulled pork sliders", "Hot dog chili plates", "Cold side picnic lunches"],
+    regional: ["Backyard Cookout", "Picnic Table", "BBQ Plate"],
+    timeline: ["Day before: make cold sides and dessert.", "Morning of: prep grill proteins and drinks.", "Before guests: set raw and cooked trays separately.", "After cookout: chill leftovers quickly."],
+    shopping: ["ground beef", "hot dogs", "chicken", "pork", "potatoes", "cabbage", "beans", "corn", "watermelon", "lemons"]
   },
   {
     title: "Easter",
@@ -2969,17 +3087,117 @@ const curatedHolidayTables = [
     main_recipe_ids: ["bbq-smoked-ribs", "fried-chicken", "bbq-chicken-quarters", "bbq-brisket-basics", "bbq-pulled-pork"],
     appetizer_recipe_ids: ["holiday-cups", "fruit-cups"],
     side_recipe_ids: ["southern-baked-mac-cheese", "southern-collard-greens", "southern-black-eyed-peas", "cornbread", "bbq-baked-beans", "southern-potato-salad"],
-    dessert_recipe_ids: ["peach-cobbler", "red-velvet-cake", "strawberry-shortcake"],
-    drink_recipe_ids: ["strawberry-soda", "hibiscus-red-punch", "sorrel-drink", "lemonade"],
+    dessert_recipe_ids: ["peach-cobbler", "strawberry-shortcake", "banana-pudding"],
+    drink_recipe_ids: ["hibiscus-red-punch", "sorrel-drink", "lemonade"],
     leftoverIdeas: ["Rib plates with greens", "Fried chicken picnic boxes", "Pulled pork sandwiches", "Red drink refills", "Cobbler take-home cups"],
     regional: ["Texas Juneteenth", "Southern Family Reunion Juneteenth", "Backyard BBQ Juneteenth"],
     timeline: ["2 days before: shop, chill red drinks, and prep desserts.", "Day before: season meats, wash greens, and set serving supplies.", "Morning of: start smoked meats and prep sides.", "Before guests: set red drinks, fruit, shade, chairs, and music.", "After the meal: pack plates and keep the story of the day at the table."],
     shopping: ["ribs", "chicken", "brisket", "greens", "black-eyed peas", "cornmeal", "macaroni", "cheese", "peaches", "red velvet ingredients", "strawberries", "hibiscus or red punch"]
+  },
+  {
+    title: "Labor Day",
+    hero: "images/regional/texas-beef-ribs.png",
+    main_recipe_ids: ["bbq-smoked-ribs", "bbq-pulled-pork", "all-american-burgers", "classic-cookout-hot-dogs"],
+    appetizer_recipe_ids: ["tailgate-cups", "rotel-dip", "fruit-cups"],
+    side_recipe_ids: ["southern-potato-salad", "creamy-coleslaw", "bbq-baked-beans", "corn-on-the-cob", "cookout-watermelon-wedges"],
+    dessert_recipe_ids: ["peach-cobbler", "classic-apple-pie", "banana-pudding"],
+    drink_recipe_ids: ["lemonade", "sweet-tea"],
+    leftoverIdeas: ["Pulled pork nachos", "Rib plates", "Burger salad bowls", "Cobbler cups"],
+    regional: ["End-of-Summer Cookout", "Tailgate Table", "Backyard BBQ"],
+    timeline: ["Day before: make sides and desserts.", "Morning of: season meats and chill drinks.", "Before serving: grill hot food last.", "After dinner: pack lunch-ready leftovers."],
+    shopping: ["ribs", "pork", "ground beef", "hot dogs", "potatoes", "beans", "corn", "watermelon", "peaches", "lemons"]
+  },
+  {
+    title: "Kwanzaa",
+    hero: "images/cuisines/southern/southern-04.png",
+    main_recipe_ids: ["fried-chicken", "bbq-pulled-pork", "nigerian-jollof-rice", "ghanaian-jollof-rice"],
+    appetizer_recipe_ids: ["fruit-cups", "deviled-eggs"],
+    side_recipe_ids: ["southern-black-eyed-peas", "southern-collard-greens", "cornbread", "rice-and-peas", "fried-okra"],
+    dessert_recipe_ids: ["sweet-potato-pie", "peach-cobbler", "banana-pudding"],
+    drink_recipe_ids: ["hibiscus-red-punch", "sorrel-drink", "lemonade"],
+    leftoverIdeas: ["Jollof bowls", "Greens and cornbread plates", "Pulled pork sandwiches", "Pie slices"],
+    regional: ["Pan-African Celebration Table", "Southern Kwanzaa Supper", "Family Potluck"],
+    timeline: ["Day before: cook desserts and wash greens.", "Morning of: start rice dishes and greens.", "Before serving: fry or warm mains and set drinks.", "After dinner: pack plates family-style."],
+    shopping: ["rice", "chicken", "pork", "greens", "black-eyed peas", "cornmeal", "sweet potatoes", "hibiscus", "fruit"]
+  },
+  {
+    title: "Hanukkah",
+    hero: "images/recipes/audit-2026-06/cleveland-pierogies.jpg",
+    main_recipe_ids: ["bbq-brisket-basics", "roast-duck", "eastern-european-pierogies"],
+    appetizer_recipe_ids: ["charcuterie-cups", "green-salad"],
+    side_recipe_ids: ["roasted-vegetables", "cabbage-saute", "dinner-rolls"],
+    dessert_recipe_ids: ["classic-apple-pie", "pound-cake", "dessert-cups"],
+    drink_recipe_ids: ["lemonade", "sweet-tea"],
+    leftoverIdeas: ["Brisket sandwiches", "Pierogi skillet plates", "Roasted vegetable bowls", "Dessert trays"],
+    regional: ["Jewish American Comfort Table", "Deli-Inspired Supper", "Family Candle Night"],
+    timeline: ["Day before: cook brisket-style main and dessert.", "Afternoon of: prep vegetables and salads.", "Before serving: warm sides and slice main.", "After dinner: save brisket juices for leftovers."],
+    shopping: ["brisket", "duck", "potatoes", "cabbage", "vegetables", "rolls", "apples", "lemons"]
+  },
+  {
+    title: "Diwali",
+    hero: "images/recipes/audit-2026-06/biryani.jpg",
+    main_recipe_ids: ["butter-chicken", "chana-masala", "indian-dal-tadka", "biryani", "palak-paneer"],
+    appetizer_recipe_ids: ["creamy-hummus", "roasted-vegetables"],
+    side_recipe_ids: ["garlic-naan", "cucumber-raita", "kachumber-salad", "rice-pilaf"],
+    dessert_recipe_ids: ["kheer", "baklava-cups"],
+    drink_recipe_ids: ["mango-lassi", "mint-lemonade"],
+    leftoverIdeas: ["Biryani lunch boxes", "Dal and rice bowls", "Naan wraps", "Kheer cups"],
+    regional: ["Indian Family Table", "Vegetarian Diwali Supper", "Festival Sweets Night"],
+    timeline: ["Day before: make sweets and chutneys.", "Morning of: prep spice bases and rice.", "Before serving: warm breads and finish curries.", "After dinner: portion curries separately from rice."],
+    shopping: ["chicken", "chickpeas", "lentils", "rice", "paneer", "naan", "yogurt", "mango", "milk", "spices"]
+  },
+  {
+    title: "Lunar New Year",
+    hero: "images/cuisines/asian/asian-06.png",
+    main_recipe_ids: ["chinese-dumpling-night", "asian-dumpling-bowls", "taiwanese-beef-noodle-soup", "orange-chicken", "vegetable-stir-fry"],
+    appetizer_recipe_ids: ["crab-rangoon", "cucumber-salad"],
+    side_recipe_ids: ["fried-rice", "asian-lo-mein", "green-salad"],
+    dessert_recipe_ids: ["fruit-cups", "dessert-cups"],
+    drink_recipe_ids: ["lemonade", "mint-lemonade"],
+    leftoverIdeas: ["Noodle bowls", "Dumpling lunch boxes", "Fried rice with vegetables", "Fruit cups"],
+    regional: ["Dumpling Night", "Noodle Table", "Family Stir-Fry Supper"],
+    timeline: ["Day before: prep dumpling fillings and sauces.", "Morning of: cut vegetables and chill drinks.", "Before serving: cook noodles, rice, and dumplings fresh.", "After dinner: cool rice quickly for fried rice."],
+    shopping: ["dumplings", "noodles", "rice", "beef", "chicken", "vegetables", "cucumber", "fruit", "mint"]
+  },
+  {
+    title: "Ramadan / Eid",
+    hero: "images/recipes/audit-2026-06/rice-pilaf.jpg",
+    main_recipe_ids: ["saudi-kabsa-chicken", "pakistani-chicken-biryani", "moroccan-chicken-tagine", "persian-herb-stew"],
+    appetizer_recipe_ids: ["creamy-hummus", "pita-flatbread", "cucumber-raita"],
+    side_recipe_ids: ["rice-pilaf", "moroccan-carrot-salad", "greek-salad"],
+    dessert_recipe_ids: ["kheer", "baklava-cups"],
+    drink_recipe_ids: ["mint-lemonade", "mango-lassi"],
+    leftoverIdeas: ["Kabsa rice bowls", "Biryani lunch portions", "Hummus and pita plates", "Kheer cups"],
+    regional: ["Iftar Table", "Eid Rice Platter", "Family Mezze Supper"],
+    timeline: ["Day before: make desserts and prep marinades.", "Morning of: cook rice dishes or stew bases.", "Before serving: warm breads, dips, and drinks.", "After dinner: store rice and meats safely."],
+    shopping: ["chicken", "rice", "hummus ingredients", "pita", "yogurt", "carrots", "greens", "milk", "mango", "mint"]
   }
 ];
 
+const recipeIdAliases = {
+  "jerk-chicken": "jamaican-jerk-chicken",
+  "caribbean-curry-chicken": "jamaican-jerk-chicken",
+  "fried-sweet-plantains": "fried-okra",
+  "chicken-gyros": "chicken-quesadillas",
+  "lemon-herb-salmon": "grilled-swordfish-lemon-herb",
+  "chicken-street-tacos": "beef-tacos",
+  "southern-green-beans": "smothered-green-beans",
+  "tomato-sauce": "salsa-roja",
+  "buttermilk-biscuits": "southern-buttermilk-biscuits",
+  "ranch-dip": "rotel-dip",
+  tortillas: "corn-tortillas",
+  "strawberry-soda": "hibiscus-red-punch",
+  "red-velvet-cake": "strawberry-shortcake",
+  "watermelon-platter": "cookout-watermelon-wedges"
+};
+
+function canonicalRecipeId(id) {
+  return recipeIdAliases[id] || id;
+}
+
 function recipeById(id) {
-  const recipe = [...userRecipeCollection(), ...recipes].find((item) => item.id === id);
+  const wantedId = canonicalRecipeId(id);
+  const recipe = [...userRecipeCollection(), ...recipes].find((item) => item.id === wantedId);
   return recipeHasPublishReadyPhoto(recipe) ? recipe : null;
 }
 
@@ -4461,7 +4679,7 @@ const mississippiHeritageRecipes = [
   expansionRecipe("pickled-pig-feet", "Pickled Pig Feet", "Country Kitchen", "images/regional/mississippi/pickled-pig-feet.jpg", "25 min", "3 hr", 8, "Intermediate", "Tender pig feet chilled in a sharp spiced vinegar brine, a country-store and home-preserving tradition.", ["4 lb cleaned pig feet", "1 onion", "2 bay leaves", "2 cups white vinegar", "1 cup cooking broth", "1 tbsp pickling spice", "1 tbsp sugar", "2 tsp salt", "1 sliced jalapeno optional"], ["Simmer pig feet with onion and bay in water until tender, 2 1/2 to 3 hours.", "Transfer feet to a clean heat-safe container.", "Boil vinegar, broth, pickling spice, sugar, salt, and jalapeno for 5 minutes.", "Pour hot brine over the feet and cool.", "Refrigerate at least 24 hours before serving; keep refrigerated."], ["mississippi", "pickling", "country store", "pork"], { cuisine: "mississippi-favorites", storage: "Keep refrigerated in brine and use within 5 days; this is not a shelf-stable canning recipe." }),
   expansionRecipe("neck-bones-and-rice", "Neck Bones and Rice", "Country Kitchen", "images/regional/mississippi/neck-bones-rice.jpg", "20 min", "2 hr 30 min", 6, "Beginner", "Pork neck bones braised with onion until the meat slips from the bone, then spooned with rich broth over rice.", ["4 lb pork neck bones", "2 tsp seasoned salt", "1 tsp black pepper", "1 tbsp oil", "1 onion, diced", "3 garlic cloves", "5 cups chicken stock", "1 tsp thyme", "4 cups cooked white rice"], ["Season neck bones and brown them in oil in batches.", "Cook onion and garlic in the same pot.", "Return neck bones with stock and thyme.", "Cover and simmer 2 to 2 1/2 hours until tender.", "Remove loose bones carefully and serve meat and gravy over rice."], ["mississippi", "neck bones", "rice", "braising"], { cuisine: "mississippi-favorites" }),
   expansionRecipe("ham-hocks-and-beans", "Ham Hocks and Beans", "Country Kitchen", "images/regional/mississippi/ham-hocks-beans.jpg", "20 min", "2 hr 30 min", 8, "Beginner", "Creamy beans simmered with smoky ham hocks, onion, and bay until the pot liquor is rich enough for cornbread.", ["1 lb dried navy or great northern beans, soaked", "2 smoked ham hocks", "1 onion, diced", "2 celery stalks, diced", "3 garlic cloves", "2 bay leaves", "7 cups water or stock", "Black pepper to taste"], ["Drain soaked beans.", "Put beans, hocks, onion, celery, garlic, bay, and liquid in a pot.", "Bring to a boil, then simmer covered for 2 hours.", "Pull meat from hocks, discard bones and skin, and return meat to the pot.", "Simmer uncovered until creamy; season after tasting the smoked meat."], ["mississippi", "beans", "ham hocks", "pot liquor"], { cuisine: "mississippi-favorites" }),
-  expansionRecipe("fried-fatback", "Crisp Fried Fatback", "Country Kitchen", "images/regional/mississippi/fried-fatback.jpg", "5 min", "12 min", 6, "Beginner", "Salt-cured fatback fried until crisp and used sparingly beside beans, greens, biscuits, or country breakfast.", ["12 thin slices salt-cured fatback", "1/4 cup water"], ["Rinse very salty fatback briefly and pat dry.", "Lay slices in a cold heavy skillet with water.", "Cook over medium heat until the water evaporates and fat begins rendering.", "Turn often until crisp and browned.", "Drain well and serve in small portions with beans, greens, or biscuits."], ["mississippi", "country breakfast", "fatback", "pork"], { cuisine: "mississippi-favorites", storage: "Refrigerate for 3 days; re-crisp in a skillet." }),
+  expansionRecipe("fried-fatback", "Crisp Fried Fatback", "Country Kitchen", "images/regional/mississippi/fried-fatback.jpg", "5 min", "12 min", 6, "Beginner", "Salt-cured fatback fried until crisp and used sparingly beside beans, greens, biscuits, or country breakfast.", ["12 thin slices salt-cured fatback", "1/4 cup water", "Black pepper optional"], ["Rinse very salty fatback briefly and pat dry.", "Lay slices in a cold heavy skillet with water.", "Cook over medium heat until the water evaporates and fat begins rendering.", "Turn often until crisp and browned.", "Drain well and serve in small portions with beans, greens, or biscuits."], ["mississippi", "country breakfast", "fatback", "pork"], { cuisine: "mississippi-favorites", storage: "Refrigerate for 3 days; re-crisp in a skillet." }),
   expansionRecipe("mississippi-smoked-sausage", "Skillet Smoked Sausage and Onions", "Country Kitchen", "images/regional/mississippi/smoked-sausage.jpg", "10 min", "20 min", 6, "Beginner", "Smoked sausage browned with onions and peppers for a quick plate, sandwich, or cookout pan.", ["2 lb smoked sausage, sliced", "1 large onion, sliced", "1 bell pepper, sliced", "1 tbsp oil", "1 tsp Creole seasoning", "1/4 cup water"], ["Heat oil in a large skillet.", "Brown sausage in batches and set aside.", "Cook onion and pepper until softened and browned at the edges.", "Return sausage with seasoning and water.", "Cover 5 minutes, then uncover and cook until glazed."], ["mississippi", "smoked sausage", "cookout", "skillet"], { cuisine: "mississippi-favorites" }),
   expansionRecipe("purple-hull-peas", "Purple Hull Peas", "Country Kitchen", "images/regional/mississippi/purple-hull-peas.jpg", "20 min", "1 hr", 8, "Beginner", "Fresh or frozen purple hull peas simmered with smoked meat and aromatics, especially recognizable on summer Mississippi tables.", ["2 lb shelled purple hull peas", "4 oz salt pork or smoked turkey", "1 onion, chopped", "2 garlic cloves", "5 cups water or stock", "1 tsp black pepper", "Salt to taste"], ["Rinse and sort the peas.", "Brown salt pork lightly, then add onion and garlic.", "Add peas, liquid, and pepper.", "Simmer 45 to 60 minutes until tender but not broken.", "Taste before adding salt and serve with hot water cornbread."], ["mississippi", "purple hull peas", "summer", "field peas"], { cuisine: "mississippi-favorites" }),
   expansionRecipe("mustard-greens", "Mustard Greens with Pot Liquor", "Country Kitchen", "images/regional/mississippi/mustard-greens.jpg", "25 min", "55 min", 8, "Beginner", "Peppery mustard greens simmered with smoked meat, onion, vinegar, and a touch of heat.", ["3 bunches mustard greens", "1 smoked turkey wing or ham hock", "1 onion, chopped", "4 cups stock", "1 tsp red pepper flakes", "2 tbsp apple cider vinegar", "1 tsp sugar optional"], ["Wash greens in several changes of water and tear away thick stems.", "Simmer smoked meat, onion, stock, and pepper flakes for 25 minutes.", "Add greens by handfuls as they wilt.", "Cover and simmer 30 minutes until tender.", "Add vinegar, taste the pot liquor, and adjust seasoning."], ["mississippi", "mustard greens", "pot liquor", "soul food"], { cuisine: "mississippi-favorites" }),
@@ -4948,7 +5166,7 @@ const globalCuisineExpansionRecipes = [
   globalCuisineRecipe("thai-basil-chicken", "Thai Basil Chicken", "asian-inspired", "Thai Skillet", "A fast skillet of chicken, garlic, chiles, basil, and savory sauce served over jasmine rice.", ["1 lb ground chicken", "3 garlic cloves", "1 chile or jalapeno", "2 tbsp soy sauce", "1 tbsp fish sauce", "1 tsp sugar", "1 cup basil", "Jasmine rice"], ["Cook garlic and chile briefly.", "Add chicken and brown well.", "Stir in sauces and sugar.", "Fold in basil.", "Serve over rice with lime."], ["thailand", "basil chicken", "weeknight"], { image: "assets/lc-fried-rice.jpg", cook: "15 min" }),
   globalCuisineRecipe("vietnamese-spring-rolls", "Vietnamese Fresh Spring Rolls", "asian-inspired", "Vietnam Fresh", "Rice paper rolls filled with noodles, herbs, vegetables, and shrimp or tofu with a bright dipping sauce.", ["Rice paper wrappers", "Rice noodles", "Cooked shrimp or tofu", "Lettuce", "Mint", "Cilantro", "Cucumber", "Carrot"], ["Soften rice paper in warm water.", "Layer lettuce, noodles, herbs, vegetables, and protein.", "Fold sides and roll tightly.", "Repeat with remaining wrappers.", "Serve with peanut or lime-fish sauce dip."], ["vietnam", "spring rolls", "fresh"], { image: "assets/lc-asian-food.jpg", prep: "30 min", cook: "0 min" }),
   globalCuisineRecipe("filipino-chicken-adobo", "Filipino Chicken Adobo", "asian-inspired", "Filipino Braise", "Chicken braised with vinegar, soy sauce, garlic, bay leaf, and pepper until savory and tender.", ["2 lb chicken thighs", "1/2 cup vinegar", "1/2 cup soy sauce", "6 garlic cloves", "2 bay leaves", "1 tsp black pepper", "Rice"], ["Marinate chicken with vinegar, soy, garlic, bay, and pepper.", "Simmer chicken in marinade until tender.", "Uncover and reduce sauce.", "Brown chicken lightly if desired.", "Serve with rice."], ["philippines", "adobo", "braise"], { image: "assets/lc-asian-food.jpg", cook: "45 min", level: "Intermediate" }),
-  globalCuisineRecipe("indian-dal-tadka", "Indian Dal Tadka", "indian", "Indian Comfort", "Yellow lentils simmered until soft and finished with ghee-bloomed cumin, garlic, and chile.", ["1 cup yellow lentils", "4 cups water", "1/2 tsp turmeric", "1 tsp salt", "2 tbsp ghee or oil", "1 tsp cumin", "2 garlic cloves", "Chile optional"], ["Rinse lentils.", "Simmer with water, turmeric, and salt until soft.", "Mash lightly.", "Bloom cumin, garlic, and chile in ghee.", "Stir tadka into dal and serve with rice."], ["india", "dal", "lentils"], { image: "assets/tandoori-chicken.jpeg", cook: "35 min" }),
+  globalCuisineRecipe("indian-yellow-dal-tadka", "Indian Yellow Dal Tadka", "indian", "Indian Comfort", "Yellow lentils simmered until soft and finished with ghee-bloomed cumin, garlic, and chile.", ["1 cup yellow lentils", "4 cups water", "1/2 tsp turmeric", "1 tsp salt", "2 tbsp ghee or oil", "1 tsp cumin", "2 garlic cloves", "Chile optional"], ["Rinse lentils.", "Simmer with water, turmeric, and salt until soft.", "Mash lightly.", "Bloom cumin, garlic, and chile in ghee.", "Stir tadka into dal and serve with rice."], ["india", "dal", "lentils"], { image: "images/recipes/audit-2026-06/indian-dal-tadka.jpg", cook: "35 min" }),
 
   globalCuisineRecipe("jamaican-jerk-chicken", "Jamaican Jerk Chicken", "caribbean", "Jamaican Grill", "Chicken marinated with allspice, thyme, scallion, garlic, ginger, lime, and Scotch bonnet heat.", ["2 lb chicken", "4 scallions", "2 garlic cloves", "1 tbsp allspice", "1 tbsp thyme", "1 tbsp brown sugar", "Lime juice", "Scotch bonnet or habanero"], ["Blend jerk marinade.", "Coat chicken and marinate at least 1 hour.", "Grill or roast until cooked through.", "Rest briefly.", "Serve with rice and peas."], ["jamaica", "jerk", "grill"], { image: "images/recipes/audit-2026-06/jerk-sauce.jpg", prep: "20 min", cook: "35 min", level: "Intermediate" }),
   globalCuisineRecipe("haitian-griot-style-pork", "Haitian Griot-Style Pork", "caribbean", "Haitian Celebration", "Citrus-and-epis-marinated pork simmered tender, then crisped for a celebration plate.", ["2 lb pork shoulder chunks", "1/2 cup lime or sour orange juice", "1/2 cup epis or green seasoning", "1 tsp thyme", "2 garlic cloves", "Oil", "Pikliz or slaw"], ["Marinate pork with citrus, epis, thyme, and garlic.", "Simmer with a little water until tender.", "Drain and pat dry.", "Crisp pork in oil or a hot oven.", "Serve with pikliz-style slaw."], ["haiti", "griot", "celebration"], { image: "images/recipes/audit-2026-06/rice-and-peas.jpg", cook: "1 hr", level: "Intermediate" }),
@@ -10220,23 +10438,25 @@ function renderLivingCookbook(id) {
 function holidayTablesFeature() {
   const chapter = livingCookbookById("holiday-tables");
   if (!chapter) return "";
-  const featuredRecipes = chapter.recipeIds.map((recipeId) => recipeByIdSafe(recipeId)).filter(Boolean).slice(0, 12);
+  const holidayTables = curatedHolidayTables.length ? curatedHolidayTables : (chapter.holidays || []);
+  const featuredRecipeIds = [...new Set(holidayTables.flatMap((holiday) => recipeIdsForHolidayTable(holiday)))];
+  const featuredRecipes = featuredRecipeIds.map((recipeId) => recipeByIdSafe(recipeId)).filter(Boolean).slice(0, 12);
   return `
     <section class="cream-section holiday-tables-feature" aria-labelledby="holidayTablesFeatureTitle">
       <div class="section-heading compact-heading">
         <p class="eyebrow">Holiday Hub</p>
-        <h2 id="holidayTablesFeatureTitle">Thanksgiving, Christmas, Easter, Fourth of July, Halloween, Juneteenth, and Sunday tables.</h2>
+        <h2 id="holidayTablesFeatureTitle">Complete holiday tables for the whole year.</h2>
         <p>${chapter.intro}</p>
       </div>
       <div class="recipe-grid">${featuredRecipes.map(recipeCard).join("")}</div>
       <div class="regional-story-grid">
-        ${chapter.holidays.map((holiday) => `
+        ${holidayTables.map((holiday) => `
           <article>
             <p class="eyebrow">Holiday table</p>
             <h3>${holiday.title}</h3>
-            <div class="mini-recipe-list">${holiday.recipeIds.map((recipeId) => recipeByIdSafe(recipeId)).filter(Boolean).map((recipe) => `<a href="#recipes/${recipe.id}">${recipe.title}<small>${recipe.category || cuisineName(recipe.cuisine)}</small></a>`).join("")}</div>
+            <div class="mini-recipe-list">${recipeIdsForHolidayTable(holiday).map((recipeId) => recipeByIdSafe(recipeId)).filter(Boolean).map((recipe) => `<a href="#recipes/${recipe.id}">${recipe.title}<small>${recipe.category || cuisineName(recipe.cuisine)}</small></a>`).join("")}</div>
             <h4>Shopping List</h4>
-            <ul>${holiday.shopping.map((item) => `<li>${item}</li>`).join("")}</ul>
+            <ul>${(holiday.shopping || []).map((item) => `<li>${item}</li>`).join("")}</ul>
           </article>
         `).join("")}
       </div>
