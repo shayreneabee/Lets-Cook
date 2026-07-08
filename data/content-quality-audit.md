@@ -1,6 +1,6 @@
 # Let's Cook Y'all Content Quality Audit
 
-Generated: 2026-07-08T14:34:28.217Z
+Generated: 2026-07-08T15:10:52.260Z
 
 ## Summary
 
@@ -8,7 +8,7 @@ Generated: 2026-07-08T14:34:28.217Z
 - Duplicate recipe ID groups: 0
 - Duplicate recipe title groups: 5
 - Shared image groups: 94
-- Generic recipe image assignments: 12
+- Generic recipe image assignments: 0
 - Fallback/queued images: 0
 - Missing image files: 0
 - Complete required holidays: 20 of 20
@@ -43,10 +43,11 @@ Generated: 2026-07-08T14:34:28.217Z
 ## Top Shared Images
 
 - images/recipes/audit-2026-06/oxtails.jpg: 2 recipes
+- images/recipes/audit-2026-06/orange-chicken.jpg: 3 recipes
 - images/recipes/audit-2026-06/bourbon-praline-bread-pudding.jpg: 2 recipes
-- assets/lc-fried-rice.jpg: 2 recipes
+- images/recipes/audit-2026-06/shrimp-fried-rice.jpg: 3 recipes
 - images/recipes/audit-2026-06/party-meatballs.jpg: 2 recipes
-- assets/lc-desserts.jpg: 2 recipes
+- images/recipes/audit-2026-06/strawberry-shortcake.png: 4 recipes
 - images/recipes/audit-2026-06/pineapple-fried-rice.jpg: 2 recipes
 - images/recipes/audit-2026-06/lamb-bone-broth-soup.jpg: 3 recipes
 - images/recipes/audit-2026-06/biryani.jpg: 2 recipes
@@ -55,28 +56,15 @@ Generated: 2026-07-08T14:34:28.217Z
 - images/regional/mississippi/mac-and-cheese.jpg: 2 recipes
 - images/recipes/audit-2026-06/southern-cornbread-dressing.jpg: 2 recipes
 - images/cuisines/asian/asian-02.png: 2 recipes
-- images/cuisines/asian/asian-06.png: 2 recipes
+- images/cuisines/asian/asian-06.png: 3 recipes
+- images/cuisines/asian/asian-08.png: 2 recipes
 - images/recipes/audit-2026-06/nigerian-fried-rice.jpg: 2 recipes
 - images/cuisines/africa/morocco/vegetable-couscous.jpg: 2 recipes
 - images/recipes/audit-2026-06/indian-dal-tadka.jpg: 3 recipes
-- images/recipes/audit-2026-06/grilled-swordfish-lemon-herb.jpg: 5 recipes
-- images/recipes/audit-2026-06/blackened-swordfish.jpg: 2 recipes
-- images/recipes/audit-2026-06/swordfish-tacos.jpg: 2 recipes
+- images/recipes/audit-2026-06/grilled-swordfish-lemon-herb.jpg: 4 recipes
 
 ## Generic Recipe Images To Replace
 
-- fried-rice: Fried Rice -> assets/lc-fried-rice.jpg
-- dessert-charcuterie-board: Dessert Charcuterie Board -> assets/lc-desserts.jpg
-- seattle-teriyaki-chicken: Seattle Teriyaki Chicken -> assets/beautiful-chicken.jpeg
-- haupia: Haupia -> assets/lc-desserts.jpg
-- japanese-teriyaki-chicken-bowls: Japanese Teriyaki Chicken Bowls -> assets/lc-asian-food.jpg
-- chinese-dumpling-night: Chinese Dumpling Night -> assets/lc-asian-food.jpg
-- korean-bulgogi-rice-bowls: Korean Bulgogi Rice Bowls -> assets/lc-asian-food.jpg
-- thai-basil-chicken: Thai Basil Chicken -> assets/lc-fried-rice.jpg
-- vietnamese-spring-rolls: Vietnamese Fresh Spring Rolls -> assets/lc-asian-food.jpg
-- filipino-chicken-adobo: Filipino Chicken Adobo -> assets/lc-asian-food.jpg
-- palestinian-musakhan-style-chicken: Palestinian Musakhan-Style Chicken -> assets/beautiful-chicken.jpeg
-- roast-duck: Roast Duck -> assets/beautiful-chicken.jpeg
 
 ## Menu Reference Issues
 

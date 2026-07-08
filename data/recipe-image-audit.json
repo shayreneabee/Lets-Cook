@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-08T14:30:28.582Z",
+  "generatedAt": "2026-07-08T15:10:52.264Z",
   "totalRecipes": 629,
-  "uniqueImages": 499,
+  "uniqueImages": 495,
   "missingFiles": [],
   "fallbacks": [],
   "photoQueue": [],
@@ -20,6 +20,23 @@
       ]
     },
     {
+      "image": "images/recipes/audit-2026-06/orange-chicken.jpg",
+      "recipes": [
+        {
+          "id": "orange-chicken",
+          "title": "Orange Chicken"
+        },
+        {
+          "id": "seattle-teriyaki-chicken",
+          "title": "Seattle Teriyaki Chicken"
+        },
+        {
+          "id": "japanese-teriyaki-chicken-bowls",
+          "title": "Japanese Teriyaki Chicken Bowls"
+        }
+      ]
+    },
+    {
       "image": "images/recipes/audit-2026-06/bourbon-praline-bread-pudding.jpg",
       "recipes": [
         {
@@ -33,15 +50,19 @@
       ]
     },
     {
-      "image": "assets/lc-fried-rice.jpg",
+      "image": "images/recipes/audit-2026-06/shrimp-fried-rice.jpg",
       "recipes": [
         {
           "id": "fried-rice",
           "title": "Fried Rice"
         },
         {
-          "id": "thai-basil-chicken",
-          "title": "Thai Basil Chicken"
+          "id": "shrimp-fried-rice",
+          "title": "Shrimp Fried Rice"
+        },
+        {
+          "id": "indonesian-nasi-goreng",
+          "title": "Indonesian Nasi Goreng"
         }
       ]
     },
@@ -59,7 +80,7 @@
       ]
     },
     {
-      "image": "assets/lc-desserts.jpg",
+      "image": "images/recipes/audit-2026-06/strawberry-shortcake.png",
       "recipes": [
         {
           "id": "dessert-charcuterie-board",
@@ -68,6 +89,14 @@
         {
           "id": "haupia",
           "title": "Haupia"
+        },
+        {
+          "id": "new-zealand-pavlova",
+          "title": "New Zealand Pavlova"
+        },
+        {
+          "id": "strawberry-shortcake",
+          "title": "Strawberry Shortcake"
         }
       ]
     },
@@ -187,8 +216,25 @@
           "title": "Dumpling Bowl"
         },
         {
+          "id": "chinese-dumpling-night",
+          "title": "Chinese Dumpling Night"
+        },
+        {
           "id": "nepali-momo-dumplings",
           "title": "Nepali Momo Dumplings"
+        }
+      ]
+    },
+    {
+      "image": "images/cuisines/asian/asian-08.png",
+      "recipes": [
+        {
+          "id": "asian-thai-basil-chicken",
+          "title": "Thai Basil Chicken"
+        },
+        {
+          "id": "thai-basil-chicken",
+          "title": "Thai Basil Chicken"
         }
       ]
     },
@@ -251,10 +297,6 @@
           "title": "Alaska Salmon Bake"
         },
         {
-          "id": "hawaiian-poke-bowls",
-          "title": "Hawaiian Poke Bowls"
-        },
-        {
           "id": "kids-salmon-rice-bowls",
           "title": "Build a Salmon Rice Bowl"
         }
@@ -266,6 +308,10 @@
         {
           "id": "blackened-swordfish",
           "title": "Blackened Swordfish"
+        },
+        {
+          "id": "hawaiian-poke-bowls",
+          "title": "Hawaiian Poke Bowls"
         },
         {
           "id": "fijian-kokoda",
@@ -326,6 +372,19 @@
         {
           "id": "carrot-cake",
           "title": "Carrot Cake"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/cucumber-salad.jpg",
+      "recipes": [
+        {
+          "id": "cucumber-salad",
+          "title": "Cucumber Lime Salad"
+        },
+        {
+          "id": "vietnamese-spring-rolls",
+          "title": "Vietnamese Fresh Spring Rolls"
         }
       ]
     },
@@ -711,8 +770,16 @@
           "title": "Smothered Chicken"
         },
         {
+          "id": "filipino-chicken-adobo",
+          "title": "Filipino Chicken Adobo"
+        },
+        {
           "id": "hungarian-chicken-paprikash",
           "title": "Hungarian Chicken Paprikash"
+        },
+        {
+          "id": "palestinian-musakhan-style-chicken",
+          "title": "Palestinian Musakhan-Style Chicken"
         }
       ]
     },
@@ -780,19 +847,6 @@
         {
           "id": "polish-bigos",
           "title": "Polish Bigos"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/audit-2026-06/shrimp-fried-rice.jpg",
-      "recipes": [
-        {
-          "id": "shrimp-fried-rice",
-          "title": "Shrimp Fried Rice"
-        },
-        {
-          "id": "indonesian-nasi-goreng",
-          "title": "Indonesian Nasi Goreng"
         }
       ]
     },
@@ -1026,6 +1080,10 @@
         {
           "id": "santa-maria-tri-tip",
           "title": "Santa Maria Tri-Tip"
+        },
+        {
+          "id": "korean-bulgogi-rice-bowls",
+          "title": "Korean Bulgogi Rice Bowls"
         },
         {
           "id": "argentinian-chimichurri-steak",
@@ -1288,23 +1346,6 @@
       ]
     },
     {
-      "image": "assets/beautiful-chicken.jpeg",
-      "recipes": [
-        {
-          "id": "seattle-teriyaki-chicken",
-          "title": "Seattle Teriyaki Chicken"
-        },
-        {
-          "id": "palestinian-musakhan-style-chicken",
-          "title": "Palestinian Musakhan-Style Chicken"
-        },
-        {
-          "id": "roast-duck",
-          "title": "Roast Duck"
-        }
-      ]
-    },
-    {
       "image": "assets/fresh-bread.jpeg",
       "recipes": [
         {
@@ -1335,40 +1376,15 @@
       ]
     },
     {
-      "image": "assets/lc-asian-food.jpg",
+      "image": "images/recipes/holiday-2026/roast-turkey.png",
       "recipes": [
         {
-          "id": "japanese-teriyaki-chicken-bowls",
-          "title": "Japanese Teriyaki Chicken Bowls"
+          "id": "roast-turkey",
+          "title": "Classic Roast Turkey"
         },
         {
-          "id": "chinese-dumpling-night",
-          "title": "Chinese Dumpling Night"
-        },
-        {
-          "id": "korean-bulgogi-rice-bowls",
-          "title": "Korean Bulgogi Rice Bowls"
-        },
-        {
-          "id": "vietnamese-spring-rolls",
-          "title": "Vietnamese Fresh Spring Rolls"
-        },
-        {
-          "id": "filipino-chicken-adobo",
-          "title": "Filipino Chicken Adobo"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/audit-2026-06/strawberry-shortcake.png",
-      "recipes": [
-        {
-          "id": "new-zealand-pavlova",
-          "title": "New Zealand Pavlova"
-        },
-        {
-          "id": "strawberry-shortcake",
-          "title": "Strawberry Shortcake"
+          "id": "roast-duck",
+          "title": "Roast Duck"
         }
       ]
     }
@@ -1569,7 +1585,7 @@
       "title": "Fried Rice",
       "cuisine": "asian-inspired",
       "category": "Quick Weeknight Meals",
-      "image": "assets/lc-fried-rice.jpg",
+      "image": "images/recipes/audit-2026-06/shrimp-fried-rice.jpg",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -1599,7 +1615,7 @@
       "title": "Dessert Charcuterie Board",
       "cuisine": "hosting",
       "category": "Party & Hosting",
-      "image": "assets/lc-desserts.jpg",
+      "image": "images/recipes/audit-2026-06/strawberry-shortcake.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -6319,7 +6335,7 @@
       "title": "Seattle Teriyaki Chicken",
       "cuisine": "washington-state",
       "category": "Seattle Counter Food",
-      "image": "assets/beautiful-chicken.jpeg",
+      "image": "images/recipes/audit-2026-06/orange-chicken.jpg",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -6679,7 +6695,7 @@
       "title": "Hawaiian Poke Bowls",
       "cuisine": "hawaii",
       "category": "Hawaii Seafood",
-      "image": "images/recipes/audit-2026-06/grilled-swordfish-lemon-herb.jpg",
+      "image": "images/recipes/audit-2026-06/blackened-swordfish.jpg",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -6719,7 +6735,7 @@
       "title": "Haupia",
       "cuisine": "hawaii",
       "category": "Hawaii Desserts",
-      "image": "assets/lc-desserts.jpg",
+      "image": "images/recipes/audit-2026-06/strawberry-shortcake.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -6769,7 +6785,7 @@
       "title": "Japanese Teriyaki Chicken Bowls",
       "cuisine": "asian-inspired",
       "category": "Japan Weeknight",
-      "image": "assets/lc-asian-food.jpg",
+      "image": "images/recipes/audit-2026-06/orange-chicken.jpg",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -6779,7 +6795,7 @@
       "title": "Chinese Dumpling Night",
       "cuisine": "asian-inspired",
       "category": "China Family Table",
-      "image": "assets/lc-asian-food.jpg",
+      "image": "images/cuisines/asian/asian-06.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -6789,7 +6805,7 @@
       "title": "Korean Bulgogi Rice Bowls",
       "cuisine": "asian-inspired",
       "category": "Korean Grill",
-      "image": "assets/lc-asian-food.jpg",
+      "image": "images/recipes/audit-2026-06/nebraska-steak.jpg",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -6799,7 +6815,7 @@
       "title": "Thai Basil Chicken",
       "cuisine": "asian-inspired",
       "category": "Thai Skillet",
-      "image": "assets/lc-fried-rice.jpg",
+      "image": "images/cuisines/asian/asian-08.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -6809,7 +6825,7 @@
       "title": "Vietnamese Fresh Spring Rolls",
       "cuisine": "asian-inspired",
       "category": "Vietnam Fresh",
-      "image": "assets/lc-asian-food.jpg",
+      "image": "images/recipes/audit-2026-06/cucumber-salad.jpg",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -6819,7 +6835,7 @@
       "title": "Filipino Chicken Adobo",
       "cuisine": "asian-inspired",
       "category": "Filipino Braise",
-      "image": "assets/lc-asian-food.jpg",
+      "image": "images/recipes/audit-2026-06/smothered-chicken.jpg",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -7159,7 +7175,7 @@
       "title": "Palestinian Musakhan-Style Chicken",
       "cuisine": "mediterranean",
       "category": "Palestinian Sumac Chicken",
-      "image": "assets/beautiful-chicken.jpeg",
+      "image": "images/recipes/audit-2026-06/smothered-chicken.jpg",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -7379,7 +7395,7 @@
       "title": "Roast Duck",
       "cuisine": "holiday",
       "category": "Holiday Mains",
-      "image": "assets/beautiful-chicken.jpeg",
+      "image": "images/recipes/holiday-2026/roast-turkey.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false

@@ -3423,7 +3423,8 @@ select {
 }
 
 .recipe-steps-panel {
-  grid-row: span 2;
+  grid-column: 1 / -1;
+  grid-row: auto;
   border-top: 48px solid #0d4f1d;
 }
 
@@ -3437,6 +3438,11 @@ select {
 .directions-panel,
 .momma-panel {
   min-height: 100%;
+}
+
+.recipe-intelligence-panel,
+.recipe-learning-panel {
+  grid-column: 1 / -1;
 }
 
 .ingredient-checklist {
@@ -3477,7 +3483,7 @@ select {
 
 .recipe-step-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
   gap: 14px;
 }
 
@@ -3490,6 +3496,7 @@ select {
   background:
     linear-gradient(180deg, rgba(255, 248, 233, 0.98), rgba(255, 240, 210, 0.9));
   box-shadow: 0 12px 24px rgba(82, 45, 10, 0.12);
+  overflow-wrap: anywhere;
 }
 
 .recipe-step-card strong {
@@ -9772,9 +9779,9 @@ body {
 .hero:not(.platform-hero):not(.beu-hero),
 .america-250-hero {
   background:
-    linear-gradient(115deg, rgba(47, 35, 27, 0.74), rgba(95, 73, 52, 0.22)),
-    radial-gradient(circle at 82% 18%, rgba(239, 189, 90, 0.3), transparent 18rem),
-    linear-gradient(135deg, #fff4df, #f2dfbf);
+    linear-gradient(115deg, rgba(255, 248, 233, 0.94), rgba(246, 224, 188, 0.82)),
+    radial-gradient(circle at 82% 18%, rgba(239, 189, 90, 0.28), transparent 18rem),
+    linear-gradient(135deg, #fff8e9, #f2dfbf);
 }
 
 .hero:not(.platform-hero):not(.beu-hero)::before,

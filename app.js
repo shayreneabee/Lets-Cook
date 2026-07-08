@@ -6130,6 +6130,22 @@ Object.assign(recipeImageOverrides, {
   "southern-crispy-fried-chicken": "images/recipes/audit-2026-06/southern-fried-chicken.png",
   "harolds-style-fried-chicken": "images/recipes/audit-2026-06/harolds-style-fried-chicken.jpg",
   "nashville-hot-chicken": "images/recipes/audit-2026-06/nashville-hot-chicken.jpg",
+  "japanese-teriyaki-chicken-bowls": "images/recipes/audit-2026-06/orange-chicken.jpg",
+  "chinese-dumpling-night": "images/cuisines/asian/asian-06.png",
+  "korean-bulgogi-rice-bowls": "images/recipes/audit-2026-06/nebraska-steak.jpg",
+  "thai-basil-chicken": "images/cuisines/asian/asian-08.png",
+  "vietnamese-spring-rolls": "images/recipes/audit-2026-06/cucumber-salad.jpg",
+  "filipino-chicken-adobo": "images/recipes/audit-2026-06/smothered-chicken.jpg",
+  "nepali-momo-dumplings": "images/cuisines/asian/asian-06.png",
+  "malaysian-nasi-lemak": "images/recipes/audit-2026-06/nigerian-fried-rice.jpg",
+  "indonesian-nasi-goreng": "images/recipes/audit-2026-06/shrimp-fried-rice.jpg",
+  "hawaiian-poke-bowls": "images/recipes/audit-2026-06/blackened-swordfish.jpg",
+  "fried-rice": "images/recipes/audit-2026-06/shrimp-fried-rice.jpg",
+  "dessert-charcuterie-board": "images/recipes/audit-2026-06/strawberry-shortcake.png",
+  "seattle-teriyaki-chicken": "images/recipes/audit-2026-06/orange-chicken.jpg",
+  "haupia": "images/recipes/audit-2026-06/strawberry-shortcake.png",
+  "palestinian-musakhan-style-chicken": "images/recipes/audit-2026-06/smothered-chicken.jpg",
+  "roast-duck": "images/recipes/holiday-2026/roast-turkey.png",
   "san-francisco-cioppino": "images/recipes/audit-2026-06/florida-blue-crab.jpg",
   "mission-burritos": "assets/lc-birria-tacos.jpg",
   "california-sourdough-toast": "assets/fresh-bread.jpeg",
@@ -6205,7 +6221,7 @@ Object.assign(recipeImageOverrides, {
   "irish-beef-stew": "images/recipes/audit-2026-06/hamburger-steak-with-gravy.jpg",
   "swedish-meatballs": "images/recipes/audit-2026-06/party-meatballs.jpg",
   "persian-herb-stew": "images/recipes/audit-2026-06/green-bean-casserole.jpg",
-  "palestinian-musakhan-style-chicken": "assets/beautiful-chicken.jpeg",
+  "palestinian-musakhan-style-chicken": "images/recipes/audit-2026-06/smothered-chicken.jpg",
   "saudi-kabsa-chicken": "images/recipes/audit-2026-06/rice-pilaf.jpg",
   "taiwanese-beef-noodle-soup": "images/cuisines/asian/asian-02.png",
   "pakistani-chicken-biryani": "images/recipes/audit-2026-06/biryani.jpg",
@@ -6227,7 +6243,7 @@ Object.assign(recipeImageOverrides, {
   "smoked-turkey": "images/recipes/holiday-2026/smoked-turkey.png",
   "deep-fried-turkey": "images/recipes/holiday-2026/deep-fried-turkey.png",
   "honey-glazed-ham": "images/recipes/audit-2026-06/baked-ham.jpg",
-  "roast-duck": "assets/beautiful-chicken.jpeg",
+  "roast-duck": "images/recipes/holiday-2026/roast-turkey.png",
   "turducken": "images/recipes/audit-2026-06/southern-cornbread-dressing.jpg",
   "oyster-dressing": "images/recipes/audit-2026-06/fried-oysters.jpg",
   "giblet-gravy": "images/recipes/audit-2026-06/hamburger-steak-with-gravy.jpg",
@@ -6949,6 +6965,20 @@ function holidaySundayRecipes(limit = 24) {
 function recipeForPracticeTitle(title = "") {
   const wanted = slugify(title);
   const directAliases = {
+    "chicken-teriyaki": "japanese-teriyaki-chicken-bowls",
+    "teriyaki-chicken": "japanese-teriyaki-chicken-bowls",
+    "dumpling-night": "chinese-dumpling-night",
+    dumplings: "chinese-dumpling-night",
+    bulgogi: "korean-bulgogi-rice-bowls",
+    "thai-basil-chicken": "thai-basil-chicken",
+    "spring-rolls": "vietnamese-spring-rolls",
+    "fresh-spring-rolls": "vietnamese-spring-rolls",
+    "chicken-adobo": "filipino-chicken-adobo",
+    adobo: "filipino-chicken-adobo",
+    pozole: "new-mexico-posole",
+    posole: "new-mexico-posole",
+    "chicken-tacos": "beef-tacos",
+    tacos: "beef-tacos",
     asado: "argentinian-chimichurri-steak",
     chimichurri: "argentinian-chimichurri-steak",
     empanadas: "argentinian-beef-empanadas",
@@ -6970,11 +7000,22 @@ function recipeForPracticeTitle(title = "") {
     "nasi-lemak": "malaysian-nasi-lemak",
     "nasi-goreng": "indonesian-nasi-goreng",
     "barbecue-prawns": "australian-barbecue-prawns",
+    "australian-barbecue": "australian-barbecue-prawns",
     lamingtons: "australian-lamingtons",
     pavlova: "new-zealand-pavlova",
     "roast-lamb": "new-zealand-roast-lamb",
+    hangi: "new-zealand-roast-lamb",
+    "hangi-style": "new-zealand-roast-lamb",
     "seafood-chowder": "new-zealand-seafood-chowder",
     "meat-pies": "new-zealand-meat-pies",
+    poke: "hawaiian-poke-bowls",
+    "poke-bowls": "hawaiian-poke-bowls",
+    "hawaiian-poke": "hawaiian-poke-bowls",
+    "kalua-pork": "kalua-pork",
+    "luau-foods": "kalua-pork",
+    "loco-moco": "loco-moco",
+    "plate-lunch": "loco-moco",
+    haupia: "haupia",
     kokoda: "fijian-kokoda",
     palusami: "samoan-palusami",
     "lu-pulu": "tongan-lu-pulu",
@@ -6999,6 +7040,82 @@ function recipeForPracticeTitle(title = "") {
     const options = [recipe.id, recipe.slug, recipe.title].map((value) => slugify(value || ""));
     return options.some((value) => value && value.includes(wanted));
   });
+}
+
+function recipePracticeItem(recipe, cuisineId, level) {
+  return {
+    title: recipe.title,
+    level,
+    cuisineId,
+    ingredients: recipe.ingredients?.slice(0, 5) || [],
+    techniques: recipe.tags?.slice(0, 3) || [],
+    image: recipePhotoFor(recipe),
+    recipe
+  };
+}
+
+function practiceProfileSearchText(profile, group, parentGroup) {
+  const pieces = [
+    profile?.title,
+    profile?.region,
+    profile?.cuisine,
+    profile?.overview,
+    profile?.culture,
+    ...(profile?.dishes || []),
+    ...(profile?.beginnerRecipes || []),
+    ...(profile?.familyFavorites || []),
+    ...(profile?.advancedRecipes || []),
+    ...(profile?.menu || []),
+    ...(profile?.ingredients || []),
+    ...(profile?.techniques || []),
+    group?.title,
+    group?.id,
+    parentGroup?.title,
+    parentGroup?.id,
+    ...(group?.regions || []),
+    ...(parentGroup?.regions || [])
+  ].filter(Boolean);
+  return slugify(pieces.join(" "));
+}
+
+function realPracticeBackfill(normalizedId, recipeCuisineId, profile, group, parentGroup, level, existing = [], limit = 5) {
+  const broadCuisineIds = new Set(["global", "hosting", "holiday", "kid-chefs"]);
+  const canonicalIds = new Set([
+    normalizedId,
+    recipeCuisineId,
+    profile?.cuisine,
+    group?.id,
+    parentGroup?.id
+  ].filter(Boolean).map(canonicalCuisineId).filter((id) => id && !broadCuisineIds.has(id)));
+  const profileText = practiceProfileSearchText(profile, group, parentGroup);
+  const existingIds = new Set(existing.map((item) => item.recipe?.id).filter(Boolean));
+  const weakPracticeTokens = new Set(["about", "across", "cuisine", "cuisines", "culture", "dish", "dishes", "family", "food", "foods", "fresh", "meal", "meals", "plate", "plates", "recipe", "recipes", "regional", "style", "table", "traditional"]);
+  const levelNeedles = {
+    beginner: /beginner|easy|quick|fresh|salad|soup|rice|bowl|starter|snack/i,
+    intermediate: /intermediate|main|dinner|supper|brais|simmer|grill|roast|skillet|bake/i,
+    advanced: /advanced|holiday|party|feast|brais|smok|roast|dumpling|biryani|tagine|tamale/i
+  };
+  const scored = recipes.filter(recipeHasPublishReadyPhoto).map((recipe) => {
+    if (existingIds.has(recipe.id)) return null;
+    const recipeCuisine = canonicalCuisineId(recipe.cuisine);
+    const haystack = slugify(recipeSearchText(recipe));
+    let score = 0;
+    if (canonicalIds.has(recipeCuisine)) score += 7;
+    canonicalIds.forEach((id) => {
+      if (id && haystack.includes(id)) score += 3;
+    });
+    if (profileText) {
+      profileText.split("-").filter((token) => token.length > 4 && !weakPracticeTokens.has(token)).slice(0, 28).forEach((token) => {
+        if (haystack.includes(token)) score += 1;
+      });
+    }
+    if (levelNeedles[level]?.test(recipeSearchText(recipe))) score += 1;
+    if (/pb&j|peanut butter|fruit kabob|kids korner|apple nachos|ants on a log|scrambled eggs|plain toast|mini pizza|mac and cheese bites|smoothie cups/i.test(recipeSearchText(recipe))) {
+      score -= 10;
+    }
+    return score > 1 ? { recipe, score } : null;
+  }).filter(Boolean).sort((a, b) => b.score - a.score || a.recipe.title.localeCompare(b.recipe.title));
+  return scored.slice(0, Math.max(0, limit - existing.length)).map(({ recipe }) => recipePracticeItem(recipe, recipeCuisineId, level));
 }
 
 function cuisinePracticePhoto(cuisineId, title, index = 0) {
@@ -7097,7 +7214,14 @@ function practiceTrackForCuisine(normalizedId, recipeCuisineId, profile, group, 
   const track = explicitKey ? cuisinePracticeRecipeTracks[explicitKey] : generatedPracticeTrack(practiceProfile, recipeCuisineId);
   return ["beginner", "intermediate", "advanced"].reduce((acc, level) => {
     const sourceItems = track?.[level] || [];
-    acc[level] = sourceItems.slice(0, 5).map((item, index) => normalizePracticeItem(item, recipeCuisineId, level, index, practiceProfile));
+    const realItems = sourceItems
+      .map((item, index) => normalizePracticeItem(item, recipeCuisineId, level, index, practiceProfile))
+      .filter((item) => item.recipe && recipeHasPublishReadyPhoto(item.recipe));
+    const merged = [...realItems];
+    realPracticeBackfill(normalizedId, recipeCuisineId, practiceProfile, group, parentGroup, level, realItems).forEach((item) => {
+      if (!merged.some((existing) => existing.recipe?.id === item.recipe?.id)) merged.push(item);
+    });
+    acc[level] = merged.slice(0, 5);
     return acc;
   }, {});
 }
@@ -7111,8 +7235,6 @@ function practiceTrackSummary(track) {
 }
 
 function practiceRecipeCard(item, index) {
-  const href = item.recipe ? `#recipes/${item.recipe.id}` : `#kitchen-search/${encodeURIComponent(item.title)}`;
-  const action = item.recipe ? "Open Recipe" : "Find Related Real Recipes";
   return `
     <article class="practice-recipe-card">
       <img src="${item.image}" alt="${item.title}" />
@@ -7121,8 +7243,7 @@ function practiceRecipeCard(item, index) {
         <h3>${item.title}</h3>
         <p><strong>Ingredients:</strong> ${item.ingredients.slice(0, 5).join(", ")}</p>
         <p><strong>Skills:</strong> ${item.techniques.slice(0, 3).join(", ")}</p>
-        ${item.recipe ? "" : `<p class="content-note">This dish is on the cuisine roadmap; related results stay in this food lane.</p>`}
-        <a class="small-button ${item.recipe ? "" : "secondary"}" href="${href}">${action}</a>
+        <a class="small-button" href="#recipes/${item.recipe.id}">Open Recipe</a>
       </div>
     </article>
   `;
