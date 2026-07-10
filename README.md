@@ -2,6 +2,12 @@
 
 A working prototype for a warm Brent & Co. cooking-skills app inspired by the original Let's Cook Ya'll UX mockups and storefront branding.
 
+## Product North Star
+
+Let's Cook Y'all should feel like Shay's Kitchen: modern, warm, hospitable, food-first, and confidence-building. It is not a recipe database; it is a welcoming kitchen where people discover food, learn naturally, and become the person their family asks to cook.
+
+See [Design Philosophy V2](docs/design-philosophy-v2.md) for the guiding product, content, and visual standards.
+
 ## What Works Now
 
 - Brent & Co. ecosystem homepage with storefront cards for Let's Cook Ya'll, Find the Beat, and Second Chance Careers
