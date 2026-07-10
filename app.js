@@ -11425,6 +11425,58 @@ function shayKitchenSectionMarkup({ includeCategories = true } = {}) {
   `;
 }
 
+function homepageRecipeDiscoverySection() {
+  const featured = recipesByIds([
+    "southern-fried-chicken",
+    "bbq-smoked-ribs",
+    "strawberry-shortcake",
+    "classic-cookout-hot-dogs",
+    "hawaiian-poke-bowls",
+    "filipino-chicken-adobo"
+  ]);
+  const seasonal = recipesByIds([
+    "all-american-burgers",
+    "bbq-baked-beans",
+    "southern-potato-salad",
+    "corn-on-the-cob",
+    "cookout-watermelon-wedges",
+    "peach-cobbler"
+  ]);
+  const fallback = allRecipeCollection().slice(0, 6);
+  const cards = (featured.length >= 4 ? featured : fallback).slice(0, 6);
+  return `
+    <section class="cream-section recipe-first-discovery" id="recipe-discovery">
+      <div class="recipe-first-copy">
+        <p class="eyebrow">Start with the food</p>
+        <h2>What looks good tonight?</h2>
+        <p>Search by craving, ingredient, holiday, cuisine, or whatever is already sitting in your kitchen.</p>
+        <form class="ingredient-search-panel recipe-first-search" data-ingredient-form>
+          <label for="homeRecipeSearch">Find something to cook</label>
+          <div>
+            <input id="homeRecipeSearch" name="ingredient" placeholder="chicken, shrimp, peaches, rice..." />
+            <button class="small-button" type="submit">Find Recipes</button>
+          </div>
+        </form>
+        <div class="recipe-first-actions">
+          <a href="#recipes" class="small-button secondary">Browse All Recipes</a>
+          <a href="#what-yall-cooking" class="small-button secondary">Build A Menu</a>
+          <a href="#cuisine-explorer" class="small-button secondary">Explore Cuisines</a>
+        </div>
+      </div>
+      <div>
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">Featured now</p>
+          <h2>Cookout favorites, summer sweets, and real dinner ideas.</h2>
+        </div>
+        <div class="recipe-grid recipe-first-grid">${cards.map(recipeCard).join("")}</div>
+        <div class="seasonal-recipe-strip" aria-label="Seasonal recipe shortcuts">
+          ${seasonal.slice(0, 6).map((recipe) => `<a href="#recipes/${recipe.id}"><span>${recipe.category}</span><strong>${recipe.title}</strong></a>`).join("")}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
 function renderLetsCookHome() {
   const publishableRecipes = recipes.filter(recipeHasPublishReadyPhoto);
   const recipeOfWeek = recipeById("yakamein") || publishableRecipes[0];
@@ -11436,8 +11488,9 @@ function renderLetsCookHome() {
   app.innerHTML = `
     ${america250HeroBanner()}
     ${cookSubnav()}
-    ${frontPorchAmericaSection()}
+    ${homepageRecipeDiscoverySection()}
     ${summerCravingsSection()}
+    ${frontPorchAmericaSection()}
     ${kitchenTableWelcomeSection()}
     ${roadTripMapSection()}
     ${aroundAmericaTableSection()}
@@ -11450,7 +11503,6 @@ function renderLetsCookHome() {
     <section class="cream-section kitchen-flagship-intro">
       ${kitchenToolSwitcher()}
     </section>
-    ${ingredientDiscoverySection("chicken strips")}
     ${thisMonthSection()}
     ${thisMonthsTableSection()}
     ${america250FoodHistorySection()}
@@ -11459,11 +11511,6 @@ function renderLetsCookHome() {
     ${homepageMarketInvitationSection()}
     ${comingUpNextSection()}
     ${learningArchitectureSection()}
-    <section class="cream-section">
-      <div class="feature-grid">
-        ${paths.map(pathCard).join("")}
-      </div>
-    </section>
     <section class="green-section personal-band">
       <div class="section-heading">
         <p class="eyebrow">From my kitchen</p>
@@ -11628,15 +11675,32 @@ function cookSubnav() {
 }
 
 function learningArchitectureSection() {
+  const learningDoors = [
+    {
+      title: "Academy",
+      route: "#culinary-academy",
+      text: "Full courses, cuisine foundations, skill levels, glossaries, and deeper lessons live here."
+    },
+    {
+      title: "Cook With What I Have",
+      route: "#what-yall-cooking",
+      text: "Start with ingredients and get recipe ideas, substitutions, menus, and grocery-gap suggestions."
+    },
+    {
+      title: "Cooking Paths",
+      route: "#paths",
+      text: "Choose Kids Korner, Home Cook, or Chef's Table when you want a guided growth path."
+    }
+  ];
   return `
-    <section class="cream-section learning-architecture">
-      <div class="section-heading">
-        <p class="eyebrow">Culinary learning platform</p>
-        <h2>Recipes are the start. The goal is learning how to cook.</h2>
-        <p>Let's Cook Y'all now has clear learning lanes for recipes, meal building, cuisine foundations, skills, ingredient search, planning, kids, and growth pathways.</p>
+    <section class="cream-section learning-architecture learn-while-cook">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Learn while you cook</p>
+        <h2>Pick a recipe first. Open the classroom only when you need it.</h2>
+        <p>Tips, substitutions, culture, and technique now stay close to the food. Bigger lessons are tucked into the Academy so the homepage can breathe.</p>
       </div>
       <div class="learning-pillar-grid">
-        ${learningPillars.map((pillar) => `
+        ${learningDoors.map((pillar) => `
           <a class="learning-pillar-card" href="${pillar.route}">
             <span>${pillar.title}</span>
             <p>${pillar.text}</p>
@@ -13332,6 +13396,18 @@ function renderRecipes() {
   `;
 }
 
+function recipeStepMicroTip(recipe, index) {
+  const tips = [
+    ...(recipe.tips || []),
+    ...(recipe.skills_learned || []).map((skill) => `Skill: ${skill}`),
+    recipe.cultural_origin ? `Story: ${recipe.cultural_origin}` : "",
+    recipe.substitutions ? `Swap: ${recipe.substitutions}` : ""
+  ].filter(Boolean);
+  const tip = tips[index % tips.length];
+  if (!tip) return "";
+  return `<aside class="step-micro-tip"><span>Learn while you cook</span>${tip}</aside>`;
+}
+
 function renderRecipe(id) {
   const recipe = recipeById(id) || recipes.find((item) => item.id === id) || recipes[0];
   if (!recipeHasPublishReadyPhoto(recipe)) {
@@ -13426,6 +13502,7 @@ function renderRecipe(id) {
             <section class="recipe-step-card">
               <strong>${index + 1}</strong>
               <p>${item}</p>
+              ${recipeStepMicroTip(recipe, index)}
             </section>
           `).join("")}</div>
         </article>
@@ -13433,9 +13510,8 @@ function renderRecipe(id) {
           <p class="eyebrow">Tips from Momma</p>
           <ul>${(recipe.tips?.length ? recipe.tips : ["Taste as you go. A recipe is a guide, but your kitchen gets the final say.", "Set everything out before the heat comes on so cooking feels calm.", "Let cooked meat rest before serving so the juices stay where they belong."]).map((item) => `<li>${item}</li>`).join("")}</ul>
         </article>
-        <article class="detail-panel recipe-intelligence-panel">
-          <p class="eyebrow">Cooking Intelligence</p>
-          <h2>Temperature, mistakes, and fixes.</h2>
+        <details class="detail-panel recipe-intelligence-panel teach-more-panel">
+          <summary><span class="eyebrow">Teach Me More</span><strong>Temperature, mistakes, and fixes.</strong></summary>
           <div class="detail-columns">
             <section>
               <h3>Cooking Temperature</h3>
@@ -13452,15 +13528,14 @@ function renderRecipe(id) {
               <ul>${(recipe.troubleshooting || []).map((item) => `<li>${item}</li>`).join("")}</ul>
             </section>
           </div>
-        </article>
-        <article class="detail-panel recipe-learning-panel">
-          <p class="eyebrow">What this teaches</p>
-          <h2>Skills, storage, and reheating.</h2>
+        </details>
+        <details class="detail-panel recipe-learning-panel teach-more-panel">
+          <summary><span class="eyebrow">Teach Me More</span><strong>Skills, storage, and reheating.</strong></summary>
           <div class="detail-columns">
             <section><h3>Skills learned</h3><ul>${(recipe.skills_learned || []).map((item) => `<li>${item}</li>`).join("")}</ul></section>
             <section><h3>Storage</h3><p>${recipe.storage}</p><h3>Reheating</h3><p>${recipe.reheating}</p></section>
           </div>
-        </article>
+        </details>
       </div>
     </section>
     ${partyRecipePanel}
