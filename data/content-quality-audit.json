@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-10T13:51:52.669Z",
+  "generatedAt": "2026-07-10T20:07:34.357Z",
   "summary": {
     "totalRecipes": 629,
     "duplicateRecipeIdGroups": 0,
@@ -14,6 +14,7 @@
     "incompleteRequiredHolidays": 0,
     "menuReferenceIssues": 0,
     "cuisineCollectionIssues": 0,
+    "trainingOnlyGeneralLeaks": 0,
     "recipesMissingRequiredDetails": 0,
     "recipesMissingRecommendedDetails": 629
   },
@@ -3426,6 +3427,7 @@
   "incompleteHolidayTables": [],
   "menuReferenceIssues": [],
   "cuisineCollectionIssues": [],
+  "trainingOnlyGeneralLeaks": [],
   "recipesMissingRequiredDetails": [],
   "recipesMissingRecommendedDetails": [
     {

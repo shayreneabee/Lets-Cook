@@ -3201,8 +3201,20 @@ function recipeById(id) {
   return recipeHasPublishReadyPhoto(recipe) ? recipe : null;
 }
 
-function allRecipeCollection() {
-  return [...userRecipeCollection(), ...recipes].filter(recipeHasPublishReadyPhoto);
+const trainingOnlyRecipeIds = new Set(["soft-scrambled-eggs"]);
+
+function isTrainingOnlyRecipe(recipe) {
+  return Boolean(recipe && trainingOnlyRecipeIds.has(recipe.id));
+}
+
+function recipeAllowedInGeneralCollection(recipe) {
+  return recipeHasPublishReadyPhoto(recipe) && !isTrainingOnlyRecipe(recipe);
+}
+
+function allRecipeCollection({ includeTraining = false } = {}) {
+  return [...userRecipeCollection(), ...recipes].filter((recipe) =>
+    recipeHasPublishReadyPhoto(recipe) && (includeTraining || !isTrainingOnlyRecipe(recipe))
+  );
 }
 
 function recipeLinksFor(ids = []) {
@@ -6982,12 +6994,13 @@ function recipesForCuisine(cuisineId, limit = 12) {
   const canonical = canonicalCuisineId(cuisineId || "global");
   const relatedIds = [canonical, ...(cuisineRecipeAliases[canonical] || [])];
   const wanted = new Set(relatedIds);
-  const publishableRecipes = recipes.filter(recipeHasPublishReadyPhoto);
+  const publishableRecipes = recipes.filter(recipeAllowedInGeneralCollection);
   const picked = [];
   const add = (items) => {
     items.forEach((item) => {
       if (
         item
+        && !isTrainingOnlyRecipe(item)
         && !forbiddenSpecialtyCuisinePattern.test(recipeSearchText(item))
         && !picked.some((existing) => existing.id === item.id)
         && picked.length < limit
@@ -7431,18 +7444,25 @@ function recipeTagline(recipe) {
 
 function relatedRecipesFor(recipe, limit = 6) {
   const picked = [];
+  const allowTrainingRelated = isTrainingOnlyRecipe(recipe) || recipe.path === "kid-chefs";
   const add = (items) => {
     items.forEach((item) => {
-      if (item && item.id !== recipe.id && !picked.some((existing) => existing.id === item.id) && picked.length < limit) {
+      if (
+        item
+        && item.id !== recipe.id
+        && (allowTrainingRelated || !isTrainingOnlyRecipe(item))
+        && !picked.some((existing) => existing.id === item.id)
+        && picked.length < limit
+      ) {
         picked.push(item);
       }
     });
   };
   add((recipe.related_recipe_ids || []).map((id) => recipeById(id)));
-  add(recipes.filter((item) => recipeHasPublishReadyPhoto(item) && item.cuisine === recipe.cuisine));
+  add(recipes.filter((item) => recipeAllowedInGeneralCollection(item) && item.cuisine === recipe.cuisine));
   if (picked.length < limit) {
     const tags = new Set(recipe.tags || []);
-    add(recipes.filter((item) => recipeHasPublishReadyPhoto(item) && (item.tags?.some((tag) => tags.has(tag)) || item.category === recipe.category)));
+    add(recipes.filter((item) => recipeAllowedInGeneralCollection(item) && (item.tags?.some((tag) => tags.has(tag)) || item.category === recipe.category)));
   }
   return picked.slice(0, limit);
 }
@@ -11603,7 +11623,7 @@ function homepageRecipeDiscoverySection() {
 }
 
 function renderLetsCookHome() {
-  const publishableRecipes = recipes.filter(recipeHasPublishReadyPhoto);
+  const publishableRecipes = recipes.filter(recipeAllowedInGeneralCollection);
   const recipeOfWeek = recipeById("yakamein") || publishableRecipes[0];
   const kidPick = recipeById("pb-and-j-sandwich") || publishableRecipes.find((recipe) => recipe.skill_level === "Junior Chef");
   const southernClassic = recipeById("oxtails") || publishableRecipes.find((recipe) => recipe.cuisine === "southern");
@@ -11664,7 +11684,7 @@ function renderLetsCookHome() {
         <p class="eyebrow">Tonight's table</p>
         <h2>Warm Picks From The Kitchen</h2>
       </div>
-      <div class="recipe-grid">${recipes.filter(recipeHasPublishReadyPhoto).slice(0, 6).map(recipeCard).join("")}</div>
+      <div class="recipe-grid">${recipes.filter(recipeAllowedInGeneralCollection).slice(0, 6).map(recipeCard).join("")}</div>
     </section>
   `;
 }
@@ -11873,7 +11893,7 @@ function recipeSearchText(recipe) {
 function recipesForIngredient(term) {
   const normalized = normalizeIngredientTerm(term);
   const words = normalized.split(" ").filter((word) => word.length > 2);
-  return recipes.filter((recipe) => {
+  return recipes.filter(recipeAllowedInGeneralCollection).filter((recipe) => {
     const haystack = recipeSearchText(recipe);
     return haystack.includes(normalized) || words.some((word) => haystack.includes(word));
   });

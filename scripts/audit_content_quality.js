@@ -16,6 +16,13 @@ globalThis.__contentQualityAudit = {
   recipeIdAliases,
   cuisines,
   controlledCuisineRecipeIds,
+  trainingOnlyRecipeIds: [...trainingOnlyRecipeIds],
+  generalRecipeCollection: allRecipeCollection().map((recipe) => ({
+    id: recipe.id,
+    title: recipe.title,
+    cuisine: recipe.cuisine || "",
+    category: recipe.category || ""
+  })),
   curatedHolidayTables,
   livingCookbookChapters,
   menuPairings,
@@ -242,6 +249,7 @@ const recipesMissingRequiredDetails = incompleteRecipes.filter((row) => row.miss
 const recipesMissingRecommendedDetails = incompleteRecipes.filter((row) => row.recommendedMissing.length);
 
 const forbiddenSpecialtyPattern = /pb&j|peanut butter|kids korner|apple nachos|ants on a log|scrambled eggs|plain toast|mini pizza|pizza faces|mac and cheese bites|smoothie cups|fruit kabob|fruit kabobs/i;
+const trainingOnlyGeneralLeaks = audit.generalRecipeCollection.filter((recipe) => audit.trainingOnlyRecipeIds.includes(recipe.id));
 const broadCuisineIds = new Set(["global", "hosting", "holiday"]);
 const cuisineCollectionIssues = audit.cuisineCollections.flatMap((collection) => {
   const controlledIds = new Set(audit.controlledCuisineRecipeIds?.[collection.id] || []);
@@ -283,6 +291,7 @@ const report = {
     incompleteRequiredHolidays: incompleteHolidayTables.length,
     menuReferenceIssues: menuReferenceIssues.length,
     cuisineCollectionIssues: cuisineCollectionIssues.length,
+    trainingOnlyGeneralLeaks: trainingOnlyGeneralLeaks.length,
     recipesMissingRequiredDetails: recipesMissingRequiredDetails.length,
     recipesMissingRecommendedDetails: recipesMissingRecommendedDetails.length
   },
@@ -297,6 +306,7 @@ const report = {
   incompleteHolidayTables,
   menuReferenceIssues,
   cuisineCollectionIssues,
+  trainingOnlyGeneralLeaks,
   recipesMissingRequiredDetails,
   recipesMissingRecommendedDetails,
   incompleteRecipes
@@ -324,6 +334,7 @@ const md = [
   `- Holiday tables needing work: ${report.summary.incompleteRequiredHolidays}`,
   `- Menu reference issue groups: ${report.summary.menuReferenceIssues}`,
   `- Cuisine collection issues: ${report.summary.cuisineCollectionIssues}`,
+  `- Training-only recipes in general discovery: ${report.summary.trainingOnlyGeneralLeaks}`,
   `- Recipes missing required details: ${report.summary.recipesMissingRequiredDetails}`,
   `- Recipes missing recommended enrichment details: ${report.summary.recipesMissingRecommendedDetails}`,
   "",
@@ -359,8 +370,9 @@ console.log(`Fallback/queued images: ${report.summary.fallbackImages}`);
 console.log(`Missing image files: ${report.summary.missingImageFiles}`);
 console.log(`Complete required holidays: ${report.summary.completeRequiredHolidays}/${report.summary.requiredHolidayCount}`);
 console.log(`Cuisine collection issues: ${report.summary.cuisineCollectionIssues}`);
+console.log(`Training-only recipes in general discovery: ${report.summary.trainingOnlyGeneralLeaks}`);
 console.log("Reports: data/content-quality-audit.json, data/content-quality-audit.md");
 
-if (missingImageFiles.length || duplicateRecipeIds.length || menuReferenceIssues.length || cuisineCollectionIssues.length) {
+if (missingImageFiles.length || duplicateRecipeIds.length || menuReferenceIssues.length || cuisineCollectionIssues.length || trainingOnlyGeneralLeaks.length) {
   process.exitCode = 1;
 }
