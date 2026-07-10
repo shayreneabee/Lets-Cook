@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-10T20:07:34.109Z",
-  "totalRecipes": 629,
+  "generatedAt": "2026-07-10T20:26:21.397Z",
+  "totalRecipes": 634,
   "uniqueImages": 495,
   "missingFiles": [],
   "fallbacks": [],
@@ -415,6 +415,10 @@
         {
           "id": "lebanese-tabbouleh",
           "title": "Lebanese Tabbouleh"
+        },
+        {
+          "id": "strawberry-poppy-seed-salad",
+          "title": "Strawberry Salad with Poppy Seed Dressing"
         }
       ]
     },
@@ -656,6 +660,19 @@
       ]
     },
     {
+      "image": "images/recipes/audit-2026-06/grape-salad.jpg",
+      "recipes": [
+        {
+          "id": "grape-salad",
+          "title": "Grape Salad"
+        },
+        {
+          "id": "halloween-eyeball-grape-treats",
+          "title": "Eyeball Grape Treats"
+        }
+      ]
+    },
+    {
       "image": "images/recipes/audit-2026-06/baked-ham.jpg",
       "recipes": [
         {
@@ -759,6 +776,19 @@
         {
           "id": "denver-omelet",
           "title": "Denver Omelet"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/simple-spaghetti.jpg",
+      "recipes": [
+        {
+          "id": "simple-spaghetti",
+          "title": "Simple Spaghetti"
+        },
+        {
+          "id": "halloween-monster-noodle-bowls",
+          "title": "Halloween Monster Noodle Bowls"
         }
       ]
     },
@@ -1096,6 +1126,14 @@
         {
           "id": "beef-tenderloin",
           "title": "Beef Tenderloin"
+        },
+        {
+          "id": "valentine-steak-dinner",
+          "title": "Valentine Steak Dinner"
+        },
+        {
+          "id": "garlic-butter-steak-bites",
+          "title": "Garlic Butter Steak Bites"
         }
       ]
     },
@@ -7526,6 +7564,56 @@
       "cuisine": "holiday",
       "category": "Christmas Drinks",
       "image": "images/juneteenth/fresh-lemonade.png",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "valentine-steak-dinner",
+      "title": "Valentine Steak Dinner",
+      "cuisine": "holiday",
+      "category": "Valentine's Day Mains",
+      "image": "images/recipes/audit-2026-06/nebraska-steak.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "garlic-butter-steak-bites",
+      "title": "Garlic Butter Steak Bites",
+      "cuisine": "holiday",
+      "category": "Valentine's Day Mains",
+      "image": "images/recipes/audit-2026-06/nebraska-steak.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "strawberry-poppy-seed-salad",
+      "title": "Strawberry Salad with Poppy Seed Dressing",
+      "cuisine": "holiday",
+      "category": "Easter Sides",
+      "image": "images/recipes/audit-2026-06/greek-salad.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "halloween-monster-noodle-bowls",
+      "title": "Halloween Monster Noodle Bowls",
+      "cuisine": "holiday",
+      "category": "Halloween Mains",
+      "image": "images/recipes/audit-2026-06/simple-spaghetti.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "halloween-eyeball-grape-treats",
+      "title": "Eyeball Grape Treats",
+      "cuisine": "holiday",
+      "category": "Halloween Desserts",
+      "image": "images/recipes/audit-2026-06/grape-salad.jpg",
       "source": "recipe-data",
       "fallbackUsed": false,
       "missingRecipeImage": false

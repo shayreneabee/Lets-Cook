@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-07-10T20:07:34.357Z",
+  "generatedAt": "2026-07-10T20:26:21.555Z",
   "summary": {
-    "totalRecipes": 629,
+    "totalRecipes": 634,
     "duplicateRecipeIdGroups": 0,
     "duplicateRecipeTitleGroups": 5,
     "uniqueImages": 495,
-    "sharedImageGroups": 94,
+    "sharedImageGroups": 96,
     "genericRecipeImages": 0,
     "fallbackImages": 0,
     "missingImageFiles": 0,
@@ -16,7 +16,7 @@
     "cuisineCollectionIssues": 0,
     "trainingOnlyGeneralLeaks": 0,
     "recipesMissingRequiredDetails": 0,
-    "recipesMissingRecommendedDetails": 629
+    "recipesMissingRecommendedDetails": 634
   },
   "duplicateRecipeIds": [],
   "duplicateRecipeTitles": [
@@ -661,7 +661,7 @@
     },
     {
       "image": "images/recipes/audit-2026-06/greek-salad.jpg",
-      "count": 3,
+      "count": 4,
       "recipes": [
         {
           "id": "greek-salad",
@@ -680,6 +680,12 @@
           "title": "Lebanese Tabbouleh",
           "cuisine": "mediterranean",
           "category": "Lebanese Mezze"
+        },
+        {
+          "id": "strawberry-poppy-seed-salad",
+          "title": "Strawberry Salad with Poppy Seed Dressing",
+          "cuisine": "holiday",
+          "category": "Easter Sides"
         }
       ]
     },
@@ -1014,6 +1020,24 @@
       ]
     },
     {
+      "image": "images/recipes/audit-2026-06/grape-salad.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "grape-salad",
+          "title": "Grape Salad",
+          "cuisine": "southern",
+          "category": "Church Lady Hall of Fame"
+        },
+        {
+          "id": "halloween-eyeball-grape-treats",
+          "title": "Eyeball Grape Treats",
+          "cuisine": "holiday",
+          "category": "Halloween Desserts"
+        }
+      ]
+    },
+    {
       "image": "images/recipes/audit-2026-06/baked-ham.jpg",
       "count": 2,
       "recipes": [
@@ -1160,6 +1184,24 @@
           "title": "Denver Omelet",
           "cuisine": "colorado",
           "category": "Diner Breakfast"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/simple-spaghetti.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "simple-spaghetti",
+          "title": "Simple Spaghetti",
+          "cuisine": "italian",
+          "category": "Food Around The World"
+        },
+        {
+          "id": "halloween-monster-noodle-bowls",
+          "title": "Halloween Monster Noodle Bowls",
+          "cuisine": "holiday",
+          "category": "Halloween Mains"
         }
       ]
     },
@@ -1597,7 +1639,7 @@
     },
     {
       "image": "images/recipes/audit-2026-06/nebraska-steak.jpg",
-      "count": 6,
+      "count": 8,
       "recipes": [
         {
           "id": "nebraska-steak",
@@ -1634,6 +1676,18 @@
           "title": "Beef Tenderloin",
           "cuisine": "holiday",
           "category": "Christmas Mains"
+        },
+        {
+          "id": "valentine-steak-dinner",
+          "title": "Valentine Steak Dinner",
+          "cuisine": "holiday",
+          "category": "Valentine's Day Mains"
+        },
+        {
+          "id": "garlic-butter-steak-bites",
+          "title": "Garlic Butter Steak Bites",
+          "cuisine": "holiday",
+          "category": "Valentine's Day Mains"
         }
       ]
     },
@@ -3160,7 +3214,7 @@
     {
       "title": "Valentine's Day",
       "present": true,
-      "recipeCount": 13,
+      "recipeCount": 16,
       "hasAppetizers": true,
       "hasMains": true,
       "hasSides": true,
@@ -3202,7 +3256,7 @@
     {
       "title": "Easter",
       "present": true,
-      "recipeCount": 15,
+      "recipeCount": 16,
       "hasAppetizers": true,
       "hasMains": true,
       "hasSides": true,
@@ -3314,7 +3368,7 @@
     {
       "title": "Halloween",
       "present": true,
-      "recipeCount": 16,
+      "recipeCount": 18,
       "hasAppetizers": true,
       "hasMains": true,
       "hasSides": true,
@@ -11404,6 +11458,71 @@
       "title": "Holiday Punch",
       "cuisine": "holiday",
       "category": "Christmas Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "valentine-steak-dinner",
+      "title": "Valentine Steak Dinner",
+      "cuisine": "holiday",
+      "category": "Valentine's Day Mains",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "garlic-butter-steak-bites",
+      "title": "Garlic Butter Steak Bites",
+      "cuisine": "holiday",
+      "category": "Valentine's Day Mains",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "strawberry-poppy-seed-salad",
+      "title": "Strawberry Salad with Poppy Seed Dressing",
+      "cuisine": "holiday",
+      "category": "Easter Sides",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "halloween-monster-noodle-bowls",
+      "title": "Halloween Monster Noodle Bowls",
+      "cuisine": "holiday",
+      "category": "Halloween Mains",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "halloween-eyeball-grape-treats",
+      "title": "Eyeball Grape Treats",
+      "cuisine": "holiday",
+      "category": "Halloween Desserts",
       "missing": [],
       "recommendedMissing": [
         "cultural_origin",
@@ -19583,6 +19702,71 @@
       "title": "Holiday Punch",
       "cuisine": "holiday",
       "category": "Christmas Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "valentine-steak-dinner",
+      "title": "Valentine Steak Dinner",
+      "cuisine": "holiday",
+      "category": "Valentine's Day Mains",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "garlic-butter-steak-bites",
+      "title": "Garlic Butter Steak Bites",
+      "cuisine": "holiday",
+      "category": "Valentine's Day Mains",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "strawberry-poppy-seed-salad",
+      "title": "Strawberry Salad with Poppy Seed Dressing",
+      "cuisine": "holiday",
+      "category": "Easter Sides",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "halloween-monster-noodle-bowls",
+      "title": "Halloween Monster Noodle Bowls",
+      "cuisine": "holiday",
+      "category": "Halloween Mains",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "halloween-eyeball-grape-treats",
+      "title": "Eyeball Grape Treats",
+      "cuisine": "holiday",
+      "category": "Halloween Desserts",
       "missing": [],
       "recommendedMissing": [
         "cultural_origin",

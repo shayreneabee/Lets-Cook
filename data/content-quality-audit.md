@@ -1,13 +1,13 @@
 # Let's Cook Y'all Content Quality Audit
 
-Generated: 2026-07-10T20:07:34.357Z
+Generated: 2026-07-10T20:26:21.555Z
 
 ## Summary
 
-- Recipes audited: 629
+- Recipes audited: 634
 - Duplicate recipe ID groups: 0
 - Duplicate recipe title groups: 5
-- Shared image groups: 94
+- Shared image groups: 96
 - Generic recipe image assignments: 0
 - Fallback/queued images: 0
 - Missing image files: 0
@@ -17,15 +17,15 @@ Generated: 2026-07-10T20:07:34.357Z
 - Cuisine collection issues: 0
 - Training-only recipes in general discovery: 0
 - Recipes missing required details: 0
-- Recipes missing recommended enrichment details: 629
+- Recipes missing recommended enrichment details: 634
 
 ## Required Holiday Coverage
 
 - OK: New Year's (13 recipes)
-- OK: Valentine's Day (13 recipes)
+- OK: Valentine's Day (16 recipes)
 - OK: Mardi Gras (15 recipes)
 - OK: St. Patrick's Day (13 recipes)
-- OK: Easter (15 recipes)
+- OK: Easter (16 recipes)
 - OK: Cinco de Mayo (16 recipes)
 - OK: Mother's Day (14 recipes)
 - OK: Father's Day (15 recipes)
@@ -33,7 +33,7 @@ Generated: 2026-07-10T20:07:34.357Z
 - OK: Juneteenth (19 recipes)
 - OK: Fourth of July (21 recipes)
 - OK: Labor Day (17 recipes)
-- OK: Halloween (16 recipes)
+- OK: Halloween (18 recipes)
 - OK: Thanksgiving (26 recipes)
 - OK: Christmas (27 recipes)
 - OK: Kwanzaa (17 recipes)
