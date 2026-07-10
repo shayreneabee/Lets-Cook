@@ -6801,22 +6801,22 @@ const cuisineAliases = {
 };
 
 const cuisineRecipeAliases = {
-  creole: ["cajun", "southern"],
-  cajun: ["creole", "southern"],
+  creole: [],
+  cajun: [],
   "soul-food": ["southern", "mississippi-favorites"],
-  bbq: ["southern", "mississippi-favorites"],
-  "low-country": ["southern", "seafood"],
+  bbq: [],
+  "low-country": [],
   "mississippi-favorites": ["southern", "soul-food", "creole"],
-  "asian-inspired": ["global"],
-  indian: ["mediterranean", "global"],
+  "asian-inspired": [],
+  indian: [],
   nigerian: [],
   ghanaian: [],
   ethiopian: [],
   moroccan: [],
-  caribbean: ["global"],
-  mediterranean: ["italian", "global"],
-  italian: ["mediterranean"],
-  hosting: ["southern", "global"],
+  caribbean: [],
+  mediterranean: [],
+  italian: [],
+  hosting: ["southern"],
   "holiday-sunday": ["holiday", "southern", "bbq"],
   midwest: ["chicago", "wisconsin", "michigan", "minnesota", "indiana", "ohio", "iowa", "missouri", "kansas", "nebraska", "north-dakota", "south-dakota"],
   chicago: ["midwest"],
@@ -6833,6 +6833,111 @@ const cuisineRecipeAliases = {
   "south-dakota": ["midwest"],
   global: ["southern", "asian-inspired", "mediterranean", "mexican", "indian", "caribbean", "italian", "midwest"]
 };
+
+const controlledCuisineRecipeIds = {
+  indian: [
+    "tandoori-chicken",
+    "butter-chicken",
+    "chicken-tikka-masala",
+    "biryani",
+    "palak-paneer",
+    "chana-masala",
+    "indian-dal-tadka",
+    "garlic-naan",
+    "cucumber-raita",
+    "kachumber-salad",
+    "mint-chutney",
+    "mango-lassi",
+    "kheer"
+  ],
+  "asian-inspired": [
+    "japanese-teriyaki-chicken-bowls",
+    "chinese-dumpling-night",
+    "korean-bulgogi-rice-bowls",
+    "thai-basil-chicken",
+    "vietnamese-spring-rolls",
+    "filipino-chicken-adobo",
+    "taiwanese-beef-noodle-soup",
+    "pakistani-chicken-biryani",
+    "nepali-momo-dumplings",
+    "sri-lankan-fish-curry",
+    "malaysian-nasi-lemak",
+    "indonesian-nasi-goreng",
+    "orange-chicken",
+    "shrimp-fried-rice"
+  ],
+  mexican: [
+    "beef-tacos",
+    "chicken-street-tacos",
+    "tex-mex-breakfast-tacos",
+    "black-bean-enchiladas",
+    "chicken-quesadillas",
+    "salvadoran-pupusa-supper",
+    "venezuelan-arepas",
+    "colombian-arepa-plates",
+    "new-mexico-posole",
+    "carne-asada"
+  ],
+  mediterranean: [
+    "greek-chicken-souvlaki-plates",
+    "turkish-red-lentil-soup",
+    "lebanese-tabbouleh",
+    "egyptian-koshari-bowls",
+    "moroccan-vegetable-couscous",
+    "persian-herb-stew",
+    "palestinian-musakhan-style-chicken",
+    "saudi-kabsa-chicken",
+    "creamy-hummus",
+    "greek-salad"
+  ],
+  caribbean: [
+    "jamaican-jerk-chicken",
+    "haitian-griot-style-pork",
+    "trinidad-doubles-style-chickpeas",
+    "puerto-rican-mofongo-bowls",
+    "bajan-macaroni-pie",
+    "cuban-sandwich-press",
+    "rice-and-peas",
+    "caribbean-curry-chicken"
+  ],
+  italian: [
+    "italian-pasta-pomodoro",
+    "simple-spaghetti",
+    "chicken-parmesan",
+    "baked-spaghetti",
+    "chicken-alfredo"
+  ],
+  cajun: [
+    "cajun-chicken-sausage-gumbo",
+    "cajun-jambalaya",
+    "cajun-shrimp-etouffee",
+    "cajun-dirty-rice",
+    "blackened-swordfish",
+    "creole-seafood-gumbo",
+    "creole-shrimp-creole"
+  ],
+  creole: [
+    "creole-shrimp-creole",
+    "creole-seafood-gumbo",
+    "creole-courtbouillon",
+    "creole-bananas-foster",
+    "cajun-chicken-sausage-gumbo",
+    "cajun-jambalaya",
+    "cajun-shrimp-etouffee"
+  ],
+  bbq: [
+    "bbq-brisket-basics",
+    "bbq-smoked-ribs",
+    "bbq-pulled-pork",
+    "bbq-chicken-quarters",
+    "bbq-baked-beans",
+    "alabama-pulled-pork-sandwiches",
+    "eastern-nc-bbq",
+    "lexington-bbq"
+  ]
+};
+
+const forbiddenSpecialtyCuisinePattern = /pb&j|peanut butter|kids korner|apple nachos|ants on a log|scrambled eggs|plain toast|mini pizza|pizza faces|mac and cheese bites|smoothie cups|fruit kabob|fruit kabobs/i;
 
 const strictCuisineIds = new Set([
   "southern",
@@ -6881,23 +6986,39 @@ function recipesForCuisine(cuisineId, limit = 12) {
   const picked = [];
   const add = (items) => {
     items.forEach((item) => {
-      if (item && !picked.some((existing) => existing.id === item.id) && picked.length < limit) {
+      if (
+        item
+        && !forbiddenSpecialtyCuisinePattern.test(recipeSearchText(item))
+        && !picked.some((existing) => existing.id === item.id)
+        && picked.length < limit
+      ) {
         picked.push(item);
       }
     });
   };
+  if (controlledCuisineRecipeIds[canonical]) {
+    add(recipesByIds(controlledCuisineRecipeIds[canonical]));
+  }
   add(publishableRecipes.filter((recipe) => wanted.has(recipe.cuisine)));
-  if (picked.length < limit) {
+  if (!strictCuisineIds.has(canonical) && picked.length < limit) {
     const tokens = relatedIds.flatMap((id) => id.split("-")).filter((word) => word.length > 2);
     add(publishableRecipes.filter((recipe) => {
       const haystack = recipeSearchText(recipe);
       return tokens.some((token) => haystack.includes(token));
     }));
   }
-  if (!strictCuisineIds.has(canonical) && picked.length < Math.min(4, limit)) {
-    add(publishableRecipes.filter((recipe) => recipe.ingredients?.length && (recipe.directions?.length || recipe.steps?.length)));
-  }
   return picked.slice(0, limit);
+}
+
+function cuisineComingSoonMarkup(title, context = "this cuisine") {
+  return `
+    <div class="empty-state cuisine-coming-soon">
+      <p class="eyebrow">More recipes are coming</p>
+      <h3>${title}</h3>
+      <p>We do not fill ${context} with unrelated fallback recipes. When the recipe, cuisine tag, and photo all match, it will appear here.</p>
+      <a class="small-button secondary" href="#recipes">Browse ready recipes</a>
+    </div>
+  `;
 }
 
 const holidaySundayRecipeIds = [
@@ -7089,6 +7210,8 @@ function realPracticeBackfill(normalizedId, recipeCuisineId, profile, group, par
   ].filter(Boolean).map(canonicalCuisineId).filter((id) => id && !broadCuisineIds.has(id)));
   const profileText = practiceProfileSearchText(profile, group, parentGroup);
   const existingIds = new Set(existing.map((item) => item.recipe?.id).filter(Boolean));
+  const controlledIds = new Set([...canonicalIds].flatMap((id) => controlledCuisineRecipeIds[id] || []));
+  const isSpecialtyCuisine = [...canonicalIds].some((id) => strictCuisineIds.has(id));
   const weakPracticeTokens = new Set(["about", "across", "cuisine", "cuisines", "culture", "dish", "dishes", "family", "food", "foods", "fresh", "meal", "meals", "plate", "plates", "recipe", "recipes", "regional", "style", "table", "traditional"]);
   const levelNeedles = {
     beginner: /beginner|easy|quick|fresh|salad|soup|rice|bowl|starter|snack/i,
@@ -7098,6 +7221,8 @@ function realPracticeBackfill(normalizedId, recipeCuisineId, profile, group, par
   const scored = recipes.filter(recipeHasPublishReadyPhoto).map((recipe) => {
     if (existingIds.has(recipe.id)) return null;
     const recipeCuisine = canonicalCuisineId(recipe.cuisine);
+    if (forbiddenSpecialtyCuisinePattern.test(recipeSearchText(recipe))) return null;
+    if (isSpecialtyCuisine && !canonicalIds.has(recipeCuisine) && !controlledIds.has(recipe.id)) return null;
     const haystack = slugify(recipeSearchText(recipe));
     let score = 0;
     if (canonicalIds.has(recipeCuisine)) score += 7;
@@ -12320,6 +12445,7 @@ function renderCuisineExplorerDetail(id) {
   const familyFavorites = cuisineProfileList(profile, "familyFavorites", dishes.slice(0, 5));
   const quickMeals = cuisineProfileList(profile, "quickMeals", lunch);
   const regionalDifferences = cuisineProfileList(profile, "regionalDifferences", [`${title} includes regional differences by city, coast, climate, community, and family tradition.`]);
+  const cuisineRecipes = recipesForCuisine(recipeCuisineId, 12);
   const practiceTrack = practiceTrackForCuisine(normalized, recipeCuisineId, profile, group, parentGroup);
   const regions = group?.regions || [];
   app.innerHTML = `
@@ -12331,6 +12457,16 @@ function renderCuisineExplorerDetail(id) {
         <h2>${title} food culture, meals, pantry, techniques, and passport progress.</h2>
       </div>
       ${profile ? globalCuisinePassportPanel(normalized, profile, title) : ""}
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Cook ${title}</p>
+        <h2>Real recipes that belong in this cuisine path.</h2>
+        <p>Only recipes with matching cuisine data and publish-ready photos appear here.</p>
+      </div>
+      ${cuisineRecipes.length
+        ? `<div class="recipe-grid cuisine-first-recipe-grid">${cuisineRecipes.slice(0, 8).map(recipeCard).join("")}</div>`
+        : cuisineComingSoonMarkup(`${title} recipes`, title)}
+      <details class="detail-panel cuisine-learning-more">
+        <summary><span class="eyebrow">Teach Me More</span><strong>Food culture, pantry, meals, and technique.</strong></summary>
       <div class="academy-module-grid">
         <article class="academy-module-card"><h3>Overview</h3><p>${overview}</p></article>
         <article class="academy-module-card"><h3>Food Culture</h3><p>${profile?.culture || "This food lane is shaped by geography, family memory, ingredients, migration, celebration, and everyday hospitality."}</p></article>
@@ -12358,10 +12494,11 @@ function renderCuisineExplorerDetail(id) {
         <article class="academy-module-card"><h3>Menu Example</h3><ul>${menu.map((item) => `<li>${item}</li>`).join("")}</ul></article>
         ${practiceTrackSummary(practiceTrack)}
       </div>
+      </details>
       ${profile ? globalCuisineChallengePanel(normalized, profile, title) : ""}
       ${globalCuisineDiscoveryPanel(title)}
       <div class="section-heading compact-heading"><p class="eyebrow">Cuisine-specific practice</p><h2>Practice recipes for ${title}.</h2><p>Each practice card uses ingredients, techniques, and images that belong to this cuisine path.</p></div>
-      ${practiceTrackMarkup(practiceTrack, title)}
+      ${practiceTrackMarkup(practiceTrack, title) || cuisineComingSoonMarkup(`${title} practice recipes`, title)}
       ${regions.length ? `<div class="section-heading compact-heading"><p class="eyebrow">Country paths</p><h2>Choose a country or region next.</h2></div><div class="region-chip-row linked-chip-row">${regions.map((region) => `<a href="#cuisine-explorer/${slugify(region)}">${region}</a>`).join("")}</div>` : ""}
       ${progressionNav("#cuisine-explorer", "All Cuisines", "#culinary-academy/world-foods", "World Foods Lesson", ["#what-yall-cooking", "#hosting"])}
     </section>
@@ -14086,19 +14223,21 @@ function renderCuisine(id) {
     <section class="cream-section">
       <div class="section-heading">
         <p class="eyebrow">${cuisine.name}</p>
-        <h2>Learn the culture, ingredients, techniques, and recipes.</h2>
-        <p>${education.culture}</p>
+        <h2>${isHolidaySunday ? "A curated holiday table." : "Recipe choices that belong here."}</h2>
+        <p>${isHolidaySunday ? "Holiday menus are curated from holiday-tagged recipes only." : "Cuisine pages use controlled recipe mapping and exact cuisine tags, not generic fallback cards."}</p>
       </div>
+      ${cuisineRecipes.length
+        ? `<div class="recipe-grid">${cuisineRecipes.map(recipeCard).join("")}</div>`
+        : cuisineComingSoonMarkup(`${cuisine.name} recipes`, cuisine.name)}
+      <details class="detail-panel cuisine-learning-more">
+        <summary><span class="eyebrow">Teach Me More</span><strong>Ingredients, techniques, and menu ideas.</strong></summary>
       <div class="academy-module-grid cuisine-learning-grid">
         <article class="academy-module-card"><h3>Key Ingredients</h3><ul>${education.ingredients.map((item) => `<li>${item}</li>`).join("")}</ul></article>
         <article class="academy-module-card"><h3>Core Techniques</h3><ul>${education.techniques.map((item) => `<li>${item}</li>`).join("")}</ul></article>
         <article class="academy-module-card"><h3>Menu Ideas</h3><ul>${education.menus.map((item) => `<li>${item}</li>`).join("")}</ul></article>
       </div>
-      <div class="section-heading">
-        <p class="eyebrow">${isHolidaySunday ? "Holiday Hub" : "Cook this cuisine"}</p>
-        <h2>${isHolidaySunday ? "Turkey, ham, dressing, roasts, holiday sides, desserts, and cookout classics." : "Recipe choices that belong here."}</h2>
-      </div>
-      <div class="recipe-grid">${cuisineRecipes.map(recipeCard).join("")}</div>
+      <p class="detail-copy">${education.culture}</p>
+      </details>
       ${["southern", "soul-food"].includes(cuisine.id) ? livingCookbookHub() : ""}
       ${cuisine.id === "soul-food" ? regionalSoulFoodHub() : ""}
       ${cuisine.id === "holiday-sunday" ? holidayTablesFeature() : ""}

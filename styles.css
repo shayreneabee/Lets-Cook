@@ -3618,25 +3618,29 @@ select {
   text-transform: uppercase;
 }
 
-.teach-more-panel summary {
+.teach-more-panel summary,
+.cuisine-learning-more summary {
   display: grid;
   gap: 8px;
   cursor: pointer;
   list-style: none;
 }
 
-.teach-more-panel summary::-webkit-details-marker {
+.teach-more-panel summary::-webkit-details-marker,
+.cuisine-learning-more summary::-webkit-details-marker {
   display: none;
 }
 
-.teach-more-panel summary strong {
+.teach-more-panel summary strong,
+.cuisine-learning-more summary strong {
   color: var(--green-dark);
   font-family: var(--serif);
   font-size: clamp(1.35rem, 2.4vw, 2rem);
   font-weight: 400;
 }
 
-.teach-more-panel summary::after {
+.teach-more-panel summary::after,
+.cuisine-learning-more summary::after {
   content: "Open";
   width: fit-content;
   padding: 7px 12px;
@@ -3648,12 +3652,19 @@ select {
   font-weight: 900;
 }
 
-.teach-more-panel[open] summary {
+.teach-more-panel[open] summary,
+.cuisine-learning-more[open] summary {
   margin-bottom: 18px;
 }
 
-.teach-more-panel[open] summary::after {
+.teach-more-panel[open] summary::after,
+.cuisine-learning-more[open] summary::after {
   content: "Close";
+}
+
+.cuisine-first-recipe-grid,
+.cuisine-learning-more {
+  margin-bottom: clamp(20px, 4vw, 42px);
 }
 
 .ingredients-panel ul,

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-08T15:10:52.260Z",
+  "generatedAt": "2026-07-10T13:51:52.669Z",
   "summary": {
     "totalRecipes": 629,
     "duplicateRecipeIdGroups": 0,
@@ -13,6 +13,7 @@
     "completeRequiredHolidays": 20,
     "incompleteRequiredHolidays": 0,
     "menuReferenceIssues": 0,
+    "cuisineCollectionIssues": 0,
     "recipesMissingRequiredDetails": 0,
     "recipesMissingRecommendedDetails": 629
   },
@@ -2038,6 +2039,1105 @@
       ]
     }
   ],
+  "cuisineCollections": [
+    {
+      "id": "creole",
+      "name": "Creole",
+      "recipes": [
+        {
+          "id": "creole-shrimp-creole",
+          "title": "Shrimp Creole",
+          "cuisine": "creole",
+          "category": "Creole",
+          "image": "images/recipes/audit-2026-06/creole-shrimp-creole.jpg"
+        },
+        {
+          "id": "creole-seafood-gumbo",
+          "title": "Creole Seafood Gumbo",
+          "cuisine": "creole",
+          "category": "Creole",
+          "image": "images/recipes/audit-2026-06/creole-seafood-gumbo.jpg"
+        },
+        {
+          "id": "creole-courtbouillon",
+          "title": "Fish Courtbouillon",
+          "cuisine": "creole",
+          "category": "Creole",
+          "image": "images/recipes/audit-2026-06/creole-courtbouillon.jpg"
+        },
+        {
+          "id": "creole-bananas-foster",
+          "title": "Bananas Foster",
+          "cuisine": "creole",
+          "category": "Desserts",
+          "image": "images/recipes/audit-2026-06/creole-bananas-foster.jpg"
+        },
+        {
+          "id": "cajun-chicken-sausage-gumbo",
+          "title": "Chicken and Sausage Gumbo",
+          "cuisine": "cajun",
+          "category": "Cajun",
+          "image": "images/recipes/audit-2026-06/cajun-chicken-sausage-gumbo.jpg"
+        },
+        {
+          "id": "cajun-jambalaya",
+          "title": "Chicken and Sausage Jambalaya",
+          "cuisine": "cajun",
+          "category": "Cajun",
+          "image": "images/recipes/audit-2026-06/cajun-jambalaya.jpg"
+        },
+        {
+          "id": "cajun-shrimp-etouffee",
+          "title": "Shrimp Etouffee",
+          "cuisine": "cajun",
+          "category": "Cajun",
+          "image": "images/recipes/audit-2026-06/cajun-shrimp-etouffee.jpg"
+        },
+        {
+          "id": "yakamein",
+          "title": "Yakamein",
+          "cuisine": "creole",
+          "category": "Southern Comfort",
+          "image": "images/recipes/audit-2026-06/yakamein.jpg"
+        },
+        {
+          "id": "cajun-cream-pasta",
+          "title": "Cajun Cream Salmon Rotini Pasta",
+          "cuisine": "creole",
+          "category": "Quick Weeknight Meals",
+          "image": "images/recipes/audit-2026-06/cajun-cream-pasta.jpg"
+        },
+        {
+          "id": "blackened-fish",
+          "title": "Blackened Fish",
+          "cuisine": "creole",
+          "category": "Quick Weeknight Meals",
+          "image": "images/recipes/audit-2026-06/blackened-fish.jpg"
+        },
+        {
+          "id": "white-rice",
+          "title": "Steamed White Rice",
+          "cuisine": "creole",
+          "category": "Sides",
+          "image": "images/recipes/audit-2026-06/white-rice.jpg"
+        },
+        {
+          "id": "okra-tomato-stew",
+          "title": "Okra and Tomato Stew",
+          "cuisine": "creole",
+          "category": "Sides",
+          "image": "images/recipes/audit-2026-06/okra-tomato-stew.jpg"
+        },
+        {
+          "id": "green-salad",
+          "title": "Simple Green Salad",
+          "cuisine": "creole",
+          "category": "Salads",
+          "image": "images/recipes/audit-2026-06/green-salad.jpg"
+        },
+        {
+          "id": "buttered-vegetables",
+          "title": "Buttered Vegetables",
+          "cuisine": "creole",
+          "category": "Sides",
+          "image": "images/recipes/audit-2026-06/buttered-vegetables.jpg"
+        },
+        {
+          "id": "creole-seasoning-blend",
+          "title": "Creole Seasoning Blend",
+          "cuisine": "creole",
+          "category": "Seasonings",
+          "image": "images/recipes/audit-2026-06/creole-seasoning-blend.jpg"
+        }
+      ]
+    },
+    {
+      "id": "cajun",
+      "name": "Cajun",
+      "recipes": [
+        {
+          "id": "cajun-chicken-sausage-gumbo",
+          "title": "Chicken and Sausage Gumbo",
+          "cuisine": "cajun",
+          "category": "Cajun",
+          "image": "images/recipes/audit-2026-06/cajun-chicken-sausage-gumbo.jpg"
+        },
+        {
+          "id": "cajun-jambalaya",
+          "title": "Chicken and Sausage Jambalaya",
+          "cuisine": "cajun",
+          "category": "Cajun",
+          "image": "images/recipes/audit-2026-06/cajun-jambalaya.jpg"
+        },
+        {
+          "id": "cajun-shrimp-etouffee",
+          "title": "Shrimp Etouffee",
+          "cuisine": "cajun",
+          "category": "Cajun",
+          "image": "images/recipes/audit-2026-06/cajun-shrimp-etouffee.jpg"
+        },
+        {
+          "id": "cajun-dirty-rice",
+          "title": "Dirty Rice",
+          "cuisine": "cajun",
+          "category": "Cajun",
+          "image": "images/recipes/audit-2026-06/cajun-dirty-rice.jpg"
+        },
+        {
+          "id": "blackened-swordfish",
+          "title": "Blackened Swordfish",
+          "cuisine": "southern",
+          "category": "Seafood",
+          "image": "images/recipes/audit-2026-06/blackened-swordfish.jpg"
+        },
+        {
+          "id": "creole-seafood-gumbo",
+          "title": "Creole Seafood Gumbo",
+          "cuisine": "creole",
+          "category": "Creole",
+          "image": "images/recipes/audit-2026-06/creole-seafood-gumbo.jpg"
+        },
+        {
+          "id": "creole-shrimp-creole",
+          "title": "Shrimp Creole",
+          "cuisine": "creole",
+          "category": "Creole",
+          "image": "images/recipes/audit-2026-06/creole-shrimp-creole.jpg"
+        },
+        {
+          "id": "smothered-green-beans",
+          "title": "Smothered Green Beans",
+          "cuisine": "cajun",
+          "category": "Sides",
+          "image": "images/recipes/audit-2026-06/smothered-green-beans.jpg"
+        },
+        {
+          "id": "corn-maque-choux",
+          "title": "Corn Maque Choux",
+          "cuisine": "cajun",
+          "category": "Sides",
+          "image": "images/recipes/audit-2026-06/corn-maque-choux.jpg"
+        },
+        {
+          "id": "french-bread",
+          "title": "Warm French Bread",
+          "cuisine": "cajun",
+          "category": "Breads",
+          "image": "images/recipes/audit-2026-06/french-bread.jpg"
+        },
+        {
+          "id": "crawfish-cornbread-casserole",
+          "title": "Crawfish Cornbread Casserole",
+          "cuisine": "cajun",
+          "category": "Southern Casseroles",
+          "image": "images/recipes/audit-2026-06/crawfish-cornbread-casserole.jpg"
+        }
+      ]
+    },
+    {
+      "id": "bbq",
+      "name": "BBQ",
+      "recipes": [
+        {
+          "id": "bbq-brisket-basics",
+          "title": "Brisket Basics",
+          "cuisine": "bbq",
+          "category": "BBQ",
+          "image": "images/juneteenth/smoked-sliced-brisket.png"
+        },
+        {
+          "id": "bbq-smoked-ribs",
+          "title": "Sticky BBQ Ribs",
+          "cuisine": "bbq",
+          "category": "BBQ",
+          "image": "images/regional/mississippi/ribs.jpg"
+        },
+        {
+          "id": "bbq-pulled-pork",
+          "title": "Pulled Pork Shoulder",
+          "cuisine": "bbq",
+          "category": "BBQ",
+          "image": "images/regional/mississippi/pulled-pork.jpg"
+        },
+        {
+          "id": "bbq-chicken-quarters",
+          "title": "BBQ Chicken Quarters",
+          "cuisine": "bbq",
+          "category": "BBQ",
+          "image": "images/regional/mississippi/bbq-chicken.jpg"
+        },
+        {
+          "id": "bbq-baked-beans",
+          "title": "BBQ Baked Beans",
+          "cuisine": "bbq",
+          "category": "Sides",
+          "image": "images/juneteenth/bbq-baked-beans.png"
+        },
+        {
+          "id": "alabama-pulled-pork-sandwiches",
+          "title": "Alabama Pulled Pork Sandwiches",
+          "cuisine": "alabama",
+          "category": "BBQ",
+          "image": "images/recipes/audit-2026-06/alabama-pulled-pork-sandwiches.jpg"
+        },
+        {
+          "id": "eastern-nc-bbq",
+          "title": "Eastern North Carolina Chopped BBQ",
+          "cuisine": "north-carolina",
+          "category": "BBQ",
+          "image": "images/recipes/audit-2026-06/eastern-nc-bbq.jpg"
+        },
+        {
+          "id": "lexington-bbq",
+          "title": "Lexington-Style Pork Shoulder BBQ",
+          "cuisine": "north-carolina",
+          "category": "BBQ",
+          "image": "images/recipes/audit-2026-06/lexington-bbq.jpg"
+        },
+        {
+          "id": "corn-on-the-cob",
+          "title": "Buttery Corn on the Cob",
+          "cuisine": "bbq",
+          "category": "Sides",
+          "image": "images/recipes/audit-2026-06/corn-on-the-cob.jpg"
+        },
+        {
+          "id": "slider-buns",
+          "title": "Soft Slider Buns",
+          "cuisine": "bbq",
+          "category": "Breads",
+          "image": "images/recipes/audit-2026-06/slider-buns.jpg"
+        },
+        {
+          "id": "bbq-sauce-trio",
+          "title": "BBQ Sauce Trio",
+          "cuisine": "bbq",
+          "category": "Sauces",
+          "image": "images/recipes/audit-2026-06/bbq-sauce-trio.jpg"
+        },
+        {
+          "id": "all-american-burgers",
+          "title": "All-American Burgers",
+          "cuisine": "bbq",
+          "category": "Fourth of July Collection",
+          "image": "images/recipes/audit-2026-06/wisconsin-butter-burgers.jpg"
+        },
+        {
+          "id": "classic-cookout-hot-dogs",
+          "title": "Classic Cookout Hot Dogs",
+          "cuisine": "bbq",
+          "category": "Fourth of July Collection",
+          "image": "images/recipes/audit-2026-06/chicago-style-hot-dog.jpg"
+        },
+        {
+          "id": "cookout-watermelon-wedges",
+          "title": "Cookout Watermelon Wedges",
+          "cuisine": "bbq",
+          "category": "Fourth of July Collection",
+          "image": "images/juneteenth/watermelon-platter.png"
+        }
+      ]
+    },
+    {
+      "id": "indian",
+      "name": "Indian",
+      "recipes": [
+        {
+          "id": "tandoori-chicken",
+          "title": "Tandoori-Style Chicken",
+          "cuisine": "indian",
+          "category": "Global Flavors",
+          "image": "images/recipes/audit-2026-06/tandoori-chicken.jpg"
+        },
+        {
+          "id": "butter-chicken",
+          "title": "Butter Chicken",
+          "cuisine": "indian",
+          "category": "Family Dinners",
+          "image": "images/recipes/audit-2026-06/butter-chicken.jpg"
+        },
+        {
+          "id": "chicken-tikka-masala",
+          "title": "Chicken Tikka Masala",
+          "cuisine": "indian",
+          "category": "Global Flavors",
+          "image": "images/recipes/audit-2026-06/chicken-tikka-masala.jpg"
+        },
+        {
+          "id": "biryani",
+          "title": "Beginner Chicken Biryani",
+          "cuisine": "indian",
+          "category": "Family Dinners",
+          "image": "images/recipes/audit-2026-06/biryani.jpg"
+        },
+        {
+          "id": "palak-paneer",
+          "title": "Palak Paneer",
+          "cuisine": "indian",
+          "category": "Vegetarian",
+          "image": "images/recipes/audit-2026-06/palak-paneer.jpg"
+        },
+        {
+          "id": "chana-masala",
+          "title": "Chana Masala",
+          "cuisine": "indian",
+          "category": "Vegetarian",
+          "image": "images/recipes/audit-2026-06/chana-masala.jpg"
+        },
+        {
+          "id": "indian-dal-tadka",
+          "title": "Dal Tadka",
+          "cuisine": "indian",
+          "category": "Indian",
+          "image": "images/recipes/audit-2026-06/indian-dal-tadka.jpg"
+        },
+        {
+          "id": "garlic-naan",
+          "title": "Garlic Naan",
+          "cuisine": "indian",
+          "category": "Beginner Basics",
+          "image": "images/recipes/audit-2026-06/garlic-naan.jpg"
+        },
+        {
+          "id": "cucumber-raita",
+          "title": "Cucumber Raita",
+          "cuisine": "indian",
+          "category": "Sauces",
+          "image": "images/recipes/audit-2026-06/cucumber-raita.jpg"
+        },
+        {
+          "id": "kachumber-salad",
+          "title": "Kachumber Salad",
+          "cuisine": "indian",
+          "category": "Salads",
+          "image": "images/recipes/audit-2026-06/kachumber-salad.jpg"
+        },
+        {
+          "id": "mint-chutney",
+          "title": "Mint Chutney",
+          "cuisine": "indian",
+          "category": "Sauces",
+          "image": "images/recipes/audit-2026-06/mint-chutney.jpg"
+        },
+        {
+          "id": "mango-lassi",
+          "title": "Mango Lassi",
+          "cuisine": "indian",
+          "category": "Drinks",
+          "image": "images/recipes/audit-2026-06/mango-lassi.jpg"
+        },
+        {
+          "id": "kheer",
+          "title": "Rice Kheer",
+          "cuisine": "indian",
+          "category": "Desserts",
+          "image": "images/recipes/audit-2026-06/kheer.jpg"
+        },
+        {
+          "id": "indian-yellow-dal-tadka",
+          "title": "Indian Yellow Dal Tadka",
+          "cuisine": "indian",
+          "category": "Indian Comfort",
+          "image": "images/recipes/audit-2026-06/indian-dal-tadka.jpg"
+        }
+      ]
+    },
+    {
+      "id": "mexican",
+      "name": "Mexican",
+      "recipes": [
+        {
+          "id": "beef-tacos",
+          "title": "Weeknight Beef Tacos",
+          "cuisine": "mexican",
+          "category": "Global Dishes",
+          "image": "images/recipes/audit-2026-06/beef-tacos.jpg"
+        },
+        {
+          "id": "tex-mex-breakfast-tacos",
+          "title": "Tex-Mex Breakfast Tacos",
+          "cuisine": "mexican",
+          "category": "Borderlands Breakfast",
+          "image": "images/recipes/southwest-2026/breakfast-tacos.jpg"
+        },
+        {
+          "id": "chicken-quesadillas",
+          "title": "Chicken Quesadillas",
+          "cuisine": "mexican",
+          "category": "Family Dinner",
+          "image": "images/recipes/audit-2026-06/chicken-quesadillas.jpg"
+        },
+        {
+          "id": "salvadoran-pupusa-supper",
+          "title": "Salvadoran Pupusa Supper",
+          "cuisine": "mexican",
+          "category": "Central American Masa",
+          "image": "images/recipes/mid-atlantic-2026/salvadoran-pupusas.jpg"
+        },
+        {
+          "id": "venezuelan-arepas",
+          "title": "Venezuelan Arepas",
+          "cuisine": "mexican",
+          "category": "Venezuelan Griddle",
+          "image": "images/recipes/audit-2026-06/corn-tortillas.jpg"
+        },
+        {
+          "id": "colombian-arepa-plates",
+          "title": "Colombian Arepa Plates",
+          "cuisine": "mexican",
+          "category": "Colombian Griddle",
+          "image": "images/recipes/audit-2026-06/corn-tortillas.jpg"
+        },
+        {
+          "id": "new-mexico-posole",
+          "title": "New Mexico Posole",
+          "cuisine": "new-mexico",
+          "category": "New Mexico Stews",
+          "image": "images/recipes/southwest-2026/new-mexico-posole.jpg"
+        },
+        {
+          "id": "carne-asada",
+          "title": "Arizona Carne Asada",
+          "cuisine": "arizona",
+          "category": "Arizona Grill",
+          "image": "images/recipes/southwest-2026/carne-asada.jpg"
+        },
+        {
+          "id": "swordfish-tacos",
+          "title": "Swordfish Tacos with Citrus Slaw",
+          "cuisine": "mexican",
+          "category": "Seafood",
+          "image": "images/recipes/audit-2026-06/swordfish-tacos.jpg"
+        },
+        {
+          "id": "birria-style-tacos",
+          "title": "Birria-Style Tacos",
+          "cuisine": "mexican",
+          "category": "Main Dishes",
+          "image": "images/recipes/audit-2026-06/birria-style-tacos.jpg"
+        },
+        {
+          "id": "black-bean-side",
+          "title": "Seasoned Black Beans",
+          "cuisine": "mexican",
+          "category": "Sides",
+          "image": "images/recipes/audit-2026-06/black-bean-side.jpg"
+        },
+        {
+          "id": "cilantro-lime-rice",
+          "title": "Cilantro Lime Rice",
+          "cuisine": "mexican",
+          "category": "Sides",
+          "image": "images/recipes/audit-2026-06/cilantro-lime-rice.jpg"
+        },
+        {
+          "id": "elote-corn",
+          "title": "Elote-Style Corn",
+          "cuisine": "mexican",
+          "category": "Sides",
+          "image": "images/recipes/audit-2026-06/elote-corn.jpg"
+        },
+        {
+          "id": "mexican-slaw",
+          "title": "Citrus Taco Slaw",
+          "cuisine": "mexican",
+          "category": "Sides",
+          "image": "images/recipes/audit-2026-06/mexican-slaw.jpg"
+        },
+        {
+          "id": "corn-tortillas",
+          "title": "Warm Corn Tortillas",
+          "cuisine": "mexican",
+          "category": "Breads",
+          "image": "images/recipes/audit-2026-06/corn-tortillas.jpg"
+        },
+        {
+          "id": "salsa-roja",
+          "title": "Salsa Roja",
+          "cuisine": "mexican",
+          "category": "Sauces",
+          "image": "images/recipes/audit-2026-06/salsa-roja.jpg"
+        },
+        {
+          "id": "salsa-verde",
+          "title": "Salsa Verde",
+          "cuisine": "mexican",
+          "category": "Sauces",
+          "image": "images/recipes/audit-2026-06/salsa-verde.jpg"
+        },
+        {
+          "id": "pickled-red-onions",
+          "title": "Pickled Red Onions",
+          "cuisine": "mexican",
+          "category": "Sauces",
+          "image": "images/recipes/audit-2026-06/pickled-red-onions.jpg"
+        },
+        {
+          "id": "agua-fresca",
+          "title": "Watermelon Agua Fresca",
+          "cuisine": "mexican",
+          "category": "Drinks",
+          "image": "images/recipes/audit-2026-06/agua-fresca.jpg"
+        },
+        {
+          "id": "churro-bites",
+          "title": "Churro Bites",
+          "cuisine": "mexican",
+          "category": "Desserts",
+          "image": "images/recipes/audit-2026-06/churro-bites.jpg"
+        },
+        {
+          "id": "flan-cups",
+          "title": "Vanilla Flan Cups",
+          "cuisine": "mexican",
+          "category": "Desserts",
+          "image": "images/recipes/audit-2026-06/flan-cups.jpg"
+        },
+        {
+          "id": "taco-cups",
+          "title": "Taco Cups",
+          "cuisine": "mexican",
+          "category": "Food Around The World",
+          "image": "images/recipes/audit-2026-06/taco-cups.jpg"
+        },
+        {
+          "id": "sheet-pan-nachos",
+          "title": "Sheet Pan Nachos",
+          "cuisine": "mexican",
+          "category": "Fun Food",
+          "image": "images/recipes/audit-2026-06/sheet-pan-nachos.jpg"
+        },
+        {
+          "id": "taco-soup",
+          "title": "Taco Soup",
+          "cuisine": "mexican",
+          "category": "Soups",
+          "image": "images/recipes/audit-2026-06/taco-soup.jpg"
+        },
+        {
+          "id": "peruvian-arroz-con-pollo",
+          "title": "Peruvian Arroz con Pollo",
+          "cuisine": "mexican",
+          "category": "Peruvian Rice Pot",
+          "image": "images/recipes/audit-2026-06/cilantro-lime-rice.jpg"
+        },
+        {
+          "id": "chilean-pastel-de-choclo",
+          "title": "Chilean Pastel de Choclo",
+          "cuisine": "mexican",
+          "category": "Chilean Corn Bake",
+          "image": "images/recipes/audit-2026-06/mexican-cornbread-casserole.jpg"
+        }
+      ]
+    },
+    {
+      "id": "caribbean",
+      "name": "Caribbean",
+      "recipes": [
+        {
+          "id": "jamaican-jerk-chicken",
+          "title": "Jamaican Jerk Chicken",
+          "cuisine": "caribbean",
+          "category": "Jamaican Grill",
+          "image": "images/recipes/audit-2026-06/jerk-sauce.jpg"
+        },
+        {
+          "id": "haitian-griot-style-pork",
+          "title": "Haitian Griot-Style Pork",
+          "cuisine": "caribbean",
+          "category": "Haitian Celebration",
+          "image": "images/recipes/audit-2026-06/oxtails.jpg"
+        },
+        {
+          "id": "trinidad-doubles-style-chickpeas",
+          "title": "Trinidad Doubles-Style Chickpeas",
+          "cuisine": "caribbean",
+          "category": "Trinidad Street Food",
+          "image": "images/recipes/audit-2026-06/chana-masala.jpg"
+        },
+        {
+          "id": "puerto-rican-mofongo-bowls",
+          "title": "Puerto Rican Mofongo Bowls",
+          "cuisine": "caribbean",
+          "category": "Puerto Rican Plantains",
+          "image": "images/regional/mississippi/fried-okra.jpg"
+        },
+        {
+          "id": "bajan-macaroni-pie",
+          "title": "Bajan Macaroni Pie",
+          "cuisine": "caribbean",
+          "category": "Barbados Sunday Side",
+          "image": "images/regional/mississippi/mac-and-cheese.jpg"
+        },
+        {
+          "id": "cuban-sandwich-press",
+          "title": "Cuban Sandwich Press",
+          "cuisine": "caribbean",
+          "category": "Cuban Counter",
+          "image": "images/regional/cuban-sandwich.png"
+        },
+        {
+          "id": "rice-and-peas",
+          "title": "Caribbean Rice and Peas",
+          "cuisine": "caribbean",
+          "category": "Sides",
+          "image": "images/recipes/audit-2026-06/rice-and-peas.jpg"
+        },
+        {
+          "id": "cabbage-saute",
+          "title": "Caribbean Cabbage Saute",
+          "cuisine": "caribbean",
+          "category": "Sides",
+          "image": "images/recipes/audit-2026-06/cabbage-saute.jpg"
+        },
+        {
+          "id": "cucumber-salad",
+          "title": "Cucumber Lime Salad",
+          "cuisine": "caribbean",
+          "category": "Sides",
+          "image": "images/recipes/audit-2026-06/cucumber-salad.jpg"
+        },
+        {
+          "id": "coco-bread",
+          "title": "Coco Bread",
+          "cuisine": "caribbean",
+          "category": "Breads",
+          "image": "images/recipes/audit-2026-06/coco-bread.jpg"
+        },
+        {
+          "id": "jerk-sauce",
+          "title": "Jerk Sauce",
+          "cuisine": "caribbean",
+          "category": "Sauces",
+          "image": "images/recipes/audit-2026-06/jerk-sauce.jpg"
+        },
+        {
+          "id": "sorrel-drink",
+          "title": "Sorrel Drink",
+          "cuisine": "caribbean",
+          "category": "Drinks",
+          "image": "images/recipes/audit-2026-06/sorrel-drink.jpg"
+        },
+        {
+          "id": "rum-cake",
+          "title": "Caribbean Rum Cake",
+          "cuisine": "caribbean",
+          "category": "Desserts",
+          "image": "images/recipes/audit-2026-06/rum-cake.jpg"
+        }
+      ]
+    },
+    {
+      "id": "mediterranean",
+      "name": "Mediterranean",
+      "recipes": [
+        {
+          "id": "greek-chicken-souvlaki-plates",
+          "title": "Greek Chicken Souvlaki Plates",
+          "cuisine": "mediterranean",
+          "category": "Greek Grill",
+          "image": "images/recipes/audit-2026-06/greek-salad.jpg"
+        },
+        {
+          "id": "turkish-red-lentil-soup",
+          "title": "Turkish Red Lentil Soup",
+          "cuisine": "mediterranean",
+          "category": "Turkish Soup",
+          "image": "images/recipes/audit-2026-06/indian-dal-tadka.jpg"
+        },
+        {
+          "id": "lebanese-tabbouleh",
+          "title": "Lebanese Tabbouleh",
+          "cuisine": "mediterranean",
+          "category": "Lebanese Mezze",
+          "image": "images/recipes/audit-2026-06/greek-salad.jpg"
+        },
+        {
+          "id": "egyptian-koshari-bowls",
+          "title": "Egyptian Koshari Bowls",
+          "cuisine": "mediterranean",
+          "category": "Egyptian Street Food",
+          "image": "images/cuisines/africa/egypt/koshari.jpg"
+        },
+        {
+          "id": "moroccan-vegetable-couscous",
+          "title": "Moroccan Vegetable Couscous",
+          "cuisine": "moroccan",
+          "category": "Moroccan Shared Table",
+          "image": "images/cuisines/africa/morocco/vegetable-couscous.jpg"
+        },
+        {
+          "id": "persian-herb-stew",
+          "title": "Persian Ghormeh Sabzi",
+          "cuisine": "mediterranean",
+          "category": "Persian Herb Stew",
+          "image": "images/recipes/audit-2026-06/green-bean-casserole.jpg"
+        },
+        {
+          "id": "palestinian-musakhan-style-chicken",
+          "title": "Palestinian Musakhan-Style Chicken",
+          "cuisine": "mediterranean",
+          "category": "Palestinian Sumac Chicken",
+          "image": "images/recipes/audit-2026-06/smothered-chicken.jpg"
+        },
+        {
+          "id": "saudi-kabsa-chicken",
+          "title": "Saudi Chicken Kabsa",
+          "cuisine": "mediterranean",
+          "category": "Saudi Rice Platter",
+          "image": "images/recipes/audit-2026-06/rice-pilaf.jpg"
+        },
+        {
+          "id": "creamy-hummus",
+          "title": "Creamy Hummus",
+          "cuisine": "mediterranean",
+          "category": "Dips",
+          "image": "images/recipes/audit-2026-06/creamy-hummus.jpg"
+        },
+        {
+          "id": "greek-salad",
+          "title": "Greek Salad",
+          "cuisine": "mediterranean",
+          "category": "Salads",
+          "image": "images/recipes/audit-2026-06/greek-salad.jpg"
+        },
+        {
+          "id": "grilled-swordfish-lemon-herb",
+          "title": "Grilled Swordfish with Lemon Herbs",
+          "cuisine": "mediterranean",
+          "category": "Seafood",
+          "image": "images/recipes/audit-2026-06/grilled-swordfish-lemon-herb.jpg"
+        },
+        {
+          "id": "mediterranean-swordfish",
+          "title": "Mediterranean Swordfish with Tomatoes and Olives",
+          "cuisine": "mediterranean",
+          "category": "Seafood",
+          "image": "images/recipes/audit-2026-06/mediterranean-swordfish.jpg"
+        },
+        {
+          "id": "garlic-butter-swordfish",
+          "title": "Swordfish with Garlic Butter",
+          "cuisine": "mediterranean",
+          "category": "Seafood",
+          "image": "images/recipes/audit-2026-06/garlic-butter-swordfish.jpg"
+        },
+        {
+          "id": "roasted-vegetables",
+          "title": "Roasted Vegetables",
+          "cuisine": "mediterranean",
+          "category": "Sides",
+          "image": "images/recipes/audit-2026-06/roasted-vegetables.jpg"
+        },
+        {
+          "id": "rice-pilaf",
+          "title": "Herbed Rice Pilaf",
+          "cuisine": "mediterranean",
+          "category": "Sides",
+          "image": "images/recipes/audit-2026-06/rice-pilaf.jpg"
+        },
+        {
+          "id": "pita-flatbread",
+          "title": "Skillet Pita Flatbread",
+          "cuisine": "mediterranean",
+          "category": "Breads",
+          "image": "images/recipes/audit-2026-06/pita-flatbread.jpg"
+        },
+        {
+          "id": "tzatziki-sauce",
+          "title": "Tzatziki Sauce",
+          "cuisine": "mediterranean",
+          "category": "Sauces",
+          "image": "images/recipes/audit-2026-06/tzatziki-sauce.jpg"
+        },
+        {
+          "id": "mint-lemonade",
+          "title": "Mint Lemonade",
+          "cuisine": "mediterranean",
+          "category": "Drinks",
+          "image": "images/recipes/audit-2026-06/mint-lemonade.jpg"
+        },
+        {
+          "id": "baklava-cups",
+          "title": "Baklava Cups",
+          "cuisine": "mediterranean",
+          "category": "Desserts",
+          "image": "images/recipes/audit-2026-06/baklava-cups.jpg"
+        },
+        {
+          "id": "spanish-tortilla-espanola",
+          "title": "Spanish Tortilla Espanola",
+          "cuisine": "mediterranean",
+          "category": "Spanish Tapas",
+          "image": "images/recipes/audit-2026-06/breakfast-casserole.jpg"
+        },
+        {
+          "id": "portuguese-caldo-verde",
+          "title": "Portuguese Caldo Verde",
+          "cuisine": "mediterranean",
+          "category": "Portuguese Soup",
+          "image": "images/recipes/audit-2026-06/loaded-baked-potato-soup.jpg"
+        }
+      ]
+    },
+    {
+      "id": "asian-inspired",
+      "name": "Asian Inspired",
+      "recipes": [
+        {
+          "id": "japanese-teriyaki-chicken-bowls",
+          "title": "Japanese Teriyaki Chicken Bowls",
+          "cuisine": "asian-inspired",
+          "category": "Japan Weeknight",
+          "image": "images/recipes/audit-2026-06/orange-chicken.jpg"
+        },
+        {
+          "id": "chinese-dumpling-night",
+          "title": "Chinese Dumpling Night",
+          "cuisine": "asian-inspired",
+          "category": "China Family Table",
+          "image": "images/cuisines/asian/asian-06.png"
+        },
+        {
+          "id": "korean-bulgogi-rice-bowls",
+          "title": "Korean Bulgogi Rice Bowls",
+          "cuisine": "asian-inspired",
+          "category": "Korean Grill",
+          "image": "images/recipes/audit-2026-06/nebraska-steak.jpg"
+        },
+        {
+          "id": "thai-basil-chicken",
+          "title": "Thai Basil Chicken",
+          "cuisine": "asian-inspired",
+          "category": "Thai Skillet",
+          "image": "images/cuisines/asian/asian-08.png"
+        },
+        {
+          "id": "vietnamese-spring-rolls",
+          "title": "Vietnamese Fresh Spring Rolls",
+          "cuisine": "asian-inspired",
+          "category": "Vietnam Fresh",
+          "image": "images/recipes/audit-2026-06/cucumber-salad.jpg"
+        },
+        {
+          "id": "filipino-chicken-adobo",
+          "title": "Filipino Chicken Adobo",
+          "cuisine": "asian-inspired",
+          "category": "Filipino Braise",
+          "image": "images/recipes/audit-2026-06/smothered-chicken.jpg"
+        },
+        {
+          "id": "taiwanese-beef-noodle-soup",
+          "title": "Taiwanese Beef Noodle Soup",
+          "cuisine": "asian-inspired",
+          "category": "Taiwan Noodle Bowl",
+          "image": "images/cuisines/asian/asian-02.png"
+        },
+        {
+          "id": "pakistani-chicken-biryani",
+          "title": "Pakistani Chicken Biryani",
+          "cuisine": "asian-inspired",
+          "category": "Pakistani Rice Pot",
+          "image": "images/recipes/audit-2026-06/biryani.jpg"
+        },
+        {
+          "id": "nepali-momo-dumplings",
+          "title": "Nepali Momo Dumplings",
+          "cuisine": "asian-inspired",
+          "category": "Nepal Dumpling Table",
+          "image": "images/cuisines/asian/asian-06.png"
+        },
+        {
+          "id": "sri-lankan-fish-curry",
+          "title": "Sri Lankan Fish Curry",
+          "cuisine": "asian-inspired",
+          "category": "Sri Lankan Coconut Curry",
+          "image": "images/cuisines/africa/tanzania/coconut-fish-curry.jpg"
+        },
+        {
+          "id": "malaysian-nasi-lemak",
+          "title": "Malaysian Nasi Lemak",
+          "cuisine": "asian-inspired",
+          "category": "Malaysian Coconut Rice",
+          "image": "images/recipes/audit-2026-06/nigerian-fried-rice.jpg"
+        },
+        {
+          "id": "indonesian-nasi-goreng",
+          "title": "Indonesian Nasi Goreng",
+          "cuisine": "asian-inspired",
+          "category": "Indonesian Fried Rice",
+          "image": "images/recipes/audit-2026-06/shrimp-fried-rice.jpg"
+        },
+        {
+          "id": "orange-chicken",
+          "title": "Orange Chicken",
+          "cuisine": "asian-inspired",
+          "category": "Kid-Friendly Cooking",
+          "image": "images/recipes/audit-2026-06/orange-chicken.jpg"
+        },
+        {
+          "id": "shrimp-fried-rice",
+          "title": "Shrimp Fried Rice",
+          "cuisine": "asian",
+          "category": "Global Dishes",
+          "image": "images/recipes/audit-2026-06/shrimp-fried-rice.jpg"
+        },
+        {
+          "id": "crab-rangoon",
+          "title": "Crab Rangoon",
+          "cuisine": "asian-inspired",
+          "category": "Party & Hosting",
+          "image": "images/recipes/audit-2026-06/crab-rangoon.jpg"
+        },
+        {
+          "id": "general-tso-chicken",
+          "title": "General Tso-Style Chicken",
+          "cuisine": "asian-inspired",
+          "category": "Global Flavors",
+          "image": "images/recipes/audit-2026-06/general-tso-chicken.jpg"
+        },
+        {
+          "id": "cashew-chicken",
+          "title": "Cashew Chicken",
+          "cuisine": "asian-inspired",
+          "category": "Quick Weeknight Meals",
+          "image": "images/recipes/audit-2026-06/cashew-chicken.jpg"
+        },
+        {
+          "id": "fried-rice",
+          "title": "Fried Rice",
+          "cuisine": "asian-inspired",
+          "category": "Quick Weeknight Meals",
+          "image": "images/recipes/audit-2026-06/shrimp-fried-rice.jpg"
+        },
+        {
+          "id": "pineapple-fried-rice",
+          "title": "Pineapple Fried Rice",
+          "cuisine": "asian-inspired",
+          "category": "Global Flavors",
+          "image": "images/recipes/audit-2026-06/pineapple-fried-rice.jpg"
+        },
+        {
+          "id": "asian-garlic-fried-rice",
+          "title": "Garlic Fried Rice",
+          "cuisine": "asian-inspired",
+          "category": "Asian Inspired",
+          "image": "images/cuisines/asian/asian-01.png"
+        },
+        {
+          "id": "asian-orange-chicken",
+          "title": "Orange Chicken",
+          "cuisine": "asian-inspired",
+          "category": "Quick Meals",
+          "image": "images/cuisines/asian/asian-02.png"
+        },
+        {
+          "id": "asian-cashew-chicken",
+          "title": "Cashew Chicken",
+          "cuisine": "asian-inspired",
+          "category": "Family Dinners",
+          "image": "images/cuisines/asian/asian-03.png"
+        },
+        {
+          "id": "asian-beef-broccoli",
+          "title": "Beef and Broccoli",
+          "cuisine": "asian-inspired",
+          "category": "Family Dinners",
+          "image": "images/cuisines/asian/asian-04.png"
+        },
+        {
+          "id": "asian-lo-mein",
+          "title": "Vegetable Lo Mein",
+          "cuisine": "asian-inspired",
+          "category": "Vegetarian",
+          "image": "images/cuisines/asian/asian-05.png"
+        },
+        {
+          "id": "asian-dumpling-bowls",
+          "title": "Dumpling Bowl",
+          "cuisine": "asian-inspired",
+          "category": "Quick Meals",
+          "image": "images/cuisines/asian/asian-06.png"
+        },
+        {
+          "id": "asian-teriyaki-salmon",
+          "title": "Teriyaki Salmon",
+          "cuisine": "asian-inspired",
+          "category": "Seafood",
+          "image": "images/cuisines/asian/asian-07.png"
+        },
+        {
+          "id": "asian-thai-basil-chicken",
+          "title": "Thai Basil Chicken",
+          "cuisine": "asian-inspired",
+          "category": "Quick Meals",
+          "image": "images/cuisines/asian/asian-08.png"
+        },
+        {
+          "id": "asian-miso-noodles",
+          "title": "Miso Butter Noodles",
+          "cuisine": "asian-inspired",
+          "category": "Beginner Basics",
+          "image": "images/cuisines/asian/asian-09.png"
+        },
+        {
+          "id": "asian-crab-rangoon",
+          "title": "Crab Rangoon",
+          "cuisine": "asian-inspired",
+          "category": "Party & Hosting",
+          "image": "images/cuisines/asian/asian-10.png"
+        }
+      ]
+    },
+    {
+      "id": "italian",
+      "name": "Italian Comfort",
+      "recipes": [
+        {
+          "id": "italian-pasta-pomodoro",
+          "title": "Italian Pasta Pomodoro",
+          "cuisine": "italian",
+          "category": "Italian Weeknight",
+          "image": "assets/lc-pasta.jpg"
+        },
+        {
+          "id": "simple-spaghetti",
+          "title": "Simple Spaghetti",
+          "cuisine": "italian",
+          "category": "Food Around The World",
+          "image": "images/recipes/audit-2026-06/simple-spaghetti.jpg"
+        },
+        {
+          "id": "chicken-parmesan",
+          "title": "Chicken Parmesan",
+          "cuisine": "italian",
+          "category": "Family Dinners",
+          "image": "images/recipes/audit-2026-06/chicken-parmesan.jpg"
+        },
+        {
+          "id": "baked-spaghetti",
+          "title": "Baked Spaghetti",
+          "cuisine": "italian",
+          "category": "Family Dinner",
+          "image": "images/recipes/audit-2026-06/baked-spaghetti.jpg"
+        },
+        {
+          "id": "chicken-alfredo",
+          "title": "Chicken Alfredo",
+          "cuisine": "italian-american",
+          "category": "Family Dinner",
+          "image": "images/recipes/audit-2026-06/chicken-alfredo.jpg"
+        },
+        {
+          "id": "tuscan-chicken",
+          "title": "Tuscan Chicken",
+          "cuisine": "italian",
+          "category": "Family Dinners",
+          "image": "images/recipes/audit-2026-06/tuscan-chicken.jpg"
+        }
+      ]
+    }
+  ],
   "genericRecipeImages": [],
   "fallbackImages": [],
   "missingImageFiles": [],
@@ -2325,6 +3425,7 @@
   ],
   "incompleteHolidayTables": [],
   "menuReferenceIssues": [],
+  "cuisineCollectionIssues": [],
   "recipesMissingRequiredDetails": [],
   "recipesMissingRecommendedDetails": [
     {

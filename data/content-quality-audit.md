@@ -1,6 +1,6 @@
 # Let's Cook Y'all Content Quality Audit
 
-Generated: 2026-07-08T15:10:52.260Z
+Generated: 2026-07-10T13:51:52.669Z
 
 ## Summary
 
@@ -14,6 +14,7 @@ Generated: 2026-07-08T15:10:52.260Z
 - Complete required holidays: 20 of 20
 - Holiday tables needing work: 0
 - Menu reference issue groups: 0
+- Cuisine collection issues: 0
 - Recipes missing required details: 0
 - Recipes missing recommended enrichment details: 629
 
@@ -67,6 +68,10 @@ Generated: 2026-07-08T15:10:52.260Z
 
 
 ## Menu Reference Issues
+
+- None
+
+## Cuisine Collection Issues
 
 - None
 
