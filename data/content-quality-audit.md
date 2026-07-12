@@ -1,6 +1,6 @@
 # Let's Cook Y'all Content Quality Audit
 
-Generated: 2026-07-10T20:26:21.555Z
+Generated: 2026-07-12T21:05:25.546Z
 
 ## Summary
 
@@ -15,6 +15,7 @@ Generated: 2026-07-10T20:26:21.555Z
 - Holiday tables needing work: 0
 - Menu reference issue groups: 0
 - Cuisine collection issues: 0
+- Ingredient search smoke issues: 0
 - Training-only recipes in general discovery: 0
 - Recipes missing required details: 0
 - Recipes missing recommended enrichment details: 634
@@ -75,5 +76,11 @@ Generated: 2026-07-10T20:26:21.555Z
 ## Cuisine Collection Issues
 
 - None
+
+## Ingredient Search Smoke
+
+- OK: ribeye -> Valentine Steak Dinner, Nebraska Steak, Garlic Butter Steak Bites, Argentinian Chimichurri Steak, Kansas Chicken Fried Steak, Oklahoma Chicken Fried Steak, St. Louis Pork Steaks, Texas Chicken Fried Steak
+- OK: chicken thighs -> Smothered Chicken, Japanese Teriyaki Chicken Bowls, Tandoori-Style Chicken, Chicken and Sausage Gumbo, Chicken Vesuvio, Filipino Chicken Adobo, General Tso-Style Chicken, Hungarian Chicken Paprikash
+- OK: ground beef -> Baked Beans with Ground Beef, Hamburger Steak with Onion Gravy, Weeknight Beef Tacos, Cincinnati Chili, Baked Beans with Beef and Bacon, Rhode Island Hot Wieners, Chicago Hot Tamales, Hatch Chile Burgers
 
 Full machine-readable details are in `data/content-quality-audit.json`.

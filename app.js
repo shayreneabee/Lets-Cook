@@ -11881,27 +11881,254 @@ function ingredientDiscoverySection(seed = "chicken strips") {
 }
 
 function normalizeIngredientTerm(term = "") {
-  return decodeURIComponent(term).toLowerCase().trim().replace(/[-_]+/g, " ").replace(/\s+/g, " ");
+  try {
+    return decodeURIComponent(term).toLowerCase().trim().replace(/&/g, " and ").replace(/[-_]+/g, " ").replace(/[^a-z0-9\s]+/g, " ").replace(/\s+/g, " ");
+  } catch {
+    return String(term || "").toLowerCase().trim().replace(/&/g, " and ").replace(/[-_]+/g, " ").replace(/[^a-z0-9\s]+/g, " ").replace(/\s+/g, " ");
+  }
 }
 
-function recipeSearchText(recipe) {
-  return [
-    recipe.title,
+const recipeSearchAliasMap = {
+  ribeye: ["ribeye", "rib eye", "steak", "beef steak", "strip steak", "sirloin", "beef tenderloin", "prime rib", "standing rib roast"],
+  "rib eye": ["ribeye", "rib eye", "steak", "beef steak", "strip steak", "sirloin", "beef tenderloin", "prime rib", "standing rib roast"],
+  steak: ["steak", "ribeye", "rib eye", "sirloin", "strip steak", "flank steak", "skirt steak", "beef tenderloin", "prime rib", "standing rib roast"],
+  "chicken thighs": ["chicken thighs", "chicken thigh", "chicken", "dark meat", "bone in chicken", "boneless chicken", "chicken pieces", "chicken quarters", "leg quarters"],
+  "chicken thigh": ["chicken thighs", "chicken thigh", "chicken", "dark meat", "bone in chicken", "boneless chicken", "chicken pieces", "chicken quarters", "leg quarters"],
+  "chicken breast": ["chicken breast", "chicken breasts", "chicken", "boneless chicken", "white meat", "rotisserie chicken"],
+  chicken: ["chicken", "chicken thighs", "chicken breast", "chicken pieces", "chicken quarters", "leg quarters", "wings", "fried chicken", "rotisserie chicken"],
+  "ground beef": ["ground beef", "hamburger", "hamburger meat", "minced beef", "beef", "taco meat", "meatballs", "meatloaf", "burgers", "chili"],
+  hamburger: ["ground beef", "hamburger", "hamburger meat", "beef", "burgers", "meatloaf", "taco meat", "chili"],
+  beef: ["beef", "ground beef", "steak", "ribeye", "short ribs", "brisket", "pot roast", "chuck roast", "oxtails"],
+  pork: ["pork", "pork chops", "pork shoulder", "pulled pork", "bacon", "ham", "sausage", "ribs"],
+  turkey: ["turkey", "ground turkey", "turkey breast", "roast turkey", "smoked turkey"],
+  shrimp: ["shrimp", "prawns", "seafood"],
+  fish: ["fish", "white fish", "cod", "catfish", "salmon", "tilapia", "seafood"],
+  salmon: ["salmon", "fish", "seafood"],
+  crab: ["crab", "blue crab", "crabmeat", "seafood"],
+  beans: ["beans", "black beans", "pinto beans", "kidney beans", "red beans", "white beans", "chickpeas", "peas"],
+  eggs: ["eggs", "egg", "omelet", "omelette", "boiled eggs"],
+  rice: ["rice", "white rice", "brown rice", "jasmine rice", "basmati rice", "sticky rice", "fried rice"],
+  pasta: ["pasta", "noodles", "spaghetti", "macaroni", "penne", "linguine"],
+  noodles: ["noodles", "pasta", "ramen", "soba", "udon", "rice noodles", "spaghetti"],
+  potatoes: ["potatoes", "potato", "russet potatoes", "red potatoes", "instant mashed potatoes", "fries"],
+  "sweet potatoes": ["sweet potatoes", "sweet potato", "yams", "candied yams"],
+  tortillas: ["tortillas", "tortilla", "corn tortillas", "flour tortillas", "wraps"],
+  cheese: ["cheese", "cheddar", "mozzarella", "parmesan", "queso", "cream cheese"],
+  greens: ["greens", "collard greens", "turnip greens", "mustard greens", "spinach", "kale"],
+  tomatoes: ["tomatoes", "tomato", "canned tomatoes", "rotel", "tomatoes and chiles"],
+  peppers: ["peppers", "pepper", "bell peppers", "chiles", "chilies", "jalapenos", "hatch chile"],
+  corn: ["corn", "cornmeal", "cornbread", "masa", "masa harina", "hominy"],
+  flour: ["flour", "all purpose flour", "self rising flour", "pancake mix", "biscuit mix"],
+  milk: ["milk", "buttermilk", "cream", "heavy cream", "evaporated milk"],
+  butter: ["butter", "margarine", "ghee"],
+  apples: ["apples", "apple", "apple pie"],
+  strawberries: ["strawberries", "strawberry", "strawberry shortcake"],
+  peaches: ["peaches", "peach", "peach cobbler", "peach pie"],
+  watermelon: ["watermelon", "melon"]
+};
+
+const recipeSearchKeywordGroups = {
+  proteins: {
+    beef: recipeSearchAliasMap.beef,
+    chicken: recipeSearchAliasMap.chicken,
+    pork: recipeSearchAliasMap.pork,
+    turkey: recipeSearchAliasMap.turkey,
+    seafood: ["seafood", "shrimp", "fish", "salmon", "crab", "catfish", "oysters", "clams", "lobster"],
+    eggs: recipeSearchAliasMap.eggs,
+    beans: recipeSearchAliasMap.beans,
+    tofu: ["tofu", "soy", "tempeh"]
+  },
+  methods: {
+    grilled: ["grilled", "grill", "bbq", "barbecue", "charred", "cookout"],
+    smoked: ["smoked", "smoke", "barbecue", "bbq", "pit"],
+    fried: ["fried", "fry", "crispy", "chicken fried", "pan fried"],
+    baked: ["baked", "bake", "casserole", "oven"],
+    roasted: ["roasted", "roast", "sheet pan", "oven"],
+    simmered: ["simmered", "simmer", "stew", "soup", "braised", "braise"],
+    sauteed: ["sauteed", "saute", "skillet", "stir fry", "stir fried"],
+    noCook: ["no cook", "salad", "chilled", "fresh"]
+  },
+  mealTypes: {
+    breakfast: ["breakfast", "brunch", "pancakes", "eggs", "grits"],
+    lunch: ["lunch", "sandwich", "salad", "wrap"],
+    dinner: ["dinner", "supper", "main dish", "main", "entree"],
+    appetizer: ["appetizer", "snack", "starter", "dip", "bites"],
+    dessert: ["dessert", "cake", "pie", "cobbler", "cookies", "pudding", "shortcake"],
+    drink: ["drink", "beverage", "lemonade", "punch", "tea", "cocktail"]
+  },
+  holidays: {
+    thanksgiving: ["thanksgiving", "turkey", "dressing", "stuffing", "cranberry", "pumpkin pie"],
+    christmas: ["christmas", "prime rib", "ham", "standing rib roast", "eggnog", "cookies"],
+    easter: ["easter", "ham", "lamb", "deviled eggs", "carrot cake", "spring"],
+    "fourth of july": ["fourth of july", "july 4", "cookout", "bbq", "burgers", "hot dogs", "watermelon"],
+    halloween: ["halloween", "chili", "walking tacos", "monster", "candy"],
+    juneteenth: ["juneteenth", "red velvet", "red punch", "bbq", "fried chicken", "greens"],
+    "valentine s day": ["valentine", "date night", "steak", "chocolate", "strawberry"]
+  },
+  techniques: {
+    knife: ["knife", "chop", "dice", "slice", "mince"],
+    seasoning: ["season", "seasoned", "rub", "marinade", "spice"],
+    sauce: ["sauce", "gravy", "glaze", "reduction", "dressing"],
+    dough: ["dough", "knead", "bread", "rolls", "pastry"],
+    rice: ["rice", "steam", "pilaf", "risotto", "fried rice"],
+    braising: ["braise", "braised", "low and slow", "stew", "pot roast"]
+  },
+  substitutions: {
+    steak: recipeSearchAliasMap.steak,
+    "dark meat chicken": recipeSearchAliasMap["chicken thighs"],
+    "ground meat": ["ground beef", "ground turkey", "ground chicken", "sausage", "hamburger", "minced beef"],
+    seafood: ["shrimp", "fish", "salmon", "crab", "catfish", "white fish"],
+    dairy: ["milk", "buttermilk", "cream", "yogurt", "sour cream", "cheese"],
+    pantry: ["canned tomatoes", "rotel", "broth", "beans", "rice", "pasta", "flour", "cornmeal"]
+  }
+};
+
+const recipeSearchIndexCache = new WeakMap();
+
+function expandRecipeSearchTerms(input = "") {
+  const rawTerms = Array.isArray(input) ? input : String(input || "").split(",");
+  const expanded = new Set();
+  rawTerms.forEach((rawTerm) => {
+    const normalized = normalizeIngredientTerm(rawTerm);
+    if (!normalized) return;
+    expanded.add(normalized);
+    if (normalized.endsWith("s") && normalized.length > 3) expanded.add(normalized.replace(/s$/, ""));
+    const aliasTerms = recipeSearchAliasMap[normalized] || [];
+    aliasTerms.forEach((term) => expanded.add(normalizeIngredientTerm(term)));
+    normalized.split(" ").filter((word) => word.length > 2).forEach((word) => {
+      expanded.add(word);
+      (recipeSearchAliasMap[word] || []).forEach((term) => expanded.add(normalizeIngredientTerm(term)));
+    });
+  });
+  return [...expanded].filter(Boolean);
+}
+
+function matchedSearchGroupKeys(text, group) {
+  return Object.entries(group).filter(([, keywords]) =>
+    keywords.some((keyword) => text.includes(normalizeIngredientTerm(keyword)))
+  ).map(([key]) => normalizeIngredientTerm(key));
+}
+
+function recipeSearchIndex(recipe = {}) {
+  if (recipeSearchIndexCache.has(recipe)) return recipeSearchIndexCache.get(recipe);
+  const titleText = normalizeIngredientTerm(recipe.title || "");
+  const ingredientText = normalizeIngredientTerm((recipe.ingredients || []).join(" "));
+  const instructionText = normalizeIngredientTerm([
+    ...(recipe.instructions || []),
+    ...(recipe.steps || []),
+    ...(recipe.tips || []),
+    ...(recipe.chefTips || [])
+  ].join(" "));
+  const fieldText = normalizeIngredientTerm([
     recipe.description,
     recipe.category,
     recipe.cuisine,
-    ...(recipe.ingredients || []),
-    ...(recipe.tags || [])
-  ].join(" ").toLowerCase();
+    recipe.level,
+    recipe.difficulty,
+    recipe.origin,
+    recipe.culturalOrigin,
+    recipe.mealType,
+    ...(recipe.tags || []),
+    ...(recipe.holidays || []),
+    ...(recipe.methods || []),
+    ...(recipe.techniques || []),
+    ...(recipe.substitutions || [])
+  ].join(" "));
+  const allText = normalizeIngredientTerm(`${titleText} ${ingredientText} ${instructionText} ${fieldText}`);
+  const proteins = matchedSearchGroupKeys(allText, recipeSearchKeywordGroups.proteins);
+  const methods = matchedSearchGroupKeys(allText, recipeSearchKeywordGroups.methods);
+  const mealTypes = matchedSearchGroupKeys(allText, recipeSearchKeywordGroups.mealTypes);
+  const holidays = matchedSearchGroupKeys(allText, recipeSearchKeywordGroups.holidays);
+  const techniques = matchedSearchGroupKeys(allText, recipeSearchKeywordGroups.techniques);
+  const substitutions = matchedSearchGroupKeys(allText, recipeSearchKeywordGroups.substitutions);
+  const tokens = new Set([
+    ...allText.split(" ").filter((word) => word.length > 2),
+    ...proteins,
+    ...methods,
+    ...mealTypes,
+    ...holidays,
+    ...techniques,
+    ...substitutions
+  ]);
+  Object.entries(recipeSearchAliasMap).forEach(([key, aliases]) => {
+    if ([key, ...aliases].some((alias) => allText.includes(normalizeIngredientTerm(alias)))) {
+      tokens.add(normalizeIngredientTerm(key));
+      aliases.forEach((alias) => tokens.add(normalizeIngredientTerm(alias)));
+    }
+  });
+  const index = {
+    titleText,
+    ingredientText,
+    instructionText,
+    fieldText,
+    proteins,
+    methods,
+    mealTypes,
+    holidays,
+    techniques,
+    substitutions,
+    tokenText: [...tokens].join(" "),
+    searchText: normalizeIngredientTerm(`${allText} ${[...tokens].join(" ")}`)
+  };
+  recipeSearchIndexCache.set(recipe, index);
+  return index;
+}
+
+function recipeSearchText(recipe) {
+  return recipeSearchIndex(recipe).searchText;
+}
+
+function recipeDiscoveryScore(recipe, rawTerms = []) {
+  const terms = expandRecipeSearchTerms(rawTerms);
+  if (!terms.length) return 0;
+  const index = recipeSearchIndex(recipe);
+  let score = 0;
+  terms.forEach((term) => {
+    if (index.titleText.includes(term)) score += 12;
+    if (index.ingredientText.includes(term)) score += 14;
+    if (index.proteins.includes(term)) score += 12;
+    if (index.methods.includes(term)) score += 7;
+    if (index.mealTypes.includes(term)) score += 6;
+    if (index.holidays.includes(term)) score += 6;
+    if (index.techniques.includes(term)) score += 5;
+    if (index.substitutions.includes(term)) score += 8;
+    if (index.tokenText.includes(term)) score += 4;
+    if (index.fieldText.includes(term)) score += 3;
+    if (index.instructionText.includes(term)) score += 2;
+    if (index.searchText.includes(term)) score += 1;
+  });
+  return score;
+}
+
+function rankRecipesForDiscovery(recipeList, { query = "", pantry = [] } = {}) {
+  const queryTerms = query ? [query] : [];
+  const pantryTerms = pantry || [];
+  return recipeList.map((recipe) => {
+    const queryScore = recipeDiscoveryScore(recipe, queryTerms);
+    const pantryScore = pantryTerms.reduce((sum, term) => sum + recipeDiscoveryScore(recipe, [term]), 0);
+    return { recipe, score: queryScore + pantryScore, queryScore, pantryScore };
+  }).sort((a, b) => b.score - a.score || a.recipe.title.localeCompare(b.recipe.title));
+}
+
+function recipeDiscoverySummaryMarkup({ query = "", pantry = [], results = [], relaxed = false } = {}) {
+  const terms = [query, ...pantry].filter(Boolean);
+  if (!terms.length) return "";
+  const topTitles = results.slice(0, 4).map((recipe) => recipe.title).join(", ");
+  return `
+    <div class="learning-result-card" role="status" aria-live="polite">
+      <p class="eyebrow">Ingredient discovery</p>
+      <h3>${relaxed ? "Closest cookable ideas" : "Here is what those ingredients can become"}</h3>
+      <p>${terms.map((term) => `<strong>${term}</strong>`).join(", ")} matched recipes by ingredients, proteins, cooking methods, holidays, techniques, and substitutions.</p>
+      ${topTitles ? `<p class="content-note">Start with: ${topTitles}.</p>` : `<p class="content-note">Try a broader ingredient like chicken, beef, rice, greens, shrimp, or potatoes.</p>`}
+    </div>
+  `;
 }
 
 function recipesForIngredient(term) {
   const normalized = normalizeIngredientTerm(term);
-  const words = normalized.split(" ").filter((word) => word.length > 2);
-  return recipes.filter(recipeAllowedInGeneralCollection).filter((recipe) => {
-    const haystack = recipeSearchText(recipe);
-    return haystack.includes(normalized) || words.some((word) => haystack.includes(word));
-  });
+  return rankRecipesForDiscovery(recipes.filter(recipeAllowedInGeneralCollection), { query: normalized })
+    .filter((row) => row.score > 0)
+    .map((row) => row.recipe);
 }
 
 function ingredientGuideFor(term) {
@@ -13539,9 +13766,9 @@ function renderRecipes() {
     <section class="band">
       <div class="toolbar search-toolbar">
         <label class="sr-only" for="searchBox">Search recipes</label>
-        <input id="searchBox" class="search-input" type="search" placeholder="Search Yakamein, shrimp, beginner, hosting..." />
+        <input id="searchBox" class="search-input" type="search" placeholder="Search ribeye, chicken thighs, ground beef, rice..." />
         <label class="sr-only" for="pantryBox">Search by ingredients you have</label>
-        <input id="pantryBox" class="search-input" type="search" placeholder="What do you have? chicken, rice, garlic..." />
+        <input id="pantryBox" class="search-input" type="search" placeholder="What do you have? ribeye, onions, potatoes..." />
         <label class="sr-only" for="categoryFilter">Filter by category</label>
         <select id="categoryFilter" class="filter-select"><option value="">All categories</option>${categories.map((category) => `<option>${category}</option>`).join("")}</select>
         <label class="sr-only" for="cuisineFilter">Filter by cuisine</label>
@@ -14573,36 +14800,43 @@ function handleSearch(event) {
   }
   renderPartyPlannerResults();
   renderRecipePartyResults();
-  const query = document.querySelector("#searchBox")?.value.toLowerCase().trim() || "";
-  const pantry = document.querySelector("#pantryBox")?.value.toLowerCase().split(",").map((item) => item.trim()).filter(Boolean) || [];
+  const query = normalizeIngredientTerm(document.querySelector("#searchBox")?.value || "");
+  const pantry = (document.querySelector("#pantryBox")?.value || "").split(",").map((item) => normalizeIngredientTerm(item)).filter(Boolean);
   const category = document.querySelector("#categoryFilter")?.value || "";
   const cuisine = document.querySelector("#cuisineFilter")?.value || "";
   const maxTime = Number(document.querySelector("#timeFilter")?.value || 0);
   const level = document.querySelector("#levelFilter")?.value || "";
   const quick = document.querySelector(".quick-filter.active")?.dataset.quickFilter || "";
-  const results = allRecipeCollection().filter((recipe) => {
-    const ingredientText = recipe.ingredients.join(" ").toLowerCase();
-    const tagText = (recipe.tags || []).join(" ").toLowerCase();
-    const haystack = `${recipe.title} ${recipe.category} ${recipe.level} ${recipe.difficulty || ""} ${recipe.description} ${ingredientText} ${tagText}`.toLowerCase();
-    const hasPantryItems = !pantry.length || pantry.every((item) => ingredientText.includes(item));
+  const hasDiscoveryTerms = Boolean(query || pantry.length);
+  const matchesStaticFilters = (recipe, { relaxed = false } = {}) => {
     const quickMatch = !quick
       || (quick.startsWith("cuisine:") && recipe.cuisine === quick.replace("cuisine:", ""))
       || (quick.startsWith("category:") && (recipe.category === quick.replace("category:", "") || recipe.tags?.includes(quick.replace("category:", ""))))
       || (quick.startsWith("skill:") && recipe.skill_level === quick.replace("skill:", ""));
     return quickMatch
-      && (!query || haystack.includes(query))
-      && hasPantryItems
-      && (!category || recipe.category === category || recipe.tags?.includes(category))
       && (!cuisine || recipe.cuisine === cuisine)
-      && (!maxTime || (recipe.cookTimeMinutes || 999) <= maxTime)
-      && (!level || recipe.level === level || recipe.difficulty === level);
-  });
+      && (relaxed || !category || recipe.category === category || recipe.tags?.includes(category))
+      && (relaxed || !maxTime || (recipe.cookTimeMinutes || 999) <= maxTime)
+      && (relaxed || !level || recipe.level === level || recipe.difficulty === level);
+  };
+  const rankedRows = rankRecipesForDiscovery(allRecipeCollection(), { query, pantry });
+  let relaxed = false;
+  let results = rankedRows
+    .filter((row) => (!hasDiscoveryTerms || row.score > 0) && matchesStaticFilters(row.recipe))
+    .map((row) => row.recipe);
+  if (!results.length && hasDiscoveryTerms) {
+    relaxed = true;
+    results = rankedRows
+      .filter((row) => row.score > 0 && matchesStaticFilters(row.recipe, { relaxed: true }))
+      .slice(0, 24)
+      .map((row) => row.recipe);
+  }
   const resultsNode = document.querySelector("#results");
   if (resultsNode) {
-    resultsNode.innerHTML = results.length ? results.map(recipeCard).join("") : `<div class="empty-state">No recipes found yet.</div>`;
+    resultsNode.innerHTML = results.length ? results.map(recipeCard).join("") : `<div class="empty-state">No recipe uses that ingredient yet. Try a broader pantry word like chicken, beef, rice, greens, shrimp, potatoes, beans, or pasta.</div>`;
   }
   const learningNode = document.querySelector("#learningResults");
-  if (learningNode) learningNode.innerHTML = learningSearchResults(query || pantry[0] || "");
+  if (learningNode) learningNode.innerHTML = `${recipeDiscoverySummaryMarkup({ query, pantry, results, relaxed })}${learningSearchResults(query || pantry[0] || "")}`;
 }
 
 function handleClick(event) {

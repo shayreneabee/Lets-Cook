@@ -49,7 +49,16 @@ globalThis.__contentQualityAudit = {
       fallbackUsed: resolved.fallbackUsed,
       missingRecipeImage: resolved.missingImage
     };
-  })
+  }),
+  ingredientSearchSmoke: ["ribeye", "chicken thighs", "ground beef"].map((term) => ({
+    term,
+    matches: recipesForIngredient(term).slice(0, 8).map((recipe) => ({
+      id: recipe.id,
+      title: recipe.title,
+      cuisine: recipe.cuisine || "",
+      category: recipe.category || ""
+    }))
+  }))
 };
 `;
 
@@ -274,6 +283,7 @@ const cuisineCollectionIssues = audit.cuisineCollections.flatMap((collection) =>
         : "recipe cuisine does not match controlled cuisine mapping"
     }));
 });
+const ingredientSearchIssues = audit.ingredientSearchSmoke.filter((row) => !row.matches.length);
 
 const report = {
   generatedAt: new Date().toISOString(),
@@ -291,6 +301,7 @@ const report = {
     incompleteRequiredHolidays: incompleteHolidayTables.length,
     menuReferenceIssues: menuReferenceIssues.length,
     cuisineCollectionIssues: cuisineCollectionIssues.length,
+    ingredientSearchIssues: ingredientSearchIssues.length,
     trainingOnlyGeneralLeaks: trainingOnlyGeneralLeaks.length,
     recipesMissingRequiredDetails: recipesMissingRequiredDetails.length,
     recipesMissingRecommendedDetails: recipesMissingRecommendedDetails.length
@@ -306,6 +317,8 @@ const report = {
   incompleteHolidayTables,
   menuReferenceIssues,
   cuisineCollectionIssues,
+  ingredientSearchSmoke: audit.ingredientSearchSmoke,
+  ingredientSearchIssues,
   trainingOnlyGeneralLeaks,
   recipesMissingRequiredDetails,
   recipesMissingRecommendedDetails,
@@ -334,6 +347,7 @@ const md = [
   `- Holiday tables needing work: ${report.summary.incompleteRequiredHolidays}`,
   `- Menu reference issue groups: ${report.summary.menuReferenceIssues}`,
   `- Cuisine collection issues: ${report.summary.cuisineCollectionIssues}`,
+  `- Ingredient search smoke issues: ${report.summary.ingredientSearchIssues}`,
   `- Training-only recipes in general discovery: ${report.summary.trainingOnlyGeneralLeaks}`,
   `- Recipes missing required details: ${report.summary.recipesMissingRequiredDetails}`,
   `- Recipes missing recommended enrichment details: ${report.summary.recipesMissingRecommendedDetails}`,
@@ -358,6 +372,10 @@ const md = [
   "",
   ...(cuisineCollectionIssues.length ? cuisineCollectionIssues.map((row) => `- ${row.cuisineName}: ${row.recipe.id} / ${row.recipe.title} (${row.reason})`) : ["- None"]),
   "",
+  "## Ingredient Search Smoke",
+  "",
+  ...audit.ingredientSearchSmoke.map((row) => `- ${row.matches.length ? "OK" : "NEEDS WORK"}: ${row.term} -> ${row.matches.map((match) => match.title).join(", ") || "no matches"}`),
+  "",
   "Full machine-readable details are in `data/content-quality-audit.json`."
 ].join("\n");
 
@@ -370,9 +388,10 @@ console.log(`Fallback/queued images: ${report.summary.fallbackImages}`);
 console.log(`Missing image files: ${report.summary.missingImageFiles}`);
 console.log(`Complete required holidays: ${report.summary.completeRequiredHolidays}/${report.summary.requiredHolidayCount}`);
 console.log(`Cuisine collection issues: ${report.summary.cuisineCollectionIssues}`);
+console.log(`Ingredient search smoke issues: ${report.summary.ingredientSearchIssues}`);
 console.log(`Training-only recipes in general discovery: ${report.summary.trainingOnlyGeneralLeaks}`);
 console.log("Reports: data/content-quality-audit.json, data/content-quality-audit.md");
 
-if (missingImageFiles.length || duplicateRecipeIds.length || menuReferenceIssues.length || cuisineCollectionIssues.length || trainingOnlyGeneralLeaks.length) {
+if (missingImageFiles.length || duplicateRecipeIds.length || menuReferenceIssues.length || cuisineCollectionIssues.length || ingredientSearchIssues.length || trainingOnlyGeneralLeaks.length) {
   process.exitCode = 1;
 }

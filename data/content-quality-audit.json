@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-10T20:26:21.555Z",
+  "generatedAt": "2026-07-12T21:05:25.546Z",
   "summary": {
     "totalRecipes": 634,
     "duplicateRecipeIdGroups": 0,
@@ -14,6 +14,7 @@
     "incompleteRequiredHolidays": 0,
     "menuReferenceIssues": 0,
     "cuisineCollectionIssues": 0,
+    "ingredientSearchIssues": 0,
     "trainingOnlyGeneralLeaks": 0,
     "recipesMissingRequiredDetails": 0,
     "recipesMissingRecommendedDetails": 634
@@ -3481,6 +3482,168 @@
   "incompleteHolidayTables": [],
   "menuReferenceIssues": [],
   "cuisineCollectionIssues": [],
+  "ingredientSearchSmoke": [
+    {
+      "term": "ribeye",
+      "matches": [
+        {
+          "id": "valentine-steak-dinner",
+          "title": "Valentine Steak Dinner",
+          "cuisine": "holiday",
+          "category": "Valentine's Day Mains"
+        },
+        {
+          "id": "nebraska-steak",
+          "title": "Nebraska Steak",
+          "cuisine": "nebraska",
+          "category": "Nebraska"
+        },
+        {
+          "id": "garlic-butter-steak-bites",
+          "title": "Garlic Butter Steak Bites",
+          "cuisine": "holiday",
+          "category": "Valentine's Day Mains"
+        },
+        {
+          "id": "argentinian-chimichurri-steak",
+          "title": "Argentinian Chimichurri Steak",
+          "cuisine": "global",
+          "category": "Argentina Asado"
+        },
+        {
+          "id": "kansas-chicken-fried-steak",
+          "title": "Kansas Chicken Fried Steak",
+          "cuisine": "kansas",
+          "category": "Kansas"
+        },
+        {
+          "id": "oklahoma-chicken-fried-steak",
+          "title": "Oklahoma Chicken Fried Steak",
+          "cuisine": "oklahoma",
+          "category": "Oklahoma Comfort"
+        },
+        {
+          "id": "st-louis-pork-steaks",
+          "title": "St. Louis Pork Steaks",
+          "cuisine": "missouri",
+          "category": "St. Louis Classics"
+        },
+        {
+          "id": "chicken-fried-steak",
+          "title": "Texas Chicken Fried Steak",
+          "cuisine": "texas",
+          "category": "Main Dishes"
+        }
+      ]
+    },
+    {
+      "term": "chicken thighs",
+      "matches": [
+        {
+          "id": "smothered-chicken",
+          "title": "Smothered Chicken",
+          "cuisine": "southern",
+          "category": "Family Dinner"
+        },
+        {
+          "id": "japanese-teriyaki-chicken-bowls",
+          "title": "Japanese Teriyaki Chicken Bowls",
+          "cuisine": "asian-inspired",
+          "category": "Japan Weeknight"
+        },
+        {
+          "id": "tandoori-chicken",
+          "title": "Tandoori-Style Chicken",
+          "cuisine": "indian",
+          "category": "Global Flavors"
+        },
+        {
+          "id": "cajun-chicken-sausage-gumbo",
+          "title": "Chicken and Sausage Gumbo",
+          "cuisine": "cajun",
+          "category": "Cajun"
+        },
+        {
+          "id": "chicken-vesuvio",
+          "title": "Chicken Vesuvio",
+          "cuisine": "chicago",
+          "category": "Chicago Classics"
+        },
+        {
+          "id": "filipino-chicken-adobo",
+          "title": "Filipino Chicken Adobo",
+          "cuisine": "asian-inspired",
+          "category": "Filipino Braise"
+        },
+        {
+          "id": "general-tso-chicken",
+          "title": "General Tso-Style Chicken",
+          "cuisine": "asian-inspired",
+          "category": "Global Flavors"
+        },
+        {
+          "id": "hungarian-chicken-paprikash",
+          "title": "Hungarian Chicken Paprikash",
+          "cuisine": "global",
+          "category": "Hungarian Comfort"
+        }
+      ]
+    },
+    {
+      "term": "ground beef",
+      "matches": [
+        {
+          "id": "baked-beans-ground-beef",
+          "title": "Baked Beans with Ground Beef",
+          "cuisine": "mississippi-favorites",
+          "category": "Cookouts & Church Events"
+        },
+        {
+          "id": "hamburger-steak-with-gravy",
+          "title": "Hamburger Steak with Onion Gravy",
+          "cuisine": "southern",
+          "category": "Family Dinner"
+        },
+        {
+          "id": "beef-tacos",
+          "title": "Weeknight Beef Tacos",
+          "cuisine": "mexican",
+          "category": "Global Dishes"
+        },
+        {
+          "id": "cincinnati-chili",
+          "title": "Cincinnati Chili",
+          "cuisine": "ohio",
+          "category": "Ohio"
+        },
+        {
+          "id": "baked-beans-beef-bacon",
+          "title": "Baked Beans with Beef and Bacon",
+          "cuisine": "mississippi-favorites",
+          "category": "Cookouts & Church Events"
+        },
+        {
+          "id": "hot-wieners",
+          "title": "Rhode Island Hot Wieners",
+          "cuisine": "rhode-island",
+          "category": "Diner Food"
+        },
+        {
+          "id": "chicago-hot-tamales",
+          "title": "Chicago Hot Tamales",
+          "cuisine": "chicago",
+          "category": "Chicago Classics"
+        },
+        {
+          "id": "hatch-chile-burgers",
+          "title": "Hatch Chile Burgers",
+          "cuisine": "new-mexico",
+          "category": "New Mexico Grill"
+        }
+      ]
+    }
+  ],
+  "ingredientSearchIssues": [],
   "trainingOnlyGeneralLeaks": [],
   "recipesMissingRequiredDetails": [],
   "recipesMissingRecommendedDetails": [
