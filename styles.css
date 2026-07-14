@@ -11984,3 +11984,586 @@ body {
     transition: none;
   }
 }
+
+/* Homepage redesign: food first, UI second */
+.home-magazine-hero,
+.home-tonight-feature,
+.home-ingredient-river,
+.home-cuisine-market,
+.home-seasonal-table,
+.home-learn-strip,
+.home-recipe-week,
+.home-community-table {
+  position: relative;
+  isolation: isolate;
+  padding: clamp(42px, 7vw, 104px) clamp(18px, 7vw, 112px);
+  color: #2c1a10;
+}
+
+.home-magazine-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(280px, 0.7fr);
+  grid-template-areas:
+    "copy side"
+    "photo side";
+  gap: clamp(20px, 4vw, 54px);
+  min-height: min(820px, calc(100vh - 110px));
+  align-items: end;
+  overflow: hidden;
+  background:
+    linear-gradient(115deg, rgba(31, 48, 32, 0.88), rgba(45, 30, 20, 0.62) 52%, rgba(255, 246, 230, 0.16)),
+    radial-gradient(circle at 82% 12%, rgba(239, 189, 90, 0.22), transparent 22rem),
+    #243821;
+}
+
+.home-hero-photo {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  margin: 0;
+}
+
+.home-hero-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(16, 23, 15, 0.78), rgba(16, 23, 15, 0.38) 52%, rgba(16, 23, 15, 0.18)),
+    linear-gradient(0deg, rgba(16, 23, 15, 0.72), transparent 48%);
+}
+
+.home-hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.06) contrast(1.02);
+}
+
+.home-hero-copy {
+  grid-area: copy;
+  max-width: 780px;
+  color: #fffdf7;
+}
+
+.home-hero-copy .eyebrow {
+  color: #f8d98a;
+}
+
+.home-hero-copy h1,
+.home-tonight-copy h2,
+.home-section-kicker h2,
+.home-ingredient-river h2,
+.home-recipe-week h2,
+.home-community-table h2,
+.home-learn-strip h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 0.95;
+}
+
+.home-hero-copy h1 {
+  max-width: 720px;
+  font-size: clamp(3.4rem, 9vw, 8.4rem);
+  letter-spacing: 0;
+}
+
+.home-hero-copy > p:not(.eyebrow) {
+  max-width: 560px;
+  margin: 18px 0 0;
+  color: rgba(255, 253, 247, 0.9);
+  font-size: clamp(1.05rem, 1.5vw, 1.28rem);
+  line-height: 1.55;
+}
+
+.home-hero-search {
+  max-width: 620px;
+  margin-top: 28px;
+  padding: 12px;
+  border: 1px solid rgba(255, 253, 247, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 253, 247, 0.88);
+  box-shadow: 0 22px 54px rgba(0, 0, 0, 0.18);
+}
+
+.home-hero-search label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.home-hero-search div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.home-hero-search input {
+  min-height: 48px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #2c1a10;
+  font: 800 1rem var(--sans);
+}
+
+.home-hero-sideboard {
+  grid-area: side;
+  display: grid;
+  gap: 18px;
+  align-self: center;
+}
+
+.home-editorial-dish {
+  position: relative;
+  display: grid;
+  min-height: 210px;
+  align-content: end;
+  overflow: hidden;
+  padding: 18px;
+  border-radius: 8px;
+  color: #fffdf7;
+  text-decoration: none;
+  box-shadow: 0 24px 58px rgba(34, 22, 14, 0.2);
+}
+
+.home-editorial-dish::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, transparent 28%, rgba(22, 18, 14, 0.78));
+}
+
+.home-editorial-dish img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 220ms ease, filter 220ms ease;
+}
+
+.home-editorial-dish:hover img,
+.home-editorial-dish:focus-visible img {
+  transform: scale(1.04);
+  filter: saturate(1.1);
+}
+
+.home-editorial-dish span,
+.home-tonight-photo figcaption,
+.home-tonight-pairings span,
+.home-cuisine-scroll span {
+  width: fit-content;
+  margin-bottom: 8px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(255, 253, 247, 0.88);
+  color: #35512f;
+  font-size: 0.72rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.home-editorial-dish strong {
+  color: #fffdf7;
+  font-size: clamp(1.18rem, 2.2vw, 1.9rem);
+  line-height: 1;
+}
+
+.home-tonight-feature {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.55fr) minmax(320px, 1fr);
+  gap: clamp(20px, 5vw, 70px);
+  align-items: center;
+  background:
+    linear-gradient(180deg, #fff8eb, #f6ead6),
+    repeating-linear-gradient(0deg, rgba(84, 54, 31, 0.04) 0 1px, transparent 1px 18px);
+}
+
+.home-tonight-copy h2 {
+  color: #264321;
+  font-size: clamp(2.6rem, 6vw, 6rem);
+}
+
+.home-tonight-copy p {
+  max-width: 520px;
+  color: #594334;
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.home-tonight-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.home-tonight-photo {
+  position: relative;
+  min-height: clamp(360px, 48vw, 680px);
+  margin: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 26px 70px rgba(67, 42, 24, 0.18);
+}
+
+.home-tonight-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-tonight-photo figcaption {
+  position: absolute;
+  left: 22px;
+  bottom: 22px;
+}
+
+.home-tonight-pairings {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: -46px;
+  padding-inline: clamp(14px, 4vw, 52px);
+  z-index: 2;
+}
+
+.home-tonight-pairings a {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 14px;
+  align-items: center;
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(255, 253, 247, 0.92);
+  color: inherit;
+  text-decoration: none;
+  box-shadow: 0 18px 40px rgba(67, 42, 24, 0.14);
+}
+
+.home-tonight-pairings img {
+  width: 96px;
+  height: 78px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.home-tonight-pairings strong {
+  color: #2c1a10;
+}
+
+.home-ingredient-river,
+.home-seasonal-table,
+.home-community-table {
+  background:
+    linear-gradient(180deg, #fffdf7, #f8edda),
+    radial-gradient(circle at 12% 18%, rgba(95, 127, 78, 0.14), transparent 24rem);
+}
+
+.home-ingredient-river {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.42fr) minmax(0, 1fr);
+  gap: clamp(22px, 5vw, 72px);
+  align-items: center;
+}
+
+.home-ingredient-river h2,
+.home-section-kicker h2,
+.home-recipe-week h2,
+.home-community-table h2,
+.home-learn-strip h2 {
+  color: #264321;
+  font-size: clamp(2.2rem, 5vw, 5rem);
+}
+
+.home-ingredient-lane {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+.home-ingredient-lane a {
+  display: grid;
+  align-content: end;
+  min-height: 330px;
+  overflow: hidden;
+  position: relative;
+  padding: 18px;
+  border-radius: 8px;
+  color: #fffdf7;
+  text-decoration: none;
+  box-shadow: 0 20px 48px rgba(67, 42, 24, 0.14);
+}
+
+.home-ingredient-lane a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, transparent 20%, rgba(24, 22, 18, 0.8));
+}
+
+.home-ingredient-lane img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-ingredient-lane span {
+  font: 400 clamp(1.55rem, 2.5vw, 2.5rem) var(--serif);
+}
+
+.home-ingredient-lane p {
+  margin: 8px 0 0;
+  color: rgba(255, 253, 247, 0.88);
+  line-height: 1.45;
+}
+
+.home-cuisine-market {
+  background:
+    linear-gradient(135deg, #21381f, #4d3525);
+  color: #fffdf7;
+}
+
+.home-cuisine-market .eyebrow,
+.home-cuisine-market h2 {
+  color: #fff7df;
+}
+
+.home-section-kicker {
+  display: flex;
+  gap: 18px;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.home-cuisine-scroll {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(280px, 32vw);
+  gap: 18px;
+  overflow-x: auto;
+  padding: 8px 4px 20px;
+  scroll-snap-type: x proximity;
+}
+
+.home-cuisine-scroll a {
+  position: relative;
+  display: grid;
+  min-height: 420px;
+  align-content: end;
+  overflow: hidden;
+  padding: 22px;
+  border-radius: 8px;
+  color: #fffdf7;
+  text-decoration: none;
+  scroll-snap-align: start;
+}
+
+.home-cuisine-scroll a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, transparent 28%, rgba(19, 17, 14, 0.82));
+}
+
+.home-cuisine-scroll img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-cuisine-scroll p {
+  max-width: 320px;
+  color: rgba(255, 253, 247, 0.88);
+  line-height: 1.5;
+}
+
+.home-seasonal-spread {
+  display: grid;
+  grid-template-columns: 1.1fr repeat(2, minmax(180px, 0.55fr));
+  grid-auto-rows: minmax(230px, auto);
+  gap: 18px;
+}
+
+.home-seasonal-spread .home-editorial-dish.large {
+  grid-row: span 2;
+  min-height: 520px;
+}
+
+.home-learn-strip {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.7fr) minmax(260px, 0.55fr);
+  gap: clamp(22px, 5vw, 70px);
+  align-items: center;
+  background:
+    linear-gradient(135deg, rgba(239, 189, 90, 0.36), rgba(255, 253, 247, 0.96)),
+    repeating-linear-gradient(0deg, rgba(84, 54, 31, 0.045) 0 1px, transparent 1px 16px);
+}
+
+.home-learn-strip p {
+  max-width: 720px;
+  color: #594334;
+  line-height: 1.7;
+}
+
+.home-learn-strip nav {
+  display: grid;
+  gap: 12px;
+}
+
+.home-learn-strip nav a {
+  padding: 18px 20px;
+  border-left: 5px solid #7b9a5f;
+  background: rgba(255, 253, 247, 0.78);
+  color: #2c1a10;
+  font-weight: 950;
+  text-decoration: none;
+  box-shadow: 0 14px 34px rgba(67, 42, 24, 0.08);
+}
+
+.home-recipe-week {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.95fr) minmax(260px, 0.55fr);
+  gap: clamp(22px, 5vw, 72px);
+  align-items: center;
+  background: #fff8eb;
+}
+
+.home-recipe-week figure {
+  min-height: clamp(360px, 46vw, 640px);
+  margin: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 24px 64px rgba(67, 42, 24, 0.16);
+}
+
+.home-recipe-week img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-recipe-week p,
+.home-community-table p {
+  color: #594334;
+  line-height: 1.7;
+}
+
+.home-community-table {
+  display: grid;
+  grid-template-columns: minmax(250px, 0.45fr) minmax(0, 1fr);
+  gap: clamp(22px, 5vw, 72px);
+  align-items: center;
+}
+
+.home-community-polaroids {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(160px, 1fr));
+  gap: 18px;
+}
+
+.home-community-polaroids .home-editorial-dish:nth-child(2n) {
+  transform: translateY(24px);
+}
+
+@media (max-width: 980px) {
+  .home-magazine-hero,
+  .home-tonight-feature,
+  .home-ingredient-river,
+  .home-learn-strip,
+  .home-recipe-week,
+  .home-community-table {
+    grid-template-columns: 1fr;
+  }
+
+  .home-magazine-hero {
+    grid-template-areas:
+      "copy"
+      "side";
+    min-height: 0;
+  }
+
+  .home-tonight-pairings {
+    grid-column: auto;
+    margin-top: 0;
+    padding-inline: 0;
+  }
+
+  .home-ingredient-lane,
+  .home-community-polaroids {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-seasonal-spread {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-seasonal-spread .home-editorial-dish.large {
+    grid-column: 1 / -1;
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-magazine-hero,
+  .home-tonight-feature,
+  .home-ingredient-river,
+  .home-cuisine-market,
+  .home-seasonal-table,
+  .home-learn-strip,
+  .home-recipe-week,
+  .home-community-table {
+    padding-inline: 16px;
+  }
+
+  .home-hero-search {
+    border-radius: 18px;
+  }
+
+  .home-hero-search div,
+  .home-tonight-pairings,
+  .home-ingredient-lane,
+  .home-seasonal-spread,
+  .home-community-polaroids {
+    grid-template-columns: 1fr;
+  }
+
+  .home-section-kicker {
+    display: grid;
+    align-items: start;
+  }
+
+  .home-cuisine-scroll {
+    grid-auto-columns: minmax(250px, 86vw);
+  }
+
+  .home-community-polaroids .home-editorial-dish:nth-child(2n) {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-editorial-dish img,
+  .home-hero-search,
+  .home-cuisine-scroll {
+    transition: none;
+    scroll-behavior: auto;
+  }
+}

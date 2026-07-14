@@ -11576,52 +11576,190 @@ function shayKitchenSectionMarkup({ includeCategories = true } = {}) {
 }
 
 function homepageRecipeDiscoverySection() {
-  const featured = recipesByIds([
-    "southern-fried-chicken",
-    "bbq-smoked-ribs",
-    "strawberry-shortcake",
-    "classic-cookout-hot-dogs",
-    "hawaiian-poke-bowls",
-    "filipino-chicken-adobo"
-  ]);
-  const seasonal = recipesByIds([
-    "all-american-burgers",
-    "bbq-baked-beans",
-    "southern-potato-salad",
-    "corn-on-the-cob",
-    "cookout-watermelon-wedges",
-    "peach-cobbler"
-  ]);
-  const fallback = allRecipeCollection().slice(0, 6);
-  const cards = (featured.length >= 4 ? featured : fallback).slice(0, 6);
+  const tonight = recipeByIdSafe("fried-chicken") || recipeByIdSafe("smothered-chicken") || allRecipeCollection()[0];
+  const side = recipeByIdSafe("southern-potato-salad") || recipeByIdSafe("green-bean-casserole");
+  const dessert = recipeByIdSafe("strawberry-shortcake") || recipeByIdSafe("peach-cobbler");
   return `
-    <section class="cream-section recipe-first-discovery" id="recipe-discovery">
-      <div class="recipe-first-copy">
-        <p class="eyebrow">Start with the food</p>
-        <h2>What looks good tonight?</h2>
-        <p>Search by craving, ingredient, holiday, cuisine, or whatever is already sitting in your kitchen.</p>
-        <form class="ingredient-search-panel recipe-first-search" data-ingredient-form>
-          <label for="homeRecipeSearch">Find something to cook</label>
-          <div>
-            <input id="homeRecipeSearch" name="ingredient" placeholder="chicken, shrimp, peaches, rice..." />
-            <button class="small-button" type="submit">Find Recipes</button>
-          </div>
-        </form>
-        <div class="recipe-first-actions">
-          <a href="#recipes" class="small-button secondary">Browse All Recipes</a>
-          <a href="#what-yall-cooking" class="small-button secondary">Build A Menu</a>
-          <a href="#cuisine-explorer" class="small-button secondary">Explore Cuisines</a>
+    <section class="home-tonight-feature" id="recipe-discovery" aria-labelledby="tonightTitle">
+      <div class="home-tonight-copy">
+        <p class="eyebrow">What's cookin' tonight?</p>
+        <h2 id="tonightTitle">${tonight?.title || "Something good"}</h2>
+        <p>${tonight?.description || "Start with the food, then let the story follow."}</p>
+        <div class="home-tonight-actions">
+          ${tonight ? `<a class="small-button" href="#recipes/${tonight.id}">Make This Tonight</a>` : ""}
+          <a class="small-button secondary" href="#recipes">Browse Recipes</a>
         </div>
       </div>
+      <figure class="home-tonight-photo">
+        ${tonight ? `<img src="${recipePhotoFor(tonight)}" alt="${tonight.title}" />` : ""}
+        <figcaption>${recipeStoryLabel(tonight)}</figcaption>
+      </figure>
+      <div class="home-tonight-pairings" aria-label="Pair it with">
+        ${[side, dessert].filter(Boolean).map((recipe) => `
+          <a href="#recipes/${recipe.id}">
+            <img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" />
+            <span>${recipe.category || cuisineName(recipe.cuisine)}</span>
+            <strong>${recipe.title}</strong>
+          </a>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function homepageEditorialRecipeLink(recipe, label = "", className = "") {
+  if (!recipe) return "";
+  return `
+    <a class="home-editorial-dish ${className}" href="#recipes/${recipe.id}">
+      <img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" />
+      <span>${label || recipe.category || cuisineName(recipe.cuisine)}</span>
+      <strong>${recipe.title}</strong>
+    </a>
+  `;
+}
+
+function homepageEditorialHeroSection() {
+  const heroRecipe = recipeByIdSafe("bbq-smoked-ribs") || recipeByIdSafe("fried-chicken") || allRecipeCollection()[0];
+  const supporting = recipesByIds(["strawberry-shortcake", "lemonade", "peach-cobbler"]).filter(Boolean);
+  return `
+    <section class="home-magazine-hero" aria-labelledby="homeHeroTitle">
+      <figure class="home-hero-photo">
+        ${heroRecipe ? `<img src="${recipePhotoFor(heroRecipe)}" alt="${heroRecipe.title}" />` : ""}
+      </figure>
+      <div class="home-hero-copy">
+        <p class="eyebrow">Let's Cook Y'all / America through food</p>
+        <h1 id="homeHeroTitle">Hey y'all... come hungry.</h1>
+        <p>A warm kitchen, real recipes, summer plates, and a whole country worth tasting.</p>
+        <form class="home-hero-search" data-ingredient-form>
+          <label for="homeHeroSearch">What are we cooking today?</label>
+          <div>
+            <input id="homeHeroSearch" name="ingredient" placeholder="ribeye, chicken thighs, peaches..." />
+            <button class="small-button" type="submit">Find Food</button>
+          </div>
+        </form>
+        <div class="hero-actions">
+          <a class="small-button" href="#recipes">Find A Recipe</a>
+          <a class="small-button secondary" href="#america-250">America 250 Table</a>
+        </div>
+      </div>
+      <div class="home-hero-sideboard" aria-label="Featured bites">
+        ${supporting.map((recipe, index) => homepageEditorialRecipeLink(recipe, ["Sweet finish", "Cold glass", "Bring dessert"][index])).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function homepageIngredientEditorialSection() {
+  const ingredientRoutes = [
+    ["Chicken", "Sunday dinner, tacos, adobo, gumbo, salads", "chicken", "images/recipes/audit-2026-06/southern-fried-chicken.png"],
+    ["Ground Beef", "Burgers, chili, tacos, baked beans, meatloaf", "ground beef", "images/recipes/audit-2026-06/hamburger-steak-with-gravy.jpg"],
+    ["Peaches", "Cobbler, pie, salads, tea, breakfast bowls", "peaches", "images/regional/mississippi/peach-cobbler.jpg"],
+    ["Rice", "Bowls, gumbo, fried rice, jambalaya, sides", "rice", "images/recipes/audit-2026-06/cajun-jambalaya.jpg"]
+  ];
+  return `
+    <section class="home-ingredient-river" aria-labelledby="ingredientRiverTitle">
       <div>
-        <div class="section-heading compact-heading">
-          <p class="eyebrow">Featured now</p>
-          <h2>Cookout favorites, summer sweets, and real dinner ideas.</h2>
-        </div>
-        <div class="recipe-grid recipe-first-grid">${cards.map(recipeCard).join("")}</div>
-        <div class="seasonal-recipe-strip" aria-label="Seasonal recipe shortcuts">
-          ${seasonal.slice(0, 6).map((recipe) => `<a href="#recipes/${recipe.id}"><span>${recipe.category}</span><strong>${recipe.title}</strong></a>`).join("")}
-        </div>
+        <p class="eyebrow">Explore ingredients</p>
+        <h2 id="ingredientRiverTitle">Start with what you already have.</h2>
+      </div>
+      <div class="home-ingredient-lane">
+        ${ingredientRoutes.map(([title, text, term, image]) => `
+          <a href="#kitchen-search/${encodeURIComponent(term)}">
+            <img src="${image}" alt="${title} ingredient inspiration" />
+            <span>${title}</span>
+            <p>${text}</p>
+          </a>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function homepageCuisineScrollSection() {
+  const marketStops = cuisines.filter((item) => ["southern", "mexican", "indian", "asian-inspired", "italian", "caribbean", "african", "holiday-sunday"].includes(item.id));
+  return `
+    <section class="home-cuisine-market" aria-labelledby="cuisineMarketTitle">
+      <div class="home-section-kicker">
+        <p class="eyebrow">Explore cuisines</p>
+        <h2 id="cuisineMarketTitle">Walk the market lanes.</h2>
+        <a class="small-button secondary" href="#cuisine-explorer">Open Cuisine Hub</a>
+      </div>
+      <div class="home-cuisine-scroll" tabindex="0" aria-label="Cuisine market carousel">
+        ${marketStops.map((cuisine) => `
+          <a href="#cuisine-explorer/${cuisine.id}">
+            <img src="${cuisine.image}" alt="${cuisine.name}" />
+            <span>${cuisine.name}</span>
+            <p>${cuisine.blurb}</p>
+          </a>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function homepageSeasonalEditorialSection() {
+  const recipes = recipesByIds(["all-american-burgers", "classic-cookout-hot-dogs", "bbq-baked-beans", "corn-on-the-cob", "cookout-watermelon-wedges", "peach-cobbler"]).filter(Boolean);
+  return `
+    <section class="home-seasonal-table" aria-labelledby="seasonalTitle">
+      <div class="home-section-kicker">
+        <p class="eyebrow">Seasonal collection</p>
+        <h2 id="seasonalTitle">Summer food that disappears first.</h2>
+        <a class="small-button secondary" href="#america-250">See Today's Table</a>
+      </div>
+      <div class="home-seasonal-spread">
+        ${recipes.map((recipe, index) => homepageEditorialRecipeLink(recipe, ["Grill", "Backyard", "Side", "Fresh", "Cold fruit", "Dessert"][index], index === 0 ? "large" : "")).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function homepageLearnWhileCookingSection() {
+  return `
+    <section class="home-learn-strip" aria-labelledby="learnStripTitle">
+      <div>
+        <p class="eyebrow">Learn something new</p>
+        <h2 id="learnStripTitle">Tiny lessons, right when the pan is hot.</h2>
+        <p>Tips, substitutions, cultural notes, and techniques stay close to the recipe. The deeper lessons live in the Academy when you want them.</p>
+      </div>
+      <nav aria-label="Learning shortcuts">
+        <a href="#cook101">Cook 101</a>
+        <a href="#what-yall-cooking">Use What I Have</a>
+        <a href="#culinary-academy/world-foods">World Foods</a>
+      </nav>
+    </section>
+  `;
+}
+
+function homepageRecipeOfWeekSection(recipe) {
+  if (!recipe) return "";
+  return `
+    <section class="home-recipe-week" aria-labelledby="recipeWeekTitle">
+      <figure>
+        <img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" />
+      </figure>
+      <div>
+        <p class="eyebrow">Recipe of the week</p>
+        <h2 id="recipeWeekTitle">${recipe.title}</h2>
+        <p>${recipe.description}</p>
+        <a class="small-button" href="#recipes/${recipe.id}">Get The Recipe</a>
+      </div>
+    </section>
+  `;
+}
+
+function homepageCommunityEditorialSection() {
+  const communityRecipes = recipesByIds(["catfish-and-spaghetti", "delta-hot-tamales", "chopped-cheese", "dc-half-smoke", "fried-chicken", "banana-pudding"]).filter(Boolean);
+  const shown = communityRecipes.length ? communityRecipes : allRecipeCollection().slice(8, 14);
+  return `
+    <section class="home-community-table" aria-labelledby="communityTitle">
+      <div>
+        <p class="eyebrow">Community recipes</p>
+        <h2 id="communityTitle">Fresh from the neighborhood.</h2>
+        <p>The plate Grandma makes, the church pan, the corner carryout, the cookout favorite, and the dish somebody says you have to try.</p>
+        <a class="small-button secondary" href="#kitchen">Open Shay's Kitchen</a>
+      </div>
+      <div class="home-community-polaroids">
+        ${shown.map((recipe) => homepageEditorialRecipeLink(recipe, recipeStoryLabel(recipe))).join("")}
       </div>
     </section>
   `;
@@ -11629,68 +11767,17 @@ function homepageRecipeDiscoverySection() {
 
 function renderLetsCookHome() {
   const publishableRecipes = recipes.filter(recipeAllowedInGeneralCollection);
-  const recipeOfWeek = recipeById("yakamein") || publishableRecipes[0];
-  const kidPick = recipeById("pb-and-j-sandwich") || publishableRecipes.find((recipe) => recipe.skill_level === "Junior Chef");
-  const southernClassic = recipeById("oxtails") || publishableRecipes.find((recipe) => recipe.cuisine === "southern");
-  const globalFlavor = recipeById("chicken-street-tacos") || publishableRecipes.find((recipe) => recipe.cuisine !== "southern");
-  const heroRecipeIds = america250DailyRecipeIds(new Date(), 5);
-  const dailyRecipeIds = america250DailyRecipeIds(new Date(), 4, 5);
+  const recipeOfWeek = recipeById("smothered-chicken") || recipeById("yakamein") || publishableRecipes[0];
   app.innerHTML = `
-    ${america250HeroBanner()}
     ${cookSubnav()}
+    ${homepageEditorialHeroSection()}
     ${homepageRecipeDiscoverySection()}
-    ${summerCravingsSection()}
-    ${frontPorchAmericaSection()}
-    ${kitchenTableWelcomeSection()}
-    ${roadTripMapSection()}
-    ${aroundAmericaTableSection()}
-    ${neighborhoodCookbookSection()}
-    ${shayHouseNotesSection()}
-    ${america250ChallengeBanner()}
-    ${america250SpotlightSection()}
-    ${america250DailyRecipeSection(dailyRecipeIds)}
-    ${america250CollectionSection(8, [...heroRecipeIds, ...dailyRecipeIds])}
-    <section class="cream-section kitchen-flagship-intro">
-      ${kitchenToolSwitcher()}
-    </section>
-    ${thisMonthSection()}
-    ${thisMonthsTableSection()}
-    ${america250FoodHistorySection()}
-    ${america250SeasonalIdeasSection()}
-    ${pullUpAChairSection()}
-    ${homepageMarketInvitationSection()}
-    ${comingUpNextSection()}
-    ${learningArchitectureSection()}
-    <section class="green-section personal-band">
-      <div class="section-heading">
-        <p class="eyebrow">From my kitchen</p>
-        <h2>Shay's Recipes</h2>
-        <p>Meals already cooked, loved, talked about, or planned for the next Brent & Co. table.</p>
-      </div>
-      <div class="hero-actions"><a class="small-button" href="#kitchen">Open Shay's Kitchen</a><a class="small-button secondary" href="#add-recipe">Add Recipe</a><a class="small-button secondary" href="#kitchen">Upload Food Video</a></div>
-    </section>
-    ${shayKitchenSectionMarkup()}
-    <section class="cream-section rollout-section">
-      <div class="section-heading">
-        <p class="eyebrow">Share-ready picks</p>
-        <h2>Content made for the table and the timeline.</h2>
-      </div>
-      <div class="rollout-grid">
-        ${[
-          ["Recipe of the Week", recipeOfWeek],
-          ["Junior Chef Pick", kidPick],
-          ["Southern Classic", southernClassic],
-          ["Global Flavor", globalFlavor]
-        ].map(([label, recipe]) => recipe ? `<article><span>${label}</span>${recipeCard(recipe)}</article>` : "").join("")}
-      </div>
-    </section>
-    <section class="cream-section">
-      <div class="section-heading">
-        <p class="eyebrow">Tonight's table</p>
-        <h2>Warm Picks From The Kitchen</h2>
-      </div>
-      <div class="recipe-grid">${recipes.filter(recipeAllowedInGeneralCollection).slice(0, 6).map(recipeCard).join("")}</div>
-    </section>
+    ${homepageIngredientEditorialSection()}
+    ${homepageCuisineScrollSection()}
+    ${homepageSeasonalEditorialSection()}
+    ${homepageLearnWhileCookingSection()}
+    ${homepageRecipeOfWeekSection(recipeOfWeek)}
+    ${homepageCommunityEditorialSection()}
   `;
 }
 
