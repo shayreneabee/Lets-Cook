@@ -3267,6 +3267,11 @@ function holidayRecipesFor(table = {}) {
   return recipeIdsForHolidayTable(table).map((id) => recipeById(id)).filter(Boolean);
 }
 
+function holidayTableBySlug(id = "") {
+  const normalized = slugify(decodeURIComponent(id || ""));
+  return curatedHolidayTables.find((holiday) => slugify(holiday.title) === normalized) || null;
+}
+
 function holidayMenuIndexForAudience(audienceId = "") {
   const title = holidayAudienceMap[audienceId];
   if (!title) return -1;
@@ -3332,6 +3337,51 @@ function holidayTablePlannerPanel(table, servings = 6) {
       </div>
     </section>
   `;
+}
+
+function renderHolidayTableDetail(id) {
+  const table = holidayTableBySlug(id);
+  if (!table) return false;
+  const recipesForTable = holidayRecipesFor(table);
+  const quickIds = [...(table.main_recipe_ids || []).slice(0, 2), ...(table.side_recipe_ids || []).slice(0, 2), ...(table.dessert_recipe_ids || []).slice(0, 1)];
+  app.innerHTML = `
+    ${hero(`${table.title} Table`, `A curated ${table.title} celebration menu with real holiday food only. No generic database recipes, no everyday breakfast filler, and no unrelated weekday meals.`, table.hero || "images/recipes/audit-2026-06/holiday-cups.jpg", `<a class="small-button" href="#living-cookbook/holiday-tables">All Holiday Tables</a><a class="small-button secondary" href="#planner/0-6-${slugify(table.title)}">Plan This Table</a>`)}
+    ${cookSubnav()}
+    <section class="cream-section holiday-table-detail">
+      <div class="section-heading">
+        <p class="eyebrow">Holiday Table</p>
+        <h2>${table.title} recipes that belong here.</h2>
+        <p>This page is locked to the curated ${table.title} recipe list so old database recipes cannot slip into the holiday collection.</p>
+      </div>
+      ${recipesForTable.length
+        ? `<div class="recipe-grid cuisine-first-recipe-grid">${recipesForTable.map(recipeCard).join("")}</div>`
+        : `<div class="empty-state">A curated ${table.title} table is coming soon. We are not filling this holiday with unrelated recipes.</div>`}
+      <div class="regional-story-grid">
+        <article>
+          <p class="eyebrow">Quick Hits</p>
+          <h3>Fast ${table.title} favorites</h3>
+          <div class="mini-recipe-list">${holidayRecipeLinks(quickIds)}</div>
+        </article>
+        <article>
+          <p class="eyebrow">Main Table</p>
+          <h3>Centerpieces and hot food</h3>
+          <div class="mini-recipe-list">${holidayRecipeLinks(table.main_recipe_ids || [])}</div>
+        </article>
+        <article>
+          <p class="eyebrow">Sides</p>
+          <h3>The dishes that make it feel like ${table.title}</h3>
+          <div class="mini-recipe-list">${holidayRecipeLinks(table.side_recipe_ids || [])}</div>
+        </article>
+        <article>
+          <p class="eyebrow">Treats</p>
+          <h3>Desserts and snacks</h3>
+          <div class="mini-recipe-list">${holidayRecipeLinks(table.dessert_recipe_ids || [])}</div>
+        </article>
+      </div>
+      ${holidayTablePlannerPanel(table, 6)}
+    </section>
+  `;
+  return true;
 }
 
 function menuShoppingList(menu) {
@@ -12881,6 +12931,7 @@ function renderCuisineExplorerDetail(id) {
 }
 
 function renderCuisineExplorer(id) {
+  if (id && renderHolidayTableDetail(id)) return;
   const regionalId = id ? regionalSoulFoodAliases[id] || id : "";
   if (regionalId && regionalSoulFoodPages[regionalId]) return renderRegionalSoulFoodPage(regionalId);
   const midwestId = id ? midwestRegionalAliases[id] || id : "";
