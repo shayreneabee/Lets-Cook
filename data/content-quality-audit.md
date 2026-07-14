@@ -1,6 +1,6 @@
 # Let's Cook Y'all Content Quality Audit
 
-Generated: 2026-07-14T18:58:01.596Z
+Generated: 2026-07-14T22:59:01.132Z
 
 ## Summary
 
@@ -26,7 +26,7 @@ Generated: 2026-07-14T18:58:01.596Z
 - OK: Valentine's Day (19 recipes)
 - OK: Mardi Gras (15 recipes)
 - OK: St. Patrick's Day (15 recipes)
-- OK: Easter (18 recipes)
+- OK: Easter (16 recipes)
 - OK: Cinco de Mayo (16 recipes)
 - OK: Mother's Day (14 recipes)
 - OK: Father's Day (15 recipes)

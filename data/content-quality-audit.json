@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-07-14T18:58:01.596Z",
+  "generatedAt": "2026-07-14T22:59:01.132Z",
   "summary": {
     "totalRecipes": 665,
     "duplicateRecipeIdGroups": 0,
     "duplicateRecipeTitleGroups": 5,
-    "uniqueImages": 503,
+    "uniqueImages": 505,
     "sharedImageGroups": 107,
     "genericRecipeImages": 0,
     "fallbackImages": 0,
@@ -674,7 +674,7 @@
     },
     {
       "image": "images/recipes/audit-2026-06/pound-cake.jpg",
-      "count": 3,
+      "count": 2,
       "recipes": [
         {
           "id": "pound-cake",
@@ -687,12 +687,6 @@
           "title": "Holiday Fruitcake",
           "cuisine": "holiday",
           "category": "Christmas Desserts"
-        },
-        {
-          "id": "carrot-cake",
-          "title": "Carrot Cake",
-          "cuisine": "holiday",
-          "category": "Easter Desserts"
         }
       ]
     },
@@ -1148,7 +1142,7 @@
     },
     {
       "image": "assets/ingredients.jpeg",
-      "count": 6,
+      "count": 5,
       "recipes": [
         {
           "id": "fruit-rainbow-kabobs",
@@ -1179,12 +1173,6 @@
           "title": "California Fruit Rainbow Plates",
           "cuisine": "western-kids",
           "category": "Kids Activities"
-        },
-        {
-          "id": "spring-vegetables",
-          "title": "Spring Vegetables",
-          "cuisine": "holiday",
-          "category": "Easter Sides"
         }
       ]
     },
@@ -3527,7 +3515,7 @@
     {
       "title": "Easter",
       "present": true,
-      "recipeCount": 18,
+      "recipeCount": 16,
       "hasAppetizers": true,
       "hasMains": true,
       "hasSides": true,

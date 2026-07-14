@@ -3045,10 +3045,10 @@ const curatedHolidayTables = [
   },
   {
     title: "Easter",
-    hero: "images/recipes/audit-2026-06/baked-ham.jpg",
+    hero: "images/recipes/holiday-2026/easter-table.png",
     main_recipe_ids: ["baked-ham", "honey-glazed-ham", "roast-lamb"],
     appetizer_recipe_ids: ["deviled-eggs", "holiday-cups"],
-    side_recipe_ids: ["strawberry-poppy-seed-salad", "scalloped-potatoes", "hot-cross-buns", "southern-potato-salad", "spring-vegetables", "smothered-green-beans", "green-bean-casserole", "dinner-rolls"],
+    side_recipe_ids: ["strawberry-poppy-seed-salad", "scalloped-potatoes", "hot-cross-buns", "southern-potato-salad", "spring-vegetables", "dinner-rolls"],
     dessert_recipe_ids: ["carrot-cake", "coconut-cake", "strawberry-shortcake"],
     drink_recipe_ids: ["lemonade", "sweet-tea"],
     leftoverIdeas: ["Ham sandwiches", "Strawberry salad lunch plates", "Deviled egg snack tray", "Potato salad lunch plates", "Cake slices for guests", "Ham and green bean skillet"],
@@ -3482,13 +3482,13 @@ function renderHolidayTableDetail(id) {
   const recipesForTable = holidayRecipesFor(table);
   const quickIds = [...(table.main_recipe_ids || []).slice(0, 2), ...(table.side_recipe_ids || []).slice(0, 2), ...(table.dessert_recipe_ids || []).slice(0, 1)];
   app.innerHTML = `
-    ${hero(`${table.title} Table`, `A curated ${table.title} celebration menu with real holiday food only. No generic database recipes, no everyday breakfast filler, and no unrelated weekday meals.`, table.hero || "images/recipes/audit-2026-06/holiday-cups.jpg", `<a class="small-button" href="#living-cookbook/holiday-tables">All Holiday Tables</a><a class="small-button secondary" href="#planner/0-6-${slugify(table.title)}">Plan This Table</a>`)}
+    ${hero(`${table.title} Table`, `Menus, mains, sides, sweets, drinks, leftovers, and hosting rhythm for a ${table.title} table that feels like the day itself.`, table.hero || "images/recipes/audit-2026-06/holiday-cups.jpg", `<a class="small-button" href="#living-cookbook/holiday-tables">All Holiday Tables</a><a class="small-button secondary" href="#planner/0-6-${slugify(table.title)}">Plan This Table</a>`)}
     ${cookSubnav()}
     <section class="cream-section holiday-table-detail">
       <div class="section-heading">
-        <p class="eyebrow">Holiday Table</p>
-        <h2>${table.title} recipes that belong here.</h2>
-        <p>This page is locked to the curated ${table.title} recipe list so old database recipes cannot slip into the holiday collection.</p>
+        <p class="eyebrow">Holiday headquarters</p>
+        <h2>Start with the food that makes ${table.title} feel like ${table.title}.</h2>
+        <p>Every recipe below is chosen for this celebration: the centerpiece, the sides people ask about, the sweet finish, and the leftovers worth saving.</p>
       </div>
       ${recipesForTable.length
         ? `<div class="recipe-grid cuisine-first-recipe-grid">${recipesForTable.map(recipeCard).join("")}</div>`
@@ -6525,6 +6525,8 @@ Object.assign(recipeImageOverrides, {
   "roast-lamb": "images/recipes/holiday-2026/roast-lamb.png",
   "hot-cross-buns": "images/recipes/holiday-2026/hot-cross-buns.png",
   "scalloped-potatoes": "images/recipes/holiday-2026/scalloped-potatoes.png",
+  "carrot-cake": "images/recipes/holiday-2026/carrot-cake.png",
+  "spring-vegetables": "images/recipes/holiday-2026/spring-vegetables.png",
   "halloween-monster-noodle-bowls": "images/recipes/holiday-2026/halloween-monster-noodle-bowls.png",
   "halloween-eyeball-grape-treats": "images/recipes/holiday-2026/halloween-eyeball-grape-treats.png",
   "prime-rib": "images/recipes/holiday-2026/prime-rib.png",
@@ -8140,46 +8142,152 @@ function routeParts() {
   return { route, id };
 }
 
+function siteFooterMarkup(route = "") {
+  const cookingActive = activeAppForRoute(route)?.id === "lets-cook";
+  const navGroups = [
+    ["Cook", [
+      ["Home", "#lets-cook"],
+      ["Recipes", "#recipes"],
+      ["Explore Cuisines", "#cuisine-explorer"],
+      ["America", "#america-250"],
+      ["Cook 101", "#cook101"],
+      ["Celebrate", "#living-cookbook/holiday-tables"]
+    ]],
+    ["Your Kitchen", [
+      ["Favorites", "#account"],
+      ["Menu Planner", "#planner"],
+      ["Pantry Scan", "#pantry-scan"],
+      ["Submit a Recipe", "#add-recipe"],
+      ["Account", "#account"]
+    ]],
+    ["About", [
+      ["About Let's Cook Y'all", "#about"],
+      ["Contact", "#contact"],
+      ["Privacy Policy", "#privacy"],
+      ["Terms of Service", "#terms"],
+      ["Back to Top", "button:top"]
+    ]]
+  ];
+  return `
+    <footer class="site-footer-v2" aria-label="Let's Cook Y'all footer">
+      <div class="site-footer-note">
+        <p class="eyebrow">${cookingActive ? "Pull up a chair" : "Brent & Co."}</p>
+        <h2>There is always something good to cook next.</h2>
+        <p>Find a recipe, plan a table, learn a skill, explore a cuisine, or save something for later.</p>
+        <form class="footer-newsletter" data-footer-newsletter>
+          <label for="footerEmail">Get fresh ideas in your inbox</label>
+          <div>
+            <input id="footerEmail" name="email" type="email" placeholder="your@email.com" />
+            <button class="small-button" type="submit">Sign Up</button>
+          </div>
+          <p class="status-message" data-footer-newsletter-status aria-live="polite"></p>
+        </form>
+      </div>
+      <nav class="site-footer-links" aria-label="Footer navigation">
+        ${navGroups.map(([title, links]) => `
+          <section>
+            <h3>${title}</h3>
+            ${links.map(([label, href]) => href === "button:top" ? `<button class="footer-link-button" type="button" data-back-to-top>${label}</button>` : `<a href="${href}">${label}</a>`).join("")}
+          </section>
+        `).join("")}
+      </nav>
+      <div class="site-footer-bottom">
+        <span>Made with love, discipline, and a little Mississippi grit.</span>
+        <span>Social links coming soon.</span>
+      </div>
+    </footer>
+  `;
+}
+
+function appendSiteFooter(route = "") {
+  const existing = document.querySelector(".site-footer-v2");
+  if (existing) existing.remove();
+  app.insertAdjacentHTML("beforeend", siteFooterMarkup(route));
+}
+
+function renderSimpleInfoPage(kind = "contact") {
+  const pages = {
+    contact: {
+      title: "Contact Let's Cook Y'all",
+      copy: "Questions, recipe ideas, family food stories, corrections, and collaboration notes can all start here.",
+      blocks: [
+        ["Recipe Corrections", "Tell us if a dish, photo, ingredient, route, or cultural note needs care."],
+        ["Community Recipes", "Share the foods your family, church, neighborhood, or city actually cooks."],
+        ["Partnerships", "Reach out about schools, community groups, media, or Brent & Co. collaborations."]
+      ],
+      actions: `<a class="small-button" href="mailto:hello@brentandco.org?subject=Let's%20Cook%20Y'all">Email Brent & Co.</a><a class="small-button secondary" href="#add-recipe">Submit a Recipe</a>`
+    },
+    privacy: {
+      title: "Privacy Policy",
+      copy: "Let's Cook Y'all is built to feel personal without being careless with your information.",
+      blocks: [
+        ["Account Data", "Profiles, saved recipes, pantry choices, and planner activity are used to support your cooking experience."],
+        ["Photos and Uploads", "Pantry previews stay in your browser for the session unless a feature clearly asks you to submit something."],
+        ["Your Choices", "Use account settings for profile changes, and contact Brent & Co. for privacy questions."]
+      ],
+      actions: `<a class="small-button" href="#account">Account Settings</a><a class="small-button secondary" href="#contact">Contact</a>`
+    },
+    terms: {
+      title: "Terms of Service",
+      copy: "Use Let's Cook Y'all as a cooking companion, recipe journal, and learning space with care for the people and cultures represented.",
+      blocks: [
+        ["Food Safety", "Recipes are educational and inspirational. Use safe handling, allergy awareness, and temperature guidance in your own kitchen."],
+        ["Community Content", "Submit recipes and stories you have the right to share, and respect family, cultural, and creator credit."],
+        ["Platform Use", "Do not misuse accounts, uploads, comments, or app features. The goal is a welcoming kitchen for everyone."]
+      ],
+      actions: `<a class="small-button" href="#recipes">Browse Recipes</a><a class="small-button secondary" href="#contact">Ask a Question</a>`
+    }
+  };
+  const page = pages[kind] || pages.contact;
+  app.innerHTML = `
+    ${hero(page.title, page.copy, "assets/editorial-cooking-hero.jpg", page.actions)}
+    ${cookSubnav()}
+    <section class="cream-section">
+      <div class="system-grid">
+        ${page.blocks.map(([title, text]) => `<article><strong>${title}</strong><span>${text}</span></article>`).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function render() {
   const { route, id } = routeParts();
   if (route !== "recipes" || !id) setShareMeta();
   setActive(route);
   updateAppChrome(route);
-  if (route === "home") return renderPlatformHome();
-  if (route === "lets-cook") return renderLetsCookHome();
-  if (route === "find-the-beat") return renderFindTheBeatHome();
-  if (route === "second-chance") return renderSecondChanceHome();
-  if (route === "community") return renderCommunity();
-  if (route === "kitchen") return renderKitchen();
-  if (route === "america-250") return renderAmerica250();
-  if (route === "add-recipe") return renderAddRecipe();
-  if (route === "cook101") return id ? renderLesson(id) : renderCook101();
-  if (route === "skills-academy") return renderSkillsAcademy();
-  if (route === "culinary-academy") return renderCulinaryAcademy(id);
-  if (route === "build-a-meal") return renderBuildMeal(id);
-  if (route === "kitchen-search") return renderKitchenSearch(id);
-  if (route === "pantry-scan") return renderPantryScan(id);
-  if (route === "cuisine-explorer") return renderCuisineExplorer(id);
-  if (route === "food-encyclopedia") return renderCulinaryAcademy(id);
-  if (route === "what-yall-cooking") return renderWhatYallCooking(id);
-  if (route === "menu-intelligence") return renderWhatYallCooking(id);
-  if (route === "living-cookbook") return renderLivingCookbook(id);
-  if (route === "kids-cooking") return renderKidsKorner(id);
-  if (route === "kids-korner") return renderKidsKorner(id);
-  if (route === "recipes") {
-    if (!id) return renderRecipes();
-    renderRecipe(id);
-    return;
-  }
-  if (route === "paths") return id ? renderPath(id) : renderPaths();
-  if (route === "pathways") return renderPaths();
-  if (route === "planner") return renderPlanner(id);
-  if (route === "hosting") return renderHosting(id);
-  if (route === "about") return renderAbout();
-  if (route === "account") return renderAccount();
-  if (route === "search") return renderRecipes();
-  if (route === "cuisine") return renderCuisine(id);
-  renderPlatformHome();
+  if (route === "home") renderPlatformHome();
+  else if (route === "lets-cook") renderLetsCookHome();
+  else if (route === "find-the-beat") renderFindTheBeatHome();
+  else if (route === "second-chance") renderSecondChanceHome();
+  else if (route === "community") renderCommunity();
+  else if (route === "kitchen") renderKitchen();
+  else if (route === "america-250") renderAmerica250();
+  else if (route === "add-recipe" || route === "submit-recipe") renderAddRecipe();
+  else if (route === "cook101") id ? renderLesson(id) : renderCook101();
+  else if (route === "skills-academy") renderSkillsAcademy();
+  else if (route === "culinary-academy") renderCulinaryAcademy(id);
+  else if (route === "build-a-meal") renderBuildMeal(id);
+  else if (route === "kitchen-search") renderKitchenSearch(id);
+  else if (route === "pantry-scan") renderPantryScan(id);
+  else if (route === "cuisine-explorer") renderCuisineExplorer(id);
+  else if (route === "food-encyclopedia") renderCulinaryAcademy(id);
+  else if (route === "what-yall-cooking") renderWhatYallCooking(id);
+  else if (route === "menu-intelligence") renderWhatYallCooking(id);
+  else if (route === "living-cookbook") renderLivingCookbook(id);
+  else if (route === "kids-cooking") renderKidsKorner(id);
+  else if (route === "kids-korner") renderKidsKorner(id);
+  else if (route === "recipes") id ? renderRecipe(id) : renderRecipes();
+  else if (route === "paths") id ? renderPath(id) : renderPaths();
+  else if (route === "pathways") renderPaths();
+  else if (route === "planner") renderPlanner(id);
+  else if (route === "hosting") renderHosting(id);
+  else if (route === "about") renderAbout();
+  else if (route === "account") renderAccount();
+  else if (route === "privacy" || route === "terms" || route === "contact") renderSimpleInfoPage(route);
+  else if (route === "search") renderRecipes();
+  else if (route === "cuisine") renderCuisine(id);
+  else renderPlatformHome();
+  appendSiteFooter(route);
 }
 
 function setActive(route) {
@@ -15201,6 +15309,7 @@ function handleSearch(event) {
 }
 
 function handleClick(event) {
+  const backToTopButton = event.target.closest("[data-back-to-top]");
   const kidsAnswer = event.target.closest("[data-kids-answer]");
   const rainbowChecklist = event.target.closest("[data-rainbow-checklist]");
   const dinnerChecklist = event.target.closest("[data-dinner-checklist]");
@@ -15221,6 +15330,16 @@ function handleClick(event) {
   const useSavedMenuButton = event.target.closest("[data-use-saved-menu]");
   const clearPlannedButton = event.target.closest("[data-clear-planned]");
   const saveCountryButton = event.target.closest("[data-save-country]");
+
+  if (backToTopButton) {
+    window.scrollTo({ top: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    const main = document.querySelector("main, #app, .home-magazine-hero, .hero");
+    if (main && typeof main.focus === "function") {
+      main.setAttribute("tabindex", "-1");
+      main.focus({ preventScroll: true });
+    }
+    return;
+  }
   const stampCuisineButton = event.target.closest("[data-stamp-cuisine]");
   if (kidsAnswer) {
     const result = kidsAnswer.closest(".kids-game-card")?.querySelector("[data-kids-game-result]");
@@ -15385,6 +15504,20 @@ function handleClick(event) {
 
 
 async function handleSubmit(event) {
+  if (event.target.matches("[data-footer-newsletter]")) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const status = event.target.querySelector("[data-footer-newsletter-status]");
+    const email = formData.get("email")?.toString().trim();
+    if (status) {
+      status.textContent = email
+        ? "You're on the list. We'll save you a seat at the table."
+        : "Add an email address and we'll keep the good food coming.";
+    }
+    if (email) event.target.reset();
+    return;
+  }
+
   if (event.target.matches("[data-kids-safety-quiz]")) {
     event.preventDefault();
     const formData = new FormData(event.target);

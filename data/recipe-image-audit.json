@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-14T18:57:59.209Z",
+  "generatedAt": "2026-07-14T22:57:21.019Z",
   "totalRecipes": 665,
-  "uniqueImages": 503,
+  "uniqueImages": 505,
   "missingFiles": [],
   "fallbacks": [],
   "photoQueue": [],
@@ -419,10 +419,6 @@
         {
           "id": "fruitcake",
           "title": "Holiday Fruitcake"
-        },
-        {
-          "id": "carrot-cake",
-          "title": "Carrot Cake"
         }
       ]
     },
@@ -770,10 +766,6 @@
         {
           "id": "kids-fruit-rainbow-plates",
           "title": "California Fruit Rainbow Plates"
-        },
-        {
-          "id": "spring-vegetables",
-          "title": "Spring Vegetables"
         }
       ]
     },
@@ -7944,7 +7936,7 @@
       "title": "Carrot Cake",
       "cuisine": "holiday",
       "category": "Easter Desserts",
-      "image": "images/recipes/audit-2026-06/pound-cake.jpg",
+      "image": "images/recipes/holiday-2026/carrot-cake.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -7964,8 +7956,8 @@
       "title": "Spring Vegetables",
       "cuisine": "holiday",
       "category": "Easter Sides",
-      "image": "assets/ingredients.jpeg",
-      "source": "recipe-data",
+      "image": "images/recipes/holiday-2026/spring-vegetables.png",
+      "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
     },
