@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-14T18:24:28.249Z",
-  "totalRecipes": 646,
+  "generatedAt": "2026-07-14T18:36:06.382Z",
+  "totalRecipes": 665,
   "uniqueImages": 495,
   "missingFiles": [],
   "fallbacks": [],
@@ -93,6 +93,18 @@
         {
           "id": "new-zealand-pavlova",
           "title": "New Zealand Pavlova"
+        },
+        {
+          "id": "chocolate-covered-strawberries",
+          "title": "Chocolate Covered Strawberries"
+        },
+        {
+          "id": "valentine-chocolate-fondue",
+          "title": "Valentine Chocolate Fondue"
+        },
+        {
+          "id": "red-white-blue-berry-trifle",
+          "title": "Red, White & Blue Berry Trifle"
         },
         {
           "id": "strawberry-shortcake",
@@ -243,6 +255,32 @@
       ]
     },
     {
+      "image": "images/recipes/audit-2026-06/creole-seafood-gumbo.jpg",
+      "recipes": [
+        {
+          "id": "creole-seafood-gumbo",
+          "title": "Creole Seafood Gumbo"
+        },
+        {
+          "id": "feast-seven-fishes-stew",
+          "title": "Feast of the Seven Fishes Seafood Stew"
+        }
+      ]
+    },
+    {
+      "image": "images/cuisines/africa/nigeria/suya-skewers.jpg",
+      "recipes": [
+        {
+          "id": "nigerian-suya-skewers",
+          "title": "Suya Skewers"
+        },
+        {
+          "id": "eid-kebab-platter",
+          "title": "Eid Kebab Platter"
+        }
+      ]
+    },
+    {
       "image": "images/recipes/audit-2026-06/nigerian-fried-rice.jpg",
       "recipes": [
         {
@@ -337,6 +375,36 @@
       ]
     },
     {
+      "image": "images/recipes/audit-2026-06/dinner-rolls.jpg",
+      "recipes": [
+        {
+          "id": "dinner-rolls",
+          "title": "Soft Dinner Rolls"
+        },
+        {
+          "id": "hot-cross-buns",
+          "title": "Hot Cross Buns"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/sweet-tea.jpg",
+      "recipes": [
+        {
+          "id": "sweet-tea",
+          "title": "Southern Sweet Tea"
+        },
+        {
+          "id": "christmas-hot-cocoa",
+          "title": "Christmas Hot Cocoa"
+        },
+        {
+          "id": "masala-chai",
+          "title": "Masala Chai"
+        }
+      ]
+    },
+    {
       "image": "images/juneteenth/fresh-lemonade.png",
       "recipes": [
         {
@@ -402,6 +470,19 @@
         {
           "id": "jamaican-jerk-chicken",
           "title": "Jamaican Jerk Chicken"
+        }
+      ]
+    },
+    {
+      "image": "images/juneteenth/hibiscus-red-punch.png",
+      "recipes": [
+        {
+          "id": "hibiscus-red-punch",
+          "title": "Hibiscus Red Punch"
+        },
+        {
+          "id": "spooky-party-punch",
+          "title": "Spooky Party Punch"
         }
       ]
     },
@@ -539,6 +620,19 @@
       ]
     },
     {
+      "image": "images/regional/texas-chili.png",
+      "recipes": [
+        {
+          "id": "texas-chili",
+          "title": "Texas No-Bean Chili"
+        },
+        {
+          "id": "pumpkin-chili",
+          "title": "Pumpkin Chili"
+        }
+      ]
+    },
+    {
       "image": "images/recipes/audit-2026-06/florida-blue-crab.jpg",
       "recipes": [
         {
@@ -574,6 +668,10 @@
         {
           "id": "brazilian-feijoada-style-beans",
           "title": "Brazilian Feijoada-Style Beans"
+        },
+        {
+          "id": "new-years-hoppin-john",
+          "title": "New Year's Hoppin' John"
         }
       ]
     },
@@ -664,6 +762,18 @@
         {
           "id": "nevada-steakhouse-potatoes",
           "title": "Nevada Steakhouse Potatoes"
+        },
+        {
+          "id": "colcannon-potatoes",
+          "title": "Colcannon Potatoes"
+        },
+        {
+          "id": "scalloped-potatoes",
+          "title": "Scalloped Potatoes"
+        },
+        {
+          "id": "potato-latkes",
+          "title": "Potato Latkes"
         }
       ]
     },
@@ -745,6 +855,19 @@
         {
           "id": "coconut-cake",
           "title": "Coconut Cake"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/berry-banana-smoothies.jpg",
+      "recipes": [
+        {
+          "id": "berry-banana-smoothies",
+          "title": "Berry Banana Smoothies"
+        },
+        {
+          "id": "homemade-vanilla-ice-cream",
+          "title": "Homemade Vanilla Ice Cream"
         }
       ]
     },
@@ -898,6 +1021,10 @@
         {
           "id": "polish-bigos",
           "title": "Polish Bigos"
+        },
+        {
+          "id": "turkey-leftover-soup",
+          "title": "Thanksgiving Turkey Leftover Soup"
         }
       ]
     },
@@ -1027,6 +1154,19 @@
       ]
     },
     {
+      "image": "images/recipes/audit-2026-06/chicago-hot-tamales.jpg",
+      "recipes": [
+        {
+          "id": "chicago-hot-tamales",
+          "title": "Chicago Hot Tamales"
+        },
+        {
+          "id": "christmas-eve-tamales",
+          "title": "Christmas Eve Tamales"
+        }
+      ]
+    },
+    {
       "image": "images/recipes/audit-2026-06/wisconsin-butter-burgers.jpg",
       "recipes": [
         {
@@ -1074,6 +1214,19 @@
         {
           "id": "montana-trout-skillet",
           "title": "Montana Trout Skillet"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/paczki.jpg",
+      "recipes": [
+        {
+          "id": "paczki",
+          "title": "Paczki"
+        },
+        {
+          "id": "sufganiyot-style-doughnuts",
+          "title": "Sufganiyot-Style Jam Doughnuts"
         }
       ]
     },
@@ -1490,6 +1643,10 @@
         {
           "id": "california-sourdough-toast",
           "title": "California Sourdough Toast"
+        },
+        {
+          "id": "irish-soda-bread",
+          "title": "Irish Soda Bread"
         }
       ]
     },
@@ -7867,6 +8024,196 @@
       "cuisine": "holiday",
       "category": "Easter Sides",
       "image": "assets/ingredients.jpeg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "chocolate-covered-strawberries",
+      "title": "Chocolate Covered Strawberries",
+      "cuisine": "holiday",
+      "category": "Valentine's Day Desserts",
+      "image": "images/recipes/audit-2026-06/strawberry-shortcake.png",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "valentine-chocolate-fondue",
+      "title": "Valentine Chocolate Fondue",
+      "cuisine": "holiday",
+      "category": "Valentine's Day Desserts",
+      "image": "images/recipes/audit-2026-06/strawberry-shortcake.png",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "irish-soda-bread",
+      "title": "Irish Soda Bread",
+      "cuisine": "holiday",
+      "category": "St. Patrick's Day Breads",
+      "image": "assets/fresh-bread.jpeg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "colcannon-potatoes",
+      "title": "Colcannon Potatoes",
+      "cuisine": "holiday",
+      "category": "St. Patrick's Day Sides",
+      "image": "images/recipes/audit-2026-06/funeral-potatoes.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "hot-cross-buns",
+      "title": "Hot Cross Buns",
+      "cuisine": "holiday",
+      "category": "Easter Breads",
+      "image": "images/recipes/audit-2026-06/dinner-rolls.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "scalloped-potatoes",
+      "title": "Scalloped Potatoes",
+      "cuisine": "holiday",
+      "category": "Easter Sides",
+      "image": "images/recipes/audit-2026-06/funeral-potatoes.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "red-white-blue-berry-trifle",
+      "title": "Red, White & Blue Berry Trifle",
+      "cuisine": "holiday",
+      "category": "Fourth of July Desserts",
+      "image": "images/recipes/audit-2026-06/strawberry-shortcake.png",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "homemade-vanilla-ice-cream",
+      "title": "Homemade Vanilla Ice Cream",
+      "cuisine": "holiday",
+      "category": "Summer Cookout Desserts",
+      "image": "images/recipes/audit-2026-06/berry-banana-smoothies.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "pumpkin-chili",
+      "title": "Pumpkin Chili",
+      "cuisine": "holiday",
+      "category": "Halloween Mains",
+      "image": "images/regional/texas-chili.png",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "spooky-party-punch",
+      "title": "Spooky Party Punch",
+      "cuisine": "holiday",
+      "category": "Halloween Drinks",
+      "image": "images/juneteenth/hibiscus-red-punch.png",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "turkey-leftover-soup",
+      "title": "Thanksgiving Turkey Leftover Soup",
+      "cuisine": "holiday",
+      "category": "Thanksgiving Leftovers",
+      "image": "images/recipes/audit-2026-06/loaded-baked-potato-soup.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "christmas-eve-tamales",
+      "title": "Christmas Eve Tamales",
+      "cuisine": "holiday",
+      "category": "Christmas Eve",
+      "image": "images/recipes/audit-2026-06/chicago-hot-tamales.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "feast-seven-fishes-stew",
+      "title": "Feast of the Seven Fishes Seafood Stew",
+      "cuisine": "holiday",
+      "category": "Christmas Eve",
+      "image": "images/recipes/audit-2026-06/creole-seafood-gumbo.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "christmas-hot-cocoa",
+      "title": "Christmas Hot Cocoa",
+      "cuisine": "holiday",
+      "category": "Christmas Drinks",
+      "image": "images/recipes/audit-2026-06/sweet-tea.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "new-years-hoppin-john",
+      "title": "New Year's Hoppin' John",
+      "cuisine": "holiday",
+      "category": "New Year's Sides",
+      "image": "images/recipes/audit-2026-06/red-beans-and-rice.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "potato-latkes",
+      "title": "Potato Latkes",
+      "cuisine": "holiday",
+      "category": "Hanukkah Sides",
+      "image": "images/recipes/audit-2026-06/funeral-potatoes.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "sufganiyot-style-doughnuts",
+      "title": "Sufganiyot-Style Jam Doughnuts",
+      "cuisine": "holiday",
+      "category": "Hanukkah Desserts",
+      "image": "images/recipes/audit-2026-06/paczki.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "masala-chai",
+      "title": "Masala Chai",
+      "cuisine": "holiday",
+      "category": "Diwali Drinks",
+      "image": "images/recipes/audit-2026-06/sweet-tea.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "eid-kebab-platter",
+      "title": "Eid Kebab Platter",
+      "cuisine": "holiday",
+      "category": "Ramadan / Eid Mains",
+      "image": "images/cuisines/africa/nigeria/suya-skewers.jpg",
       "source": "recipe-data",
       "fallbackUsed": false,
       "missingRecipeImage": false

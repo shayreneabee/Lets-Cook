@@ -2915,9 +2915,9 @@ const curatedHolidayTables = [
   {
     title: "New Year's",
     hero: "images/cuisines/southern/southern-04.png",
-    main_recipe_ids: ["baked-ham", "smothered-pork-chops", "southern-meatloaf"],
+    main_recipe_ids: ["baked-ham", "smothered-pork-chops", "southern-meatloaf", "prime-rib"],
     appetizer_recipe_ids: ["deviled-eggs", "charcuterie-cups"],
-    side_recipe_ids: ["southern-black-eyed-peas", "southern-collard-greens", "cornbread", "dinner-rolls"],
+    side_recipe_ids: ["new-years-hoppin-john", "southern-black-eyed-peas", "southern-collard-greens", "cornbread", "dinner-rolls"],
     dessert_recipe_ids: ["pound-cake", "peach-cobbler"],
     drink_recipe_ids: ["sweet-tea", "lemonade"],
     leftoverIdeas: ["Ham and greens plates", "Black-eyed pea bowls", "Cornbread breakfast squares", "Pork chop sandwiches"],
@@ -2928,10 +2928,10 @@ const curatedHolidayTables = [
   {
     title: "Valentine's Day",
     hero: "images/recipes/audit-2026-06/strawberry-shortcake.png",
-    main_recipe_ids: ["valentine-steak-dinner", "garlic-butter-steak-bites", "chicken-parmesan", "grilled-swordfish-lemon-herb", "tuscan-chicken"],
+    main_recipe_ids: ["valentine-steak-dinner", "garlic-butter-steak-bites", "chicken-parmesan", "grilled-swordfish-lemon-herb", "tuscan-chicken", "shrimp-and-grits"],
     appetizer_recipe_ids: ["creamy-hummus", "charcuterie-cups"],
     side_recipe_ids: ["strawberry-poppy-seed-salad", "greek-salad", "roasted-vegetables", "dinner-rolls"],
-    dessert_recipe_ids: ["new-york-cheesecake", "strawberry-shortcake", "dessert-cups"],
+    dessert_recipe_ids: ["chocolate-covered-strawberries", "valentine-chocolate-fondue", "new-york-cheesecake", "strawberry-shortcake", "dessert-cups"],
     drink_recipe_ids: ["lemonade", "mint-lemonade"],
     leftoverIdeas: ["Steak salad plates", "Steak bite pasta bowls", "Cheesecake slices", "Roasted vegetable omelets", "Chicken parmesan sandwiches"],
     regional: ["Steakhouse Date Night", "Family Valentine Table", "Galentine Dessert Board"],
@@ -2956,7 +2956,7 @@ const curatedHolidayTables = [
     hero: "assets/german-food.jpeg",
     main_recipe_ids: ["irish-beef-stew", "british-shepherds-pie", "baked-ham"],
     appetizer_recipe_ids: ["deviled-eggs", "charcuterie-cups"],
-    side_recipe_ids: ["cabbage-saute", "roasted-vegetables", "dinner-rolls", "green-salad"],
+    side_recipe_ids: ["colcannon-potatoes", "irish-soda-bread", "cabbage-saute", "roasted-vegetables", "dinner-rolls", "green-salad"],
     dessert_recipe_ids: ["pound-cake", "classic-apple-pie"],
     drink_recipe_ids: ["sweet-tea", "lemonade"],
     leftoverIdeas: ["Stew with rolls", "Shepherd's pie lunch portions", "Ham and cabbage skillet", "Apple pie slices"],
@@ -2972,6 +2972,7 @@ const curatedHolidayTables = [
     side_recipe_ids: ["southern-cornbread-dressing", "oyster-dressing", "giblet-gravy", "sweet-potato-casserole", "green-bean-casserole", "candied-yams", "southern-baked-mac-cheese", "southern-collard-greens", "cranberry-relish", "dinner-rolls"],
     dessert_recipe_ids: ["pumpkin-pie", "sweet-potato-pie", "southern-pecan-pie", "peach-cobbler"],
     drink_recipe_ids: ["sweet-tea", "lemonade", "holiday-punch"],
+    leftover_recipe_ids: ["turkey-leftover-soup"],
     leftoverIdeas: ["Turkey sandwiches with cranberry sauce", "Ham and roll sliders", "Dressing waffles with gravy", "Turkey soup with greens", "Pie slices packed for take-home plates"],
     regional: ["Southern Thanksgiving", "Cajun Thanksgiving", "New England Thanksgiving", "Hawaiian Thanksgiving"],
     timeline: ["3 days before: shop, thaw turkey, and check serving dishes.", "2 days before: bake cornbread, pies, and prep casseroles.", "Day before: assemble dressing, casseroles, cranberry relish, and desserts.", "Morning of: roast or smoke the main, warm sides, and write the oven order.", "Before serving: rest the main, carve, set gravy, rolls, and drinks."],
@@ -2980,11 +2981,11 @@ const curatedHolidayTables = [
   {
     title: "Christmas",
     hero: "images/recipes/audit-2026-06/baked-ham.jpg",
-    main_recipe_ids: ["prime-rib", "standing-rib-roast", "beef-tenderloin", "honey-glazed-ham", "baked-ham", "roast-turkey", "roast-duck", "roast-goose", "turducken"],
+    main_recipe_ids: ["prime-rib", "standing-rib-roast", "beef-tenderloin", "honey-glazed-ham", "baked-ham", "roast-turkey", "roast-duck", "roast-goose", "turducken", "christmas-eve-tamales", "feast-seven-fishes-stew"],
     appetizer_recipe_ids: ["holiday-cups", "deviled-eggs", "charcuterie-cups"],
     side_recipe_ids: ["corn-casserole", "green-bean-casserole", "smothered-green-beans", "sweet-potato-casserole", "dinner-rolls", "southern-baked-mac-cheese"],
     dessert_recipe_ids: ["christmas-cookies", "fruitcake", "yule-log", "new-york-cheesecake", "southern-pecan-pie", "pound-cake"],
-    drink_recipe_ids: ["eggnog", "holiday-punch", "sweet-tea"],
+    drink_recipe_ids: ["eggnog", "holiday-punch", "christmas-hot-cocoa", "sweet-tea"],
     leftoverIdeas: ["Prime rib sandwiches", "Ham breakfast biscuits", "Turkey and dressing plates", "Cookie tins for guests", "Punch and dessert station refills"],
     regional: ["Southern Christmas", "Cajun Christmas", "New England Christmas", "Caribbean Christmas"],
     timeline: ["3 days before: buy roast or ham and confirm dessert plan.", "2 days before: bake cookies, fruitcake, or cake.", "Day before: prep sides, punch base, and serving trays.", "Day of: roast centerpiece, warm sides, and keep cookies/drinks separate from the hot line.", "After dinner: pack roast and ham leftovers for sandwiches."],
@@ -3047,7 +3048,7 @@ const curatedHolidayTables = [
     hero: "images/recipes/audit-2026-06/baked-ham.jpg",
     main_recipe_ids: ["baked-ham", "honey-glazed-ham", "roast-lamb"],
     appetizer_recipe_ids: ["deviled-eggs", "holiday-cups"],
-    side_recipe_ids: ["strawberry-poppy-seed-salad", "southern-potato-salad", "spring-vegetables", "smothered-green-beans", "green-bean-casserole", "dinner-rolls"],
+    side_recipe_ids: ["strawberry-poppy-seed-salad", "scalloped-potatoes", "hot-cross-buns", "southern-potato-salad", "spring-vegetables", "smothered-green-beans", "green-bean-casserole", "dinner-rolls"],
     dessert_recipe_ids: ["carrot-cake", "coconut-cake", "strawberry-shortcake"],
     drink_recipe_ids: ["lemonade", "sweet-tea"],
     leftoverIdeas: ["Ham sandwiches", "Strawberry salad lunch plates", "Deviled egg snack tray", "Potato salad lunch plates", "Cake slices for guests", "Ham and green bean skillet"],
@@ -3061,7 +3062,7 @@ const curatedHolidayTables = [
     main_recipe_ids: ["all-american-burgers", "classic-cookout-hot-dogs", "bbq-chicken-quarters", "bbq-pulled-pork", "bbq-smoked-ribs", "bbq-brisket-basics"],
     appetizer_recipe_ids: ["charcuterie-cups", "fruit-cups", "rotel-dip"],
     side_recipe_ids: ["southern-potato-salad", "bbq-baked-beans", "creamy-coleslaw", "corn-on-the-cob", "southern-baked-mac-cheese", "cookout-watermelon-wedges"],
-    dessert_recipe_ids: ["classic-apple-pie", "peach-cobbler", "banana-pudding", "strawberry-shortcake"],
+    dessert_recipe_ids: ["classic-apple-pie", "peach-cobbler", "banana-pudding", "strawberry-shortcake", "red-white-blue-berry-trifle", "homemade-vanilla-ice-cream"],
     drink_recipe_ids: ["lemonade", "sweet-tea"],
     leftoverIdeas: ["Pulled pork sandwiches", "Burger salad bowls", "Hot dog chili cups", "Rib plates with cold sides", "Cobbler and ice cream"],
     regional: ["Southern Cookout", "Texas BBQ Fourth", "Coastal Seafood Fourth", "Backyard Burger Table"],
@@ -3071,11 +3072,11 @@ const curatedHolidayTables = [
   {
     title: "Halloween",
     hero: "images/regional/texas-chili.png",
-    main_recipe_ids: ["texas-chili", "halloween-monster-noodle-bowls", "classic-cookout-hot-dogs", "taco-cups", "sheet-pan-nachos"],
+    main_recipe_ids: ["pumpkin-chili", "texas-chili", "halloween-monster-noodle-bowls", "classic-cookout-hot-dogs", "taco-cups", "sheet-pan-nachos"],
     appetizer_recipe_ids: ["rotel-dip", "tailgate-cups", "cheese-quesadilla-triangles"],
     side_recipe_ids: ["bbq-baked-beans", "cornbread", "corn-on-the-cob"],
     dessert_recipe_ids: ["halloween-eyeball-grape-treats", "chewy-chocolate-cookies", "crispy-rice-treats", "no-bake-cereal-bars", "dessert-cups"],
-    drink_recipe_ids: ["lemonade", "sweet-tea"],
+    drink_recipe_ids: ["spooky-party-punch", "lemonade", "sweet-tea"],
     leftoverIdeas: ["Chili dogs", "Monster noodle lunch bowls", "Nacho bowls", "Taco cup lunch boxes", "Eyeball grape snack cups", "Cookie treat bags", "Cornbread with leftover chili"],
     regional: ["Trick-or-Treat Chili Night", "School Party Table", "Fall Tailgate Halloween"],
     timeline: ["Day before: make chili, cereal bars, and grape treats.", "Afternoon of: prep hot dogs, toppings, noodle bowls, and cups.", "Before trick-or-treating: keep chili warm and drinks cold.", "After candy: set out cookies, eyeball grapes, and simple snacks.", "Next day: turn chili into dogs or nachos."],
@@ -3125,8 +3126,8 @@ const curatedHolidayTables = [
     hero: "images/recipes/audit-2026-06/cleveland-pierogies.jpg",
     main_recipe_ids: ["bbq-brisket-basics", "roast-duck", "eastern-european-pierogies"],
     appetizer_recipe_ids: ["charcuterie-cups", "green-salad"],
-    side_recipe_ids: ["roasted-vegetables", "cabbage-saute", "dinner-rolls"],
-    dessert_recipe_ids: ["classic-apple-pie", "pound-cake", "dessert-cups"],
+    side_recipe_ids: ["potato-latkes", "roasted-vegetables", "cabbage-saute", "dinner-rolls"],
+    dessert_recipe_ids: ["sufganiyot-style-doughnuts", "classic-apple-pie", "pound-cake", "dessert-cups"],
     drink_recipe_ids: ["lemonade", "sweet-tea"],
     leftoverIdeas: ["Brisket sandwiches", "Pierogi skillet plates", "Roasted vegetable bowls", "Dessert trays"],
     regional: ["Jewish American Comfort Table", "Deli-Inspired Supper", "Family Candle Night"],
@@ -3140,7 +3141,7 @@ const curatedHolidayTables = [
     appetizer_recipe_ids: ["creamy-hummus", "roasted-vegetables"],
     side_recipe_ids: ["garlic-naan", "cucumber-raita", "kachumber-salad", "rice-pilaf"],
     dessert_recipe_ids: ["kheer", "baklava-cups"],
-    drink_recipe_ids: ["mango-lassi", "mint-lemonade"],
+    drink_recipe_ids: ["masala-chai", "mango-lassi", "mint-lemonade"],
     leftoverIdeas: ["Biryani lunch boxes", "Dal and rice bowls", "Naan wraps", "Kheer cups"],
     regional: ["Indian Family Table", "Vegetarian Diwali Supper", "Festival Sweets Night"],
     timeline: ["Day before: make sweets and chutneys.", "Morning of: prep spice bases and rice.", "Before serving: warm breads and finish curries.", "After dinner: portion curries separately from rice."],
@@ -3162,7 +3163,7 @@ const curatedHolidayTables = [
   {
     title: "Ramadan / Eid",
     hero: "images/recipes/audit-2026-06/rice-pilaf.jpg",
-    main_recipe_ids: ["saudi-kabsa-chicken", "pakistani-chicken-biryani", "moroccan-chicken-tagine", "persian-herb-stew"],
+    main_recipe_ids: ["eid-kebab-platter", "saudi-kabsa-chicken", "pakistani-chicken-biryani", "moroccan-chicken-tagine", "persian-herb-stew"],
     appetizer_recipe_ids: ["creamy-hummus", "pita-flatbread", "cucumber-raita"],
     side_recipe_ids: ["rice-pilaf", "moroccan-carrot-salad", "greek-salad"],
     dessert_recipe_ids: ["kheer", "baklava-cups"],
@@ -3173,6 +3174,140 @@ const curatedHolidayTables = [
     shopping: ["chicken", "rice", "hummus ingredients", "pita", "yogurt", "carrots", "greens", "milk", "mango", "mint"]
   }
 ];
+
+const celebrationExperienceGuides = {
+  "new-years": {
+    moments: ["Watch Night supper", "Game day grazing", "Good-luck plate", "Late brunch"],
+    traditions: ["Black-eyed peas, greens, cornbread, pork, and rice show up as symbols of luck, prosperity, and a full table.", "Some families cook seafood, prime rib, or appetizer spreads for New Year's Eve, then a Southern good-luck plate on New Year's Day."],
+    drinks: ["Sparkling cider or champagne-style mocktails", "Citrus punch", "Sweet tea", "Coffee for late nights"],
+    kids: ["Mini cornbread muffins", "Confetti fruit cups", "Build-your-own appetizer plates"],
+    learning: "Teach the good-luck plate: peas, greens, and cornbread each carry meaning, but every family seasons the tradition differently."
+  },
+  "valentines-day": {
+    moments: ["Date night for two", "Breakfast in bed", "Galentine's brunch", "Kids' Valentine treat table"],
+    traditions: ["Valentine's food leans into chocolate, strawberries, steakhouse dinners, brunch, and small desserts that feel personal.", "The table can be romantic, playful, family-friendly, or friendship-centered."],
+    drinks: ["Berry lemonade", "Sparkling punch", "Coffee with dessert", "Mocktail spritzers"],
+    kids: ["Chocolate dipped fruit", "Heart-shaped cookie decorating", "Mini dessert cups"],
+    learning: "Build around one showpiece: steak, seafood, fondue, brunch, or dessert board. Everything else should make that moment easier."
+  },
+  "mardi-gras": {
+    moments: ["Parade night supper", "Cajun gumbo pot", "Beignet breakfast", "Seafood table"],
+    traditions: ["Mardi Gras food should feel festive: gumbo, jambalaya, oysters, beans, beignets, bread pudding, and big pots that feed people coming and going."],
+    drinks: ["Sweet tea", "Lemonade", "Citrus punch", "Coffee with beignets"],
+    kids: ["Beignet dusting station", "Colorful fruit cups", "Mini muffuletta-style bites"],
+    learning: "Explain trinity, roux, rice, seafood, and how New Orleans and Cajun tables celebrate differently."
+  },
+  "st-patricks-day": {
+    moments: ["Irish American supper", "Pub-style comfort night", "Stew and bread table", "Brunch plate"],
+    traditions: ["Corned beef is an Irish American classic, while stew, soda bread, colcannon, boxty, cabbage, potatoes, tea, and butter belong in the wider food story."],
+    drinks: ["Tea", "Lemonade", "Creamy dessert drinks", "Green party punch"],
+    kids: ["Soda bread with butter", "Potato pancake bites", "Green fruit cups"],
+    learning: "Use this holiday to show the difference between Irish food, Irish American food, and family traditions built in the U.S."
+  },
+  thanksgiving: {
+    moments: ["Southern Thanksgiving", "Cajun Thanksgiving", "Soul Food menu", "Vegetarian sides table", "Dessert table", "Leftover Friday"],
+    traditions: ["Thanksgiving is a menu system: centerpiece mains, dressing, vegetables, bread, pies, drinks, breakfast, and leftovers.", "Native ingredients and regional history should be handled respectfully, not reduced to a decoration."],
+    drinks: ["Holiday punch", "Sweet tea", "Cider", "Coffee with dessert"],
+    kids: ["Roll shaping", "Pie decorating", "Cranberry relish stirring", "Leftover sandwich station"],
+    learning: "Teach oven scheduling, safe turkey thawing, make-ahead sides, and how regional Thanksgiving tables differ."
+  },
+  christmas: {
+    moments: ["Christmas Eve", "Christmas morning breakfast", "Prime rib dinner", "Tamale night", "Feast of the Seven Fishes", "Cookie exchange", "Hot cocoa bar"],
+    traditions: ["Christmas tables vary widely: roast beef, ham, turkey, tamales, seafood, cookies, candy, punch, brunch, and late-night leftovers all belong.", "Let regional and immigrant traditions sit beside Southern comfort dishes."],
+    drinks: ["Eggnog", "Holiday punch", "Hot cocoa", "Coffee", "Citrus mocktails"],
+    kids: ["Cookie decorating", "Hot cocoa toppings", "Breakfast casserole help", "Candy tins"],
+    learning: "Help cooks plan Christmas as a full day: breakfast, snacks, dinner, dessert, drinks, and leftovers."
+  },
+  easter: {
+    moments: ["Church dinner", "Easter brunch", "Spring lunch", "Kids' treat table", "Ham-and-sides supper"],
+    traditions: ["Easter often centers ham, lamb, deviled eggs, hot cross buns, potato salad, spring vegetables, carrot cake, coconut cake, and bright salads."],
+    drinks: ["Lemonade", "Sweet tea", "Berry punch", "Coffee with cake"],
+    kids: ["Deviled egg filling help", "Cupcake decorating", "Fruit baskets", "Bunny snack cups"],
+    learning: "Teach make-ahead cold sides, keeping eggs safe, and building a fresh spring plate."
+  },
+  "fourth-of-july": {
+    moments: ["Backyard cookout", "Regional BBQ table", "Pool party", "Fireworks dessert table", "Homemade ice cream night"],
+    traditions: ["Fourth of July food should taste like summer: burgers, hot dogs, smoked meats, ribs, brisket, potato salad, mac and cheese, corn, watermelon, pies, cobblers, and cold drinks."],
+    drinks: ["Lemonade", "Sweet tea", "Red, white, and blue punch", "Watermelon coolers"],
+    kids: ["Watermelon wedges", "Ice cream toppings", "Burger bar", "Berry trifle cups"],
+    learning: "Teach grill flow: raw/cooked separation, cold side safety, sauce stations, shade, ice, and leftovers."
+  },
+  halloween: {
+    moments: ["Trick-or-treat dinner", "School party table", "Monster snack board", "Porch food", "Spooky movie night"],
+    traditions: ["Halloween food should be fun and practical: chili, hot dogs, nachos, noodle bowls, candy treats, grapes with fake eyeballs, cookies, dips, and punch."],
+    drinks: ["Spooky party punch", "Lemonade", "Hot cocoa", "Apple cider"],
+    kids: ["Eyeball grapes", "Monster noodle faces", "Cookie decorating", "Snack cup assembly"],
+    learning: "Design Halloween food around movement: quick bowls, handheld snacks, safe candy stations, and warm food before costumes."
+  },
+  juneteenth: {
+    moments: ["Backyard BBQ", "Family reunion table", "Red drink station", "Freedom story table", "Cookout plates"],
+    traditions: ["Juneteenth food honors freedom, remembrance, Texas roots, red foods and drinks, barbecue, family, music, and community gathering."],
+    drinks: ["Hibiscus red punch", "Strawberry soda", "Sorrel drink", "Lemonade"],
+    kids: ["Watermelon platter", "Red fruit cups", "Cornbread help", "Story cards"],
+    learning: "Keep the history visible: June 19, 1865, Galveston, freedom delayed, and food as celebration and remembrance."
+  },
+  hanukkah: {
+    moments: ["Candle night supper", "Latke party", "Brisket dinner", "Doughnut dessert table"],
+    traditions: ["Hanukkah tables often feature fried foods like latkes and sufganiyot, plus brisket, kugel, soup, salads, challah, and family sweets depending on tradition."],
+    drinks: ["Tea", "Coffee", "Sparkling juice", "Lemonade"],
+    kids: ["Latke topping bar", "Jam doughnut dusting", "Cookie decorating"],
+    learning: "Present Jewish holiday foods respectfully and note that Ashkenazi, Sephardi, Mizrahi, and family traditions vary."
+  },
+  diwali: {
+    moments: ["Festival sweets table", "Vegetarian supper", "Family feast", "Tea and snack visit"],
+    traditions: ["Diwali food varies by region and family, but can include samosas, biryani, paneer, dal, butter chicken, sweets, laddoo, gulab jamun, kheer, and chai."],
+    drinks: ["Masala chai", "Mango lassi", "Mint lemonade", "Rose milk"],
+    kids: ["Sweet boxes", "Mango lassi cups", "Naan triangles", "Rice bowls"],
+    learning: "Frame Diwali as a festival celebrated in many ways; focus on food, hospitality, sweets, light, and family."
+  },
+  "ramadan-eid": {
+    moments: ["Suhoor ideas", "Iftar table", "Eid family feast", "Dessert and tea table"],
+    traditions: ["Ramadan and Eid traditions vary widely. Common food moments include dates, soups, rice platters, kebabs, biryani, breads, sweets, tea, and family-style meals."],
+    drinks: ["Mint lemonade", "Mango lassi", "Tea", "Fruit drinks"],
+    kids: ["Date plates", "Fruit cups", "Rice bowls", "Dessert cups"],
+    learning: "Use respectful language: traditions differ by family, region, and community. Present recipes as celebration ideas, not one official menu."
+  }
+};
+
+const broaderOccasionGuides = [
+  { title: "Super Bowl / Game Day", href: "#what-yall-cooking", ideas: ["wings", "chili", "nachos", "sliders", "dips", "cookies"], note: "Food should be handheld, refillable, and easy to eat near the TV." },
+  { title: "Graduation", href: "#hosting", ideas: ["BBQ trays", "pasta salad", "fruit cups", "sheet cake", "lemonade"], note: "Build a buffet that survives photos, hugs, and people arriving in waves." },
+  { title: "Baby Shower", href: "#hosting", ideas: ["brunch cups", "tea sandwiches", "fruit", "punch", "cupcakes"], note: "Keep the table pretty, light, labeled, and easy for guests to serve themselves." },
+  { title: "Wedding / Bridal Shower", href: "#hosting", ideas: ["charcuterie cups", "salads", "mini desserts", "punch", "coffee"], note: "Small bites, clear labels, and beautiful serving pieces matter here." },
+  { title: "Birthday Party", href: "#recipes", ideas: ["taco bar", "burger bar", "pizza", "cake", "ice cream"], note: "Start with the guest of honor, then build the menu around age, time, and cleanup." },
+  { title: "Fish Fry Friday", href: "#recipes/fried-catfish", ideas: ["fried fish", "hushpuppies", "slaw", "beans", "lemonade"], note: "A fish fry is rhythm: hot fish, cold slaw, bread, sauce, and a line that keeps moving." },
+  { title: "Camping / Cabin Weekend", href: "#what-yall-cooking", ideas: ["foil packs", "hot dogs", "chili", "pancakes", "cobbler"], note: "Plan sturdy food, cooler safety, cast iron, and one special treat." },
+  { title: "Sunday Dinner", href: "#cuisine/soul-food", ideas: ["fried chicken", "greens", "mac and cheese", "cornbread", "cake"], note: "Sunday dinner is less about fancy and more about everybody feeling fed." }
+];
+
+function celebrationExperienceGuide(table = {}) {
+  return celebrationExperienceGuides[slugify(table.title)] || {
+    moments: table.regional || ["Family table", "Potluck", "Brunch", "Dessert table"],
+    traditions: table.timeline || ["Build the celebration around real dishes, not generic filler."],
+    drinks: (table.drink_recipe_ids || []).map((id) => recipeById(id)?.title || titleizeSlug(id)),
+    kids: ["Simple help-at-the-table tasks", "Fruit cups", "Decorating station"],
+    learning: "Plan the whole experience: mains, sides, drinks, desserts, timing, shopping, leftovers, and people."
+  };
+}
+
+function celebrationExperienceMarkup(table = {}) {
+  const guide = celebrationExperienceGuide(table);
+  return `
+    <section class="detail-panel celebration-experience-panel">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Celebration guide</p>
+        <h2>${table.title} is a whole experience.</h2>
+        <p>${guide.learning}</p>
+      </div>
+      <div class="holiday-table-grid">
+        <article><h3>Hosting Moments</h3><ul>${(guide.moments || []).map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article><h3>Traditions</h3><ul>${(guide.traditions || []).map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article><h3>Drinks</h3><ul>${(guide.drinks || []).map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article><h3>Kids & Family</h3><ul>${(guide.kids || []).map((item) => `<li>${item}</li>`).join("")}</ul></article>
+      </div>
+    </section>
+  `;
+}
 
 const recipeIdAliases = {
   "jerk-chicken": "jamaican-jerk-chicken",
@@ -3259,6 +3394,7 @@ function recipeIdsForHolidayTable(table = {}) {
     ...(table.sauce_recipe_ids || []),
     ...(table.drink_recipe_ids || []),
     ...(table.dessert_recipe_ids || []),
+    ...(table.leftover_recipe_ids || []),
     ...(table.recipeIds || [])
   ])];
 }
@@ -3321,6 +3457,7 @@ function holidayTablePlannerPanel(table, servings = 6) {
         <article>
           <h3>Leftovers</h3>
           <ul>${(table.leftoverIdeas || ["Pack sturdy leftovers in shallow containers.", "Label dates before refrigerating.", "Use cooked mains within 3 to 4 days."]).map((item) => `<li>${item}</li>`).join("")}</ul>
+          ${(table.leftover_recipe_ids || []).length ? `<div class="mini-recipe-list">${holidayRecipeLinks(table.leftover_recipe_ids)}</div>` : ""}
         </article>
         <article>
           <h3>Cooking Timeline</h3>
@@ -3378,6 +3515,7 @@ function renderHolidayTableDetail(id) {
           <div class="mini-recipe-list">${holidayRecipeLinks(table.dessert_recipe_ids || [])}</div>
         </article>
       </div>
+      ${celebrationExperienceMarkup(table)}
       ${holidayTablePlannerPanel(table, 6)}
     </section>
   `;
@@ -5324,7 +5462,26 @@ const holidayExpansionRecipes = [
   midAtlanticRecipe("roast-lamb", "Roast Lamb", "holiday", "Easter Mains", "Garlic-herb lamb roasted for Easter with lemon, rosemary, and pan juices.", ["1 leg of lamb", "4 garlic cloves", "Rosemary", "Lemon", "Olive oil", "Salt", "Pepper"], ["Season lamb with garlic, herbs, lemon, oil, salt, and pepper.", "Roast to desired temperature.", "Rest well.", "Slice across the grain.", "Serve with spring vegetables."], ["lamb", "easter", "holiday"], { image: "images/recipes/audit-2026-06/nebraska-steak.jpg", cook: "1 hr 45 min", servings: 8, level: "Advanced" }),
   midAtlanticRecipe("carrot-cake", "Carrot Cake", "holiday", "Easter Desserts", "Moist spiced carrot cake with cream cheese frosting.", ["2 cups grated carrots", "2 cups flour", "1 cup sugar", "1 cup oil", "4 eggs", "Cinnamon", "Cream cheese frosting"], ["Mix dry ingredients.", "Whisk oil, eggs, and sugar.", "Fold in carrots.", "Bake until set.", "Cool and frost."], ["carrot cake", "easter", "dessert"], { image: "assets/lc-desserts.jpg", cook: "35 min", servings: 12 }),
   midAtlanticRecipe("coconut-cake", "Coconut Cake", "holiday", "Easter Desserts", "Tender layer cake with coconut frosting and fluffy coconut all over.", ["2 cake layers", "Coconut milk", "Vanilla frosting", "2 cups shredded coconut", "Sugar"], ["Bake cake layers.", "Cool completely.", "Brush lightly with coconut milk if desired.", "Frost layers and outside.", "Press coconut onto frosting."], ["coconut cake", "easter", "dessert"], { image: "assets/lc-desserts.jpg", prep: "45 min", cook: "30 min", servings: 12 }),
-  midAtlanticRecipe("spring-vegetables", "Spring Vegetables", "holiday", "Easter Sides", "Asparagus, peas, carrots, and herbs sauteed lightly for Easter plates.", ["1 bunch asparagus", "2 cups peas", "3 carrots", "2 tbsp butter", "Lemon", "Mint or parsley"], ["Cut vegetables evenly.", "Blanch carrots and asparagus until crisp-tender.", "Saute with butter.", "Add peas.", "Finish with lemon and herbs."], ["spring vegetables", "easter", "side"], { image: "assets/ingredients.jpeg", prep: "15 min", cook: "12 min", servings: 6 })
+  midAtlanticRecipe("spring-vegetables", "Spring Vegetables", "holiday", "Easter Sides", "Asparagus, peas, carrots, and herbs sauteed lightly for Easter plates.", ["1 bunch asparagus", "2 cups peas", "3 carrots", "2 tbsp butter", "Lemon", "Mint or parsley"], ["Cut vegetables evenly.", "Blanch carrots and asparagus until crisp-tender.", "Saute with butter.", "Add peas.", "Finish with lemon and herbs."], ["spring vegetables", "easter", "side"], { image: "assets/ingredients.jpeg", prep: "15 min", cook: "12 min", servings: 6 }),
+  midAtlanticRecipe("chocolate-covered-strawberries", "Chocolate Covered Strawberries", "holiday", "Valentine's Day Desserts", "Juicy strawberries dipped in chocolate for date night, Galentine's brunch, dessert boards, or a sweet family treat.", ["1 lb strawberries", "8 oz chocolate", "1 tsp coconut oil optional", "White chocolate drizzle optional", "Sprinkles optional"], ["Wash and dry strawberries completely.", "Melt chocolate gently.", "Dip strawberries and place on parchment.", "Add drizzle or sprinkles before the chocolate sets.", "Chill briefly and serve the same day."], ["valentine", "strawberries", "chocolate", "dessert"], { image: "images/recipes/audit-2026-06/strawberry-shortcake.png", prep: "25 min", cook: "5 min", servings: 8, level: "Beginner" }),
+  midAtlanticRecipe("valentine-chocolate-fondue", "Valentine Chocolate Fondue", "holiday", "Valentine's Day Desserts", "Warm chocolate fondue with fruit, cookies, marshmallows, and pound cake for a cozy shareable dessert.", ["10 oz chocolate", "3/4 cup heavy cream", "1 tsp vanilla", "Strawberries", "Bananas", "Pound cake cubes", "Marshmallows", "Cookies"], ["Warm cream until steaming.", "Pour over chocolate and rest 2 minutes.", "Stir until glossy and add vanilla.", "Arrange dippers on a platter.", "Serve warm and stir as needed."], ["valentine", "fondue", "chocolate", "date night"], { image: "images/recipes/audit-2026-06/strawberry-shortcake.png", prep: "15 min", cook: "5 min", servings: 6, level: "Beginner" }),
+  midAtlanticRecipe("irish-soda-bread", "Irish Soda Bread", "holiday", "St. Patrick's Day Breads", "A simple quick bread with buttermilk, baking soda, and a craggy golden crust for stew night.", ["4 cups flour", "1 tsp baking soda", "1 tsp salt", "1 3/4 cups buttermilk", "2 tbsp butter optional"], ["Heat oven to 425 F.", "Whisk flour, baking soda, and salt.", "Stir in buttermilk to make a shaggy dough.", "Shape into a round and score the top.", "Bake until golden and hollow-sounding."], ["st patricks", "irish", "soda bread", "bread"], { image: "assets/fresh-bread.jpeg", prep: "15 min", cook: "40 min", servings: 8, level: "Beginner" }),
+  midAtlanticRecipe("colcannon-potatoes", "Colcannon Potatoes", "holiday", "St. Patrick's Day Sides", "Creamy mashed potatoes folded with cabbage or kale, scallions, butter, and a little comfort.", ["3 lb potatoes", "4 tbsp butter", "1 cup milk", "3 cups cabbage or kale", "4 scallions", "Salt", "Pepper"], ["Boil potatoes until tender.", "Cook cabbage or kale in butter until softened.", "Mash potatoes with warm milk.", "Fold in greens and scallions.", "Season and serve with extra butter."], ["st patricks", "irish", "potatoes", "side"], { image: "images/recipes/audit-2026-06/funeral-potatoes.jpg", prep: "15 min", cook: "30 min", servings: 8 }),
+  midAtlanticRecipe("hot-cross-buns", "Hot Cross Buns", "holiday", "Easter Breads", "Soft spiced buns with dried fruit and a simple cross for Easter brunch or church supper tables.", ["3 1/2 cups flour", "1 packet yeast", "1 cup milk", "1/4 cup sugar", "1 egg", "4 tbsp butter", "1 cup raisins", "Cinnamon", "Icing"], ["Make a soft enriched dough with flour, yeast, milk, sugar, egg, butter, and cinnamon.", "Knead in raisins and let rise.", "Shape buns and rise again.", "Bake until golden.", "Pipe crosses after cooling slightly."], ["easter", "hot cross buns", "bread", "brunch"], { image: "images/recipes/audit-2026-06/dinner-rolls.jpg", prep: "35 min", cook: "22 min", servings: 12, level: "Intermediate" }),
+  midAtlanticRecipe("scalloped-potatoes", "Scalloped Potatoes", "holiday", "Easter Sides", "Thin-sliced potatoes baked in a creamy sauce until tender, golden, and holiday-table ready.", ["3 lb potatoes", "2 cups cream or milk", "2 tbsp butter", "2 tbsp flour", "1 cup cheese optional", "Salt", "Pepper", "Garlic"], ["Slice potatoes thinly.", "Make a light cream sauce with butter, flour, milk, garlic, salt, and pepper.", "Layer potatoes with sauce.", "Cover and bake until tender.", "Uncover, add cheese if using, and brown the top."], ["easter", "potatoes", "scalloped potatoes", "side"], { image: "images/recipes/audit-2026-06/funeral-potatoes.jpg", prep: "20 min", cook: "1 hr", servings: 10 }),
+  midAtlanticRecipe("red-white-blue-berry-trifle", "Red, White & Blue Berry Trifle", "holiday", "Fourth of July Desserts", "Layers of berries, cake, and whipped cream for a chilled cookout dessert that feeds a crowd.", ["1 pound cake cubed", "2 cups strawberries", "2 cups blueberries", "3 cups whipped cream", "1/4 cup berry jam optional"], ["Cube cake and slice berries.", "Layer cake, berries, and whipped cream in a clear bowl.", "Repeat layers until full.", "Chill at least 1 hour.", "Serve cold with a big spoon."], ["fourth of july", "berries", "trifle", "dessert"], { image: "images/recipes/audit-2026-06/strawberry-shortcake.png", prep: "20 min", cook: "0 min", servings: 12, level: "Beginner" }),
+  midAtlanticRecipe("homemade-vanilla-ice-cream", "Homemade Vanilla Ice Cream", "holiday", "Summer Cookout Desserts", "Creamy vanilla ice cream for peach cobbler, apple pie, birthday cake, and Fourth of July bowls.", ["2 cups cream", "1 cup milk", "3/4 cup sugar", "1 tbsp vanilla", "Pinch salt"], ["Whisk cream, milk, sugar, vanilla, and salt until sugar dissolves.", "Chill the base well.", "Churn according to your ice cream maker.", "Freeze until scoopable.", "Serve with pies, cobblers, or berries."], ["fourth of july", "ice cream", "summer", "dessert"], { image: "images/recipes/audit-2026-06/berry-banana-smoothies.jpg", prep: "15 min", cook: "0 min", servings: 8, level: "Beginner" }),
+  midAtlanticRecipe("pumpkin-chili", "Pumpkin Chili", "holiday", "Halloween Mains", "A cozy Halloween chili with ground beef or turkey, beans, tomato, warm spices, and pumpkin for body.", ["1 1/2 lb ground beef or turkey", "1 onion", "2 cans beans", "1 can crushed tomatoes", "1 cup pumpkin puree", "2 tbsp chili powder", "1 tsp cumin", "Broth as needed"], ["Brown meat with onion.", "Add spices and toast briefly.", "Stir in beans, tomatoes, pumpkin, and broth.", "Simmer until thick and cozy.", "Serve with chips, cheese, and sour cream."], ["halloween", "pumpkin", "chili", "party food"], { image: "images/regional/texas-chili.png", prep: "15 min", cook: "40 min", servings: 8 }),
+  midAtlanticRecipe("spooky-party-punch", "Spooky Party Punch", "holiday", "Halloween Drinks", "A deep red fruit punch with citrus slices and frozen fruit for Halloween parties and porch refills.", ["4 cups cranberry juice", "2 cups pineapple juice", "1 cup orange juice", "1 bottle lemon-lime soda", "Orange slices", "Frozen berries"], ["Chill all ingredients.", "Combine juices in a punch bowl.", "Add soda right before serving.", "Float orange slices and frozen berries.", "Keep cold with an ice ring if serving outside."], ["halloween", "punch", "party drink", "kids"], { image: "images/juneteenth/hibiscus-red-punch.png", prep: "10 min", cook: "0 min", servings: 16 }),
+  midAtlanticRecipe("turkey-leftover-soup", "Thanksgiving Turkey Leftover Soup", "holiday", "Thanksgiving Leftovers", "A day-after soup with turkey, vegetables, herbs, broth, and noodles or rice.", ["3 cups cooked turkey", "1 onion", "2 carrots", "2 celery stalks", "8 cups broth", "2 cups noodles or rice", "Herbs", "Lemon optional"], ["Cook onion, carrots, and celery until softened.", "Add broth and herbs.", "Stir in noodles or rice and cook until tender.", "Add turkey and warm through.", "Finish with lemon if desired."], ["thanksgiving", "leftovers", "turkey soup", "soup"], { image: "images/recipes/audit-2026-06/loaded-baked-potato-soup.jpg", prep: "15 min", cook: "35 min", servings: 8 }),
+  midAtlanticRecipe("christmas-eve-tamales", "Christmas Eve Tamales", "holiday", "Christmas Eve", "A holiday tamale night inspired by Mexican and Mexican American Christmas traditions, built for family assembly.", ["Prepared masa", "Corn husks", "Shredded pork or chicken", "Red chile sauce", "Broth", "Salt"], ["Soak corn husks.", "Spread masa on each husk.", "Add filling and sauce.", "Fold and tie if needed.", "Steam until masa pulls away from the husk."], ["christmas", "tamales", "mexican american", "family assembly"], { image: "images/recipes/audit-2026-06/chicago-hot-tamales.jpg", prep: "1 hr", cook: "1 hr 30 min", servings: 24, level: "Advanced" }),
+  midAtlanticRecipe("feast-seven-fishes-stew", "Feast of the Seven Fishes Seafood Stew", "holiday", "Christmas Eve", "A tomato seafood stew inspired by Italian American Christmas Eve seafood traditions.", ["1 onion", "4 garlic cloves", "2 cups crushed tomatoes", "4 cups seafood stock", "Mixed fish", "Shrimp", "Clams or mussels", "Parsley", "Bread"], ["Cook onion and garlic in olive oil.", "Add tomatoes and seafood stock and simmer.", "Add firm fish first, then shrimp and shellfish.", "Cook just until seafood is done.", "Serve with parsley and bread."], ["christmas", "seafood", "seven fishes", "italian american"], { image: "images/recipes/audit-2026-06/creole-seafood-gumbo.jpg", prep: "25 min", cook: "35 min", servings: 8, level: "Intermediate" }),
+  midAtlanticRecipe("christmas-hot-cocoa", "Christmas Hot Cocoa", "holiday", "Christmas Drinks", "Creamy cocoa with vanilla, whipped cream, marshmallows, and candy cane crunch.", ["4 cups milk", "1/3 cup cocoa powder", "1/3 cup sugar", "1 tsp vanilla", "Pinch salt", "Whipped cream", "Marshmallows"], ["Whisk cocoa, sugar, salt, and a splash of milk in a pot.", "Add remaining milk and warm gently.", "Stir in vanilla.", "Pour into mugs.", "Top with whipped cream and marshmallows."], ["christmas", "hot cocoa", "drink", "kids"], { image: "images/recipes/audit-2026-06/sweet-tea.jpg", prep: "5 min", cook: "10 min", servings: 4 }),
+  midAtlanticRecipe("new-years-hoppin-john", "New Year's Hoppin' John", "holiday", "New Year's Sides", "Black-eyed peas and rice cooked with onion, seasoning, and smoky flavor for a Southern New Year's good-luck plate.", ["1 lb black-eyed peas", "1 onion", "2 celery stalks", "1 bell pepper", "Smoked turkey or ham hock optional", "2 cups rice", "Broth", "Thyme"], ["Simmer peas with aromatics and smoked meat if using.", "Cook until tender and seasoned.", "Prepare rice separately or stir rice into the pot near the end.", "Adjust broth so the dish is moist.", "Serve with greens and cornbread."], ["new years", "black eyed peas", "rice", "southern"], { image: "images/recipes/audit-2026-06/red-beans-and-rice.jpg", prep: "20 min", cook: "1 hr 15 min", servings: 8 }),
+  midAtlanticRecipe("potato-latkes", "Potato Latkes", "holiday", "Hanukkah Sides", "Crisp potato pancakes served with applesauce or sour cream for Hanukkah tables.", ["3 lb potatoes", "1 onion", "2 eggs", "1/3 cup flour or matzo meal", "Salt", "Pepper", "Oil for frying", "Applesauce or sour cream"], ["Grate potatoes and onion.", "Squeeze out as much liquid as possible.", "Mix with eggs, flour, salt, and pepper.", "Fry spoonfuls until crisp on both sides.", "Drain and serve hot."], ["hanukkah", "latkes", "potatoes", "fried"], { image: "images/recipes/audit-2026-06/funeral-potatoes.jpg", prep: "25 min", cook: "25 min", servings: 8 }),
+  midAtlanticRecipe("sufganiyot-style-doughnuts", "Sufganiyot-Style Jam Doughnuts", "holiday", "Hanukkah Desserts", "Jam-filled doughnuts inspired by Hanukkah sufganiyot, dusted with sugar and served fresh.", ["Yeast dough", "Oil for frying", "Jam", "Powdered sugar"], ["Prepare and rise a soft yeast dough.", "Cut rounds and rise again.", "Fry until golden.", "Fill with jam.", "Dust with powdered sugar."], ["hanukkah", "doughnuts", "jam", "dessert"], { image: "images/recipes/audit-2026-06/paczki.jpg", prep: "45 min", cook: "20 min", servings: 12, level: "Advanced" }),
+  midAtlanticRecipe("masala-chai", "Masala Chai", "holiday", "Diwali Drinks", "Spiced milk tea with ginger, cardamom, cinnamon, and black tea for festival sweets and family visits.", ["2 cups water", "2 cups milk", "2 tbsp black tea", "Ginger", "Cardamom", "Cinnamon", "Sugar to taste"], ["Simmer water with ginger and spices.", "Add tea and steep briefly.", "Add milk and bring back to a gentle simmer.", "Sweeten to taste.", "Strain into cups."], ["diwali", "chai", "tea", "drink"], { image: "images/recipes/audit-2026-06/sweet-tea.jpg", prep: "5 min", cook: "10 min", servings: 4 }),
+  midAtlanticRecipe("eid-kebab-platter", "Eid Kebab Platter", "holiday", "Ramadan / Eid Mains", "Grilled or broiled spiced kebabs served family-style with rice, salad, flatbread, and sauces.", ["2 lb ground beef, lamb, or chicken", "1 onion grated", "3 garlic cloves", "Parsley or cilantro", "Cumin", "Paprika", "Salt", "Flatbread"], ["Mix meat with onion, garlic, herbs, and spices.", "Shape onto skewers or into logs.", "Chill briefly so they hold.", "Grill or broil until cooked through.", "Serve with rice, salad, and flatbread."], ["eid", "kebabs", "ramadan", "celebration"], { image: "images/cuisines/africa/nigeria/suya-skewers.jpg", prep: "25 min", cook: "15 min", servings: 8 })
 ];
 
 const america250ExpansionRecipes = [
@@ -10811,9 +10968,27 @@ function holidayTablesFeature() {
           <article>
             <p class="eyebrow">Holiday table</p>
             <h3>${holiday.title}</h3>
+            <p>${celebrationExperienceGuide(holiday).moments.slice(0, 3).join(" / ")}</p>
             <div class="mini-recipe-list">${recipeIdsForHolidayTable(holiday).map((recipeId) => recipeByIdSafe(recipeId)).filter(Boolean).map((recipe) => `<a href="#recipes/${recipe.id}">${recipe.title}<small>${recipe.category || cuisineName(recipe.cuisine)}</small></a>`).join("")}</div>
             <h4>Shopping List</h4>
             <ul>${(holiday.shopping || []).map((item) => `<li>${item}</li>`).join("")}</ul>
+            <a class="small-button secondary" href="#cuisine-explorer/${slugify(holiday.title)}">Open ${holiday.title} Table</a>
+          </article>
+        `).join("")}
+      </div>
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">More reasons to gather</p>
+        <h2>Occasions beyond the calendar.</h2>
+        <p>Because people usually ask what to cook for the moment they are hosting: the birthday, the game, the shower, the fish fry, the Sunday table.</p>
+      </div>
+      <div class="regional-story-grid">
+        ${broaderOccasionGuides.map((occasion) => `
+          <article>
+            <p class="eyebrow">Occasion guide</p>
+            <h3>${occasion.title}</h3>
+            <p>${occasion.note}</p>
+            <div class="region-chip-row">${occasion.ideas.map((idea) => `<span>${idea}</span>`).join("")}</div>
+            <a class="small-button secondary" href="${occasion.href}">Start Planning</a>
           </article>
         `).join("")}
       </div>

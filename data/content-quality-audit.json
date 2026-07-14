@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-07-14T18:24:29.495Z",
+  "generatedAt": "2026-07-14T18:36:07.375Z",
   "summary": {
-    "totalRecipes": 646,
+    "totalRecipes": 665,
     "duplicateRecipeIdGroups": 0,
     "duplicateRecipeTitleGroups": 5,
     "uniqueImages": 495,
-    "sharedImageGroups": 101,
+    "sharedImageGroups": 110,
     "genericRecipeImages": 0,
     "fallbackImages": 0,
     "missingImageFiles": 0,
@@ -17,7 +17,7 @@
     "ingredientSearchIssues": 0,
     "trainingOnlyGeneralLeaks": 0,
     "recipesMissingRequiredDetails": 0,
-    "recipesMissingRecommendedDetails": 646
+    "recipesMissingRecommendedDetails": 665
   },
   "duplicateRecipeIds": [],
   "duplicateRecipeTitles": [
@@ -212,7 +212,7 @@
     },
     {
       "image": "images/recipes/audit-2026-06/strawberry-shortcake.png",
-      "count": 4,
+      "count": 7,
       "recipes": [
         {
           "id": "dessert-charcuterie-board",
@@ -231,6 +231,24 @@
           "title": "New Zealand Pavlova",
           "cuisine": "global",
           "category": "New Zealand Dessert"
+        },
+        {
+          "id": "chocolate-covered-strawberries",
+          "title": "Chocolate Covered Strawberries",
+          "cuisine": "holiday",
+          "category": "Valentine's Day Desserts"
+        },
+        {
+          "id": "valentine-chocolate-fondue",
+          "title": "Valentine Chocolate Fondue",
+          "cuisine": "holiday",
+          "category": "Valentine's Day Desserts"
+        },
+        {
+          "id": "red-white-blue-berry-trifle",
+          "title": "Red, White & Blue Berry Trifle",
+          "cuisine": "holiday",
+          "category": "Fourth of July Desserts"
         },
         {
           "id": "strawberry-shortcake",
@@ -439,6 +457,42 @@
       ]
     },
     {
+      "image": "images/recipes/audit-2026-06/creole-seafood-gumbo.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "creole-seafood-gumbo",
+          "title": "Creole Seafood Gumbo",
+          "cuisine": "creole",
+          "category": "Creole"
+        },
+        {
+          "id": "feast-seven-fishes-stew",
+          "title": "Feast of the Seven Fishes Seafood Stew",
+          "cuisine": "holiday",
+          "category": "Christmas Eve"
+        }
+      ]
+    },
+    {
+      "image": "images/cuisines/africa/nigeria/suya-skewers.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "nigerian-suya-skewers",
+          "title": "Suya Skewers",
+          "cuisine": "nigerian",
+          "category": "West African"
+        },
+        {
+          "id": "eid-kebab-platter",
+          "title": "Eid Kebab Platter",
+          "cuisine": "holiday",
+          "category": "Ramadan / Eid Mains"
+        }
+      ]
+    },
+    {
       "image": "images/recipes/audit-2026-06/nigerian-fried-rice.jpg",
       "count": 2,
       "recipes": [
@@ -571,6 +625,48 @@
       ]
     },
     {
+      "image": "images/recipes/audit-2026-06/dinner-rolls.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "dinner-rolls",
+          "title": "Soft Dinner Rolls",
+          "cuisine": "southern",
+          "category": "Breads"
+        },
+        {
+          "id": "hot-cross-buns",
+          "title": "Hot Cross Buns",
+          "cuisine": "holiday",
+          "category": "Easter Breads"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/sweet-tea.jpg",
+      "count": 3,
+      "recipes": [
+        {
+          "id": "sweet-tea",
+          "title": "Southern Sweet Tea",
+          "cuisine": "southern",
+          "category": "Drinks"
+        },
+        {
+          "id": "christmas-hot-cocoa",
+          "title": "Christmas Hot Cocoa",
+          "cuisine": "holiday",
+          "category": "Christmas Drinks"
+        },
+        {
+          "id": "masala-chai",
+          "title": "Masala Chai",
+          "cuisine": "holiday",
+          "category": "Diwali Drinks"
+        }
+      ]
+    },
+    {
       "image": "images/juneteenth/fresh-lemonade.png",
       "count": 2,
       "recipes": [
@@ -663,6 +759,24 @@
           "title": "Jamaican Jerk Chicken",
           "cuisine": "caribbean",
           "category": "Jamaican Grill"
+        }
+      ]
+    },
+    {
+      "image": "images/juneteenth/hibiscus-red-punch.png",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "hibiscus-red-punch",
+          "title": "Hibiscus Red Punch",
+          "cuisine": "southern",
+          "category": "Drinks"
+        },
+        {
+          "id": "spooky-party-punch",
+          "title": "Spooky Party Punch",
+          "cuisine": "holiday",
+          "category": "Halloween Drinks"
         }
       ]
     },
@@ -853,6 +967,24 @@
       ]
     },
     {
+      "image": "images/regional/texas-chili.png",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "texas-chili",
+          "title": "Texas No-Bean Chili",
+          "cuisine": "texas",
+          "category": "Main Dishes"
+        },
+        {
+          "id": "pumpkin-chili",
+          "title": "Pumpkin Chili",
+          "cuisine": "holiday",
+          "category": "Halloween Mains"
+        }
+      ]
+    },
+    {
       "image": "images/recipes/audit-2026-06/florida-blue-crab.jpg",
       "count": 2,
       "recipes": [
@@ -890,7 +1022,7 @@
     },
     {
       "image": "images/recipes/audit-2026-06/red-beans-and-rice.jpg",
-      "count": 2,
+      "count": 3,
       "recipes": [
         {
           "id": "red-beans-and-rice",
@@ -903,6 +1035,12 @@
           "title": "Brazilian Feijoada-Style Beans",
           "cuisine": "global",
           "category": "Brazilian Bean Pot"
+        },
+        {
+          "id": "new-years-hoppin-john",
+          "title": "New Year's Hoppin' John",
+          "cuisine": "holiday",
+          "category": "New Year's Sides"
         }
       ]
     },
@@ -1004,7 +1142,7 @@
     },
     {
       "image": "images/recipes/audit-2026-06/funeral-potatoes.jpg",
-      "count": 4,
+      "count": 7,
       "recipes": [
         {
           "id": "funeral-potatoes",
@@ -1029,6 +1167,24 @@
           "title": "Nevada Steakhouse Potatoes",
           "cuisine": "nevada",
           "category": "Steakhouse Sides"
+        },
+        {
+          "id": "colcannon-potatoes",
+          "title": "Colcannon Potatoes",
+          "cuisine": "holiday",
+          "category": "St. Patrick's Day Sides"
+        },
+        {
+          "id": "scalloped-potatoes",
+          "title": "Scalloped Potatoes",
+          "cuisine": "holiday",
+          "category": "Easter Sides"
+        },
+        {
+          "id": "potato-latkes",
+          "title": "Potato Latkes",
+          "cuisine": "holiday",
+          "category": "Hanukkah Sides"
         }
       ]
     },
@@ -1143,6 +1299,24 @@
           "title": "Coconut Cake",
           "cuisine": "holiday",
           "category": "Easter Desserts"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/berry-banana-smoothies.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "berry-banana-smoothies",
+          "title": "Berry Banana Smoothies",
+          "cuisine": "kids-korner",
+          "category": "Healthy Heroes"
+        },
+        {
+          "id": "homemade-vanilla-ice-cream",
+          "title": "Homemade Vanilla Ice Cream",
+          "cuisine": "holiday",
+          "category": "Summer Cookout Desserts"
         }
       ]
     },
@@ -1328,7 +1502,7 @@
     },
     {
       "image": "images/recipes/audit-2026-06/loaded-baked-potato-soup.jpg",
-      "count": 5,
+      "count": 6,
       "recipes": [
         {
           "id": "loaded-baked-potato-soup",
@@ -1359,6 +1533,12 @@
           "title": "Polish Bigos",
           "cuisine": "global",
           "category": "Polish Stew Pot"
+        },
+        {
+          "id": "turkey-leftover-soup",
+          "title": "Thanksgiving Turkey Leftover Soup",
+          "cuisine": "holiday",
+          "category": "Thanksgiving Leftovers"
         }
       ]
     },
@@ -1537,6 +1717,24 @@
       ]
     },
     {
+      "image": "images/recipes/audit-2026-06/chicago-hot-tamales.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "chicago-hot-tamales",
+          "title": "Chicago Hot Tamales",
+          "cuisine": "chicago",
+          "category": "Chicago Classics"
+        },
+        {
+          "id": "christmas-eve-tamales",
+          "title": "Christmas Eve Tamales",
+          "cuisine": "holiday",
+          "category": "Christmas Eve"
+        }
+      ]
+    },
+    {
       "image": "images/recipes/audit-2026-06/wisconsin-butter-burgers.jpg",
       "count": 4,
       "recipes": [
@@ -1605,6 +1803,24 @@
           "title": "Montana Trout Skillet",
           "cuisine": "montana",
           "category": "River Fish"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/paczki.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "paczki",
+          "title": "Paczki",
+          "cuisine": "michigan",
+          "category": "Michigan"
+        },
+        {
+          "id": "sufganiyot-style-doughnuts",
+          "title": "Sufganiyot-Style Jam Doughnuts",
+          "cuisine": "holiday",
+          "category": "Hanukkah Desserts"
         }
       ]
     },
@@ -2168,7 +2384,7 @@
     },
     {
       "image": "assets/fresh-bread.jpeg",
-      "count": 3,
+      "count": 4,
       "recipes": [
         {
           "id": "wyoming-sourdough-biscuits",
@@ -2187,6 +2403,12 @@
           "title": "California Sourdough Toast",
           "cuisine": "northern-california",
           "category": "Sourdough Table"
+        },
+        {
+          "id": "irish-soda-bread",
+          "title": "Irish Soda Bread",
+          "cuisine": "holiday",
+          "category": "St. Patrick's Day Breads"
         }
       ]
     },
@@ -3333,7 +3555,7 @@
     {
       "title": "New Year's",
       "present": true,
-      "recipeCount": 13,
+      "recipeCount": 15,
       "hasAppetizers": true,
       "hasMains": true,
       "hasSides": true,
@@ -3347,7 +3569,7 @@
     {
       "title": "Valentine's Day",
       "present": true,
-      "recipeCount": 16,
+      "recipeCount": 19,
       "hasAppetizers": true,
       "hasMains": true,
       "hasSides": true,
@@ -3375,7 +3597,7 @@
     {
       "title": "St. Patrick's Day",
       "present": true,
-      "recipeCount": 13,
+      "recipeCount": 15,
       "hasAppetizers": true,
       "hasMains": true,
       "hasSides": true,
@@ -3389,7 +3611,7 @@
     {
       "title": "Easter",
       "present": true,
-      "recipeCount": 16,
+      "recipeCount": 18,
       "hasAppetizers": true,
       "hasMains": true,
       "hasSides": true,
@@ -3473,7 +3695,7 @@
     {
       "title": "Fourth of July",
       "present": true,
-      "recipeCount": 21,
+      "recipeCount": 23,
       "hasAppetizers": true,
       "hasMains": true,
       "hasSides": true,
@@ -3501,7 +3723,7 @@
     {
       "title": "Halloween",
       "present": true,
-      "recipeCount": 18,
+      "recipeCount": 20,
       "hasAppetizers": true,
       "hasMains": true,
       "hasSides": true,
@@ -3529,7 +3751,7 @@
     {
       "title": "Christmas",
       "present": true,
-      "recipeCount": 27,
+      "recipeCount": 30,
       "hasAppetizers": true,
       "hasMains": true,
       "hasSides": true,
@@ -3557,7 +3779,7 @@
     {
       "title": "Hanukkah",
       "present": true,
-      "recipeCount": 13,
+      "recipeCount": 15,
       "hasAppetizers": true,
       "hasMains": true,
       "hasSides": true,
@@ -3571,7 +3793,7 @@
     {
       "title": "Diwali",
       "present": true,
-      "recipeCount": 15,
+      "recipeCount": 16,
       "hasAppetizers": true,
       "hasMains": true,
       "hasSides": true,
@@ -3599,7 +3821,7 @@
     {
       "title": "Ramadan / Eid",
       "present": true,
-      "recipeCount": 14,
+      "recipeCount": 15,
       "hasAppetizers": true,
       "hasMains": true,
       "hasSides": true,
@@ -3731,6 +3953,12 @@
           "category": "Cookouts & Church Events"
         },
         {
+          "id": "pumpkin-chili",
+          "title": "Pumpkin Chili",
+          "cuisine": "holiday",
+          "category": "Halloween Mains"
+        },
+        {
           "id": "hamburger-steak-with-gravy",
           "title": "Hamburger Steak with Onion Gravy",
           "cuisine": "southern",
@@ -3765,12 +3993,6 @@
           "title": "Chicago Hot Tamales",
           "cuisine": "chicago",
           "category": "Chicago Classics"
-        },
-        {
-          "id": "hatch-chile-burgers",
-          "title": "Hatch Chile Burgers",
-          "cuisine": "new-mexico",
-          "category": "New Mexico Grill"
         }
       ]
     }
@@ -12026,6 +12248,253 @@
       "title": "Spring Vegetables",
       "cuisine": "holiday",
       "category": "Easter Sides",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "chocolate-covered-strawberries",
+      "title": "Chocolate Covered Strawberries",
+      "cuisine": "holiday",
+      "category": "Valentine's Day Desserts",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "valentine-chocolate-fondue",
+      "title": "Valentine Chocolate Fondue",
+      "cuisine": "holiday",
+      "category": "Valentine's Day Desserts",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "irish-soda-bread",
+      "title": "Irish Soda Bread",
+      "cuisine": "holiday",
+      "category": "St. Patrick's Day Breads",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "colcannon-potatoes",
+      "title": "Colcannon Potatoes",
+      "cuisine": "holiday",
+      "category": "St. Patrick's Day Sides",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "hot-cross-buns",
+      "title": "Hot Cross Buns",
+      "cuisine": "holiday",
+      "category": "Easter Breads",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "scalloped-potatoes",
+      "title": "Scalloped Potatoes",
+      "cuisine": "holiday",
+      "category": "Easter Sides",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "red-white-blue-berry-trifle",
+      "title": "Red, White & Blue Berry Trifle",
+      "cuisine": "holiday",
+      "category": "Fourth of July Desserts",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "homemade-vanilla-ice-cream",
+      "title": "Homemade Vanilla Ice Cream",
+      "cuisine": "holiday",
+      "category": "Summer Cookout Desserts",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "pumpkin-chili",
+      "title": "Pumpkin Chili",
+      "cuisine": "holiday",
+      "category": "Halloween Mains",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "spooky-party-punch",
+      "title": "Spooky Party Punch",
+      "cuisine": "holiday",
+      "category": "Halloween Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "turkey-leftover-soup",
+      "title": "Thanksgiving Turkey Leftover Soup",
+      "cuisine": "holiday",
+      "category": "Thanksgiving Leftovers",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "christmas-eve-tamales",
+      "title": "Christmas Eve Tamales",
+      "cuisine": "holiday",
+      "category": "Christmas Eve",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "feast-seven-fishes-stew",
+      "title": "Feast of the Seven Fishes Seafood Stew",
+      "cuisine": "holiday",
+      "category": "Christmas Eve",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "christmas-hot-cocoa",
+      "title": "Christmas Hot Cocoa",
+      "cuisine": "holiday",
+      "category": "Christmas Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "new-years-hoppin-john",
+      "title": "New Year's Hoppin' John",
+      "cuisine": "holiday",
+      "category": "New Year's Sides",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "potato-latkes",
+      "title": "Potato Latkes",
+      "cuisine": "holiday",
+      "category": "Hanukkah Sides",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "sufganiyot-style-doughnuts",
+      "title": "Sufganiyot-Style Jam Doughnuts",
+      "cuisine": "holiday",
+      "category": "Hanukkah Desserts",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "masala-chai",
+      "title": "Masala Chai",
+      "cuisine": "holiday",
+      "category": "Diwali Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "eid-kebab-platter",
+      "title": "Eid Kebab Platter",
+      "cuisine": "holiday",
+      "category": "Ramadan / Eid Mains",
       "missing": [],
       "recommendedMissing": [
         "cultural_origin",
@@ -20426,6 +20895,253 @@
       "title": "Spring Vegetables",
       "cuisine": "holiday",
       "category": "Easter Sides",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "chocolate-covered-strawberries",
+      "title": "Chocolate Covered Strawberries",
+      "cuisine": "holiday",
+      "category": "Valentine's Day Desserts",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "valentine-chocolate-fondue",
+      "title": "Valentine Chocolate Fondue",
+      "cuisine": "holiday",
+      "category": "Valentine's Day Desserts",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "irish-soda-bread",
+      "title": "Irish Soda Bread",
+      "cuisine": "holiday",
+      "category": "St. Patrick's Day Breads",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "colcannon-potatoes",
+      "title": "Colcannon Potatoes",
+      "cuisine": "holiday",
+      "category": "St. Patrick's Day Sides",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "hot-cross-buns",
+      "title": "Hot Cross Buns",
+      "cuisine": "holiday",
+      "category": "Easter Breads",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "scalloped-potatoes",
+      "title": "Scalloped Potatoes",
+      "cuisine": "holiday",
+      "category": "Easter Sides",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "red-white-blue-berry-trifle",
+      "title": "Red, White & Blue Berry Trifle",
+      "cuisine": "holiday",
+      "category": "Fourth of July Desserts",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "homemade-vanilla-ice-cream",
+      "title": "Homemade Vanilla Ice Cream",
+      "cuisine": "holiday",
+      "category": "Summer Cookout Desserts",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "pumpkin-chili",
+      "title": "Pumpkin Chili",
+      "cuisine": "holiday",
+      "category": "Halloween Mains",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "spooky-party-punch",
+      "title": "Spooky Party Punch",
+      "cuisine": "holiday",
+      "category": "Halloween Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "turkey-leftover-soup",
+      "title": "Thanksgiving Turkey Leftover Soup",
+      "cuisine": "holiday",
+      "category": "Thanksgiving Leftovers",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "christmas-eve-tamales",
+      "title": "Christmas Eve Tamales",
+      "cuisine": "holiday",
+      "category": "Christmas Eve",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "feast-seven-fishes-stew",
+      "title": "Feast of the Seven Fishes Seafood Stew",
+      "cuisine": "holiday",
+      "category": "Christmas Eve",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "christmas-hot-cocoa",
+      "title": "Christmas Hot Cocoa",
+      "cuisine": "holiday",
+      "category": "Christmas Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "new-years-hoppin-john",
+      "title": "New Year's Hoppin' John",
+      "cuisine": "holiday",
+      "category": "New Year's Sides",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "potato-latkes",
+      "title": "Potato Latkes",
+      "cuisine": "holiday",
+      "category": "Hanukkah Sides",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "sufganiyot-style-doughnuts",
+      "title": "Sufganiyot-Style Jam Doughnuts",
+      "cuisine": "holiday",
+      "category": "Hanukkah Desserts",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "masala-chai",
+      "title": "Masala Chai",
+      "cuisine": "holiday",
+      "category": "Diwali Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "eid-kebab-platter",
+      "title": "Eid Kebab Platter",
+      "cuisine": "holiday",
+      "category": "Ramadan / Eid Mains",
       "missing": [],
       "recommendedMissing": [
         "cultural_origin",
