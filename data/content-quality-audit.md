@@ -1,13 +1,13 @@
 # Let's Cook Y'all Content Quality Audit
 
-Generated: 2026-07-14T17:51:17.727Z
+Generated: 2026-07-14T18:16:40.846Z
 
 ## Summary
 
-- Recipes audited: 634
+- Recipes audited: 646
 - Duplicate recipe ID groups: 0
 - Duplicate recipe title groups: 5
-- Shared image groups: 96
+- Shared image groups: 101
 - Generic recipe image assignments: 0
 - Fallback/queued images: 0
 - Missing image files: 0
@@ -18,7 +18,7 @@ Generated: 2026-07-14T17:51:17.727Z
 - Ingredient search smoke issues: 0
 - Training-only recipes in general discovery: 0
 - Recipes missing required details: 0
-- Recipes missing recommended enrichment details: 634
+- Recipes missing recommended enrichment details: 646
 
 ## Required Holiday Coverage
 
@@ -52,7 +52,7 @@ Generated: 2026-07-14T17:51:17.727Z
 - images/recipes/audit-2026-06/party-meatballs.jpg: 2 recipes
 - images/recipes/audit-2026-06/strawberry-shortcake.png: 4 recipes
 - images/recipes/audit-2026-06/pineapple-fried-rice.jpg: 2 recipes
-- images/recipes/audit-2026-06/lamb-bone-broth-soup.jpg: 3 recipes
+- images/recipes/audit-2026-06/lamb-bone-broth-soup.jpg: 4 recipes
 - images/recipes/audit-2026-06/biryani.jpg: 2 recipes
 - images/recipes/audit-2026-06/chana-masala.jpg: 2 recipes
 - images/recipes/audit-2026-06/southern-fried-chicken.png: 2 recipes

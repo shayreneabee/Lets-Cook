@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-07-14T17:51:17.727Z",
+  "generatedAt": "2026-07-14T18:16:40.846Z",
   "summary": {
-    "totalRecipes": 634,
+    "totalRecipes": 646,
     "duplicateRecipeIdGroups": 0,
     "duplicateRecipeTitleGroups": 5,
     "uniqueImages": 495,
-    "sharedImageGroups": 96,
+    "sharedImageGroups": 101,
     "genericRecipeImages": 0,
     "fallbackImages": 0,
     "missingImageFiles": 0,
@@ -17,7 +17,7 @@
     "ingredientSearchIssues": 0,
     "trainingOnlyGeneralLeaks": 0,
     "recipesMissingRequiredDetails": 0,
-    "recipesMissingRecommendedDetails": 634
+    "recipesMissingRecommendedDetails": 646
   },
   "duplicateRecipeIds": [],
   "duplicateRecipeTitles": [
@@ -260,13 +260,19 @@
     },
     {
       "image": "images/recipes/audit-2026-06/lamb-bone-broth-soup.jpg",
-      "count": 3,
+      "count": 4,
       "recipes": [
         {
           "id": "lamb-bone-broth-soup",
           "title": "Lamb Bone Broth / Soup Idea",
           "cuisine": "global",
           "category": "Family Dinners"
+        },
+        {
+          "id": "north-dakota-bison-barley-soup",
+          "title": "Bison Barley Prairie Soup",
+          "cuisine": "north-dakota",
+          "category": "Prairie & Indigenous Foodways"
         },
         {
           "id": "new-zealand-roast-lamb",
@@ -998,13 +1004,19 @@
     },
     {
       "image": "images/recipes/audit-2026-06/funeral-potatoes.jpg",
-      "count": 3,
+      "count": 4,
       "recipes": [
         {
           "id": "funeral-potatoes",
           "title": "Funeral Potatoes",
           "cuisine": "southern",
           "category": "Southern Casseroles"
+        },
+        {
+          "id": "south-dakota-hutterite-potato-dinner",
+          "title": "Hutterite-Style Potato Dinner",
+          "cuisine": "south-dakota",
+          "category": "Community Farm Tables"
         },
         {
           "id": "utah-funeral-potatoes",
@@ -1185,6 +1197,24 @@
           "title": "Denver Omelet",
           "cuisine": "colorado",
           "category": "Diner Breakfast"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/baked-chicken-tenders.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "baked-chicken-tenders",
+          "title": "Baked Chicken Tenders",
+          "cuisine": "american",
+          "category": "Easy Bites"
+        },
+        {
+          "id": "south-dakota-pheasant-sandwich",
+          "title": "Prairie Pheasant Sandwich",
+          "cuisine": "south-dakota",
+          "category": "Hunting Season Table"
         }
       ]
     },
@@ -1406,13 +1436,19 @@
     },
     {
       "image": "images/regional/mississippi/blackberry-cobbler.jpg",
-      "count": 2,
+      "count": 3,
       "recipes": [
         {
           "id": "blackberry-cobbler",
           "title": "Blackberry Cobbler",
           "cuisine": "mississippi-favorites",
           "category": "Mississippi Desserts"
+        },
+        {
+          "id": "south-dakota-wojapi",
+          "title": "Wojapi Berry Sauce",
+          "cuisine": "south-dakota",
+          "category": "Lakota & Dakota Foodways"
         },
         {
           "id": "alaska-berry-cobbler",
@@ -1502,13 +1538,19 @@
     },
     {
       "image": "images/recipes/audit-2026-06/wisconsin-butter-burgers.jpg",
-      "count": 3,
+      "count": 4,
       "recipes": [
         {
           "id": "wisconsin-butter-burgers",
           "title": "Wisconsin Butter Burgers",
           "cuisine": "wisconsin",
           "category": "Wisconsin"
+        },
+        {
+          "id": "black-hills-bison-burgers",
+          "title": "Black Hills Bison Burgers",
+          "cuisine": "south-dakota",
+          "category": "Ranch & Road Food"
         },
         {
           "id": "colorado-bison-burgers",
@@ -1567,14 +1609,80 @@
       ]
     },
     {
-      "image": "images/recipes/audit-2026-06/midwest-dessert-bars.jpg",
+      "image": "images/recipes/audit-2026-06/tater-tot-hotdish.jpg",
       "count": 2,
+      "recipes": [
+        {
+          "id": "tater-tot-hotdish",
+          "title": "Tater Tot Hotdish",
+          "cuisine": "minnesota",
+          "category": "Minnesota"
+        },
+        {
+          "id": "north-dakota-potato-hotdish",
+          "title": "North Dakota Potato Hotdish",
+          "cuisine": "north-dakota",
+          "category": "Farm Kitchen Comfort"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/pan-fried-walleye.jpg",
+      "count": 3,
+      "recipes": [
+        {
+          "id": "pan-fried-walleye",
+          "title": "Pan-Fried Walleye",
+          "cuisine": "minnesota",
+          "category": "Minnesota"
+        },
+        {
+          "id": "north-dakota-walleye-supper",
+          "title": "North Dakota Walleye Supper",
+          "cuisine": "north-dakota",
+          "category": "Lake & River Fish"
+        },
+        {
+          "id": "south-dakota-walleye-fry",
+          "title": "South Dakota Walleye Fry",
+          "cuisine": "south-dakota",
+          "category": "River & Lake Fish"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/lefse.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "lefse",
+          "title": "Lefse",
+          "cuisine": "minnesota",
+          "category": "Minnesota"
+        },
+        {
+          "id": "north-dakota-lefse",
+          "title": "North Dakota Lefse",
+          "cuisine": "north-dakota",
+          "category": "Scandinavian Prairie Table"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/midwest-dessert-bars.jpg",
+      "count": 3,
       "recipes": [
         {
           "id": "midwest-dessert-bars",
           "title": "Midwest Dessert Bars",
           "cuisine": "minnesota",
           "category": "Minnesota"
+        },
+        {
+          "id": "north-dakota-sunflower-seed-bars",
+          "title": "Sunflower Seed Dessert Bars",
+          "cuisine": "north-dakota",
+          "category": "Prairie Sweets"
         },
         {
           "id": "australian-lamingtons",
@@ -1639,6 +1747,24 @@
       ]
     },
     {
+      "image": "images/recipes/audit-2026-06/runza.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "runza",
+          "title": "Runza",
+          "cuisine": "nebraska",
+          "category": "Nebraska"
+        },
+        {
+          "id": "north-dakota-fleischkuekle",
+          "title": "North Dakota Fleischkuekle",
+          "cuisine": "north-dakota",
+          "category": "North Dakota German-Russian"
+        }
+      ]
+    },
+    {
       "image": "images/recipes/audit-2026-06/nebraska-steak.jpg",
       "count": 8,
       "recipes": [
@@ -1689,6 +1815,30 @@
           "title": "Garlic Butter Steak Bites",
           "cuisine": "holiday",
           "category": "Valentine's Day Mains"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/southwest-2026/navajo-tacos.jpg",
+      "count": 3,
+      "recipes": [
+        {
+          "id": "south-dakota-indian-tacos",
+          "title": "South Dakota Indian Tacos",
+          "cuisine": "south-dakota",
+          "category": "Native Community Favorites"
+        },
+        {
+          "id": "navajo-tacos",
+          "title": "Navajo Tacos",
+          "cuisine": "arizona",
+          "category": "Native Food Context"
+        },
+        {
+          "id": "oklahoma-indian-tacos",
+          "title": "Oklahoma Indian Tacos",
+          "cuisine": "oklahoma",
+          "category": "Native Food Context"
         }
       ]
     },
@@ -1869,24 +2019,6 @@
           "title": "Idaho Huckleberry Pancakes",
           "cuisine": "idaho",
           "category": "Mountain Breakfast"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/southwest-2026/navajo-tacos.jpg",
-      "count": 2,
-      "recipes": [
-        {
-          "id": "navajo-tacos",
-          "title": "Navajo Tacos",
-          "cuisine": "arizona",
-          "category": "Native Food Context"
-        },
-        {
-          "id": "oklahoma-indian-tacos",
-          "title": "Oklahoma Indian Tacos",
-          "cuisine": "oklahoma",
-          "category": "Native Food Context"
         }
       ]
     },
@@ -8796,10 +8928,166 @@
       ]
     },
     {
+      "id": "north-dakota-fleischkuekle",
+      "title": "North Dakota Fleischkuekle",
+      "cuisine": "north-dakota",
+      "category": "North Dakota German-Russian",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "north-dakota-lefse",
+      "title": "North Dakota Lefse",
+      "cuisine": "north-dakota",
+      "category": "Scandinavian Prairie Table",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "north-dakota-walleye-supper",
+      "title": "North Dakota Walleye Supper",
+      "cuisine": "north-dakota",
+      "category": "Lake & River Fish",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "north-dakota-bison-barley-soup",
+      "title": "Bison Barley Prairie Soup",
+      "cuisine": "north-dakota",
+      "category": "Prairie & Indigenous Foodways",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "north-dakota-potato-hotdish",
+      "title": "North Dakota Potato Hotdish",
+      "cuisine": "north-dakota",
+      "category": "Farm Kitchen Comfort",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "north-dakota-sunflower-seed-bars",
+      "title": "Sunflower Seed Dessert Bars",
+      "cuisine": "north-dakota",
+      "category": "Prairie Sweets",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
       "id": "south-dakota-chislic",
       "title": "South Dakota Chislic",
       "cuisine": "south-dakota",
       "category": "Dakotas",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "south-dakota-wojapi",
+      "title": "Wojapi Berry Sauce",
+      "cuisine": "south-dakota",
+      "category": "Lakota & Dakota Foodways",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "south-dakota-indian-tacos",
+      "title": "South Dakota Indian Tacos",
+      "cuisine": "south-dakota",
+      "category": "Native Community Favorites",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "black-hills-bison-burgers",
+      "title": "Black Hills Bison Burgers",
+      "cuisine": "south-dakota",
+      "category": "Ranch & Road Food",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "south-dakota-pheasant-sandwich",
+      "title": "Prairie Pheasant Sandwich",
+      "cuisine": "south-dakota",
+      "category": "Hunting Season Table",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "south-dakota-walleye-fry",
+      "title": "South Dakota Walleye Fry",
+      "cuisine": "south-dakota",
+      "category": "River & Lake Fish",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "south-dakota-hutterite-potato-dinner",
+      "title": "Hutterite-Style Potato Dinner",
+      "cuisine": "south-dakota",
+      "category": "Community Farm Tables",
       "missing": [],
       "recommendedMissing": [
         "cultural_origin",
@@ -17040,10 +17328,166 @@
       ]
     },
     {
+      "id": "north-dakota-fleischkuekle",
+      "title": "North Dakota Fleischkuekle",
+      "cuisine": "north-dakota",
+      "category": "North Dakota German-Russian",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "north-dakota-lefse",
+      "title": "North Dakota Lefse",
+      "cuisine": "north-dakota",
+      "category": "Scandinavian Prairie Table",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "north-dakota-walleye-supper",
+      "title": "North Dakota Walleye Supper",
+      "cuisine": "north-dakota",
+      "category": "Lake & River Fish",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "north-dakota-bison-barley-soup",
+      "title": "Bison Barley Prairie Soup",
+      "cuisine": "north-dakota",
+      "category": "Prairie & Indigenous Foodways",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "north-dakota-potato-hotdish",
+      "title": "North Dakota Potato Hotdish",
+      "cuisine": "north-dakota",
+      "category": "Farm Kitchen Comfort",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "north-dakota-sunflower-seed-bars",
+      "title": "Sunflower Seed Dessert Bars",
+      "cuisine": "north-dakota",
+      "category": "Prairie Sweets",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
       "id": "south-dakota-chislic",
       "title": "South Dakota Chislic",
       "cuisine": "south-dakota",
       "category": "Dakotas",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "south-dakota-wojapi",
+      "title": "Wojapi Berry Sauce",
+      "cuisine": "south-dakota",
+      "category": "Lakota & Dakota Foodways",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "south-dakota-indian-tacos",
+      "title": "South Dakota Indian Tacos",
+      "cuisine": "south-dakota",
+      "category": "Native Community Favorites",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "black-hills-bison-burgers",
+      "title": "Black Hills Bison Burgers",
+      "cuisine": "south-dakota",
+      "category": "Ranch & Road Food",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "south-dakota-pheasant-sandwich",
+      "title": "Prairie Pheasant Sandwich",
+      "cuisine": "south-dakota",
+      "category": "Hunting Season Table",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "south-dakota-walleye-fry",
+      "title": "South Dakota Walleye Fry",
+      "cuisine": "south-dakota",
+      "category": "River & Lake Fish",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "south-dakota-hutterite-potato-dinner",
+      "title": "Hutterite-Style Potato Dinner",
+      "cuisine": "south-dakota",
+      "category": "Community Farm Tables",
       "missing": [],
       "recommendedMissing": [
         "cultural_origin",
