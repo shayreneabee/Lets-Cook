@@ -6520,6 +6520,18 @@ Object.assign(recipeImageOverrides, {
   "coconut-cake": "images/recipes/audit-2026-06/banana-pudding-cups.jpg"
 });
 
+Object.assign(recipeImageOverrides, {
+  "strawberry-poppy-seed-salad": "images/recipes/holiday-2026/strawberry-poppy-seed-salad.png",
+  "roast-lamb": "images/recipes/holiday-2026/roast-lamb.png",
+  "hot-cross-buns": "images/recipes/holiday-2026/hot-cross-buns.png",
+  "scalloped-potatoes": "images/recipes/holiday-2026/scalloped-potatoes.png",
+  "halloween-monster-noodle-bowls": "images/recipes/holiday-2026/halloween-monster-noodle-bowls.png",
+  "halloween-eyeball-grape-treats": "images/recipes/holiday-2026/halloween-eyeball-grape-treats.png",
+  "prime-rib": "images/recipes/holiday-2026/prime-rib.png",
+  "standing-rib-roast": "images/recipes/holiday-2026/prime-rib.png",
+  "christmas-hot-cocoa": "images/recipes/holiday-2026/christmas-hot-cocoa.png"
+});
+
 const imageContentRegistry = {
   "images/cuisines/southern/southern-01.png": {
     title: "Southern Fried Chicken",

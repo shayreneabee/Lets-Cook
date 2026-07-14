@@ -1,13 +1,13 @@
 # Let's Cook Y'all Content Quality Audit
 
-Generated: 2026-07-14T18:36:07.375Z
+Generated: 2026-07-14T18:58:01.596Z
 
 ## Summary
 
 - Recipes audited: 665
 - Duplicate recipe ID groups: 0
 - Duplicate recipe title groups: 5
-- Shared image groups: 110
+- Shared image groups: 107
 - Generic recipe image assignments: 0
 - Fallback/queued images: 0
 - Missing image files: 0
@@ -52,7 +52,7 @@ Generated: 2026-07-14T18:36:07.375Z
 - images/recipes/audit-2026-06/party-meatballs.jpg: 2 recipes
 - images/recipes/audit-2026-06/strawberry-shortcake.png: 7 recipes
 - images/recipes/audit-2026-06/pineapple-fried-rice.jpg: 2 recipes
-- images/recipes/audit-2026-06/lamb-bone-broth-soup.jpg: 4 recipes
+- images/recipes/audit-2026-06/lamb-bone-broth-soup.jpg: 3 recipes
 - images/recipes/audit-2026-06/biryani.jpg: 2 recipes
 - images/recipes/audit-2026-06/chana-masala.jpg: 2 recipes
 - images/recipes/audit-2026-06/southern-fried-chicken.png: 2 recipes

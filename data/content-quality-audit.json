@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-07-14T18:36:07.375Z",
+  "generatedAt": "2026-07-14T18:58:01.596Z",
   "summary": {
     "totalRecipes": 665,
     "duplicateRecipeIdGroups": 0,
     "duplicateRecipeTitleGroups": 5,
-    "uniqueImages": 495,
-    "sharedImageGroups": 110,
+    "uniqueImages": 503,
+    "sharedImageGroups": 107,
     "genericRecipeImages": 0,
     "fallbackImages": 0,
     "missingImageFiles": 0,
@@ -278,7 +278,7 @@
     },
     {
       "image": "images/recipes/audit-2026-06/lamb-bone-broth-soup.jpg",
-      "count": 4,
+      "count": 3,
       "recipes": [
         {
           "id": "lamb-bone-broth-soup",
@@ -297,12 +297,6 @@
           "title": "New Zealand Roast Lamb",
           "cuisine": "global",
           "category": "New Zealand Sunday Roast"
-        },
-        {
-          "id": "roast-lamb",
-          "title": "Roast Lamb",
-          "cuisine": "holiday",
-          "category": "Easter Mains"
         }
       ]
     },
@@ -625,38 +619,14 @@
       ]
     },
     {
-      "image": "images/recipes/audit-2026-06/dinner-rolls.jpg",
-      "count": 2,
-      "recipes": [
-        {
-          "id": "dinner-rolls",
-          "title": "Soft Dinner Rolls",
-          "cuisine": "southern",
-          "category": "Breads"
-        },
-        {
-          "id": "hot-cross-buns",
-          "title": "Hot Cross Buns",
-          "cuisine": "holiday",
-          "category": "Easter Breads"
-        }
-      ]
-    },
-    {
       "image": "images/recipes/audit-2026-06/sweet-tea.jpg",
-      "count": 3,
+      "count": 2,
       "recipes": [
         {
           "id": "sweet-tea",
           "title": "Southern Sweet Tea",
           "cuisine": "southern",
           "category": "Drinks"
-        },
-        {
-          "id": "christmas-hot-cocoa",
-          "title": "Christmas Hot Cocoa",
-          "cuisine": "holiday",
-          "category": "Christmas Drinks"
         },
         {
           "id": "masala-chai",
@@ -782,7 +752,7 @@
     },
     {
       "image": "images/recipes/audit-2026-06/greek-salad.jpg",
-      "count": 4,
+      "count": 3,
       "recipes": [
         {
           "id": "greek-salad",
@@ -801,12 +771,6 @@
           "title": "Lebanese Tabbouleh",
           "cuisine": "mediterranean",
           "category": "Lebanese Mezze"
-        },
-        {
-          "id": "strawberry-poppy-seed-salad",
-          "title": "Strawberry Salad with Poppy Seed Dressing",
-          "cuisine": "holiday",
-          "category": "Easter Sides"
         }
       ]
     },
@@ -945,24 +909,6 @@
           "title": "Nevada Shrimp Cocktail",
           "cuisine": "nevada",
           "category": "Casino Classics"
-        }
-      ]
-    },
-    {
-      "image": "images/regional/texas-beef-ribs.png",
-      "count": 2,
-      "recipes": [
-        {
-          "id": "texas-beef-ribs",
-          "title": "Texas Smoked Beef Ribs",
-          "cuisine": "texas",
-          "category": "BBQ"
-        },
-        {
-          "id": "standing-rib-roast",
-          "title": "Standing Rib Roast",
-          "cuisine": "holiday",
-          "category": "Christmas Mains"
         }
       ]
     },
@@ -1142,7 +1088,7 @@
     },
     {
       "image": "images/recipes/audit-2026-06/funeral-potatoes.jpg",
-      "count": 7,
+      "count": 6,
       "recipes": [
         {
           "id": "funeral-potatoes",
@@ -1175,34 +1121,10 @@
           "category": "St. Patrick's Day Sides"
         },
         {
-          "id": "scalloped-potatoes",
-          "title": "Scalloped Potatoes",
-          "cuisine": "holiday",
-          "category": "Easter Sides"
-        },
-        {
           "id": "potato-latkes",
           "title": "Potato Latkes",
           "cuisine": "holiday",
           "category": "Hanukkah Sides"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/audit-2026-06/grape-salad.jpg",
-      "count": 2,
-      "recipes": [
-        {
-          "id": "grape-salad",
-          "title": "Grape Salad",
-          "cuisine": "southern",
-          "category": "Church Lady Hall of Fame"
-        },
-        {
-          "id": "halloween-eyeball-grape-treats",
-          "title": "Eyeball Grape Treats",
-          "cuisine": "holiday",
-          "category": "Halloween Desserts"
         }
       ]
     },
@@ -1389,24 +1311,6 @@
           "title": "Prairie Pheasant Sandwich",
           "cuisine": "south-dakota",
           "category": "Hunting Season Table"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/audit-2026-06/simple-spaghetti.jpg",
-      "count": 2,
-      "recipes": [
-        {
-          "id": "simple-spaghetti",
-          "title": "Simple Spaghetti",
-          "cuisine": "italian",
-          "category": "Food Around The World"
-        },
-        {
-          "id": "halloween-monster-noodle-bowls",
-          "title": "Halloween Monster Noodle Bowls",
-          "cuisine": "holiday",
-          "category": "Halloween Mains"
         }
       ]
     },
@@ -1982,7 +1886,7 @@
     },
     {
       "image": "images/recipes/audit-2026-06/nebraska-steak.jpg",
-      "count": 8,
+      "count": 7,
       "recipes": [
         {
           "id": "nebraska-steak",
@@ -2007,12 +1911,6 @@
           "title": "Argentinian Chimichurri Steak",
           "cuisine": "global",
           "category": "Argentina Asado"
-        },
-        {
-          "id": "prime-rib",
-          "title": "Prime Rib",
-          "cuisine": "holiday",
-          "category": "Christmas Mains"
         },
         {
           "id": "beef-tenderloin",
@@ -2445,6 +2343,24 @@
           "title": "Roast Duck",
           "cuisine": "holiday",
           "category": "Holiday Mains"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/holiday-2026/prime-rib.png",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "prime-rib",
+          "title": "Prime Rib",
+          "cuisine": "holiday",
+          "category": "Christmas Mains"
+        },
+        {
+          "id": "standing-rib-roast",
+          "title": "Standing Rib Roast",
+          "cuisine": "holiday",
+          "category": "Christmas Mains"
         }
       ]
     }

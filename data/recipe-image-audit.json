@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-14T18:36:06.382Z",
+  "generatedAt": "2026-07-14T18:57:59.209Z",
   "totalRecipes": 665,
-  "uniqueImages": 495,
+  "uniqueImages": 503,
   "missingFiles": [],
   "fallbacks": [],
   "photoQueue": [],
@@ -139,10 +139,6 @@
         {
           "id": "new-zealand-roast-lamb",
           "title": "New Zealand Roast Lamb"
-        },
-        {
-          "id": "roast-lamb",
-          "title": "Roast Lamb"
         }
       ]
     },
@@ -375,28 +371,11 @@
       ]
     },
     {
-      "image": "images/recipes/audit-2026-06/dinner-rolls.jpg",
-      "recipes": [
-        {
-          "id": "dinner-rolls",
-          "title": "Soft Dinner Rolls"
-        },
-        {
-          "id": "hot-cross-buns",
-          "title": "Hot Cross Buns"
-        }
-      ]
-    },
-    {
       "image": "images/recipes/audit-2026-06/sweet-tea.jpg",
       "recipes": [
         {
           "id": "sweet-tea",
           "title": "Southern Sweet Tea"
-        },
-        {
-          "id": "christmas-hot-cocoa",
-          "title": "Christmas Hot Cocoa"
         },
         {
           "id": "masala-chai",
@@ -500,10 +479,6 @@
         {
           "id": "lebanese-tabbouleh",
           "title": "Lebanese Tabbouleh"
-        },
-        {
-          "id": "strawberry-poppy-seed-salad",
-          "title": "Strawberry Salad with Poppy Seed Dressing"
         }
       ]
     },
@@ -603,19 +578,6 @@
         {
           "id": "nevada-shrimp-cocktail",
           "title": "Nevada Shrimp Cocktail"
-        }
-      ]
-    },
-    {
-      "image": "images/regional/texas-beef-ribs.png",
-      "recipes": [
-        {
-          "id": "texas-beef-ribs",
-          "title": "Texas Smoked Beef Ribs"
-        },
-        {
-          "id": "standing-rib-roast",
-          "title": "Standing Rib Roast"
         }
       ]
     },
@@ -768,25 +730,8 @@
           "title": "Colcannon Potatoes"
         },
         {
-          "id": "scalloped-potatoes",
-          "title": "Scalloped Potatoes"
-        },
-        {
           "id": "potato-latkes",
           "title": "Potato Latkes"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/audit-2026-06/grape-salad.jpg",
-      "recipes": [
-        {
-          "id": "grape-salad",
-          "title": "Grape Salad"
-        },
-        {
-          "id": "halloween-eyeball-grape-treats",
-          "title": "Eyeball Grape Treats"
         }
       ]
     },
@@ -920,19 +865,6 @@
         {
           "id": "south-dakota-pheasant-sandwich",
           "title": "Prairie Pheasant Sandwich"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/audit-2026-06/simple-spaghetti.jpg",
-      "recipes": [
-        {
-          "id": "simple-spaghetti",
-          "title": "Simple Spaghetti"
-        },
-        {
-          "id": "halloween-monster-noodle-bowls",
-          "title": "Halloween Monster Noodle Bowls"
         }
       ]
     },
@@ -1362,10 +1294,6 @@
           "title": "Argentinian Chimichurri Steak"
         },
         {
-          "id": "prime-rib",
-          "title": "Prime Rib"
-        },
-        {
           "id": "beef-tenderloin",
           "title": "Beef Tenderloin"
         },
@@ -1673,6 +1601,19 @@
         {
           "id": "roast-duck",
           "title": "Roast Duck"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/holiday-2026/prime-rib.png",
+      "recipes": [
+        {
+          "id": "prime-rib",
+          "title": "Prime Rib"
+        },
+        {
+          "id": "standing-rib-roast",
+          "title": "Standing Rib Roast"
         }
       ]
     }
@@ -7853,7 +7794,7 @@
       "title": "Prime Rib",
       "cuisine": "holiday",
       "category": "Christmas Mains",
-      "image": "images/recipes/audit-2026-06/nebraska-steak.jpg",
+      "image": "images/recipes/holiday-2026/prime-rib.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -7863,7 +7804,7 @@
       "title": "Standing Rib Roast",
       "cuisine": "holiday",
       "category": "Christmas Mains",
-      "image": "images/regional/texas-beef-ribs.png",
+      "image": "images/recipes/holiday-2026/prime-rib.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -7963,8 +7904,8 @@
       "title": "Strawberry Salad with Poppy Seed Dressing",
       "cuisine": "holiday",
       "category": "Easter Sides",
-      "image": "images/recipes/audit-2026-06/greek-salad.jpg",
-      "source": "recipe-data",
+      "image": "images/recipes/holiday-2026/strawberry-poppy-seed-salad.png",
+      "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
     },
@@ -7973,8 +7914,8 @@
       "title": "Halloween Monster Noodle Bowls",
       "cuisine": "holiday",
       "category": "Halloween Mains",
-      "image": "images/recipes/audit-2026-06/simple-spaghetti.jpg",
-      "source": "recipe-data",
+      "image": "images/recipes/holiday-2026/halloween-monster-noodle-bowls.png",
+      "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
     },
@@ -7983,8 +7924,8 @@
       "title": "Eyeball Grape Treats",
       "cuisine": "holiday",
       "category": "Halloween Desserts",
-      "image": "images/recipes/audit-2026-06/grape-salad.jpg",
-      "source": "recipe-data",
+      "image": "images/recipes/holiday-2026/halloween-eyeball-grape-treats.png",
+      "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
     },
@@ -7993,7 +7934,7 @@
       "title": "Roast Lamb",
       "cuisine": "holiday",
       "category": "Easter Mains",
-      "image": "images/recipes/audit-2026-06/lamb-bone-broth-soup.jpg",
+      "image": "images/recipes/holiday-2026/roast-lamb.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -8073,8 +8014,8 @@
       "title": "Hot Cross Buns",
       "cuisine": "holiday",
       "category": "Easter Breads",
-      "image": "images/recipes/audit-2026-06/dinner-rolls.jpg",
-      "source": "recipe-data",
+      "image": "images/recipes/holiday-2026/hot-cross-buns.png",
+      "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
     },
@@ -8083,8 +8024,8 @@
       "title": "Scalloped Potatoes",
       "cuisine": "holiday",
       "category": "Easter Sides",
-      "image": "images/recipes/audit-2026-06/funeral-potatoes.jpg",
-      "source": "recipe-data",
+      "image": "images/recipes/holiday-2026/scalloped-potatoes.png",
+      "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
     },
@@ -8163,8 +8104,8 @@
       "title": "Christmas Hot Cocoa",
       "cuisine": "holiday",
       "category": "Christmas Drinks",
-      "image": "images/recipes/audit-2026-06/sweet-tea.jpg",
-      "source": "recipe-data",
+      "image": "images/recipes/holiday-2026/christmas-hot-cocoa.png",
+      "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
     },
