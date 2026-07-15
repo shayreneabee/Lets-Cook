@@ -1,6 +1,6 @@
 # Let's Cook Y'all Content Quality Audit
 
-Generated: 2026-07-15T14:03:18.383Z
+Generated: 2026-07-15T14:34:40.406Z
 
 ## Summary
 
@@ -79,8 +79,8 @@ Generated: 2026-07-15T14:03:18.383Z
 
 ## Ingredient Search Smoke
 
-- OK: ribeye -> Valentine Steak Dinner, Nebraska Steak, Garlic Butter Steak Bites, Argentinian Chimichurri Steak, Kansas Chicken Fried Steak, Oklahoma Chicken Fried Steak, St. Louis Pork Steaks, Texas Chicken Fried Steak
-- OK: chicken thighs -> Smothered Chicken, Japanese Teriyaki Chicken Bowls, Tandoori-Style Chicken, Chicken and Sausage Gumbo, Chicken Vesuvio, Filipino Chicken Adobo, General Tso-Style Chicken, Hungarian Chicken Paprikash
-- OK: ground beef -> Baked Beans with Ground Beef, Pumpkin Chili, Hamburger Steak with Onion Gravy, Weeknight Beef Tacos, Cincinnati Chili, Baked Beans with Beef and Bacon, Rhode Island Hot Wieners, Chicago Hot Tamales
+- OK: ribeye -> Valentine Steak Dinner, Nebraska Steak, Garlic Butter Steak Bites, Argentinian Chimichurri Steak, Kansas Chicken Fried Steak, St. Louis Pork Steaks, Blackened Swordfish, Nevada Steakhouse Potatoes
+- OK: chicken thighs -> Smothered Chicken, Japanese Teriyaki Chicken Bowls, Tandoori-Style Chicken, Chicken and Sausage Gumbo, Chicken Vesuvio, Seattle Teriyaki Chicken, Crispy Fried Chicken, Lemon Pepper Wings
+- OK: ground beef -> Baked Beans with Ground Beef, Pumpkin Chili, Hamburger Steak with Onion Gravy, Baked Beans with Beef and Bacon, Nebraska Steak, South Dakota Indian Tacos, Argentinian Beef Empanadas, Southern Meatloaf
 
 Full machine-readable details are in `data/content-quality-audit.json`.

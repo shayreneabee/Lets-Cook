@@ -12608,6 +12608,117 @@ function rankRecipesForDiscovery(recipeList, { query = "", pantry = [] } = {}) {
   }).sort((a, b) => b.score - a.score || a.recipe.title.localeCompare(b.recipe.title));
 }
 
+function assistantRecipeFamily(recipe = {}) {
+  const title = normalizeIngredientTerm(recipe.title || "");
+  if (title.includes("fried chicken")) return "fried chicken";
+  if (title.includes("chicken and dumplings")) return "chicken dumplings";
+  if (title.includes("gumbo")) return "gumbo";
+  if (title.includes("tikka masala")) return "tikka masala";
+  if (title.includes("jollof")) return "jollof";
+  if (title.includes("taco") || title.includes("enchilada")) return "chicken tortilla meals";
+  if (title.includes("soup") || title.includes("stew")) return "soup stew";
+  return title.replace(/\b(classic|easy|homemade|southern|crispy|buttermilk|style|with|and|the)\b/g, "").replace(/\s+/g, " ").trim();
+}
+
+function assistantIngredientTermMatches(recipe = {}, term = "") {
+  const index = recipeSearchIndex(recipe);
+  const expandedTerms = expandRecipeSearchTerms(term);
+  return expandedTerms.some((expanded) =>
+    index.ingredientText.includes(expanded)
+    || index.substitutions.includes(expanded)
+    || pantryRecipeKnownIngredients(recipe).some((known) => known.includes(expanded) || expanded.includes(known))
+  );
+}
+
+function assistantIngredientCoverage(recipe = {}, pantry = []) {
+  const normalizedPantry = uniquePantryIngredients(pantry);
+  const matched = normalizedPantry.filter((item) => assistantIngredientTermMatches(recipe, item));
+  const knownIngredients = pantryRecipeKnownIngredients(recipe);
+  const missing = pantryMissingIngredients(knownIngredients, normalizedPantry);
+  let label = "Ingredient idea";
+  if (normalizedPantry.length && matched.length === normalizedPantry.length) label = "Uses everything you have";
+  else if (normalizedPantry.length && matched.length > 1) label = `Uses ${matched.length} of your ingredients`;
+  else if (missing.length === 1) label = "You need 1 more ingredient";
+  else if (missing.length > 1 && missing.length <= 3) label = `You need ${missing.length} more ingredients`;
+  return { matched, missing, knownIngredients, label };
+}
+
+function diversifyAssistantRecipeRows(rows = [], pantry = [], limit = 24) {
+  const wantsFried = pantry.some((item) => normalizeIngredientTerm(item).includes("fried"));
+  const selected = [];
+  const familyCounts = new Map();
+  const cuisineCounts = new Map();
+  const methodCounts = new Map();
+  const addRow = (row, relaxed = false) => {
+    if (selected.some((item) => item.recipe.id === row.recipe.id)) return false;
+    const family = assistantRecipeFamily(row.recipe);
+    const index = recipeSearchIndex(row.recipe);
+    const method = index.methods[0] || "mixed";
+    const cuisine = row.recipe.cuisine || "global";
+    if (!relaxed) {
+      if ((familyCounts.get(family) || 0) >= 1) return false;
+      if (!wantsFried && method === "fried" && (methodCounts.get(method) || 0) >= 1) return false;
+      if ((methodCounts.get(method) || 0) >= 2) return false;
+      if ((cuisineCounts.get(cuisine) || 0) >= 2) return false;
+    }
+    selected.push(row);
+    familyCounts.set(family, (familyCounts.get(family) || 0) + 1);
+    methodCounts.set(method, (methodCounts.get(method) || 0) + 1);
+    cuisineCounts.set(cuisine, (cuisineCounts.get(cuisine) || 0) + 1);
+    return true;
+  };
+  rows.forEach((row) => {
+    if (selected.length < limit) addRow(row, false);
+  });
+  rows.forEach((row) => {
+    if (selected.length < limit) addRow(row, true);
+  });
+  return selected.slice(0, limit);
+}
+
+function assistantRecipeSearchRows(ingredients = [], { limit = 24, mode = pantryModeFromState() } = {}) {
+  const pantry = uniquePantryIngredients(ingredients);
+  if (!pantry.length) return [];
+  const modeProfile = pantryScanModes[mode] || pantryScanModes.flexible;
+  const maxMissing = mode === "strict" ? 1 : mode === "surprise" ? 5 : 3;
+  const rows = allRecipeCollection().map((recipe) => {
+    const coverage = assistantIngredientCoverage(recipe, pantry);
+    const queryScore = pantry.reduce((sum, item) => sum + recipeDiscoveryScore(recipe, [item]), 0);
+    const index = recipeSearchIndex(recipe);
+    const methodDiversityBonus = index.methods.length ? 4 : 0;
+    const cuisineBonus = recipe.cuisine ? 3 : 0;
+    const completenessBonus = [
+      recipe.title,
+      recipe.description,
+      (recipe.ingredients || []).length >= 3,
+      (recipe.instructions || []).length >= 3,
+      recipePhotoFor(recipe)
+    ].filter(Boolean).length;
+    const imageBonus = resolveRecipeImage(recipe).missingImage ? 0 : 4;
+    const missingPenalty = Math.max(0, coverage.missing.length - maxMissing) * 18 + coverage.missing.length * 2;
+    const score = coverage.matched.length * 70
+      + queryScore
+      + Math.max(0, 12 - coverage.missing.length * 2)
+      + methodDiversityBonus
+      + cuisineBonus
+      + completenessBonus
+      + imageBonus
+      + (modeProfile.label === "Surprise Me!" ? cuisineBonus : 0)
+      - missingPenalty;
+    return {
+      recipe,
+      matches: coverage.matched,
+      missing: coverage.missing,
+      knownIngredients: coverage.knownIngredients,
+      matchLabel: coverage.label,
+      score
+    };
+  })
+    .filter((row) => row.matches.length && row.missing.length <= maxMissing)
+    .sort((a, b) => b.matches.length - a.matches.length || b.score - a.score || a.recipe.title.localeCompare(b.recipe.title));
+  return diversifyAssistantRecipeRows(rows, pantry, limit);
+}
+
 function recipeDiscoverySummaryMarkup({ query = "", pantry = [], results = [], relaxed = false } = {}) {
   const terms = [query, ...pantry].filter(Boolean);
   if (!terms.length) return "";
@@ -12624,8 +12735,7 @@ function recipeDiscoverySummaryMarkup({ query = "", pantry = [], results = [], r
 
 function recipesForIngredient(term) {
   const normalized = normalizeIngredientTerm(term);
-  return rankRecipesForDiscovery(recipes.filter(recipeAllowedInGeneralCollection), { query: normalized })
-    .filter((row) => row.score > 0)
+  return assistantRecipeSearchRows([normalized], { limit: 50, mode: "surprise" })
     .map((row) => row.recipe);
 }
 
@@ -13063,22 +13173,7 @@ function pantryScanMatches(ingredients = [], mode = pantryModeFromState()) {
     flexible: { maxMissing: 3, limit: 24, cuisineBonus: 0 },
     surprise: { maxMissing: 5, limit: 24, cuisineBonus: 2 }
   }[mode] || { maxMissing: 3, limit: 24, cuisineBonus: 0 };
-  return recipes.map((recipe) => {
-    const recipeText = pantryRecipeText(recipe);
-    const knownIngredients = pantryRecipeKnownIngredients(recipe);
-    const matches = pantry.filter((item) => pantryIngredientMatchesRecipe(item, recipeText, knownIngredients));
-    const missing = pantryMissingIngredients(knownIngredients, pantry);
-    const practicalBonus = /quick|weeknight|kid|snack|pizza|sandwich|parfait|smoothie|mac|taco|rice|bowl/i.test(
-      [recipe.category, recipe.path, recipe.title, ...(recipe.tags || [])].join(" ")
-    ) ? 1 : 0;
-    const surpriseBonus = modeRules.cuisineBonus && /asian|mexican|caribbean|indian|mediterranean|creole|cajun|thai|japanese|korean|latin/i.test(
-      [recipe.cuisine, recipe.category, recipe.title, ...(recipe.tags || [])].join(" ")
-    ) ? modeRules.cuisineBonus : 0;
-    const closenessBonus = Math.max(0, 5 - missing.length);
-    return { recipe, matches, missing, knownIngredients, score: matches.length * 5 + closenessBonus + practicalBonus + surpriseBonus - missing.length };
-  }).filter((item) => item.matches.length && item.missing.length <= modeRules.maxMissing)
-    .sort((a, b) => b.score - a.score || a.recipe.title.localeCompare(b.recipe.title))
-    .slice(0, modeRules.limit);
+  return assistantRecipeSearchRows(pantry, { limit: modeRules.limit, mode });
 }
 
 function pantryFallbackIdeas(ingredients = [], mode = pantryModeFromState()) {
@@ -13204,13 +13299,16 @@ function kitchenAssistantInventoryTabs(ingredients = [], resultRecipes = []) {
   `;
 }
 
-function aiKitchenResultCard(recipe) {
+function aiKitchenResultCard(input) {
+  const recipe = input?.recipe || input;
+  const matchLabel = input?.matchLabel || "Recipe idea";
   const resolvedPhoto = resolveRecipeImage(recipe);
   return `
     <article class="what-cooking-result-card ai-kitchen-result-card">
       <figure><img src="${resolvedPhoto.image}" alt="${recipe.title}" loading="lazy"></figure>
       <div>
         <div class="recipe-card-meta">
+          <span>${matchLabel}</span>
           <span>${recipeDuration(recipe)}</span>
           <span>${recipe.difficulty || "Beginner"}</span>
           <span>${recipe.servings || 4} servings</span>
@@ -13798,12 +13896,18 @@ function renderWhatYallCooking(id) {
   const pantryMatches = pantryScanMatches(pantryIngredients).slice(0, 8);
   const savedRecipes = recipesByIds(saved).slice(0, 4);
   const recentRecipes = recipesByIds(recentlyViewed).slice(0, 4);
-  const starterRecipes = pantryMatches.length
-    ? pantryMatches.map((item) => item.recipe)
-    : [...new Map([...savedRecipes, ...recentRecipes, ...recipesByIds(["smothered-chicken", "cajun-shrimp-etouffee", "broccoli-rice-casserole", "creole-seafood-gumbo"])].map((recipe) => [recipe.id, recipe])).values()].slice(0, 4);
+  const fallbackRecipes = [...new Map([...savedRecipes, ...recentRecipes, ...recipesByIds(["smothered-chicken", "cajun-shrimp-etouffee", "broccoli-rice-casserole", "creole-seafood-gumbo"])].map((recipe) => [recipe.id, recipe])).values()].slice(0, 4);
+  const starterRows = pantryMatches.length
+    ? pantryMatches
+    : fallbackRecipes.map((recipe) => ({ recipe, matches: [], missing: [], matchLabel: "Recipe idea", score: 0 }));
+  const starterRecipes = starterRows.map((row) => row.recipe);
   const smartMenu = starterRecipes[0] ? smartPairingFor(starterRecipes[0]) : menuPairings[0];
-  const smartRecipes = recipesForMenu(smartMenu).slice(0, 8);
-  const resultRecipes = [...new Map([...starterRecipes, ...smartRecipes].map((recipe) => [recipe.id, recipe])).values()].slice(0, 8);
+  const smartRows = recipesForMenu(smartMenu).slice(0, 8).map((recipe) => {
+    const coverage = assistantIngredientCoverage(recipe, pantryIngredients);
+    return { recipe, matches: coverage.matched, missing: coverage.missing, matchLabel: coverage.label, score: 0 };
+  });
+  const resultRows = [...new Map([...starterRows, ...smartRows].map((row) => [row.recipe.id, row])).values()].slice(0, 8);
+  const resultRecipes = resultRows.map((row) => row.recipe);
   const activeScanLabel = id === "refrigerator" ? "Refrigerator" : id === "freezer" ? "Freezer" : id === "grocery-bags" ? "Grocery Bags" : id === "entire-kitchen" ? "Entire Kitchen" : "Pantry";
   app.innerHTML = `
     ${cookSubnav()}
@@ -13879,7 +13983,7 @@ function renderWhatYallCooking(id) {
         ${["🥘 Recipes", "📅 Weekly Meal Plan", "🛒 Shopping List", "🥬 Use Before It Spoils", "❤️ Save Recipe", "🍳 Cooking Mode"].map((item) => `<span>${item}</span>`).join("")}
       </div>
       <div class="what-cooking-results-grid">
-        ${resultRecipes.length ? resultRecipes.map(aiKitchenResultCard).join("") : `<div class="empty-state">Tell me what you have and I&rsquo;ll help you find dinner.</div>`}
+        ${resultRows.length ? resultRows.map(aiKitchenResultCard).join("") : `<div class="empty-state">Tell me what you have and I&rsquo;ll help you find dinner.</div>`}
       </div>
     </section>
   `;

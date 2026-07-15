@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-15T14:03:18.383Z",
+  "generatedAt": "2026-07-15T14:34:40.406Z",
   "summary": {
     "totalRecipes": 665,
     "duplicateRecipeIdGroups": 0,
@@ -3553,22 +3553,22 @@
           "category": "Kansas"
         },
         {
-          "id": "oklahoma-chicken-fried-steak",
-          "title": "Oklahoma Chicken Fried Steak",
-          "cuisine": "oklahoma",
-          "category": "Oklahoma Comfort"
-        },
-        {
           "id": "st-louis-pork-steaks",
           "title": "St. Louis Pork Steaks",
           "cuisine": "missouri",
           "category": "St. Louis Classics"
         },
         {
-          "id": "chicken-fried-steak",
-          "title": "Texas Chicken Fried Steak",
-          "cuisine": "texas",
-          "category": "Main Dishes"
+          "id": "blackened-swordfish",
+          "title": "Blackened Swordfish",
+          "cuisine": "southern",
+          "category": "Seafood"
+        },
+        {
+          "id": "nevada-steakhouse-potatoes",
+          "title": "Nevada Steakhouse Potatoes",
+          "cuisine": "nevada",
+          "category": "Steakhouse Sides"
         }
       ]
     },
@@ -3606,22 +3606,22 @@
           "category": "Chicago Classics"
         },
         {
-          "id": "filipino-chicken-adobo",
-          "title": "Filipino Chicken Adobo",
-          "cuisine": "asian-inspired",
-          "category": "Filipino Braise"
+          "id": "seattle-teriyaki-chicken",
+          "title": "Seattle Teriyaki Chicken",
+          "cuisine": "washington-state",
+          "category": "Seattle Counter Food"
         },
         {
-          "id": "general-tso-chicken",
-          "title": "General Tso-Style Chicken",
-          "cuisine": "asian-inspired",
-          "category": "Global Flavors"
+          "id": "southern-crispy-fried-chicken",
+          "title": "Crispy Fried Chicken",
+          "cuisine": "southern",
+          "category": "Soul Food"
         },
         {
-          "id": "hungarian-chicken-paprikash",
-          "title": "Hungarian Chicken Paprikash",
-          "cuisine": "global",
-          "category": "Hungarian Comfort"
+          "id": "lemon-pepper-wings",
+          "title": "Lemon Pepper Wings",
+          "cuisine": "american",
+          "category": "Family Dinner"
         }
       ]
     },
@@ -3647,34 +3647,34 @@
           "category": "Family Dinner"
         },
         {
-          "id": "beef-tacos",
-          "title": "Weeknight Beef Tacos",
-          "cuisine": "mexican",
-          "category": "Global Dishes"
-        },
-        {
-          "id": "cincinnati-chili",
-          "title": "Cincinnati Chili",
-          "cuisine": "ohio",
-          "category": "Ohio"
-        },
-        {
           "id": "baked-beans-beef-bacon",
           "title": "Baked Beans with Beef and Bacon",
           "cuisine": "mississippi-favorites",
           "category": "Cookouts & Church Events"
         },
         {
-          "id": "hot-wieners",
-          "title": "Rhode Island Hot Wieners",
-          "cuisine": "rhode-island",
-          "category": "Diner Food"
+          "id": "nebraska-steak",
+          "title": "Nebraska Steak",
+          "cuisine": "nebraska",
+          "category": "Nebraska"
         },
         {
-          "id": "chicago-hot-tamales",
-          "title": "Chicago Hot Tamales",
-          "cuisine": "chicago",
-          "category": "Chicago Classics"
+          "id": "south-dakota-indian-tacos",
+          "title": "South Dakota Indian Tacos",
+          "cuisine": "south-dakota",
+          "category": "Native Community Favorites"
+        },
+        {
+          "id": "argentinian-beef-empanadas",
+          "title": "Argentinian Beef Empanadas",
+          "cuisine": "global",
+          "category": "Argentina Bakery"
+        },
+        {
+          "id": "southern-meatloaf",
+          "title": "Southern Meatloaf",
+          "cuisine": "southern",
+          "category": "Family Dinners"
         }
       ]
     }
