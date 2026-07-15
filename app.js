@@ -3309,6 +3309,124 @@ function celebrationExperienceMarkup(table = {}) {
   `;
 }
 
+const holidaySeasonGroups = [
+  { title: "Winter Tables", anchor: "winter", holidays: ["New Year's", "Valentine's Day", "Christmas", "Hanukkah", "Kwanzaa", "Lunar New Year"] },
+  { title: "Spring Tables", anchor: "spring", holidays: ["Mardi Gras", "St. Patrick's Day", "Easter", "Mother's Day", "Cinco de Mayo"] },
+  { title: "Summer Gatherings", anchor: "summer", holidays: ["Memorial Day", "Juneteenth", "Fourth of July", "Father's Day", "Labor Day"] },
+  { title: "Fall Celebrations", anchor: "fall", holidays: ["Halloween", "Thanksgiving"] },
+  { title: "Faith & Cultural Gatherings", anchor: "faith-cultural", holidays: ["Ramadan / Eid", "Diwali"] }
+];
+
+function holidayTableRecipeCount(table = {}) {
+  return recipeIdsForHolidayTable(table).filter((recipeId) => recipeByIdSafe(recipeId)).length;
+}
+
+function holidayTableCard(table = {}) {
+  const guide = celebrationExperienceGuide(table);
+  const recipeCount = holidayTableRecipeCount(table);
+  const description = (guide.moments || []).slice(0, 3).join(", ");
+  return `
+    <article class="holiday-destination-card" id="holiday-${slugify(table.title)}">
+      <a href="#cuisine-explorer/${slugify(table.title)}">
+        <figure><img src="${table.hero || "images/recipes/audit-2026-06/holiday-cups.jpg"}" alt="${table.title} holiday table" loading="lazy" /></figure>
+        <div>
+          <p class="eyebrow">Holiday table</p>
+          <h3>${table.title}</h3>
+          <p>${description || "A complete table with mains, sides, sweets, drinks, timing, and hosting notes."}</p>
+          <strong>${recipeCount} curated recipes</strong>
+          <span class="small-button secondary">Explore ${table.title}</span>
+        </div>
+      </a>
+    </article>
+  `;
+}
+
+function holidayTableSeasonSection(group, holidayTables = []) {
+  const cards = group.holidays
+    .map((title) => holidayTables.find((holiday) => slugify(holiday.title) === slugify(title)))
+    .filter(Boolean);
+  if (!cards.length) return "";
+  return `
+    <section class="holiday-season-section" id="holiday-season-${group.anchor}">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">${group.title}</p>
+        <h2>${group.title === "Faith & Cultural Gatherings" ? "Celebrations with their own food stories." : "Choose the table before you choose the recipe."}</h2>
+      </div>
+      <div class="holiday-destination-grid">
+        ${cards.map(holidayTableCard).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function nextHolidayTable(holidayTables = []) {
+  const today = new Date();
+  const year = today.getFullYear();
+  const calendar = [
+    ["New Year's", new Date(year, 0, 1)],
+    ["Valentine's Day", new Date(year, 1, 14)],
+    ["Mardi Gras", new Date(year, 1, 17)],
+    ["St. Patrick's Day", new Date(year, 2, 17)],
+    ["Easter", new Date(year, 3, 5)],
+    ["Mother's Day", new Date(year, 4, 10)],
+    ["Memorial Day", new Date(year, 4, 25)],
+    ["Juneteenth", new Date(year, 5, 19)],
+    ["Fourth of July", new Date(year, 6, 4)],
+    ["Father's Day", new Date(year, 5, 21)],
+    ["Labor Day", new Date(year, 8, 7)],
+    ["Halloween", new Date(year, 9, 31)],
+    ["Diwali", new Date(year, 10, 8)],
+    ["Thanksgiving", new Date(year, 10, 26)],
+    ["Hanukkah", new Date(year, 11, 4)],
+    ["Christmas", new Date(year, 11, 25)],
+    ["Kwanzaa", new Date(year, 11, 26)],
+    ["Lunar New Year", new Date(year + 1, 1, 6)],
+    ["Ramadan / Eid", new Date(year + 1, 1, 17)]
+  ];
+  const upcoming = calendar.find(([, date]) => date >= today) || calendar[0];
+  return holidayTables.find((holiday) => slugify(holiday.title) === slugify(upcoming[0])) || holidayTables[0];
+}
+
+function holidayTablesLandingMarkup(holidayTables = [], intro = "") {
+  const upcoming = nextHolidayTable(holidayTables);
+  const seasonLinks = holidaySeasonGroups
+    .filter((group) => group.holidays.some((title) => holidayTables.some((holiday) => slugify(holiday.title) === slugify(title))))
+    .map((group) => `<button type="button" data-scroll-target="holiday-season-${group.anchor}">${group.title}</button>`)
+    .join("");
+  return `
+    <section class="cream-section holiday-hub-landing" aria-labelledby="holidayHubTitle">
+      <div class="section-heading">
+        <p class="eyebrow">Holiday Tables</p>
+        <h2 id="holidayHubTitle">Gather, celebrate, and make something worth remembering.</h2>
+        <p>${intro || "Choose a celebration first. Each table has its own menu, mood, timing, recipes, and hosting rhythm."}</p>
+      </div>
+      <div class="holiday-jump-bar" aria-label="Holiday navigation">
+        ${seasonLinks}
+        <label>
+          <span>Jump to a holiday</span>
+          <select data-holiday-jump>
+            <option value="">Choose a table</option>
+            ${holidayTables.map((holiday) => `<option value="#cuisine-explorer/${slugify(holiday.title)}">${holiday.title}</option>`).join("")}
+          </select>
+        </label>
+      </div>
+      ${upcoming ? `
+        <article class="holiday-upcoming-card">
+          <figure><img src="${upcoming.hero || "images/recipes/audit-2026-06/holiday-cups.jpg"}" alt="${upcoming.title} holiday table" loading="lazy" /></figure>
+          <div>
+            <p class="eyebrow">Upcoming celebration</p>
+            <h3>${upcoming.title} Table</h3>
+            <p>${celebrationExperienceGuide(upcoming).moments.slice(0, 4).join(" / ")}</p>
+            <strong>${holidayTableRecipeCount(upcoming)} curated recipes</strong>
+            <a class="small-button" href="#cuisine-explorer/${slugify(upcoming.title)}">Explore ${upcoming.title}</a>
+          </div>
+        </article>
+      ` : ""}
+      ${holidaySeasonGroups.map((group) => holidayTableSeasonSection(group, holidayTables)).join("")}
+    </section>
+  `;
+}
+
 const recipeIdAliases = {
   "jerk-chicken": "jamaican-jerk-chicken",
   "caribbean-curry-chicken": "jamaican-jerk-chicken",
@@ -11045,6 +11163,33 @@ function renderLivingCookbook(id) {
   }
 
   const holidayTablesForChapter = chapter.id === "holiday-tables" && curatedHolidayTables.length ? curatedHolidayTables : (chapter.holidays || []);
+  if (chapter.id === "holiday-tables") {
+    app.innerHTML = `
+      ${hero("Holiday Tables", "Gather, celebrate, and make something worth remembering.", recipePhotoFor(recipeByIdSafe("honey-glazed-ham") || recipes[0]), `<a class="small-button" href="#living-cookbook">All Living Cookbook</a><a class="small-button secondary" href="#hosting">Hosting Guides</a>`)}
+      ${cookSubnav()}
+      ${holidayTablesLandingMarkup(holidayTablesForChapter, chapter.intro)}
+      <section class="cream-section">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">More reasons to gather</p>
+          <h2>Occasions beyond the calendar.</h2>
+          <p>Birthdays, game days, showers, reunions, and fish fries deserve menus that feel useful too.</p>
+        </div>
+        <div class="regional-story-grid">
+          ${broaderOccasionGuides.map((occasion) => `
+            <article>
+              <p class="eyebrow">Occasion guide</p>
+              <h3>${occasion.title}</h3>
+              <p>${occasion.note}</p>
+              <div class="region-chip-row">${occasion.ideas.map((idea) => `<span>${idea}</span>`).join("")}</div>
+              <a class="small-button secondary" href="${occasion.href}">Start Planning</a>
+            </article>
+          `).join("")}
+        </div>
+      </section>
+      ${livingCookbookHub()}
+    `;
+    return;
+  }
   const chapterRecipeIds = chapter.id === "holiday-tables"
     ? [...new Set([...(chapter.recipeIds || []), ...holidayTablesForChapter.flatMap((holiday) => recipeIdsForHolidayTable(holiday))])]
     : (chapter.recipeIds || []);
@@ -11103,8 +11248,6 @@ function holidayTablesFeature() {
   const chapter = livingCookbookById("holiday-tables");
   if (!chapter) return "";
   const holidayTables = curatedHolidayTables.length ? curatedHolidayTables : (chapter.holidays || []);
-  const featuredRecipeIds = [...new Set(holidayTables.flatMap((holiday) => recipeIdsForHolidayTable(holiday)))];
-  const featuredRecipes = featuredRecipeIds.map((recipeId) => recipeByIdSafe(recipeId)).filter(Boolean).slice(0, 12);
   return `
     <section class="cream-section holiday-tables-feature" aria-labelledby="holidayTablesFeatureTitle">
       <div class="section-heading compact-heading">
@@ -11112,20 +11255,7 @@ function holidayTablesFeature() {
         <h2 id="holidayTablesFeatureTitle">Complete holiday tables for the whole year.</h2>
         <p>${chapter.intro}</p>
       </div>
-      <div class="recipe-grid">${featuredRecipes.map(recipeCard).join("")}</div>
-      <div class="regional-story-grid">
-        ${holidayTables.map((holiday) => `
-          <article>
-            <p class="eyebrow">Holiday table</p>
-            <h3>${holiday.title}</h3>
-            <p>${celebrationExperienceGuide(holiday).moments.slice(0, 3).join(" / ")}</p>
-            <div class="mini-recipe-list">${recipeIdsForHolidayTable(holiday).map((recipeId) => recipeByIdSafe(recipeId)).filter(Boolean).map((recipe) => `<a href="#recipes/${recipe.id}">${recipe.title}<small>${recipe.category || cuisineName(recipe.cuisine)}</small></a>`).join("")}</div>
-            <h4>Shopping List</h4>
-            <ul>${(holiday.shopping || []).map((item) => `<li>${item}</li>`).join("")}</ul>
-            <a class="small-button secondary" href="#cuisine-explorer/${slugify(holiday.title)}">Open ${holiday.title} Table</a>
-          </article>
-        `).join("")}
-      </div>
+      ${holidayTablesLandingMarkup(holidayTables, "Pick the celebration first. Halloween stays with Halloween, Easter stays with Easter, and every table has room to breathe.").replace("cream-section holiday-hub-landing", "holiday-hub-landing embedded-holiday-hub")}
       <div class="section-heading compact-heading">
         <p class="eyebrow">More reasons to gather</p>
         <h2>Occasions beyond the calendar.</h2>
@@ -15644,6 +15774,11 @@ function learningSearchResults(query) {
 }
 
 function handleSearch(event) {
+  if (event?.target?.matches("[data-holiday-jump]")) {
+    const destination = event.target.value;
+    if (destination) window.location.hash = destination;
+    return;
+  }
   if (event?.target?.closest("[data-rainbow-checklist]")) {
     const checklist = event.target.closest("[data-rainbow-checklist]");
     const count = checklist.querySelectorAll("input:checked").length;
@@ -15730,6 +15865,7 @@ function handleClick(event) {
   const pantryFavoriteButton = event.target.closest("[data-save-pantry-favorites]");
   const pantryClearButton = event.target.closest("[data-clear-pantry-scan]");
   const speakIngredientsButton = event.target.closest("[data-speak-ingredients]");
+  const scrollTargetButton = event.target.closest("[data-scroll-target]");
   const juneteenthMenuButton = event.target.closest("[data-juneteenth-menu]");
   const regionalMenuButton = event.target.closest("[data-regional-menu]");
   const recipeSetButton = event.target.closest("[data-use-recipe-set]");
@@ -15745,6 +15881,11 @@ function handleClick(event) {
       main.setAttribute("tabindex", "-1");
       main.focus({ preventScroll: true });
     }
+    return;
+  }
+  if (scrollTargetButton) {
+    const target = document.getElementById(scrollTargetButton.dataset.scrollTarget);
+    if (target) target.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
     return;
   }
   const stampCuisineButton = event.target.closest("[data-stamp-cuisine]");

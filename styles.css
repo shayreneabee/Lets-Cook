@@ -8470,6 +8470,145 @@ button.small-button:is(:hover, :focus-visible) {
   box-shadow: 0 12px 28px rgba(43, 26, 18, 0.12);
 }
 
+.holiday-hub-landing {
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.embedded-holiday-hub {
+  padding: 0;
+}
+
+.holiday-jump-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding: 0.8rem;
+  border: 1px solid #ead9bb;
+  border-radius: 999px;
+  background: rgba(255, 250, 243, 0.82);
+  box-shadow: 0 14px 34px rgba(43, 26, 18, 0.08);
+}
+
+.holiday-jump-bar button {
+  flex: 0 0 auto;
+  border: 0;
+  background: transparent;
+  color: #553219;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.holiday-jump-bar label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+  color: #5f4a3f;
+  font-size: 0.9rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.holiday-jump-bar select {
+  min-height: 44px;
+  border: 1px solid #d7bd91;
+  border-radius: 999px;
+  padding: 0 1rem;
+  background: #fffdf7;
+  color: #2b1a12;
+  font: inherit;
+}
+
+.holiday-upcoming-card,
+.holiday-destination-card a {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.85fr) minmax(0, 1fr);
+  overflow: hidden;
+  border: 1px solid #e2ccb0;
+  border-radius: 30px;
+  background:
+    linear-gradient(135deg, rgba(255, 253, 247, 0.96), rgba(255, 244, 224, 0.92)),
+    #fffaf3;
+  box-shadow: 0 24px 62px rgba(43, 26, 18, 0.12);
+}
+
+.holiday-upcoming-card figure,
+.holiday-destination-card figure {
+  margin: 0;
+  min-height: 100%;
+}
+
+.holiday-upcoming-card img,
+.holiday-destination-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+.holiday-upcoming-card > div,
+.holiday-destination-card div {
+  display: grid;
+  align-content: center;
+  gap: 0.75rem;
+  padding: clamp(1.2rem, 3vw, 2rem);
+}
+
+.holiday-upcoming-card h3,
+.holiday-destination-card h3 {
+  margin: 0;
+  color: #2b1a12;
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 4.25rem);
+  line-height: 0.95;
+}
+
+.holiday-upcoming-card p,
+.holiday-destination-card p {
+  margin: 0;
+  color: #5f4a3f;
+  line-height: 1.55;
+}
+
+.holiday-upcoming-card strong,
+.holiday-destination-card strong {
+  color: #7a2f1d;
+  font-weight: 950;
+}
+
+.holiday-season-section {
+  display: grid;
+  gap: 1rem;
+}
+
+.holiday-destination-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.holiday-destination-card a {
+  grid-template-columns: minmax(180px, 0.8fr) minmax(0, 1fr);
+  min-height: 280px;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.holiday-destination-card a:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 70px rgba(43, 26, 18, 0.16);
+}
+
+.holiday-destination-card h3 {
+  font-size: clamp(1.65rem, 3vw, 3rem);
+}
+
 .regional-identity-grid h3,
 .regional-story-grid h3,
 .regional-menu-output h3,
@@ -8760,6 +8899,27 @@ button.small-button:is(:hover, :focus-visible) {
   .regional-story-grid,
   .regional-menu-output {
     grid-template-columns: 1fr;
+  }
+
+  .holiday-jump-bar {
+    align-items: stretch;
+    border-radius: 24px;
+  }
+
+  .holiday-jump-bar label {
+    min-width: 220px;
+  }
+
+  .holiday-upcoming-card,
+  .holiday-destination-card a,
+  .holiday-destination-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .holiday-upcoming-card img,
+  .holiday-destination-card img {
+    min-height: 210px;
+    aspect-ratio: 16 / 10;
   }
 
   .mississippi-heritage-chapter {
