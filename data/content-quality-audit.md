@@ -1,13 +1,13 @@
 # Let's Cook Y'all Content Quality Audit
 
-Generated: 2026-07-15T00:07:18.898Z
+Generated: 2026-07-15T13:34:48.600Z
 
 ## Summary
 
 - Recipes audited: 665
 - Duplicate recipe ID groups: 0
 - Duplicate recipe title groups: 5
-- Shared image groups: 98
+- Shared image groups: 96
 - Generic recipe image assignments: 0
 - Fallback/queued images: 0
 - Missing image files: 0
@@ -59,12 +59,12 @@ Generated: 2026-07-15T00:07:18.898Z
 - images/cuisines/asian/asian-02.png: 2 recipes
 - images/cuisines/asian/asian-06.png: 3 recipes
 - images/cuisines/asian/asian-08.png: 2 recipes
-- images/recipes/audit-2026-06/creole-seafood-gumbo.jpg: 2 recipes
 - images/cuisines/africa/nigeria/suya-skewers.jpg: 2 recipes
 - images/recipes/audit-2026-06/nigerian-fried-rice.jpg: 2 recipes
 - images/cuisines/africa/morocco/vegetable-couscous.jpg: 2 recipes
 - images/recipes/audit-2026-06/indian-dal-tadka.jpg: 3 recipes
 - images/recipes/audit-2026-06/grilled-swordfish-lemon-herb.jpg: 4 recipes
+- images/recipes/audit-2026-06/blackened-swordfish.jpg: 3 recipes
 
 ## Generic Recipe Images To Replace
 

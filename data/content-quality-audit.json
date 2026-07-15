@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-07-15T00:07:18.898Z",
+  "generatedAt": "2026-07-15T13:34:48.600Z",
   "summary": {
     "totalRecipes": 665,
     "duplicateRecipeIdGroups": 0,
     "duplicateRecipeTitleGroups": 5,
-    "uniqueImages": 518,
-    "sharedImageGroups": 98,
+    "uniqueImages": 520,
+    "sharedImageGroups": 96,
     "genericRecipeImages": 0,
     "fallbackImages": 0,
     "missingImageFiles": 0,
@@ -399,24 +399,6 @@
           "title": "Thai Basil Chicken",
           "cuisine": "asian-inspired",
           "category": "Thai Skillet"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/audit-2026-06/creole-seafood-gumbo.jpg",
-      "count": 2,
-      "recipes": [
-        {
-          "id": "creole-seafood-gumbo",
-          "title": "Creole Seafood Gumbo",
-          "cuisine": "creole",
-          "category": "Creole"
-        },
-        {
-          "id": "feast-seven-fishes-stew",
-          "title": "Feast of the Seven Fishes Seafood Stew",
-          "cuisine": "holiday",
-          "category": "Christmas Eve"
         }
       ]
     },
@@ -1419,24 +1401,6 @@
           "title": "Classic Cookout Hot Dogs",
           "cuisine": "bbq",
           "category": "Fourth of July Collection"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/audit-2026-06/shrimp-dejonghe.jpg",
-      "count": 2,
-      "recipes": [
-        {
-          "id": "shrimp-dejonghe",
-          "title": "Shrimp DeJonghe",
-          "cuisine": "chicago",
-          "category": "Chicago Classics"
-        },
-        {
-          "id": "australian-barbecue-prawns",
-          "title": "Australian Barbecue Prawns",
-          "cuisine": "global",
-          "category": "Australian Grill"
         }
       ]
     },

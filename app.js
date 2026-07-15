@@ -6550,6 +6550,11 @@ Object.assign(recipeImageOverrides, {
   "masala-chai": "images/recipes/holiday-2026/masala-chai.png"
 });
 
+Object.assign(recipeImageOverrides, {
+  "australian-barbecue-prawns": "images/recipes/kitchen-2026/australian-barbecue-prawns.png",
+  "feast-seven-fishes-stew": "images/recipes/kitchen-2026/feast-seven-fishes-seafood-stew.png"
+});
+
 const imageContentRegistry = {
   "images/cuisines/southern/southern-01.png": {
     title: "Southern Fried Chicken",
@@ -12751,6 +12756,207 @@ function kitchenToolSwitcher(active = "") {
   `;
 }
 
+const kitchenStarterIngredients = [
+  { name: "Chicken", term: "chicken", image: "images/recipes/kitchen-2026/ingredient-chicken.png" },
+  { name: "Shrimp", term: "shrimp", image: "images/recipes/kitchen-2026/ingredient-shrimp.png" },
+  { name: "Potatoes", term: "potatoes", image: "images/recipes/kitchen-2026/ingredient-potatoes.png" },
+  { name: "Broccoli", term: "broccoli", image: "images/recipes/kitchen-2026/ingredient-broccoli.png" },
+  { name: "Onion", term: "onion", image: "images/recipes/kitchen-2026/ingredient-onion.png" },
+  { name: "Tomatoes", term: "tomatoes", image: "images/recipes/kitchen-2026/ingredient-tomatoes.png" },
+  { name: "Cheese", term: "cheese", image: "images/recipes/kitchen-2026/ingredient-cheese.png" },
+  { name: "Rice", term: "rice", image: "images/recipes/kitchen-2026/ingredient-rice.png" }
+];
+
+const kitchenPopularRecipeIds = [
+  "cajun-shrimp-etouffee",
+  "australian-barbecue-prawns",
+  "feast-seven-fishes-stew",
+  "creole-seafood-gumbo"
+];
+
+const kitchenGlobalFlavorTiles = [
+  { title: "African", href: "#cuisine-explorer/african-cuisines", image: "images/cuisines/africa/nigeria/jollof-rice.jpg" },
+  { title: "Caribbean", href: "#cuisine/caribbean", image: cuisineCoverImages.caribbean },
+  { title: "Mediterranean", href: "#cuisine/mediterranean", image: cuisineCoverImages.mediterranean },
+  { title: "Asian", href: "#cuisine/asian-inspired", image: cuisineCoverImages["asian-inspired"] },
+  { title: "Latin American", href: "#cuisine/mexican", image: cuisineCoverImages.mexican },
+  { title: "Southern", href: "#cuisine/southern", image: cuisineCoverImages.southern }
+];
+
+const kitchenFeatureLinks = [
+  {
+    title: "Learn & Grow",
+    text: "Master techniques, knife skills, and kitchen confidence.",
+    label: "Start Learning",
+    href: "#culinary-academy"
+  },
+  {
+    title: "Plan & Celebrate",
+    text: "Holiday menus, special occasions, and hosting guides.",
+    label: "Plan an Event",
+    href: "#living-cookbook/holiday-tables"
+  },
+  {
+    title: "Community Love",
+    text: "Share recipes, tips, and kitchen wins with our food family.",
+    label: "Join the Community",
+    href: "#community"
+  }
+];
+
+function kitchenRecipeDisplayTitle(recipe = {}) {
+  if (recipe.id === "cajun-shrimp-etouffee") return "Shrimp Étouffée";
+  return recipe.title || "Recipe";
+}
+
+function kitchenRecipeCard(recipe = {}) {
+  if (!recipe?.id) return "";
+  const photo = recipePhotoFor(recipe);
+  return `
+    <article class="kitchen-recipe-card">
+      <button class="kitchen-save-button" type="button" data-save="${recipe.id}" aria-label="${saved.includes(recipe.id) ? "Remove saved recipe" : "Save recipe"}">${saved.includes(recipe.id) ? "Saved" : "♡"}</button>
+      <a href="#recipes/${recipe.id}" aria-label="Open ${kitchenRecipeDisplayTitle(recipe)}">
+        <img src="${photo}" alt="${kitchenRecipeDisplayTitle(recipe)}" loading="lazy" />
+        <div class="kitchen-recipe-overlay">
+          <p>${recipe.category || cuisineName(recipe.cuisine)}</p>
+          <h3>${kitchenRecipeDisplayTitle(recipe)}</h3>
+          <div class="kitchen-recipe-meta">
+            <span>${recipeDuration(recipe)}</span>
+            <span>${recipe.difficulty || recipe.skill_level || "Beginner"}</span>
+          </div>
+          <small>${recipe.description || "A warm dinner idea from Shay's kitchen."}</small>
+        </div>
+      </a>
+    </article>
+  `;
+}
+
+function kitchenSearchHero(term = "chicken") {
+  return `
+    <section class="kitchen-search-hero" aria-labelledby="kitchenSearchTitle">
+      <div class="kitchen-search-hero-copy">
+        <p class="eyebrow">What's in my kitchen?</p>
+        <h1 id="kitchenSearchTitle">Open the fridge.<br>Let&rsquo;s make dinner.</h1>
+        <p>Tell me what you&rsquo;ve got and I&rsquo;ll help with the rest.</p>
+        <div class="hero-actions">
+          <a class="small-button" href="#build-a-meal/${encodeURIComponent(term)}">Build A Meal</a>
+        </div>
+        <span class="handwritten-note">from Shay&rsquo;s kitchen</span>
+      </div>
+      <form class="kitchen-quick-search" data-ingredient-form>
+        <label for="kitchenHeroIngredient">What do you have?</label>
+        <div>
+          <input id="kitchenHeroIngredient" name="ingredient" value="${term}" placeholder="chicken, shrimp, rice..." />
+          <button class="small-button secondary" type="submit">Find Ideas</button>
+        </div>
+      </form>
+      <figure class="kitchen-hero-photo">
+        <img src="images/recipes/audit-2026-06/smothered-chicken.jpg" alt="A warm skillet-style chicken dinner with gravy and herbs" />
+      </figure>
+    </section>
+  `;
+}
+
+function kitchenIngredientBrowseSection() {
+  return `
+    <section class="cream-section kitchen-browse-section" aria-labelledby="kitchenIngredientTitle">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Start with what you have</p>
+        <h2 id="kitchenIngredientTitle">Start with what you have</h2>
+        <p>Tap an ingredient to see delicious ideas.</p>
+      </div>
+      <div class="kitchen-ingredient-carousel" aria-label="Ingredient ideas">
+        ${kitchenStarterIngredients.map((item) => `
+          <a class="kitchen-ingredient-card" href="#kitchen-search/${encodeURIComponent(item.term)}">
+            <img src="${item.image}" alt="${item.name}" loading="lazy" />
+            <span>${item.name}</span>
+          </a>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function kitchenPopularRecipesSection() {
+  const popularRecipes = kitchenPopularRecipeIds.map((id) => recipeByIdSafe(id)).filter(Boolean);
+  return `
+    <section class="cream-section kitchen-popular-section" aria-labelledby="kitchenPopularTitle">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Popular Right Now</p>
+        <h2 id="kitchenPopularTitle">Popular Right Now</h2>
+        <p>Tried, loved, and saved by our community.</p>
+      </div>
+      <div class="kitchen-recipe-carousel" aria-label="Popular recipes">
+        ${popularRecipes.map(kitchenRecipeCard).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function kitchenIngredientIdeasSection(term = "chicken") {
+  const guide = ingredientGuideFor(term);
+  return `
+    <section class="cream-section kitchen-ideas-section" aria-labelledby="kitchenIdeasTitle">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Dinner ideas</p>
+        <h2 id="kitchenIdeasTitle">Dinner ideas for ${guide.term}</h2>
+        <p>Pick one and start cooking.</p>
+      </div>
+      <div class="kitchen-recipe-carousel" aria-label="Ingredient recipe ideas">
+        ${guide.meals.slice(0, 6).map(kitchenRecipeCard).join("")}
+      </div>
+      <div class="kitchen-learn-strip" aria-label="Learn while you cook">
+        <article>
+          <span>Technique</span>
+          <p>${guide.techniques.slice(0, 2).join(" / ")}</p>
+        </article>
+        <article>
+          <span>Easy sides</span>
+          <p>${guide.sides.slice(0, 2).join(" / ")}</p>
+        </article>
+        <article>
+          <span>Swap it</span>
+          <p>${guide.substitutions.slice(0, 2).join(" / ")}</p>
+        </article>
+      </div>
+    </section>
+  `;
+}
+
+function kitchenGlobalFlavorsSection() {
+  return `
+    <section class="cream-section kitchen-global-section" aria-labelledby="kitchenGlobalTitle">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Explore Global Flavors</p>
+        <h2 id="kitchenGlobalTitle">Explore Global Flavors</h2>
+        <p>Take a trip around the world—one bite at a time.</p>
+      </div>
+      <div class="kitchen-global-grid">
+        ${kitchenGlobalFlavorTiles.map((tile) => `
+          <a class="kitchen-global-tile" href="${tile.href}">
+            <img src="${tile.image}" alt="${tile.title} food" loading="lazy" />
+            <span>${tile.title}</span>
+          </a>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function kitchenFeatureLinksSection() {
+  return `
+    <section class="cream-section kitchen-feature-links" aria-label="More kitchen tools">
+      ${kitchenFeatureLinks.map((feature) => `
+        <article>
+          <h3>${feature.title}</h3>
+          <p>${feature.text}</p>
+          <a class="small-button secondary" href="${feature.href}">${feature.label}</a>
+        </article>
+      `).join("")}
+    </section>
+  `;
+}
+
 function midwestRegionalHub() {
   return `
     <section class="regional-soul-section">
@@ -12774,13 +12980,15 @@ function midwestRegionalHub() {
 }
 
 function renderKitchenSearch(id) {
-  const term = id ? normalizeIngredientTerm(id) : "chicken strips";
+  const term = id ? normalizeIngredientTerm(id) : "chicken";
   app.innerHTML = `
-    ${hero("What's In My Kitchen", "Search by what you already have, then discover recipes, cuisines, techniques, side dishes, substitutions, and meal plans.", photoFor("skills", "measuring"), `<a class="small-button" href="#build-a-meal/${encodeURIComponent(term)}">Build A Meal</a>`)}
+    ${kitchenSearchHero(term)}
     ${cookSubnav()}
-    <section class="cream-section kitchen-tool-switcher">${kitchenToolSwitcher("kitchen-search")}</section>
-    ${ingredientDiscoverySection(term)}
-    ${ingredientGuideMarkup(term)}
+    ${kitchenIngredientBrowseSection()}
+    ${kitchenPopularRecipesSection()}
+    ${kitchenIngredientIdeasSection(term)}
+    ${kitchenGlobalFlavorsSection()}
+    ${kitchenFeatureLinksSection()}
   `;
 }
 

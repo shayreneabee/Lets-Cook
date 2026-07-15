@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-15T00:07:16.029Z",
+  "generatedAt": "2026-07-15T13:34:46.203Z",
   "totalRecipes": 665,
-  "uniqueImages": 518,
+  "uniqueImages": 520,
   "missingFiles": [],
   "fallbacks": [],
   "photoQueue": [],
@@ -213,19 +213,6 @@
         {
           "id": "thai-basil-chicken",
           "title": "Thai Basil Chicken"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/audit-2026-06/creole-seafood-gumbo.jpg",
-      "recipes": [
-        {
-          "id": "creole-seafood-gumbo",
-          "title": "Creole Seafood Gumbo"
-        },
-        {
-          "id": "feast-seven-fishes-stew",
-          "title": "Feast of the Seven Fishes Seafood Stew"
         }
       ]
     },
@@ -941,19 +928,6 @@
         {
           "id": "classic-cookout-hot-dogs",
           "title": "Classic Cookout Hot Dogs"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/audit-2026-06/shrimp-dejonghe.jpg",
-      "recipes": [
-        {
-          "id": "shrimp-dejonghe",
-          "title": "Shrimp DeJonghe"
-        },
-        {
-          "id": "australian-barbecue-prawns",
-          "title": "Australian Barbecue Prawns"
         }
       ]
     },
@@ -7473,7 +7447,7 @@
       "title": "Australian Barbecue Prawns",
       "cuisine": "global",
       "category": "Australian Grill",
-      "image": "images/recipes/audit-2026-06/shrimp-dejonghe.jpg",
+      "image": "images/recipes/kitchen-2026/australian-barbecue-prawns.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -7953,8 +7927,8 @@
       "title": "Feast of the Seven Fishes Seafood Stew",
       "cuisine": "holiday",
       "category": "Christmas Eve",
-      "image": "images/recipes/audit-2026-06/creole-seafood-gumbo.jpg",
-      "source": "recipe-data",
+      "image": "images/recipes/kitchen-2026/feast-seven-fishes-seafood-stew.png",
+      "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
     },
