@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-14T22:57:21.019Z",
+  "generatedAt": "2026-07-15T00:07:16.029Z",
   "totalRecipes": 665,
-  "uniqueImages": 505,
+  "uniqueImages": 518,
   "missingFiles": [],
   "fallbacks": [],
   "photoQueue": [],
@@ -33,19 +33,6 @@
         {
           "id": "japanese-teriyaki-chicken-bowls",
           "title": "Japanese Teriyaki Chicken Bowls"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/audit-2026-06/bourbon-praline-bread-pudding.jpg",
-      "recipes": [
-        {
-          "id": "bourbon-praline-bread-pudding",
-          "title": "Bourbon Praline Bread Pudding"
-        },
-        {
-          "id": "yule-log",
-          "title": "Chocolate Yule Log"
         }
       ]
     },
@@ -95,16 +82,8 @@
           "title": "New Zealand Pavlova"
         },
         {
-          "id": "chocolate-covered-strawberries",
-          "title": "Chocolate Covered Strawberries"
-        },
-        {
           "id": "valentine-chocolate-fondue",
           "title": "Valentine Chocolate Fondue"
-        },
-        {
-          "id": "red-white-blue-berry-trifle",
-          "title": "Red, White & Blue Berry Trifle"
         },
         {
           "id": "strawberry-shortcake",
@@ -191,19 +170,6 @@
         {
           "id": "bajan-macaroni-pie",
           "title": "Bajan Macaroni Pie"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/audit-2026-06/southern-cornbread-dressing.jpg",
-      "recipes": [
-        {
-          "id": "southern-cornbread-dressing",
-          "title": "Cornbread Dressing"
-        },
-        {
-          "id": "turducken",
-          "title": "Turducken"
         }
       ]
     },
@@ -371,32 +337,6 @@
       ]
     },
     {
-      "image": "images/recipes/audit-2026-06/sweet-tea.jpg",
-      "recipes": [
-        {
-          "id": "sweet-tea",
-          "title": "Southern Sweet Tea"
-        },
-        {
-          "id": "masala-chai",
-          "title": "Masala Chai"
-        }
-      ]
-    },
-    {
-      "image": "images/juneteenth/fresh-lemonade.png",
-      "recipes": [
-        {
-          "id": "lemonade",
-          "title": "Fresh Lemonade"
-        },
-        {
-          "id": "holiday-punch",
-          "title": "Holiday Punch"
-        }
-      ]
-    },
-    {
       "image": "images/regional/mississippi/peach-cobbler.jpg",
       "recipes": [
         {
@@ -406,19 +346,6 @@
         {
           "id": "oklahoma-peach-cobbler",
           "title": "Oklahoma Peach Cobbler"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/audit-2026-06/pound-cake.jpg",
-      "recipes": [
-        {
-          "id": "pound-cake",
-          "title": "Vanilla Pound Cake"
-        },
-        {
-          "id": "fruitcake",
-          "title": "Holiday Fruitcake"
         }
       ]
     },
@@ -720,14 +647,6 @@
         {
           "id": "nevada-steakhouse-potatoes",
           "title": "Nevada Steakhouse Potatoes"
-        },
-        {
-          "id": "colcannon-potatoes",
-          "title": "Colcannon Potatoes"
-        },
-        {
-          "id": "potato-latkes",
-          "title": "Potato Latkes"
         }
       ]
     },
@@ -770,19 +689,6 @@
       ]
     },
     {
-      "image": "images/recipes/audit-2026-06/yogurt-parfait-cups.jpg",
-      "recipes": [
-        {
-          "id": "yogurt-parfait-cups",
-          "title": "Yogurt Parfait Cups"
-        },
-        {
-          "id": "eggnog",
-          "title": "Homemade Eggnog"
-        }
-      ]
-    },
-    {
       "image": "images/recipes/audit-2026-06/banana-pudding-cups.jpg",
       "recipes": [
         {
@@ -792,19 +698,6 @@
         {
           "id": "coconut-cake",
           "title": "Coconut Cake"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/audit-2026-06/berry-banana-smoothies.jpg",
-      "recipes": [
-        {
-          "id": "berry-banana-smoothies",
-          "title": "Berry Banana Smoothies"
-        },
-        {
-          "id": "homemade-vanilla-ice-cream",
-          "title": "Homemade Vanilla Ice Cream"
         }
       ]
     },
@@ -988,19 +881,6 @@
         {
           "id": "puerto-rican-mofongo-bowls",
           "title": "Puerto Rican Mofongo Bowls"
-        }
-      ]
-    },
-    {
-      "image": "images/regional/mississippi/sweet-potato-pie.jpg",
-      "recipes": [
-        {
-          "id": "sweet-potato-pie",
-          "title": "Southern Sweet Potato Pie"
-        },
-        {
-          "id": "pumpkin-pie",
-          "title": "Pumpkin Pie"
         }
       ]
     },
@@ -1580,19 +1460,6 @@
         {
           "id": "california-burritos",
           "title": "California Burritos"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/holiday-2026/roast-turkey.png",
-      "recipes": [
-        {
-          "id": "roast-turkey",
-          "title": "Classic Roast Turkey"
-        },
-        {
-          "id": "roast-duck",
-          "title": "Roast Duck"
         }
       ]
     },
@@ -7736,7 +7603,7 @@
       "title": "Roast Duck",
       "cuisine": "holiday",
       "category": "Holiday Mains",
-      "image": "images/recipes/holiday-2026/roast-turkey.png",
+      "image": "images/recipes/holiday-2026/roast-duck.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -7746,7 +7613,7 @@
       "title": "Turducken",
       "cuisine": "holiday",
       "category": "Holiday Mains",
-      "image": "images/recipes/audit-2026-06/southern-cornbread-dressing.jpg",
+      "image": "images/recipes/holiday-2026/turducken.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -7776,7 +7643,7 @@
       "title": "Pumpkin Pie",
       "cuisine": "holiday",
       "category": "Thanksgiving Desserts",
-      "image": "images/regional/mississippi/sweet-potato-pie.jpg",
+      "image": "images/recipes/holiday-2026/pumpkin-pie.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -7826,7 +7693,7 @@
       "title": "Homemade Eggnog",
       "cuisine": "holiday",
       "category": "Christmas Drinks",
-      "image": "images/recipes/audit-2026-06/yogurt-parfait-cups.jpg",
+      "image": "images/recipes/holiday-2026/eggnog.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -7846,7 +7713,7 @@
       "title": "Holiday Fruitcake",
       "cuisine": "holiday",
       "category": "Christmas Desserts",
-      "image": "images/recipes/audit-2026-06/pound-cake.jpg",
+      "image": "images/recipes/holiday-2026/fruitcake.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -7856,7 +7723,7 @@
       "title": "Chocolate Yule Log",
       "cuisine": "holiday",
       "category": "Christmas Desserts",
-      "image": "images/recipes/audit-2026-06/bourbon-praline-bread-pudding.jpg",
+      "image": "images/recipes/holiday-2026/yule-log.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -7866,8 +7733,8 @@
       "title": "Holiday Punch",
       "cuisine": "holiday",
       "category": "Christmas Drinks",
-      "image": "images/juneteenth/fresh-lemonade.png",
-      "source": "recipe-data",
+      "image": "images/recipes/holiday-2026/holiday-punch.png",
+      "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
     },
@@ -7966,8 +7833,8 @@
       "title": "Chocolate Covered Strawberries",
       "cuisine": "holiday",
       "category": "Valentine's Day Desserts",
-      "image": "images/recipes/audit-2026-06/strawberry-shortcake.png",
-      "source": "recipe-data",
+      "image": "images/recipes/holiday-2026/chocolate-covered-strawberries.png",
+      "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
     },
@@ -7996,8 +7863,8 @@
       "title": "Colcannon Potatoes",
       "cuisine": "holiday",
       "category": "St. Patrick's Day Sides",
-      "image": "images/recipes/audit-2026-06/funeral-potatoes.jpg",
-      "source": "recipe-data",
+      "image": "images/recipes/holiday-2026/colcannon-potatoes.png",
+      "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
     },
@@ -8026,8 +7893,8 @@
       "title": "Red, White & Blue Berry Trifle",
       "cuisine": "holiday",
       "category": "Fourth of July Desserts",
-      "image": "images/recipes/audit-2026-06/strawberry-shortcake.png",
-      "source": "recipe-data",
+      "image": "images/recipes/holiday-2026/red-white-blue-berry-trifle.png",
+      "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
     },
@@ -8036,8 +7903,8 @@
       "title": "Homemade Vanilla Ice Cream",
       "cuisine": "holiday",
       "category": "Summer Cookout Desserts",
-      "image": "images/recipes/audit-2026-06/berry-banana-smoothies.jpg",
-      "source": "recipe-data",
+      "image": "images/recipes/holiday-2026/homemade-vanilla-ice-cream.png",
+      "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
     },
@@ -8116,8 +7983,8 @@
       "title": "Potato Latkes",
       "cuisine": "holiday",
       "category": "Hanukkah Sides",
-      "image": "images/recipes/audit-2026-06/funeral-potatoes.jpg",
-      "source": "recipe-data",
+      "image": "images/recipes/holiday-2026/potato-latkes.png",
+      "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
     },
@@ -8136,8 +8003,8 @@
       "title": "Masala Chai",
       "cuisine": "holiday",
       "category": "Diwali Drinks",
-      "image": "images/recipes/audit-2026-06/sweet-tea.jpg",
-      "source": "recipe-data",
+      "image": "images/recipes/holiday-2026/masala-chai.png",
+      "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
     },

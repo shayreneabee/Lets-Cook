@@ -6534,6 +6534,22 @@ Object.assign(recipeImageOverrides, {
   "christmas-hot-cocoa": "images/recipes/holiday-2026/christmas-hot-cocoa.png"
 });
 
+Object.assign(recipeImageOverrides, {
+  "eggnog": "images/recipes/holiday-2026/eggnog.png",
+  "pumpkin-pie": "images/recipes/holiday-2026/pumpkin-pie.png",
+  "roast-duck": "images/recipes/holiday-2026/roast-duck.png",
+  "turducken": "images/recipes/holiday-2026/turducken.png",
+  "fruitcake": "images/recipes/holiday-2026/fruitcake.png",
+  "yule-log": "images/recipes/holiday-2026/yule-log.png",
+  "holiday-punch": "images/recipes/holiday-2026/holiday-punch.png",
+  "chocolate-covered-strawberries": "images/recipes/holiday-2026/chocolate-covered-strawberries.png",
+  "colcannon-potatoes": "images/recipes/holiday-2026/colcannon-potatoes.png",
+  "red-white-blue-berry-trifle": "images/recipes/holiday-2026/red-white-blue-berry-trifle.png",
+  "homemade-vanilla-ice-cream": "images/recipes/holiday-2026/homemade-vanilla-ice-cream.png",
+  "potato-latkes": "images/recipes/holiday-2026/potato-latkes.png",
+  "masala-chai": "images/recipes/holiday-2026/masala-chai.png"
+});
+
 const imageContentRegistry = {
   "images/cuisines/southern/southern-01.png": {
     title: "Southern Fried Chicken",
@@ -11023,7 +11039,11 @@ function renderLivingCookbook(id) {
     return;
   }
 
-  const recipesForChapter = chapter.recipeIds.map((recipeId) => recipeByIdSafe(recipeId)).filter(Boolean);
+  const holidayTablesForChapter = chapter.id === "holiday-tables" && curatedHolidayTables.length ? curatedHolidayTables : (chapter.holidays || []);
+  const chapterRecipeIds = chapter.id === "holiday-tables"
+    ? [...new Set([...(chapter.recipeIds || []), ...holidayTablesForChapter.flatMap((holiday) => recipeIdsForHolidayTable(holiday))])]
+    : (chapter.recipeIds || []);
+  const recipesForChapter = chapterRecipeIds.map((recipeId) => recipeByIdSafe(recipeId)).filter(Boolean);
   app.innerHTML = `
     ${hero(chapter.title, chapter.intro, recipePhotoFor(recipesForChapter[0] || recipes[0]), `<a class="small-button" href="#living-cookbook">All Living Cookbook</a><a class="small-button secondary" href="#hosting">Hosting Guides</a>`)}
     ${cookSubnav()}
@@ -11037,30 +11057,35 @@ function renderLivingCookbook(id) {
         <article><h3>Why It Matters</h3><p>${chapter.heritage}</p></article>
         <article><h3>Service Notes</h3><ul>${chapter.guidance.map((item) => `<li>${item}</li>`).join("")}</ul></article>
         <article><h3>Hosting Guidance</h3><ul>${chapter.hostingNotes.map((item) => `<li>${item}</li>`).join("")}</ul></article>
-        <article><h3>Shopping Starter</h3><ul>${regionalShoppingList(chapter.recipeIds).map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article><h3>Shopping Starter</h3><ul>${regionalShoppingList(chapterRecipeIds).map((item) => `<li>${item}</li>`).join("")}</ul></article>
       </div>
       <div class="section-heading compact-heading">
         <p class="eyebrow">Recipes in this chapter</p>
         <h2>Every dish links to a real recipe page.</h2>
       </div>
       <div class="recipe-grid">${recipesForChapter.map(recipeCard).join("")}</div>
-      ${chapter.holidays ? `
+      ${holidayTablesForChapter.length ? `
         <div class="section-heading compact-heading">
           <p class="eyebrow">Holiday Tables</p>
           <h2>Complete menus with shopping and hosting notes.</h2>
         </div>
         <div class="regional-story-grid">
-          ${chapter.holidays.map((holiday) => `
+          ${holidayTablesForChapter.map((holiday) => {
+            const holidayRecipeIds = recipeIdsForHolidayTable(holiday);
+            const holidayRecipes = holidayRecipeIds.map((recipeId) => recipeByIdSafe(recipeId)).filter(Boolean);
+            return `
             <article>
+              <img class="story-card-image" src="${holiday.hero || recipePhotoFor(holidayRecipes[0] || recipes[0])}" alt="${holiday.title} holiday table" />
               <p class="eyebrow">Holiday table</p>
               <h3>${holiday.title}</h3>
-              <div class="mini-recipe-list">${holiday.recipeIds.map((recipeId) => recipeByIdSafe(recipeId)).filter(Boolean).map((recipe) => `<a href="#recipes/${recipe.id}">${recipe.title}<small>${recipe.category || cuisineName(recipe.cuisine)}</small></a>`).join("")}</div>
+              <div class="mini-recipe-list">${holidayRecipes.map((recipe) => `<a href="#recipes/${recipe.id}">${recipe.title}<small>${recipe.category || cuisineName(recipe.cuisine)}</small></a>`).join("")}</div>
               <h4>Shopping List</h4>
-              <ul>${holiday.shopping.map((item) => `<li>${item}</li>`).join("")}</ul>
+              <ul>${(holiday.shopping || []).map((item) => `<li>${item}</li>`).join("")}</ul>
               <h4>Hosting Guidance</h4>
-              <ul>${holiday.hosting.map((item) => `<li>${item}</li>`).join("")}</ul>
+              <ul>${(holiday.hosting || celebrationExperienceGuide(holiday).hosting || []).map((item) => `<li>${item}</li>`).join("")}</ul>
+              <a class="small-button secondary" href="#cuisine-explorer/${slugify(holiday.title)}">Open ${holiday.title} Table</a>
             </article>
-          `).join("")}
+          `}).join("")}
         </div>
       ` : ""}
       ${livingCookbookHub()}

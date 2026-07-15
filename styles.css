@@ -8137,6 +8137,16 @@ button.small-button:is(:hover, :focus-visible) {
   box-shadow: 0 16px 35px rgba(43, 26, 18, 0.08);
 }
 
+.story-card-image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 1rem;
+  border-radius: 18px;
+  box-shadow: 0 12px 28px rgba(43, 26, 18, 0.12);
+}
+
 .regional-identity-grid h3,
 .regional-story-grid h3,
 .regional-menu-output h3,

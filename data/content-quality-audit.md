@@ -1,13 +1,13 @@
 # Let's Cook Y'all Content Quality Audit
 
-Generated: 2026-07-14T22:59:01.132Z
+Generated: 2026-07-15T00:07:18.898Z
 
 ## Summary
 
 - Recipes audited: 665
 - Duplicate recipe ID groups: 0
 - Duplicate recipe title groups: 5
-- Shared image groups: 107
+- Shared image groups: 98
 - Generic recipe image assignments: 0
 - Fallback/queued images: 0
 - Missing image files: 0
@@ -47,17 +47,15 @@ Generated: 2026-07-14T22:59:01.132Z
 
 - images/recipes/audit-2026-06/oxtails.jpg: 2 recipes
 - images/recipes/audit-2026-06/orange-chicken.jpg: 3 recipes
-- images/recipes/audit-2026-06/bourbon-praline-bread-pudding.jpg: 2 recipes
 - images/recipes/audit-2026-06/shrimp-fried-rice.jpg: 3 recipes
 - images/recipes/audit-2026-06/party-meatballs.jpg: 2 recipes
-- images/recipes/audit-2026-06/strawberry-shortcake.png: 7 recipes
+- images/recipes/audit-2026-06/strawberry-shortcake.png: 5 recipes
 - images/recipes/audit-2026-06/pineapple-fried-rice.jpg: 2 recipes
 - images/recipes/audit-2026-06/lamb-bone-broth-soup.jpg: 3 recipes
 - images/recipes/audit-2026-06/biryani.jpg: 2 recipes
 - images/recipes/audit-2026-06/chana-masala.jpg: 2 recipes
 - images/recipes/audit-2026-06/southern-fried-chicken.png: 2 recipes
 - images/regional/mississippi/mac-and-cheese.jpg: 2 recipes
-- images/recipes/audit-2026-06/southern-cornbread-dressing.jpg: 2 recipes
 - images/cuisines/asian/asian-02.png: 2 recipes
 - images/cuisines/asian/asian-06.png: 3 recipes
 - images/cuisines/asian/asian-08.png: 2 recipes
@@ -65,6 +63,8 @@ Generated: 2026-07-14T22:59:01.132Z
 - images/cuisines/africa/nigeria/suya-skewers.jpg: 2 recipes
 - images/recipes/audit-2026-06/nigerian-fried-rice.jpg: 2 recipes
 - images/cuisines/africa/morocco/vegetable-couscous.jpg: 2 recipes
+- images/recipes/audit-2026-06/indian-dal-tadka.jpg: 3 recipes
+- images/recipes/audit-2026-06/grilled-swordfish-lemon-herb.jpg: 4 recipes
 
 ## Generic Recipe Images To Replace
 
