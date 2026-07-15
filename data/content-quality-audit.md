@@ -1,6 +1,6 @@
 # Let's Cook Y'all Content Quality Audit
 
-Generated: 2026-07-15T14:34:40.406Z
+Generated: 2026-07-15T19:46:31.375Z
 
 ## Summary
 
@@ -9,6 +9,7 @@ Generated: 2026-07-15T14:34:40.406Z
 - Duplicate recipe title groups: 5
 - Shared image groups: 96
 - Generic recipe image assignments: 0
+- Semantic image mismatches: 0
 - Fallback/queued images: 0
 - Missing image files: 0
 - Complete required holidays: 20 of 20
@@ -68,6 +69,10 @@ Generated: 2026-07-15T14:34:40.406Z
 
 ## Generic Recipe Images To Replace
 
+
+## Semantic Image Mismatches
+
+- None
 
 ## Menu Reference Issues
 

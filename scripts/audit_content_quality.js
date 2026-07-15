@@ -188,6 +188,33 @@ const genericImagePatterns = [
 const genericRecipeImages = imageRows.filter((row) => genericImagePatterns.some((pattern) => pattern.test(row.image)));
 const missingImageFiles = imageRows.filter((row) => row.image && !row.image.startsWith("http") && !fs.existsSync(path.join(root, row.image)));
 const fallbackImages = imageRows.filter((row) => row.fallbackUsed || row.missingRecipeImage);
+const imageMismatchRules = [
+  {
+    name: "stew-or-pie-using-hamburger-steak",
+    recipe: /(stew|shepherd|pie|bigos|paprikash|tagine)/i,
+    image: /hamburger-steak-with-gravy|german-food/i,
+    reason: "stew or pie recipe is using a hamburger steak/generic platter image"
+  },
+  {
+    name: "adobo-using-smothered-chicken",
+    recipe: /adobo|filipino/i,
+    image: /smothered-chicken|beautiful-chicken/i,
+    reason: "Filipino adobo is using a Southern smothered/generic chicken image"
+  },
+  {
+    name: "smothered-chicken-using-adobo-or-generic",
+    recipe: /smothered chicken/i,
+    image: /adobo|lc-asian-food|beautiful-chicken/i,
+    reason: "smothered chicken is using an adobo, Asian, or generic chicken image"
+  }
+];
+const semanticImageMismatches = imageRows
+  .map((row) => {
+    const text = `${row.id} ${row.title} ${row.cuisine} ${row.category}`;
+    const rule = imageMismatchRules.find((item) => item.recipe.test(text) && item.image.test(row.image));
+    return rule ? { ...row, rule: rule.name, reason: rule.reason } : null;
+  })
+  .filter(Boolean);
 
 const holidayTables = audit.curatedHolidayTables;
 const holidayCoverage = requiredHolidays.map((title) => {
@@ -294,6 +321,7 @@ const report = {
     uniqueImages: new Set(imageRows.map((row) => row.image)).size,
     sharedImageGroups: imageGroups.length,
     genericRecipeImages: genericRecipeImages.length,
+    semanticImageMismatches: semanticImageMismatches.length,
     fallbackImages: fallbackImages.length,
     missingImageFiles: missingImageFiles.length,
     requiredHolidayCount: requiredHolidays.length,
@@ -311,6 +339,7 @@ const report = {
   sharedImages: imageGroups,
   cuisineCollections: audit.cuisineCollections.filter((collection) => audit.controlledCuisineRecipeIds?.[collection.id]?.length),
   genericRecipeImages,
+  semanticImageMismatches,
   fallbackImages,
   missingImageFiles,
   holidayCoverage,
@@ -341,6 +370,7 @@ const md = [
   `- Duplicate recipe title groups: ${report.summary.duplicateRecipeTitleGroups}`,
   `- Shared image groups: ${report.summary.sharedImageGroups}`,
   `- Generic recipe image assignments: ${report.summary.genericRecipeImages}`,
+  `- Semantic image mismatches: ${report.summary.semanticImageMismatches}`,
   `- Fallback/queued images: ${report.summary.fallbackImages}`,
   `- Missing image files: ${report.summary.missingImageFiles}`,
   `- Complete required holidays: ${report.summary.completeRequiredHolidays} of ${report.summary.requiredHolidayCount}`,
@@ -364,6 +394,10 @@ const md = [
   "",
   ...genericRecipeImages.slice(0, 40).map((row) => `- ${row.id}: ${row.title} -> ${row.image}`),
   "",
+  "## Semantic Image Mismatches",
+  "",
+  ...(semanticImageMismatches.length ? semanticImageMismatches.map((row) => `- ${row.id}: ${row.title} -> ${row.image} (${row.reason})`) : ["- None"]),
+  "",
   "## Menu Reference Issues",
   "",
   ...(menuReferenceIssues.length ? menuReferenceIssues.map((row) => `- ${row.cuisine} / ${row.occasion}: missing [${row.missingIds.join(", ")}], duplicate [${row.duplicateIds.join(", ")}]`) : ["- None"]),
@@ -384,6 +418,7 @@ fs.writeFileSync(path.join(dataDir, "content-quality-audit.md"), `${md}\n`);
 console.log(`Recipes audited: ${report.summary.totalRecipes}`);
 console.log(`Duplicate recipe ID groups: ${report.summary.duplicateRecipeIdGroups}`);
 console.log(`Generic recipe images: ${report.summary.genericRecipeImages}`);
+console.log(`Semantic image mismatches: ${report.summary.semanticImageMismatches}`);
 console.log(`Fallback/queued images: ${report.summary.fallbackImages}`);
 console.log(`Missing image files: ${report.summary.missingImageFiles}`);
 console.log(`Complete required holidays: ${report.summary.completeRequiredHolidays}/${report.summary.requiredHolidayCount}`);
@@ -392,6 +427,6 @@ console.log(`Ingredient search smoke issues: ${report.summary.ingredientSearchIs
 console.log(`Training-only recipes in general discovery: ${report.summary.trainingOnlyGeneralLeaks}`);
 console.log("Reports: data/content-quality-audit.json, data/content-quality-audit.md");
 
-if (missingImageFiles.length || duplicateRecipeIds.length || menuReferenceIssues.length || cuisineCollectionIssues.length || ingredientSearchIssues.length || trainingOnlyGeneralLeaks.length) {
+if (missingImageFiles.length || duplicateRecipeIds.length || semanticImageMismatches.length || menuReferenceIssues.length || cuisineCollectionIssues.length || ingredientSearchIssues.length || trainingOnlyGeneralLeaks.length) {
   process.exitCode = 1;
 }

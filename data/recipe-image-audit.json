@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-15T14:34:32.998Z",
+  "generatedAt": "2026-07-15T19:46:27.953Z",
   "totalRecipes": 665,
-  "uniqueImages": 520,
+  "uniqueImages": 524,
   "missingFiles": [],
   "fallbacks": [],
   "photoQueue": [],
@@ -741,27 +741,6 @@
       ]
     },
     {
-      "image": "images/recipes/audit-2026-06/smothered-chicken.jpg",
-      "recipes": [
-        {
-          "id": "smothered-chicken",
-          "title": "Smothered Chicken"
-        },
-        {
-          "id": "filipino-chicken-adobo",
-          "title": "Filipino Chicken Adobo"
-        },
-        {
-          "id": "hungarian-chicken-paprikash",
-          "title": "Hungarian Chicken Paprikash"
-        },
-        {
-          "id": "palestinian-musakhan-style-chicken",
-          "title": "Palestinian Musakhan-Style Chicken"
-        }
-      ]
-    },
-    {
       "image": "images/recipes/audit-2026-06/hamburger-steak-with-gravy.jpg",
       "recipes": [
         {
@@ -775,14 +754,6 @@
         {
           "id": "loco-moco",
           "title": "Loco Moco"
-        },
-        {
-          "id": "british-shepherds-pie",
-          "title": "British Shepherd's Pie"
-        },
-        {
-          "id": "irish-beef-stew",
-          "title": "Irish Beef Stew"
         },
         {
           "id": "giblet-gravy",
@@ -1434,6 +1405,19 @@
         {
           "id": "california-burritos",
           "title": "California Burritos"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/smothered-chicken.jpg",
+      "recipes": [
+        {
+          "id": "hungarian-chicken-paprikash",
+          "title": "Hungarian Chicken Paprikash"
+        },
+        {
+          "id": "palestinian-musakhan-style-chicken",
+          "title": "Palestinian Musakhan-Style Chicken"
         }
       ]
     },
@@ -4027,7 +4011,7 @@
       "title": "Smothered Chicken",
       "cuisine": "southern",
       "category": "Family Dinner",
-      "image": "images/recipes/audit-2026-06/smothered-chicken.jpg",
+      "image": "images/recipes/generated-2026-07/smothered-chicken-onion-gravy.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -7017,7 +7001,7 @@
       "title": "Filipino Chicken Adobo",
       "cuisine": "asian-inspired",
       "category": "Filipino Braise",
-      "image": "images/recipes/audit-2026-06/smothered-chicken.jpg",
+      "image": "images/recipes/generated-2026-07/filipino-chicken-adobo.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -7187,7 +7171,7 @@
       "title": "British Shepherd's Pie",
       "cuisine": "global",
       "category": "British Pub Comfort",
-      "image": "images/recipes/audit-2026-06/hamburger-steak-with-gravy.jpg",
+      "image": "images/recipes/generated-2026-07/shepherds-pie.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -7327,7 +7311,7 @@
       "title": "Irish Beef Stew",
       "cuisine": "global",
       "category": "Irish Comfort",
-      "image": "images/recipes/audit-2026-06/hamburger-steak-with-gravy.jpg",
+      "image": "images/recipes/generated-2026-07/irish-beef-stew.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false

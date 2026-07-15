@@ -225,9 +225,9 @@ const cuisineCoverImages = {
   "mississippi-favorites": "images/regional/mississippi-buffalo-fish.png",
   mexican: "images/recipes/audit-2026-06/birria-style-tacos.jpg",
   indian: "images/recipes/audit-2026-06/butter-chicken.jpg",
-  caribbean: "images/recipes/audit-2026-06/rice-and-peas.jpg",
+  caribbean: "images/recipes/generated-2026-07/caribbean-cuisine-hub.png",
   mediterranean: "images/recipes/audit-2026-06/greek-salad.jpg",
-  "asian-inspired": "images/recipes/audit-2026-06/shrimp-fried-rice.jpg",
+  "asian-inspired": "images/recipes/generated-2026-07/asian-cuisine-hub-market.png",
   italian: "images/recipes/audit-2026-06/chicken-parmesan.jpg",
   hosting: "images/recipes/audit-2026-06/charcuterie-boards.jpg",
   global: "images/cuisines/africa/nigeria/jollof-rice.jpg",
@@ -819,7 +819,7 @@ const cuisineExplorerGroups = [
   {
     id: "asian-cuisines",
     title: "Asian Cuisines",
-    image: "images/cuisines/asian/asian-01.png",
+    image: cuisineCoverImages["asian-inspired"],
     note: "Rice, noodles, broths, stir-fries, fermented sauces, pickles, dumplings, heat, balance, and texture.",
     regions: ["Japan", "China", "Korea", "Taiwan", "Mongolia", "India", "Pakistan", "Bangladesh", "Nepal", "Sri Lanka", "Thailand", "Vietnam", "Laos", "Cambodia", "Malaysia", "Singapore", "Indonesia", "Philippines", "Myanmar"]
   },
@@ -6506,6 +6506,7 @@ Object.assign(recipeImageOverrides, {
   "fried-chicken": "images/recipes/audit-2026-06/southern-fried-chicken.png",
   "southern-fried-chicken": "images/recipes/audit-2026-06/southern-fried-chicken.png",
   "southern-crispy-fried-chicken": "images/recipes/audit-2026-06/southern-fried-chicken.png",
+  "smothered-chicken": "images/recipes/generated-2026-07/smothered-chicken-onion-gravy.png",
   "harolds-style-fried-chicken": "images/recipes/audit-2026-06/harolds-style-fried-chicken.jpg",
   "nashville-hot-chicken": "images/recipes/audit-2026-06/nashville-hot-chicken.jpg",
   "japanese-teriyaki-chicken-bowls": "images/recipes/audit-2026-06/orange-chicken.jpg",
@@ -6513,7 +6514,7 @@ Object.assign(recipeImageOverrides, {
   "korean-bulgogi-rice-bowls": "images/recipes/audit-2026-06/nebraska-steak.jpg",
   "thai-basil-chicken": "images/cuisines/asian/asian-08.png",
   "vietnamese-spring-rolls": "images/recipes/audit-2026-06/cucumber-salad.jpg",
-  "filipino-chicken-adobo": "images/recipes/audit-2026-06/smothered-chicken.jpg",
+  "filipino-chicken-adobo": "images/recipes/generated-2026-07/filipino-chicken-adobo.png",
   "nepali-momo-dumplings": "images/cuisines/asian/asian-06.png",
   "malaysian-nasi-lemak": "images/recipes/audit-2026-06/nigerian-fried-rice.jpg",
   "indonesian-nasi-goreng": "images/recipes/audit-2026-06/shrimp-fried-rice.jpg",
@@ -6582,7 +6583,7 @@ Object.assign(recipeImageOverrides, {
   "spanish-tortilla-espanola": "images/recipes/audit-2026-06/breakfast-casserole.jpg",
   "portuguese-caldo-verde": "images/recipes/audit-2026-06/loaded-baked-potato-soup.jpg",
   "german-schnitzel": "images/recipes/audit-2026-06/breaded-pork-tenderloin-sandwich.jpg",
-  "british-shepherds-pie": "images/recipes/audit-2026-06/hamburger-steak-with-gravy.jpg",
+  "british-shepherds-pie": "images/recipes/generated-2026-07/shepherds-pie.png",
   "eastern-european-pierogies": "images/recipes/audit-2026-06/cleveland-pierogies.jpg",
   "salvadoran-pupusa-supper": "images/recipes/mid-atlantic-2026/salvadoran-pupusas.jpg",
   "peruvian-arroz-con-pollo": "images/recipes/audit-2026-06/cilantro-lime-rice.jpg",
@@ -6596,7 +6597,7 @@ Object.assign(recipeImageOverrides, {
   "chilean-pastel-de-choclo": "images/recipes/audit-2026-06/mexican-cornbread-casserole.jpg",
   "polish-bigos": "images/recipes/audit-2026-06/loaded-baked-potato-soup.jpg",
   "hungarian-chicken-paprikash": "images/recipes/audit-2026-06/smothered-chicken.jpg",
-  "irish-beef-stew": "images/recipes/audit-2026-06/hamburger-steak-with-gravy.jpg",
+  "irish-beef-stew": "images/recipes/generated-2026-07/irish-beef-stew.png",
   "swedish-meatballs": "images/recipes/audit-2026-06/party-meatballs.jpg",
   "persian-herb-stew": "images/recipes/audit-2026-06/green-bean-casserole.jpg",
   "palestinian-musakhan-style-chicken": "images/recipes/audit-2026-06/smothered-chicken.jpg",
@@ -13091,7 +13092,7 @@ function kitchenSearchHero(term = "chicken") {
         </div>
       </form>
       <figure class="kitchen-hero-photo">
-        <img src="images/recipes/audit-2026-06/smothered-chicken.jpg" alt="A warm skillet-style chicken dinner with gravy and herbs" />
+        <img src="images/recipes/generated-2026-07/smothered-chicken-onion-gravy.png" alt="Southern smothered chicken with onion gravy and mashed potatoes" />
       </figure>
     </section>
   `;
@@ -14049,7 +14050,7 @@ function renderWhatYallCooking(id) {
         <small>Pantry • Refrigerator • Freezer • Countertops • Leftovers</small>
       </div>
       <figure>
-        <img src="images/recipes/audit-2026-06/smothered-chicken.jpg" alt="Warm skillet chicken dinner with gravy and herbs" />
+        <img src="images/recipes/generated-2026-07/smothered-chicken-onion-gravy.png" alt="Southern smothered chicken with onion gravy and mashed potatoes" />
       </figure>
       <div class="ai-kitchen-input-methods" aria-label="Choose how to start the assistant">
         <label class="ai-kitchen-method scan-method">

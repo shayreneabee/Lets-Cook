@@ -1,12 +1,13 @@
 {
-  "generatedAt": "2026-07-15T14:34:40.406Z",
+  "generatedAt": "2026-07-15T19:46:31.375Z",
   "summary": {
     "totalRecipes": 665,
     "duplicateRecipeIdGroups": 0,
     "duplicateRecipeTitleGroups": 5,
-    "uniqueImages": 520,
+    "uniqueImages": 524,
     "sharedImageGroups": 96,
     "genericRecipeImages": 0,
+    "semanticImageMismatches": 0,
     "fallbackImages": 0,
     "missingImageFiles": 0,
     "requiredHolidayCount": 20,
@@ -1135,38 +1136,8 @@
       ]
     },
     {
-      "image": "images/recipes/audit-2026-06/smothered-chicken.jpg",
-      "count": 4,
-      "recipes": [
-        {
-          "id": "smothered-chicken",
-          "title": "Smothered Chicken",
-          "cuisine": "southern",
-          "category": "Family Dinner"
-        },
-        {
-          "id": "filipino-chicken-adobo",
-          "title": "Filipino Chicken Adobo",
-          "cuisine": "asian-inspired",
-          "category": "Filipino Braise"
-        },
-        {
-          "id": "hungarian-chicken-paprikash",
-          "title": "Hungarian Chicken Paprikash",
-          "cuisine": "global",
-          "category": "Hungarian Comfort"
-        },
-        {
-          "id": "palestinian-musakhan-style-chicken",
-          "title": "Palestinian Musakhan-Style Chicken",
-          "cuisine": "mediterranean",
-          "category": "Palestinian Sumac Chicken"
-        }
-      ]
-    },
-    {
       "image": "images/recipes/audit-2026-06/hamburger-steak-with-gravy.jpg",
-      "count": 6,
+      "count": 4,
       "recipes": [
         {
           "id": "hamburger-steak-with-gravy",
@@ -1185,18 +1156,6 @@
           "title": "Loco Moco",
           "cuisine": "hawaii",
           "category": "Hawaii Comfort"
-        },
-        {
-          "id": "british-shepherds-pie",
-          "title": "British Shepherd's Pie",
-          "cuisine": "global",
-          "category": "British Pub Comfort"
-        },
-        {
-          "id": "irish-beef-stew",
-          "title": "Irish Beef Stew",
-          "cuisine": "global",
-          "category": "Irish Comfort"
         },
         {
           "id": "giblet-gravy",
@@ -2113,6 +2072,24 @@
       ]
     },
     {
+      "image": "images/recipes/audit-2026-06/smothered-chicken.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "hungarian-chicken-paprikash",
+          "title": "Hungarian Chicken Paprikash",
+          "cuisine": "global",
+          "category": "Hungarian Comfort"
+        },
+        {
+          "id": "palestinian-musakhan-style-chicken",
+          "title": "Palestinian Musakhan-Style Chicken",
+          "cuisine": "mediterranean",
+          "category": "Palestinian Sumac Chicken"
+        }
+      ]
+    },
+    {
       "image": "images/recipes/holiday-2026/prime-rib.png",
       "count": 2,
       "recipes": [
@@ -3016,7 +2993,7 @@
           "title": "Filipino Chicken Adobo",
           "cuisine": "asian-inspired",
           "category": "Filipino Braise",
-          "image": "images/recipes/audit-2026-06/smothered-chicken.jpg"
+          "image": "images/recipes/generated-2026-07/filipino-chicken-adobo.png"
         },
         {
           "id": "taiwanese-beef-noodle-soup",
@@ -3231,6 +3208,7 @@
     }
   ],
   "genericRecipeImages": [],
+  "semanticImageMismatches": [],
   "fallbackImages": [],
   "missingImageFiles": [],
   "holidayCoverage": [
