@@ -7083,6 +7083,301 @@ button.small-button:is(:hover, :focus-visible) {
   color: #5f4a3f;
 }
 
+.ai-kitchen-hero {
+  width: min(1180px, calc(100% - 32px));
+  margin: clamp(18px, 4vw, 44px) auto 0;
+  padding: clamp(18px, 4vw, 42px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.92fr);
+  gap: clamp(18px, 3vw, 34px);
+  align-items: center;
+  border: 1px solid rgba(75, 51, 36, 0.13);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 12% 12%, rgba(217, 164, 65, 0.28), transparent 28%),
+    linear-gradient(135deg, #fffaf3, #f3e3c8);
+  box-shadow: 0 26px 64px rgba(43, 26, 18, 0.14);
+}
+
+.ai-kitchen-hero-copy h1 {
+  margin: 0;
+  color: #24150e;
+  font-family: var(--serif);
+  font-size: clamp(2.45rem, 7vw, 5.8rem);
+  line-height: 0.96;
+  letter-spacing: 0;
+}
+
+.ai-kitchen-hero-copy > p {
+  max-width: 34rem;
+  color: #5a3d2b;
+  font-size: clamp(1.08rem, 2vw, 1.35rem);
+  line-height: 1.45;
+}
+
+.ai-kitchen-hero-copy small {
+  display: inline-block;
+  color: #7b4a2c;
+  font-weight: 900;
+}
+
+.ai-kitchen-hero figure {
+  margin: 0;
+}
+
+.ai-kitchen-hero figure img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  border-radius: 26px;
+  box-shadow: 0 24px 54px rgba(43, 26, 18, 0.2);
+}
+
+.ai-kitchen-input-methods {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.ai-kitchen-method {
+  min-height: 128px;
+  display: grid;
+  align-content: center;
+  gap: 6px;
+  padding: 18px;
+  border: 1px solid rgba(75, 51, 36, 0.14);
+  border-radius: 22px;
+  background: rgba(255, 254, 248, 0.9);
+  color: #24150e;
+  text-align: left;
+  text-decoration: none;
+  box-shadow: 0 16px 34px rgba(43, 26, 18, 0.09);
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.ai-kitchen-method:is(:hover, :focus-visible) {
+  border-color: #d9a441;
+  box-shadow: 0 22px 44px rgba(43, 26, 18, 0.14);
+  transform: translateY(-2px);
+}
+
+.ai-kitchen-method input {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ai-kitchen-method span {
+  font-size: 2rem;
+}
+
+.ai-kitchen-method strong {
+  font-size: 1.1rem;
+  font-weight: 950;
+}
+
+.ai-kitchen-method small {
+  color: #6a5144;
+  line-height: 1.35;
+}
+
+.ai-kitchen-assistant-panel {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.82fr) minmax(320px, 1.18fr);
+  gap: clamp(18px, 3vw, 28px);
+}
+
+.ai-kitchen-chat-card,
+.ai-kitchen-inventory-form,
+.ai-kitchen-photo-preview {
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid rgba(75, 51, 36, 0.13);
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 253, 247, 0.98), rgba(255, 247, 233, 0.96));
+  box-shadow: 0 16px 38px rgba(43, 26, 18, 0.09);
+}
+
+.ai-kitchen-chat-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.ai-kitchen-avatar {
+  display: grid;
+  place-items: center;
+  flex: 0 0 64px;
+  width: 64px;
+  aspect-ratio: 1;
+  border-radius: 20px;
+  background: #173d2a;
+  font-size: 2rem;
+}
+
+.ai-kitchen-chat-card h2,
+.ai-kitchen-inventory-form label,
+.ai-kitchen-workspace-grid h3 {
+  margin: 0;
+  color: #24150e;
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3vw, 2.35rem);
+  line-height: 1.02;
+}
+
+.ai-kitchen-scan-choices,
+.ai-kitchen-result-lanes,
+.ai-kitchen-chip-row,
+.ai-kitchen-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.ai-kitchen-scan-choices a,
+.ai-kitchen-result-lanes span,
+.ai-kitchen-chip-row button,
+.ai-kitchen-tabs a {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #e7d8bf;
+  border-radius: 999px;
+  padding: 8px 14px;
+  background: #fff;
+  color: #2b1a12;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.ai-kitchen-scan-choices a.active,
+.ai-kitchen-chip-row button.active,
+.ai-kitchen-tabs a.active {
+  border-color: #173d2a;
+  background: #dce8d5;
+  color: #173d2a;
+}
+
+.ai-kitchen-sayings {
+  color: #6a5144;
+  line-height: 1.5;
+}
+
+.ai-kitchen-inventory-form {
+  display: grid;
+  gap: 14px;
+}
+
+.ai-kitchen-inventory-form textarea {
+  width: 100%;
+  min-height: 156px;
+  padding: 14px;
+  border: 1px solid #d9c9ae;
+  border-radius: 18px;
+  background: #fff;
+  color: #24150e;
+  font: inherit;
+  line-height: 1.45;
+  resize: vertical;
+}
+
+.ai-kitchen-chip-row button {
+  cursor: pointer;
+}
+
+.ai-kitchen-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.ai-kitchen-actions [data-speech-status] {
+  color: #5f4a3f;
+  font-weight: 800;
+}
+
+.ai-kitchen-photo-preview {
+  grid-column: 1 / -1;
+  min-height: 0;
+}
+
+.ai-kitchen-photo-preview:empty {
+  display: none;
+}
+
+.ai-kitchen-photo-preview img {
+  max-width: 220px;
+  border-radius: 18px;
+  vertical-align: middle;
+  margin-right: 12px;
+}
+
+.ai-kitchen-workspace {
+  padding: clamp(28px, 5vw, 56px) max(16px, calc((100vw - 1180px) / 2));
+  background: #fffaf3;
+}
+
+.ai-kitchen-tabs {
+  margin-bottom: 18px;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  padding-bottom: 8px;
+}
+
+.ai-kitchen-tabs a {
+  white-space: nowrap;
+}
+
+.ai-kitchen-workspace-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.ai-kitchen-workspace-grid article {
+  min-height: 190px;
+  padding: clamp(18px, 3vw, 24px);
+  border: 1px solid rgba(75, 51, 36, 0.13);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 14px 34px rgba(43, 26, 18, 0.08);
+}
+
+.ai-kitchen-workspace-grid article > span {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #8a4b2b;
+  font-size: 0.76rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ai-kitchen-workspace-grid p,
+.ai-kitchen-workspace-grid li {
+  color: #5f4a3f;
+  line-height: 1.45;
+}
+
+.ai-kitchen-results-section .section-heading p {
+  max-width: 56rem;
+}
+
+.ai-kitchen-result-lanes {
+  width: min(1180px, calc(100% - 24px));
+  margin: 0 auto 22px;
+}
+
+.ai-kitchen-result-card {
+  border-color: rgba(75, 51, 36, 0.12);
+}
+
 @media (max-width: 720px) {
   .menu-builder-form {
     grid-template-columns: 1fr;
@@ -7105,6 +7400,34 @@ button.small-button:is(:hover, :focus-visible) {
   .pantry-camera-panel .small-button {
     justify-content: center;
     width: 100%;
+  }
+
+  .ai-kitchen-hero,
+  .ai-kitchen-assistant-panel,
+  .ai-kitchen-workspace-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-kitchen-hero {
+    width: min(100% - 18px, 680px);
+    padding: 16px;
+    border-radius: 22px;
+  }
+
+  .ai-kitchen-hero-copy h1 {
+    font-size: clamp(2.25rem, 11vw, 4rem);
+  }
+
+  .ai-kitchen-input-methods {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-kitchen-method {
+    min-height: 104px;
+  }
+
+  .ai-kitchen-chat-card {
+    display: grid;
   }
 }
 

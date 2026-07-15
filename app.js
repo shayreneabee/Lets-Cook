@@ -13158,6 +13158,78 @@ function pantryScanResultsMarkup(ingredients = [], mode = pantryModeFromState())
   `;
 }
 
+function kitchenAssistantInventoryTabs(ingredients = [], resultRecipes = []) {
+  const recipeIds = resultRecipes.map((recipe) => recipe.id);
+  const shoppingItems = regionalShoppingList(recipeIds).slice(0, 12);
+  const expiringSoon = ingredients.filter((item) => /lettuce|spinach|greens|herbs|berries|tomato|broccoli|carrot|leftover|milk|cream|cheese|chicken|shrimp|fish/i.test(item)).slice(0, 6);
+  const savedMealRecipes = recipesByIds(saved).slice(0, 4);
+  return `
+    <section class="ai-kitchen-workspace" aria-labelledby="aiKitchenWorkspaceTitle">
+      <div class="ai-kitchen-tabs" aria-label="Kitchen workspace sections">
+        ${["Inventory", "Recipes", "Meal Planner", "Shopping List", "Expiring Soon", "Saved Meals"].map((tab, index) => `<a href="#ai-kitchen-${slugify(tab)}" class="${index === 0 ? "active" : ""}">${tab}</a>`).join("")}
+      </div>
+      <div class="ai-kitchen-workspace-grid">
+        <article id="ai-kitchen-inventory">
+          <span>Inventory</span>
+          <h3 id="aiKitchenWorkspaceTitle">Whatcha got in that kitchen?</h3>
+          <div class="pantry-selected-shelf">${ingredients.length ? ingredients.map((item) => `<span>${titleizeSlug(item)}</span>`).join("") : `<span>No ingredients added yet.</span>`}</div>
+        </article>
+        <article id="ai-kitchen-recipes">
+          <span>Recipes</span>
+          <h3>${resultRecipes.length ? "Let's see what we can make." : "Add ingredients to unlock dinner ideas."}</h3>
+          <p>${ingredients.length ? "You only need a few more ingredients for some of these." : "Try chicken, rice, broccoli, butter, shrimp, potatoes, or leftovers."}</p>
+        </article>
+        <article id="ai-kitchen-meal-planner">
+          <span>Meal Planner</span>
+          <h3>Weekly Meal Plan</h3>
+          <div class="mini-recipe-list">${resultRecipes.slice(0, 3).map((recipe) => `<a href="#recipes/${recipe.id}">${recipe.title}<small>${recipeDuration(recipe)} / ${recipe.difficulty || "Beginner"}</small></a>`).join("") || `<p>Recipe ideas will show here after inventory is added.</p>`}</div>
+        </article>
+        <article id="ai-kitchen-shopping-list">
+          <span>Shopping List</span>
+          <h3>Quick Grocery Trip</h3>
+          <ul>${shoppingItems.length ? shoppingItems.map((item) => `<li>${titleizeSlug(item)}</li>`).join("") : `<li>Add inventory to build a useful shopping list.</li>`}</ul>
+        </article>
+        <article id="ai-kitchen-expiring-soon">
+          <span>Use Before It Spoils</span>
+          <h3>${expiringSoon.length ? "These need some love." : "Nothing urgent yet."}</h3>
+          <p>${expiringSoon.length ? expiringSoon.map(titleizeSlug).join(", ") : "Add fridge items or leftovers and I'll help prioritize them."}</p>
+        </article>
+        <article id="ai-kitchen-saved-meals">
+          <span>Saved Meals</span>
+          <h3>Saved for later</h3>
+          <div class="mini-recipe-list">${savedMealRecipes.map((recipe) => `<a href="#recipes/${recipe.id}">${recipe.title}<small>${cuisineName(recipe.cuisine)}</small></a>`).join("") || `<p>Saved recipes will show up here.</p>`}</div>
+        </article>
+      </div>
+    </section>
+  `;
+}
+
+function aiKitchenResultCard(recipe) {
+  const resolvedPhoto = resolveRecipeImage(recipe);
+  return `
+    <article class="what-cooking-result-card ai-kitchen-result-card">
+      <figure><img src="${resolvedPhoto.image}" alt="${recipe.title}" loading="lazy"></figure>
+      <div>
+        <div class="recipe-card-meta">
+          <span>${recipeDuration(recipe)}</span>
+          <span>${recipe.difficulty || "Beginner"}</span>
+          <span>${recipe.servings || 4} servings</span>
+        </div>
+        <h3>${recipe.title}</h3>
+        <p>${recipe.description || "A real recipe from the Let's Cook Y'all kitchen."}</p>
+        <div class="mini-ingredient-list">
+          ${(recipe.ingredients || []).slice(0, 5).map((item) => `<span>${typeof item === "string" ? item : item.name || item.ingredient || ""}</span>`).join("")}
+        </div>
+        <div class="recipe-card-actions">
+          <a class="small-button" href="#recipes/${recipe.id}">Cook This</a>
+          <button class="small-button secondary" type="button" data-save="${recipe.id}">${saved.includes(recipe.id) ? "Saved" : "Save Recipe"}</button>
+          <a class="small-button secondary" href="#planner/list">Shopping List</a>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
 function pantryIngredientsFromDom() {
   const notes = document.querySelector("#pantryScanNotes")?.value || "";
   const chips = [...document.querySelectorAll("[data-pantry-chip].active")].map((chip) => chip.dataset.pantryChip);
@@ -13253,6 +13325,8 @@ function globalCuisineDiscoveryPanel(query) {
 }
 
 function renderPantryScan(id = "pantry") {
+  renderWhatYallCooking(id || "pantry");
+  return;
   const scanMode = slugify(id || "pantry");
   const isColdStorage = ["refrigerator", "fridge", "freezer", "refrigerator-freezer"].includes(scanMode);
   const scanTitle = isColdStorage ? "Refrigerator & Freezer Scan" : "Pantry Scan";
@@ -13720,97 +13794,92 @@ function menuPairingCard(menu) {
 }
 
 function renderWhatYallCooking(id) {
-  const selectedIndex = Number.isFinite(Number(id)) ? Math.max(0, Math.min(menuPairings.length - 1, Number(id))) : 0;
-  const selectedMenu = menuPairings[selectedIndex];
   const pantryIngredients = uniquePantryIngredients(pantryScanState.ingredients || []);
-  const pantryMatches = pantryScanMatches(pantryIngredients).slice(0, 4);
+  const pantryMatches = pantryScanMatches(pantryIngredients).slice(0, 8);
   const savedRecipes = recipesByIds(saved).slice(0, 4);
   const recentRecipes = recipesByIds(recentlyViewed).slice(0, 4);
   const starterRecipes = pantryMatches.length
     ? pantryMatches.map((item) => item.recipe)
-    : [...new Map([...savedRecipes, ...recentRecipes, ...recipesByIds(["fried-chicken", "chicken-street-tacos", "vegetable-stir-fry", "bbq-brisket-basics"])].map((recipe) => [recipe.id, recipe])).values()].slice(0, 4);
-  const smartMenu = starterRecipes[0] ? smartPairingFor(starterRecipes[0]) : selectedMenu;
+    : [...new Map([...savedRecipes, ...recentRecipes, ...recipesByIds(["smothered-chicken", "cajun-shrimp-etouffee", "broccoli-rice-casserole", "creole-seafood-gumbo"])].map((recipe) => [recipe.id, recipe])).values()].slice(0, 4);
+  const smartMenu = starterRecipes[0] ? smartPairingFor(starterRecipes[0]) : menuPairings[0];
   const smartRecipes = recipesForMenu(smartMenu).slice(0, 8);
-  const servingOptions = ["1", "2", "3-4", "5+"];
-  const moods = [
-    "Comfort Food",
-    "Quick Meals",
-    "Healthy",
-    "Southern",
-    "Mexican",
-    "Italian",
-    "Asian",
-    "African",
-    "Mediterranean",
-    "BBQ",
-    "Seafood",
-    "Desserts",
-    "Vegan",
-    "Breakfast"
-  ];
-  const resultRecipes = [...new Map([...starterRecipes, ...smartRecipes].map((recipe) => [recipe.id, recipe])).values()].slice(0, 6);
-  const resultCard = (recipe) => {
-    const resolvedPhoto = resolveRecipeImage(recipe);
-    return `
-    <article class="what-cooking-result-card">
-      <figure><img src="${resolvedPhoto.image}" alt="${recipe.title}" loading="lazy"></figure>
-      <div>
-        <div class="recipe-card-meta">
-          <span>${recipe.prep_time || "Prep varies"}</span>
-          <span>${recipe.difficulty || "Beginner"}</span>
-          <span>${recipe.servings || 4} servings</span>
-        </div>
-        <h3>${recipe.title}</h3>
-        <p>${recipe.description || "A real recipe from the Let's Cook Y'all kitchen."}</p>
-        <div class="mini-ingredient-list">
-          ${(recipe.ingredients || []).slice(0, 5).map((item) => `<span>${typeof item === "string" ? item : item.name || item.ingredient || ""}</span>`).join("")}
-        </div>
-        <div class="recipe-card-actions">
-          <a class="small-button" href="#recipes/${recipe.id}">Cook This</a>
-          <button class="small-button secondary" type="button" data-save="${recipe.id}">${saved.includes(recipe.id) ? "Saved" : "Save"}</button>
-          <a class="small-button secondary" href="#planner/list">Add Missing Ingredients</a>
-        </div>
-      </div>
-    </article>
-  `;
-  };
+  const resultRecipes = [...new Map([...starterRecipes, ...smartRecipes].map((recipe) => [recipe.id, recipe])).values()].slice(0, 8);
+  const activeScanLabel = id === "refrigerator" ? "Refrigerator" : id === "freezer" ? "Freezer" : id === "grocery-bags" ? "Grocery Bags" : id === "entire-kitchen" ? "Entire Kitchen" : "Pantry";
   app.innerHTML = `
-    ${hero("What Y'all Cooking?", "Tell me what you have, and I'll tell you what to make.", photoFor("hero", "learning", 5, "assets/lc-orange-chicken.jpg"), `<a class="small-button" href="#pantry-scan/pantry">Scan My Pantry</a><a class="small-button secondary" href="#recipes">Skip and Browse Recipes</a>`)}
     ${cookSubnav()}
-    <section class="cream-section smart-kitchen-section what-cooking-fast-flow">
-      <div class="section-heading">
-        <p class="eyebrow">Smart kitchen assistant</p>
-        <h2>How many people are you cooking for?</h2>
+    <section class="ai-kitchen-hero" aria-labelledby="aiKitchenTitle">
+      <div class="ai-kitchen-hero-copy">
+        <p class="eyebrow">AI Kitchen Assistant</p>
+        <h1 id="aiKitchenTitle">🍽️ What&rsquo;s Y&rsquo;all Cooking?</h1>
+        <p>Tell me what you have, and I&rsquo;ll help you make dinner.</p>
+        <small>Pantry • Refrigerator • Freezer • Countertops • Leftovers</small>
       </div>
-      <div class="serving-choice-grid">
-        ${servingOptions.map((servings) => `
-          <a class="serving-choice-card" href="#planner/0-${servings === "3-4" ? "4" : servings === "5+" ? "6" : servings}">
-            <span>${servings}</span>
-          </a>
-        `).join("")}
-      </div>
-      <div class="pantry-camera-panel">
-        <a class="pantry-camera-button" href="#pantry-scan/pantry" aria-label="Scan my pantry">
-          <span>📷</span>
-          <strong>Scan My Pantry</strong>
+      <figure>
+        <img src="images/recipes/audit-2026-06/smothered-chicken.jpg" alt="Warm skillet chicken dinner with gravy and herbs" />
+      </figure>
+      <div class="ai-kitchen-input-methods" aria-label="Choose how to start the assistant">
+        <label class="ai-kitchen-method scan-method">
+          <input id="pantryPhotoInput" type="file" accept="image/*" />
+          <span>📸</span>
+          <strong>Scan My Kitchen</strong>
+          <small>Pantry, fridge, freezer, grocery bags</small>
+        </label>
+        <a class="ai-kitchen-method" href="#aiKitchenInventoryForm">
+          <span>🥕</span>
+          <strong>Type Ingredients</strong>
+          <small>Whatcha got in that fridge?</small>
         </a>
-        <a class="small-button secondary" href="#recipes">Skip and browse recipes</a>
-      </div>
-      <div class="section-heading">
-        <p class="eyebrow">Mood</p>
-        <h2>What are you in the mood for?</h2>
-      </div>
-      <div class="mood-chip-grid">
-        ${moods.map((mood) => `<a href="#search/${encodeURIComponent(mood)}">${mood}</a>`).join("")}
+        <button class="ai-kitchen-method" type="button" data-speak-ingredients>
+          <span>🎤</span>
+          <strong>Speak Ingredients</strong>
+          <small>Say chicken, rice, broccoli...</small>
+        </button>
       </div>
     </section>
-    <section class="gold-section">
+    <section class="cream-section ai-kitchen-assistant-panel" aria-labelledby="aiKitchenPromptTitle">
+      <div class="ai-kitchen-chat-card">
+        <div class="ai-kitchen-avatar" aria-hidden="true">👩🏽‍🍳</div>
+        <div>
+          <p class="eyebrow">Hey Y&rsquo;all 👋</p>
+          <h2 id="aiKitchenPromptTitle">What would you like to scan?</h2>
+          <div class="ai-kitchen-scan-choices" role="list" aria-label="Kitchen scan choices">
+            ${[
+              ["pantry", "Pantry"],
+              ["refrigerator", "Refrigerator"],
+              ["freezer", "Freezer"],
+              ["entire-kitchen", "Entire Kitchen"],
+              ["grocery-bags", "Grocery Bags"]
+            ].map(([scanId, label]) => `<a class="${label === activeScanLabel ? "active" : ""}" href="#what-yall-cooking/${scanId}">${label}</a>`).join("")}
+          </div>
+          <p class="ai-kitchen-sayings">Let&rsquo;s see what we can make. Looks like those carrots might need some love.</p>
+        </div>
+      </div>
+      <form id="aiKitchenInventoryForm" class="ai-kitchen-inventory-form" data-assistant-inventory-form>
+        <label for="pantryScanNotes">What ingredients do you have today?</label>
+        <textarea id="pantryScanNotes" name="ingredients" rows="5" placeholder="Chicken&#10;Rice&#10;Broccoli&#10;Butter">${escapeHTML(pantryScanState.notes || pantryIngredients.join("\n"))}</textarea>
+        <div class="ai-kitchen-chip-row">
+          ${["chicken", "rice", "broccoli", "butter", "shrimp", "potatoes", "cheese", "tomatoes", "leftover chicken", "carrots"].map((item) => `<button class="${pantryIngredients.includes(item) ? "active" : ""}" type="button" data-pantry-chip="${item}">${titleizeSlug(item)}</button>`).join("")}
+        </div>
+        <div class="ai-kitchen-actions">
+          <button class="small-button" type="submit">Find Recipes</button>
+          <button class="small-button secondary" type="button" data-clear-pantry-scan>Clear Inventory</button>
+          <span data-speech-status aria-live="polite"></span>
+        </div>
+      </form>
+      <div id="pantryPhotoPreview" class="ai-kitchen-photo-preview" aria-live="polite"></div>
+    </section>
+    ${kitchenAssistantInventoryTabs(pantryIngredients, resultRecipes)}
+    <section class="gold-section ai-kitchen-results-section">
       <div class="section-heading">
-        <p class="eyebrow">Recipe results</p>
-        <h2>${pantryIngredients.length ? `Ideas using ${pantryIngredients.slice(0, 4).map(titleizeSlug).join(", ")}.` : "Fast recipe ideas to start with."}</h2>
+        <p class="eyebrow">Assistant Results</p>
+        <h2>${pantryIngredients.length ? `You can make something good with ${pantryIngredients.slice(0, 4).map(titleizeSlug).join(", ")}.` : "Add a few ingredients and I&rsquo;ll build the table."}</h2>
+        <p>Recipes, meal planning, shopping list, food to use soon, saves, and cooking mode stay together here.</p>
+      </div>
+      <div class="ai-kitchen-result-lanes" aria-label="Kitchen assistant result types">
+        ${["🥘 Recipes", "📅 Weekly Meal Plan", "🛒 Shopping List", "🥬 Use Before It Spoils", "❤️ Save Recipe", "🍳 Cooking Mode"].map((item) => `<span>${item}</span>`).join("")}
       </div>
       <div class="what-cooking-results-grid">
-        ${resultRecipes.length ? resultRecipes.map(resultCard).join("") : `<div class="empty-state">Scan your pantry or browse recipes to start cooking.</div>`}
+        ${resultRecipes.length ? resultRecipes.map(aiKitchenResultCard).join("") : `<div class="empty-state">Tell me what you have and I&rsquo;ll help you find dinner.</div>`}
       </div>
     </section>
   `;
@@ -15556,6 +15625,7 @@ function handleClick(event) {
   const pantryRunButton = event.target.closest("[data-run-pantry-scan]");
   const pantryFavoriteButton = event.target.closest("[data-save-pantry-favorites]");
   const pantryClearButton = event.target.closest("[data-clear-pantry-scan]");
+  const speakIngredientsButton = event.target.closest("[data-speak-ingredients]");
   const juneteenthMenuButton = event.target.closest("[data-juneteenth-menu]");
   const regionalMenuButton = event.target.closest("[data-regional-menu]");
   const recipeSetButton = event.target.closest("[data-use-recipe-set]");
@@ -15622,7 +15692,32 @@ function handleClick(event) {
   if (pantryClearButton) {
     pantryScanState = { ingredients: [], notes: "", mode: pantryModeFromState() };
     localStorage.removeItem("letsCookPantryScan");
-    renderPantryScan();
+    renderWhatYallCooking("pantry");
+    return;
+  }
+  if (speakIngredientsButton) {
+    const status = document.querySelector("[data-speech-status]");
+    const input = document.querySelector("#pantryScanNotes");
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition || !input) {
+      if (status) status.textContent = "Voice input is not available in this browser yet. Type what you have and I'll still help.";
+      return;
+    }
+    const recognition = new SpeechRecognition();
+    recognition.lang = "en-US";
+    recognition.interimResults = false;
+    recognition.onstart = () => {
+      if (status) status.textContent = "I'm listening. Tell me what ingredients you have.";
+    };
+    recognition.onresult = (speechEvent) => {
+      const transcript = speechEvent.results?.[0]?.[0]?.transcript || "";
+      input.value = [input.value, transcript].filter(Boolean).join(input.value ? "\n" : "");
+      if (status) status.textContent = "Got it. Tap Find Recipes when you're ready.";
+    };
+    recognition.onerror = () => {
+      if (status) status.textContent = "I couldn't hear that clearly. You can type the ingredients instead.";
+    };
+    recognition.start();
     return;
   }
   if (clearPlannedButton) {
@@ -15786,6 +15881,18 @@ async function handleSubmit(event) {
     const formData = new FormData(event.target);
     const term = formData.get("term")?.toString().trim() || "";
     window.location.hash = term ? `#culinary-academy/${encodeURIComponent(term)}` : "#culinary-academy";
+    return;
+  }
+
+  if (event.target.matches("[data-assistant-inventory-form]")) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const notes = formData.get("ingredients")?.toString() || "";
+    const chips = [...document.querySelectorAll("[data-pantry-chip].active")].map((chip) => chip.dataset.pantryChip);
+    const ingredients = uniquePantryIngredients([...pantryIngredientsFromText(notes), ...chips]);
+    pantryScanState = { ...pantryScanState, ingredients, notes, mode: pantryModeFromState() };
+    localStorage.setItem("letsCookPantryScan", JSON.stringify(pantryScanState));
+    renderWhatYallCooking(window.location.hash.replace("#what-yall-cooking/", "") || "pantry");
     return;
   }
 
