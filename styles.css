@@ -13580,3 +13580,227 @@ body {
     padding-inline: 18px;
   }
 }
+
+.kitchen-math-page {
+  display: grid;
+  gap: clamp(22px, 4vw, 38px);
+}
+
+.kitchen-math-quick-form,
+.yield-tool {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) auto;
+  gap: 14px;
+  align-items: end;
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid rgba(82, 45, 10, 0.14);
+  border-radius: 22px;
+  background:
+    linear-gradient(135deg, rgba(255, 253, 247, 0.96), rgba(249, 236, 208, 0.88)),
+    var(--paper);
+  box-shadow: 0 18px 46px rgba(82, 45, 10, 0.12);
+}
+
+.kitchen-math-quick-form.compact {
+  grid-template-columns: 1fr;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.kitchen-math-quick-form label,
+.yield-tool label {
+  display: grid;
+  gap: 8px;
+  color: var(--green-dark);
+  font-weight: 900;
+}
+
+.kitchen-math-quick-form input,
+.yield-tool input {
+  min-height: 50px;
+  width: 100%;
+  border: 1px solid rgba(82, 45, 10, 0.22);
+  border-radius: 999px;
+  padding: 0 18px;
+  background: #fffdf7;
+  color: var(--ink);
+  font: inherit;
+}
+
+.kitchen-math-output {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 4px;
+  min-height: 0;
+  color: #4a3323;
+}
+
+.kitchen-math-output strong,
+.kitchen-math-answer strong {
+  color: var(--green-dark);
+  font-size: clamp(1.2rem, 2.4vw, 1.7rem);
+}
+
+.conversion-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 3vw, 26px);
+}
+
+.conversion-grid.two-column {
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+}
+
+.conversion-card,
+.kitchen-math-answer {
+  display: grid;
+  gap: 14px;
+  padding: clamp(20px, 3vw, 32px);
+  border: 1px solid rgba(82, 45, 10, 0.14);
+  border-radius: 24px;
+  background: #fffdf7;
+  box-shadow: 0 16px 34px rgba(82, 45, 10, 0.1);
+}
+
+.conversion-card h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  color: var(--green-dark);
+}
+
+.conversion-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.conversion-table th,
+.conversion-table td {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(82, 45, 10, 0.12);
+  text-align: left;
+  vertical-align: top;
+}
+
+.conversion-table th {
+  color: var(--green-dark);
+  font-weight: 900;
+}
+
+.conversion-table td {
+  color: #4a3323;
+  font-weight: 800;
+}
+
+.printable-chart-grid,
+.quick-equivalent-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.printable-chart-grid section,
+.quick-equivalent-strip span {
+  display: grid;
+  gap: 4px;
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(242, 209, 138, 0.28);
+  color: #4a3323;
+}
+
+.kitchen-math-drawer {
+  position: fixed;
+  inset: auto 20px 20px auto;
+  z-index: 80;
+  display: grid;
+  gap: 18px;
+  width: min(430px, calc(100vw - 32px));
+  max-height: min(760px, calc(100vh - 40px));
+  overflow: auto;
+  padding: clamp(20px, 4vw, 30px);
+  border: 1px solid rgba(82, 45, 10, 0.18);
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg, rgba(255, 253, 247, 0.98), rgba(249, 235, 202, 0.95)),
+    var(--paper);
+  box-shadow: 0 28px 80px rgba(35, 35, 35, 0.24);
+}
+
+.kitchen-math-drawer[hidden] {
+  display: none;
+}
+
+.kitchen-math-drawer-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.kitchen-math-drawer-header h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.9rem, 5vw, 3rem);
+  color: var(--green-dark);
+}
+
+.kitchen-scale-tool {
+  display: grid;
+  gap: 12px;
+}
+
+.kitchen-scale-tool p {
+  margin: 0;
+  color: #4a3323;
+}
+
+.scale-button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.scale-button-row .active {
+  background: var(--green-dark);
+  color: #fffdf7;
+}
+
+.kitchen-scale-output {
+  max-height: 230px;
+  overflow: auto;
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(255, 253, 247, 0.72);
+}
+
+.kitchen-scale-output ul {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+
+.quick-equivalent-strip {
+  grid-template-columns: 1fr;
+}
+
+@media (max-width: 900px) {
+  .conversion-grid,
+  .conversion-grid.two-column,
+  .printable-chart-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .kitchen-math-quick-form,
+  .yield-tool {
+    grid-template-columns: 1fr;
+  }
+
+  .kitchen-math-drawer {
+    inset: auto 12px 12px 12px;
+    width: auto;
+    max-height: calc(100vh - 24px);
+  }
+}

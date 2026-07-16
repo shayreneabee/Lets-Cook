@@ -531,14 +531,14 @@ const learningPillars = [
 ];
 
 const academyCategories = [
-  { id: "basics", title: "Basics", text: "Definitions, safety, measuring, reading recipes, tasting, timing, and kitchen confidence.", entries: ["kitchen-safety", "measurements"] },
+  { id: "basics", title: "Basics", text: "Definitions, safety, measuring, reading recipes, tasting, timing, and kitchen confidence.", entries: ["kitchen-safety", "measurements", "kitchen-math"] },
   { id: "ingredients", title: "Ingredients", text: "Produce, proteins, grains, spices, pantry staples, substitutions, and how ingredients behave.", entries: ["ingredients", "seasonings"] },
   { id: "techniques", title: "Techniques", text: "Knife skills, sauteing, frying, braising, roasting, baking, simmering, and plating.", entries: ["knife-skills", "braising", "frying", "baking-basics"] },
   { id: "equipment", title: "Equipment", text: "Pans, knives, cutting boards, thermometers, small appliances, serving tools, and care.", entries: ["equipment", "kitchen-safety"] },
   { id: "food-science", title: "Food Science", text: "Heat, texture, browning, emulsions, thickening, acidity, salt, fat, and flavor balance.", entries: ["food-science", "sauces"] },
   { id: "world-foods", title: "World Foods", text: "Culture, history, etiquette, ingredients, regional identity, and traditional dishes.", entries: ["world-foods", "ingredients"] },
   { id: "sauces-seasonings", title: "Sauces & Seasonings", text: "Spice blends, marinades, gravies, dips, sauces, finishing herbs, and flavor bases.", entries: ["sauces", "gravy", "roux", "pan-sauce", "bechamel", "tomato-sauce", "reduction-sauce", "marinades", "seasonings"] },
-  { id: "professional-skills", title: "Chef's Table Skills", text: "Prep lists, station setup, costing, batching, service flow, catering, and consistency.", entries: ["professional-skills", "measurements"] }
+  { id: "professional-skills", title: "Chef's Table Skills", text: "Prep lists, station setup, costing, batching, service flow, catering, and consistency.", entries: ["professional-skills", "measurements", "kitchen-math"] }
 ];
 
 const academyModules = [
@@ -592,6 +592,22 @@ const academyModules = [
     ],
     related: ["ingredients", "professional-skills", "food-science"],
     next: "ingredients"
+  },
+  {
+    id: "kitchen-math",
+    title: "Kitchen Math",
+    category: "Basics",
+    overview: "Fast culinary conversions, recipe scaling, oven temperatures, and party yield math for real kitchens.",
+    why: "Cooks should not have to leave a recipe to ask how many teaspoons are in a cup, how to scale a sauce, or how much food to make for a crowd.",
+    beginner: "Start with the everyday equivalents: 3 teaspoons make 1 tablespoon, 16 tablespoons make 1 cup, and 1 stick of butter is 1/2 cup.",
+    keyConcepts: ["Volume conversions", "Weight conversions", "Oven temperatures", "Recipe scaling", "Yield planning", "Ingredient equivalents"],
+    modules: [
+      { title: "Core Conversions", items: ["3 teaspoons = 1 tablespoon.", "16 tablespoons = 1 cup.", "8 fluid ounces = 1 cup.", "4 cups = 1 quart."] },
+      { title: "Scaling Recipes", items: ["Divide target servings by original servings.", "Multiply each measured ingredient by that number.", "Adjust salt, spice, acid, and heat gently."] },
+      { title: "Yield Planning", items: ["Estimate portions before shopping.", "Plan extra for buffets and long gatherings.", "Use hotel pan estimates for catering-style meals."] }
+    ],
+    related: ["measurements", "baking-basics", "professional-skills"],
+    next: "measurements"
   },
   {
     id: "equipment",
@@ -7080,6 +7096,46 @@ function recipeUtilityPanel(recipe) {
       </div>
     </article>
   `;
+}
+
+function recipeKitchenMathDrawer(recipe) {
+  return `
+    <aside class="kitchen-math-drawer" data-kitchen-math-drawer aria-label="Kitchen Math quick tools" hidden>
+      <div class="kitchen-math-drawer-header">
+        <div>
+          <p class="eyebrow">Kitchen Math</p>
+          <h2>Need a quick conversion?</h2>
+        </div>
+        <button class="icon-button" type="button" data-close-kitchen-math aria-label="Close Kitchen Math">&times;</button>
+      </div>
+      ${kitchenMathQuickToolMarkup({ compact: true })}
+      ${recipeScaleToolMarkup(recipe)}
+      <div class="quick-equivalent-strip">
+        <span>3 tsp = 1 tbsp</span>
+        <span>16 tbsp = 1 cup</span>
+        <span>1 stick butter = 1/2 cup</span>
+      </div>
+      <a class="small-button secondary" href="#culinary-academy/kitchen-math">Open full chart</a>
+    </aside>
+  `;
+}
+
+function updateKitchenScaleOutput(button) {
+  const tool = button.closest("[data-kitchen-scale-recipe]");
+  const output = tool?.querySelector("[data-kitchen-scale-output]");
+  const recipe = recipeById(tool?.dataset.kitchenScaleRecipe || "");
+  const servings = Number(button.dataset.scaleServings || recipe?.servings || 4);
+  if (!output || !recipe) return;
+  const scaled = scaledRecipeList(recipe, servings);
+  output.innerHTML = scaled ? `<p><strong>${servings} servings</strong></p><ul>${scaled}</ul>` : `<p>This recipe needs measured ingredients before automatic scaling is available.</p>`;
+  tool.querySelectorAll("[data-scale-servings]").forEach((item) => item.classList.toggle("active", item === button));
+}
+
+function yieldEstimate(guests, portion) {
+  const totalCups = Math.max(1, Number(guests || 1) * Number(portion || 1));
+  const gallons = totalCups / 16;
+  const halfPans = Math.max(1, Math.ceil(totalCups / 12));
+  return `${formatKitchenNumber(totalCups)} cups is about ${formatKitchenNumber(gallons)} gallons. Plan ${halfPans} half hotel pan${halfPans === 1 ? "" : "s"} for buffet service.`;
 }
 
 function renderPartyPlannerResults() {
@@ -13863,6 +13919,305 @@ function renderCuisineExplorer(id) {
   `;
 }
 
+const kitchenMathFacts = [
+  { aliases: ["teaspoons in a tablespoon", "tsp in tbsp", "teaspoon to tablespoon"], answer: "3 teaspoons = 1 tablespoon", note: "Use this for vanilla, spices, baking powder, and small liquid measures." },
+  { aliases: ["teaspoons in a cup", "tsp in cup", "teaspoon to cup"], answer: "48 teaspoons = 1 cup", note: "There are 16 tablespoons in a cup, and each tablespoon has 3 teaspoons." },
+  { aliases: ["tablespoons in a cup", "tbsp in cup", "tablespoon to cup"], answer: "16 tablespoons = 1 cup", note: "Half a cup is 8 tablespoons; 3/4 cup is 12 tablespoons." },
+  { aliases: ["cups to ounces", "fluid ounces in a cup", "fl oz in cup"], answer: "8 fluid ounces = 1 cup", note: "Use fluid ounces for volume, not ingredient weight." },
+  { aliases: ["cups in a pint", "cups to pints"], answer: "2 cups = 1 pint", note: "A pint is a handy size for sauces, berries, and small batches." },
+  { aliases: ["cups in a quart", "cups to quarts"], answer: "4 cups = 1 quart", note: "One quart is 32 fluid ounces." },
+  { aliases: ["cups in a gallon", "cups to gallons"], answer: "16 cups = 1 gallon", note: "Useful for tea, lemonade, punch, and party drinks." },
+  { aliases: ["pints in a quart", "pints to quarts"], answer: "2 pints = 1 quart", note: "Four pints make a half gallon." },
+  { aliases: ["quarts in a gallon", "quarts to gallons"], answer: "4 quarts = 1 gallon", note: "A gallon is 128 fluid ounces." },
+  { aliases: ["milliliters in a cup", "ml to cups"], answer: "240 milliliters = about 1 cup", note: "Many cookbooks round 1 cup to 240 ml." },
+  { aliases: ["liters to quarts", "liter to quart"], answer: "1 liter = about 1.06 quarts", note: "For kitchen use, 1 liter is close enough to 1 quart for many liquids." },
+  { aliases: ["ounces in a pound", "oz in lb", "ounces to pounds"], answer: "16 ounces = 1 pound", note: "Use this for meat, cheese, flour, and produce weight." },
+  { aliases: ["grams to ounces", "grams in an ounce"], answer: "28 grams = about 1 ounce", note: "For precision baking, use the exact gram weight from the recipe when available." },
+  { aliases: ["kilograms to pounds", "kg to pounds"], answer: "1 kilogram = about 2.2 pounds", note: "2 kilograms is about 4.4 pounds." },
+  { aliases: ["stick of butter", "butter stick to cup", "butter equivalent"], answer: "1 stick butter = 1/2 cup = 8 tablespoons = 4 ounces", note: "Two sticks of butter make 1 cup." }
+];
+
+const ovenTemperatureChart = [
+  { f: 250, c: 120, label: "Very low" },
+  { f: 300, c: 150, label: "Low" },
+  { f: 325, c: 165, label: "Moderate-low" },
+  { f: 350, c: 175, label: "Moderate" },
+  { f: 375, c: 190, label: "Moderate-hot" },
+  { f: 400, c: 205, label: "Hot" },
+  { f: 425, c: 220, label: "Very hot" },
+  { f: 450, c: 230, label: "High heat" },
+  { f: 475, c: 245, label: "Very high" }
+];
+
+const kitchenUnitLabels = {
+  tsp: "teaspoons",
+  teaspoon: "teaspoons",
+  teaspoons: "teaspoons",
+  tbsp: "tablespoons",
+  tablespoon: "tablespoons",
+  tablespoons: "tablespoons",
+  cup: "cups",
+  cups: "cups",
+  "fl oz": "fluid ounces",
+  "fluid ounce": "fluid ounces",
+  "fluid ounces": "fluid ounces",
+  pint: "pints",
+  pints: "pints",
+  quart: "quarts",
+  quarts: "quarts",
+  gallon: "gallons",
+  gallons: "gallons",
+  ml: "milliliters",
+  milliliter: "milliliters",
+  milliliters: "milliliters",
+  liter: "liters",
+  liters: "liters",
+  ounce: "ounces",
+  ounces: "ounces",
+  oz: "ounces",
+  pound: "pounds",
+  pounds: "pounds",
+  lb: "pounds",
+  lbs: "pounds",
+  gram: "grams",
+  grams: "grams",
+  g: "grams",
+  kilogram: "kilograms",
+  kilograms: "kilograms",
+  kg: "kilograms"
+};
+
+const kitchenConversionToBase = {
+  "teaspoons": { family: "volume", factor: 1 },
+  "tablespoons": { family: "volume", factor: 3 },
+  "cups": { family: "volume", factor: 48 },
+  "fluid ounces": { family: "volume", factor: 6 },
+  "pints": { family: "volume", factor: 96 },
+  "quarts": { family: "volume", factor: 192 },
+  "gallons": { family: "volume", factor: 768 },
+  "milliliters": { family: "volume", factor: 0.202884 },
+  "liters": { family: "volume", factor: 202.884 },
+  "ounces": { family: "weight", factor: 1 },
+  "pounds": { family: "weight", factor: 16 },
+  "grams": { family: "weight", factor: 0.035274 },
+  "kilograms": { family: "weight", factor: 35.274 }
+};
+
+function normalizeKitchenUnit(unit = "") {
+  const cleaned = String(unit).toLowerCase().replace(/\./g, "").replace(/\s+/g, " ").trim();
+  return kitchenUnitLabels[cleaned] || kitchenUnitLabels[cleaned.replace(/s$/, "")] || cleaned;
+}
+
+function parseKitchenAmount(value = "") {
+  const unicodeFractions = {
+    "1/4": ["1/4", "1 / 4", "¼"],
+    "1/2": ["1/2", "1 / 2", "½"],
+    "3/4": ["3/4", "3 / 4", "¾"],
+    "1/3": ["1/3", "1 / 3", "⅓"],
+    "2/3": ["2/3", "2 / 3", "⅔"],
+    "1/8": ["1/8", "1 / 8", "⅛"]
+  };
+  let text = String(value || "1").trim().toLowerCase().replace(/\ba\b|\ban\b/g, "1");
+  Object.entries(unicodeFractions).forEach(([ascii, variants]) => {
+    variants.forEach((variant) => {
+      text = text.replaceAll(variant, ascii);
+    });
+  });
+  if (/^\d+\/\d+$/.test(text)) return parseQuantityToken(text) || 1;
+  const parts = text.match(/(\d+(?:\.\d+)?)?\s*(\d+\/\d+)?/);
+  if (!parts) return 1;
+  const whole = parts[1] ? Number(parts[1]) : 0;
+  const fraction = parts[2] ? parseQuantityToken(parts[2]) : 0;
+  return whole + fraction || 1;
+}
+
+function formatKitchenNumber(value) {
+  const number = Number(value);
+  if (!Number.isFinite(number)) return "";
+  if (Math.abs(number - Math.round(number)) < 0.01) return String(Math.round(number));
+  return formatFraction(Number(number.toFixed(3)));
+}
+
+function kitchenDisplayUnit(unit, amount) {
+  const singular = {
+    "teaspoons": "teaspoon",
+    "tablespoons": "tablespoon",
+    "cups": "cup",
+    "fluid ounces": "fluid ounce",
+    "pints": "pint",
+    "quarts": "quart",
+    "gallons": "gallon",
+    "milliliters": "milliliter",
+    "liters": "liter",
+    "ounces": "ounce",
+    "pounds": "pound",
+    "grams": "gram",
+    "kilograms": "kilogram"
+  };
+  return Number(amount) <= 1 ? (singular[unit] || unit) : unit;
+}
+
+function convertKitchenMeasure(amount, fromUnit, toUnit) {
+  const from = kitchenConversionToBase[normalizeKitchenUnit(fromUnit)];
+  const to = kitchenConversionToBase[normalizeKitchenUnit(toUnit)];
+  if (!from || !to || from.family !== to.family) return null;
+  return (Number(amount || 1) * from.factor) / to.factor;
+}
+
+function answerKitchenMathQuery(query = "") {
+  const normalized = String(query || "").toLowerCase().replace(/[?.,]/g, "").replace(/\s+/g, " ").trim();
+  if (!normalized) return null;
+  if (/(\d+)\s*(f|fahrenheit)\s*(to|in)\s*(c|celsius)/.test(normalized)) {
+    const fahrenheit = Number(normalized.match(/(\d+)\s*(f|fahrenheit)/)?.[1]);
+    return { answer: `${fahrenheit} F = ${Math.round((fahrenheit - 32) * 5 / 9)} C`, note: "Oven charts often round to the nearest 5 degrees Celsius." };
+  }
+  if (/(\d+)\s*(c|celsius)\s*(to|in)\s*(f|fahrenheit)/.test(normalized)) {
+    const celsius = Number(normalized.match(/(\d+)\s*(c|celsius)/)?.[1]);
+    return { answer: `${celsius} C = ${Math.round((celsius * 9 / 5) + 32)} F`, note: "Oven charts often round to the nearest 25 degrees Fahrenheit." };
+  }
+  const fact = kitchenMathFacts.find((item) => item.aliases.some((alias) => normalized.includes(alias)));
+  if (fact) return fact;
+  const conversion = normalized.match(/(?:how many\s+)?([a-z ]+?)\s+(?:are\s+)?(?:in|to)\s+((?:\d+\s*)?(?:\d+\/\d+|¼|½|¾|⅓|⅔|⅛|a|an)?\s*)?([a-z ]+)$/);
+  if (!conversion) return null;
+  const toUnit = normalizeKitchenUnit(conversion[1]);
+  const amount = parseKitchenAmount(conversion[2] || "1");
+  const fromUnit = normalizeKitchenUnit(conversion[3]);
+  const result = convertKitchenMeasure(amount, fromUnit, toUnit);
+  if (result === null) return null;
+  return {
+    answer: `${formatKitchenNumber(result)} ${kitchenDisplayUnit(toUnit, result)} = ${formatKitchenNumber(amount)} ${kitchenDisplayUnit(fromUnit, amount)}`,
+    note: "Kitchen Math can help with cups, spoons, liquid volume, metric measures, and common weights."
+  };
+}
+
+function kitchenMathAnswerMarkup(query) {
+  const match = answerKitchenMathQuery(query);
+  if (!match) return "";
+  return `
+    <article class="kitchen-math-answer">
+      <span>Kitchen Math</span>
+      <strong>${match.answer}</strong>
+      <p>${match.note}</p>
+      <a class="small-button secondary" href="#culinary-academy/kitchen-math">Open full conversion chart</a>
+    </article>
+  `;
+}
+
+function conversionTableMarkup(title, rows) {
+  return `
+    <article class="conversion-card">
+      <h3>${title}</h3>
+      <table class="conversion-table">
+        <tbody>${rows.map(([left, right]) => `<tr><th scope="row">${left}</th><td>${right}</td></tr>`).join("")}</tbody>
+      </table>
+    </article>
+  `;
+}
+
+function kitchenMathQuickToolMarkup({ compact = false } = {}) {
+  return `
+    <form class="kitchen-math-quick-form ${compact ? "compact" : ""}" data-kitchen-math-form>
+      <label>${compact ? "Ask a conversion" : "Ask Kitchen Math"}<input name="question" type="search" placeholder="How many tablespoons in 3/4 cup?" /></label>
+      <button class="small-button" type="submit">Answer</button>
+      <output class="kitchen-math-output" data-kitchen-math-output aria-live="polite"></output>
+    </form>
+  `;
+}
+
+function recipeScaleToolMarkup(recipe = {}) {
+  const baseServings = Math.max(1, Number(recipe.servings || 4));
+  const options = [2, 4, 6, 8, 12];
+  const scalable = (recipe.structured_ingredients || []).filter((ingredient) => ingredient.quantity && ingredient.name);
+  return `
+    <div class="kitchen-scale-tool" data-kitchen-scale-recipe="${recipe.id || ""}">
+      <p><strong>Scale this recipe</strong><span> Original serves ${baseServings}.</span></p>
+      <div class="scale-button-row">
+        ${options.map((servings) => `<button class="small-button secondary" type="button" data-scale-servings="${servings}">${servings}</button>`).join("")}
+      </div>
+      <div class="kitchen-scale-output" data-kitchen-scale-output aria-live="polite">
+        ${scalable.length ? `<ul>${scaledRecipeList(recipe, baseServings)}</ul>` : `<p>Measured ingredients are needed before this recipe can be scaled automatically.</p>`}
+      </div>
+    </div>
+  `;
+}
+
+function kitchenYieldToolMarkup() {
+  return `
+    <form class="yield-tool" data-yield-form>
+      <label>Guests<input name="guests" type="number" min="1" max="500" value="24" /></label>
+      <label>Portion size<input name="portion" type="number" min="0.25" max="4" step="0.25" value="1" /></label>
+      <button class="small-button" type="submit">Estimate</button>
+      <output data-yield-output aria-live="polite">24 portions at 1 cup each is about 1.5 gallons. Plan two half hotel pans for generous buffet service.</output>
+    </form>
+  `;
+}
+
+function renderKitchenMath() {
+  app.innerHTML = `
+    ${hero("Kitchen Math", "Conversions, scaling, oven temperatures, and yield planning right when you need them.", photoFor("pantry", "ingredients", 1, "assets/produce-market.jpeg"), `<a class="small-button" href="#recipes">Find a Recipe</a><a class="small-button secondary" href="#culinary-academy">Academy</a>`)}
+    ${cookSubnav()}
+    <section class="cream-section kitchen-math-page">
+      <div class="section-heading">
+        <p class="eyebrow">Culinary conversions</p>
+        <h2>Ask once. Keep cooking.</h2>
+        <p>Use this for recipe scaling, baking conversions, oven temperatures, party portions, and those quick questions that usually send folks to another tab.</p>
+      </div>
+      ${kitchenMathQuickToolMarkup()}
+      <div class="conversion-grid">
+        ${conversionTableMarkup("Volume", [
+          ["3 tsp", "1 tbsp"],
+          ["48 tsp", "1 cup"],
+          ["16 tbsp", "1 cup"],
+          ["8 fl oz", "1 cup"],
+          ["2 cups", "1 pint"],
+          ["4 cups", "1 quart"],
+          ["16 cups", "1 gallon"],
+          ["240 ml", "about 1 cup"],
+          ["1 liter", "about 1.06 quarts"]
+        ])}
+        ${conversionTableMarkup("Weight", [
+          ["16 oz", "1 lb"],
+          ["1 lb", "16 oz"],
+          ["28 g", "about 1 oz"],
+          ["454 g", "about 1 lb"],
+          ["1 kg", "about 2.2 lb"]
+        ])}
+        ${conversionTableMarkup("Ingredient Equivalents", [
+          ["1 stick butter", "1/2 cup / 8 tbsp / 4 oz"],
+          ["2 sticks butter", "1 cup"],
+          ["1 large egg", "about 3 tbsp beaten egg"],
+          ["1 lemon", "2 to 3 tbsp juice"],
+          ["1 garlic clove", "about 1/2 tsp minced"]
+        ])}
+      </div>
+      <div class="conversion-grid two-column">
+        <article class="conversion-card">
+          <h3>Oven Temperature Chart</h3>
+          <table class="conversion-table">
+            <thead><tr><th>Fahrenheit</th><th>Celsius</th><th>Heat</th></tr></thead>
+            <tbody>${ovenTemperatureChart.map((row) => `<tr><td>${row.f} F</td><td>${row.c} C</td><td>${row.label}</td></tr>`).join("")}</tbody>
+          </table>
+        </article>
+        <article class="conversion-card">
+          <h3>Yield Calculator</h3>
+          <p>Estimate cups, gallons, and hotel pans for parties, church suppers, showers, and family reunions.</p>
+          ${kitchenYieldToolMarkup()}
+        </article>
+      </div>
+      <article class="conversion-card printable-chart-card">
+        <h3>Printable Measurement Charts</h3>
+        <div class="printable-chart-grid">
+          <section><strong>Dry</strong><span>spoons, cups, pints, quarts</span></section>
+          <section><strong>Liquid</strong><span>fluid ounces, cups, quarts, gallons</span></section>
+          <section><strong>Metric</strong><span>milliliters, liters, grams, kilograms</span></section>
+          <section><strong>Baking</strong><span>butter, flour, sugar, oven temperatures</span></section>
+        </div>
+        <button class="small-button secondary" type="button" data-print-recipe>Print Charts</button>
+      </article>
+    </section>
+  `;
+}
+
 function academySearchMarkup(query) {
   if (!query) return "";
   const normalized = query.toLowerCase();
@@ -13873,6 +14228,7 @@ function academySearchMarkup(query) {
   return `
     <div class="academy-search-results">
       <h3>Learning paths for "${query}"</h3>
+      ${kitchenMathAnswerMarkup(query)}
       <div class="academy-result-grid">
         ${moduleMatches.map((module) => `<a href="#culinary-academy/${module.id}"><span>Lesson</span><strong>${module.title}</strong><p>${module.overview}</p></a>`).join("")}
         ${entryMatches.map((entry) => `<a href="#culinary-academy/${slugify(entry.term)}"><span>Food term</span><strong>${entry.term}</strong><p>${entry.purpose}</p></a>`).join("")}
@@ -13931,6 +14287,10 @@ function progressionNav(previousHref, previousLabel, nextHref, nextLabel, relate
 }
 
 function renderCulinaryAcademy(id) {
+  if (id === "kitchen-math" || id === "culinary-conversions" || id === "conversions") {
+    renderKitchenMath();
+    return;
+  }
   const openingDate = new Date("2026-10-01T00:00:00");
   const daysUntilOpening = Math.max(0, Math.ceil((openingDate.getTime() - Date.now()) / 86400000));
   const lockedFeatures = [
@@ -13965,6 +14325,7 @@ function renderCulinaryAcademy(id) {
             </div>
           </div>
           <div class="academy-hold-actions">
+            <a class="small-button" href="#culinary-academy/kitchen-math">Open Kitchen Math</a>
             <a class="small-button" href="#recipes">Cook Something Today</a>
             <a class="small-button secondary" href="#cuisine-explorer">Explore Cuisines</a>
           </div>
@@ -14126,7 +14487,7 @@ function renderMenuIntelligence(id) {
 
 function renderSkillsAcademy() {
   app.innerHTML = `
-    ${hero("Cooking Skills Academy", "Duolingo-style progression meets culinary school foundations: safety, vocabulary, culture, technique, science, hospitality, and operations.", photoFor("skills", "knife"), `<a class="small-button" href="#culinary-academy">Open Culinary Academy</a><a class="small-button secondary" href="#what-yall-cooking">What Y'all Cooking?</a>`)}
+    ${hero("Cooking Skills Academy", "Duolingo-style progression meets culinary school foundations: safety, vocabulary, culture, technique, science, hospitality, and operations.", photoFor("skills", "knife"), `<a class="small-button" href="#culinary-academy/kitchen-math">Kitchen Math</a><a class="small-button secondary" href="#culinary-academy">Open Culinary Academy</a><a class="small-button secondary" href="#what-yall-cooking">What Y'all Cooking?</a>`)}
     ${cookSubnav()}
     <section class="cream-section">
       <div class="section-heading">
@@ -14865,9 +15226,11 @@ function renderRecipe(id) {
           <button class="small-button secondary road-trip-cooked-button ${cookedRecipes.includes(recipe.id) ? "cooked" : ""}" data-cooked="${recipe.id}">${cookedRecipes.includes(recipe.id) ? "Cooked It" : "I Cooked This"}</button>
           ${recipe.video_url ? `<a class="small-button secondary" href="${recipe.video_url}" target="_blank" rel="noreferrer">Watch Video</a>` : `<a class="small-button secondary" href="#kitchen">Upload Food Video</a>`}
           <button class="small-button secondary" data-plan="${recipe.id}">${planned.includes(recipe.id) ? "Planned" : "Add to Meal Plan"}</button>
+          <button class="small-button secondary" type="button" data-open-kitchen-math>Kitchen Math</button>
         </div>
       </div>
     </section>
+    ${recipeKitchenMathDrawer(recipe)}
     ${cookSubnav()}
     <section class="cream-section">
       <div class="recipe-detail-grid">
@@ -15730,7 +16093,9 @@ function submissionCard(submission) {
 function learningSearchResults(query) {
   if (!query) return "";
   const normalized = query.toLowerCase();
+  const kitchenMathMatch = answerKitchenMathQuery(query);
   const results = [
+    ...(kitchenMathMatch ? [{ type: "Kitchen Math", title: kitchenMathMatch.answer, text: kitchenMathMatch.note, href: "#culinary-academy/kitchen-math" }] : []),
     ...academyModules
       .filter((module) => [module.title, module.category, module.overview, ...module.keyConcepts].join(" ").toLowerCase().includes(normalized))
       .slice(0, 3)
@@ -15874,6 +16239,9 @@ function handleClick(event) {
   const useSavedMenuButton = event.target.closest("[data-use-saved-menu]");
   const clearPlannedButton = event.target.closest("[data-clear-planned]");
   const saveCountryButton = event.target.closest("[data-save-country]");
+  const openKitchenMathButton = event.target.closest("[data-open-kitchen-math]");
+  const closeKitchenMathButton = event.target.closest("[data-close-kitchen-math]");
+  const scaleServingsButton = event.target.closest("[data-scale-servings]");
 
   if (backToTopButton) {
     window.scrollTo({ top: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
@@ -15882,6 +16250,28 @@ function handleClick(event) {
       main.setAttribute("tabindex", "-1");
       main.focus({ preventScroll: true });
     }
+    return;
+  }
+  if (openKitchenMathButton) {
+    const drawer = document.querySelector("[data-kitchen-math-drawer]");
+    if (drawer) {
+      drawer.hidden = false;
+      drawer.classList.add("open");
+      drawer.querySelector("input, button, a")?.focus();
+    }
+    return;
+  }
+  if (closeKitchenMathButton) {
+    const drawer = closeKitchenMathButton.closest("[data-kitchen-math-drawer]");
+    if (drawer) {
+      drawer.classList.remove("open");
+      drawer.hidden = true;
+      document.querySelector("[data-open-kitchen-math]")?.focus();
+    }
+    return;
+  }
+  if (scaleServingsButton) {
+    updateKitchenScaleOutput(scaleServingsButton);
     return;
   }
   if (scrollTargetButton) {
@@ -16078,6 +16468,28 @@ function handleClick(event) {
 
 
 async function handleSubmit(event) {
+  if (event.target.matches("[data-kitchen-math-form]")) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const query = formData.get("question")?.toString().trim() || "";
+    const output = event.target.querySelector("[data-kitchen-math-output]");
+    const match = answerKitchenMathQuery(query);
+    if (output) {
+      output.innerHTML = match
+        ? `<strong>${match.answer}</strong><span>${match.note}</span>`
+        : `<strong>Try another kitchen math question.</strong><span>Example: How many tablespoons in 3/4 cup?</span>`;
+    }
+    return;
+  }
+
+  if (event.target.matches("[data-yield-form]")) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const output = event.target.querySelector("[data-yield-output]");
+    if (output) output.textContent = yieldEstimate(formData.get("guests"), formData.get("portion"));
+    return;
+  }
+
   if (event.target.matches("[data-footer-newsletter]")) {
     event.preventDefault();
     const formData = new FormData(event.target);
