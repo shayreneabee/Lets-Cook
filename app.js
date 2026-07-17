@@ -329,7 +329,7 @@ function recipePhotoFor(recipe = {}) {
 }
 
 function recipePhotoStatusBadge(resolved = {}) {
-  if (resolved.source !== "queued-for-replacement" && !resolved.missingImage) return "";
+  if (resolved.source !== "queued-for-replacement" && resolved.source !== "photo-needed" && !resolved.missingImage) return "";
   return `<span class="photo-needed-badge">Exact photo needed</span>`;
 }
 
@@ -337,15 +337,13 @@ function resolveRecipeImage(recipe = {}) {
   const mappedImage = recipeImageOverrides[recipe.id];
   const explicitImage = recipe.image_url || recipe.image;
   const queuedForExactImage = recipeImageReplacementQueue.has(recipe.id) && !mappedImage && !explicitImage;
-  const cuisineKey = recipe.category === "Party Cups" ? "hosting" : recipe.cuisine || "global";
+  const mappedNeedsPhoto = mappedImage === exactRecipePhotoNeededImage;
   const image = queuedForExactImage
     ? exactRecipePhotoNeededImage
     : mappedImage
     || explicitImage
-    || cuisineCoverImages[cuisineKey]
-    || categoryCoverImages[recipe.category]
     || exactRecipePhotoNeededImage;
-  const source = queuedForExactImage ? "queued-for-replacement" : mappedImage ? "recipe" : explicitImage ? "recipe-data" : cuisineCoverImages[cuisineKey] ? "cuisine" : categoryCoverImages[recipe.category] ? "category" : "fallback";
+  const source = queuedForExactImage || mappedNeedsPhoto ? "photo-needed" : mappedImage ? "recipe" : explicitImage ? "recipe-data" : "photo-needed";
   if (image.startsWith("images/")) {
     imageFallbacks.set(image, exactRecipePhotoNeededImage);
   }
@@ -353,7 +351,7 @@ function resolveRecipeImage(recipe = {}) {
     image,
     source,
     fallbackUsed: source !== "recipe" && source !== "recipe-data",
-    missingImage: queuedForExactImage || (!mappedImage && !explicitImage),
+    missingImage: queuedForExactImage || mappedNeedsPhoto || (!mappedImage && !explicitImage),
     recipe: recipe.title || recipe.id || "Untitled recipe"
   };
 }
@@ -6688,6 +6686,55 @@ Object.assign(recipeImageOverrides, {
 Object.assign(recipeImageOverrides, {
   "australian-barbecue-prawns": "images/recipes/kitchen-2026/australian-barbecue-prawns.png",
   "feast-seven-fishes-stew": "images/recipes/kitchen-2026/feast-seven-fishes-seafood-stew.png"
+});
+
+Object.assign(recipeImageOverrides, {
+  "southern-caramel-cake": "images/recipes/living-cookbook-2026/southern-caramel-cake.png",
+  "asian-garlic-fried-rice": "images/cuisines/asian/asian-01.png",
+  "asian-orange-chicken": "assets/lc-orange-chicken.jpg",
+  "asian-cashew-chicken": "assets/lc-cashew-chicken.jpg",
+  "rainbow-fruit-kabobs": "images/recipes/audit-2026-06/fruit-kabobs.jpg",
+  "fruit-kabobs": "images/recipes/audit-2026-06/fruit-kabobs.jpg",
+  "north-dakota-bison-barley-soup": "images/recipes/living-cookbook-2026/north-dakota-bison-barley-soup.png",
+  "oregon-hazelnut-salad": "images/recipes/living-cookbook-2026/oregon-hazelnut-salad.png",
+  "wyoming-sourdough-biscuits": "images/recipes/audit-2026-06/southern-buttermilk-biscuits.jpg",
+  "nevada-steakhouse-potatoes": "images/recipes/living-cookbook-2026/nevada-steakhouse-potatoes.png",
+  "persian-herb-stew": "images/recipes/living-cookbook-2026/persian-herb-stew.png",
+  "chicken-kielbasa": "images/recipes/audit-2026-06/kansas-city-smoked-sausage.jpg",
+  "beef-noodle-soup": "images/cuisines/asian/asian-02.png",
+  "taiwanese-beef-noodle-soup": "images/cuisines/asian/asian-02.png",
+  "portuguese-caldo-verde": "images/recipes/living-cookbook-2026/portuguese-caldo-verde.png",
+  "french-ratatouille-skillet": "images/recipes/audit-2026-06/roasted-vegetables.jpg",
+  "argentinian-chimichurri-steak": "images/recipes/audit-2026-06/nebraska-steak.jpg",
+  "peruvian-arroz-con-pollo": "images/recipes/living-cookbook-2026/peruvian-arroz-con-pollo.png",
+  "colombian-arepa-plates": "images/recipes/living-cookbook-2026/colombian-arepa-plates.png",
+  "venezuelan-arepas": "images/recipes/living-cookbook-2026/venezuelan-arepas.png",
+  "hawaiian-poke-bowls": "images/recipes/living-cookbook-2026/hawaiian-poke-bowls.png",
+  "loco-moco": "images/recipes/living-cookbook-2026/loco-moco.png",
+  "kalua-pork": "images/juneteenth/pulled-pork-shoulder.png",
+  "salmon-rice-bowls": "images/cuisines/asian/asian-07.png",
+  "spam-musubi": "images/recipes/living-cookbook-2026/spam-musubi.png",
+  "california-fruit-plate": "images/recipes/living-cookbook-2026/california-fruit-plate.png",
+  "mini-island-cups": "images/recipes/living-cookbook-2026/mini-island-cups.png",
+  "vietnamese-spring-rolls": "images/recipes/living-cookbook-2026/vietnamese-spring-rolls.png",
+  "haitian-griot-style-pork": "images/recipes/living-cookbook-2026/haitian-griot-style-pork.png",
+  "puerto-rican-mofongo-bowls": "images/recipes/living-cookbook-2026/puerto-rican-mofongo-bowls.png",
+  "nevada-shrimp-cocktail": "images/recipes/living-cookbook-2026/nevada-shrimp-cocktail.png",
+  "san-francisco-cioppino": "images/recipes/kitchen-2026/feast-seven-fishes-seafood-stew.png",
+  "mission-burritos": "images/recipes/living-cookbook-2026/mission-burritos.png",
+  "central-valley-fruit-salad": "images/recipes/living-cookbook-2026/california-fruit-plate.png",
+  "california-artichokes": "images/recipes/living-cookbook-2026/california-artichokes.png",
+  "korean-bbq-tacos": "images/recipes/living-cookbook-2026/korean-bbq-tacos.png",
+  "chicken-croissants": "images/recipes/living-cookbook-2026/chicken-croissants.png",
+  "chicken-gyros": "images/recipes/audit-2026-06/chicago-gyros.jpg",
+  "callaloo-and-saltfish": "images/recipes/living-cookbook-2026/callaloo-and-saltfish.png",
+  "callaloo-jamaican-style": "images/recipes/living-cookbook-2026/callaloo-and-saltfish.png",
+  "cajun-spiced-fish-tacos": "images/recipes/audit-2026-06/swordfish-tacos.jpg",
+  "honey-teriyaki-salmon": "images/cuisines/asian/asian-07.png",
+  "chicken-street-tacos": "assets/lc-birria-tacos.jpg",
+  "cheese-quesadillas": "images/recipes/audit-2026-06/cheese-quesadilla-triangles.jpg",
+  "fried-sweet-plantains": "images/recipes/living-cookbook-2026/fried-sweet-plantains.png",
+  "easy-lunch-wraps": "images/recipes/living-cookbook-2026/easy-lunch-wraps.png"
 });
 
 const imageContentRegistry = {
@@ -15115,6 +15162,98 @@ function renderLesson(id) {
   `;
 }
 
+const cookbookChapterDefinitions = [
+  { id: "appetizers", title: "Appetizers", pattern: /appetizer|starter|dip|rangoon|deviled|sliders|nachos|quesadilla|fritters|oysters|charcuterie|meatballs|snack|cups?/ },
+  { id: "breakfast", title: "Breakfast", pattern: /breakfast|eggs|grits|pancakes|smoothie|muffin|biscuit|hash|brunch/ },
+  { id: "brunch", title: "Brunch", pattern: /brunch|quiche|casserole|shrimp and grits|salad|fruit|punch|tea/ },
+  { id: "soups-stews", title: "Soups & Stews", pattern: /soup|stew|gumbo|chili|chowder|bisque|pepper soup|harira|caldo|yakamein|oxtail|court-bouillon|courtbouillon/ },
+  { id: "salads", title: "Salads", pattern: /salad|slaw|coleslaw|raita|kachumber|tabbouleh|greens|fruit plate/ },
+  { id: "sandwiches-wraps", title: "Sandwiches & Wraps", pattern: /sandwich|wrap|burger|hot dog|po.?boy|poboy|gyro|burrito|taco|slider|roll|banh mi|jibarito/ },
+  { id: "pasta", title: "Pasta", pattern: /pasta|spaghetti|alfredo|noodle|lo mein|mac and cheese|macaroni|ravioli/ },
+  { id: "rice-dishes", title: "Rice Dishes", pattern: /rice|jollof|biryani|pilaf|arroz|fried rice|red rice|dirty rice|nasi|koshari/ },
+  { id: "seafood", title: "Seafood", pattern: /seafood|shrimp|fish|salmon|crab|oyster|crawfish|prawn|poke|cioppino|swordfish|walleye|perch|catfish|mullet/ },
+  { id: "chicken", title: "Chicken", pattern: /chicken|turkey|wings|adobo|teriyaki|tikka|tandoori|paprikash|kabsa/ },
+  { id: "beef", title: "Beef", pattern: /beef|steak|brisket|rib|burger|meatloaf|bulgogi|oxtail|bison|chislic/ },
+  { id: "pork", title: "Pork", pattern: /pork|ham|bacon|sausage|pulled pork|ribs|griot|kalua|chops|fatback|boudin/ },
+  { id: "lamb", title: "Lamb", pattern: /lamb|mutton|goat/ },
+  { id: "vegetarian", title: "Vegetarian", pattern: /vegetarian|vegetable|beans|lentil|dal|paneer|hummus|ratatouille|stir-fry|stir fry|greens|peas/ },
+  { id: "vegetables", title: "Vegetables", pattern: /vegetable|okra|greens|green bean|collard|turnip|mustard|corn|potato|yam|artichoke|plantain|squash|cabbage/ },
+  { id: "side-dishes", title: "Side Dishes", pattern: /side|beans|potato|dressing|gravy|slaw|salad|rice|rolls|bread|casserole|cornbread|vegetables/ },
+  { id: "casseroles", title: "Casseroles", pattern: /casserole|hotdish|dressing|baked mac|funeral potatoes|king ranch|chicken spaghetti|broccoli rice/ },
+  { id: "bread-biscuits", title: "Bread & Biscuits", pattern: /bread|biscuit|roll|cornbread|naan|tortilla|pita|lefse|sourdough|hushpuppies|hot water/ },
+  { id: "sauces", title: "Sauces", pattern: /sauce|gravy|chutney|salsa|seasoning|tzatziki|comeback|mumbo|chimichurri|vinaigrette/ },
+  { id: "desserts", title: "Desserts", pattern: /dessert|cake|cookies|pie|cobbler|pudding|shortcake|sweet|bars|paczki|kringle|kheer|flan|baklava|fruitcake|yule log|pavlova|lamington/ },
+  { id: "cakes", title: "Cakes", pattern: /cake|cupcake|red velvet|carrot cake|coconut cake|pound cake|mud cake|smith island|fruitcake|yule log/ },
+  { id: "cookies", title: "Cookies", pattern: /cookie|biscochito|tea cakes|moon pie/ },
+  { id: "pies", title: "Pies", pattern: /pie|cobbler|tart|pasties|meat pies|pot pie/ },
+  { id: "drinks", title: "Drinks", pattern: /drink|tea|lemonade|punch|soda|eggnog|lassi|chai|cocoa|sorrel|agua fresca/ },
+  { id: "holiday-favorites", title: "Holiday Favorites", pattern: /holiday|thanksgiving|christmas|easter|halloween|juneteenth|fourth|valentine|new year|latkes|diwali|eid|roast turkey|prime rib|ham|eggnog/ },
+  { id: "seasonal-favorites", title: "Seasonal Favorites", pattern: /seasonal|summer|spring|fall|winter|peach|watermelon|strawberry|pumpkin|apple|pear|corn|tomato/ }
+];
+
+function recipeCookbookText(recipe = {}) {
+  return `${recipe.title || ""} ${recipe.category || ""} ${recipe.cuisine || ""} ${recipe.description || ""} ${(recipe.tags || []).join(" ")} ${(recipe.ingredients || []).join(" ")}`.toLowerCase();
+}
+
+function recipesForCookbookChapter(chapter, limit = 12) {
+  const seen = new Set();
+  return allRecipeCollection()
+    .filter((recipe) => {
+      if (seen.has(recipe.id)) return false;
+      const matches = chapter.pattern.test(recipeCookbookText(recipe));
+      if (matches) seen.add(recipe.id);
+      return matches;
+    })
+    .slice(0, limit);
+}
+
+function cookbookChapterShelf() {
+  return `
+    <section class="cream-section cookbook-chapter-shelf">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Living Cookbook</p>
+        <h2>Browse like chapters, not folders.</h2>
+        <p>Start where your craving lives: soups, seafood, pies, casseroles, rice dishes, holiday favorites, and more.</p>
+      </div>
+      <div class="cookbook-chapter-scroll" aria-label="Cookbook recipe chapters">
+        ${cookbookChapterDefinitions.map((chapter) => {
+          const chapterRecipes = recipesForCookbookChapter(chapter, 8);
+          const cover = chapterRecipes[0] || recipes[0];
+          return `
+            <a class="cookbook-chapter-card" href="#recipes" data-quick-filter="chapter:${chapter.id}" aria-label="${chapter.title}, ${chapterRecipes.length} recipes">
+              <img src="${recipePhotoFor(cover)}" alt="" />
+              <span>${chapterRecipes.length} recipes</span>
+              <strong>${chapter.title}</strong>
+            </a>
+          `;
+        }).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function featuredCookbookSections() {
+  const featuredIds = ["soups-stews", "seafood", "chicken", "rice-dishes", "desserts", "holiday-favorites"];
+  return `
+    <section class="cream-section cookbook-featured-sections">
+      ${featuredIds.map((chapterId) => {
+        const chapter = cookbookChapterDefinitions.find((item) => item.id === chapterId);
+        const chapterRecipes = chapter ? recipesForCookbookChapter(chapter, 6) : [];
+        if (!chapter || !chapterRecipes.length) return "";
+        return `
+          <article class="cookbook-featured-chapter" id="chapter-${chapter.id}">
+            <div class="section-heading compact-heading">
+              <p class="eyebrow">Cookbook chapter</p>
+              <h2>${chapter.title}</h2>
+            </div>
+            <div class="recipe-grid">${chapterRecipes.map(recipeCard).join("")}</div>
+          </article>
+        `;
+      }).join("")}
+    </section>
+  `;
+}
+
 function renderRecipes() {
   const quickFilters = [
     ["Southern", "cuisine:southern"],
@@ -15130,6 +15269,7 @@ function renderRecipes() {
   app.innerHTML = `
     ${hero("Recipes", "Southern classics, quick weeknight meals, global flavor, family dinners, beginner basics, party bites, and kid-friendly cooking.", photoFor("hero", "learning", 3, "assets/lc-pasta.jpg"))}
     ${cookSubnav()}
+    ${cookbookChapterShelf()}
     <section class="band">
       <div class="toolbar search-toolbar">
         <label class="sr-only" for="searchBox">Search recipes</label>
@@ -15148,6 +15288,7 @@ function renderRecipes() {
       <div class="quick-filter-row">${quickFilters.map(([label, value]) => `<button class="quick-filter" type="button" data-quick-filter="${value}">${label}</button>`).join("")}</div>
       <div id="learningResults" class="learning-search-results"></div>
     </section>
+    ${featuredCookbookSections()}
     <section class="cream-section"><div id="results" class="recipe-grid">${allRecipeCollection().map(recipeCard).join("")}</div></section>
   `;
 }
@@ -16182,13 +16323,14 @@ function handleSearch(event) {
   const cuisine = document.querySelector("#cuisineFilter")?.value || "";
   const maxTime = Number(document.querySelector("#timeFilter")?.value || 0);
   const level = document.querySelector("#levelFilter")?.value || "";
-  const quick = document.querySelector(".quick-filter.active")?.dataset.quickFilter || "";
+  const quick = document.querySelector(".quick-filter.active, .cookbook-chapter-card.active")?.dataset.quickFilter || "";
   const hasDiscoveryTerms = Boolean(query || pantry.length);
   const matchesStaticFilters = (recipe, { relaxed = false } = {}) => {
     const quickMatch = !quick
       || (quick.startsWith("cuisine:") && recipe.cuisine === quick.replace("cuisine:", ""))
       || (quick.startsWith("category:") && (recipe.category === quick.replace("category:", "") || recipe.tags?.includes(quick.replace("category:", ""))))
-      || (quick.startsWith("skill:") && recipe.skill_level === quick.replace("skill:", ""));
+      || (quick.startsWith("skill:") && recipe.skill_level === quick.replace("skill:", ""))
+      || (quick.startsWith("chapter:") && cookbookChapterDefinitions.find((chapter) => chapter.id === quick.replace("chapter:", ""))?.pattern.test(recipeCookbookText(recipe)));
     return quickMatch
       && (!cuisine || recipe.cuisine === cuisine)
       && (relaxed || !category || recipe.category === category || recipe.tags?.includes(category))
@@ -16441,7 +16583,10 @@ function handleClick(event) {
     return;
   }
   if (quickFilter) {
-    document.querySelectorAll(".quick-filter").forEach((button) => button.classList.toggle("active", button === quickFilter && !button.classList.contains("active")));
+    event.preventDefault();
+    const wasActive = quickFilter.classList.contains("active");
+    document.querySelectorAll(".quick-filter, .cookbook-chapter-card").forEach((button) => button.classList.remove("active"));
+    if (!wasActive) quickFilter.classList.add("active");
     handleSearch();
     return;
   }

@@ -1,24 +1,11 @@
 {
-  "generatedAt": "2026-07-15T19:46:27.953Z",
+  "generatedAt": "2026-07-17T18:11:01.444Z",
   "totalRecipes": 665,
-  "uniqueImages": 524,
+  "uniqueImages": 545,
   "missingFiles": [],
   "fallbacks": [],
   "photoQueue": [],
   "sharedImages": [
-    {
-      "image": "images/recipes/audit-2026-06/oxtails.jpg",
-      "recipes": [
-        {
-          "id": "oxtails",
-          "title": "Braised Oxtails"
-        },
-        {
-          "id": "haitian-griot-style-pork",
-          "title": "Haitian Griot-Style Pork"
-        }
-      ]
-    },
     {
       "image": "images/recipes/audit-2026-06/orange-chicken.jpg",
       "recipes": [
@@ -112,10 +99,6 @@
           "title": "Lamb Bone Broth / Soup Idea"
         },
         {
-          "id": "north-dakota-bison-barley-soup",
-          "title": "Bison Barley Prairie Soup"
-        },
-        {
           "id": "new-zealand-roast-lamb",
           "title": "New Zealand Roast Lamb"
         }
@@ -170,19 +153,6 @@
         {
           "id": "bajan-macaroni-pie",
           "title": "Bajan Macaroni Pie"
-        }
-      ]
-    },
-    {
-      "image": "images/cuisines/asian/asian-02.png",
-      "recipes": [
-        {
-          "id": "asian-orange-chicken",
-          "title": "Orange Chicken"
-        },
-        {
-          "id": "taiwanese-beef-noodle-soup",
-          "title": "Taiwanese Beef Noodle Soup"
         }
       ]
     },
@@ -301,10 +271,6 @@
           "title": "Blackened Swordfish"
         },
         {
-          "id": "hawaiian-poke-bowls",
-          "title": "Hawaiian Poke Bowls"
-        },
-        {
           "id": "fijian-kokoda",
           "title": "Fijian Kokoda"
         }
@@ -333,19 +299,6 @@
         {
           "id": "oklahoma-peach-cobbler",
           "title": "Oklahoma Peach Cobbler"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/audit-2026-06/cucumber-salad.jpg",
-      "recipes": [
-        {
-          "id": "cucumber-salad",
-          "title": "Cucumber Lime Salad"
-        },
-        {
-          "id": "vietnamese-spring-rolls",
-          "title": "Vietnamese Fresh Spring Rolls"
         }
       ]
     },
@@ -436,62 +389,6 @@
       ]
     },
     {
-      "image": "images/recipes/audit-2026-06/white-rice.jpg",
-      "recipes": [
-        {
-          "id": "white-rice",
-          "title": "Steamed White Rice"
-        },
-        {
-          "id": "spam-musubi",
-          "title": "Spam Musubi"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/audit-2026-06/cilantro-lime-rice.jpg",
-      "recipes": [
-        {
-          "id": "cilantro-lime-rice",
-          "title": "Cilantro Lime Rice"
-        },
-        {
-          "id": "peruvian-arroz-con-pollo",
-          "title": "Peruvian Arroz con Pollo"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/audit-2026-06/corn-tortillas.jpg",
-      "recipes": [
-        {
-          "id": "corn-tortillas",
-          "title": "Warm Corn Tortillas"
-        },
-        {
-          "id": "colombian-arepa-plates",
-          "title": "Colombian Arepa Plates"
-        },
-        {
-          "id": "venezuelan-arepas",
-          "title": "Venezuelan Arepas"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/audit-2026-06/crawfish-boil.jpg",
-      "recipes": [
-        {
-          "id": "crawfish-boil",
-          "title": "Louisiana Crawfish Boil"
-        },
-        {
-          "id": "nevada-shrimp-cocktail",
-          "title": "Nevada Shrimp Cocktail"
-        }
-      ]
-    },
-    {
       "image": "images/regional/texas-chili.png",
       "recipes": [
         {
@@ -501,19 +398,6 @@
         {
           "id": "pumpkin-chili",
           "title": "Pumpkin Chili"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/audit-2026-06/florida-blue-crab.jpg",
-      "recipes": [
-        {
-          "id": "florida-blue-crab",
-          "title": "Florida Blue Crab Boil"
-        },
-        {
-          "id": "san-francisco-cioppino",
-          "title": "San Francisco Cioppino"
         }
       ]
     },
@@ -591,19 +475,6 @@
       ]
     },
     {
-      "image": "images/recipes/audit-2026-06/green-bean-casserole.jpg",
-      "recipes": [
-        {
-          "id": "green-bean-casserole",
-          "title": "Green Bean Casserole"
-        },
-        {
-          "id": "persian-herb-stew",
-          "title": "Persian Ghormeh Sabzi"
-        }
-      ]
-    },
-    {
       "image": "images/recipes/audit-2026-06/mexican-cornbread-casserole.jpg",
       "recipes": [
         {
@@ -630,10 +501,6 @@
         {
           "id": "utah-funeral-potatoes",
           "title": "Utah Funeral Potatoes"
-        },
-        {
-          "id": "nevada-steakhouse-potatoes",
-          "title": "Nevada Steakhouse Potatoes"
         }
       ]
     },
@@ -656,18 +523,6 @@
         {
           "id": "fruit-rainbow-kabobs",
           "title": "Fruit Rainbow Kabobs"
-        },
-        {
-          "id": "oregon-hazelnut-salad",
-          "title": "Oregon Hazelnut Pear Salad"
-        },
-        {
-          "id": "central-valley-fruit-salad",
-          "title": "Central Valley Fruit Salad"
-        },
-        {
-          "id": "california-artichokes",
-          "title": "Central Coast Steamed Artichokes"
         },
         {
           "id": "kids-fruit-rainbow-plates",
@@ -752,10 +607,6 @@
           "title": "Montana Bison Meatloaf"
         },
         {
-          "id": "loco-moco",
-          "title": "Loco Moco"
-        },
-        {
           "id": "giblet-gravy",
           "title": "Giblet Gravy"
         }
@@ -790,29 +641,12 @@
           "title": "Potato Stamp Art"
         },
         {
-          "id": "portuguese-caldo-verde",
-          "title": "Portuguese Caldo Verde"
-        },
-        {
           "id": "polish-bigos",
           "title": "Polish Bigos"
         },
         {
           "id": "turkey-leftover-soup",
           "title": "Thanksgiving Turkey Leftover Soup"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/audit-2026-06/beef-tacos.jpg",
-      "recipes": [
-        {
-          "id": "beef-tacos",
-          "title": "Weeknight Beef Tacos"
-        },
-        {
-          "id": "korean-bbq-tacos",
-          "title": "Korean BBQ Tacos"
         }
       ]
     },
@@ -826,19 +660,6 @@
         {
           "id": "tongan-lu-pulu",
           "title": "Tongan Lu Pulu"
-        }
-      ]
-    },
-    {
-      "image": "images/regional/mississippi/fried-okra.jpg",
-      "recipes": [
-        {
-          "id": "fried-okra",
-          "title": "Cornmeal Fried Okra"
-        },
-        {
-          "id": "puerto-rican-mofongo-bowls",
-          "title": "Puerto Rican Mofongo Bowls"
         }
       ]
     },
@@ -1378,10 +1199,6 @@
       "image": "assets/fresh-bread.jpeg",
       "recipes": [
         {
-          "id": "wyoming-sourdough-biscuits",
-          "title": "Wyoming Sourdough Biscuits"
-        },
-        {
           "id": "nevada-basque-garlic-soup",
           "title": "Nevada Basque Garlic Soup"
         },
@@ -1396,15 +1213,15 @@
       ]
     },
     {
-      "image": "assets/lc-birria-tacos.jpg",
+      "image": "images/recipes/kitchen-2026/feast-seven-fishes-seafood-stew.png",
       "recipes": [
         {
-          "id": "mission-burritos",
-          "title": "Mission-Style Burritos"
+          "id": "san-francisco-cioppino",
+          "title": "San Francisco Cioppino"
         },
         {
-          "id": "california-burritos",
-          "title": "California Burritos"
+          "id": "feast-seven-fishes-stew",
+          "title": "Feast of the Seven Fishes Seafood Stew"
         }
       ]
     },
@@ -1942,7 +1759,7 @@
       "cuisine": "asian-inspired",
       "category": "Asian Inspired",
       "image": "images/cuisines/asian/asian-01.png",
-      "source": "recipe-data",
+      "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
     },
@@ -1951,8 +1768,8 @@
       "title": "Orange Chicken",
       "cuisine": "asian-inspired",
       "category": "Quick Meals",
-      "image": "images/cuisines/asian/asian-02.png",
-      "source": "recipe-data",
+      "image": "assets/lc-orange-chicken.jpg",
+      "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
     },
@@ -1961,8 +1778,8 @@
       "title": "Cashew Chicken",
       "cuisine": "asian-inspired",
       "category": "Family Dinners",
-      "image": "images/cuisines/asian/asian-03.png",
-      "source": "recipe-data",
+      "image": "assets/lc-cashew-chicken.jpg",
+      "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
     },
@@ -5431,7 +5248,7 @@
       "title": "Bison Barley Prairie Soup",
       "cuisine": "north-dakota",
       "category": "Prairie & Indigenous Foodways",
-      "image": "images/recipes/audit-2026-06/lamb-bone-broth-soup.jpg",
+      "image": "images/recipes/living-cookbook-2026/north-dakota-bison-barley-soup.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -6541,7 +6358,7 @@
       "title": "Oregon Hazelnut Pear Salad",
       "cuisine": "oregon",
       "category": "Farm Market Sides",
-      "image": "assets/ingredients.jpeg",
+      "image": "images/recipes/living-cookbook-2026/oregon-hazelnut-salad.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -6701,7 +6518,7 @@
       "title": "Wyoming Sourdough Biscuits",
       "cuisine": "wyoming",
       "category": "Camp Breads",
-      "image": "assets/fresh-bread.jpeg",
+      "image": "images/recipes/audit-2026-06/southern-buttermilk-biscuits.jpg",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -6721,7 +6538,7 @@
       "title": "Nevada Shrimp Cocktail",
       "cuisine": "nevada",
       "category": "Casino Classics",
-      "image": "images/recipes/audit-2026-06/crawfish-boil.jpg",
+      "image": "images/recipes/living-cookbook-2026/nevada-shrimp-cocktail.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -6731,7 +6548,7 @@
       "title": "Nevada Steakhouse Potatoes",
       "cuisine": "nevada",
       "category": "Steakhouse Sides",
-      "image": "images/recipes/audit-2026-06/funeral-potatoes.jpg",
+      "image": "images/recipes/living-cookbook-2026/nevada-steakhouse-potatoes.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -6741,7 +6558,7 @@
       "title": "San Francisco Cioppino",
       "cuisine": "northern-california",
       "category": "Northern California Seafood",
-      "image": "images/recipes/audit-2026-06/florida-blue-crab.jpg",
+      "image": "images/recipes/kitchen-2026/feast-seven-fishes-seafood-stew.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -6751,7 +6568,7 @@
       "title": "Mission-Style Burritos",
       "cuisine": "northern-california",
       "category": "Bay Area Counter Food",
-      "image": "assets/lc-birria-tacos.jpg",
+      "image": "images/recipes/living-cookbook-2026/mission-burritos.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -6781,7 +6598,7 @@
       "title": "Central Valley Fruit Salad",
       "cuisine": "central-california",
       "category": "Produce Bowl",
-      "image": "assets/ingredients.jpeg",
+      "image": "images/recipes/living-cookbook-2026/california-fruit-plate.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -6791,7 +6608,7 @@
       "title": "Central Coast Steamed Artichokes",
       "cuisine": "central-california",
       "category": "Coastal Produce",
-      "image": "assets/ingredients.jpeg",
+      "image": "images/recipes/living-cookbook-2026/california-artichokes.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -6821,7 +6638,7 @@
       "title": "Korean BBQ Tacos",
       "cuisine": "southern-california",
       "category": "Los Angeles Foodways",
-      "image": "images/recipes/audit-2026-06/beef-tacos.jpg",
+      "image": "images/recipes/living-cookbook-2026/korean-bbq-tacos.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -6861,7 +6678,7 @@
       "title": "Hawaiian Poke Bowls",
       "cuisine": "hawaii",
       "category": "Hawaii Seafood",
-      "image": "images/recipes/audit-2026-06/blackened-swordfish.jpg",
+      "image": "images/recipes/living-cookbook-2026/hawaiian-poke-bowls.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -6881,7 +6698,7 @@
       "title": "Loco Moco",
       "cuisine": "hawaii",
       "category": "Hawaii Comfort",
-      "image": "images/recipes/audit-2026-06/hamburger-steak-with-gravy.jpg",
+      "image": "images/recipes/living-cookbook-2026/loco-moco.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -6891,7 +6708,7 @@
       "title": "Spam Musubi",
       "cuisine": "hawaii",
       "category": "Hawaii Snack Food",
-      "image": "images/recipes/audit-2026-06/white-rice.jpg",
+      "image": "images/recipes/living-cookbook-2026/spam-musubi.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -6991,7 +6808,7 @@
       "title": "Vietnamese Fresh Spring Rolls",
       "cuisine": "asian-inspired",
       "category": "Vietnam Fresh",
-      "image": "images/recipes/audit-2026-06/cucumber-salad.jpg",
+      "image": "images/recipes/living-cookbook-2026/vietnamese-spring-rolls.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -7031,7 +6848,7 @@
       "title": "Haitian Griot-Style Pork",
       "cuisine": "caribbean",
       "category": "Haitian Celebration",
-      "image": "images/recipes/audit-2026-06/oxtails.jpg",
+      "image": "images/recipes/living-cookbook-2026/haitian-griot-style-pork.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -7051,7 +6868,7 @@
       "title": "Puerto Rican Mofongo Bowls",
       "cuisine": "caribbean",
       "category": "Puerto Rican Plantains",
-      "image": "images/regional/mississippi/fried-okra.jpg",
+      "image": "images/recipes/living-cookbook-2026/puerto-rican-mofongo-bowls.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -7151,7 +6968,7 @@
       "title": "Portuguese Caldo Verde",
       "cuisine": "mediterranean",
       "category": "Portuguese Soup",
-      "image": "images/recipes/audit-2026-06/loaded-baked-potato-soup.jpg",
+      "image": "images/recipes/living-cookbook-2026/portuguese-caldo-verde.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -7201,7 +7018,7 @@
       "title": "Peruvian Arroz con Pollo",
       "cuisine": "mexican",
       "category": "Peruvian Rice Pot",
-      "image": "images/recipes/audit-2026-06/cilantro-lime-rice.jpg",
+      "image": "images/recipes/living-cookbook-2026/peruvian-arroz-con-pollo.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -7211,7 +7028,7 @@
       "title": "Colombian Arepa Plates",
       "cuisine": "mexican",
       "category": "Colombian Griddle",
-      "image": "images/recipes/audit-2026-06/corn-tortillas.jpg",
+      "image": "images/recipes/living-cookbook-2026/colombian-arepa-plates.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -7271,7 +7088,7 @@
       "title": "Venezuelan Arepas",
       "cuisine": "mexican",
       "category": "Venezuelan Griddle",
-      "image": "images/recipes/audit-2026-06/corn-tortillas.jpg",
+      "image": "images/recipes/living-cookbook-2026/venezuelan-arepas.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -7331,7 +7148,7 @@
       "title": "Persian Ghormeh Sabzi",
       "cuisine": "mediterranean",
       "category": "Persian Herb Stew",
-      "image": "images/recipes/audit-2026-06/green-bean-casserole.jpg",
+      "image": "images/recipes/living-cookbook-2026/persian-herb-stew.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
