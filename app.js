@@ -3474,6 +3474,48 @@ function isTrainingOnlyRecipe(recipe) {
   return Boolean(recipe && trainingOnlyRecipeIds.has(recipe.id));
 }
 
+const cookbookPrimarySectionLabels = {
+  soups: "Soups",
+  salads: "Salads",
+  vegetables: "Vegetables",
+  beef: "Beef",
+  poultry: "Poultry",
+  "fish-seafood": "Fish & Seafood",
+  miscellaneous: "Miscellaneous",
+  breads: "Breads",
+  desserts: "Desserts"
+};
+
+function recipeCookbookText(recipe = {}) {
+  return `${recipe.id || ""} ${recipe.title || ""} ${recipe.category || ""} ${recipe.cuisine || ""} ${recipe.description || ""} ${(recipe.tags || []).join(" ")} ${(recipe.ingredients || []).join(" ")}`.toLowerCase();
+}
+
+function recipeCookbookPrimarySection(recipe = {}) {
+  const explicit = recipe.primaryCookbookSection || recipe.cookbookSection;
+  if (explicit && cookbookPrimarySectionLabels[explicit]) return explicit;
+  const text = recipeCookbookText(recipe);
+  const title = String(recipe.title || "").toLowerCase();
+  const category = String(recipe.category || "").toLowerCase();
+  const tags = (recipe.tags || []).join(" ").toLowerCase();
+  const primaryText = `${title} ${category} ${tags}`;
+  const has = (pattern, source = text) => pattern.test(source);
+
+  if (has(/sauce|gravy|chutney|salsa|seasoning|tzatziki|comeback|mumbo|chimichurri|vinaigrette|dressing|dip/, primaryText)
+    && !has(/\b(cake|cookies?|pie|cobbler|pudding|shortcake|dessert|kheer|flan|baklava|fruitcake|yule log|pavlova|lamington|cupcake|candy|chocolate|sundae|ice cream)\b/, primaryText)) return "miscellaneous";
+  if (has(/frito pie|tomato pie|pizza pie|macaroni pie|meat pie|pot pie/, primaryText)) return "miscellaneous";
+  if (has(/soup|stew|gumbo|chili|chowder|bisque|pepper soup|harira|caldo|yakamein|oxtail|court-bouillon|courtbouillon|barley soup/, primaryText)) return "soups";
+  if (has(/salad|slaw|coleslaw|raita|kachumber|tabbouleh|fruit plate|fruit salad|cucumber salad|greens salad/, primaryText)) return "salads";
+  if (has(/seafood|shrimp|fish|salmon|crab|oyster|crawfish|prawn|poke|cioppino|swordfish|walleye|perch|catfish|mullet|halibut|tuna|lobster|clam/, primaryText)) return "fish-seafood";
+  if (has(/beef|steak|brisket|\bribs?\b|burger|meatloaf|bulgogi|bison|chislic|prime rib|tenderloin|pot roast|roast beef|ground beef|hamburger/, text)) return "beef";
+  if (has(/chicken|turkey|wings|adobo|teriyaki|tikka|tandoori|paprikash|kabsa|poultry|duck|goose/, text)) return "poultry";
+  if (has(/\b(cake|cookies?|pie|cobbler|pudding|shortcake|sweet|dessert|bars?|kheer|flan|baklava|fruitcake|yule log|pavlova|lamington|cupcake|red velvet|carrot cake|coconut cake|pound cake|moon pie|biscochito|tea cakes?|tart|candy|chocolate|sundae|ice cream)\b/, primaryText)
+    && !has(/pot pie|meat pie|macaroni pie|tomato pie|pizza pie|shepherd|cottage/, primaryText)) return "desserts";
+  if (has(/bread|biscuit|roll|cornbread|naan|tortilla|pita|lefse|sourdough|hushpuppies|hot water|fry bread|flatbread|muffin/, primaryText)
+    && !has(/bread pudding|breaded|bread crumbs|bread crumbs|sandwich|burger|hot dog|po.?boy|poboy|gyro|burrito|taco|wrap/, primaryText)) return "breads";
+  if (has(/vegetable|okra|greens|green bean|collard|turnip|mustard|corn|potato|yam|artichoke|plantain|squash|cabbage|ratatouille|beans|lentil|dal|paneer|hummus|chana|peas|broccoli|asparagus|mushroom/, text)) return "vegetables";
+  return "miscellaneous";
+}
+
 function recipeAllowedInGeneralCollection(recipe) {
   return recipeHasPublishReadyPhoto(recipe) && !isTrainingOnlyRecipe(recipe);
 }
@@ -12788,8 +12830,11 @@ function recipeSearchIndex(recipe = {}) {
   const holidays = matchedSearchGroupKeys(allText, recipeSearchKeywordGroups.holidays);
   const techniques = matchedSearchGroupKeys(allText, recipeSearchKeywordGroups.techniques);
   const substitutions = matchedSearchGroupKeys(allText, recipeSearchKeywordGroups.substitutions);
+  const primaryCookbookSection = recipeCookbookPrimarySection(recipe);
   const tokens = new Set([
     ...allText.split(" ").filter((word) => word.length > 2),
+    normalizeIngredientTerm(primaryCookbookSection),
+    normalizeIngredientTerm(cookbookPrimarySectionLabels[primaryCookbookSection] || ""),
     ...proteins,
     ...methods,
     ...mealTypes,
@@ -12814,6 +12859,7 @@ function recipeSearchIndex(recipe = {}) {
     holidays,
     techniques,
     substitutions,
+    primaryCookbookSection,
     tokenText: [...tokens].join(" "),
     searchText: normalizeIngredientTerm(`${allText} ${[...tokens].join(" ")}`)
   };
@@ -15189,16 +15235,12 @@ const cookbookChapterDefinitions = [
   { id: "desserts", title: "Desserts", intro: "Cakes, cookies, pies, cobblers, puddings, sweet bars, fruit treats, and celebration desserts.", pattern: /dessert|cake|cookies?|pie|cobbler|pudding|shortcake|sweet|bars|paczki|kringle|kheer|flan|baklava|fruitcake|yule log|pavlova|lamington|cupcake|red velvet|carrot cake|coconut cake|pound cake|moon pie|biscochito|tea cakes|tart/ }
 ];
 
-function recipeCookbookText(recipe = {}) {
-  return `${recipe.title || ""} ${recipe.category || ""} ${recipe.cuisine || ""} ${recipe.description || ""} ${(recipe.tags || []).join(" ")} ${(recipe.ingredients || []).join(" ")}`.toLowerCase();
-}
-
 function recipesForCookbookChapter(chapter, limit = 12) {
   const seen = new Set();
   return allRecipeCollection()
     .filter((recipe) => {
       if (seen.has(recipe.id)) return false;
-      const matches = chapter.pattern.test(recipeCookbookText(recipe));
+      const matches = recipeCookbookPrimarySection(recipe) === chapter.id;
       if (matches) seen.add(recipe.id);
       return matches;
     })
@@ -16329,7 +16371,7 @@ function handleSearch(event) {
       || (quick.startsWith("cuisine:") && recipe.cuisine === quick.replace("cuisine:", ""))
       || (quick.startsWith("category:") && (recipe.category === quick.replace("category:", "") || recipe.tags?.includes(quick.replace("category:", ""))))
       || (quick.startsWith("skill:") && recipe.skill_level === quick.replace("skill:", ""))
-      || (quick.startsWith("chapter:") && cookbookChapterDefinitions.find((chapter) => chapter.id === quick.replace("chapter:", ""))?.pattern.test(recipeCookbookText(recipe)));
+      || (quick.startsWith("chapter:") && recipeCookbookPrimarySection(recipe) === quick.replace("chapter:", ""));
     return quickMatch
       && (!cuisine || recipe.cuisine === cuisine)
       && (relaxed || !category || recipe.category === category || recipe.tags?.includes(category))

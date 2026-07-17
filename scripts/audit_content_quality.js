@@ -21,7 +21,16 @@ globalThis.__contentQualityAudit = {
     id: recipe.id,
     title: recipe.title,
     cuisine: recipe.cuisine || "",
-    category: recipe.category || ""
+    category: recipe.category || "",
+    primaryCookbookSection: recipeCookbookPrimarySection(recipe)
+  })),
+  cookbookSections: allRecipeCollection().map((recipe) => ({
+    id: recipe.id,
+    title: recipe.title,
+    cuisine: recipe.cuisine || "",
+    category: recipe.category || "",
+    primaryCookbookSection: recipeCookbookPrimarySection(recipe),
+    image: resolveRecipeImage(recipe).image
   })),
   curatedHolidayTables,
   livingCookbookChapters,
@@ -312,6 +321,53 @@ const cuisineCollectionIssues = audit.cuisineCollections.flatMap((collection) =>
 });
 const ingredientSearchIssues = audit.ingredientSearchSmoke.filter((row) => !row.matches.length);
 
+const cookbookClassificationRules = [
+  {
+    section: "desserts",
+    forbidden: /\b(chicken|turkey|beef|steak|shrimp|fish|seafood|salmon|crab|oyster|pork|ham|soup|stew|gumbo|chili|chowder)\b/i,
+    reason: "dessert chapter contains savory protein or soup language"
+  },
+  {
+    section: "soups",
+    forbidden: /\b(cake|cookie|cookies|pie|cobbler|pudding|shortcake|dessert|brownie|cupcake)\b/i,
+    reason: "soup chapter contains dessert language"
+  },
+  {
+    section: "salads",
+    forbidden: /\b(cake|cookie|pie|pudding|soup|stew|gumbo|chili|biscuit|bread|rolls)\b/i,
+    reason: "salad chapter contains dessert, soup, or bread language"
+  },
+  {
+    section: "breads",
+    forbidden: /\b(salad|soup|stew|gumbo|chili|shrimp|fish|seafood|salmon|crab|beef|steak|chicken|turkey)\b/i,
+    reason: "bread chapter contains salad, soup, or entree language"
+  },
+  {
+    section: "beef",
+    forbidden: /\b(shrimp|fish|seafood|salmon|crab|oyster|turkey|cake|cookie|pie|dessert)\b/i,
+    reason: "beef chapter contains seafood, poultry, or dessert language"
+  },
+  {
+    section: "poultry",
+    forbidden: /\b(beef|steak|brisket|shrimp|fish|seafood|salmon|crab|oyster|cake|cookie|pie|dessert)\b/i,
+    reason: "poultry chapter contains beef, seafood, or dessert language"
+  },
+  {
+    section: "fish-seafood",
+    forbidden: /\b(beef|steak|brisket|chicken|turkey|cake|cookie|pie|dessert)\b/i,
+    reason: "fish and seafood chapter contains beef, poultry, or dessert language"
+  }
+];
+
+const cookbookClassificationIssues = audit.cookbookSections.flatMap((recipe) => {
+  const text = `${recipe.id} ${recipe.title} ${recipe.category} ${recipe.cuisine}`.toLowerCase();
+  if (recipe.primaryCookbookSection === "beef" && /chicken fried steak/i.test(text)) return [];
+  if (recipe.primaryCookbookSection === "beef" && /(shepherd|cottage).+pie/i.test(text)) return [];
+  if (recipe.primaryCookbookSection === "poultry" && /chicken.+pot pie|chicken pot pie/i.test(text)) return [];
+  const rule = cookbookClassificationRules.find((item) => item.section === recipe.primaryCookbookSection && item.forbidden.test(text));
+  return rule ? [{ ...recipe, reason: rule.reason }] : [];
+});
+
 const report = {
   generatedAt: new Date().toISOString(),
   summary: {
@@ -329,6 +385,7 @@ const report = {
     incompleteRequiredHolidays: incompleteHolidayTables.length,
     menuReferenceIssues: menuReferenceIssues.length,
     cuisineCollectionIssues: cuisineCollectionIssues.length,
+    cookbookClassificationIssues: cookbookClassificationIssues.length,
     ingredientSearchIssues: ingredientSearchIssues.length,
     trainingOnlyGeneralLeaks: trainingOnlyGeneralLeaks.length,
     recipesMissingRequiredDetails: recipesMissingRequiredDetails.length,
@@ -346,6 +403,8 @@ const report = {
   incompleteHolidayTables,
   menuReferenceIssues,
   cuisineCollectionIssues,
+  cookbookSections: audit.cookbookSections,
+  cookbookClassificationIssues,
   ingredientSearchSmoke: audit.ingredientSearchSmoke,
   ingredientSearchIssues,
   trainingOnlyGeneralLeaks,
@@ -377,6 +436,7 @@ const md = [
   `- Holiday tables needing work: ${report.summary.incompleteRequiredHolidays}`,
   `- Menu reference issue groups: ${report.summary.menuReferenceIssues}`,
   `- Cuisine collection issues: ${report.summary.cuisineCollectionIssues}`,
+  `- Cookbook classification issues: ${report.summary.cookbookClassificationIssues}`,
   `- Ingredient search smoke issues: ${report.summary.ingredientSearchIssues}`,
   `- Training-only recipes in general discovery: ${report.summary.trainingOnlyGeneralLeaks}`,
   `- Recipes missing required details: ${report.summary.recipesMissingRequiredDetails}`,
@@ -406,6 +466,10 @@ const md = [
   "",
   ...(cuisineCollectionIssues.length ? cuisineCollectionIssues.map((row) => `- ${row.cuisineName}: ${row.recipe.id} / ${row.recipe.title} (${row.reason})`) : ["- None"]),
   "",
+  "## Cookbook Classification Issues",
+  "",
+  ...(cookbookClassificationIssues.length ? cookbookClassificationIssues.map((row) => `- ${row.primaryCookbookSection}: ${row.id} / ${row.title} (${row.reason})`) : ["- None"]),
+  "",
   "## Ingredient Search Smoke",
   "",
   ...audit.ingredientSearchSmoke.map((row) => `- ${row.matches.length ? "OK" : "NEEDS WORK"}: ${row.term} -> ${row.matches.map((match) => match.title).join(", ") || "no matches"}`),
@@ -423,10 +487,11 @@ console.log(`Fallback/queued images: ${report.summary.fallbackImages}`);
 console.log(`Missing image files: ${report.summary.missingImageFiles}`);
 console.log(`Complete required holidays: ${report.summary.completeRequiredHolidays}/${report.summary.requiredHolidayCount}`);
 console.log(`Cuisine collection issues: ${report.summary.cuisineCollectionIssues}`);
+console.log(`Cookbook classification issues: ${report.summary.cookbookClassificationIssues}`);
 console.log(`Ingredient search smoke issues: ${report.summary.ingredientSearchIssues}`);
 console.log(`Training-only recipes in general discovery: ${report.summary.trainingOnlyGeneralLeaks}`);
 console.log("Reports: data/content-quality-audit.json, data/content-quality-audit.md");
 
-if (missingImageFiles.length || duplicateRecipeIds.length || semanticImageMismatches.length || menuReferenceIssues.length || cuisineCollectionIssues.length || ingredientSearchIssues.length || trainingOnlyGeneralLeaks.length) {
+if (missingImageFiles.length || duplicateRecipeIds.length || semanticImageMismatches.length || menuReferenceIssues.length || cuisineCollectionIssues.length || cookbookClassificationIssues.length || ingredientSearchIssues.length || trainingOnlyGeneralLeaks.length) {
   process.exitCode = 1;
 }
