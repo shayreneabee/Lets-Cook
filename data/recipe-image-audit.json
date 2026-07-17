@@ -1,42 +1,38 @@
 {
-  "generatedAt": "2026-07-17T18:11:01.444Z",
+  "generatedAt": "2026-07-17T18:52:42.836Z",
   "totalRecipes": 665,
-  "uniqueImages": 545,
+  "uniqueImages": 551,
   "missingFiles": [],
   "fallbacks": [],
   "photoQueue": [],
   "sharedImages": [
     {
-      "image": "images/recipes/audit-2026-06/orange-chicken.jpg",
+      "image": "images/recipes/asian-hub-2026/orange-cashew-chicken.png",
       "recipes": [
         {
           "id": "orange-chicken",
           "title": "Orange Chicken"
         },
         {
-          "id": "seattle-teriyaki-chicken",
-          "title": "Seattle Teriyaki Chicken"
+          "id": "asian-orange-chicken",
+          "title": "Orange Chicken"
         },
         {
-          "id": "japanese-teriyaki-chicken-bowls",
-          "title": "Japanese Teriyaki Chicken Bowls"
+          "id": "asian-cashew-chicken",
+          "title": "Cashew Chicken"
         }
       ]
     },
     {
-      "image": "images/recipes/audit-2026-06/shrimp-fried-rice.jpg",
+      "image": "images/recipes/asian-hub-2026/asian-garlic-fried-rice.png",
       "recipes": [
         {
           "id": "fried-rice",
           "title": "Fried Rice"
         },
         {
-          "id": "shrimp-fried-rice",
-          "title": "Shrimp Fried Rice"
-        },
-        {
-          "id": "indonesian-nasi-goreng",
-          "title": "Indonesian Nasi Goreng"
+          "id": "asian-garlic-fried-rice",
+          "title": "Garlic Fried Rice"
         }
       ]
     },
@@ -157,24 +153,7 @@
       ]
     },
     {
-      "image": "images/cuisines/asian/asian-06.png",
-      "recipes": [
-        {
-          "id": "asian-dumpling-bowls",
-          "title": "Dumpling Bowl"
-        },
-        {
-          "id": "chinese-dumpling-night",
-          "title": "Chinese Dumpling Night"
-        },
-        {
-          "id": "nepali-momo-dumplings",
-          "title": "Nepali Momo Dumplings"
-        }
-      ]
-    },
-    {
-      "image": "images/cuisines/asian/asian-08.png",
+      "image": "images/recipes/asian-hub-2026/thai-basil-chicken.png",
       "recipes": [
         {
           "id": "asian-thai-basil-chicken",
@@ -196,19 +175,6 @@
         {
           "id": "eid-kebab-platter",
           "title": "Eid Kebab Platter"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/audit-2026-06/nigerian-fried-rice.jpg",
-      "recipes": [
-        {
-          "id": "nigerian-fried-rice",
-          "title": "Nigerian Fried Rice"
-        },
-        {
-          "id": "malaysian-nasi-lemak",
-          "title": "Malaysian Nasi Lemak"
         }
       ]
     },
@@ -688,10 +654,6 @@
           "title": "Tanzanian Coconut Fish Curry"
         },
         {
-          "id": "sri-lankan-fish-curry",
-          "title": "Sri Lankan Fish Curry"
-        },
-        {
           "id": "papua-new-guinea-coconut-fish",
           "title": "Papua New Guinea Coconut Fish"
         }
@@ -922,10 +884,6 @@
         {
           "id": "santa-maria-tri-tip",
           "title": "Santa Maria Tri-Tip"
-        },
-        {
-          "id": "korean-bulgogi-rice-bowls",
-          "title": "Korean Bulgogi Rice Bowls"
         },
         {
           "id": "argentinian-chimichurri-steak",
@@ -1338,7 +1296,7 @@
       "title": "Orange Chicken",
       "cuisine": "asian-inspired",
       "category": "Kid-Friendly Cooking",
-      "image": "images/recipes/audit-2026-06/orange-chicken.jpg",
+      "image": "images/recipes/asian-hub-2026/orange-cashew-chicken.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -1448,7 +1406,7 @@
       "title": "Fried Rice",
       "cuisine": "asian-inspired",
       "category": "Quick Weeknight Meals",
-      "image": "images/recipes/audit-2026-06/shrimp-fried-rice.jpg",
+      "image": "images/recipes/asian-hub-2026/asian-garlic-fried-rice.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -1758,7 +1716,7 @@
       "title": "Garlic Fried Rice",
       "cuisine": "asian-inspired",
       "category": "Asian Inspired",
-      "image": "images/cuisines/asian/asian-01.png",
+      "image": "images/recipes/asian-hub-2026/asian-garlic-fried-rice.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -1768,7 +1726,7 @@
       "title": "Orange Chicken",
       "cuisine": "asian-inspired",
       "category": "Quick Meals",
-      "image": "assets/lc-orange-chicken.jpg",
+      "image": "images/recipes/asian-hub-2026/orange-cashew-chicken.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -1778,7 +1736,7 @@
       "title": "Cashew Chicken",
       "cuisine": "asian-inspired",
       "category": "Family Dinners",
-      "image": "assets/lc-cashew-chicken.jpg",
+      "image": "images/recipes/asian-hub-2026/orange-cashew-chicken.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -1828,8 +1786,8 @@
       "title": "Thai Basil Chicken",
       "cuisine": "asian-inspired",
       "category": "Quick Meals",
-      "image": "images/cuisines/asian/asian-08.png",
-      "source": "recipe-data",
+      "image": "images/recipes/asian-hub-2026/thai-basil-chicken.png",
+      "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
     },
@@ -6768,7 +6726,7 @@
       "title": "Japanese Teriyaki Chicken Bowls",
       "cuisine": "asian-inspired",
       "category": "Japan Weeknight",
-      "image": "images/recipes/audit-2026-06/orange-chicken.jpg",
+      "image": "images/recipes/asian-hub-2026/japanese-teriyaki-chicken-bowls.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -6778,7 +6736,7 @@
       "title": "Chinese Dumpling Night",
       "cuisine": "asian-inspired",
       "category": "China Family Table",
-      "image": "images/cuisines/asian/asian-06.png",
+      "image": "images/recipes/asian-hub-2026/chinese-dumpling-night.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -6788,7 +6746,7 @@
       "title": "Korean Bulgogi Rice Bowls",
       "cuisine": "asian-inspired",
       "category": "Korean Grill",
-      "image": "images/recipes/audit-2026-06/nebraska-steak.jpg",
+      "image": "images/recipes/asian-hub-2026/korean-bulgogi-rice-bowls.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -6798,7 +6756,7 @@
       "title": "Thai Basil Chicken",
       "cuisine": "asian-inspired",
       "category": "Thai Skillet",
-      "image": "images/cuisines/asian/asian-08.png",
+      "image": "images/recipes/asian-hub-2026/thai-basil-chicken.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -7198,7 +7156,7 @@
       "title": "Nepali Momo Dumplings",
       "cuisine": "asian-inspired",
       "category": "Nepal Dumpling Table",
-      "image": "images/cuisines/asian/asian-06.png",
+      "image": "images/recipes/asian-hub-2026/nepali-momo-dumplings.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -7208,7 +7166,7 @@
       "title": "Sri Lankan Fish Curry",
       "cuisine": "asian-inspired",
       "category": "Sri Lankan Coconut Curry",
-      "image": "images/cuisines/africa/tanzania/coconut-fish-curry.jpg",
+      "image": "images/recipes/asian-hub-2026/sri-lankan-fish-curry.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -7218,7 +7176,7 @@
       "title": "Malaysian Nasi Lemak",
       "cuisine": "asian-inspired",
       "category": "Malaysian Coconut Rice",
-      "image": "images/recipes/audit-2026-06/nigerian-fried-rice.jpg",
+      "image": "images/recipes/asian-hub-2026/malaysian-nasi-lemak.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -7228,7 +7186,7 @@
       "title": "Indonesian Nasi Goreng",
       "cuisine": "asian-inspired",
       "category": "Indonesian Fried Rice",
-      "image": "images/recipes/audit-2026-06/shrimp-fried-rice.jpg",
+      "image": "images/recipes/asian-hub-2026/indonesian-nasi-goreng.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false

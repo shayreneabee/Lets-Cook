@@ -6690,9 +6690,10 @@ Object.assign(recipeImageOverrides, {
 
 Object.assign(recipeImageOverrides, {
   "southern-caramel-cake": "images/recipes/living-cookbook-2026/southern-caramel-cake.png",
-  "asian-garlic-fried-rice": "images/cuisines/asian/asian-01.png",
-  "asian-orange-chicken": "assets/lc-orange-chicken.jpg",
-  "asian-cashew-chicken": "assets/lc-cashew-chicken.jpg",
+  "asian-garlic-fried-rice": "images/recipes/asian-hub-2026/asian-garlic-fried-rice.png",
+  "asian-orange-chicken": "images/recipes/asian-hub-2026/orange-cashew-chicken.png",
+  "orange-chicken": "images/recipes/asian-hub-2026/orange-cashew-chicken.png",
+  "asian-cashew-chicken": "images/recipes/asian-hub-2026/orange-cashew-chicken.png",
   "rainbow-fruit-kabobs": "images/recipes/audit-2026-06/fruit-kabobs.jpg",
   "fruit-kabobs": "images/recipes/audit-2026-06/fruit-kabobs.jpg",
   "north-dakota-bison-barley-soup": "images/recipes/living-cookbook-2026/north-dakota-bison-barley-soup.png",
@@ -6735,6 +6736,20 @@ Object.assign(recipeImageOverrides, {
   "cheese-quesadillas": "images/recipes/audit-2026-06/cheese-quesadilla-triangles.jpg",
   "fried-sweet-plantains": "images/recipes/living-cookbook-2026/fried-sweet-plantains.png",
   "easy-lunch-wraps": "images/recipes/living-cookbook-2026/easy-lunch-wraps.png"
+});
+
+Object.assign(recipeImageOverrides, {
+  "japanese-teriyaki-chicken-bowls": "images/recipes/asian-hub-2026/japanese-teriyaki-chicken-bowls.png",
+  "chinese-dumpling-night": "images/recipes/asian-hub-2026/chinese-dumpling-night.png",
+  "korean-bulgogi-rice-bowls": "images/recipes/asian-hub-2026/korean-bulgogi-rice-bowls.png",
+  "thai-basil-chicken": "images/recipes/asian-hub-2026/thai-basil-chicken.png",
+  "asian-thai-basil-chicken": "images/recipes/asian-hub-2026/thai-basil-chicken.png",
+  "nepali-momo-dumplings": "images/recipes/asian-hub-2026/nepali-momo-dumplings.png",
+  "sri-lankan-fish-curry": "images/recipes/asian-hub-2026/sri-lankan-fish-curry.png",
+  "malaysian-nasi-lemak": "images/recipes/asian-hub-2026/malaysian-nasi-lemak.png",
+  "indonesian-nasi-goreng": "images/recipes/asian-hub-2026/indonesian-nasi-goreng.png",
+  "shrimp-fried-rice": "images/recipes/audit-2026-06/shrimp-fried-rice.jpg",
+  "fried-rice": "images/recipes/asian-hub-2026/asian-garlic-fried-rice.png"
 });
 
 const imageContentRegistry = {
@@ -15163,32 +15178,15 @@ function renderLesson(id) {
 }
 
 const cookbookChapterDefinitions = [
-  { id: "appetizers", title: "Appetizers", pattern: /appetizer|starter|dip|rangoon|deviled|sliders|nachos|quesadilla|fritters|oysters|charcuterie|meatballs|snack|cups?/ },
-  { id: "breakfast", title: "Breakfast", pattern: /breakfast|eggs|grits|pancakes|smoothie|muffin|biscuit|hash|brunch/ },
-  { id: "brunch", title: "Brunch", pattern: /brunch|quiche|casserole|shrimp and grits|salad|fruit|punch|tea/ },
-  { id: "soups-stews", title: "Soups & Stews", pattern: /soup|stew|gumbo|chili|chowder|bisque|pepper soup|harira|caldo|yakamein|oxtail|court-bouillon|courtbouillon/ },
-  { id: "salads", title: "Salads", pattern: /salad|slaw|coleslaw|raita|kachumber|tabbouleh|greens|fruit plate/ },
-  { id: "sandwiches-wraps", title: "Sandwiches & Wraps", pattern: /sandwich|wrap|burger|hot dog|po.?boy|poboy|gyro|burrito|taco|slider|roll|banh mi|jibarito/ },
-  { id: "pasta", title: "Pasta", pattern: /pasta|spaghetti|alfredo|noodle|lo mein|mac and cheese|macaroni|ravioli/ },
-  { id: "rice-dishes", title: "Rice Dishes", pattern: /rice|jollof|biryani|pilaf|arroz|fried rice|red rice|dirty rice|nasi|koshari/ },
-  { id: "seafood", title: "Seafood", pattern: /seafood|shrimp|fish|salmon|crab|oyster|crawfish|prawn|poke|cioppino|swordfish|walleye|perch|catfish|mullet/ },
-  { id: "chicken", title: "Chicken", pattern: /chicken|turkey|wings|adobo|teriyaki|tikka|tandoori|paprikash|kabsa/ },
-  { id: "beef", title: "Beef", pattern: /beef|steak|brisket|rib|burger|meatloaf|bulgogi|oxtail|bison|chislic/ },
-  { id: "pork", title: "Pork", pattern: /pork|ham|bacon|sausage|pulled pork|ribs|griot|kalua|chops|fatback|boudin/ },
-  { id: "lamb", title: "Lamb", pattern: /lamb|mutton|goat/ },
-  { id: "vegetarian", title: "Vegetarian", pattern: /vegetarian|vegetable|beans|lentil|dal|paneer|hummus|ratatouille|stir-fry|stir fry|greens|peas/ },
-  { id: "vegetables", title: "Vegetables", pattern: /vegetable|okra|greens|green bean|collard|turnip|mustard|corn|potato|yam|artichoke|plantain|squash|cabbage/ },
-  { id: "side-dishes", title: "Side Dishes", pattern: /side|beans|potato|dressing|gravy|slaw|salad|rice|rolls|bread|casserole|cornbread|vegetables/ },
-  { id: "casseroles", title: "Casseroles", pattern: /casserole|hotdish|dressing|baked mac|funeral potatoes|king ranch|chicken spaghetti|broccoli rice/ },
-  { id: "bread-biscuits", title: "Bread & Biscuits", pattern: /bread|biscuit|roll|cornbread|naan|tortilla|pita|lefse|sourdough|hushpuppies|hot water/ },
-  { id: "sauces", title: "Sauces", pattern: /sauce|gravy|chutney|salsa|seasoning|tzatziki|comeback|mumbo|chimichurri|vinaigrette/ },
-  { id: "desserts", title: "Desserts", pattern: /dessert|cake|cookies|pie|cobbler|pudding|shortcake|sweet|bars|paczki|kringle|kheer|flan|baklava|fruitcake|yule log|pavlova|lamington/ },
-  { id: "cakes", title: "Cakes", pattern: /cake|cupcake|red velvet|carrot cake|coconut cake|pound cake|mud cake|smith island|fruitcake|yule log/ },
-  { id: "cookies", title: "Cookies", pattern: /cookie|biscochito|tea cakes|moon pie/ },
-  { id: "pies", title: "Pies", pattern: /pie|cobbler|tart|pasties|meat pies|pot pie/ },
-  { id: "drinks", title: "Drinks", pattern: /drink|tea|lemonade|punch|soda|eggnog|lassi|chai|cocoa|sorrel|agua fresca/ },
-  { id: "holiday-favorites", title: "Holiday Favorites", pattern: /holiday|thanksgiving|christmas|easter|halloween|juneteenth|fourth|valentine|new year|latkes|diwali|eid|roast turkey|prime rib|ham|eggnog/ },
-  { id: "seasonal-favorites", title: "Seasonal Favorites", pattern: /seasonal|summer|spring|fall|winter|peach|watermelon|strawberry|pumpkin|apple|pear|corn|tomato/ }
+  { id: "soups", title: "Soups", intro: "Brothy bowls, stews, chowders, gumbo, chili, and cozy pots for slow evenings.", pattern: /soup|stew|gumbo|chili|chowder|bisque|pepper soup|harira|caldo|yakamein|oxtail|court-bouillon|courtbouillon|barley/ },
+  { id: "salads", title: "Salads", intro: "Fresh plates, fruit bowls, slaws, picnic sides, and crisp table brighteners.", pattern: /salad|slaw|coleslaw|raita|kachumber|tabbouleh|greens|fruit plate|fruit salad|cucumber/ },
+  { id: "vegetables", title: "Vegetables", intro: "Garden sides, greens, beans, squash, potatoes, plantains, and market vegetables.", pattern: /vegetable|okra|greens|green bean|collard|turnip|mustard|corn|potato|yam|artichoke|plantain|squash|cabbage|ratatouille|beans|lentil|dal|paneer|hummus/ },
+  { id: "beef", title: "Main Dishes: Beef", intro: "Steaks, roasts, brisket, burgers, bison, bulgogi, and Sunday-table beef dishes.", pattern: /beef|steak|brisket|rib|burger|meatloaf|bulgogi|oxtail|bison|chislic|prime rib|tenderloin|roast/ },
+  { id: "poultry", title: "Main Dishes: Poultry", intro: "Chicken, turkey, wings, braises, bowls, curries, and weeknight poultry favorites.", pattern: /chicken|turkey|wings|adobo|teriyaki|tikka|tandoori|paprikash|kabsa|poultry|duck|goose/ },
+  { id: "fish-seafood", title: "Main Dishes: Fish & Seafood", intro: "Fish fries, salmon, shrimp, crab, oysters, poke, prawns, and coastal suppers.", pattern: /seafood|shrimp|fish|salmon|crab|oyster|crawfish|prawn|poke|cioppino|swordfish|walleye|perch|catfish|mullet|halibut|tuna/ },
+  { id: "miscellaneous", title: "Miscellaneous", intro: "Appetizers, sandwiches, tacos, rice dishes, casseroles, noodles, sauces, and party plates.", pattern: /appetizer|starter|dip|rangoon|deviled|sliders|nachos|quesadilla|fritters|charcuterie|meatballs|snack|sandwich|wrap|hot dog|po.?boy|poboy|gyro|burrito|taco|roll|banh mi|jibarito|pasta|spaghetti|alfredo|noodle|lo mein|mac and cheese|macaroni|ravioli|rice|jollof|biryani|pilaf|arroz|fried rice|red rice|dirty rice|nasi|koshari|casserole|hotdish|dressing|gravy|sauce|chutney|salsa|seasoning|tzatziki|comeback|mumbo|chimichurri|vinaigrette|breakfast|brunch|eggs|pancakes|smoothie|hash|holiday|thanksgiving|christmas|easter|halloween|juneteenth|fourth|valentine|new year|diwali|eid/ },
+  { id: "breads", title: "Breads", intro: "Biscuits, cornbread, rolls, flatbreads, naan, tortillas, hushpuppies, and griddle breads.", pattern: /bread|biscuit|roll|cornbread|naan|tortilla|pita|lefse|sourdough|hushpuppies|hot water|fry bread|flatbread/ },
+  { id: "desserts", title: "Desserts", intro: "Cakes, cookies, pies, cobblers, puddings, sweet bars, fruit treats, and celebration desserts.", pattern: /dessert|cake|cookies?|pie|cobbler|pudding|shortcake|sweet|bars|paczki|kringle|kheer|flan|baklava|fruitcake|yule log|pavlova|lamington|cupcake|red velvet|carrot cake|coconut cake|pound cake|moon pie|biscochito|tea cakes|tart/ }
 ];
 
 function recipeCookbookText(recipe = {}) {
@@ -15212,8 +15210,8 @@ function cookbookChapterShelf() {
     <section class="cream-section cookbook-chapter-shelf">
       <div class="section-heading compact-heading">
         <p class="eyebrow">Living Cookbook</p>
-        <h2>Browse like chapters, not folders.</h2>
-        <p>Start where your craving lives: soups, seafood, pies, casseroles, rice dishes, holiday favorites, and more.</p>
+        <h2>Open the recipe box.</h2>
+        <p>Simple chapters for the way home cooks actually browse: soups, salads, vegetables, main dishes, breads, and desserts.</p>
       </div>
       <div class="cookbook-chapter-scroll" aria-label="Cookbook recipe chapters">
         ${cookbookChapterDefinitions.map((chapter) => {
@@ -15233,7 +15231,7 @@ function cookbookChapterShelf() {
 }
 
 function featuredCookbookSections() {
-  const featuredIds = ["soups-stews", "seafood", "chicken", "rice-dishes", "desserts", "holiday-favorites"];
+  const featuredIds = ["soups", "poultry", "fish-seafood", "vegetables", "breads", "desserts"];
   return `
     <section class="cream-section cookbook-featured-sections">
       ${featuredIds.map((chapterId) => {
@@ -15245,6 +15243,7 @@ function featuredCookbookSections() {
             <div class="section-heading compact-heading">
               <p class="eyebrow">Cookbook chapter</p>
               <h2>${chapter.title}</h2>
+              <p>${chapter.intro || ""}</p>
             </div>
             <div class="recipe-grid">${chapterRecipes.map(recipeCard).join("")}</div>
           </article>

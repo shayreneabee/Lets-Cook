@@ -1,13 +1,13 @@
 # Let's Cook Y'all Content Quality Audit
 
-Generated: 2026-07-17T18:11:06.409Z
+Generated: 2026-07-17T18:52:48.256Z
 
 ## Summary
 
 - Recipes audited: 665
 - Duplicate recipe ID groups: 0
 - Duplicate recipe title groups: 5
-- Shared image groups: 85
+- Shared image groups: 83
 - Generic recipe image assignments: 0
 - Semantic image mismatches: 0
 - Fallback/queued images: 0
@@ -46,8 +46,8 @@ Generated: 2026-07-17T18:11:06.409Z
 
 ## Top Shared Images
 
-- images/recipes/audit-2026-06/orange-chicken.jpg: 3 recipes
-- images/recipes/audit-2026-06/shrimp-fried-rice.jpg: 3 recipes
+- images/recipes/asian-hub-2026/orange-cashew-chicken.png: 3 recipes
+- images/recipes/asian-hub-2026/asian-garlic-fried-rice.png: 2 recipes
 - images/recipes/audit-2026-06/party-meatballs.jpg: 2 recipes
 - images/recipes/audit-2026-06/strawberry-shortcake.png: 5 recipes
 - images/recipes/audit-2026-06/pineapple-fried-rice.jpg: 2 recipes
@@ -56,16 +56,16 @@ Generated: 2026-07-17T18:11:06.409Z
 - images/recipes/audit-2026-06/chana-masala.jpg: 2 recipes
 - images/recipes/audit-2026-06/southern-fried-chicken.png: 2 recipes
 - images/regional/mississippi/mac-and-cheese.jpg: 2 recipes
-- images/cuisines/asian/asian-06.png: 3 recipes
-- images/cuisines/asian/asian-08.png: 2 recipes
+- images/recipes/asian-hub-2026/thai-basil-chicken.png: 2 recipes
 - images/cuisines/africa/nigeria/suya-skewers.jpg: 2 recipes
-- images/recipes/audit-2026-06/nigerian-fried-rice.jpg: 2 recipes
 - images/cuisines/africa/morocco/vegetable-couscous.jpg: 2 recipes
 - images/recipes/audit-2026-06/indian-dal-tadka.jpg: 3 recipes
 - images/recipes/audit-2026-06/grilled-swordfish-lemon-herb.jpg: 4 recipes
 - images/recipes/audit-2026-06/blackened-swordfish.jpg: 2 recipes
 - images/recipes/audit-2026-06/swordfish-tacos.jpg: 2 recipes
 - images/regional/mississippi/peach-cobbler.jpg: 2 recipes
+- images/recipes/audit-2026-06/jerk-sauce.jpg: 2 recipes
+- images/juneteenth/hibiscus-red-punch.png: 2 recipes
 
 ## Generic Recipe Images To Replace
 
