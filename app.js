@@ -4961,7 +4961,7 @@ const kidsKornerRecipes = [
   ["ants-on-a-log", "Ants on a Log", "Healthy Heroes", "assets/ingredients.jpeg", "10 min", "0 min", 4, "3-5 Little Helpers", "A classic crunchy snack for spreading, counting, and building fine-motor confidence.", ["4 celery stalks", "1/2 cup peanut butter, sunflower butter, or cream cheese", "1/4 cup raisins"], ["Wash hands and celery.", "Ask a grown-up to cut celery into short sticks.", "Spread the filling into each celery groove.", "Count raisins and line them up on top.", "Refrigerate leftovers within two hours."], ["snack", "no-cook", "counting"]],
   ["mini-chicken-sliders", "Mini Chicken Sliders", "Southern Favorites", "assets/beautiful-chicken.jpeg", "15 min", "12 min", 6, "9-12 Rising Chefs", "Small baked sliders teach safe assembly, portioning, and using the oven with an adult.", ["12 slider rolls", "2 cups cooked shredded chicken", "1/3 cup mild barbecue sauce", "6 cheese slices", "2 tbsp melted butter", "1/2 tsp garlic powder"], ["Heat the oven to 350 F with a grown-up.", "Mix chicken with barbecue sauce.", "Place roll bottoms in a baking dish.", "Add chicken and cheese, then cover with roll tops.", "Brush with garlic butter and bake 10 to 12 minutes. Cool slightly before serving."], ["sliders", "oven", "southern"]],
   ["mac-and-cheese-bites", "Mac & Cheese Bites", "Southern Favorites", "assets/pasta.jpeg", "20 min", "18 min", 12, "9-12 Rising Chefs", "Turn cooked macaroni into tidy muffin-cup bites while learning measuring and oven safety.", ["3 cups cooked elbow macaroni", "1 1/2 cups shredded cheddar", "1 egg", "1/2 cup milk", "1/2 cup breadcrumbs", "1 tbsp melted butter"], ["Heat the oven to 375 F with a grown-up.", "Grease a 12-cup muffin pan.", "Stir macaroni, cheese, egg, and milk together.", "Spoon into the cups and top with buttered breadcrumbs.", "Bake 15 to 18 minutes. Rest 5 minutes before removing."], ["mac and cheese", "measuring", "oven"]],
-  ["chewy-chocolate-cookies", "Chewy Chocolate Chip Cookies", "Sweet Treats", "assets/lc-desserts.jpg", "20 min", "11 min", 18, "9-12 Rising Chefs", "A supervised baking lesson for measuring flour, creaming butter, scooping evenly, and reading doneness.", ["1/2 cup softened butter", "1/2 cup brown sugar", "1/4 cup sugar", "1 egg", "1 tsp vanilla", "1 1/4 cups flour", "1/2 tsp baking soda", "1/4 tsp salt", "3/4 cup chocolate chips"], ["Heat the oven to 350 F with a grown-up.", "Cream butter and both sugars.", "Mix in egg and vanilla.", "Stir flour, baking soda, and salt separately, then combine.", "Fold in chips, scoop onto a lined pan, and bake 9 to 11 minutes."], ["cookies", "baking", "dessert"]],
+  ["chewy-chocolate-cookies", "Chocolate Chip Cookies", "Sweet Treats", "assets/lc-desserts.jpg", "20 min", "11 min", 18, "9-12 Rising Chefs", "Chewy chocolate chip cookies and a supervised baking lesson for measuring flour, creaming butter, scooping evenly, and reading doneness.", ["1/2 cup softened butter", "1/2 cup brown sugar", "1/4 cup sugar", "1 egg", "1 tsp vanilla", "1 1/4 cups flour", "1/2 tsp baking soda", "1/4 tsp salt", "3/4 cup chocolate chips"], ["Heat the oven to 350 F with a grown-up.", "Cream butter and both sugars.", "Mix in egg and vanilla.", "Stir flour, baking soda, and salt separately, then combine.", "Fold in chips, scoop onto a lined pan, and bake 9 to 11 minutes."], ["cookies", "baking", "dessert", "chewy chocolate chip cookies"]],
   ["banana-pudding-cups", "Banana Pudding Cups", "Southern Favorites", "assets/lc-desserts.jpg", "20 min", "0 min", 6, "6-8 Kitchen Explorers", "Individual banana pudding cups teach layering, portioning, and keeping chilled foods safe.", ["2 cups prepared vanilla pudding", "2 bananas sliced", "24 vanilla wafers", "1 cup whipped topping"], ["Wash hands and set out six cups.", "Place wafers in each cup.", "Add pudding and banana slices.", "Repeat the layers and top with whipped topping.", "Chill until serving and refrigerate leftovers promptly."], ["southern", "no-bake", "layering"]],
   ["berry-banana-smoothies", "Berry Banana Smoothies", "Healthy Heroes", "assets/ingredients.jpeg", "8 min", "0 min", 2, "6-8 Kitchen Explorers", "A blender lesson for measuring fruit, adding liquid gradually, and letting adults manage the blades.", ["1 banana", "1 cup frozen berries", "1 cup milk or oat milk", "1/2 cup yogurt", "1 tsp honey optional"], ["Put the unplugged blender on a dry counter.", "Add fruit, milk, and yogurt.", "Secure the lid.", "Ask a grown-up to plug in and run the blender.", "Pour into cups after the blades stop completely."], ["smoothie", "fruit", "blender-safety"]],
   ["crispy-rice-treats", "Crispy Rice Treats", "Sweet Treats", "assets/lc-desserts.jpg", "10 min", "10 min", 12, "9-12 Rising Chefs", "A supervised stovetop treat for gentle heat, stirring, pressing, and waiting for food to cool.", ["4 tbsp butter", "10 oz marshmallows", "6 cups crispy rice cereal", "1/2 tsp vanilla", "Pinch of salt"], ["Line a 9-inch pan with parchment.", "Melt butter over low heat with a grown-up.", "Stir in marshmallows until smooth, then remove from heat.", "Fold in cereal, vanilla, and salt.", "Press into the pan with a buttered spatula and cool before cutting."], ["stovetop", "dessert", "mixing"]]
@@ -8435,10 +8435,27 @@ function announceRouteChange() {
   main?.focus({ preventScroll: true });
 }
 
+function focusCookbookResults(behavior = "smooth") {
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const heading = document.querySelector("#cookbookResultsHeading");
+      if (!heading) return;
+      heading.focus({ preventScroll: true });
+      heading.scrollIntoView({ behavior, block: "start" });
+      const status = document.querySelector("#routeStatus");
+      if (status) status.textContent = `Loaded ${heading.textContent.trim()}`;
+    });
+  });
+}
+
 window.addEventListener("hashchange", () => {
   render();
-  announceRouteChange();
-  scrollToRouteTop("smooth");
+  const { route, section } = routeParts();
+  if (route === "recipes" && section) focusCookbookResults("smooth");
+  else {
+    announceRouteChange();
+    scrollToRouteTop("smooth");
+  }
 });
 document.addEventListener("click", handleClick);
 document.addEventListener("submit", handleSubmit);
@@ -8460,8 +8477,11 @@ function handleImageFallback(event) {
 }
 
 function routeParts() {
-  const [route, id] = (window.location.hash.replace("#", "") || "lets-cook").split("/");
-  return { route, id };
+  const raw = window.location.hash.replace("#", "") || "lets-cook";
+  const [path, queryString = ""] = raw.split("?");
+  const [route, id] = path.split("/");
+  const params = new URLSearchParams(queryString);
+  return { route, id, section: params.get("section") || "", query: params.get("q") || "" };
 }
 
 function siteFooterMarkup(route = "") {
@@ -8750,7 +8770,7 @@ function platformHero() {
         <h1>One welcoming home for every Brent & Co. platform.</h1>
         <p>Start here, then move into cooking, music, cultural discovery, or career support. Live launch links stay private until each Render service points at the correct app.</p>
         <div class="hero-actions">
-          <a class="small-button" href="#storefront">View All Platforms</a>
+          <a class="small-button" href="#home">View All Platforms</a>
           <a class="small-button secondary" href="#lets-cook">Preview Let's Cook</a>
         </div>
       </div>
@@ -11630,7 +11650,7 @@ function monthlySpotlightBanner() {
           ${monthlySpotlight.gatheringNotes.map((note) => `<span>${note}</span>`).join("")}
         </div>
         <div class="hero-actions">
-          <a class="small-button" href="#pull-up-chair">Pull Up A Chair</a>
+          <a class="small-button" href="#community">Pull Up A Chair</a>
           <a class="small-button secondary" href="${juneteenthMenuRoute}">Build A Juneteenth Menu</a>
         </div>
       </div>
@@ -11983,7 +12003,7 @@ function shayHouseNotesSection() {
     ["Good food tastes even better when it's shared.", "#recipes/fried-chicken"],
     ["Every recipe has a story. Some start in church kitchens. Some start at a gas station counter.", "#cuisine-explorer/mississippi"],
     ["Take your time. Great meals aren't rushed.", "#culinary-academy"],
-    ["Pull up a chair, y'all.", "#pull-up-chair"]
+    ["Pull up a chair, y'all.", "#community"]
   ];
   return `
     <section class="gold-section shay-house-notes-section">
@@ -12846,6 +12866,11 @@ const recipeSearchKeywordGroups = {
 
 const recipeSearchIndexCache = new WeakMap();
 
+function recipeSearchValues(value) {
+  if (Array.isArray(value)) return value.filter(Boolean);
+  return value ? [value] : [];
+}
+
 function expandRecipeSearchTerms(input = "") {
   const rawTerms = Array.isArray(input) ? input : String(input || "").split(",");
   const expanded = new Set();
@@ -12873,6 +12898,12 @@ function matchedSearchGroupKeys(text, group) {
 function recipeSearchIndex(recipe = {}) {
   if (recipeSearchIndexCache.has(recipe)) return recipeSearchIndexCache.get(recipe);
   const titleText = normalizeIngredientTerm(recipe.title || "");
+  const alternateTitleText = normalizeIngredientTerm([
+    ...recipeSearchValues(recipe.alternateTitle),
+    ...recipeSearchValues(recipe.alternateTitles),
+    ...recipeSearchValues(recipe.aliases),
+    ...recipeSearchValues(recipe.commonMisspellings)
+  ].join(" "));
   const ingredientText = normalizeIngredientTerm((recipe.ingredients || []).join(" "));
   const instructionText = normalizeIngredientTerm([
     ...(recipe.instructions || []),
@@ -12889,11 +12920,15 @@ function recipeSearchIndex(recipe = {}) {
     recipe.origin,
     recipe.culturalOrigin,
     recipe.mealType,
+    recipe.protein,
+    recipe.season,
+    alternateTitleText,
     ...(recipe.tags || []),
     ...(recipe.holidays || []),
     ...(recipe.methods || []),
     ...(recipe.techniques || []),
-    ...(recipe.substitutions || [])
+    ...recipeSearchValues(recipe.substitutions),
+    ...recipeSearchValues(recipe.relatedTerms)
   ].join(" "));
   const allText = normalizeIngredientTerm(`${titleText} ${ingredientText} ${instructionText} ${fieldText}`);
   const proteins = matchedSearchGroupKeys(allText, recipeSearchKeywordGroups.proteins);
@@ -12922,6 +12957,7 @@ function recipeSearchIndex(recipe = {}) {
   });
   const index = {
     titleText,
+    alternateTitleText,
     ingredientText,
     instructionText,
     fieldText,
@@ -12948,19 +12984,26 @@ function recipeDiscoveryScore(recipe, rawTerms = []) {
   if (!terms.length) return 0;
   const index = recipeSearchIndex(recipe);
   let score = 0;
+  const requestedPhrase = normalizeIngredientTerm(Array.isArray(rawTerms) ? rawTerms.join(" ") : rawTerms);
+  if (requestedPhrase && index.titleText === requestedPhrase) score += 10000;
+  else if (requestedPhrase && index.alternateTitleText.includes(requestedPhrase)) score += 9500;
+  else if (requestedPhrase && index.titleText.startsWith(requestedPhrase)) score += 6500;
+  else if (requestedPhrase && index.titleText.includes(requestedPhrase)) score += 5200;
   terms.forEach((term) => {
-    if (index.titleText.includes(term)) score += 12;
-    if (index.ingredientText.includes(term)) score += 14;
-    if (index.proteins.includes(term)) score += 12;
-    if (index.methods.includes(term)) score += 7;
-    if (index.mealTypes.includes(term)) score += 6;
-    if (index.holidays.includes(term)) score += 6;
-    if (index.techniques.includes(term)) score += 5;
-    if (index.substitutions.includes(term)) score += 8;
-    if (index.tokenText.includes(term)) score += 4;
-    if (index.fieldText.includes(term)) score += 3;
-    if (index.instructionText.includes(term)) score += 2;
-    if (index.searchText.includes(term)) score += 1;
+    if (index.titleText === term) score += 4000;
+    else if (index.titleText.includes(term)) score += 900;
+    if (index.alternateTitleText.includes(term)) score += 800;
+    if (index.ingredientText.includes(term)) score += 500;
+    if (index.proteins.includes(term)) score += 420;
+    if (index.substitutions.includes(term)) score += 360;
+    if (index.methods.includes(term)) score += 220;
+    if (index.mealTypes.includes(term)) score += 180;
+    if (index.holidays.includes(term)) score += 160;
+    if (index.techniques.includes(term)) score += 140;
+    if (index.tokenText.includes(term)) score += 80;
+    if (index.fieldText.includes(term)) score += 60;
+    if (index.instructionText.includes(term)) score += 30;
+    if (index.searchText.includes(term)) score += 10;
   });
   return score;
 }
@@ -15308,6 +15351,16 @@ const cookbookChapterDefinitions = [
   { id: "desserts", title: "Desserts", intro: "Cakes, pies, cobblers, puddings, sweet bars, fruit treats, and celebration desserts.", pattern: /dessert|cake|pie|cobbler|pudding|shortcake|sweet|bars|paczki|kringle|kheer|flan|baklava|fruitcake|yule log|pavlova|lamington|cupcake|red velvet|carrot cake|coconut cake|pound cake|moon pie|biscochito|tart/ }
 ];
 
+const cookbookChapterKeys = new Set(cookbookChapterDefinitions.map((chapter) => chapter.id));
+
+function cookbookChapterByKey(section = "") {
+  return cookbookChapterDefinitions.find((chapter) => chapter.id === section) || null;
+}
+
+function cookbookSectionRoute(section = "") {
+  return `#recipes?section=${encodeURIComponent(section)}`;
+}
+
 function recipesForCookbookChapter(chapter, limit = Number.POSITIVE_INFINITY) {
   const seen = new Set();
   return allRecipeCollection()
@@ -15320,7 +15373,7 @@ function recipesForCookbookChapter(chapter, limit = Number.POSITIVE_INFINITY) {
     .slice(0, Number.isFinite(limit) ? limit : undefined);
 }
 
-function cookbookChapterShelf() {
+function cookbookChapterShelf(selectedSection = "") {
   return `
     <section class="cream-section cookbook-chapter-shelf">
       <div class="section-heading compact-heading">
@@ -15334,7 +15387,7 @@ function cookbookChapterShelf() {
           const previewRecipes = allChapterRecipes.slice(0, 8);
           const cover = previewRecipes[0] || recipes[0];
           return `
-            <a class="cookbook-chapter-card" href="#recipes" data-quick-filter="chapter:${chapter.id}" aria-label="${chapter.title}, browse all ${allChapterRecipes.length} recipes">
+            <a class="cookbook-chapter-card ${selectedSection === chapter.id ? "active" : ""}" href="${cookbookSectionRoute(chapter.id)}" data-cookbook-section="${chapter.id}" ${selectedSection === chapter.id ? 'aria-current="page"' : ""} aria-label="${chapter.title}, browse all ${allChapterRecipes.length} recipes">
               <img src="${recipePhotoFor(cover)}" alt="" />
               <span>${allChapterRecipes.length} recipes · browse all</span>
               <strong>${chapter.title}</strong>
@@ -15370,6 +15423,17 @@ function featuredCookbookSections() {
 }
 
 function renderRecipes() {
+  const routeState = routeParts();
+  const requestedSection = routeState.section;
+  const selectedChapter = cookbookChapterByKey(requestedSection);
+  const invalidSection = Boolean(requestedSection && !selectedChapter);
+  const initialRecipes = selectedChapter ? recipesForCookbookChapter(selectedChapter) : invalidSection ? [] : allRecipeCollection();
+  const resultsTitle = selectedChapter ? selectedChapter.title : invalidSection ? "Cookbook section not found" : "All Recipes";
+  const resultsIntro = selectedChapter
+    ? selectedChapter.intro
+    : invalidSection
+      ? `“${escapeHTML(requestedSection)}” is not a valid Living Cookbook section.`
+      : "Browse every publish-ready recipe, or choose a Living Cookbook chapter above.";
   const quickFilters = [
     ["Southern", "cuisine:southern"],
     ["Mexican", "cuisine:mexican"],
@@ -15384,11 +15448,11 @@ function renderRecipes() {
   app.innerHTML = `
     ${hero("Recipes", "Southern classics, quick weeknight meals, global flavor, family dinners, beginner basics, party bites, and kid-friendly cooking.", photoFor("hero", "learning", 3, "assets/lc-pasta.jpg"))}
     ${cookSubnav()}
-    ${cookbookChapterShelf()}
+    ${cookbookChapterShelf(selectedChapter?.id || "")}
     <section class="band">
       <div class="toolbar search-toolbar">
         <label class="sr-only" for="searchBox">Search recipes</label>
-        <input id="searchBox" class="search-input" type="search" placeholder="Search ribeye, chicken thighs, ground beef, rice..." />
+        <input id="searchBox" class="search-input" type="search" value="${escapeHTML(routeState.query)}" placeholder="Search ribeye, chicken thighs, ground beef, rice..." />
         <label class="sr-only" for="pantryBox">Search by ingredients you have</label>
         <input id="pantryBox" class="search-input" type="search" placeholder="What do you have? ribeye, onions, potatoes..." />
         <label class="sr-only" for="categoryFilter">Filter by category</label>
@@ -15401,11 +15465,22 @@ function renderRecipes() {
         <select id="levelFilter" class="filter-select"><option value="">All levels</option><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select>
       </div>
       <div class="quick-filter-row">${quickFilters.map(([label, value]) => `<button class="quick-filter" type="button" data-quick-filter="${value}">${label}</button>`).join("")}</div>
-      <div id="learningResults" class="learning-search-results"></div>
     </section>
-    ${featuredCookbookSections()}
-    <section class="cream-section"><div id="results" class="recipe-grid">${allRecipeCollection().map(recipeCard).join("")}</div></section>
+    ${requestedSection ? "" : featuredCookbookSections()}
+    <section class="cream-section cookbook-results-section" id="cookbookResults">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Living Cookbook</p>
+        <h2 id="cookbookResultsHeading" tabindex="-1">${resultsTitle}</h2>
+        <p>${resultsIntro}</p>
+      </div>
+      <div id="results" class="recipe-grid">${initialRecipes.length
+        ? initialRecipes.map(recipeCard).join("")
+        : `<div class="empty-state"><h3>${invalidSection ? "That chapter does not exist." : `No ${selectedChapter?.title?.toLowerCase() || "matching"} recipes have been added yet.`}</h3><p>${invalidSection ? "Choose a real chapter from the Living Cookbook above." : "This inventory gap has been flagged for editorial review."}</p></div>`}
+      </div>
+    </section>
+    <section id="learningResults" class="cream-section learning-search-results" aria-label="Cookbook chapters and learning suggestions"></section>
   `;
+  if (routeState.query) handleSearch();
 }
 
 function recipeStepMicroTip(recipe, index) {
@@ -15421,7 +15496,15 @@ function recipeStepMicroTip(recipe, index) {
 }
 
 function renderRecipe(id) {
-  const recipe = recipeById(id) || recipes.find((item) => item.id === id) || recipes[0];
+  const recipe = recipeById(id) || recipes.find((item) => item.id === canonicalRecipeId(id));
+  if (!recipe) {
+    app.innerHTML = `
+      ${hero("Recipe Not Found", "That recipe link does not match a real recipe in the Let's Cook Y'all library.", exactRecipePhotoNeededImage, `<a class="small-button" href="#recipes">Browse Real Recipes</a>`)}
+      ${cookSubnav()}
+      <section class="cream-section"><div class="empty-state"><h2>No recipe exists at this address.</h2><p>Check the link or return to the Living Cookbook. We will not substitute an unrelated recipe.</p></div></section>
+    `;
+    return;
+  }
   if (!recipeHasPublishReadyPhoto(recipe)) {
     app.innerHTML = `
       ${hero("Recipe Photography In Progress", "This dish has a real recipe record, but Let's Cook Y'all does not publish recipe pages until the food photo matches the dish.", exactRecipePhotoNeededImage, `<a class="small-button" href="#recipes">Browse Ready Recipes</a><a class="small-button secondary" href="#cuisine-explorer">Explore Cuisines</a>`)}
@@ -16352,6 +16435,9 @@ function learningSearchResults(query) {
   const normalized = query.toLowerCase();
   const kitchenMathMatch = answerKitchenMathQuery(query);
   const results = [
+    ...cookbookChapterDefinitions
+      .filter((chapter) => [chapter.id, chapter.title, chapter.intro].join(" ").toLowerCase().includes(normalized))
+      .map((chapter) => ({ type: "Living Cookbook", title: chapter.title, text: chapter.intro, href: cookbookSectionRoute(chapter.id) })),
     ...(kitchenMathMatch ? [{ type: "Kitchen Math", title: kitchenMathMatch.answer, text: kitchenMathMatch.note, href: "#culinary-academy/kitchen-math" }] : []),
     ...academyModules
       .filter((module) => [module.title, module.category, module.overview, ...module.keyConcepts].join(" ").toLowerCase().includes(normalized))
@@ -16388,12 +16474,20 @@ function learningSearchResults(query) {
   if (!results.length) return "";
   return `
     <div class="academy-search-results">
-      <h3>Learning results</h3>
+      <h3>Cookbook chapters and learning</h3>
       <div class="academy-result-grid">
         ${results.map((item) => `<a href="${item.href}"><span>${item.type}</span><strong>${item.title}</strong><p>${item.text}</p></a>`).join("")}
       </div>
     </div>
   `;
+}
+
+function logZeroRecipeSearch(query = "") {
+  const normalized = normalizeIngredientTerm(query);
+  if (!normalized) return;
+  const existing = readJSON("letsCookZeroSearches", []);
+  const next = [{ query: normalized, at: new Date().toISOString() }, ...existing.filter((item) => item.query !== normalized)].slice(0, 50);
+  localStorage.setItem("letsCookZeroSearches", JSON.stringify(next));
 }
 
 function handleSearch(event) {
@@ -16440,6 +16534,9 @@ function handleSearch(event) {
   const maxTime = Number(document.querySelector("#timeFilter")?.value || 0);
   const level = document.querySelector("#levelFilter")?.value || "";
   const quick = document.querySelector(".quick-filter.active, .cookbook-chapter-card.active")?.dataset.quickFilter || "";
+  const requestedSection = routeParts().section;
+  const selectedRouteChapter = cookbookChapterByKey(requestedSection);
+  const invalidRouteSection = Boolean(requestedSection && !selectedRouteChapter);
   const hasDiscoveryTerms = Boolean(query || pantry.length);
   const matchesStaticFilters = (recipe, { relaxed = false } = {}) => {
     const quickMatch = !quick
@@ -16447,7 +16544,9 @@ function handleSearch(event) {
       || (quick.startsWith("category:") && (recipe.category === quick.replace("category:", "") || recipe.tags?.includes(quick.replace("category:", ""))))
       || (quick.startsWith("skill:") && recipe.skill_level === quick.replace("skill:", ""))
       || (quick.startsWith("chapter:") && recipeCookbookPrimarySection(recipe) === quick.replace("chapter:", ""));
-    return quickMatch
+    return !invalidRouteSection
+      && quickMatch
+      && (!selectedRouteChapter || recipeCookbookPrimarySection(recipe) === selectedRouteChapter.id)
       && (!cuisine || recipe.cuisine === cuisine)
       && (relaxed || !category || recipe.category === category || recipe.tags?.includes(category))
       && (relaxed || !maxTime || (recipe.cookTimeMinutes || 999) <= maxTime)
@@ -16467,8 +16566,11 @@ function handleSearch(event) {
   }
   const resultsNode = document.querySelector("#results");
   if (resultsNode) {
-    resultsNode.innerHTML = results.length ? results.map(recipeCard).join("") : `<div class="empty-state">No recipe uses that ingredient yet. Try a broader pantry word like chicken, beef, rice, greens, shrimp, potatoes, beans, or pasta.</div>`;
+    resultsNode.innerHTML = results.length
+      ? results.map(recipeCard).join("")
+      : `<div class="empty-state"><h3>No relevant recipes found.</h3><p>Check the spelling, try one ingredient, or use a broader term such as chicken, beef, rice, greens, shrimp, potatoes, beans, or pasta.</p></div>`;
   }
+  if (hasDiscoveryTerms && !results.length) logZeroRecipeSearch(query || pantry.join(", "));
   const learningNode = document.querySelector("#learningResults");
   if (learningNode) learningNode.innerHTML = `${recipeDiscoverySummaryMarkup({ query, pantry, results, relaxed })}${learningSearchResults(query || pantry[0] || "")}`;
 }

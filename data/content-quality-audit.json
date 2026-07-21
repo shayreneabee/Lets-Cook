@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-21T13:18:20.754Z",
+  "generatedAt": "2026-07-21T18:55:07.463Z",
   "summary": {
     "totalRecipes": 682,
     "duplicateRecipeIdGroups": 0,
@@ -872,7 +872,7 @@
       "recipes": [
         {
           "id": "chewy-chocolate-cookies",
-          "title": "Chewy Chocolate Chip Cookies",
+          "title": "Chocolate Chip Cookies",
           "cuisine": "kids-korner",
           "category": "Sweet Treats"
         },
@@ -5306,7 +5306,7 @@
     },
     {
       "id": "chewy-chocolate-cookies",
-      "title": "Chewy Chocolate Chip Cookies",
+      "title": "Chocolate Chip Cookies",
       "cuisine": "kids-korner",
       "category": "Sweet Treats",
       "primaryCookbookSection": "cookies",
@@ -8823,22 +8823,22 @@
       "term": "ribeye",
       "matches": [
         {
-          "id": "valentine-steak-dinner",
-          "title": "Valentine Steak Dinner",
+          "id": "beef-tenderloin",
+          "title": "Beef Tenderloin",
           "cuisine": "holiday",
-          "category": "Valentine's Day Mains"
+          "category": "Christmas Mains"
+        },
+        {
+          "id": "prime-rib",
+          "title": "Prime Rib",
+          "cuisine": "holiday",
+          "category": "Christmas Mains"
         },
         {
           "id": "nebraska-steak",
           "title": "Nebraska Steak",
           "cuisine": "nebraska",
           "category": "Nebraska"
-        },
-        {
-          "id": "garlic-butter-steak-bites",
-          "title": "Garlic Butter Steak Bites",
-          "cuisine": "holiday",
-          "category": "Valentine's Day Mains"
         },
         {
           "id": "argentinian-chimichurri-steak",
@@ -8859,16 +8859,16 @@
           "category": "St. Louis Classics"
         },
         {
-          "id": "blackened-swordfish",
-          "title": "Blackened Swordfish",
-          "cuisine": "southern",
-          "category": "Seafood"
+          "id": "philly-cheesesteak",
+          "title": "Philly Cheesesteak",
+          "cuisine": "pennsylvania",
+          "category": "Philadelphia Classics"
         },
         {
-          "id": "nevada-steakhouse-potatoes",
-          "title": "Nevada Steakhouse Potatoes",
-          "cuisine": "nevada",
-          "category": "Steakhouse Sides"
+          "id": "hamburger-steak-with-gravy",
+          "title": "Hamburger Steak with Onion Gravy",
+          "cuisine": "southern",
+          "category": "Family Dinner"
         }
       ]
     },
@@ -8935,34 +8935,22 @@
           "category": "Cookouts & Church Events"
         },
         {
-          "id": "pumpkin-chili",
-          "title": "Pumpkin Chili",
-          "cuisine": "holiday",
-          "category": "Halloween Mains"
-        },
-        {
           "id": "hamburger-steak-with-gravy",
           "title": "Hamburger Steak with Onion Gravy",
           "cuisine": "southern",
           "category": "Family Dinner"
         },
         {
+          "id": "pumpkin-chili",
+          "title": "Pumpkin Chili",
+          "cuisine": "holiday",
+          "category": "Halloween Mains"
+        },
+        {
           "id": "baked-beans-beef-bacon",
           "title": "Baked Beans with Beef and Bacon",
           "cuisine": "mississippi-favorites",
           "category": "Cookouts & Church Events"
-        },
-        {
-          "id": "nebraska-steak",
-          "title": "Nebraska Steak",
-          "cuisine": "nebraska",
-          "category": "Nebraska"
-        },
-        {
-          "id": "south-dakota-indian-tacos",
-          "title": "South Dakota Indian Tacos",
-          "cuisine": "south-dakota",
-          "category": "Native Community Favorites"
         },
         {
           "id": "argentinian-beef-empanadas",
@@ -8975,6 +8963,18 @@
           "title": "Southern Meatloaf",
           "cuisine": "southern",
           "category": "Family Dinners"
+        },
+        {
+          "id": "steamed-cheeseburgers",
+          "title": "Connecticut Steamed Cheeseburgers",
+          "cuisine": "connecticut",
+          "category": "Diner Food"
+        },
+        {
+          "id": "oklahoma-onion-burgers",
+          "title": "Oklahoma Onion Burgers",
+          "cuisine": "oklahoma",
+          "category": "Oklahoma Diner"
         }
       ]
     }
@@ -12144,7 +12144,7 @@
     },
     {
       "id": "chewy-chocolate-cookies",
-      "title": "Chewy Chocolate Chip Cookies",
+      "title": "Chocolate Chip Cookies",
       "cuisine": "kids-korner",
       "category": "Sweet Treats",
       "missing": [],
@@ -21012,7 +21012,7 @@
     },
     {
       "id": "chewy-chocolate-cookies",
-      "title": "Chewy Chocolate Chip Cookies",
+      "title": "Chocolate Chip Cookies",
       "cuisine": "kids-korner",
       "category": "Sweet Treats",
       "missing": [],
