@@ -13921,3 +13921,318 @@ body {
     max-height: calc(100vh - 24px);
   }
 }
+
+/* Permanent bright brand system -------------------------------------------------
+   Seasonal campaigns should change photography, copy, and small accents—not the
+   legibility or base palette. Brown remains available only inside food photos and
+   physical details such as boards or baskets. */
+:root {
+  --green: #16a34a;
+  --green-dark: #075f3c;
+  --cream: #fff8e7;
+  --paper: #ffffff;
+  --gold: #ffd43b;
+  --gold-deep: #d97706;
+  --peach: #ffad7a;
+  --coral: #f4514c;
+  --watermelon: #ed3f68;
+  --navy: #102542;
+  --charcoal: #202936;
+  --ink: #102542;
+  --muted: #536476;
+  --line: rgba(16, 37, 66, 0.14);
+  --shadow: 0 20px 52px rgba(16, 37, 66, 0.12);
+  --bc-shadow: 0 22px 60px rgba(16, 37, 66, 0.12);
+  --bc-lift: 0 14px 34px rgba(16, 37, 66, 0.1);
+}
+
+html { background: #fffdf7; }
+
+body {
+  background:
+    radial-gradient(circle at 8% 0%, rgba(255, 212, 59, 0.22), transparent 30rem),
+    radial-gradient(circle at 94% 10%, rgba(237, 63, 104, 0.12), transparent 28rem),
+    linear-gradient(180deg, #fffdf7 0%, #f7fff8 48%, #fff8e7 100%) !important;
+  color: var(--ink) !important;
+}
+
+.site-header {
+  background: rgba(255, 255, 255, 0.97) !important;
+  border-color: rgba(16, 37, 66, 0.1) !important;
+  box-shadow: 0 12px 34px rgba(16, 37, 66, 0.09) !important;
+}
+
+.main-nav a,
+.app-subnav a,
+.kids-korner-nav a,
+.portal-link,
+.menu-toggle { color: var(--navy) !important; }
+
+.main-nav a:is(:hover, :focus-visible),
+.app-subnav a:is(:hover, :focus-visible) {
+  background: #edfff1 !important;
+  color: var(--green-dark) !important;
+}
+
+.menu-toggle span { background: var(--navy) !important; }
+
+.america-250-announcement,
+.august-announcement {
+  background: linear-gradient(90deg, #087443, #16a34a 48%, #0b7f63) !important;
+  color: #fff !important;
+  border-color: #ffd43b !important;
+}
+
+.america-250-announcement strong,
+.august-announcement strong { color: #fff5a8 !important; }
+
+.band,
+.cream-section,
+.paper-section,
+.recipe-detail,
+.cuisine-detail-page,
+.holiday-table-detail,
+.cookbook-featured-sections,
+.cookbook-chapter-shelf,
+.neighborhood-cookbook-section,
+.pantry-results-section,
+.account-layout,
+.kitchen-math-page {
+  background-color: #fffdf7 !important;
+  background-image: none !important;
+  color: var(--ink) !important;
+}
+
+.band:nth-of-type(even),
+.cream-section:nth-of-type(even),
+.cookbook-featured-chapter:nth-child(even),
+.holiday-season-section:nth-child(even) {
+  background: #f2fff4 !important;
+}
+
+.gold-section,
+.ingredient-discovery,
+.home-learn-strip {
+  background: linear-gradient(135deg, #fff4a8, #fff9dc 54%, #ffd7c1) !important;
+  color: var(--navy) !important;
+}
+
+.dark-section,
+.green-section,
+.home-cuisine-market {
+  background: linear-gradient(135deg, #075f3c, #087f5b 58%, #0a5575) !important;
+  color: #fff !important;
+}
+
+.section-heading h1,
+.section-heading h2,
+.section-heading h3,
+.compact-heading h2,
+.recipe-detail h1,
+.recipe-detail h2,
+.recipe-detail h3,
+.academy-module-card h3,
+.account-panel h2,
+.conversion-card h3 { color: var(--navy) !important; }
+
+.section-heading p,
+.detail-copy,
+.helper-text,
+.recipe-card p,
+.academy-module-card p,
+.account-panel p,
+.holiday-destination-card p,
+.cookbook-featured-chapter p,
+.kitchen-math-output,
+.conversion-table td,
+.kitchen-scale-tool p { color: var(--muted) !important; }
+
+.dark-section :is(h1, h2, h3, p, li, a),
+.green-section :is(h1, h2, h3, p, li, a),
+.home-cuisine-market :is(h1, h2, h3, p) { color: #fff !important; }
+
+.small-button,
+button.small-button,
+.primary-button {
+  background: var(--coral) !important;
+  border-color: var(--coral) !important;
+  color: #fff !important;
+  box-shadow: 0 10px 24px rgba(244, 81, 76, 0.22) !important;
+}
+
+.small-button:is(:hover, :focus-visible),
+button.small-button:is(:hover, :focus-visible),
+.primary-button:is(:hover, :focus-visible) {
+  background: #d9343f !important;
+  border-color: #d9343f !important;
+}
+
+.small-button.secondary,
+button.small-button.secondary,
+.secondary-button {
+  background: #fff !important;
+  border: 2px solid var(--green-dark) !important;
+  color: var(--green-dark) !important;
+  box-shadow: none !important;
+}
+
+.quick-filter,
+.pantry-chip,
+.region-chip-row a,
+.linked-chip-row a,
+.path-badges span {
+  background: #edfff1 !important;
+  border-color: rgba(7, 95, 60, 0.24) !important;
+  color: var(--green-dark) !important;
+}
+
+.quick-filter.active,
+.pantry-chip.active {
+  background: var(--green-dark) !important;
+  color: #fff !important;
+}
+
+:is(input, select, textarea) {
+  background: #fff !important;
+  border-color: rgba(16, 37, 66, 0.24) !important;
+  color: var(--navy) !important;
+  box-shadow: none !important;
+}
+
+:is(input, select, textarea)::placeholder { color: #708195 !important; opacity: 1; }
+
+.recipe-card,
+.academy-module-card,
+.detail-panel,
+.account-panel,
+.planner-card,
+.path-card,
+.app-card,
+.direct-link-card,
+.holiday-destination-card,
+.holiday-upcoming-card,
+.cookbook-featured-chapter,
+.cookbook-chapter-card,
+.conversion-card,
+.kitchen-math-answer,
+.pantry-category-card {
+  background: #fff !important;
+  border-color: rgba(16, 37, 66, 0.12) !important;
+  color: var(--ink) !important;
+  box-shadow: 0 16px 38px rgba(16, 37, 66, 0.1) !important;
+}
+
+.recipe-card:is(:hover, :focus-within),
+.holiday-destination-card:is(:hover, :focus-within),
+.cookbook-chapter-card:is(:hover, :focus-visible) {
+  box-shadow: 0 22px 48px rgba(8, 116, 67, 0.18) !important;
+  border-color: rgba(8, 116, 67, 0.32) !important;
+}
+
+.recipe-card :is(h2, h3, strong, a),
+.cookbook-chapter-card strong,
+.holiday-destination-card :is(h2, h3, strong),
+.planner-card :is(h2, h3, strong) { color: var(--navy) !important; }
+
+.recipe-card img,
+.cookbook-chapter-card img,
+.holiday-destination-card img,
+.home-editorial-dish img,
+.home-cuisine-scroll img,
+.home-tonight-photo img,
+.home-recipe-week img {
+  filter: saturate(1.12) contrast(1.04) brightness(1.02) !important;
+}
+
+.hero::after,
+.home-hero-photo::after {
+  background: linear-gradient(90deg, rgba(16, 37, 66, 0.72), rgba(16, 37, 66, 0.3) 52%, rgba(16, 37, 66, 0.06)) !important;
+}
+
+.home-magazine-hero {
+  background: #fff8e7 !important;
+  color: #fff !important;
+}
+
+.home-tonight-feature,
+.home-ingredient-river,
+.home-seasonal-table,
+.home-recipe-week,
+.home-community-table {
+  background: linear-gradient(135deg, #fffdf7, #f3fff5 55%, #fff0e7) !important;
+  color: var(--navy) !important;
+}
+
+.home-tonight-copy h2,
+.home-section-kicker h2,
+.home-ingredient-river h2,
+.home-recipe-week h2,
+.home-community-table h2,
+.home-learn-strip h2 { color: var(--navy) !important; }
+
+.home-tonight-copy p,
+.home-learn-strip p,
+.home-recipe-week p,
+.home-community-table p { color: var(--muted) !important; }
+
+.home-tonight-pairings a,
+.home-learn-strip nav a {
+  background: #fff !important;
+  color: var(--navy) !important;
+  box-shadow: 0 14px 34px rgba(16, 37, 66, 0.1) !important;
+}
+
+.home-cuisine-scroll a::after,
+.home-editorial-dish::after,
+.home-ingredient-lane a::after {
+  background: linear-gradient(180deg, transparent 40%, rgba(16, 37, 66, 0.84)) !important;
+}
+
+.site-footer-v2 {
+  background:
+    radial-gradient(circle at 12% 8%, rgba(255, 212, 59, 0.18), transparent 20rem),
+    linear-gradient(135deg, #102542, #075f3c 64%, #087f5b) !important;
+  border-top-color: #ffd43b !important;
+  color: #fff !important;
+}
+
+.site-footer-note h2,
+.site-footer-note p,
+.site-footer-links a,
+.footer-link-button,
+.site-footer-bottom,
+.footer-social-links a { color: #fff !important; }
+
+.site-footer-links h3 { color: #fff18a !important; }
+.site-footer-bottom { border-color: rgba(255, 255, 255, 0.24) !important; }
+
+.kitchen-math-quick-form,
+.yield-tool,
+.kitchen-math-drawer,
+.quick-equivalent-strip span,
+.printable-chart-grid section {
+  background: #fff !important;
+  border-color: rgba(16, 37, 66, 0.14) !important;
+  color: var(--navy) !important;
+  box-shadow: 0 16px 38px rgba(16, 37, 66, 0.1) !important;
+}
+
+@media (max-width: 760px) {
+  .site-header,
+  .main-nav { background: #fff !important; }
+
+  .home-magazine-hero,
+  .home-tonight-feature,
+  .home-ingredient-river,
+  .home-cuisine-market,
+  .home-seasonal-table,
+  .home-learn-strip,
+  .home-recipe-week,
+  .home-community-table { padding-inline: 16px; }
+
+  .recipe-card,
+  .academy-module-card,
+  .detail-panel,
+  .holiday-destination-card,
+  .cookbook-featured-chapter { border-radius: 18px !important; }
+}
