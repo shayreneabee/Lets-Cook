@@ -1,13 +1,13 @@
 # Let's Cook Y'all Content Quality Audit
 
-Generated: 2026-07-17T19:19:54.773Z
+Generated: 2026-07-21T13:18:20.754Z
 
 ## Summary
 
-- Recipes audited: 665
+- Recipes audited: 682
 - Duplicate recipe ID groups: 0
 - Duplicate recipe title groups: 5
-- Shared image groups: 83
+- Shared image groups: 89
 - Generic recipe image assignments: 0
 - Semantic image mismatches: 0
 - Fallback/queued images: 0
@@ -20,7 +20,7 @@ Generated: 2026-07-17T19:19:54.773Z
 - Ingredient search smoke issues: 0
 - Training-only recipes in general discovery: 0
 - Recipes missing required details: 0
-- Recipes missing recommended enrichment details: 665
+- Recipes missing recommended enrichment details: 682
 
 ## Required Holiday Coverage
 
@@ -56,6 +56,7 @@ Generated: 2026-07-17T19:19:54.773Z
 - images/recipes/audit-2026-06/biryani.jpg: 2 recipes
 - images/recipes/audit-2026-06/chana-masala.jpg: 2 recipes
 - images/recipes/audit-2026-06/southern-fried-chicken.png: 2 recipes
+- images/juneteenth/cast-iron-skillet-cornbread.png: 2 recipes
 - images/regional/mississippi/mac-and-cheese.jpg: 2 recipes
 - images/recipes/asian-hub-2026/thai-basil-chicken.png: 2 recipes
 - images/cuisines/africa/nigeria/suya-skewers.jpg: 2 recipes
@@ -64,9 +65,8 @@ Generated: 2026-07-17T19:19:54.773Z
 - images/recipes/audit-2026-06/grilled-swordfish-lemon-herb.jpg: 4 recipes
 - images/recipes/audit-2026-06/blackened-swordfish.jpg: 2 recipes
 - images/recipes/audit-2026-06/swordfish-tacos.jpg: 2 recipes
+- images/recipes/audit-2026-06/dinner-rolls.jpg: 2 recipes
 - images/regional/mississippi/peach-cobbler.jpg: 2 recipes
-- images/recipes/audit-2026-06/jerk-sauce.jpg: 2 recipes
-- images/juneteenth/hibiscus-red-punch.png: 2 recipes
 
 ## Generic Recipe Images To Replace
 

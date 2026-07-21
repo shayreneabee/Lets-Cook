@@ -13675,6 +13675,29 @@ body {
   }
 }
 
+/* August seasonal layer: high-contrast, late-summer, and intentionally independent
+   from the permanent design system so September can replace it cleanly. */
+.august-announcement {
+  background: #173f2a;
+  color: #fffdf3;
+  border-color: #f3b33d;
+}
+
+.august-announcement strong { color: #ffd66b; }
+
+.home-magazine-hero {
+  --august-ink: #17352a;
+  --august-cream: #fff8e8;
+  background: var(--august-cream);
+  color: var(--august-ink);
+}
+
+.home-magazine-hero .small-button { background: var(--august-ink); color: #fff; }
+.home-magazine-hero .small-button.secondary { background: #fff; color: var(--august-ink); border-color: var(--august-ink); }
+.home-seasonal-table { background: linear-gradient(135deg, #fff4d9, #f8d6bd 55%, #dce9cb); color: #17352a; }
+.footer-social-links { display: flex; flex-wrap: wrap; gap: .85rem; }
+.footer-social-links a { color: inherit; font-weight: 800; }
+
 .kitchen-math-page {
   display: grid;
   gap: clamp(22px, 4vw, 38px);

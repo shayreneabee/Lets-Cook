@@ -22,13 +22,13 @@ const ecosystemApps = [
     accent: "gold",
     image: "assets/lc-fried-chicken.jpg",
     tagline: "Cooking confidence for real families, real kitchens, and warm tables.",
-    description: "Southern fresh meets global flavor through recipes, Cook 101 lessons, Shay's Kitchen, hosting ideas, and meal planning.",
+    description: "Southern fresh meets global flavor through recipes, Cook 101 lessons, the Let's Cook Y'all kitchen, hosting ideas, and meal planning.",
     route: "#lets-cook",
     externalUrl: liveAppUrls.letsCook,
     status: "Launch ready",
     links: [
       ["Open Let's Cook", liveAppUrls.letsCook],
-      ["Shay's Kitchen", "#kitchen"]
+      ["Let's Cook Y'all Kitchen", "#kitchen"]
     ]
   },
   {
@@ -3483,6 +3483,7 @@ const cookbookPrimarySectionLabels = {
   "fish-seafood": "Fish & Seafood",
   miscellaneous: "Miscellaneous",
   breads: "Breads",
+  cookies: "Cookies",
   desserts: "Desserts"
 };
 
@@ -3508,7 +3509,8 @@ function recipeCookbookPrimarySection(recipe = {}) {
   if (has(/seafood|shrimp|fish|salmon|crab|oyster|crawfish|prawn|poke|cioppino|swordfish|walleye|perch|catfish|mullet|halibut|tuna|lobster|clam/, primaryText)) return "fish-seafood";
   if (has(/beef|steak|brisket|\bribs?\b|burger|meatloaf|bulgogi|bison|chislic|prime rib|tenderloin|pot roast|roast beef|ground beef|hamburger/, text)) return "beef";
   if (has(/chicken|turkey|wings|adobo|teriyaki|tikka|tandoori|paprikash|kabsa|poultry|duck|goose/, text)) return "poultry";
-  if (has(/\b(cake|cookies?|pie|cobbler|pudding|shortcake|sweet|dessert|bars?|kheer|flan|baklava|fruitcake|yule log|pavlova|lamington|cupcake|red velvet|carrot cake|coconut cake|pound cake|moon pie|biscochito|tea cakes?|tart|candy|chocolate|sundae|ice cream)\b/, primaryText)
+  if (has(/\b(cookies?|snickerdoodles?|shortbread|gingerbread|molasses cookies?|thumbprint|crinkle cookies?|tea cakes?|pecan sandies|macadamia cookies?)\b/, primaryText)) return "cookies";
+  if (has(/\b(cake|pie|cobbler|pudding|shortcake|sweet|dessert|bars?|kheer|flan|baklava|fruitcake|yule log|pavlova|lamington|cupcake|red velvet|carrot cake|coconut cake|pound cake|moon pie|biscochito|tart|candy|chocolate|sundae|ice cream)\b/, primaryText)
     && !has(/pot pie|meat pie|macaroni pie|tomato pie|pizza pie|shepherd|cottage/, primaryText)) return "desserts";
   if (has(/bread|biscuit|roll|cornbread|naan|tortilla|pita|lefse|sourdough|hushpuppies|hot water|fry bread|flatbread|muffin/, primaryText)
     && !has(/bread pudding|breaded|bread crumbs|bread crumbs|sandwich|burger|hot dog|po.?boy|poboy|gyro|burrito|taco|wrap/, primaryText)) return "breads";
@@ -5666,8 +5668,28 @@ const america250ExpansionRecipes = [
   midAtlanticRecipe("cookout-watermelon-wedges", "Cookout Watermelon Wedges", "bbq", "Fourth of July Collection", "Cold watermelon wedges with lime, mint, and optional salt for a fast summer table refresher.", ["1 seedless watermelon", "2 limes", "Fresh mint", "Flaky salt optional"], ["Chill watermelon well.", "Slice into wedges.", "Arrange on a platter.", "Squeeze lime over the fruit.", "Add mint and a tiny pinch of salt if desired."], ["america 250", "fourth of july", "watermelon", "fruit"], { prep: "10 min", cook: "0 min", servings: 12, image: "images/juneteenth/watermelon-platter.png" })
 ];
 
+const foundationalBreadAndCookieRecipes = [
+  midAtlanticRecipe("sourdough-bread", "Sourdough Bread", "global", "Breads", "A crackly naturally leavened loaf with an open crumb and deep fermented flavor.", ["100 g active sourdough starter", "375 g warm water", "500 g bread flour", "10 g kosher salt"], ["Mix starter and water, then add flour and rest 30 minutes.", "Work in salt and complete four stretch-and-fold rounds.", "Bulk ferment until airy, shape, and refrigerate overnight.", "Score and bake in a covered Dutch oven at 475 F.", "Uncover and bake until deeply browned; cool completely."], ["sourdough", "bread", "fermentation"], { image: "images/recipes/audit-2026-06/french-bread.jpg", prep: "45 min plus rising", cook: "45 min", servings: 12, level: "Advanced" }),
+  midAtlanticRecipe("white-sandwich-bread", "White Sandwich Bread", "global", "Breads", "A soft, fine-crumbed everyday loaf that slices cleanly for toast and lunch boxes.", ["4 cups bread flour", "2 1/4 tsp yeast", "1 1/2 cups warm milk", "3 tbsp butter", "2 tbsp sugar", "2 tsp salt"], ["Mix and knead a soft smooth dough.", "Rise until doubled.", "Shape tightly and place in a loaf pan.", "Rise until crowned above the rim.", "Bake at 375 F until golden and 195 F inside."], ["sandwich bread", "lunch", "yeast bread"], { image: "images/recipes/audit-2026-06/french-bread.jpg", prep: "25 min plus rising", cook: "35 min", servings: 12 }),
+  midAtlanticRecipe("jalapeno-cornbread", "Jalapeño Cornbread", "southern", "Breads", "Skillet cornbread with jalapeño, scallions, and optional cheddar for chili and cookouts.", ["1 1/2 cups cornmeal", "1/2 cup flour", "1 tbsp baking powder", "1 1/2 cups buttermilk", "2 eggs", "1 jalapeño", "1 cup cheddar optional", "3 tbsp oil"], ["Heat an oiled skillet in a 425 F oven.", "Mix dry ingredients.", "Whisk buttermilk and eggs, then combine.", "Fold in jalapeño and cheese.", "Pour into the hot skillet and bake until crisp and golden."], ["cornbread", "jalapeno", "skillet"], { image: "images/juneteenth/cast-iron-skillet-cornbread.png", prep: "15 min", cook: "24 min", servings: 8 }),
+  midAtlanticRecipe("banana-bread", "Banana Bread", "southern", "Breads", "A moist quick bread packed with ripe banana and warm vanilla.", ["3 ripe bananas", "1/2 cup melted butter", "3/4 cup brown sugar", "2 eggs", "1 tsp vanilla", "1 1/2 cups flour", "1 tsp baking soda", "1/2 tsp salt"], ["Heat oven to 350 F and grease a loaf pan.", "Mash bananas with butter and sugar.", "Whisk in eggs and vanilla.", "Fold in flour, baking soda, and salt just until combined.", "Bake until a tester comes out clean."], ["banana bread", "quick bread", "breakfast"], { image: "images/recipes/new-england-2026/brown-bread.jpg", prep: "15 min", cook: "55 min", servings: 10 }),
+  midAtlanticRecipe("pumpkin-bread", "Pumpkin Bread", "southern", "Breads", "A tender spiced pumpkin loaf for breakfast, snacks, and fall lunch boxes.", ["1 3/4 cups flour", "1 tsp baking soda", "2 tsp pumpkin spice", "1/2 tsp salt", "1 cup pumpkin puree", "2 eggs", "3/4 cup brown sugar", "1/2 cup oil"], ["Heat oven to 350 F and grease a loaf pan.", "Whisk dry ingredients.", "Whisk pumpkin, eggs, sugar, and oil.", "Fold wet and dry mixtures together.", "Bake until set through the center."], ["pumpkin bread", "quick bread", "fall"], { image: "images/recipes/new-england-2026/brown-bread.jpg", prep: "15 min", cook: "55 min", servings: 10 }),
+  midAtlanticRecipe("rosemary-focaccia", "Focaccia", "italian", "Breads", "Olive-oil-rich focaccia with a crisp bottom, airy crumb, rosemary, and flaky salt.", ["4 cups bread flour", "2 1/4 tsp yeast", "2 cups warm water", "2 tsp salt", "1/3 cup olive oil", "Rosemary", "Flaky salt"], ["Mix a wet dough and refrigerate overnight.", "Pour into an oiled pan and let rise until bubbly.", "Dimple deeply with oiled fingers.", "Top with rosemary, oil, and salt.", "Bake at 425 F until deeply golden."], ["focaccia", "italian bread", "olive oil"], { image: "images/recipes/audit-2026-06/french-bread.jpg", prep: "20 min plus rising", cook: "28 min", servings: 12 }),
+  midAtlanticRecipe("classic-garlic-bread", "Garlic Bread", "italian", "Breads", "Crusty bread spread with garlic-herb butter and baked until crisp at the edges.", ["1 French or Italian loaf", "8 tbsp softened butter", "4 garlic cloves", "2 tbsp parsley", "1/4 cup parmesan optional", "Salt"], ["Split the loaf lengthwise.", "Mix butter, garlic, parsley, salt, and parmesan.", "Spread to every edge.", "Bake at 400 F until hot and crisp.", "Broil briefly for extra color and slice."], ["garlic bread", "italian", "side"], { image: "images/recipes/audit-2026-06/french-bread.jpg", prep: "10 min", cook: "12 min", servings: 8 }),
+  midAtlanticRecipe("classic-cinnamon-rolls", "Cinnamon Rolls", "southern", "Breads", "Soft swirled breakfast rolls with cinnamon-brown sugar filling and vanilla glaze.", ["4 cups flour", "2 1/4 tsp yeast", "1 cup warm milk", "1/3 cup butter", "2 eggs", "3/4 cup brown sugar", "2 tbsp cinnamon", "Vanilla glaze"], ["Mix, knead, and rise the enriched dough.", "Roll into a rectangle and spread with butter, sugar, and cinnamon.", "Roll up, cut, and place in a baking dish.", "Rise until puffy and bake at 350 F.", "Glaze while warm."], ["cinnamon rolls", "breakfast", "yeast bread"], { image: "images/recipes/audit-2026-06/dinner-rolls.jpg", prep: "35 min plus rising", cook: "25 min", servings: 12, level: "Intermediate" }),
+  midAtlanticRecipe("classic-peanut-butter-cookies", "Peanut Butter Cookies", "southern", "Cookies", "Tender peanut butter cookies with the classic crisscross top.", ["1 cup peanut butter", "1/2 cup butter", "3/4 cup brown sugar", "1/2 cup sugar", "1 egg", "1 1/2 cups flour", "1 tsp baking soda"], ["Cream butter, peanut butter, and sugars.", "Beat in egg.", "Fold in flour and baking soda.", "Roll into balls and press with a fork.", "Bake at 350 F until the edges set."], ["peanut butter cookies", "cookies"], { image: "images/recipes/audit-2026-06/chewy-chocolate-cookies.jpg", prep: "15 min", cook: "10 min", servings: 24 }),
+  midAtlanticRecipe("oatmeal-raisin-cookies", "Oatmeal Raisin Cookies", "southern", "Cookies", "Chewy oatmeal cookies with raisins, cinnamon, and crisp golden edges.", ["1 cup butter", "1 cup brown sugar", "2 eggs", "1 1/2 cups flour", "3 cups rolled oats", "1 cup raisins", "1 tsp cinnamon", "1 tsp baking soda"], ["Cream butter and sugar, then beat in eggs.", "Mix flour, cinnamon, and baking soda.", "Fold in oats and raisins.", "Scoop onto lined pans.", "Bake at 350 F until golden at the edges."], ["oatmeal raisin cookies", "cookies"], { image: "images/recipes/audit-2026-06/chewy-chocolate-cookies.jpg", prep: "15 min", cook: "12 min", servings: 30 }),
+  midAtlanticRecipe("snickerdoodles", "Snickerdoodles", "southern", "Cookies", "Soft, tangy cookies rolled generously in cinnamon sugar.", ["1 cup butter", "1 1/2 cups sugar", "2 eggs", "2 3/4 cups flour", "2 tsp cream of tartar", "1 tsp baking soda", "2 tsp cinnamon"], ["Cream butter and sugar, then add eggs.", "Mix in flour, cream of tartar, and baking soda.", "Roll dough into balls.", "Coat in cinnamon sugar.", "Bake at 375 F until puffed and just set."], ["snickerdoodles", "cookies", "cinnamon"], { image: "images/recipes/audit-2026-06/chewy-chocolate-cookies.jpg", prep: "20 min", cook: "9 min", servings: 30 }),
+  midAtlanticRecipe("classic-shortbread", "Shortbread", "global", "Cookies", "Buttery, sandy shortbread with clean vanilla flavor and crisp edges.", ["1 cup butter", "1/2 cup powdered sugar", "2 cups flour", "1 tsp vanilla", "1/2 tsp salt"], ["Cream butter and powdered sugar.", "Mix in vanilla, flour, and salt.", "Press into a pan or shape into a log and chill.", "Cut or score portions.", "Bake at 325 F until pale gold."], ["shortbread", "cookies"], { image: "images/recipes/mid-atlantic-2026/black-white-cookies.jpg", prep: "15 min plus chilling", cook: "25 min", servings: 24 }),
+  midAtlanticRecipe("molasses-cookies", "Molasses Cookies", "southern", "Cookies", "Chewy dark molasses cookies fragrant with ginger, cinnamon, and cloves.", ["3/4 cup butter", "1 cup brown sugar", "1 egg", "1/3 cup molasses", "2 1/4 cups flour", "2 tsp ginger", "1 tsp cinnamon", "1/4 tsp cloves"], ["Cream butter and sugar.", "Beat in egg and molasses.", "Fold in flour and spices.", "Chill, then roll in sugar.", "Bake at 350 F until crackled and set at the edges."], ["molasses cookies", "ginger cookies", "cookies"], { image: "images/recipes/audit-2026-06/chewy-chocolate-cookies.jpg", prep: "20 min plus chilling", cook: "10 min", servings: 24 }),
+  midAtlanticRecipe("thumbprint-cookies", "Thumbprint Cookies", "global", "Cookies", "Tender butter cookies filled with bright jam.", ["1 cup butter", "2/3 cup sugar", "2 egg yolks", "2 cups flour", "1 tsp vanilla", "1/2 cup jam"], ["Cream butter and sugar, then add yolks and vanilla.", "Mix in flour.", "Roll into balls and make a deep thumbprint.", "Fill with a small spoonful of jam.", "Bake at 350 F until lightly golden."], ["thumbprint cookies", "jam cookies", "cookies"], { image: "images/recipes/mid-atlantic-2026/black-white-cookies.jpg", prep: "20 min", cook: "12 min", servings: 24 }),
+  midAtlanticRecipe("chocolate-crinkle-cookies", "Chocolate Crinkle Cookies", "global", "Cookies", "Fudgy chocolate cookies rolled in powdered sugar for a dramatic crackled top.", ["1 cup cocoa", "2 cups sugar", "1/2 cup oil", "4 eggs", "2 cups flour", "2 tsp baking powder", "1 cup powdered sugar"], ["Whisk cocoa, sugar, and oil.", "Beat in eggs, then fold in flour and baking powder.", "Chill until firm.", "Roll in powdered sugar.", "Bake at 350 F until crackled and soft-centered."], ["chocolate crinkle cookies", "cookies", "chocolate"], { image: "images/recipes/audit-2026-06/chewy-chocolate-cookies.jpg", prep: "20 min plus chilling", cook: "11 min", servings: 30 }),
+  midAtlanticRecipe("white-chocolate-macadamia-cookies", "White Chocolate Macadamia Cookies", "global", "Cookies", "Chewy cookies with buttery macadamias and creamy white chocolate.", ["1 cup butter", "1 cup brown sugar", "1/2 cup sugar", "2 eggs", "2 3/4 cups flour", "1 tsp baking soda", "1 cup white chocolate chips", "1 cup macadamias"], ["Cream butter and sugars.", "Beat in eggs.", "Fold in flour and baking soda.", "Add white chocolate and macadamias.", "Scoop and bake at 350 F until golden at the edges."], ["white chocolate macadamia cookies", "cookies"], { image: "images/recipes/audit-2026-06/chewy-chocolate-cookies.jpg", prep: "20 min", cook: "11 min", servings: 30 }),
+  midAtlanticRecipe("pecan-sandies", "Pecan Sandies", "southern", "Cookies", "Crumbly butter cookies loaded with toasted pecans.", ["1 cup butter", "2/3 cup powdered sugar", "2 cups flour", "1 cup toasted pecans", "1 tsp vanilla", "1/2 tsp salt"], ["Cream butter and powdered sugar.", "Add vanilla, flour, and salt.", "Fold in pecans.", "Shape, chill, and slice.", "Bake at 325 F until the edges are lightly golden."], ["pecan sandies", "cookies", "pecans"], { image: "images/recipes/mid-atlantic-2026/black-white-cookies.jpg", prep: "20 min plus chilling", cook: "16 min", servings: 30 })
+];
+
 const existingRecipeIds = new Set(recipes.map((recipe) => recipe.id));
-recipes = [...recipes, ...[...nextFeatureRecipes, ...menuIntelligenceRecipes, ...regionalAuthenticityRecipes, ...livingCookbookRecipes, ...kidsKornerRecipes, ...kidsExpansionRecipes, ...familyExpansionRecipes, ...mississippiHeritageRecipes, ...africaExpansionRecipes, ...midwestExpansionRecipes, ...newEnglandExpansionRecipes, ...southwestExpansionRecipes, ...midAtlanticExpansionRecipes, ...westernExpansionRecipes, ...globalCuisineExpansionRecipes, ...holidayExpansionRecipes, ...america250ExpansionRecipes].filter((recipe) => !existingRecipeIds.has(recipe.id))];
+recipes = [...recipes, ...[...nextFeatureRecipes, ...menuIntelligenceRecipes, ...regionalAuthenticityRecipes, ...livingCookbookRecipes, ...kidsKornerRecipes, ...kidsExpansionRecipes, ...familyExpansionRecipes, ...mississippiHeritageRecipes, ...africaExpansionRecipes, ...midwestExpansionRecipes, ...newEnglandExpansionRecipes, ...southwestExpansionRecipes, ...midAtlanticExpansionRecipes, ...westernExpansionRecipes, ...globalCuisineExpansionRecipes, ...holidayExpansionRecipes, ...america250ExpansionRecipes, ...foundationalBreadAndCookieRecipes].filter((recipe) => !existingRecipeIds.has(recipe.id))];
 
 const lessons = [
   {
@@ -8447,7 +8469,7 @@ function siteFooterMarkup(route = "") {
   const navGroups = [
     ["Cook", [
       ["Home", "#lets-cook"],
-      ["Recipes", "#recipes"],
+      ["Living Cookbook", "#recipes"],
       ["Explore Cuisines", "#cuisine-explorer"],
       ["America", "#america-250"],
       ["Cook 101", "#cook101"],
@@ -8493,7 +8515,11 @@ function siteFooterMarkup(route = "") {
       </nav>
       <div class="site-footer-bottom">
         <span>Made with love, discipline, and a little Mississippi grit.</span>
-        <span>Social links coming soon.</span>
+        <nav class="footer-social-links" aria-label="Social links">
+          <a href="https://www.instagram.com/letscookyall/" rel="noreferrer">Instagram</a>
+          <a href="https://www.youtube.com/@letscookyall" rel="noreferrer">YouTube</a>
+          <a href="https://www.pinterest.com/letscookyall/" rel="noreferrer">Pinterest</a>
+        </nav>
       </div>
     </footer>
   `;
@@ -12246,11 +12272,11 @@ function shayKitchenSectionMarkup({ includeCategories = true } = {}) {
     <section class="cream-section shay-kitchen-section" id="shay-kitchen">
       <div class="shay-kitchen-intro detail-panel">
         <div>
-          <p class="eyebrow">Shay's Kitchen</p>
+          <p class="eyebrow">Let's Cook Y'all Kitchen</p>
           <h2>Comfort food, family food, holiday food, and real-life weeknight plates.</h2>
           <p>These are the recipes that give Let's Cook Y'all its home base: cookable, warm, practical, and ready for the table. Start here when you want something that feels familiar, generous, and made with care.</p>
         </div>
-        <div class="shay-kitchen-tags" aria-label="Shay's Kitchen categories">
+        <div class="shay-kitchen-tags" aria-label="Let's Cook Y'all Kitchen categories">
           <span>Southern</span>
           <span>Comfort</span>
           <span>Holiday</span>
@@ -12259,7 +12285,7 @@ function shayKitchenSectionMarkup({ includeCategories = true } = {}) {
       </div>
       <div class="hero-actions"><a class="small-button" href="#add-recipe">Add Recipe</a><a class="small-button secondary" href="#account">My Kitchen Profile</a><a class="small-button secondary" href="#recipes">Browse Recipes</a></div>
       <div class="section-heading compact-heading">
-        <p class="eyebrow">Featured Shay recipes</p>
+        <p class="eyebrow">Featured kitchen recipes</p>
         <h2>Cook something from the kitchen.</h2>
       </div>
       <div class="recipe-grid">${featured.slice(0, 6).map(recipeCard).join("")}</div>
@@ -12267,7 +12293,7 @@ function shayKitchenSectionMarkup({ includeCategories = true } = {}) {
     ${includeCategories ? categories.map((section) => `
       <section class="cream-section shay-category-section">
         <div class="section-heading compact-heading">
-          <p class="eyebrow">Shay's Kitchen</p>
+          <p class="eyebrow">Let's Cook Y'all Kitchen</p>
           <h2>${section.title}</h2>
           <p>${section.text}</p>
         </div>
@@ -12277,10 +12303,54 @@ function shayKitchenSectionMarkup({ includeCategories = true } = {}) {
   `;
 }
 
+function dailyRotationKey(namespace = "lets-cook") {
+  const now = new Date();
+  const date = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+  return `${namespace}:${date}`;
+}
+
+function stableRotationNumber(value = "") {
+  let hash = 2166136261;
+  for (const character of String(value)) {
+    hash ^= character.charCodeAt(0);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
+}
+
+function dailyDiverseRecipes(pool = [], count = 8, namespace = "featured", excludedRecipes = []) {
+  const excludedIds = new Set(excludedRecipes.filter(Boolean).map((recipe) => recipe.id));
+  const ranked = [...new Map(pool.filter(recipeAllowedInGeneralCollection).map((recipe) => [recipe.id, recipe])).values()]
+    .filter((recipe) => !excludedIds.has(recipe.id))
+    .sort((a, b) => stableRotationNumber(`${dailyRotationKey(namespace)}:${a.id}`) - stableRotationNumber(`${dailyRotationKey(namespace)}:${b.id}`));
+  const selected = [];
+  const usedImages = new Set();
+  const dimensionCounts = { protein: new Map(), cuisine: new Map(), method: new Map() };
+  const dimension = (recipe, key) => recipeSearchIndex(recipe)[key]?.[0] || "other";
+  const canAdd = (recipe, relaxed = false) => {
+    const image = recipePhotoFor(recipe);
+    if (usedImages.has(image)) return false;
+    if (relaxed) return true;
+    return ["protein", "cuisine", "method"].every((key) => {
+      const value = key === "cuisine" ? (recipe.cuisine || "other") : dimension(recipe, `${key}s`);
+      return (dimensionCounts[key].get(value) || 0) < 2;
+    });
+  };
+  [false, true].forEach((relaxed) => ranked.forEach((recipe) => {
+    if (selected.length >= count || selected.includes(recipe) || !canAdd(recipe, relaxed)) return;
+    selected.push(recipe);
+    usedImages.add(recipePhotoFor(recipe));
+    ["protein", "cuisine", "method"].forEach((key) => {
+      const value = key === "cuisine" ? (recipe.cuisine || "other") : dimension(recipe, `${key}s`);
+      dimensionCounts[key].set(value, (dimensionCounts[key].get(value) || 0) + 1);
+    });
+  }));
+  return selected;
+}
+
 function homepageRecipeDiscoverySection() {
-  const tonight = recipeByIdSafe("fried-chicken") || recipeByIdSafe("smothered-chicken") || allRecipeCollection()[0];
-  const side = recipeByIdSafe("southern-potato-salad") || recipeByIdSafe("green-bean-casserole");
-  const dessert = recipeByIdSafe("strawberry-shortcake") || recipeByIdSafe("peach-cobbler");
+  const augustPool = allRecipeCollection().filter((recipe) => /peach|corn|okra|tomato|melon|salad|grill|weeknight|lunch/i.test(recipeSearchText(recipe)));
+  const [tonight, side, dessert] = dailyDiverseRecipes(augustPool, 3, "homepage-tonight");
   return `
     <section class="home-tonight-feature" id="recipe-discovery" aria-labelledby="tonightTitle">
       <div class="home-tonight-copy">
@@ -12321,17 +12391,18 @@ function homepageEditorialRecipeLink(recipe, label = "", className = "") {
 }
 
 function homepageEditorialHeroSection() {
-  const heroRecipe = recipeByIdSafe("bbq-smoked-ribs") || recipeByIdSafe("fried-chicken") || allRecipeCollection()[0];
-  const supporting = recipesByIds(["strawberry-shortcake", "lemonade", "peach-cobbler"]).filter(Boolean);
+  const augustPool = allRecipeCollection().filter((recipe) => /peach|corn|okra|tomato|melon|salad|grill|weeknight|lunch/i.test(recipeSearchText(recipe)));
+  const heroRecipe = dailyDiverseRecipes(augustPool, 1, "homepage-hero")[0] || allRecipeCollection()[0];
+  const supporting = dailyDiverseRecipes(augustPool, 3, "homepage-sideboard", [heroRecipe]);
   return `
     <section class="home-magazine-hero" aria-labelledby="homeHeroTitle">
       <figure class="home-hero-photo">
-        ${heroRecipe ? `<img src="${recipePhotoFor(heroRecipe)}" alt="${heroRecipe.title}" />` : ""}
+        <img src="images/seasonal/august-2026/farmers-market-kitchen.png" alt="Late-summer farmers market table with peaches, tomatoes, corn, okra, watermelon, and fresh herbs" />
       </figure>
       <div class="home-hero-copy">
-        <p class="eyebrow">Let's Cook Y'all / America through food</p>
-        <h1 id="homeHeroTitle">Hey y'all... come hungry.</h1>
-        <p>A warm kitchen, real recipes, summer plates, and a whole country worth tasting.</p>
+        <p class="eyebrow">Let's Cook Y'all / Late summer</p>
+        <h1 id="homeHeroTitle">August tastes like the garden showed out.</h1>
+        <p>Farmers-market produce, back-to-school lunches, easy weeknight dinners, fresh salads, grilling, and one more peach dessert.</p>
         <form class="home-hero-search" data-ingredient-form>
           <label for="homeHeroSearch">What are we cooking today?</label>
           <div>
@@ -12341,7 +12412,7 @@ function homepageEditorialHeroSection() {
         </form>
         <div class="hero-actions">
           <a class="small-button" href="#recipes">Find A Recipe</a>
-          <a class="small-button secondary" href="#america-250">America 250 Table</a>
+          <a class="small-button secondary" href="#recipes">Open the August collection</a>
         </div>
       </div>
       <div class="home-hero-sideboard" aria-label="Featured bites">
@@ -12400,13 +12471,14 @@ function homepageCuisineScrollSection() {
 }
 
 function homepageSeasonalEditorialSection() {
-  const recipes = recipesByIds(["all-american-burgers", "classic-cookout-hot-dogs", "bbq-baked-beans", "corn-on-the-cob", "cookout-watermelon-wedges", "peach-cobbler"]).filter(Boolean);
+  const augustPool = allRecipeCollection().filter((recipe) => /peach|corn|okra|tomato|watermelon|melon|herb|salad|grill|lunch|weeknight/i.test(recipeSearchText(recipe)));
+  const recipes = dailyDiverseRecipes(augustPool, 6, "homepage-august-seasonal");
   return `
     <section class="home-seasonal-table" aria-labelledby="seasonalTitle">
       <div class="home-section-kicker">
         <p class="eyebrow">Seasonal collection</p>
-        <h2 id="seasonalTitle">Summer food that disappears first.</h2>
-        <a class="small-button secondary" href="#america-250">See Today's Table</a>
+        <h2 id="seasonalTitle">August: market bags, lunch boxes, and easy suppers.</h2>
+        <a class="small-button secondary" href="#recipes">See Today's Table</a>
       </div>
       <div class="home-seasonal-spread">
         ${recipes.map((recipe, index) => homepageEditorialRecipeLink(recipe, ["Grill", "Backyard", "Side", "Fresh", "Cold fruit", "Dessert"][index], index === 0 ? "large" : "")).join("")}
@@ -12458,7 +12530,7 @@ function homepageCommunityEditorialSection() {
         <p class="eyebrow">Community recipes</p>
         <h2 id="communityTitle">Fresh from the neighborhood.</h2>
         <p>The plate Grandma makes, the church pan, the corner carryout, the cookout favorite, and the dish somebody says you have to try.</p>
-        <a class="small-button secondary" href="#kitchen">Open Shay's Kitchen</a>
+        <a class="small-button secondary" href="#kitchen">Open the Let's Cook Y'all Kitchen</a>
       </div>
       <div class="home-community-polaroids">
         ${shown.map((recipe) => homepageEditorialRecipeLink(recipe, recipeStoryLabel(recipe))).join("")}
@@ -13865,7 +13937,7 @@ function renderCuisineExplorerDetail(id) {
   const familyFavorites = cuisineProfileList(profile, "familyFavorites", dishes.slice(0, 5));
   const quickMeals = cuisineProfileList(profile, "quickMeals", lunch);
   const regionalDifferences = cuisineProfileList(profile, "regionalDifferences", [`${title} includes regional differences by city, coast, climate, community, and family tradition.`]);
-  const cuisineRecipes = recipesForCuisine(recipeCuisineId, 12);
+  const cuisineRecipes = dailyDiverseRecipes(recipesForCuisine(recipeCuisineId, 60), 12, `cuisine-detail-${normalized}`);
   const practiceTrack = practiceTrackForCuisine(normalized, recipeCuisineId, profile, group, parentGroup);
   const regions = group?.regions || [];
   app.innerHTML = `
@@ -15081,7 +15153,7 @@ function renderAddRecipe() {
     "Vegetarian"
   ];
   app.innerHTML = `
-    ${hero("Add Recipe", "Save your family recipes, weeknight wins, holiday dishes, and kitchen stories into your own Let's Cook Y'all collection.", photoFor("hero", "family", 2, "assets/cooking-family.jpeg"), `<a class="small-button" href="#kitchen">Back to Shay's Kitchen</a>`)}
+    ${hero("Add Recipe", "Save your family recipes, weeknight wins, holiday dishes, and kitchen stories into your own Let's Cook Y'all collection.", photoFor("hero", "family", 2, "assets/cooking-family.jpeg"), `<a class="small-button" href="#kitchen">Back to Let's Cook Y'all Kitchen</a>`)}
     ${cookSubnav()}
     <section class="cream-section add-recipe-section">
       <div class="detail-panel add-recipe-panel">
@@ -15232,10 +15304,11 @@ const cookbookChapterDefinitions = [
   { id: "fish-seafood", title: "Main Dishes: Fish & Seafood", intro: "Fish fries, salmon, shrimp, crab, oysters, poke, prawns, and coastal suppers.", pattern: /seafood|shrimp|fish|salmon|crab|oyster|crawfish|prawn|poke|cioppino|swordfish|walleye|perch|catfish|mullet|halibut|tuna/ },
   { id: "miscellaneous", title: "Miscellaneous", intro: "Appetizers, sandwiches, tacos, rice dishes, casseroles, noodles, sauces, and party plates.", pattern: /appetizer|starter|dip|rangoon|deviled|sliders|nachos|quesadilla|fritters|charcuterie|meatballs|snack|sandwich|wrap|hot dog|po.?boy|poboy|gyro|burrito|taco|roll|banh mi|jibarito|pasta|spaghetti|alfredo|noodle|lo mein|mac and cheese|macaroni|ravioli|rice|jollof|biryani|pilaf|arroz|fried rice|red rice|dirty rice|nasi|koshari|casserole|hotdish|dressing|gravy|sauce|chutney|salsa|seasoning|tzatziki|comeback|mumbo|chimichurri|vinaigrette|breakfast|brunch|eggs|pancakes|smoothie|hash|holiday|thanksgiving|christmas|easter|halloween|juneteenth|fourth|valentine|new year|diwali|eid/ },
   { id: "breads", title: "Breads", intro: "Biscuits, cornbread, rolls, flatbreads, naan, tortillas, hushpuppies, and griddle breads.", pattern: /bread|biscuit|roll|cornbread|naan|tortilla|pita|lefse|sourdough|hushpuppies|hot water|fry bread|flatbread/ },
-  { id: "desserts", title: "Desserts", intro: "Cakes, cookies, pies, cobblers, puddings, sweet bars, fruit treats, and celebration desserts.", pattern: /dessert|cake|cookies?|pie|cobbler|pudding|shortcake|sweet|bars|paczki|kringle|kheer|flan|baklava|fruitcake|yule log|pavlova|lamington|cupcake|red velvet|carrot cake|coconut cake|pound cake|moon pie|biscochito|tea cakes|tart/ }
+  { id: "cookies", title: "Cookies", intro: "Chocolate chip, sugar, peanut butter, oatmeal, shortbread, tea cakes, and holiday cookie tins.", pattern: /cookies?|snickerdoodle|shortbread|gingerbread|molasses|thumbprint|crinkle|tea cakes|sandies|macadamia/ },
+  { id: "desserts", title: "Desserts", intro: "Cakes, pies, cobblers, puddings, sweet bars, fruit treats, and celebration desserts.", pattern: /dessert|cake|pie|cobbler|pudding|shortcake|sweet|bars|paczki|kringle|kheer|flan|baklava|fruitcake|yule log|pavlova|lamington|cupcake|red velvet|carrot cake|coconut cake|pound cake|moon pie|biscochito|tart/ }
 ];
 
-function recipesForCookbookChapter(chapter, limit = 12) {
+function recipesForCookbookChapter(chapter, limit = Number.POSITIVE_INFINITY) {
   const seen = new Set();
   return allRecipeCollection()
     .filter((recipe) => {
@@ -15244,7 +15317,7 @@ function recipesForCookbookChapter(chapter, limit = 12) {
       if (matches) seen.add(recipe.id);
       return matches;
     })
-    .slice(0, limit);
+    .slice(0, Number.isFinite(limit) ? limit : undefined);
 }
 
 function cookbookChapterShelf() {
@@ -15257,12 +15330,13 @@ function cookbookChapterShelf() {
       </div>
       <div class="cookbook-chapter-scroll" aria-label="Cookbook recipe chapters">
         ${cookbookChapterDefinitions.map((chapter) => {
-          const chapterRecipes = recipesForCookbookChapter(chapter, 8);
-          const cover = chapterRecipes[0] || recipes[0];
+          const allChapterRecipes = recipesForCookbookChapter(chapter);
+          const previewRecipes = allChapterRecipes.slice(0, 8);
+          const cover = previewRecipes[0] || recipes[0];
           return `
-            <a class="cookbook-chapter-card" href="#recipes" data-quick-filter="chapter:${chapter.id}" aria-label="${chapter.title}, ${chapterRecipes.length} recipes">
+            <a class="cookbook-chapter-card" href="#recipes" data-quick-filter="chapter:${chapter.id}" aria-label="${chapter.title}, browse all ${allChapterRecipes.length} recipes">
               <img src="${recipePhotoFor(cover)}" alt="" />
-              <span>${chapterRecipes.length} recipes</span>
+              <span>${allChapterRecipes.length} recipes · browse all</span>
               <strong>${chapter.title}</strong>
             </a>
           `;
@@ -16013,7 +16087,8 @@ function renderCuisine(id) {
   const cuisineId = canonicalCuisineId(id);
   const cuisine = cuisines.find((item) => item.id === cuisineId) || cuisines[0];
   const isHolidaySunday = cuisine.id === "holiday-sunday";
-  const cuisineRecipes = isHolidaySunday ? holidaySundayRecipes(24) : recipesForCuisine(cuisine.id, 18);
+  const cuisinePool = isHolidaySunday ? holidaySundayRecipes(80) : recipesForCuisine(cuisine.id, 80);
+  const cuisineRecipes = dailyDiverseRecipes(cuisinePool, isHolidaySunday ? 24 : 18, `cuisine-${cuisine.id}`);
   const education = cuisineEducationProfiles[cuisine.id] || cuisineEducationProfiles.global || {
     culture: cuisine.blurb,
     ingredients: ["salt", "acid", "fat", "heat", "fresh herbs"],
@@ -16145,7 +16220,7 @@ function recipeCard(recipe) {
       <a class="recipe-photo ${resolvedPhoto.source === "queued-for-replacement" ? "photo-needed-frame" : ""}" href="#recipes/${recipe.id}"><img src="${resolvedPhoto.image}" alt="${recipe.title}" />${recipePhotoStatusBadge(resolvedPhoto)}</a>
       <div class="recipe-content">
         <div class="recipe-card-topline">
-          ${recipe.isUserRecipe ? `<span>My Kitchen</span>` : isPersonal ? `<span>Shay's Kitchen</span>` : `<span>${cuisineName(recipe.cuisine)}</span>`}
+          ${recipe.isUserRecipe ? `<span>My Kitchen</span>` : isPersonal ? `<span>Let's Cook Y'all Kitchen</span>` : `<span>${cuisineName(recipe.cuisine)}</span>`}
           <span>${recipe.skill_level}</span>
         </div>
         <div class="recipe-story-label">${recipeStoryLabel(recipe)}</div>
