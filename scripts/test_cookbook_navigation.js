@@ -23,7 +23,11 @@ globalThis.__cookbookTest = {
   rankRecipesForDiscovery,
   routeParts,
   recipeCard,
-  siteFooterMarkup
+  siteFooterMarkup,
+  renderCommunity,
+  communityPostCard,
+  cookingProfileHome,
+  communityVideoForm
 };
 `;
 
@@ -128,6 +132,30 @@ for (const route of ["#lets-cook", "#recipes", "#cuisine-explorer", "#america-25
   assert(footer.includes(`href="${route}"`), `Footer route missing: ${route}`);
 }
 assert(footer.includes("data-back-to-top"), "Footer Back to Top must have a real handler target");
+
+const profileMarkup = api.cookingProfileHome({ displayName: "Test Cook", bio: "I cook colorful food.", city: "Chicago", state: "IL", accountType: "Home Cook", badges: ["Founding Cook"] });
+for (const tab of ["posts", "recipes", "videos", "favorites", "meal-plans", "reviews", "about"]) {
+  assert(profileMarkup.includes(`data-profile-tab="${tab}"`), `Cooking profile tab missing: ${tab}`);
+}
+assert(profileMarkup.includes("cook-profile-cover"), "Cooking profile needs a customizable cover");
+assert(profileMarkup.includes("cook-profile-avatar"), "Cooking profile needs an overlapping avatar");
+assert(profileMarkup.includes("Followers") && profileMarkup.includes("Following"), "Cooking profile needs community stats");
+assert(profileMarkup.includes("Favorite cuisines") && profileMarkup.includes("Cooking style"), "Cooking profile needs food identity details");
+
+const postMarkup = api.communityPostCard({ id: "test-post", author: "Test Cook", text: "Added mushrooms.", recipeId: "carrot-cake" });
+for (const action of ["fork", "made", "save"]) assert(postMarkup.includes(`data-community-action="${action}"`), `Community action missing: ${action}`);
+assert(postMarkup.includes("data-community-share"), "Community post must support sharing");
+assert(postMarkup.includes("data-community-follow"), "Community post must support following");
+assert(postMarkup.includes("data-kitchen-note-form"), "Community post must support Kitchen Notes");
+assert(postMarkup.includes("#recipes/carrot-cake"), "Community posts must link directly to recipes");
+assert(postMarkup.includes("#community/test-post"), "Community cook names must link to public profiles");
+assert(api.communityVideoForm().includes("accept=\"video/*\"") && api.communityVideoForm().includes("name=\"recipeId\""), "In My Kitchen must upload videos and link recipes");
+
+api.renderCommunity();
+assert(element.innerHTML.includes("data-community-post-form"), "Community feed needs a post composer");
+assert(element.innerHTML.includes("Fork & Spoon"), "Community feed needs the signature appreciation action");
+api.renderCommunity("welcome-table");
+assert(element.innerHTML.includes("Shay Bee") && element.innerHTML.includes("cook-profile-cover"), "Public community routes must render a real cooking profile");
 
 const routedPages = new Set([
   "home", "lets-cook", "find-the-beat", "second-chance", "community", "kitchen", "america-250",

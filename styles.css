@@ -13,6 +13,138 @@
   --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
+/* Cooking community and social kitchen profiles */
+.cooking-community-page,
+.cook-profile-shell { background: #fffaf0; color: var(--navy, #102542); }
+.community-feed-layout { display: grid; grid-template-columns: minmax(210px, .7fr) minmax(0, 1.55fr) minmax(220px, .72fr); gap: 28px; max-width: 1440px; margin: 0 auto; align-items: start; }
+.community-welcome-card,
+.community-discovery { position: sticky; top: 110px; padding: 26px; border-radius: 28px; background: linear-gradient(155deg, #fff 0%, #fff5cb 100%); box-shadow: 0 18px 50px rgba(16, 37, 66, .1); }
+.community-welcome-card h2 { font-family: var(--serif); font-size: clamp(2rem, 3vw, 3.25rem); line-height: .98; }
+.community-guidelines { display: grid; gap: 8px; margin-top: 26px; padding-top: 20px; border-top: 1px solid rgba(16, 37, 66, .12); }
+.community-guidelines span { color: var(--muted); }
+.community-feed { display: grid; gap: 22px; min-width: 0; }
+.community-composer,
+.community-post { overflow: hidden; border: 1px solid rgba(16, 37, 66, .1); border-radius: 28px; background: #fff; box-shadow: 0 14px 40px rgba(16, 37, 66, .09); }
+.community-composer { padding: 24px; border-top: 7px solid #ffca28; }
+.community-composer-head,
+.community-post-author { display: flex; align-items: center; gap: 13px; }
+.community-composer-head img,
+.community-composer-head .profile-avatar,
+.community-post-author img { width: 54px; height: 54px; flex: 0 0 54px; border-radius: 50%; object-fit: cover; background: #ffcc4d; }
+.community-composer-head > div,
+.community-post-author > div { display: grid; flex: 1; }
+.community-author-link { color: var(--navy, #102542); font-weight: 950; text-decoration: none; }
+.community-author-link:hover { color: #087443; text-decoration: underline; }
+.community-composer-head span,
+.community-post-author span,
+.community-post-author small { color: var(--muted); }
+.community-composer form { display: grid; gap: 14px; margin-top: 18px; }
+.community-composer textarea { width: 100%; min-height: 110px; resize: vertical; border: 1px solid rgba(16, 37, 66, .15); border-radius: 20px; padding: 17px; font: inherit; background: #fffdf7; }
+.community-composer-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.community-composer-fields label { display: grid; gap: 6px; font-weight: 800; }
+.community-composer-fields :is(input, select) { min-width: 0; width: 100%; padding: 12px; border: 1px solid rgba(16, 37, 66, .14); border-radius: 14px; background: #fff; }
+.community-feed-heading { display: flex; justify-content: space-between; align-items: end; gap: 16px; padding: 14px 4px 0; }
+.community-feed-heading h2 { margin: 0; font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.5rem); }
+.community-feed-heading > span { color: #087443; font-weight: 900; }
+.community-post-author { padding: 22px 24px 12px; }
+.community-follow { border: 0; border-radius: 999px; padding: 10px 14px; background: #e7f8ee; color: #087443; font-weight: 900; cursor: pointer; }
+.community-follow.active { background: #087443; color: #fff; }
+.community-post-copy { padding: 0 24px 12px; font-size: 1.05rem; line-height: 1.65; }
+.community-post-media { margin: 0; aspect-ratio: 16/10; background: #f3eadc; }
+.community-post-media img,
+.community-post-video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.community-recipe-link { display: flex; align-items: center; gap: 13px; margin: 16px 22px; padding: 12px; border-radius: 18px; background: #fff5cb; color: var(--navy); text-decoration: none; }
+.community-recipe-link img { width: 64px; height: 64px; border-radius: 14px; object-fit: cover; }
+.community-recipe-link span { display: grid; flex: 1; }
+.community-recipe-link small { color: #087443; font-weight: 900; text-transform: uppercase; letter-spacing: .08em; }
+.community-post-counts { display: flex; justify-content: space-between; gap: 12px; padding: 4px 24px 12px; color: var(--muted); font-size: .88rem; }
+.community-actions { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid rgba(16, 37, 66, .1); border-bottom: 1px solid rgba(16, 37, 66, .1); }
+.community-actions button { min-height: 52px; border: 0; background: #fff; color: var(--navy); font-weight: 850; cursor: pointer; }
+.community-actions button:hover,
+.community-actions button.active { background: #e7f8ee; color: #087443; }
+.kitchen-notes-panel { padding: 15px 24px 22px; }
+.kitchen-notes-panel summary { color: #087443; font-weight: 950; cursor: pointer; }
+.kitchen-note-list p { padding: 10px 12px; border-radius: 14px; background: #f7f6ef; }
+.kitchen-notes-panel form { display: flex; gap: 10px; align-items: end; }
+.kitchen-notes-panel label { display: grid; gap: 5px; flex: 1; font-weight: 800; }
+.kitchen-notes-panel input { width: 100%; padding: 12px; border: 1px solid rgba(16, 37, 66, .14); border-radius: 14px; }
+.community-discovery { display: grid; gap: 14px; background: #fff; }
+.community-discovery h2 { margin: 10px 0 0; font-family: var(--serif); }
+.community-discovery article { display: grid; grid-template-columns: 44px 1fr auto; gap: 10px; align-items: center; }
+.community-discovery article img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+.community-discovery article div { display: grid; }
+.community-discovery article span { font-size: .78rem; color: var(--muted); }
+.community-discovery article button { border: 0; background: transparent; color: #087443; font-weight: 900; cursor: pointer; }
+.community-discovery article button.active { color: var(--muted); }
+.community-topic-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.community-topic-list a { padding: 8px 10px; border-radius: 999px; background: #ffe7ec; color: #a52f50; font-weight: 800; text-decoration: none; }
+
+.cook-profile-shell { padding: clamp(12px, 3vw, 44px); }
+.cook-profile-identity,
+.cook-profile-content { max-width: 1280px; margin: 0 auto; background: #fff; }
+.cook-profile-identity { overflow: hidden; border-radius: 34px 34px 0 0; box-shadow: 0 20px 70px rgba(16, 37, 66, .12); }
+.cook-profile-cover { position: relative; height: clamp(220px, 32vw, 410px); margin: 0; background: #087443; }
+.cook-profile-cover img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.cook-profile-cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 48%, rgba(16, 37, 66, .28)); pointer-events: none; }
+.cook-profile-cover button { position: absolute; z-index: 1; right: 22px; bottom: 20px; border: 0; border-radius: 999px; padding: 11px 16px; background: rgba(255,255,255,.94); color: var(--navy); font-weight: 900; cursor: pointer; }
+.cook-profile-main { position: relative; display: grid; grid-template-columns: 170px 1fr auto; gap: 24px; align-items: end; padding: 0 34px 18px; }
+.cook-profile-avatar { align-self: start; margin-top: -72px; z-index: 2; }
+.cook-profile-avatar :is(img, .profile-avatar) { width: 164px; height: 164px; border: 7px solid #fff; border-radius: 50%; object-fit: cover; box-shadow: 0 12px 32px rgba(16,37,66,.2); }
+.cook-profile-name { padding-top: 20px; }
+.cook-profile-name h1 { margin: 2px 0 6px; font-family: var(--serif); font-size: clamp(2.3rem, 5vw, 4.5rem); line-height: .92; }
+.cook-profile-name p { max-width: 720px; margin: 0 0 6px; color: var(--muted); }
+.cook-profile-details { display: flex; flex-wrap: wrap; gap: 14px 26px; padding: 18px 34px; border-top: 1px solid rgba(16, 37, 66, .09); }
+.cook-profile-details span { display: grid; min-width: 80px; }
+.cook-profile-details span strong { font-size: 1.45rem; color: #087443; }
+.cook-profile-details p { margin: 0; flex-basis: 100%; }
+.cook-profile-badges { display: flex; flex-wrap: wrap; gap: 9px; padding: 0 34px 18px; }
+.cook-profile-badges span,
+.profile-cuisine-chips span { padding: 8px 12px; border-radius: 999px; background: #fff2b5; color: #513d00; font-weight: 850; }
+.cook-profile-tabs { display: flex; overflow-x: auto; padding: 0 24px; border-top: 1px solid rgba(16,37,66,.09); }
+.cook-profile-tabs button { min-width: max-content; padding: 18px 17px 15px; border: 0; border-bottom: 4px solid transparent; background: transparent; color: var(--muted); font-weight: 900; cursor: pointer; }
+.cook-profile-tabs button.active { border-bottom-color: #ff5f7e; color: var(--navy); }
+.cook-profile-content { padding: clamp(20px, 4vw, 50px); border-radius: 0 0 34px 34px; box-shadow: 0 35px 70px rgba(16, 37, 66, .09); }
+.cook-profile-content > .community-post { max-width: 760px; margin: 0 auto 24px; }
+.profile-video-uploader { margin-top: 24px; padding: clamp(20px, 4vw, 40px); border-radius: 26px; background: linear-gradient(140deg, #e7f8ee, #fff5cb); }
+.profile-video-uploader .upload-form { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.profile-video-uploader .upload-form label { display: grid; gap: 6px; font-weight: 800; }
+.profile-video-uploader .upload-form :is(input, select) { width: 100%; min-width: 0; padding: 12px; border: 1px solid rgba(16,37,66,.13); border-radius: 12px; background: #fff; }
+.profile-about-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
+.profile-about-grid article,
+.profile-review-list article { padding: 24px; border-radius: 22px; background: #fffaf0; }
+.profile-cuisine-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+
+@media (max-width: 1050px) {
+  .community-feed-layout { grid-template-columns: minmax(190px, .55fr) minmax(0, 1.45fr); }
+  .community-discovery { display: none; }
+  .cook-profile-main { grid-template-columns: 140px 1fr; }
+  .cook-profile-avatar :is(img, .profile-avatar) { width: 136px; height: 136px; }
+  .cook-profile-main > .small-button { grid-column: 2; justify-self: start; }
+}
+@media (max-width: 720px) {
+  .community-feed-layout { display: block; }
+  .community-welcome-card { position: static; margin-bottom: 20px; }
+  .community-feed { gap: 16px; }
+  .community-composer-fields,
+  .profile-video-uploader .upload-form,
+  .profile-about-grid { grid-template-columns: 1fr; }
+  .community-actions button span { display: none; }
+  .kitchen-notes-panel form { align-items: stretch; flex-direction: column; }
+  .cook-profile-shell { padding: 0; }
+  .cook-profile-identity,
+  .cook-profile-content { border-radius: 0; }
+  .cook-profile-cover { height: 230px; }
+  .cook-profile-main { display: block; padding: 0 20px 18px; }
+  .cook-profile-avatar { width: 112px; margin-top: -54px; }
+  .cook-profile-avatar :is(img, .profile-avatar) { width: 112px; height: 112px; border-width: 5px; }
+  .cook-profile-name { padding-top: 10px; }
+  .cook-profile-main > .small-button { margin-top: 14px; }
+  .cook-profile-details,
+  .cook-profile-badges { padding-inline: 20px; }
+  .cook-profile-details { gap: 14px; }
+  .cook-profile-cover button { right: 12px; bottom: 12px; }
+}
+
 .sr-only {
   position: absolute !important;
   width: 1px !important;

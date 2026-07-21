@@ -8396,6 +8396,11 @@ let recentlyViewed = readJSON("letsCookRecentlyViewed", []);
 let savedMenus = readJSON("letsCookSavedMenus", []);
 let userRecipes = readJSON("letsCookUserRecipes", []);
 let submissions = readJSON("letsCookSubmissions", []);
+let communityPosts = readJSON("letsCookCommunityPosts", []);
+let communityActions = readJSON("letsCookCommunityActions", {});
+let kitchenNotes = readJSON("letsCookKitchenNotes", []);
+let communityProfile = readJSON("letsCookCommunityProfile", { coverPhoto: "assets/cooking-family.jpeg", favoriteCuisines: ["Southern", "Creole", "Global Flavors"], cookingStyle: "Comfort food with a curious streak" });
+let activeProfileTab = "posts";
 let lessonProgress = readJSON("letsCookLessonProgress", {});
 let pantryScanState = readJSON("letsCookPantryScan", { ingredients: [], notes: "" });
 let pantryFavoriteIngredients = readJSON("letsCookPantryFavorites", []);
@@ -8605,7 +8610,7 @@ function render() {
   else if (route === "lets-cook") renderLetsCookHome();
   else if (route === "find-the-beat") renderFindTheBeatHome();
   else if (route === "second-chance") renderSecondChanceHome();
-  else if (route === "community") renderCommunity();
+  else if (route === "community") renderCommunity(id);
   else if (route === "kitchen") renderKitchen();
   else if (route === "america-250") renderAmerica250();
   else if (route === "add-recipe" || route === "submit-recipe") renderAddRecipe();
@@ -12674,22 +12679,90 @@ function renderSecondChanceHome() {
   `;
 }
 
-function renderCommunity() {
+const launchCommunityPosts = [
+  { id: "welcome-table", author: "Shay Bee", role: "Founder · Sunday dinner cook", avatar: "assets/founder-shalanda-brent.png", text: "Pulled the cast-iron skillet out for cornbread and greens tonight. What is everybody cooking?", image: "images/juneteenth/cast-iron-skillet-cornbread.png", recipeId: "cornbread", createdAt: "Today · 4:30 PM", forks: 42, made: 18 },
+  { id: "peach-market", author: "Nia's Kitchen", role: "Baker · Atlanta, GA", text: "Farmers market peaches became a warm cobbler. I added a little cardamom to the filling and would absolutely do it again.", image: "images/regional/mississippi/peach-cobbler.jpg", recipeId: "peach-cobbler", createdAt: "Today · 1:12 PM", forks: 31, made: 9 },
+  { id: "grill-night", author: "Marcus at the Grill", role: "Backyard cook · Memphis, TN", text: "Quick reminder: let the meat rest before slicing. Those ten minutes make all the difference.", image: "images/recipes/audit-2026-06/nebraska-steak.jpg", recipeId: "argentinian-chimichurri-steak", createdAt: "Yesterday · 7:46 PM", forks: 27, made: 12 }
+];
+
+function communityPostList() {
+  return [...communityPosts, ...launchCommunityPosts];
+}
+
+function communityActionActive(postId, action) {
+  return Boolean(communityActions[postId]?.includes(action));
+}
+
+function communityPostCard(post) {
+  const linkedRecipe = recipeById(post.recipeId);
+  const forked = communityActionActive(post.id, "fork");
+  const madeIt = communityActionActive(post.id, "made");
+  const savedPost = communityActionActive(post.id, "save");
+  const following = (communityActions.following || []).includes(post.author);
+  return `<article class="community-post" data-community-post="${escapeHTML(post.id)}">
+    <header class="community-post-author">
+      <img src="${escapeHTML(post.avatar || "assets/cooking-family.jpeg")}" alt="" />
+      <div><a class="community-author-link" href="#community/${escapeHTML(post.id)}">${escapeHTML(post.author || "Home Cook")}</a><span>${escapeHTML(post.role || "Let’s Cook Y’all community cook")}</span><small>${escapeHTML(post.createdAt || "Just now")}</small></div>
+      <button class="community-follow ${following ? "active" : ""}" type="button" data-community-follow="${escapeHTML(post.author || "Home Cook")}">👨‍🍳 ${following ? "Following" : "Follow"}</button>
+    </header>
+    <p class="community-post-copy">${escapeHTML(post.text || "Shared something delicious from the kitchen.")}</p>
+    ${post.image ? `<figure class="community-post-media"><img src="${escapeHTML(post.image)}" alt="Food shared by ${escapeHTML(post.author || "a community cook")}" /></figure>` : ""}
+    ${post.video ? `<video class="community-post-video" controls preload="metadata" src="${escapeHTML(post.video)}"></video>` : ""}
+    ${linkedRecipe ? `<a class="community-recipe-link" href="#recipes/${linkedRecipe.id}"><img src="${recipePhotoFor(linkedRecipe)}" alt="" /><span><small>Cook this recipe</small><strong>${linkedRecipe.title}</strong></span>→</a>` : ""}
+    <div class="community-post-counts"><span>${Number(post.forks || 0) + (forked ? 1 : 0)} Fork & Spoon</span><span>${Number(post.made || 0) + (madeIt ? 1 : 0)} Made It</span></div>
+    <div class="community-actions" aria-label="Actions for ${escapeHTML(post.author || "community post")}">
+      <button class="${forked ? "active" : ""}" type="button" data-community-action="fork">🍴 <span>Fork & Spoon</span></button>
+      <button class="${madeIt ? "active" : ""}" type="button" data-community-action="made">🍽️ <span>Made It</span></button>
+      <button class="${savedPost ? "active" : ""}" type="button" data-community-action="save">📌 <span>Save</span></button>
+      <button type="button" data-community-share>📤 <span>Share</span></button>
+    </div>
+    <details class="kitchen-notes-panel"><summary>Kitchen Notes</summary>
+      <div class="kitchen-note-list">${kitchenNotes.filter((note) => note.postId === post.id).map((note) => `<p><strong>${escapeHTML(note.author)}</strong> ${escapeHTML(note.text)}</p>`).join("") || `<p class="helper-text">Leave a useful substitution, timing note, or serving idea.</p>`}</div>
+      <form data-kitchen-note-form><input type="hidden" name="postId" value="${escapeHTML(post.id)}" /><label>Share a helpful Kitchen Note<input name="note" maxlength="240" placeholder="Added mushrooms and cooked 10 minutes longer…" required /></label><button class="small-button" type="submit">Add Note</button></form>
+    </details>
+  </article>`;
+}
+
+function communityComposer() {
+  const options = allRecipeCollection().slice().sort((a, b) => a.title.localeCompare(b.title));
+  return `<article class="community-composer">
+    <div class="community-composer-head">${accountAvatar(letsCookSession.user || {})}<div><strong>What’s cooking?</strong><span>Share a meal, tip, family recipe, or kitchen win.</span></div></div>
+    <form data-community-post-form>
+      <textarea name="text" maxlength="800" placeholder="Pull up a chair and tell us what’s happening in your kitchen…" required></textarea>
+      <div class="community-composer-fields">
+        <label>Food photo<input name="photo" type="file" accept="image/*" /></label>
+        <label>Link a recipe<select name="recipeId"><option value="">No linked recipe</option>${options.map((recipe) => `<option value="${recipe.id}">${recipe.title}</option>`).join("")}</select></label>
+      </div>
+      <button class="small-button" type="submit">Share With The Table</button>
+    </form>
+  </article>`;
+}
+
+function renderCommunity(id = "") {
+  if (id) {
+    const post = communityPostList().find((item) => item.id === id);
+    if (post) {
+      const [accountType, location = ""] = String(post.role || "Home Cook").split(" · ");
+      const [city = "", state = ""] = location.split(",").map((item) => item.trim());
+      const publicCook = { displayName: post.author, bio: post.text, city, state, accountType, profilePic: post.avatar, badges: ["🍴 Community Cook", "🌿 Table Regular"] };
+      app.innerHTML = `${cookingProfileHome(publicCook, false)}${cookSubnav()}`;
+      return;
+    }
+  }
   app.innerHTML = `
-    ${platformHero()}
-    <section class="cream-section">
-      <div class="section-heading">
-        <p class="eyebrow">Community-centered by design</p>
-        <h2>One ecosystem, many ways to feel supported</h2>
+    ${hero("The Cooking Community", "A friendly table for real meals, family recipes, helpful Kitchen Notes, and cooks cheering one another on.", "assets/cooking-family.jpeg")}
+    ${cookSubnav()}
+    <section class="cream-section cooking-community-page">
+      <div class="community-feed-layout">
+        <aside class="community-welcome-card"><p class="eyebrow">Pull up a chair</p><h2>Cook together, even from different kitchens.</h2><p>Share what you made, learn from another home cook, and keep feedback useful and kind.</p><a class="small-button" href="#account">Open My Kitchen Profile</a><div class="community-guidelines"><strong>At this table</strong><span>Encourage first.</span><span>Credit family and cultural sources.</span><span>Share practical Kitchen Notes.</span></div></aside>
+        <main class="community-feed" aria-label="Cooking community feed">
+          ${communityComposer()}
+          <div class="community-feed-heading"><div><p class="eyebrow">Fresh from the community</p><h2>What everybody’s cooking</h2></div><span>${communityPostList().length} kitchen updates</span></div>
+          ${communityPostList().map(communityPostCard).join("")}
+        </main>
+        <aside class="community-discovery"><h2>Cooks to follow</h2>${launchCommunityPosts.map((post) => { const following = (communityActions.following || []).includes(post.author); return `<article><img src="${post.avatar}" alt="" /><div><strong>${post.author}</strong><span>${post.role}</span></div><button class="${following ? "active" : ""}" type="button" data-community-follow="${post.author}">${following ? "Following" : "Follow"}</button></article>`; }).join("")}<h2>Trending kitchens</h2><div class="community-topic-list"><a href="#recipes?section=breads">#BreadBakers</a><a href="#living-cookbook/holiday-tables">#HolidayTables</a><a href="#recipes?section=vegetables">#GardenHarvest</a><a href="#recipes?section=cookies">#CookieTin</a></div></aside>
       </div>
-      <div class="system-grid">
-        <article><strong>Create</strong><span>Find the Beat carries creative energy for music, rhythm, and expression.</span></article>
-        <article><strong>Learn</strong><span>Let’s Cook Ya’ll teaches kitchen confidence through real meals.</span></article>
-        <article><strong>Navigate</strong><span>Community tools give the platform a clear path for identity, direction, and choices.</span></article>
-        <article><strong>Rebuild</strong><span>Second Chance Careers supports practical progress with dignity.</span></article>
-      </div>
-    </section>
-  `;
+    </section>`;
 }
 
 function cookSubnav() {
@@ -16082,16 +16155,52 @@ function renderAbout() {
   `;
 }
 
+function profileTabPanel(user, isOwnProfile = true) {
+  const ownPosts = communityPostList().filter((post) => post.author === (user.displayName || "Shay Bee"));
+  const tabRecipes = personalRecipes();
+  const tabs = {
+    posts: ownPosts.length ? ownPosts.map(communityPostCard).join("") : `<div class="empty-state"><h3>Your table is ready.</h3><p>Share your first cooking update with the community.</p><a class="small-button" href="#community">Create a post</a></div>`,
+    recipes: tabRecipes.length ? `<div class="recipe-grid profile-recipe-grid">${tabRecipes.map(recipeCard).join("")}</div>` : `<div class="empty-state"><h3>No original recipes yet.</h3><p>Add the family recipe everybody asks you to bring.</p><a class="small-button" href="#submit-recipe">Submit a Recipe</a></div>`,
+    videos: `<div class="profile-video-grid">${submissions.length ? submissions.map(submissionCard).join("") : `<div class="empty-state"><h3>${isOwnProfile ? "Your kitchen can be the studio." : "No kitchen videos shared yet."}</h3><p>${isOwnProfile ? "Cooking-video uploads are free during launch. Demonstrate a recipe, preserve a family technique, or share your meal prep." : "Follow this cook to see new demonstrations and family recipes when they arrive."}</p></div>`}</div>${isOwnProfile ? communityVideoForm() : ""}`,
+    favorites: saved.length ? `<div class="recipe-grid profile-recipe-grid">${saved.map(recipeById).filter(Boolean).map(recipeCard).join("")}</div>` : `<div class="empty-state">Save recipes and posts to build your personal cookbook.</div>`,
+    "meal-plans": planned.length ? `<div class="stack-list">${planned.map(recipeById).filter(Boolean).map(compactRecipe).join("")}</div>` : `<div class="empty-state">Your meal plan is ready for its first recipe.</div>`,
+    reviews: `<div class="profile-review-list">${kitchenNotes.length ? kitchenNotes.slice(0, 12).map((note) => `<article><span>Kitchen Note</span><p>${escapeHTML(note.text)}</p><small>Shared by ${escapeHTML(note.author)}</small></article>`).join("") : `<div class="empty-state">Kitchen Notes you share will live here as a useful cooking journal.</div>`}</div>`,
+    about: `<div class="profile-about-grid"><article><h3>About this cook</h3><p>${escapeHTML(user.bio || "Tell the community what you love to cook and who taught you your favorite dish.")}</p></article><article><h3>Favorite cuisines</h3><div class="profile-cuisine-chips">${communityProfile.favoriteCuisines.map((item) => `<span>${escapeHTML(item)}</span>`).join("")}</div></article><article><h3>Cooking style</h3><p>${escapeHTML(communityProfile.cookingStyle)}</p></article><article><h3>Kitchen home</h3><p>${escapeHTML([user.city, user.state].filter(Boolean).join(", ") || "Location not shared")}</p></article></div>`
+  };
+  return tabs[activeProfileTab] || tabs.posts;
+}
+
+function communityVideoForm() {
+  return `<article class="profile-video-uploader"><p class="eyebrow">Free during launch</p><h3>Share what’s happening in your kitchen.</h3><p>Upload a demonstration, family recipe, meal prep, baking, grilling, or holiday meal and connect it directly to a recipe.</p><form class="upload-form" data-upload-form><label>Link a recipe<select name="recipeId">${allRecipeCollection().map((recipe) => `<option value="${recipe.id}">${recipe.title}</option>`).join("")}</select></label><label>Video title<input name="title" placeholder="Sunday gravy from start to finish" required /></label><label>YouTube link<input name="url" type="url" placeholder="https://youtube.com/…" /></label><label>Or upload a video<input name="file" type="file" accept="video/*" /></label><button class="small-button" type="submit">Add To In My Kitchen</button></form></article>`;
+}
+
+function cookingProfileHome(user, isOwnProfile = true) {
+  const displayName = user.displayName || "Home Cook";
+  const location = [user.city, user.state].filter(Boolean).join(", ");
+  const badges = [...new Set([...(user.badges || []), ...(cookedRecipes.length >= 1 ? ["🍽️ Made It"] : []), ...(userRecipes.length ? ["📖 Recipe Keeper"] : []), ...(submissions.length ? ["🎥 Kitchen Storyteller"] : [])])];
+  const tabs = [["posts", "Posts"], ["recipes", "Recipes"], ["videos", "In My Kitchen"], ["favorites", "Favorites"], ["meal-plans", "Meal Plans"], ["reviews", "Reviews"], ["about", "About"]];
+  return `<section class="cook-profile-shell">
+    <article class="cook-profile-identity">
+      <figure class="cook-profile-cover"><img src="${escapeHTML(communityProfile.coverPhoto || "assets/cooking-family.jpeg")}" alt="${escapeHTML(displayName)} cover" />${isOwnProfile ? `<button type="button" data-edit-profile>📷 Customize profile</button>` : ""}</figure>
+      <div class="cook-profile-main"><div class="cook-profile-avatar">${accountAvatar(user)}</div><div class="cook-profile-name"><p class="eyebrow">Let’s Cook Y’all home cook</p><h1>${escapeHTML(displayName)}</h1><p>${escapeHTML(user.bio || "Cooking with love, learning out loud, and always making room at the table.")}</p><span>${location ? `📍 ${escapeHTML(location)}` : "📍 Location optional"}</span></div>${isOwnProfile ? `<button class="small-button secondary" type="button" data-edit-profile>Edit Kitchen Profile</button>` : `<button class="small-button" type="button" data-community-follow="${escapeHTML(displayName)}">👨‍🍳 Follow This Cook</button>`}</div>
+      <div class="cook-profile-details"><span><strong>${userRecipes.length}</strong> Recipes</span><span><strong>${Math.max(24, communityPostList().length * 8)}</strong> Followers</span><span><strong>18</strong> Following</span><span><strong>${cookedRecipes.length}</strong> Made It</span><p><strong>Favorite cuisines:</strong> ${communityProfile.favoriteCuisines.map(escapeHTML).join(" · ")}</p><p><strong>Cooking style:</strong> ${escapeHTML(communityProfile.cookingStyle)}</p></div>
+      <div class="cook-profile-badges">${badges.length ? badges.map((badge) => `<span>${escapeHTML(badge)}</span>`).join("") : `<span>🌱 New At The Table</span>`}</div>
+      <nav class="cook-profile-tabs" aria-label="Profile sections">${tabs.map(([id, label]) => `<button class="${activeProfileTab === id ? "active" : ""}" type="button" data-profile-tab="${id}" aria-selected="${activeProfileTab === id}">${label}</button>`).join("")}</nav>
+    </article>
+    <div class="cook-profile-content" data-profile-panel>${profileTabPanel(user, isOwnProfile)}</div>
+  </section>`;
+}
+
 function renderAccount() {
   const user = letsCookSession.user || {};
   const status = letsCookSession.status ? `<div class="empty-state">${escapeHTML(letsCookSession.status)}</div>` : "";
   const officialBadges = (user.badges || []).map((badge) => `<span>${escapeHTML(badge)}</span>`).join("");
   app.innerHTML = `
-    ${hero("Your Let's Cook Account", "Save recipes, track lesson progress, keep your profile picture, and upload food videos from your own kitchen.", photoFor("hero", "learning", 7, "assets/lc-asian-food.jpg"))}
+    ${letsCookSession.authenticated ? cookingProfileHome(user) : hero("Your Let's Cook Account", "Create your cooking profile, save recipes, and pull up a chair in the community.", photoFor("hero", "learning", 7, "assets/lc-asian-food.jpg"))}
     ${cookSubnav()}
     <section class="cream-section">
       <div class="account-layout">
-        <article class="account-panel">
+        <article class="account-panel" data-profile-editor ${letsCookSession.authenticated ? "hidden" : ""}>
           <h2>${letsCookSession.authenticated ? "Kitchen Profile" : "Create Your Kitchen Profile"}</h2>
           <p>${letsCookSession.authenticated ? `Signed in as ${escapeHTML(user.email || "")}. Your saved recipes, meal plan, lesson progress, and food videos are backed by the Let's Cook database.` : "Create an account so your favorites, progress, profile picture, and food videos are saved beyond this browser."}</p>
           ${status}
@@ -16117,6 +16226,9 @@ function renderAccount() {
               <label>State<input name="state" value="${escapeHTML(user.state || "")}" /></label>
               <label>Account type<input name="accountType" value="${escapeHTML(user.accountType || "")}" placeholder="Home Cook" /></label>
               <label>Profile picture<input name="photo" type="file" accept="image/*" /></label>
+              <label>Cover photo<input name="coverPhoto" type="file" accept="image/*" /></label>
+              <label>Favorite cuisines<input name="favoriteCuisines" value="${escapeHTML(communityProfile.favoriteCuisines.join(", "))}" placeholder="Southern, Korean, Mexican" /></label>
+              <label>Cooking style<input name="cookingStyle" value="${escapeHTML(communityProfile.cookingStyle)}" placeholder="Weeknight comfort food and weekend baking" /></label>
               <a class="small-button secondary" href="/profile/${encodeURIComponent(user.username || user.id || "")}">View Public Profile</a>
               <a class="small-button secondary" href="/settings">Settings</a>
               <button class="small-button" type="submit">Save Profile</button>
@@ -16146,7 +16258,7 @@ function renderAccount() {
             </div>
           `}
         </article>
-        <article class="account-panel">
+        <article class="account-panel" ${letsCookSession.authenticated ? "hidden" : ""}>
           <h2>Your Kitchen Stats</h2>
           <div class="account-stats">
             <div><strong>${saved.length}</strong><span>Saved recipes</span></div>
@@ -16576,6 +16688,11 @@ function handleSearch(event) {
 }
 
 function handleClick(event) {
+  const profileTabButton = event.target.closest("[data-profile-tab]");
+  const editProfileButton = event.target.closest("[data-edit-profile]");
+  const communityActionButton = event.target.closest("[data-community-action]");
+  const communityShareButton = event.target.closest("[data-community-share]");
+  const communityFollowButton = event.target.closest("[data-community-follow]");
   const backToTopButton = event.target.closest("[data-back-to-top]");
   const kidsAnswer = event.target.closest("[data-kids-answer]");
   const rainbowChecklist = event.target.closest("[data-rainbow-checklist]");
@@ -16602,6 +16719,46 @@ function handleClick(event) {
   const openKitchenMathButton = event.target.closest("[data-open-kitchen-math]");
   const closeKitchenMathButton = event.target.closest("[data-close-kitchen-math]");
   const scaleServingsButton = event.target.closest("[data-scale-servings]");
+
+  if (profileTabButton) {
+    activeProfileTab = profileTabButton.dataset.profileTab || "posts";
+    const profileRoute = routeParts();
+    if (profileRoute.route === "community" && profileRoute.id) renderCommunity(profileRoute.id);
+    else renderAccount();
+    document.querySelector(`[data-profile-tab="${activeProfileTab}"]`)?.focus();
+    return;
+  }
+  if (editProfileButton) {
+    const editor = document.querySelector("[data-profile-editor]");
+    if (editor) {
+      editor.hidden = !editor.hidden;
+      if (!editor.hidden) editor.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    return;
+  }
+  if (communityActionButton) {
+    const post = communityActionButton.closest("[data-community-post]");
+    const postId = post?.dataset.communityPost;
+    const action = communityActionButton.dataset.communityAction;
+    if (postId && action) communityActions[postId] = toggleValue(communityActions[postId] || [], action);
+    localStorage.setItem("letsCookCommunityActions", JSON.stringify(communityActions));
+    render();
+    return;
+  }
+  if (communityFollowButton) {
+    const author = communityFollowButton.dataset.communityFollow;
+    communityActions.following = toggleValue(communityActions.following || [], author);
+    localStorage.setItem("letsCookCommunityActions", JSON.stringify(communityActions));
+    render();
+    return;
+  }
+  if (communityShareButton) {
+    const postId = communityShareButton.closest("[data-community-post]")?.dataset.communityPost || "community";
+    const shareUrl = `${location.origin}${location.pathname}#community/${postId}`;
+    if (navigator.share) navigator.share({ title: "Let’s Cook Y’all", url: shareUrl }).catch(() => {});
+    else navigator.clipboard?.writeText(shareUrl).then(() => { communityShareButton.innerHTML = "✓ <span>Copied</span>"; }).catch(() => {});
+    return;
+  }
 
   if (backToTopButton) {
     window.scrollTo({ top: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
@@ -16831,6 +16988,36 @@ function handleClick(event) {
 
 
 async function handleSubmit(event) {
+  if (event.target.matches("[data-community-post-form]")) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const photo = await readFileAsDataURL(formData.get("photo"));
+    const user = letsCookSession.user || {};
+    communityPosts = [{
+      id: `community-${Date.now()}`,
+      author: user.displayName || "Guest at the Table",
+      role: user.accountType || "Home Cook",
+      avatar: user.profilePic || user.avatarUrl || "assets/cooking-family.jpeg",
+      text: formData.get("text")?.toString().trim() || "Shared something delicious.",
+      image: photo,
+      recipeId: formData.get("recipeId")?.toString() || "",
+      createdAt: "Just now",
+      forks: 0,
+      made: 0
+    }, ...communityPosts].slice(0, 50);
+    localStorage.setItem("letsCookCommunityPosts", JSON.stringify(communityPosts));
+    renderCommunity();
+    return;
+  }
+  if (event.target.matches("[data-kitchen-note-form]")) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const text = formData.get("note")?.toString().trim();
+    if (text) kitchenNotes = [{ id: `note-${Date.now()}`, postId: formData.get("postId")?.toString() || "", text, author: letsCookSession.user?.displayName || "Community Cook" }, ...kitchenNotes].slice(0, 100);
+    localStorage.setItem("letsCookKitchenNotes", JSON.stringify(kitchenNotes));
+    render();
+    return;
+  }
   if (event.target.matches("[data-kitchen-math-form]")) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -17036,6 +17223,13 @@ async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const photo = formData.get("photo");
+    const coverPhoto = await readFileAsDataURL(formData.get("coverPhoto"));
+    communityProfile = {
+      coverPhoto: coverPhoto || communityProfile.coverPhoto || "assets/cooking-family.jpeg",
+      favoriteCuisines: formData.get("favoriteCuisines")?.toString().split(",").map((item) => item.trim()).filter(Boolean).slice(0, 8) || communityProfile.favoriteCuisines,
+      cookingStyle: formData.get("cookingStyle")?.toString().trim() || communityProfile.cookingStyle
+    };
+    localStorage.setItem("letsCookCommunityProfile", JSON.stringify(communityProfile));
     if (photo?.name) {
       const photoData = new FormData();
       photoData.append("photo", photo);
