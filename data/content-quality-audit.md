@@ -1,13 +1,13 @@
 # Let's Cook Y'all Content Quality Audit
 
-Generated: 2026-07-22T20:05:02.306Z
+Generated: 2026-07-22T21:05:32.811Z
 
 ## Summary
 
 - Recipes audited: 682
 - Duplicate recipe ID groups: 0
 - Duplicate recipe title groups: 5
-- Shared image groups: 89
+- Shared image groups: 86
 - Generic recipe image assignments: 0
 - Semantic image mismatches: 0
 - Fallback/queued images: 0

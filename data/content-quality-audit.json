@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-07-22T20:05:02.306Z",
+  "generatedAt": "2026-07-22T21:05:32.811Z",
   "summary": {
     "totalRecipes": 682,
     "duplicateRecipeIdGroups": 0,
     "duplicateRecipeTitleGroups": 5,
-    "uniqueImages": 551,
-    "sharedImageGroups": 89,
+    "uniqueImages": 561,
+    "sharedImageGroups": 86,
     "genericRecipeImages": 0,
     "semanticImageMismatches": 0,
     "fallbackImages": 0,
@@ -867,54 +867,6 @@
       ]
     },
     {
-      "image": "images/recipes/audit-2026-06/chewy-chocolate-cookies.jpg",
-      "count": 7,
-      "recipes": [
-        {
-          "id": "chewy-chocolate-cookies",
-          "title": "Chocolate Chip Cookies",
-          "cuisine": "kids-korner",
-          "category": "Sweet Treats"
-        },
-        {
-          "id": "classic-peanut-butter-cookies",
-          "title": "Peanut Butter Cookies",
-          "cuisine": "southern",
-          "category": "Cookies"
-        },
-        {
-          "id": "oatmeal-raisin-cookies",
-          "title": "Oatmeal Raisin Cookies",
-          "cuisine": "southern",
-          "category": "Cookies"
-        },
-        {
-          "id": "snickerdoodles",
-          "title": "Snickerdoodles",
-          "cuisine": "southern",
-          "category": "Cookies"
-        },
-        {
-          "id": "molasses-cookies",
-          "title": "Molasses Cookies",
-          "cuisine": "southern",
-          "category": "Cookies"
-        },
-        {
-          "id": "chocolate-crinkle-cookies",
-          "title": "Chocolate Crinkle Cookies",
-          "cuisine": "global",
-          "category": "Cookies"
-        },
-        {
-          "id": "white-chocolate-macadamia-cookies",
-          "title": "White Chocolate Macadamia Cookies",
-          "cuisine": "global",
-          "category": "Cookies"
-        }
-      ]
-    },
-    {
       "image": "images/recipes/audit-2026-06/banana-pudding-cups.jpg",
       "count": 2,
       "recipes": [
@@ -1731,36 +1683,6 @@
       ]
     },
     {
-      "image": "images/recipes/mid-atlantic-2026/black-white-cookies.jpg",
-      "count": 4,
-      "recipes": [
-        {
-          "id": "black-white-cookies",
-          "title": "Black and White Cookies",
-          "cuisine": "new-york",
-          "category": "Bakery Cookies"
-        },
-        {
-          "id": "classic-shortbread",
-          "title": "Shortbread",
-          "cuisine": "global",
-          "category": "Cookies"
-        },
-        {
-          "id": "thumbprint-cookies",
-          "title": "Thumbprint Cookies",
-          "cuisine": "global",
-          "category": "Cookies"
-        },
-        {
-          "id": "pecan-sandies",
-          "title": "Pecan Sandies",
-          "cuisine": "southern",
-          "category": "Cookies"
-        }
-      ]
-    },
-    {
       "image": "images/recipes/mid-atlantic-2026/maryland-crab-cakes.jpg",
       "count": 2,
       "recipes": [
@@ -1865,24 +1787,6 @@
           "title": "Salvadoran Pupusa Supper",
           "cuisine": "mexican",
           "category": "Central American Masa"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/mid-atlantic-2026/kids-decorate-cookies.jpg",
-      "count": 2,
-      "recipes": [
-        {
-          "id": "kids-decorate-cookies",
-          "title": "Decorate Cookies",
-          "cuisine": "mid-atlantic-kids",
-          "category": "Sweet Treats"
-        },
-        {
-          "id": "christmas-cookies",
-          "title": "Christmas Sugar Cookies",
-          "cuisine": "holiday",
-          "category": "Christmas Desserts"
         }
       ]
     },
@@ -8342,7 +8246,7 @@
       "cuisine": "holiday",
       "category": "Christmas Desserts",
       "primaryCookbookSection": "cookies",
-      "image": "images/recipes/mid-atlantic-2026/kids-decorate-cookies.jpg"
+      "image": "images/recipes/cookies-2026/christmas-sugar-cookies.png"
     },
     {
       "id": "fruitcake",
@@ -8702,7 +8606,7 @@
       "cuisine": "southern",
       "category": "Cookies",
       "primaryCookbookSection": "cookies",
-      "image": "images/recipes/audit-2026-06/chewy-chocolate-cookies.jpg"
+      "image": "images/recipes/cookies-2026/peanut-butter-cookies.png"
     },
     {
       "id": "oatmeal-raisin-cookies",
@@ -8710,7 +8614,7 @@
       "cuisine": "southern",
       "category": "Cookies",
       "primaryCookbookSection": "cookies",
-      "image": "images/recipes/audit-2026-06/chewy-chocolate-cookies.jpg"
+      "image": "images/recipes/cookies-2026/oatmeal-raisin-cookies.png"
     },
     {
       "id": "snickerdoodles",
@@ -8718,7 +8622,7 @@
       "cuisine": "southern",
       "category": "Cookies",
       "primaryCookbookSection": "cookies",
-      "image": "images/recipes/audit-2026-06/chewy-chocolate-cookies.jpg"
+      "image": "images/recipes/cookies-2026/snickerdoodles.png"
     },
     {
       "id": "classic-shortbread",
@@ -8726,7 +8630,7 @@
       "cuisine": "global",
       "category": "Cookies",
       "primaryCookbookSection": "cookies",
-      "image": "images/recipes/mid-atlantic-2026/black-white-cookies.jpg"
+      "image": "images/recipes/cookies-2026/shortbread.png"
     },
     {
       "id": "molasses-cookies",
@@ -8734,7 +8638,7 @@
       "cuisine": "southern",
       "category": "Cookies",
       "primaryCookbookSection": "cookies",
-      "image": "images/recipes/audit-2026-06/chewy-chocolate-cookies.jpg"
+      "image": "images/recipes/cookies-2026/molasses-cookies.png"
     },
     {
       "id": "thumbprint-cookies",
@@ -8742,7 +8646,7 @@
       "cuisine": "global",
       "category": "Cookies",
       "primaryCookbookSection": "cookies",
-      "image": "images/recipes/mid-atlantic-2026/black-white-cookies.jpg"
+      "image": "images/recipes/cookies-2026/thumbprint-cookies.png"
     },
     {
       "id": "chocolate-crinkle-cookies",
@@ -8750,7 +8654,7 @@
       "cuisine": "global",
       "category": "Cookies",
       "primaryCookbookSection": "cookies",
-      "image": "images/recipes/audit-2026-06/chewy-chocolate-cookies.jpg"
+      "image": "images/recipes/cookies-2026/chocolate-crinkle-cookies.png"
     },
     {
       "id": "white-chocolate-macadamia-cookies",
@@ -8758,7 +8662,7 @@
       "cuisine": "global",
       "category": "Cookies",
       "primaryCookbookSection": "cookies",
-      "image": "images/recipes/audit-2026-06/chewy-chocolate-cookies.jpg"
+      "image": "images/recipes/cookies-2026/white-chocolate-macadamia-cookies.png"
     },
     {
       "id": "pecan-sandies",
@@ -8766,7 +8670,7 @@
       "cuisine": "southern",
       "category": "Cookies",
       "primaryCookbookSection": "cookies",
-      "image": "images/recipes/mid-atlantic-2026/black-white-cookies.jpg"
+      "image": "images/recipes/cookies-2026/pecan-sandies.png"
     },
     {
       "id": "charcuterie-cups",

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-17T19:19:51.093Z",
-  "totalRecipes": 665,
-  "uniqueImages": 551,
+  "generatedAt": "2026-07-22T21:05:27.933Z",
+  "totalRecipes": 682,
+  "uniqueImages": 561,
   "missingFiles": [],
   "fallbacks": [],
   "photoQueue": [],
@@ -140,6 +140,19 @@
       ]
     },
     {
+      "image": "images/juneteenth/cast-iron-skillet-cornbread.png",
+      "recipes": [
+        {
+          "id": "cornbread",
+          "title": "Skillet Cornbread"
+        },
+        {
+          "id": "jalapeno-cornbread",
+          "title": "Jalapeño Cornbread"
+        }
+      ]
+    },
+    {
       "image": "images/regional/mississippi/mac-and-cheese.jpg",
       "recipes": [
         {
@@ -256,6 +269,19 @@
       ]
     },
     {
+      "image": "images/recipes/audit-2026-06/dinner-rolls.jpg",
+      "recipes": [
+        {
+          "id": "dinner-rolls",
+          "title": "Soft Dinner Rolls"
+        },
+        {
+          "id": "classic-cinnamon-rolls",
+          "title": "Cinnamon Rolls"
+        }
+      ]
+    },
+    {
       "image": "images/regional/mississippi/peach-cobbler.jpg",
       "recipes": [
         {
@@ -351,6 +377,31 @@
         {
           "id": "samoan-palusami",
           "title": "Samoan Palusami"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/french-bread.jpg",
+      "recipes": [
+        {
+          "id": "french-bread",
+          "title": "Warm French Bread"
+        },
+        {
+          "id": "sourdough-bread",
+          "title": "Sourdough Bread"
+        },
+        {
+          "id": "white-sandwich-bread",
+          "title": "White Sandwich Bread"
+        },
+        {
+          "id": "rosemary-focaccia",
+          "title": "Focaccia"
+        },
+        {
+          "id": "classic-garlic-bread",
+          "title": "Garlic Bread"
         }
       ]
     },
@@ -951,6 +1002,23 @@
       ]
     },
     {
+      "image": "images/recipes/new-england-2026/brown-bread.jpg",
+      "recipes": [
+        {
+          "id": "brown-bread",
+          "title": "New England Brown Bread"
+        },
+        {
+          "id": "banana-bread",
+          "title": "Banana Bread"
+        },
+        {
+          "id": "pumpkin-bread",
+          "title": "Pumpkin Bread"
+        }
+      ]
+    },
+    {
       "image": "images/recipes/new-england-2026/fish-chowder.jpg",
       "recipes": [
         {
@@ -1137,19 +1205,6 @@
         {
           "id": "salvadoran-pupusa-supper",
           "title": "Salvadoran Pupusa Supper"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/mid-atlantic-2026/kids-decorate-cookies.jpg",
-      "recipes": [
-        {
-          "id": "kids-decorate-cookies",
-          "title": "Decorate Cookies"
-        },
-        {
-          "id": "christmas-cookies",
-          "title": "Christmas Sugar Cookies"
         }
       ]
     },
@@ -3643,7 +3698,7 @@
     },
     {
       "id": "chewy-chocolate-cookies",
-      "title": "Chewy Chocolate Chip Cookies",
+      "title": "Chocolate Chip Cookies",
       "cuisine": "kids-korner",
       "category": "Sweet Treats",
       "image": "images/recipes/audit-2026-06/chewy-chocolate-cookies.jpg",
@@ -7436,7 +7491,7 @@
       "title": "Christmas Sugar Cookies",
       "cuisine": "holiday",
       "category": "Christmas Desserts",
-      "image": "images/recipes/mid-atlantic-2026/kids-decorate-cookies.jpg",
+      "image": "images/recipes/cookies-2026/christmas-sugar-cookies.png",
       "source": "recipe-data",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -7797,6 +7852,176 @@
       "cuisine": "bbq",
       "category": "Fourth of July Collection",
       "image": "images/juneteenth/watermelon-platter.png",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "sourdough-bread",
+      "title": "Sourdough Bread",
+      "cuisine": "global",
+      "category": "Breads",
+      "image": "images/recipes/audit-2026-06/french-bread.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "white-sandwich-bread",
+      "title": "White Sandwich Bread",
+      "cuisine": "global",
+      "category": "Breads",
+      "image": "images/recipes/audit-2026-06/french-bread.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "jalapeno-cornbread",
+      "title": "Jalapeño Cornbread",
+      "cuisine": "southern",
+      "category": "Breads",
+      "image": "images/juneteenth/cast-iron-skillet-cornbread.png",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "banana-bread",
+      "title": "Banana Bread",
+      "cuisine": "southern",
+      "category": "Breads",
+      "image": "images/recipes/new-england-2026/brown-bread.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "pumpkin-bread",
+      "title": "Pumpkin Bread",
+      "cuisine": "southern",
+      "category": "Breads",
+      "image": "images/recipes/new-england-2026/brown-bread.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "rosemary-focaccia",
+      "title": "Focaccia",
+      "cuisine": "italian",
+      "category": "Breads",
+      "image": "images/recipes/audit-2026-06/french-bread.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "classic-garlic-bread",
+      "title": "Garlic Bread",
+      "cuisine": "italian",
+      "category": "Breads",
+      "image": "images/recipes/audit-2026-06/french-bread.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "classic-cinnamon-rolls",
+      "title": "Cinnamon Rolls",
+      "cuisine": "southern",
+      "category": "Breads",
+      "image": "images/recipes/audit-2026-06/dinner-rolls.jpg",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "classic-peanut-butter-cookies",
+      "title": "Peanut Butter Cookies",
+      "cuisine": "southern",
+      "category": "Cookies",
+      "image": "images/recipes/cookies-2026/peanut-butter-cookies.png",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "oatmeal-raisin-cookies",
+      "title": "Oatmeal Raisin Cookies",
+      "cuisine": "southern",
+      "category": "Cookies",
+      "image": "images/recipes/cookies-2026/oatmeal-raisin-cookies.png",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "snickerdoodles",
+      "title": "Snickerdoodles",
+      "cuisine": "southern",
+      "category": "Cookies",
+      "image": "images/recipes/cookies-2026/snickerdoodles.png",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "classic-shortbread",
+      "title": "Shortbread",
+      "cuisine": "global",
+      "category": "Cookies",
+      "image": "images/recipes/cookies-2026/shortbread.png",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "molasses-cookies",
+      "title": "Molasses Cookies",
+      "cuisine": "southern",
+      "category": "Cookies",
+      "image": "images/recipes/cookies-2026/molasses-cookies.png",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "thumbprint-cookies",
+      "title": "Thumbprint Cookies",
+      "cuisine": "global",
+      "category": "Cookies",
+      "image": "images/recipes/cookies-2026/thumbprint-cookies.png",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "chocolate-crinkle-cookies",
+      "title": "Chocolate Crinkle Cookies",
+      "cuisine": "global",
+      "category": "Cookies",
+      "image": "images/recipes/cookies-2026/chocolate-crinkle-cookies.png",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "white-chocolate-macadamia-cookies",
+      "title": "White Chocolate Macadamia Cookies",
+      "cuisine": "global",
+      "category": "Cookies",
+      "image": "images/recipes/cookies-2026/white-chocolate-macadamia-cookies.png",
+      "source": "recipe-data",
+      "fallbackUsed": false,
+      "missingRecipeImage": false
+    },
+    {
+      "id": "pecan-sandies",
+      "title": "Pecan Sandies",
+      "cuisine": "southern",
+      "category": "Cookies",
+      "image": "images/recipes/cookies-2026/pecan-sandies.png",
       "source": "recipe-data",
       "fallbackUsed": false,
       "missingRecipeImage": false
