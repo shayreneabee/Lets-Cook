@@ -5777,22 +5777,70 @@ function validCalendarPool(ids = []) {
   return ids.filter((id) => calendarRecipe(id));
 }
 
+const generatedWeekMenuCache = new Map();
+
+function stablePlannerHash(value = "") {
+  return [...String(value)].reduce((hash, char) => ((hash * 31) + char.charCodeAt(0)) >>> 0, 2166136261);
+}
+
+function plannerRecipeTraits(recipe) {
+  const text = `${recipe.title} ${recipe.description || ""} ${(recipe.tags || []).join(" ")} ${(recipe.ingredients || []).join(" ")}`.toLowerCase();
+  const protein = ["beef", "chicken", "turkey", "pork", "sausage", "fish", "shrimp", "beans", "eggs"].find((item) => text.includes(item)) || "plant-forward";
+  const method = ["grill", "roast", "bake", "stew", "soup", "fry", "slow cooker", "skillet", "no-cook"].find((item) => text.includes(item)) || "stovetop";
+  const ingredients = (recipe.ingredients || []).map((item) => String(typeof item === "string" ? item : item.item || item.name || "").toLowerCase()).filter(Boolean);
+  const seasonal = /peach|corn|tomato|okra|melon|herb|zucchini|berry|cucumber/.test(text);
+  return { protein, method, cuisine: recipe.cuisine || "american", ingredients, seasonal };
+}
+
+function plannerCandidatesFor(slot) {
+  return allRecipeCollection().filter((recipe) => {
+    if (!calendarRecipe(recipe.id)) return false;
+    const text = `${recipe.title} ${recipe.category || ""} ${(recipe.tags || []).join(" ")}`.toLowerCase();
+    if (slot === "breakfast") return /breakfast|brunch|pancake|waffle|biscuit|oat|egg|smoothie|toast|muffin/.test(text);
+    if (slot === "lunch") return /lunch|sandwich|wrap|salad|soup|taco|bowl|burger|pizza|quesadilla/.test(text);
+    if (slot === "snack") return /snack|cookie|brownie|fruit|smoothie|bar|muffin|bread|treat|popcorn|dip/.test(text);
+    return !/cookie|dessert|cake|pie|candy|drink|beverage|breakfast/.test(text);
+  });
+}
+
+function generatedMenusForWeek(dateKey) {
+  const anchor = weekDateKeys(dateKey)[0];
+  if (generatedWeekMenuCache.has(anchor)) return generatedWeekMenuCache.get(anchor);
+  const dates = weekDateKeys(anchor);
+  const usedIds = new Set();
+  const recentTraits = [];
+  const sharedIngredients = new Map();
+  const menus = {};
+  dates.forEach((dayKey, dayIndex) => {
+    const weekday = new Date(`${dayKey}T12:00:00`).getDay();
+    const menu = { date: dayKey, notes: weekday === 0 ? "Sunday supper: make enough for Monday leftovers." : weekday === 6 ? "Weekend table: slow down and cook together." : "Weekday rhythm: prep one component ahead when possible." };
+    Object.keys(calendarMealLabels).forEach((slot, slotIndex) => {
+      const candidates = plannerCandidatesFor(slot);
+      const ranked = candidates.map((recipe) => {
+        const traits = plannerRecipeTraits(recipe);
+        const repeatedProtein = recentTraits.slice(-8).filter((item) => item.protein === traits.protein).length;
+        const repeatedCuisine = recentTraits.slice(-8).filter((item) => item.cuisine === traits.cuisine).length;
+        const repeatedMethod = recentTraits.slice(-6).filter((item) => item.method === traits.method).length;
+        const usefulOverlap = traits.ingredients.filter((ingredient) => [...sharedIngredients.keys()].some((known) => ingredient.includes(known) || known.includes(ingredient))).length;
+        const deterministicVariety = stablePlannerHash(`${anchor}|${dayIndex}|${slotIndex}|${recipe.id}`) % 5000;
+        const score = deterministicVariety + (traits.seasonal ? 220 : 0) + Math.min(usefulOverlap, 3) * 45 - (usedIds.has(recipe.id) ? 100000 : 0) - repeatedProtein * 360 - repeatedCuisine * 210 - repeatedMethod * 150;
+        return { recipe, traits, score };
+      }).sort((a, b) => b.score - a.score || a.recipe.title.localeCompare(b.recipe.title));
+      const choice = ranked[0];
+      if (!choice) return;
+      usedIds.add(choice.recipe.id);
+      recentTraits.push(choice.traits);
+      choice.traits.ingredients.slice(0, 5).forEach((ingredient) => sharedIngredients.set(ingredient, (sharedIngredients.get(ingredient) || 0) + 1));
+      menu[slot] = { recipeId: choice.recipe.id, servings: household.servings || 4, status: "planned" };
+    });
+    menus[dayKey] = menu;
+  });
+  generatedWeekMenuCache.set(anchor, menus);
+  return menus;
+}
+
 function defaultMenuForDate(dateKey) {
-  const date = new Date(`${dateKey}T12:00:00`);
-  const day = Number(dateKey.slice(-2)) || date.getDate() || 1;
-  const weekday = date.getDay();
-  const choose = (slot, offset = 0) => {
-    const pool = validCalendarPool(augustCalendarConfig[slot]);
-    return pool.length ? pool[(day + weekday * 2 + offset) % pool.length] : "";
-  };
-  return {
-    date: dateKey,
-    breakfast: { recipeId: choose("breakfast"), servings: household.servings || 4 },
-    lunch: { recipeId: choose("lunch", 1), servings: household.servings || 4 },
-    dinner: { recipeId: choose("dinner", 2), servings: household.servings || 4 },
-    snack: { recipeId: choose("snack", 3), servings: household.servings || 4 },
-    notes: weekday === 0 ? "Sunday supper: make enough for Monday leftovers." : weekday === 6 ? "Weekend table: prep slowly and invite help." : "Back-to-school rhythm: prep one component ahead when possible."
-  };
+  return generatedMenusForWeek(dateKey)[dateKey];
 }
 
 function resolvedKitchenMenu(dateKey) {
@@ -5822,6 +5870,44 @@ function weekDateKeys(anchor = selectedKitchenDate) {
   });
 }
 
+function homepageWeekDateKeys() {
+  const today = new Date();
+  if (today.getFullYear() === 2026 && today.getMonth() === 6) return weekDateKeys(kitchenDateKey(today));
+  return weekDateKeys(selectedKitchenDate);
+}
+
+function mealState(dateKey, slot) {
+  return resolvedKitchenMenu(dateKey)[slot]?.status || "planned";
+}
+
+function dayIsCompleted(dateKey) {
+  const menu = resolvedKitchenMenu(dateKey);
+  if (kitchenPlan[dateKey]?.dayStatus === "completed") return true;
+  const meals = Object.keys(calendarMealLabels).filter((slot) => menu[slot]?.recipeId && !menu[slot]?.removed);
+  return meals.length > 0 && meals.every((slot) => ["made", "skipped"].includes(menu[slot].status));
+}
+
+function cookAlongEligible(recipe) {
+  if (!recipe) return false;
+  const text = `${recipe.title} ${recipe.description || ""} ${(recipe.tags || []).join(" ")}`.toLowerCase();
+  return /breakfast|sandwich|wrap|pizza|parfait|salad|cookie|biscuit|taco|quesadilla|smoothie|pancake|waffle|cornbread|muffin|fruit|no-cook/.test(text);
+}
+
+function cookAlongBadge(recipe) {
+  return cookAlongEligible(recipe) ? `<span class="cook-along-badge">Cook Along Together</span>` : "";
+}
+
+function weeklyPlanProgress(dateKeys = weekDateKeys(selectedKitchenDate)) {
+  const completed = dateKeys.filter(dayIsCompleted).length;
+  return `<div class="family-plan-progress"><strong>${completed} of ${dateKeys.length} days completed this week</strong><span>${completed ? "Look at you cooking your way through the week." : "One meal at a time, sugar."}</span></div>`;
+}
+
+function homepageWeeklyStrip() {
+  const dates = homepageWeekDateKeys();
+  const today = kitchenDateKey();
+  return `<section class="homepage-week-strip" aria-labelledby="weekStripTitle"><div class="home-section-kicker"><div><p class="eyebrow">A quick look ahead</p><h2 id="weekStripTitle">This Week at Let’s Cook Y’all</h2></div><div class="hero-actions"><a class="small-button" href="#lets-plan">Open Let’s Plan</a><a class="small-button secondary" href="#lets-plan/today">See Today’s Plate</a><button class="small-button secondary" type="button" data-use-kitchen-week>Use This Week</button><a class="small-button secondary" href="#lets-plan/groceries">View Grocery List</a></div></div>${weeklyPlanProgress(dates)}<div class="week-strip-days">${dates.map((dateKey) => { const recipe = calendarRecipe(resolvedKitchenMenu(dateKey).dinner.recipeId); const complete = dayIsCompleted(dateKey); return `<a class="week-strip-day ${dateKey === today ? "today" : ""} ${complete ? "completed" : ""}" href="#lets-plan/${dateKey}" data-week-date="${dateKey}"><time datetime="${dateKey}">${new Date(`${dateKey}T12:00:00`).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" })}</time><img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" />${cookAlongBadge(recipe)}<strong>${recipe.title}</strong><span>${complete ? "✓ Completed" : mealState(dateKey, "dinner") === "made" ? "Made" : "Planned"}</span></a>`; }).join("")}</div></section>`;
+}
+
 function plannerAnalytics(eventName, metadata = {}) {
   const events = readJSON("letsCookPlannerAnalytics", []);
   localStorage.setItem("letsCookPlannerAnalytics", JSON.stringify([{ event: eventName, metadata, at: new Date().toISOString() }, ...events].slice(0, 250)));
@@ -5840,9 +5926,10 @@ function persistKitchenPlanningState() {
 function calendarMealCard(meal, slot, { compact = false } = {}) {
   const recipe = calendarRecipe(meal?.recipeId);
   if (!recipe) return `<article class="calendar-meal-missing"><strong>${calendarMealLabels[slot]}</strong><span>Needs admin review — no valid recipe is scheduled.</span></article>`;
-  return `<article class="today-meal-card ${compact ? "compact" : ""}" data-calendar-meal="${slot}">
+  const status = meal.status || "planned";
+  return `<article class="today-meal-card ${compact ? "compact" : ""} meal-${status}" data-calendar-meal="${slot}">
     <a href="#recipes/${recipe.id}" data-calendar-recipe-open="${recipe.id}"><img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" /></a>
-    <div><p class="eyebrow">${calendarMealLabels[slot]}</p><h3>${recipe.title}</h3>${compact ? "" : `<p>${recipe.description}</p>`}<div class="today-meal-meta"><span>${meal.servings || recipe.servings} servings</span><span>${recipeDuration(recipe)}</span></div><div class="card-actions"><a class="small-button" href="#recipes/${recipe.id}" data-calendar-recipe-open="${recipe.id}">View Recipe</a><button class="small-button secondary" type="button" data-swap-calendar-meal="${slot}">Swap Meal</button><button class="small-button secondary" type="button" data-add-meal-grocery="${slot}">Add to Grocery List</button><button class="small-button secondary" type="button" data-calendar-made="${slot}">${cookedRecipes.includes(recipe.id) ? "Made It ✓" : "Made It"}</button></div></div>
+    <div><p class="eyebrow">${calendarMealLabels[slot]} · ${status}</p>${cookAlongBadge(recipe)}<h3>${recipe.title}</h3>${compact ? "" : `<p>${recipe.description}</p>`}<div class="today-meal-meta"><span>${meal.servings || recipe.servings} servings</span><span>${recipeDuration(recipe)}</span></div><div class="card-actions"><a class="small-button" href="#recipes/${recipe.id}" data-calendar-recipe-open="${recipe.id}">View Recipe</a>${cookAlongEligible(recipe) ? `<a class="small-button secondary" href="#cook-along/${recipe.id}">Cook Along</a>` : ""}<button class="small-button secondary" type="button" data-swap-calendar-meal="${slot}">Swap Meal</button><button class="small-button secondary" type="button" data-add-meal-grocery="${slot}">Add to Grocery List</button><button class="small-button secondary" type="button" data-calendar-made="${slot}">${status === "made" ? "Made ✓" : "Made It"}</button><button class="small-button secondary" type="button" data-calendar-skipped="${slot}">${status === "skipped" ? "Skipped ✓" : "Skip"}</button></div></div>
   </article>`;
 }
 
@@ -5854,23 +5941,32 @@ function todayPlateSection() {
 }
 
 function monthlyKitchenCalendarSection() {
-  const firstWeekday = new Date(augustCalendarConfig.year, augustCalendarConfig.month, 1).getDay();
+  const [year, month] = activePlannerMonth.split("-").map(Number);
+  const launchView = activePlannerMonth === "2026-08";
+  const start = launchView ? new Date(2026, 6, 26) : new Date(year, month - 1, 1);
+  const end = launchView ? new Date(2026, 7, 31) : new Date(year, month, 0);
+  const calendarDates = [];
+  for (let day = new Date(start); day <= end; day.setDate(day.getDate() + 1)) calendarDates.push(kitchenDateKey(day));
+  const firstWeekday = start.getDay();
   const today = kitchenDateKey();
-  plannerAnalytics("calendar_view", { month: augustCalendarConfig.key });
+  plannerAnalytics("calendar_view", { month: activePlannerMonth });
   const blanks = Array.from({ length: firstWeekday }, () => `<div class="kitchen-calendar-blank" aria-hidden="true"></div>`).join("");
-  const days = augustDateKeys().map((dateKey) => {
+  const days = calendarDates.map((dateKey) => {
     const menu = resolvedKitchenMenu(dateKey);
     const dinner = calendarRecipe(menu.dinner.recipeId);
     const isSelected = selectedKitchenDate === dateKey;
-    return `<button class="kitchen-calendar-day ${today === dateKey ? "today" : ""} ${isSelected ? "selected" : ""}" type="button" data-select-kitchen-date="${dateKey}" aria-pressed="${isSelected}"><time datetime="${dateKey}">${Number(dateKey.slice(-2))}</time><strong>${dinner?.title || "Menu needs review"}</strong><span>${calendarRecipe(menu.breakfast.recipeId)?.title || "Breakfast"}</span><small>Open full day →</small></button>`;
+    const complete = dayIsCompleted(dateKey);
+    const monthName = new Date(`${dateKey}T12:00:00`).toLocaleDateString(undefined, { month: "short" });
+    return `<button class="kitchen-calendar-day ${today === dateKey ? "today" : ""} ${isSelected ? "selected" : ""} ${complete ? "completed" : ""}" type="button" data-select-kitchen-date="${dateKey}" aria-pressed="${isSelected}"><time datetime="${dateKey}">${monthName} ${Number(dateKey.slice(-2))}</time><strong>${dinner?.title || "Menu needs review"}</strong>${cookAlongBadge(dinner)}<span>${calendarRecipe(menu.breakfast.recipeId)?.title || "Breakfast"}</span><small>${complete ? "✓ Completed" : "Open full day →"}</small></button>`;
   }).join("");
-  return `<section class="monthly-kitchen-section" aria-labelledby="monthlyKitchenTitle"><div class="home-section-kicker"><div><p class="eyebrow">This Month at Let’s Cook Y’all</p><h2 id="monthlyKitchenTitle">${augustCalendarConfig.title}</h2><p>Breakfasts, lunch boxes, snacks, cultural meals, quick dinners, weekend brunch, and Sunday supper—planned for one organized grocery run.</p></div><div class="hero-actions"><button class="small-button" type="button" data-use-kitchen-week>Use This Week</button><button class="small-button secondary" type="button" data-customize-kitchen-week>Customize Week</button><button class="small-button secondary" type="button" data-grocery-scope="month">Shop The Month</button></div></div><div class="kitchen-calendar-weekdays" aria-hidden="true">${["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"].map((day) => `<span>${day}</span>`).join("")}</div><div class="kitchen-calendar-grid">${blanks}${days}</div>${kitchenDayView(selectedKitchenDate)}</section>`;
+  return `<section class="monthly-kitchen-section" aria-labelledby="monthlyKitchenTitle"><div class="home-section-kicker"><div><p class="eyebrow">Full kitchen calendar</p><h2 id="monthlyKitchenTitle">${launchView ? "Late July into August: Back to School" : new Date(year, month - 1, 1).toLocaleDateString(undefined, { month: "long", year: "numeric" })}</h2><p>Breakfasts, lunch boxes, snacks, cultural meals, quick dinners, weekend brunch, and Sunday supper.</p></div><div class="hero-actions"><button class="small-button secondary" type="button" data-planner-month="previous">← Previous</button><button class="small-button secondary" type="button" data-planner-month="next">Next →</button><button class="small-button" type="button" data-use-kitchen-week>Use This Week</button><button class="small-button secondary" type="button" data-customize-kitchen-week>Customize Week</button><button class="small-button secondary" type="button" data-grocery-scope="month">Shop The Month</button></div></div>${weeklyPlanProgress()}<div class="kitchen-calendar-weekdays" aria-hidden="true">${["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"].map((day) => `<span>${day}</span>`).join("")}</div><div class="kitchen-calendar-grid">${blanks}${days}</div>${kitchenDayView(selectedKitchenDate)}</section>`;
 }
 
 function kitchenDayView(dateKey) {
   const menu = resolvedKitchenMenu(dateKey);
   const dateLabel = new Date(`${dateKey}T12:00:00`).toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" });
-  return `<section class="kitchen-day-view" id="kitchenDayView"><div class="section-heading compact-heading"><p class="eyebrow">Complete daily menu</p><h2>${dateLabel}</h2><p>${menu.notes || "Add a note for prep, lunch packing, or leftovers."}</p></div><div class="kitchen-day-actions"><button class="small-button" type="button" data-grocery-scope="day">Build This Day’s List</button><button class="small-button secondary" type="button" data-copy-kitchen-day>Copy Day</button><button class="small-button secondary" type="button" data-restore-kitchen-day>Restore Defaults</button></div><div class="today-meal-grid day-menu-grid">${Object.keys(calendarMealLabels).map((slot) => calendarMealCard(menu[slot], slot)).join("")}</div><div class="calendar-edit-grid">${Object.keys(calendarMealLabels).map((slot) => `<article><label>${calendarMealLabels[slot]} recipe<select data-calendar-recipe-select="${slot}"><option value="">Remove meal</option>${allRecipeCollection().filter(recipeAllowedInGeneralCollection).sort((a,b) => a.title.localeCompare(b.title)).map((recipe) => `<option value="${recipe.id}"${menu[slot].recipeId === recipe.id ? " selected" : ""}>${recipe.title}</option>`).join("")}</select></label><label>Servings<input data-calendar-servings="${slot}" type="number" min="1" max="40" value="${menu[slot].servings || household.servings || 4}" /></label></article>`).join("")}</div></section>`;
+  const completed = dayIsCompleted(dateKey);
+  return `<section class="kitchen-day-view ${completed ? "completed" : ""}" id="kitchenDayView"><div class="section-heading compact-heading"><p class="eyebrow">Complete daily menu · ${completed ? "Completed ✓" : "Planned"}</p><h2>${dateLabel}</h2><p>${menu.notes || "Add a note for prep, lunch packing, or leftovers."}</p></div><div class="kitchen-day-actions"><button class="small-button" type="button" data-grocery-scope="day">Build This Day’s List</button><button class="small-button secondary" type="button" data-copy-kitchen-day>Copy Day</button><button class="small-button secondary" type="button" data-complete-kitchen-day>${completed ? "Undo Completion" : "Mark Day Completed"}</button><button class="small-button secondary" type="button" data-restore-kitchen-day>Restore Defaults</button></div><div class="today-meal-grid day-menu-grid">${Object.keys(calendarMealLabels).map((slot) => calendarMealCard(menu[slot], slot)).join("")}</div><div class="calendar-edit-grid">${Object.keys(calendarMealLabels).map((slot) => `<article><label>${calendarMealLabels[slot]} recipe<select data-calendar-recipe-select="${slot}"><option value="">Remove meal</option>${allRecipeCollection().filter(recipeAllowedInGeneralCollection).sort((a,b) => a.title.localeCompare(b.title)).map((recipe) => `<option value="${recipe.id}"${menu[slot].recipeId === recipe.id ? " selected" : ""}>${recipe.title}</option>`).join("")}</select></label><label>Servings<input data-calendar-servings="${slot}" type="number" min="1" max="40" value="${menu[slot].servings || household.servings || 4}" /></label></article>`).join("")}</div></section>`;
 }
 
 const foundationalBreadAndCookieRecipes = [
@@ -8611,6 +8707,9 @@ let groceryLists = readJSON("letsCookGroceryLists", []);
 let household = readJSON("letsCookHousehold", { adults: 2, children: 2, servings: 4, allergies: "", dietary: "", avoid: "" });
 let pantryOwned = readJSON("letsCookPantryOwned", []);
 let clearedGroceryItems = readJSON("letsCookClearedGroceryItems", []);
+let activePlannerMonth = readJSON("letsCookPlannerMonth", "2026-08");
+let cookAlongAge = readJSON("letsCookAlongAge", "6-8");
+let cookAlongStep = 0;
 let selectedKitchenDate = readJSON("letsCookSelectedKitchenDate", "2026-08-01");
 let activeGroceryScope = "week";
 let activeGroceryItems = [];
@@ -8710,6 +8809,7 @@ function siteFooterMarkup(route = "") {
   const navGroups = [
     ["Cook", [
       ["Home", "#lets-cook"],
+      ["Let’s Plan", "#lets-plan"],
       ["Living Cookbook", "#recipes"],
       ["Explore Cuisines", "#cuisine-explorer"],
       ["America", "#america-250"],
@@ -8826,6 +8926,8 @@ function render() {
   updateAppChrome(route);
   if (route === "home") renderPlatformHome();
   else if (route === "lets-cook") renderLetsCookHome();
+  else if (route === "lets-plan") renderLetsPlan(id);
+  else if (route === "cook-along") renderCookAlong(id);
   else if (route === "find-the-beat") renderFindTheBeatHome();
   else if (route === "second-chance") renderSecondChanceHome();
   else if (route === "community") renderCommunity(id);
@@ -8864,6 +8966,7 @@ function setActive(route) {
     "cuisine-explorer": ["cuisine-explorer", "cuisine", "recipes", "search", "living-cookbook"],
     "kids-korner": ["kids-korner", "kids-cooking"],
     "what-yall-cooking": ["what-yall-cooking", "menu-intelligence", "kitchen-search", "pantry-scan", "planner", "build-a-meal", "hosting"],
+    "lets-plan": ["lets-plan", "cook-along"],
     "culinary-academy": ["culinary-academy", "cook101", "skills-academy", "food-encyclopedia", "paths", "pathways"]
   };
   document.querySelectorAll(".main-nav a").forEach((link) => {
@@ -8874,7 +8977,7 @@ function setActive(route) {
 }
 
 function activeAppForRoute(route) {
-  const cookingRoutes = ["lets-cook", "kitchen", "cook101", "skills-academy", "culinary-academy", "build-a-meal", "kitchen-search", "pantry-scan", "cuisine-explorer", "food-encyclopedia", "what-yall-cooking", "menu-intelligence", "living-cookbook", "kids-cooking", "kids-korner", "recipes", "paths", "pathways", "planner", "hosting", "about", "account", "search", "cuisine"];
+  const cookingRoutes = ["lets-cook", "lets-plan", "cook-along", "kitchen", "cook101", "skills-academy", "culinary-academy", "build-a-meal", "kitchen-search", "pantry-scan", "cuisine-explorer", "food-encyclopedia", "what-yall-cooking", "menu-intelligence", "living-cookbook", "kids-cooking", "kids-korner", "recipes", "paths", "pathways", "planner", "hosting", "about", "account", "search", "cuisine"];
   if (cookingRoutes.includes(route)) return ecosystemApps.find((item) => item.id === "lets-cook");
   if (route === "find-the-beat") return ecosystemApps.find((item) => item.id === "find-the-beat");
   if (route === "second-chance") return ecosystemApps.find((item) => item.id === "second-chance");
@@ -12644,7 +12747,7 @@ function homepageEditorialHeroSection() {
       </figure>
       <div class="home-hero-copy">
         <p class="eyebrow">Let's Cook Y'all / Late summer</p>
-        <h1 id="homeHeroTitle">August tastes like the garden showed out.</h1>
+        <h1 id="homeHeroTitle">What Y’all Cooking?</h1>
         <p>Farmers-market produce, back-to-school lunches, easy weeknight dinners, fresh salads, grilling, and one more peach dessert.</p>
         <form class="home-hero-search" data-ingredient-form>
           <label for="homeHeroSearch">What Y’all Cooking?</label>
@@ -12788,9 +12891,7 @@ function renderLetsCookHome() {
   app.innerHTML = `
     ${cookSubnav()}
     ${homepageEditorialHeroSection()}
-    ${monthlyKitchenCalendarSection()}
-    ${todayPlateSection()}
-    ${groceryPlanningSection()}
+    ${homepageWeeklyStrip()}
     ${homepageRecipeDiscoverySection()}
     ${homepageIngredientEditorialSection()}
     ${homepageCuisineScrollSection()}
@@ -12799,6 +12900,49 @@ function renderLetsCookHome() {
     ${homepageRecipeOfWeekSection(recipeOfWeek)}
     ${homepageCommunityEditorialSection()}
   `;
+}
+
+function cookAlongTaskFor(recipe, step, age = cookAlongAge) {
+  const text = String(step || "").toLowerCase();
+  const adultOnly = /knife|chop|slice|dice|stove|oven|bake|boil|simmer|fry|hot|raw chicken|raw beef|drain/.test(text);
+  const childJobs = {
+    "3-5": "Wash produce, count ingredients, or sprinkle a topping with the adult beside you.",
+    "6-8": "Measure, pour, stir, tear, or assemble the cool ingredients for this step.",
+    "9-12": "Read the step, measure carefully, and handle age-safe prep with adult supervision.",
+    "13+": "Lead the measuring and prep; ask the adult to supervise heat and sharp tools."
+  };
+  return { child: adultOnly ? "Watch from a safe spot, read the step aloud, and help with the next cool task." : childJobs[age], adult: adultOnly ? "Adult only: handle heat, sharp knives, raw meat, heavy pans, and hot liquids." : "Stay close, check measurements, and model safe technique." };
+}
+
+function cookAlongIngredientsForStep(recipe, index) {
+  const ingredients = recipe.ingredients || [];
+  const size = Math.max(1, Math.ceil(ingredients.length / Math.max(1, (recipe.instructions || recipe.directions || []).length)));
+  return ingredients.slice(index * size, index * size + size).map((item) => typeof item === "string" ? item : item.item || item.name).filter(Boolean);
+}
+
+function renderCookAlong(id) {
+  const recipe = calendarRecipe(id);
+  if (!recipe || !cookAlongEligible(recipe)) { app.innerHTML = `${hero("Cook-Along Not Available", "Choose a complete family-friendly recipe with real guided steps.", exactRecipePhotoNeededImage, `<a class="small-button" href="#lets-plan">Back to Let’s Plan</a>`)}${cookSubnav()}`; return; }
+  const steps = recipe.instructions || recipe.directions || [];
+  cookAlongStep = Math.min(cookAlongStep, Math.max(0, steps.length - 1));
+  const instruction = steps[cookAlongStep];
+  const jobs = cookAlongTaskFor(recipe, instruction);
+  const ingredients = cookAlongIngredientsForStep(recipe, cookAlongStep);
+  app.innerHTML = `${cookSubnav()}<section class="guided-cook-along"><header><p class="eyebrow">Cook Along Together · Private family mode</p><h1>${recipe.title}</h1><p>Step ${cookAlongStep + 1} of ${steps.length}</p><div class="cook-along-progress"><span style="width:${((cookAlongStep + 1) / steps.length) * 100}%"></span></div><label>Choose your helper level<select data-cook-along-age><option value="3-5"${cookAlongAge === "3-5" ? " selected" : ""}>Little Helpers: ages 3–5</option><option value="6-8"${cookAlongAge === "6-8" ? " selected" : ""}>Kitchen Helpers: ages 6–8</option><option value="9-12"${cookAlongAge === "9-12" ? " selected" : ""}>Junior Cooks: ages 9–12</option><option value="13+"${cookAlongAge === "13+" ? " selected" : ""}>Teen Cooks: ages 13+</option></select></label></header><article class="cook-along-step"><img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" /><div><p class="eyebrow">Right now</p><h2>${instruction}</h2><section><h3>Ingredients for this step</h3><ul>${ingredients.map((item) => `<li>${escapeHTML(item)}</li>`).join("") || "<li>Use the prepared ingredients listed in the recipe.</li>"}</ul></section><div class="cook-along-jobs"><section><h3>Kid Jobs</h3><p>${jobs.child}</p></section><section class="adult-only"><h3>Adult Jobs</h3><p>${jobs.adult}</p></section></div><p class="cook-along-safety">Safety check: wash hands, keep handles turned in, and let the adult control heat and sharp tools.</p><div class="hero-actions"><button class="small-button secondary" type="button" data-cook-along-step="previous" ${cookAlongStep === 0 ? "disabled" : ""}>Previous Step</button><button class="small-button" type="button" data-cook-along-step="next">${cookAlongStep === steps.length - 1 ? "We Finished This Step" : "Next Step"}</button>${cookAlongStep === steps.length - 1 ? `<button class="small-button secondary" type="button" data-family-made="${recipe.id}">We Made It</button>` : ""}</div></div></article></section>`;
+}
+
+function renderLetsPlan(id = "") {
+  if (/^\d{4}-\d{2}-\d{2}$/.test(id)) selectedKitchenDate = id;
+  if (id === "today") selectedKitchenDate = kitchenDateKey();
+  if (id === "groceries") activeGroceryScope = "week";
+  app.innerHTML = `${cookSubnav()}<section class="lets-plan-intro"><p class="eyebrow">Your warm, practical kitchen plan</p><h1>Let’s Plan</h1><p>See what’s cooking today, shape the week, shop once, and bring the family into the kitchen.</p></section>${todayPlateSection()}${monthlyKitchenCalendarSection()}${groceryPlanningSection()}<section class="cook-along-library"><div class="section-heading"><p class="eyebrow">Family kitchen</p><h2>Cook Along Together</h2><p>Real recipes with age-adjusted child jobs and clearly separated adult-only safety work.</p></div><div class="recipe-grid">${allRecipeCollection().filter((recipe) => recipeAllowedInGeneralCollection(recipe) && cookAlongEligible(recipe)).slice(0, 12).map((recipe) => `<article class="recipe-card"><a href="#cook-along/${recipe.id}"><img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" />${cookAlongBadge(recipe)}<h3>${recipe.title}</h3><p>${recipeDuration(recipe)}</p></a></article>`).join("")}</div></section>`;
+  if (id === "groceries") setTimeout(() => document.querySelector("#kitchenGroceryList")?.scrollIntoView(), 0);
+}
+
+function renderKitchenPlannerSurface() {
+  const { route, id } = routeParts();
+  if (route === "lets-plan") renderLetsPlan(id);
+  else renderLetsCookHome();
 }
 
 function renderAppHub(id) {
@@ -12993,6 +13137,7 @@ function cookSubnav() {
       <a href="#cuisine-explorer">Cuisine Explorer</a>
       <a href="#kids-korner">Kids Korner</a>
       <a href="#what-yall-cooking">What Y'all Cooking?</a>
+      <a href="#lets-plan">Let’s Plan</a>
       <a href="#culinary-academy">Academy</a>
       <a href="#account">My Profile</a>
     </section>
@@ -16824,14 +16969,20 @@ function logZeroRecipeSearch(query = "") {
 }
 
 function handleSearch(event) {
+  if (event?.target?.matches("[data-cook-along-age]")) {
+    cookAlongAge = event.target.value;
+    localStorage.setItem("letsCookAlongAge", JSON.stringify(cookAlongAge));
+    renderCookAlong(routeParts().id);
+    return;
+  }
   if (event?.target?.matches("[data-calendar-recipe-select]")) {
     const slot = event.target.dataset.calendarRecipeSelect;
     const recipeId = event.target.value;
     const current = resolvedKitchenMenu(selectedKitchenDate)[slot];
-    kitchenPlan[selectedKitchenDate] = { ...(kitchenPlan[selectedKitchenDate] || {}), [slot]: { ...current, recipeId, removed: !recipeId } };
+    kitchenPlan[selectedKitchenDate] = { ...(kitchenPlan[selectedKitchenDate] || {}), [slot]: { ...current, recipeId, removed: !recipeId, status: recipeId ? "swapped" : "planned" } };
     plannerAnalytics("meal_swap", { date: selectedKitchenDate, slot, to: recipeId || "removed" });
     persistKitchenPlanningState();
-    renderLetsCookHome();
+    renderKitchenPlannerSurface();
     return;
   }
   if (event?.target?.matches("[data-calendar-servings]")) {
@@ -16930,6 +17081,11 @@ function handleClick(event) {
   const swapCalendarMealButton = event.target.closest("[data-swap-calendar-meal]");
   const addMealGroceryButton = event.target.closest("[data-add-meal-grocery]");
   const calendarMadeButton = event.target.closest("[data-calendar-made]");
+  const calendarSkippedButton = event.target.closest("[data-calendar-skipped]");
+  const completeKitchenDayButton = event.target.closest("[data-complete-kitchen-day]");
+  const plannerMonthButton = event.target.closest("[data-planner-month]");
+  const cookAlongStepButton = event.target.closest("[data-cook-along-step]");
+  const familyMadeButton = event.target.closest("[data-family-made]");
   const useKitchenWeekButton = event.target.closest("[data-use-kitchen-week]");
   const customizeKitchenWeekButton = event.target.closest("[data-customize-kitchen-week]");
   const copyKitchenDayButton = event.target.closest("[data-copy-kitchen-day]");
@@ -16982,7 +17138,7 @@ function handleClick(event) {
   if (selectKitchenDateButton) {
     selectedKitchenDate = selectKitchenDateButton.dataset.selectKitchenDate;
     localStorage.setItem("letsCookSelectedKitchenDate", JSON.stringify(selectedKitchenDate));
-    renderLetsCookHome();
+    renderKitchenPlannerSurface();
     document.querySelector("#kitchenDayView")?.scrollIntoView({ behavior: "smooth", block: "start" });
     return;
   }
@@ -16990,38 +17146,82 @@ function handleClick(event) {
     const slot = swapCalendarMealButton.dataset.swapCalendarMeal;
     const dateKey = swapCalendarMealButton.closest(".kitchen-day-view") ? selectedKitchenDate : kitchenDateKey();
     const current = resolvedKitchenMenu(dateKey)[slot]?.recipeId;
-    const pool = validCalendarPool(augustCalendarConfig[slot]);
-    const replacement = pool[(Math.max(0, pool.indexOf(current)) + 1) % pool.length];
+    const pool = plannerCandidatesFor(slot).map((recipe) => recipe.id).filter((id) => !Object.values(resolvedKitchenMenu(dateKey)).some((meal) => meal?.recipeId === id));
+    const replacement = pool[stablePlannerHash(`${dateKey}|${slot}|${current}`) % pool.length];
     if (replacement) {
-      kitchenPlan[dateKey] = { ...(kitchenPlan[dateKey] || {}), [slot]: { ...resolvedKitchenMenu(dateKey)[slot], recipeId: replacement } };
+      kitchenPlan[dateKey] = { ...(kitchenPlan[dateKey] || {}), [slot]: { ...resolvedKitchenMenu(dateKey)[slot], recipeId: replacement, status: "swapped" } };
       plannerAnalytics("meal_swap", { date: dateKey, slot, from: current, to: replacement });
       persistKitchenPlanningState();
-      renderLetsCookHome();
+      renderKitchenPlannerSurface();
     } else plannerAnalytics("planner_recipe_search_zero", { slot });
     return;
   }
   if (addMealGroceryButton) {
     selectedKitchenDate = addMealGroceryButton.closest(".kitchen-day-view") ? selectedKitchenDate : kitchenDateKey();
     activeGroceryScope = "day";
-    renderLetsCookHome();
+    renderKitchenPlannerSurface();
     document.querySelector("#kitchenGroceryList")?.scrollIntoView({ behavior: "smooth", block: "start" });
     return;
   }
   if (calendarMadeButton) {
     const card = calendarMadeButton.closest("[data-calendar-meal]");
     const recipeId = card?.querySelector("[data-calendar-recipe-open]")?.dataset.calendarRecipeOpen;
+    const slot = calendarMadeButton.dataset.calendarMade;
+    const dateKey = calendarMadeButton.closest(".kitchen-day-view") ? selectedKitchenDate : kitchenDateKey();
     if (recipeId) {
       cookedRecipes = toggleValue(cookedRecipes, recipeId);
-      persistLetsCookState();
-      renderLetsCookHome();
+      const current = resolvedKitchenMenu(dateKey)[slot];
+      kitchenPlan[dateKey] = { ...(kitchenPlan[dateKey] || {}), [slot]: { ...current, status: current.status === "made" ? "planned" : "made" } };
+      persistKitchenPlanningState();
+      renderKitchenPlannerSurface();
     }
+    return;
+  }
+  if (calendarSkippedButton) {
+    const slot = calendarSkippedButton.dataset.calendarSkipped;
+    const dateKey = calendarSkippedButton.closest(".kitchen-day-view") ? selectedKitchenDate : kitchenDateKey();
+    const current = resolvedKitchenMenu(dateKey)[slot];
+    kitchenPlan[dateKey] = { ...(kitchenPlan[dateKey] || {}), [slot]: { ...current, status: current.status === "skipped" ? "planned" : "skipped" } };
+    persistKitchenPlanningState();
+    renderKitchenPlannerSurface();
+    return;
+  }
+  if (completeKitchenDayButton) {
+    const completed = dayIsCompleted(selectedKitchenDate);
+    const menu = resolvedKitchenMenu(selectedKitchenDate);
+    kitchenPlan[selectedKitchenDate] = { ...(kitchenPlan[selectedKitchenDate] || {}), dayStatus: completed ? "planned" : "completed" };
+    Object.keys(calendarMealLabels).forEach((slot) => { if (!completed && menu[slot]?.recipeId) kitchenPlan[selectedKitchenDate][slot] = { ...menu[slot], status: "made" }; });
+    persistKitchenPlanningState();
+    renderKitchenPlannerSurface();
+    return;
+  }
+  if (plannerMonthButton) {
+    const [year, month] = activePlannerMonth.split("-").map(Number);
+    const next = new Date(year, month - 1 + (plannerMonthButton.dataset.plannerMonth === "next" ? 1 : -1), 1);
+    activePlannerMonth = `${next.getFullYear()}-${String(next.getMonth() + 1).padStart(2, "0")}`;
+    localStorage.setItem("letsCookPlannerMonth", JSON.stringify(activePlannerMonth));
+    renderLetsPlan();
+    return;
+  }
+  if (cookAlongStepButton) {
+    const recipe = calendarRecipe(routeParts().id);
+    const count = (recipe?.instructions || recipe?.directions || []).length;
+    cookAlongStep = Math.max(0, Math.min(count - 1, cookAlongStep + (cookAlongStepButton.dataset.cookAlongStep === "next" ? 1 : -1)));
+    renderCookAlong(routeParts().id);
+    return;
+  }
+  if (familyMadeButton) {
+    cookedRecipes = [...new Set([...cookedRecipes, familyMadeButton.dataset.familyMade])];
+    localStorage.setItem("letsCookFamilyAchievements", JSON.stringify([...new Set([...readJSON("letsCookFamilyAchievements", []), "Kitchen Helper", "Around-the-World Cook"])]));
+    persistLetsCookState();
+    familyMadeButton.textContent = "We Made It ✓";
     return;
   }
   if (useKitchenWeekButton) {
     weekDateKeys(selectedKitchenDate).forEach((dateKey) => { kitchenPlan[dateKey] = defaultMenuForDate(dateKey); });
     plannerAnalytics("weekly_plan_adopted", { week: weekDateKeys(selectedKitchenDate)[0] });
     persistKitchenPlanningState();
-    renderLetsCookHome();
+    renderKitchenPlannerSurface();
     return;
   }
   if (customizeKitchenWeekButton) {
@@ -17038,18 +17238,18 @@ function handleClick(event) {
     kitchenPlan[targetKey].date = targetKey;
     selectedKitchenDate = targetKey;
     persistKitchenPlanningState();
-    renderLetsCookHome();
+    renderKitchenPlannerSurface();
     return;
   }
   if (restoreKitchenDayButton) {
     delete kitchenPlan[selectedKitchenDate];
     persistKitchenPlanningState();
-    renderLetsCookHome();
+    renderKitchenPlannerSurface();
     return;
   }
   if (groceryScopeButton) {
     activeGroceryScope = groceryScopeButton.dataset.groceryScope || "week";
-    renderLetsCookHome();
+    renderKitchenPlannerSurface();
     document.querySelector("#kitchenGroceryList")?.scrollIntoView({ behavior: "smooth", block: "start" });
     return;
   }
@@ -17058,7 +17258,7 @@ function handleClick(event) {
     pantryOwned = groceryOwnedInput.checked ? [...new Set([...pantryOwned, name])] : pantryOwned.filter((item) => item !== name);
     plannerAnalytics("pantry_item_marked_owned", { ingredient: name, owned: groceryOwnedInput.checked });
     persistKitchenPlanningState();
-    renderLetsCookHome();
+    renderKitchenPlannerSurface();
     document.querySelector("#kitchenGroceryList")?.scrollIntoView({ block: "start" });
     return;
   }
@@ -17067,7 +17267,7 @@ function handleClick(event) {
     groceryLists = [{ id: `grocery-${Date.now()}`, name, scope: activeGroceryScope, items: activeGroceryItems, household, savedAt: new Date().toISOString() }, ...groceryLists].slice(0, 20);
     plannerAnalytics("grocery_list_saved", { scope: activeGroceryScope });
     persistKitchenPlanningState();
-    renderLetsCookHome();
+    renderKitchenPlannerSurface();
     return;
   }
   if (printGroceryButton) {
@@ -17101,12 +17301,12 @@ function handleClick(event) {
     clearedGroceryItems = [...new Set([...clearedGroceryItems, ...checkedKeys])];
     plannerAnalytics("grocery_checked_cleared", { count: checkedKeys.length, scope: activeGroceryScope });
     persistKitchenPlanningState();
-    renderLetsCookHome();
+    renderKitchenPlannerSurface();
     return;
   }
   if (loadGroceryButton) {
     const list = groceryLists.find((item) => item.id === loadGroceryButton.dataset.loadGroceryList);
-    if (list) { activeGroceryScope = list.scope; household = { ...household, ...(list.household || {}) }; activeGroceryItems = list.items || []; renderLetsCookHome(); }
+    if (list) { activeGroceryScope = list.scope; household = { ...household, ...(list.household || {}) }; activeGroceryItems = list.items || []; renderKitchenPlannerSurface(); }
     return;
   }
 
@@ -17389,8 +17589,9 @@ async function handleSubmit(event) {
       dietary: formData.get("dietary")?.toString().trim() || "",
       avoid: formData.get("avoid")?.toString().trim() || ""
     };
+    generatedWeekMenuCache.clear();
     persistKitchenPlanningState();
-    renderLetsCookHome();
+    renderKitchenPlannerSurface();
     document.querySelector("#kitchenGroceryList")?.scrollIntoView({ block: "start" });
     return;
   }

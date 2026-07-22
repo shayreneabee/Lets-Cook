@@ -31,6 +31,8 @@ globalThis.__cookbookTest = {
   ,augustCalendarConfig,
   augustDateKeys,
   defaultMenuForDate,
+  generatedMenusForWeek,
+  plannerRecipeTraits,
   resolvedKitchenMenu,
   calendarRecipe,
   calendarMealsForDates,
@@ -38,6 +40,11 @@ globalThis.__cookbookTest = {
   todayPlateSection,
   monthlyKitchenCalendarSection,
   groceryPlanningSection,
+  homepageWeeklyStrip,
+  renderLetsPlan,
+  renderLetsCookHome,
+  cookAlongEligible,
+  cookAlongTaskFor,
   setHousehold(value) { household = { ...household, ...value }; },
   setPantryOwned(value) { pantryOwned = value; }
 };
@@ -184,8 +191,38 @@ const todayMarkup = api.todayPlateSection();
 assert(todayMarkup.includes("Today’s Plate"), "Homepage must include Today’s Plate");
 assert.strictEqual((todayMarkup.match(/data-calendar-recipe-open=/g) || []).length, 8, "Every Today’s Plate meal must have two direct recipe links");
 const monthMarkup = api.monthlyKitchenCalendarSection();
-assert(monthMarkup.includes("This Month at Let’s Cook Y’all") && monthMarkup.includes("August: Back to School"), "Homepage must include the August Back-to-School calendar");
-assert.strictEqual((monthMarkup.match(/data-select-kitchen-date=/g) || []).length, 31, "Every August date must be selectable");
+assert(monthMarkup.includes("Late July into August: Back to School"), "Let’s Plan calendar must bridge late July into August");
+assert.strictEqual((monthMarkup.match(/data-select-kitchen-date=/g) || []).length, 37, "Launch calendar must include July 26 through August 31");
+assert(monthMarkup.includes("data-planner-month=\"previous\"") && monthMarkup.includes("data-planner-month=\"next\""), "Calendar must support previous and next month navigation");
+
+const weekMarkup = api.homepageWeeklyStrip();
+assert(weekMarkup.includes("This Week at Let’s Cook Y’all"), "Homepage needs the compact weekly preview");
+assert.strictEqual((weekMarkup.match(/data-week-date=/g) || []).length, 7, "Homepage must show one week only");
+assert(weekMarkup.includes("#lets-plan") && weekMarkup.includes("Use This Week") && weekMarkup.includes("View Grocery List"), "Weekly preview must link to planning actions");
+api.renderLetsCookHome();
+assert(element.innerHTML.includes('<h1 id="homeHeroTitle">What Y’all Cooking?</h1>'), "Homepage hero must use the exact What Y’all Cooking? headline");
+assert(!element.innerHTML.includes("monthly-kitchen-section"), "Full monthly calendar must not appear on the homepage");
+assert(element.innerHTML.includes("homepage-week-strip"), "Homepage must render the weekly strip directly after its hero");
+api.renderLetsPlan();
+assert(element.innerHTML.includes("Today’s Plate") && element.innerHTML.includes("monthly-kitchen-section") && element.innerHTML.includes("Kitchen Grocery List"), "Let’s Plan must contain Today’s Plate, calendar, and groceries");
+
+const familyRecipe = api.allRecipeCollection().find(api.cookAlongEligible);
+assert(familyRecipe, "At least one complete recipe must support Cook Along Together");
+const littleJob = api.cookAlongTaskFor(familyRecipe, "Stir the ingredients", "3-5");
+const juniorJob = api.cookAlongTaskFor(familyRecipe, "Stir the ingredients", "9-12");
+assert.notStrictEqual(littleJob.child, juniorJob.child, "Age selection must change the child’s job");
+assert(/Adult only/i.test(api.cookAlongTaskFor(familyRecipe, "Bake in a hot oven", "9-12").adult), "Heat steps must remain adult-only");
+
+const curatedWeek = api.generatedMenusForWeek("2026-07-22");
+const curatedMeals = Object.values(curatedWeek).flatMap((menu) => [menu.breakfast, menu.lunch, menu.dinner, menu.snack]);
+assert.strictEqual(new Set(curatedMeals.map((meal) => meal.recipeId)).size, curatedMeals.length, "A curated week must not repeat recipes");
+const dinnerTraits = Object.values(curatedWeek).map((menu) => api.plannerRecipeTraits(api.calendarRecipe(menu.dinner.recipeId)));
+assert(new Set(dinnerTraits.map((item) => item.protein)).size >= 4, "Weekly dinners must balance proteins");
+assert(new Set(dinnerTraits.map((item) => item.cuisine)).size >= 4, "Weekly dinners must balance cuisines");
+assert(new Set(dinnerTraits.map((item) => item.method)).size >= 3, "Weekly dinners must balance cooking methods");
+const followingWeekIds = new Set(Object.values(api.generatedMenusForWeek("2026-07-29")).flatMap((menu) => [menu.breakfast.recipeId, menu.lunch.recipeId, menu.dinner.recipeId, menu.snack.recipeId]));
+const repeatedAcrossWeeks = curatedMeals.filter((meal) => followingWeekIds.has(meal.recipeId)).length;
+assert(repeatedAcrossWeeks <= 7, "Consecutive weeks must substantially rotate the menu");
 
 api.setHousehold({ servings: 4, allergies: "", dietary: "", avoid: "" });
 api.setPantryOwned([]);
@@ -205,7 +242,7 @@ const routedPages = new Set([
   "add-recipe", "submit-recipe", "cook101", "skills-academy", "culinary-academy", "build-a-meal",
   "kitchen-search", "pantry-scan", "cuisine-explorer", "food-encyclopedia", "what-yall-cooking",
   "menu-intelligence", "living-cookbook", "kids-cooking", "kids-korner", "recipes", "paths",
-  "pathways", "planner", "hosting", "about", "account", "privacy", "terms", "contact", "search", "cuisine"
+  "pathways", "planner", "lets-plan", "cook-along", "hosting", "about", "account", "privacy", "terms", "contact", "search", "cuisine"
 ]);
 const localDocumentAnchors = new Set(["aiKitchenInventoryForm"]);
 const literalInternalLinks = [...source.matchAll(/href="#([^"$]+)"/g)].map((match) => match[1]);

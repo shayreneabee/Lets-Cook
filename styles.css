@@ -14484,3 +14484,41 @@ button.small-button.secondary,
   .holiday-destination-card,
   .cookbook-featured-chapter { border-radius: 18px !important; }
 }
+
+.homepage-week-strip, .lets-plan-intro, .cook-along-library, .guided-cook-along { padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 5vw, 5rem); }
+.homepage-week-strip { background: #fffaf0; }
+.week-strip-days { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: .75rem; overflow-x: auto; padding: .5rem 0; }
+.week-strip-day { min-width: 140px; display: grid; gap: .45rem; color: var(--navy, #12233f); text-decoration: none; border-radius: 1.1rem; padding: .65rem; background: white; box-shadow: 0 8px 24px rgba(18,35,63,.08); position: relative; }
+.week-strip-day img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: .8rem; }
+.week-strip-day.today { outline: 4px solid #f5c542; }
+.week-strip-day.completed { opacity: .72; }
+.week-strip-day.completed time { text-decoration: line-through; }
+.week-strip-day span { color: #087d15; font-weight: 800; }
+.cook-along-badge { display: inline-flex; width: fit-content; padding: .28rem .55rem; border-radius: 999px; background: #ffe36e; color: #12233f; font-size: .72rem; font-weight: 900; line-height: 1.1; }
+.family-plan-progress { display: flex; flex-wrap: wrap; gap: .5rem 1rem; align-items: center; margin: 1rem 0; padding: .9rem 1rem; border-radius: 1rem; background: #e9f7e8; color: #075f2b; }
+.lets-plan-intro { background: linear-gradient(120deg, #fff1b9, #ffd6cd 48%, #dff4d8); }
+.lets-plan-intro h1 { font-size: clamp(3rem, 7vw, 6rem); margin: .2rem 0; color: #12233f; }
+.kitchen-calendar-day.completed { opacity: .7; background: #e8f4e7; }
+.kitchen-calendar-day.completed time { text-decoration: line-through; }
+.kitchen-day-view.completed { border-color: #087d15; box-shadow: inset 0 0 0 3px rgba(8,125,21,.12); }
+.today-meal-card.meal-made, .today-meal-card.meal-skipped { opacity: .78; }
+.today-meal-card.meal-skipped h3 { text-decoration: line-through; }
+.guided-cook-along { min-height: 75vh; background: #fffaf0; }
+.guided-cook-along header { max-width: 900px; margin: 0 auto 2rem; }
+.guided-cook-along header h1 { font-size: clamp(2.5rem, 6vw, 5rem); color: #12233f; }
+.cook-along-progress { height: 12px; border-radius: 999px; overflow: hidden; background: #e4e8e2; margin: 1rem 0; }
+.cook-along-progress span { display: block; height: 100%; background: linear-gradient(90deg, #087d15, #f5c542, #ff6259); }
+.cook-along-step { max-width: 1100px; margin: auto; display: grid; grid-template-columns: minmax(240px, .8fr) 1.2fr; gap: 2rem; background: white; padding: 1.2rem; border-radius: 1.5rem; box-shadow: 0 18px 50px rgba(18,35,63,.12); }
+.cook-along-step > img { width: 100%; height: 100%; max-height: 680px; object-fit: cover; border-radius: 1.2rem; }
+.cook-along-step h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); line-height: 1.15; color: #12233f; }
+.cook-along-jobs { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.cook-along-jobs section { padding: 1rem; border-radius: 1rem; background: #e9f7e8; }
+.cook-along-jobs .adult-only { background: #fff0db; border: 2px solid #ff8d5b; }
+.cook-along-safety { padding: .8rem 1rem; border-left: 5px solid #ff6259; background: #fff5f3; font-weight: 750; }
+
+@media (max-width: 720px) {
+  .week-strip-days { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(72vw, 290px); scroll-snap-type: x mandatory; }
+  .week-strip-day { scroll-snap-align: start; }
+  .cook-along-step, .cook-along-jobs { grid-template-columns: 1fr; }
+  .cook-along-step > img { max-height: 280px; }
+}
