@@ -1,11 +1,18 @@
 {
-  "generatedAt": "2026-07-22T23:19:11.723Z",
+  "generatedAt": "2026-07-22T23:37:38.950Z",
   "summary": {
-    "totalRecipes": 682,
+    "totalRecipes": 675,
+    "retiredDuplicateRecords": 7,
     "duplicateRecipeIdGroups": 0,
-    "duplicateRecipeTitleGroups": 5,
-    "uniqueImages": 561,
-    "sharedImageGroups": 86,
+    "duplicateRecipeTitleGroups": 0,
+    "duplicateRecipeSlugGroups": 0,
+    "duplicateIngredientListGroups": 0,
+    "ingredientVariationReviewGroups": 1,
+    "duplicateInstructionListGroups": 0,
+    "uniqueImages": 560,
+    "sharedImageGroups": 81,
+    "unrelatedSharedImageGroups": 81,
+    "imageReviewQueueItems": 115,
     "genericRecipeImages": 0,
     "semanticImageMismatches": 0,
     "fallbackImages": 0,
@@ -16,124 +23,88 @@
     "menuReferenceIssues": 0,
     "cuisineCollectionIssues": 0,
     "cookbookClassificationIssues": 0,
+    "cookbookCardDuplicateIssues": 0,
     "ingredientSearchIssues": 0,
     "trainingOnlyGeneralLeaks": 0,
     "recipesMissingRequiredDetails": 0,
-    "recipesMissingRecommendedDetails": 682
+    "recipesMissingRecommendedDetails": 675
   },
   "duplicateRecipeIds": [],
-  "duplicateRecipeTitles": [
+  "duplicateRecipeTitles": [],
+  "duplicateRecipeSlugs": [],
+  "duplicateIngredientLists": [],
+  "ingredientVariationReviews": [
     {
-      "titleKey": "orange-chicken",
+      "signature": "cups-flour|cups-warm-water|oil-for-frying|tbsp-baking-powder|tsp-salt",
       "recipes": [
         {
-          "id": "orange-chicken",
-          "title": "Orange Chicken",
-          "cuisine": "asian-inspired",
-          "category": "Kid-Friendly Cooking"
+          "id": "northern-plains-fry-bread",
+          "title": "Northern Plains Fry Bread",
+          "cuisine": "north-dakota",
+          "category": "Dakotas"
         },
         {
-          "id": "asian-orange-chicken",
-          "title": "Orange Chicken",
-          "cuisine": "asian-inspired",
-          "category": "Quick Meals"
-        }
-      ]
-    },
-    {
-      "titleKey": "crab-rangoon",
-      "recipes": [
-        {
-          "id": "crab-rangoon",
-          "title": "Crab Rangoon",
-          "cuisine": "asian-inspired",
-          "category": "Party & Hosting"
-        },
-        {
-          "id": "asian-crab-rangoon",
-          "title": "Crab Rangoon",
-          "cuisine": "asian-inspired",
-          "category": "Party & Hosting"
-        }
-      ]
-    },
-    {
-      "titleKey": "cashew-chicken",
-      "recipes": [
-        {
-          "id": "cashew-chicken",
-          "title": "Cashew Chicken",
-          "cuisine": "asian-inspired",
-          "category": "Quick Weeknight Meals"
-        },
-        {
-          "id": "asian-cashew-chicken",
-          "title": "Cashew Chicken",
-          "cuisine": "asian-inspired",
-          "category": "Family Dinners"
-        }
-      ]
-    },
-    {
-      "titleKey": "baked-mac-and-cheese",
-      "recipes": [
-        {
-          "id": "mac-and-cheese",
-          "title": "Baked Mac and Cheese",
-          "cuisine": "southern",
-          "category": "Southern Comfort"
-        },
-        {
-          "id": "southern-baked-mac-cheese",
-          "title": "Baked Mac and Cheese",
-          "cuisine": "southern",
-          "category": "Soul Food"
-        }
-      ]
-    },
-    {
-      "titleKey": "thai-basil-chicken",
-      "recipes": [
-        {
-          "id": "asian-thai-basil-chicken",
-          "title": "Thai Basil Chicken",
-          "cuisine": "asian-inspired",
-          "category": "Quick Meals"
-        },
-        {
-          "id": "thai-basil-chicken",
-          "title": "Thai Basil Chicken",
-          "cuisine": "asian-inspired",
-          "category": "Thai Skillet"
+          "id": "arizona-fry-bread",
+          "title": "Arizona Fry Bread",
+          "cuisine": "arizona",
+          "category": "Native Food Context"
         }
       ]
     }
   ],
-  "sharedImages": [
+  "duplicateInstructionLists": [],
+  "retiredDuplicateRecords": [
     {
-      "image": "images/recipes/asian-hub-2026/orange-cashew-chicken.png",
-      "count": 3,
-      "recipes": [
-        {
-          "id": "orange-chicken",
-          "title": "Orange Chicken",
-          "cuisine": "asian-inspired",
-          "category": "Kid-Friendly Cooking"
-        },
-        {
-          "id": "asian-orange-chicken",
-          "title": "Orange Chicken",
-          "cuisine": "asian-inspired",
-          "category": "Quick Meals"
-        },
-        {
-          "id": "asian-cashew-chicken",
-          "title": "Cashew Chicken",
-          "cuisine": "asian-inspired",
-          "category": "Family Dinners"
-        }
-      ]
+      "id": "mac-and-cheese",
+      "title": "Baked Mac and Cheese",
+      "cuisine": "southern",
+      "category": "Southern Comfort",
+      "canonicalId": "southern-baked-mac-cheese"
     },
+    {
+      "id": "asian-orange-chicken",
+      "title": "Orange Chicken",
+      "cuisine": "asian-inspired",
+      "category": "Quick Meals",
+      "canonicalId": "orange-chicken"
+    },
+    {
+      "id": "asian-cashew-chicken",
+      "title": "Cashew Chicken",
+      "cuisine": "asian-inspired",
+      "category": "Family Dinners",
+      "canonicalId": "cashew-chicken"
+    },
+    {
+      "id": "asian-thai-basil-chicken",
+      "title": "Thai Basil Chicken",
+      "cuisine": "asian-inspired",
+      "category": "Quick Meals",
+      "canonicalId": "thai-basil-chicken"
+    },
+    {
+      "id": "asian-crab-rangoon",
+      "title": "Crab Rangoon",
+      "cuisine": "asian-inspired",
+      "category": "Party & Hosting",
+      "canonicalId": "crab-rangoon"
+    },
+    {
+      "id": "oklahoma-peach-cobbler",
+      "title": "Oklahoma Peach Cobbler",
+      "cuisine": "oklahoma",
+      "category": "Oklahoma Desserts",
+      "canonicalId": "peach-cobbler"
+    },
+    {
+      "id": "washington-apple-crisp",
+      "title": "Washington Apple Crisp",
+      "cuisine": "washington-state",
+      "category": "Orchard Desserts",
+      "canonicalId": "apple-crisp"
+    }
+  ],
+  "sharedImages": [
     {
       "image": "images/recipes/asian-hub-2026/asian-garlic-fried-rice.png",
       "count": 2,
@@ -149,24 +120,6 @@
           "title": "Garlic Fried Rice",
           "cuisine": "asian-inspired",
           "category": "Asian Inspired"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/audit-2026-06/party-meatballs.jpg",
-      "count": 2,
-      "recipes": [
-        {
-          "id": "party-meatballs",
-          "title": "Party Meatballs",
-          "cuisine": "hosting",
-          "category": "Party & Hosting"
-        },
-        {
-          "id": "swedish-meatballs",
-          "title": "Swedish Meatballs",
-          "cuisine": "global",
-          "category": "Swedish Supper"
         }
       ]
     },
@@ -333,24 +286,6 @@
       ]
     },
     {
-      "image": "images/recipes/asian-hub-2026/thai-basil-chicken.png",
-      "count": 2,
-      "recipes": [
-        {
-          "id": "asian-thai-basil-chicken",
-          "title": "Thai Basil Chicken",
-          "cuisine": "asian-inspired",
-          "category": "Quick Meals"
-        },
-        {
-          "id": "thai-basil-chicken",
-          "title": "Thai Basil Chicken",
-          "cuisine": "asian-inspired",
-          "category": "Thai Skillet"
-        }
-      ]
-    },
-    {
       "image": "images/cuisines/africa/nigeria/suya-skewers.jpg",
       "count": 2,
       "recipes": [
@@ -491,24 +426,6 @@
           "title": "Cinnamon Rolls",
           "cuisine": "southern",
           "category": "Breads"
-        }
-      ]
-    },
-    {
-      "image": "images/regional/mississippi/peach-cobbler.jpg",
-      "count": 2,
-      "recipes": [
-        {
-          "id": "peach-cobbler",
-          "title": "Peach Cobbler",
-          "cuisine": "southern",
-          "category": "Desserts"
-        },
-        {
-          "id": "oklahoma-peach-cobbler",
-          "title": "Oklahoma Peach Cobbler",
-          "cuisine": "oklahoma",
-          "category": "Oklahoma Desserts"
         }
       ]
     },
@@ -1551,20 +1468,1666 @@
       ]
     },
     {
-      "image": "images/recipes/new-england-2026/apple-crisp.jpg",
+      "image": "images/recipes/new-england-2026/vermont-cheddar-apple-pie.jpg",
       "count": 2,
       "recipes": [
         {
-          "id": "apple-crisp",
-          "title": "New England Apple Crisp",
-          "cuisine": "new-hampshire",
-          "category": "Orchard Sweets"
+          "id": "vermont-cheddar-apple-pie",
+          "title": "Vermont Cheddar Apple Pie",
+          "cuisine": "vermont",
+          "category": "Vermont Desserts"
         },
         {
-          "id": "washington-apple-crisp",
-          "title": "Washington Apple Crisp",
+          "id": "classic-apple-pie",
+          "title": "Classic Apple Pie",
+          "cuisine": "southern",
+          "category": "Fourth of July Collection"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/southwest-2026/breakfast-tacos.jpg",
+      "count": 3,
+      "recipes": [
+        {
+          "id": "breakfast-tacos",
+          "title": "Texas Breakfast Tacos",
+          "cuisine": "texas",
+          "category": "Texas Breakfast"
+        },
+        {
+          "id": "build-your-own-tacos",
+          "title": "Build-Your-Own Taco Tray",
+          "cuisine": "southwest-kids",
+          "category": "Fun Food"
+        },
+        {
+          "id": "tex-mex-breakfast-tacos",
+          "title": "Tex-Mex Breakfast Tacos",
+          "cuisine": "mexican",
+          "category": "Borderlands Breakfast"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/southwest-2026/green-chile-stew.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "green-chile-stew",
+          "title": "New Mexico Green Chile Stew",
+          "cuisine": "new-mexico",
+          "category": "New Mexico Chile"
+        },
+        {
+          "id": "pueblo-green-chile",
+          "title": "Colorado Pueblo Green Chile",
+          "cuisine": "colorado",
+          "category": "Colorado Chile"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/southwest-2026/sopapillas.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "sopapillas",
+          "title": "New Mexico Sopapillas",
+          "cuisine": "new-mexico",
+          "category": "New Mexico Breads"
+        },
+        {
+          "id": "utah-honey-scones",
+          "title": "Utah Honey Scones",
+          "cuisine": "utah",
+          "category": "Utah Breads"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/southwest-2026/blue-corn-pancakes.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "blue-corn-pancakes",
+          "title": "Blue Corn Pancakes",
+          "cuisine": "new-mexico",
+          "category": "New Mexico Breakfast"
+        },
+        {
+          "id": "idaho-huckleberry-pancakes",
+          "title": "Idaho Huckleberry Pancakes",
+          "cuisine": "idaho",
+          "category": "Mountain Breakfast"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/mid-atlantic-2026/new-york-pizza.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "new-york-pizza",
+          "title": "New York-Style Pizza",
+          "cuisine": "new-york",
+          "category": "New York Pizza"
+        },
+        {
+          "id": "jumbo-slice-pizza",
+          "title": "D.C. Jumbo Slice Pizza",
+          "cuisine": "washington-dc",
+          "category": "D.C. Late Night"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/mid-atlantic-2026/maryland-crab-cakes.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "maryland-crab-cakes",
+          "title": "Maryland Crab Cakes",
+          "cuisine": "maryland",
+          "category": "Maryland Seafood"
+        },
+        {
+          "id": "kids-crab-coloring",
+          "title": "Simple Crab Coloring Activity",
+          "cuisine": "mid-atlantic-kids",
+          "category": "Kids Activities"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/mid-atlantic-2026/crab-dip.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "crab-dip",
+          "title": "Maryland Crab Dip",
+          "cuisine": "maryland",
+          "category": "Maryland Appetizers"
+        },
+        {
+          "id": "dungeness-crab-melt",
+          "title": "Dungeness Crab Melt",
           "cuisine": "washington-state",
-          "category": "Orchard Desserts"
+          "category": "Coastal Sandwiches"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/mid-atlantic-2026/old-bay-fries.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "old-bay-fries",
+          "title": "Old Bay Fries",
+          "cuisine": "maryland",
+          "category": "Maryland Sides"
+        },
+        {
+          "id": "mumbo-sauce",
+          "title": "D.C. Mumbo Sauce",
+          "cuisine": "washington-dc",
+          "category": "D.C. Sauces"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/mid-atlantic-2026/boardwalk-fries.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "boardwalk-fries",
+          "title": "Boardwalk Fries",
+          "cuisine": "delaware",
+          "category": "Boardwalk Food"
+        },
+        {
+          "id": "utah-fry-sauce",
+          "title": "Utah Fry Sauce",
+          "cuisine": "utah",
+          "category": "Utah Sauces"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/mid-atlantic-2026/dc-half-smoke.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "dc-half-smoke",
+          "title": "D.C. Half-Smoke",
+          "cuisine": "washington-dc",
+          "category": "D.C. Carryout"
+        },
+        {
+          "id": "dc-chili-dogs",
+          "title": "D.C. Chili Dogs",
+          "cuisine": "washington-dc",
+          "category": "D.C. Carryout"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/mid-atlantic-2026/salvadoran-pupusas.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "salvadoran-pupusas",
+          "title": "Salvadoran Pupusas",
+          "cuisine": "washington-dc",
+          "category": "D.C. Immigrant Foodways"
+        },
+        {
+          "id": "salvadoran-pupusa-supper",
+          "title": "Salvadoran Pupusa Supper",
+          "cuisine": "mexican",
+          "category": "Central American Masa"
+        }
+      ]
+    },
+    {
+      "image": "assets/fresh-bread.jpeg",
+      "count": 3,
+      "recipes": [
+        {
+          "id": "nevada-basque-garlic-soup",
+          "title": "Nevada Basque Garlic Soup",
+          "cuisine": "nevada",
+          "category": "Basque Boardinghouse"
+        },
+        {
+          "id": "california-sourdough-toast",
+          "title": "California Sourdough Toast",
+          "cuisine": "northern-california",
+          "category": "Sourdough Table"
+        },
+        {
+          "id": "irish-soda-bread",
+          "title": "Irish Soda Bread",
+          "cuisine": "holiday",
+          "category": "St. Patrick's Day Breads"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/kitchen-2026/feast-seven-fishes-seafood-stew.png",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "san-francisco-cioppino",
+          "title": "San Francisco Cioppino",
+          "cuisine": "northern-california",
+          "category": "Northern California Seafood"
+        },
+        {
+          "id": "feast-seven-fishes-stew",
+          "title": "Feast of the Seven Fishes Seafood Stew",
+          "cuisine": "holiday",
+          "category": "Christmas Eve"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/smothered-chicken.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "hungarian-chicken-paprikash",
+          "title": "Hungarian Chicken Paprikash",
+          "cuisine": "global",
+          "category": "Hungarian Comfort"
+        },
+        {
+          "id": "palestinian-musakhan-style-chicken",
+          "title": "Palestinian Musakhan-Style Chicken",
+          "cuisine": "mediterranean",
+          "category": "Palestinian Sumac Chicken"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/holiday-2026/prime-rib.png",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "prime-rib",
+          "title": "Prime Rib",
+          "cuisine": "holiday",
+          "category": "Christmas Mains"
+        },
+        {
+          "id": "standing-rib-roast",
+          "title": "Standing Rib Roast",
+          "cuisine": "holiday",
+          "category": "Christmas Mains"
+        }
+      ]
+    }
+  ],
+  "unrelatedSharedImages": [
+    {
+      "image": "images/recipes/asian-hub-2026/asian-garlic-fried-rice.png",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "fried-rice",
+          "title": "Fried Rice",
+          "cuisine": "asian-inspired",
+          "category": "Quick Weeknight Meals"
+        },
+        {
+          "id": "asian-garlic-fried-rice",
+          "title": "Garlic Fried Rice",
+          "cuisine": "asian-inspired",
+          "category": "Asian Inspired"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/strawberry-shortcake.png",
+      "count": 5,
+      "recipes": [
+        {
+          "id": "dessert-charcuterie-board",
+          "title": "Dessert Charcuterie Board",
+          "cuisine": "hosting",
+          "category": "Party & Hosting"
+        },
+        {
+          "id": "haupia",
+          "title": "Haupia",
+          "cuisine": "hawaii",
+          "category": "Hawaii Desserts"
+        },
+        {
+          "id": "new-zealand-pavlova",
+          "title": "New Zealand Pavlova",
+          "cuisine": "global",
+          "category": "New Zealand Dessert"
+        },
+        {
+          "id": "valentine-chocolate-fondue",
+          "title": "Valentine Chocolate Fondue",
+          "cuisine": "holiday",
+          "category": "Valentine's Day Desserts"
+        },
+        {
+          "id": "strawberry-shortcake",
+          "title": "Strawberry Shortcake",
+          "cuisine": "southern",
+          "category": "Fourth of July Collection"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/pineapple-fried-rice.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "pineapple-fried-rice",
+          "title": "Pineapple Fried Rice",
+          "cuisine": "asian-inspired",
+          "category": "Global Flavors"
+        },
+        {
+          "id": "kids-mini-poke-cups",
+          "title": "Mini Island Rice Cups",
+          "cuisine": "western-kids",
+          "category": "Kids Activities"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/lamb-bone-broth-soup.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "lamb-bone-broth-soup",
+          "title": "Lamb Bone Broth / Soup Idea",
+          "cuisine": "global",
+          "category": "Family Dinners"
+        },
+        {
+          "id": "new-zealand-roast-lamb",
+          "title": "New Zealand Roast Lamb",
+          "cuisine": "global",
+          "category": "New Zealand Sunday Roast"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/biryani.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "biryani",
+          "title": "Beginner Chicken Biryani",
+          "cuisine": "indian",
+          "category": "Family Dinners"
+        },
+        {
+          "id": "pakistani-chicken-biryani",
+          "title": "Pakistani Chicken Biryani",
+          "cuisine": "asian-inspired",
+          "category": "Pakistani Rice Pot"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/chana-masala.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "chana-masala",
+          "title": "Chana Masala",
+          "cuisine": "indian",
+          "category": "Vegetarian"
+        },
+        {
+          "id": "trinidad-doubles-style-chickpeas",
+          "title": "Trinidad Doubles-Style Chickpeas",
+          "cuisine": "caribbean",
+          "category": "Trinidad Street Food"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/southern-fried-chicken.png",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "fried-chicken",
+          "title": "Southern Fried Chicken",
+          "cuisine": "southern",
+          "category": "Southern Comfort"
+        },
+        {
+          "id": "southern-crispy-fried-chicken",
+          "title": "Crispy Fried Chicken",
+          "cuisine": "southern",
+          "category": "Soul Food"
+        }
+      ]
+    },
+    {
+      "image": "images/juneteenth/cast-iron-skillet-cornbread.png",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "cornbread",
+          "title": "Skillet Cornbread",
+          "cuisine": "southern",
+          "category": "Beginner Basics"
+        },
+        {
+          "id": "jalapeno-cornbread",
+          "title": "Jalapeño Cornbread",
+          "cuisine": "southern",
+          "category": "Breads"
+        }
+      ]
+    },
+    {
+      "image": "images/regional/mississippi/mac-and-cheese.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "southern-baked-mac-cheese",
+          "title": "Baked Mac and Cheese",
+          "cuisine": "southern",
+          "category": "Soul Food"
+        },
+        {
+          "id": "bajan-macaroni-pie",
+          "title": "Bajan Macaroni Pie",
+          "cuisine": "caribbean",
+          "category": "Barbados Sunday Side"
+        }
+      ]
+    },
+    {
+      "image": "images/cuisines/africa/nigeria/suya-skewers.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "nigerian-suya-skewers",
+          "title": "Suya Skewers",
+          "cuisine": "nigerian",
+          "category": "West African"
+        },
+        {
+          "id": "eid-kebab-platter",
+          "title": "Eid Kebab Platter",
+          "cuisine": "holiday",
+          "category": "Ramadan / Eid Mains"
+        }
+      ]
+    },
+    {
+      "image": "images/cuisines/africa/morocco/vegetable-couscous.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "moroccan-couscous-vegetables",
+          "title": "Couscous with Vegetables",
+          "cuisine": "moroccan",
+          "category": "North African"
+        },
+        {
+          "id": "moroccan-vegetable-couscous",
+          "title": "Moroccan Vegetable Couscous",
+          "cuisine": "moroccan",
+          "category": "Moroccan Shared Table"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/indian-dal-tadka.jpg",
+      "count": 3,
+      "recipes": [
+        {
+          "id": "indian-dal-tadka",
+          "title": "Dal Tadka",
+          "cuisine": "indian",
+          "category": "Indian"
+        },
+        {
+          "id": "indian-yellow-dal-tadka",
+          "title": "Indian Yellow Dal Tadka",
+          "cuisine": "indian",
+          "category": "Indian Comfort"
+        },
+        {
+          "id": "turkish-red-lentil-soup",
+          "title": "Turkish Red Lentil Soup",
+          "cuisine": "mediterranean",
+          "category": "Turkish Soup"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/grilled-swordfish-lemon-herb.jpg",
+      "count": 4,
+      "recipes": [
+        {
+          "id": "grilled-swordfish-lemon-herb",
+          "title": "Grilled Swordfish with Lemon Herbs",
+          "cuisine": "mediterranean",
+          "category": "Seafood"
+        },
+        {
+          "id": "cedar-plank-salmon",
+          "title": "Washington Cedar-Plank Salmon",
+          "cuisine": "washington-state",
+          "category": "Pacific Northwest Seafood"
+        },
+        {
+          "id": "alaska-salmon-bake",
+          "title": "Alaska Salmon Bake",
+          "cuisine": "alaska",
+          "category": "Alaska Seafood"
+        },
+        {
+          "id": "kids-salmon-rice-bowls",
+          "title": "Build a Salmon Rice Bowl",
+          "cuisine": "western-kids",
+          "category": "Kids Activities"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/blackened-swordfish.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "blackened-swordfish",
+          "title": "Blackened Swordfish",
+          "cuisine": "southern",
+          "category": "Seafood"
+        },
+        {
+          "id": "fijian-kokoda",
+          "title": "Fijian Kokoda",
+          "cuisine": "global",
+          "category": "Fijian Coastal Bowl"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/swordfish-tacos.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "swordfish-tacos",
+          "title": "Swordfish Tacos with Citrus Slaw",
+          "cuisine": "mexican",
+          "category": "Seafood"
+        },
+        {
+          "id": "san-diego-fish-tacos",
+          "title": "San Diego Fish Tacos",
+          "cuisine": "southern-california",
+          "category": "SoCal Beach Food"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/dinner-rolls.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "dinner-rolls",
+          "title": "Soft Dinner Rolls",
+          "cuisine": "southern",
+          "category": "Breads"
+        },
+        {
+          "id": "classic-cinnamon-rolls",
+          "title": "Cinnamon Rolls",
+          "cuisine": "southern",
+          "category": "Breads"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/jerk-sauce.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "jerk-sauce",
+          "title": "Jerk Sauce",
+          "cuisine": "caribbean",
+          "category": "Sauces"
+        },
+        {
+          "id": "jamaican-jerk-chicken",
+          "title": "Jamaican Jerk Chicken",
+          "cuisine": "caribbean",
+          "category": "Jamaican Grill"
+        }
+      ]
+    },
+    {
+      "image": "images/juneteenth/hibiscus-red-punch.png",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "hibiscus-red-punch",
+          "title": "Hibiscus Red Punch",
+          "cuisine": "southern",
+          "category": "Drinks"
+        },
+        {
+          "id": "spooky-party-punch",
+          "title": "Spooky Party Punch",
+          "cuisine": "holiday",
+          "category": "Halloween Drinks"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/greek-salad.jpg",
+      "count": 3,
+      "recipes": [
+        {
+          "id": "greek-salad",
+          "title": "Greek Salad",
+          "cuisine": "mediterranean",
+          "category": "Salads"
+        },
+        {
+          "id": "greek-chicken-souvlaki-plates",
+          "title": "Greek Chicken Souvlaki Plates",
+          "cuisine": "mediterranean",
+          "category": "Greek Grill"
+        },
+        {
+          "id": "lebanese-tabbouleh",
+          "title": "Lebanese Tabbouleh",
+          "cuisine": "mediterranean",
+          "category": "Lebanese Mezze"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/roasted-vegetables.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "roasted-vegetables",
+          "title": "Roasted Vegetables",
+          "cuisine": "mediterranean",
+          "category": "Sides"
+        },
+        {
+          "id": "french-ratatouille-skillet",
+          "title": "French Ratatouille Skillet",
+          "cuisine": "global",
+          "category": "French Market Vegetables"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/rice-pilaf.jpg",
+      "count": 3,
+      "recipes": [
+        {
+          "id": "rice-pilaf",
+          "title": "Herbed Rice Pilaf",
+          "cuisine": "mediterranean",
+          "category": "Sides"
+        },
+        {
+          "id": "oregon-mushroom-risotto",
+          "title": "Oregon Mushroom Risotto",
+          "cuisine": "oregon",
+          "category": "Forest Foodways"
+        },
+        {
+          "id": "saudi-kabsa-chicken",
+          "title": "Saudi Chicken Kabsa",
+          "cuisine": "mediterranean",
+          "category": "Saudi Rice Platter"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/smothered-green-beans.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "smothered-green-beans",
+          "title": "Smothered Green Beans",
+          "cuisine": "cajun",
+          "category": "Sides"
+        },
+        {
+          "id": "samoan-palusami",
+          "title": "Samoan Palusami",
+          "cuisine": "global",
+          "category": "Samoan Coconut Greens"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/french-bread.jpg",
+      "count": 5,
+      "recipes": [
+        {
+          "id": "french-bread",
+          "title": "Warm French Bread",
+          "cuisine": "cajun",
+          "category": "Breads"
+        },
+        {
+          "id": "sourdough-bread",
+          "title": "Sourdough Bread",
+          "cuisine": "global",
+          "category": "Breads"
+        },
+        {
+          "id": "white-sandwich-bread",
+          "title": "White Sandwich Bread",
+          "cuisine": "global",
+          "category": "Breads"
+        },
+        {
+          "id": "rosemary-focaccia",
+          "title": "Focaccia",
+          "cuisine": "italian",
+          "category": "Breads"
+        },
+        {
+          "id": "classic-garlic-bread",
+          "title": "Garlic Bread",
+          "cuisine": "italian",
+          "category": "Breads"
+        }
+      ]
+    },
+    {
+      "image": "images/regional/texas-chili.png",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "texas-chili",
+          "title": "Texas No-Bean Chili",
+          "cuisine": "texas",
+          "category": "Main Dishes"
+        },
+        {
+          "id": "pumpkin-chili",
+          "title": "Pumpkin Chili",
+          "cuisine": "holiday",
+          "category": "Halloween Mains"
+        }
+      ]
+    },
+    {
+      "image": "images/regional/cuban-sandwich.png",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "cuban-sandwich",
+          "title": "Florida Cuban Sandwich",
+          "cuisine": "florida",
+          "category": "Sandwiches"
+        },
+        {
+          "id": "cuban-sandwich-press",
+          "title": "Cuban Sandwich Press",
+          "cuisine": "caribbean",
+          "category": "Cuban Counter"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/red-beans-and-rice.jpg",
+      "count": 3,
+      "recipes": [
+        {
+          "id": "red-beans-and-rice",
+          "title": "Louisiana Red Beans and Rice",
+          "cuisine": "louisiana",
+          "category": "Main Dishes"
+        },
+        {
+          "id": "brazilian-feijoada-style-beans",
+          "title": "Brazilian Feijoada-Style Beans",
+          "cuisine": "global",
+          "category": "Brazilian Bean Pot"
+        },
+        {
+          "id": "new-years-hoppin-john",
+          "title": "New Year's Hoppin' John",
+          "cuisine": "holiday",
+          "category": "New Year's Sides"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/fried-oysters.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "fried-oysters",
+          "title": "Louisiana Fried Oysters",
+          "cuisine": "louisiana",
+          "category": "Seafood"
+        },
+        {
+          "id": "oyster-dressing",
+          "title": "Oyster Dressing",
+          "cuisine": "holiday",
+          "category": "Thanksgiving Sides"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/chicken-fried-steak.jpg",
+      "count": 3,
+      "recipes": [
+        {
+          "id": "chicken-fried-steak",
+          "title": "Texas Chicken Fried Steak",
+          "cuisine": "texas",
+          "category": "Main Dishes"
+        },
+        {
+          "id": "oklahoma-chicken-fried-steak",
+          "title": "Oklahoma Chicken Fried Steak",
+          "cuisine": "oklahoma",
+          "category": "Oklahoma Comfort"
+        },
+        {
+          "id": "wyoming-chicken-fried-steak",
+          "title": "Wyoming Chicken Fried Steak",
+          "cuisine": "wyoming",
+          "category": "Cowboy Suppers"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/texas-pinto-beans.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "texas-pinto-beans",
+          "title": "Texas Pinto Beans",
+          "cuisine": "texas",
+          "category": "Sides"
+        },
+        {
+          "id": "wyoming-cowboy-beans",
+          "title": "Wyoming Cowboy Beans",
+          "cuisine": "wyoming",
+          "category": "Ranch Sides"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/mexican-cornbread-casserole.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "mexican-cornbread-casserole",
+          "title": "Mexican Cornbread Casserole",
+          "cuisine": "southern",
+          "category": "Southern Casseroles"
+        },
+        {
+          "id": "chilean-pastel-de-choclo",
+          "title": "Chilean Pastel de Choclo",
+          "cuisine": "mexican",
+          "category": "Chilean Corn Bake"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/funeral-potatoes.jpg",
+      "count": 3,
+      "recipes": [
+        {
+          "id": "funeral-potatoes",
+          "title": "Funeral Potatoes",
+          "cuisine": "southern",
+          "category": "Southern Casseroles"
+        },
+        {
+          "id": "south-dakota-hutterite-potato-dinner",
+          "title": "Hutterite-Style Potato Dinner",
+          "cuisine": "south-dakota",
+          "category": "Community Farm Tables"
+        },
+        {
+          "id": "utah-funeral-potatoes",
+          "title": "Utah Funeral Potatoes",
+          "cuisine": "utah",
+          "category": "Utah Casseroles"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/baked-ham.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "baked-ham",
+          "title": "Brown Sugar Baked Ham",
+          "cuisine": "southern",
+          "category": "Repast & Homegoing Foods"
+        },
+        {
+          "id": "honey-glazed-ham",
+          "title": "Honey Glazed Ham",
+          "cuisine": "holiday",
+          "category": "Holiday Mains"
+        }
+      ]
+    },
+    {
+      "image": "assets/ingredients.jpeg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "fruit-rainbow-kabobs",
+          "title": "Fruit Rainbow Kabobs",
+          "cuisine": "kids-korner",
+          "category": "Healthy Heroes"
+        },
+        {
+          "id": "kids-fruit-rainbow-plates",
+          "title": "California Fruit Rainbow Plates",
+          "cuisine": "western-kids",
+          "category": "Kids Activities"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/banana-pudding-cups.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "banana-pudding-cups",
+          "title": "Banana Pudding Cups",
+          "cuisine": "southern",
+          "category": "Southern Favorites"
+        },
+        {
+          "id": "coconut-cake",
+          "title": "Coconut Cake",
+          "cuisine": "holiday",
+          "category": "Easter Desserts"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/cheese-quesadilla-triangles.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "cheese-quesadilla-triangles",
+          "title": "Cheese Quesadilla Triangles",
+          "cuisine": "american",
+          "category": "Easy Bites"
+        },
+        {
+          "id": "mini-quesadillas",
+          "title": "Mini Quesadillas",
+          "cuisine": "southwest-kids",
+          "category": "Easy Bites"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/trail-mix-jars.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "trail-mix-jars",
+          "title": "Trail Mix Jars",
+          "cuisine": "american",
+          "category": "Healthy Heroes"
+        },
+        {
+          "id": "cowboy-trail-mix",
+          "title": "Cowboy Trail Mix",
+          "cuisine": "southwest-kids",
+          "category": "Healthy Heroes"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/breakfast-egg-cups.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "breakfast-egg-cups",
+          "title": "Breakfast Egg Cups",
+          "cuisine": "american",
+          "category": "Easy Bites"
+        },
+        {
+          "id": "denver-omelet",
+          "title": "Denver Omelet",
+          "cuisine": "colorado",
+          "category": "Diner Breakfast"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/baked-chicken-tenders.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "baked-chicken-tenders",
+          "title": "Baked Chicken Tenders",
+          "cuisine": "american",
+          "category": "Easy Bites"
+        },
+        {
+          "id": "south-dakota-pheasant-sandwich",
+          "title": "Prairie Pheasant Sandwich",
+          "cuisine": "south-dakota",
+          "category": "Hunting Season Table"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/hamburger-steak-with-gravy.jpg",
+      "count": 3,
+      "recipes": [
+        {
+          "id": "hamburger-steak-with-gravy",
+          "title": "Hamburger Steak with Onion Gravy",
+          "cuisine": "southern",
+          "category": "Family Dinner"
+        },
+        {
+          "id": "montana-bison-meatloaf",
+          "title": "Montana Bison Meatloaf",
+          "cuisine": "montana",
+          "category": "Ranch Suppers"
+        },
+        {
+          "id": "giblet-gravy",
+          "title": "Giblet Gravy",
+          "cuisine": "holiday",
+          "category": "Thanksgiving Sides"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/breakfast-casserole.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "breakfast-casserole",
+          "title": "Sausage Breakfast Casserole",
+          "cuisine": "southern",
+          "category": "Breakfast"
+        },
+        {
+          "id": "spanish-tortilla-espanola",
+          "title": "Spanish Tortilla Espanola",
+          "cuisine": "mediterranean",
+          "category": "Spanish Tapas"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/loaded-baked-potato-soup.jpg",
+      "count": 5,
+      "recipes": [
+        {
+          "id": "loaded-baked-potato-soup",
+          "title": "Loaded Baked Potato Soup",
+          "cuisine": "american",
+          "category": "Soups"
+        },
+        {
+          "id": "idaho-loaded-baked-potatoes",
+          "title": "Idaho Loaded Baked Potatoes",
+          "cuisine": "idaho",
+          "category": "Idaho Potato Table"
+        },
+        {
+          "id": "kids-potato-stamp-art",
+          "title": "Potato Stamp Art",
+          "cuisine": "western-kids",
+          "category": "Kids Activities"
+        },
+        {
+          "id": "polish-bigos",
+          "title": "Polish Bigos",
+          "cuisine": "global",
+          "category": "Polish Stew Pot"
+        },
+        {
+          "id": "turkey-leftover-soup",
+          "title": "Thanksgiving Turkey Leftover Soup",
+          "cuisine": "holiday",
+          "category": "Thanksgiving Leftovers"
+        }
+      ]
+    },
+    {
+      "image": "images/regional/mississippi/ham-hocks-beans.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "ham-hocks-and-beans",
+          "title": "Ham Hocks and Beans",
+          "cuisine": "mississippi-favorites",
+          "category": "Country Kitchen"
+        },
+        {
+          "id": "tongan-lu-pulu",
+          "title": "Tongan Lu Pulu",
+          "cuisine": "global",
+          "category": "Tongan Feast"
+        }
+      ]
+    },
+    {
+      "image": "images/regional/mississippi/blackberry-cobbler.jpg",
+      "count": 3,
+      "recipes": [
+        {
+          "id": "blackberry-cobbler",
+          "title": "Blackberry Cobbler",
+          "cuisine": "mississippi-favorites",
+          "category": "Mississippi Desserts"
+        },
+        {
+          "id": "south-dakota-wojapi",
+          "title": "Wojapi Berry Sauce",
+          "cuisine": "south-dakota",
+          "category": "Lakota & Dakota Foodways"
+        },
+        {
+          "id": "alaska-berry-cobbler",
+          "title": "Alaska Berry Cobbler",
+          "cuisine": "alaska",
+          "category": "Wild Berry Desserts"
+        }
+      ]
+    },
+    {
+      "image": "images/cuisines/africa/tanzania/coconut-fish-curry.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "tanzanian-coconut-fish-curry",
+          "title": "Tanzanian Coconut Fish Curry",
+          "cuisine": "tanzania",
+          "category": "Family Meals"
+        },
+        {
+          "id": "papua-new-guinea-coconut-fish",
+          "title": "Papua New Guinea Coconut Fish",
+          "cuisine": "global",
+          "category": "Papua New Guinea Coastal Pot"
+        }
+      ]
+    },
+    {
+      "image": "images/cuisines/africa/egypt/koshari.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "egyptian-koshari",
+          "title": "Egyptian Koshari",
+          "cuisine": "egypt",
+          "category": "Street Foods"
+        },
+        {
+          "id": "egyptian-koshari-bowls",
+          "title": "Egyptian Koshari Bowls",
+          "cuisine": "mediterranean",
+          "category": "Egyptian Street Food"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/chicago-style-hot-dog.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "chicago-style-hot-dog",
+          "title": "Chicago-Style Hot Dog",
+          "cuisine": "chicago",
+          "category": "Chicago Street Food"
+        },
+        {
+          "id": "classic-cookout-hot-dogs",
+          "title": "Classic Cookout Hot Dogs",
+          "cuisine": "bbq",
+          "category": "Fourth of July Collection"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/chicago-hot-tamales.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "chicago-hot-tamales",
+          "title": "Chicago Hot Tamales",
+          "cuisine": "chicago",
+          "category": "Chicago Classics"
+        },
+        {
+          "id": "christmas-eve-tamales",
+          "title": "Christmas Eve Tamales",
+          "cuisine": "holiday",
+          "category": "Christmas Eve"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/wisconsin-butter-burgers.jpg",
+      "count": 4,
+      "recipes": [
+        {
+          "id": "wisconsin-butter-burgers",
+          "title": "Wisconsin Butter Burgers",
+          "cuisine": "wisconsin",
+          "category": "Wisconsin"
+        },
+        {
+          "id": "black-hills-bison-burgers",
+          "title": "Black Hills Bison Burgers",
+          "cuisine": "south-dakota",
+          "category": "Ranch & Road Food"
+        },
+        {
+          "id": "colorado-bison-burgers",
+          "title": "Colorado Bison Burgers",
+          "cuisine": "colorado",
+          "category": "Mountain Grill"
+        },
+        {
+          "id": "all-american-burgers",
+          "title": "All-American Burgers",
+          "cuisine": "bbq",
+          "category": "Fourth of July Collection"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/upper-peninsula-pasties.jpg",
+      "count": 3,
+      "recipes": [
+        {
+          "id": "upper-peninsula-pasties",
+          "title": "Upper Peninsula Pasties",
+          "cuisine": "michigan",
+          "category": "Michigan"
+        },
+        {
+          "id": "argentinian-beef-empanadas",
+          "title": "Argentinian Beef Empanadas",
+          "cuisine": "global",
+          "category": "Argentina Bakery"
+        },
+        {
+          "id": "new-zealand-meat-pies",
+          "title": "New Zealand Meat Pies",
+          "cuisine": "global",
+          "category": "New Zealand Bakery"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/great-lakes-whitefish.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "great-lakes-whitefish",
+          "title": "Great Lakes Whitefish",
+          "cuisine": "michigan",
+          "category": "Michigan"
+        },
+        {
+          "id": "montana-trout-skillet",
+          "title": "Montana Trout Skillet",
+          "cuisine": "montana",
+          "category": "River Fish"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/paczki.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "paczki",
+          "title": "Paczki",
+          "cuisine": "michigan",
+          "category": "Michigan"
+        },
+        {
+          "id": "sufganiyot-style-doughnuts",
+          "title": "Sufganiyot-Style Jam Doughnuts",
+          "cuisine": "holiday",
+          "category": "Hanukkah Desserts"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/tater-tot-hotdish.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "tater-tot-hotdish",
+          "title": "Tater Tot Hotdish",
+          "cuisine": "minnesota",
+          "category": "Minnesota"
+        },
+        {
+          "id": "north-dakota-potato-hotdish",
+          "title": "North Dakota Potato Hotdish",
+          "cuisine": "north-dakota",
+          "category": "Farm Kitchen Comfort"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/pan-fried-walleye.jpg",
+      "count": 3,
+      "recipes": [
+        {
+          "id": "pan-fried-walleye",
+          "title": "Pan-Fried Walleye",
+          "cuisine": "minnesota",
+          "category": "Minnesota"
+        },
+        {
+          "id": "north-dakota-walleye-supper",
+          "title": "North Dakota Walleye Supper",
+          "cuisine": "north-dakota",
+          "category": "Lake & River Fish"
+        },
+        {
+          "id": "south-dakota-walleye-fry",
+          "title": "South Dakota Walleye Fry",
+          "cuisine": "south-dakota",
+          "category": "River & Lake Fish"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/lefse.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "lefse",
+          "title": "Lefse",
+          "cuisine": "minnesota",
+          "category": "Minnesota"
+        },
+        {
+          "id": "north-dakota-lefse",
+          "title": "North Dakota Lefse",
+          "cuisine": "north-dakota",
+          "category": "Scandinavian Prairie Table"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/midwest-dessert-bars.jpg",
+      "count": 3,
+      "recipes": [
+        {
+          "id": "midwest-dessert-bars",
+          "title": "Midwest Dessert Bars",
+          "cuisine": "minnesota",
+          "category": "Minnesota"
+        },
+        {
+          "id": "north-dakota-sunflower-seed-bars",
+          "title": "Sunflower Seed Dessert Bars",
+          "cuisine": "north-dakota",
+          "category": "Prairie Sweets"
+        },
+        {
+          "id": "australian-lamingtons",
+          "title": "Australian Lamingtons",
+          "cuisine": "global",
+          "category": "Australian Bakery"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/breaded-pork-tenderloin-sandwich.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "breaded-pork-tenderloin-sandwich",
+          "title": "Breaded Pork Tenderloin Sandwich",
+          "cuisine": "indiana",
+          "category": "Indiana"
+        },
+        {
+          "id": "german-schnitzel",
+          "title": "German Schnitzel",
+          "cuisine": "global",
+          "category": "German Comfort"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/cleveland-pierogies.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "cleveland-pierogies",
+          "title": "Cleveland Pierogies",
+          "cuisine": "ohio",
+          "category": "Ohio"
+        },
+        {
+          "id": "eastern-european-pierogies",
+          "title": "Eastern European Pierogies",
+          "cuisine": "global",
+          "category": "Eastern European Dumplings"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/kansas-chicken-fried-steak.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "kansas-chicken-fried-steak",
+          "title": "Kansas Chicken Fried Steak",
+          "cuisine": "kansas",
+          "category": "Kansas"
+        },
+        {
+          "id": "idaho-finger-steaks",
+          "title": "Idaho Finger Steaks",
+          "cuisine": "idaho",
+          "category": "Idaho Counter Food"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/runza.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "runza",
+          "title": "Runza",
+          "cuisine": "nebraska",
+          "category": "Nebraska"
+        },
+        {
+          "id": "north-dakota-fleischkuekle",
+          "title": "North Dakota Fleischkuekle",
+          "cuisine": "north-dakota",
+          "category": "North Dakota German-Russian"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/nebraska-steak.jpg",
+      "count": 6,
+      "recipes": [
+        {
+          "id": "nebraska-steak",
+          "title": "Nebraska Steak",
+          "cuisine": "nebraska",
+          "category": "Nebraska"
+        },
+        {
+          "id": "santa-maria-tri-tip",
+          "title": "Santa Maria Tri-Tip",
+          "cuisine": "central-california",
+          "category": "Central Coast BBQ"
+        },
+        {
+          "id": "argentinian-chimichurri-steak",
+          "title": "Argentinian Chimichurri Steak",
+          "cuisine": "global",
+          "category": "Argentina Asado"
+        },
+        {
+          "id": "beef-tenderloin",
+          "title": "Beef Tenderloin",
+          "cuisine": "holiday",
+          "category": "Christmas Mains"
+        },
+        {
+          "id": "valentine-steak-dinner",
+          "title": "Valentine Steak Dinner",
+          "cuisine": "holiday",
+          "category": "Valentine's Day Mains"
+        },
+        {
+          "id": "garlic-butter-steak-bites",
+          "title": "Garlic Butter Steak Bites",
+          "cuisine": "holiday",
+          "category": "Valentine's Day Mains"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/southwest-2026/navajo-tacos.jpg",
+      "count": 3,
+      "recipes": [
+        {
+          "id": "south-dakota-indian-tacos",
+          "title": "South Dakota Indian Tacos",
+          "cuisine": "south-dakota",
+          "category": "Native Community Favorites"
+        },
+        {
+          "id": "navajo-tacos",
+          "title": "Navajo Tacos",
+          "cuisine": "arizona",
+          "category": "Native Food Context"
+        },
+        {
+          "id": "oklahoma-indian-tacos",
+          "title": "Oklahoma Indian Tacos",
+          "cuisine": "oklahoma",
+          "category": "Native Food Context"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/audit-2026-06/northern-plains-fry-bread.jpg",
+      "count": 2,
+      "recipes": [
+        {
+          "id": "northern-plains-fry-bread",
+          "title": "Northern Plains Fry Bread",
+          "cuisine": "north-dakota",
+          "category": "Dakotas"
+        },
+        {
+          "id": "arizona-fry-bread",
+          "title": "Arizona Fry Bread",
+          "cuisine": "arizona",
+          "category": "Native Food Context"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/new-england-2026/maine-blueberry-pie.jpg",
+      "count": 3,
+      "recipes": [
+        {
+          "id": "maine-blueberry-pie",
+          "title": "Maine Blueberry Pie",
+          "cuisine": "maine",
+          "category": "Maine Desserts"
+        },
+        {
+          "id": "oregon-marionberry-pie",
+          "title": "Oregon Marionberry Pie",
+          "cuisine": "oregon",
+          "category": "Oregon Desserts"
+        },
+        {
+          "id": "montana-huckleberry-crisp",
+          "title": "Montana Huckleberry Crisp",
+          "cuisine": "montana",
+          "category": "Mountain Desserts"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/new-england-2026/brown-bread.jpg",
+      "count": 3,
+      "recipes": [
+        {
+          "id": "brown-bread",
+          "title": "New England Brown Bread",
+          "cuisine": "maine",
+          "category": "New England Supper"
+        },
+        {
+          "id": "banana-bread",
+          "title": "Banana Bread",
+          "cuisine": "southern",
+          "category": "Breads"
+        },
+        {
+          "id": "pumpkin-bread",
+          "title": "Pumpkin Bread",
+          "cuisine": "southern",
+          "category": "Breads"
+        }
+      ]
+    },
+    {
+      "image": "images/recipes/new-england-2026/fish-chowder.jpg",
+      "count": 3,
+      "recipes": [
+        {
+          "id": "fish-chowder",
+          "title": "Maine Fish Chowder",
+          "cuisine": "maine",
+          "category": "Chowders"
+        },
+        {
+          "id": "alaska-halibut-chowder",
+          "title": "Alaska Halibut Chowder",
+          "cuisine": "alaska",
+          "category": "Alaska Chowders"
+        },
+        {
+          "id": "new-zealand-seafood-chowder",
+          "title": "New Zealand Seafood Chowder",
+          "cuisine": "global",
+          "category": "New Zealand Coastal Soup"
         }
       ]
     },
@@ -1867,6 +3430,1043 @@
           "category": "Christmas Mains"
         }
       ]
+    }
+  ],
+  "imageReviewQueue": [
+    {
+      "id": "asian-garlic-fried-rice",
+      "title": "Garlic Fried Rice",
+      "cuisine": "asian-inspired",
+      "category": "Asian Inspired",
+      "reusedImage": "images/recipes/asian-hub-2026/asian-garlic-fried-rice.png",
+      "expectedPath": "images/recipes/photo-review/asian-garlic-fried-rice.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "haupia",
+      "title": "Haupia",
+      "cuisine": "hawaii",
+      "category": "Hawaii Desserts",
+      "reusedImage": "images/recipes/audit-2026-06/strawberry-shortcake.png",
+      "expectedPath": "images/recipes/photo-review/haupia.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "new-zealand-pavlova",
+      "title": "New Zealand Pavlova",
+      "cuisine": "global",
+      "category": "New Zealand Dessert",
+      "reusedImage": "images/recipes/audit-2026-06/strawberry-shortcake.png",
+      "expectedPath": "images/recipes/photo-review/new-zealand-pavlova.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "valentine-chocolate-fondue",
+      "title": "Valentine Chocolate Fondue",
+      "cuisine": "holiday",
+      "category": "Valentine's Day Desserts",
+      "reusedImage": "images/recipes/audit-2026-06/strawberry-shortcake.png",
+      "expectedPath": "images/recipes/photo-review/valentine-chocolate-fondue.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "strawberry-shortcake",
+      "title": "Strawberry Shortcake",
+      "cuisine": "southern",
+      "category": "Fourth of July Collection",
+      "reusedImage": "images/recipes/audit-2026-06/strawberry-shortcake.png",
+      "expectedPath": "images/recipes/photo-review/strawberry-shortcake.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "kids-mini-poke-cups",
+      "title": "Mini Island Rice Cups",
+      "cuisine": "western-kids",
+      "category": "Kids Activities",
+      "reusedImage": "images/recipes/audit-2026-06/pineapple-fried-rice.jpg",
+      "expectedPath": "images/recipes/photo-review/kids-mini-poke-cups.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "new-zealand-roast-lamb",
+      "title": "New Zealand Roast Lamb",
+      "cuisine": "global",
+      "category": "New Zealand Sunday Roast",
+      "reusedImage": "images/recipes/audit-2026-06/lamb-bone-broth-soup.jpg",
+      "expectedPath": "images/recipes/photo-review/new-zealand-roast-lamb.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "pakistani-chicken-biryani",
+      "title": "Pakistani Chicken Biryani",
+      "cuisine": "asian-inspired",
+      "category": "Pakistani Rice Pot",
+      "reusedImage": "images/recipes/audit-2026-06/biryani.jpg",
+      "expectedPath": "images/recipes/photo-review/pakistani-chicken-biryani.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "trinidad-doubles-style-chickpeas",
+      "title": "Trinidad Doubles-Style Chickpeas",
+      "cuisine": "caribbean",
+      "category": "Trinidad Street Food",
+      "reusedImage": "images/recipes/audit-2026-06/chana-masala.jpg",
+      "expectedPath": "images/recipes/photo-review/trinidad-doubles-style-chickpeas.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "southern-crispy-fried-chicken",
+      "title": "Crispy Fried Chicken",
+      "cuisine": "southern",
+      "category": "Soul Food",
+      "reusedImage": "images/recipes/audit-2026-06/southern-fried-chicken.png",
+      "expectedPath": "images/recipes/photo-review/southern-crispy-fried-chicken.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "jalapeno-cornbread",
+      "title": "Jalapeño Cornbread",
+      "cuisine": "southern",
+      "category": "Breads",
+      "reusedImage": "images/juneteenth/cast-iron-skillet-cornbread.png",
+      "expectedPath": "images/recipes/photo-review/jalapeno-cornbread.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "bajan-macaroni-pie",
+      "title": "Bajan Macaroni Pie",
+      "cuisine": "caribbean",
+      "category": "Barbados Sunday Side",
+      "reusedImage": "images/regional/mississippi/mac-and-cheese.jpg",
+      "expectedPath": "images/recipes/photo-review/bajan-macaroni-pie.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "eid-kebab-platter",
+      "title": "Eid Kebab Platter",
+      "cuisine": "holiday",
+      "category": "Ramadan / Eid Mains",
+      "reusedImage": "images/cuisines/africa/nigeria/suya-skewers.jpg",
+      "expectedPath": "images/recipes/photo-review/eid-kebab-platter.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "moroccan-vegetable-couscous",
+      "title": "Moroccan Vegetable Couscous",
+      "cuisine": "moroccan",
+      "category": "Moroccan Shared Table",
+      "reusedImage": "images/cuisines/africa/morocco/vegetable-couscous.jpg",
+      "expectedPath": "images/recipes/photo-review/moroccan-vegetable-couscous.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "indian-yellow-dal-tadka",
+      "title": "Indian Yellow Dal Tadka",
+      "cuisine": "indian",
+      "category": "Indian Comfort",
+      "reusedImage": "images/recipes/audit-2026-06/indian-dal-tadka.jpg",
+      "expectedPath": "images/recipes/photo-review/indian-yellow-dal-tadka.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "turkish-red-lentil-soup",
+      "title": "Turkish Red Lentil Soup",
+      "cuisine": "mediterranean",
+      "category": "Turkish Soup",
+      "reusedImage": "images/recipes/audit-2026-06/indian-dal-tadka.jpg",
+      "expectedPath": "images/recipes/photo-review/turkish-red-lentil-soup.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "cedar-plank-salmon",
+      "title": "Washington Cedar-Plank Salmon",
+      "cuisine": "washington-state",
+      "category": "Pacific Northwest Seafood",
+      "reusedImage": "images/recipes/audit-2026-06/grilled-swordfish-lemon-herb.jpg",
+      "expectedPath": "images/recipes/photo-review/cedar-plank-salmon.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "alaska-salmon-bake",
+      "title": "Alaska Salmon Bake",
+      "cuisine": "alaska",
+      "category": "Alaska Seafood",
+      "reusedImage": "images/recipes/audit-2026-06/grilled-swordfish-lemon-herb.jpg",
+      "expectedPath": "images/recipes/photo-review/alaska-salmon-bake.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "kids-salmon-rice-bowls",
+      "title": "Build a Salmon Rice Bowl",
+      "cuisine": "western-kids",
+      "category": "Kids Activities",
+      "reusedImage": "images/recipes/audit-2026-06/grilled-swordfish-lemon-herb.jpg",
+      "expectedPath": "images/recipes/photo-review/kids-salmon-rice-bowls.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "fijian-kokoda",
+      "title": "Fijian Kokoda",
+      "cuisine": "global",
+      "category": "Fijian Coastal Bowl",
+      "reusedImage": "images/recipes/audit-2026-06/blackened-swordfish.jpg",
+      "expectedPath": "images/recipes/photo-review/fijian-kokoda.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "san-diego-fish-tacos",
+      "title": "San Diego Fish Tacos",
+      "cuisine": "southern-california",
+      "category": "SoCal Beach Food",
+      "reusedImage": "images/recipes/audit-2026-06/swordfish-tacos.jpg",
+      "expectedPath": "images/recipes/photo-review/san-diego-fish-tacos.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "classic-cinnamon-rolls",
+      "title": "Cinnamon Rolls",
+      "cuisine": "southern",
+      "category": "Breads",
+      "reusedImage": "images/recipes/audit-2026-06/dinner-rolls.jpg",
+      "expectedPath": "images/recipes/photo-review/classic-cinnamon-rolls.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "jamaican-jerk-chicken",
+      "title": "Jamaican Jerk Chicken",
+      "cuisine": "caribbean",
+      "category": "Jamaican Grill",
+      "reusedImage": "images/recipes/audit-2026-06/jerk-sauce.jpg",
+      "expectedPath": "images/recipes/photo-review/jamaican-jerk-chicken.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "spooky-party-punch",
+      "title": "Spooky Party Punch",
+      "cuisine": "holiday",
+      "category": "Halloween Drinks",
+      "reusedImage": "images/juneteenth/hibiscus-red-punch.png",
+      "expectedPath": "images/recipes/photo-review/spooky-party-punch.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "greek-chicken-souvlaki-plates",
+      "title": "Greek Chicken Souvlaki Plates",
+      "cuisine": "mediterranean",
+      "category": "Greek Grill",
+      "reusedImage": "images/recipes/audit-2026-06/greek-salad.jpg",
+      "expectedPath": "images/recipes/photo-review/greek-chicken-souvlaki-plates.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "lebanese-tabbouleh",
+      "title": "Lebanese Tabbouleh",
+      "cuisine": "mediterranean",
+      "category": "Lebanese Mezze",
+      "reusedImage": "images/recipes/audit-2026-06/greek-salad.jpg",
+      "expectedPath": "images/recipes/photo-review/lebanese-tabbouleh.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "french-ratatouille-skillet",
+      "title": "French Ratatouille Skillet",
+      "cuisine": "global",
+      "category": "French Market Vegetables",
+      "reusedImage": "images/recipes/audit-2026-06/roasted-vegetables.jpg",
+      "expectedPath": "images/recipes/photo-review/french-ratatouille-skillet.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "oregon-mushroom-risotto",
+      "title": "Oregon Mushroom Risotto",
+      "cuisine": "oregon",
+      "category": "Forest Foodways",
+      "reusedImage": "images/recipes/audit-2026-06/rice-pilaf.jpg",
+      "expectedPath": "images/recipes/photo-review/oregon-mushroom-risotto.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "saudi-kabsa-chicken",
+      "title": "Saudi Chicken Kabsa",
+      "cuisine": "mediterranean",
+      "category": "Saudi Rice Platter",
+      "reusedImage": "images/recipes/audit-2026-06/rice-pilaf.jpg",
+      "expectedPath": "images/recipes/photo-review/saudi-kabsa-chicken.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "samoan-palusami",
+      "title": "Samoan Palusami",
+      "cuisine": "global",
+      "category": "Samoan Coconut Greens",
+      "reusedImage": "images/recipes/audit-2026-06/smothered-green-beans.jpg",
+      "expectedPath": "images/recipes/photo-review/samoan-palusami.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "sourdough-bread",
+      "title": "Sourdough Bread",
+      "cuisine": "global",
+      "category": "Breads",
+      "reusedImage": "images/recipes/audit-2026-06/french-bread.jpg",
+      "expectedPath": "images/recipes/photo-review/sourdough-bread.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "white-sandwich-bread",
+      "title": "White Sandwich Bread",
+      "cuisine": "global",
+      "category": "Breads",
+      "reusedImage": "images/recipes/audit-2026-06/french-bread.jpg",
+      "expectedPath": "images/recipes/photo-review/white-sandwich-bread.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "rosemary-focaccia",
+      "title": "Focaccia",
+      "cuisine": "italian",
+      "category": "Breads",
+      "reusedImage": "images/recipes/audit-2026-06/french-bread.jpg",
+      "expectedPath": "images/recipes/photo-review/rosemary-focaccia.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "classic-garlic-bread",
+      "title": "Garlic Bread",
+      "cuisine": "italian",
+      "category": "Breads",
+      "reusedImage": "images/recipes/audit-2026-06/french-bread.jpg",
+      "expectedPath": "images/recipes/photo-review/classic-garlic-bread.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "pumpkin-chili",
+      "title": "Pumpkin Chili",
+      "cuisine": "holiday",
+      "category": "Halloween Mains",
+      "reusedImage": "images/regional/texas-chili.png",
+      "expectedPath": "images/recipes/photo-review/pumpkin-chili.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "cuban-sandwich-press",
+      "title": "Cuban Sandwich Press",
+      "cuisine": "caribbean",
+      "category": "Cuban Counter",
+      "reusedImage": "images/regional/cuban-sandwich.png",
+      "expectedPath": "images/recipes/photo-review/cuban-sandwich-press.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "brazilian-feijoada-style-beans",
+      "title": "Brazilian Feijoada-Style Beans",
+      "cuisine": "global",
+      "category": "Brazilian Bean Pot",
+      "reusedImage": "images/recipes/audit-2026-06/red-beans-and-rice.jpg",
+      "expectedPath": "images/recipes/photo-review/brazilian-feijoada-style-beans.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "new-years-hoppin-john",
+      "title": "New Year's Hoppin' John",
+      "cuisine": "holiday",
+      "category": "New Year's Sides",
+      "reusedImage": "images/recipes/audit-2026-06/red-beans-and-rice.jpg",
+      "expectedPath": "images/recipes/photo-review/new-years-hoppin-john.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "oyster-dressing",
+      "title": "Oyster Dressing",
+      "cuisine": "holiday",
+      "category": "Thanksgiving Sides",
+      "reusedImage": "images/recipes/audit-2026-06/fried-oysters.jpg",
+      "expectedPath": "images/recipes/photo-review/oyster-dressing.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "oklahoma-chicken-fried-steak",
+      "title": "Oklahoma Chicken Fried Steak",
+      "cuisine": "oklahoma",
+      "category": "Oklahoma Comfort",
+      "reusedImage": "images/recipes/audit-2026-06/chicken-fried-steak.jpg",
+      "expectedPath": "images/recipes/photo-review/oklahoma-chicken-fried-steak.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "wyoming-chicken-fried-steak",
+      "title": "Wyoming Chicken Fried Steak",
+      "cuisine": "wyoming",
+      "category": "Cowboy Suppers",
+      "reusedImage": "images/recipes/audit-2026-06/chicken-fried-steak.jpg",
+      "expectedPath": "images/recipes/photo-review/wyoming-chicken-fried-steak.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "wyoming-cowboy-beans",
+      "title": "Wyoming Cowboy Beans",
+      "cuisine": "wyoming",
+      "category": "Ranch Sides",
+      "reusedImage": "images/recipes/audit-2026-06/texas-pinto-beans.jpg",
+      "expectedPath": "images/recipes/photo-review/wyoming-cowboy-beans.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "chilean-pastel-de-choclo",
+      "title": "Chilean Pastel de Choclo",
+      "cuisine": "mexican",
+      "category": "Chilean Corn Bake",
+      "reusedImage": "images/recipes/audit-2026-06/mexican-cornbread-casserole.jpg",
+      "expectedPath": "images/recipes/photo-review/chilean-pastel-de-choclo.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "south-dakota-hutterite-potato-dinner",
+      "title": "Hutterite-Style Potato Dinner",
+      "cuisine": "south-dakota",
+      "category": "Community Farm Tables",
+      "reusedImage": "images/recipes/audit-2026-06/funeral-potatoes.jpg",
+      "expectedPath": "images/recipes/photo-review/south-dakota-hutterite-potato-dinner.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "utah-funeral-potatoes",
+      "title": "Utah Funeral Potatoes",
+      "cuisine": "utah",
+      "category": "Utah Casseroles",
+      "reusedImage": "images/recipes/audit-2026-06/funeral-potatoes.jpg",
+      "expectedPath": "images/recipes/photo-review/utah-funeral-potatoes.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "honey-glazed-ham",
+      "title": "Honey Glazed Ham",
+      "cuisine": "holiday",
+      "category": "Holiday Mains",
+      "reusedImage": "images/recipes/audit-2026-06/baked-ham.jpg",
+      "expectedPath": "images/recipes/photo-review/honey-glazed-ham.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "kids-fruit-rainbow-plates",
+      "title": "California Fruit Rainbow Plates",
+      "cuisine": "western-kids",
+      "category": "Kids Activities",
+      "reusedImage": "assets/ingredients.jpeg",
+      "expectedPath": "images/recipes/photo-review/kids-fruit-rainbow-plates.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "coconut-cake",
+      "title": "Coconut Cake",
+      "cuisine": "holiday",
+      "category": "Easter Desserts",
+      "reusedImage": "images/recipes/audit-2026-06/banana-pudding-cups.jpg",
+      "expectedPath": "images/recipes/photo-review/coconut-cake.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "mini-quesadillas",
+      "title": "Mini Quesadillas",
+      "cuisine": "southwest-kids",
+      "category": "Easy Bites",
+      "reusedImage": "images/recipes/audit-2026-06/cheese-quesadilla-triangles.jpg",
+      "expectedPath": "images/recipes/photo-review/mini-quesadillas.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "cowboy-trail-mix",
+      "title": "Cowboy Trail Mix",
+      "cuisine": "southwest-kids",
+      "category": "Healthy Heroes",
+      "reusedImage": "images/recipes/audit-2026-06/trail-mix-jars.jpg",
+      "expectedPath": "images/recipes/photo-review/cowboy-trail-mix.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "denver-omelet",
+      "title": "Denver Omelet",
+      "cuisine": "colorado",
+      "category": "Diner Breakfast",
+      "reusedImage": "images/recipes/audit-2026-06/breakfast-egg-cups.jpg",
+      "expectedPath": "images/recipes/photo-review/denver-omelet.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "south-dakota-pheasant-sandwich",
+      "title": "Prairie Pheasant Sandwich",
+      "cuisine": "south-dakota",
+      "category": "Hunting Season Table",
+      "reusedImage": "images/recipes/audit-2026-06/baked-chicken-tenders.jpg",
+      "expectedPath": "images/recipes/photo-review/south-dakota-pheasant-sandwich.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "montana-bison-meatloaf",
+      "title": "Montana Bison Meatloaf",
+      "cuisine": "montana",
+      "category": "Ranch Suppers",
+      "reusedImage": "images/recipes/audit-2026-06/hamburger-steak-with-gravy.jpg",
+      "expectedPath": "images/recipes/photo-review/montana-bison-meatloaf.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "giblet-gravy",
+      "title": "Giblet Gravy",
+      "cuisine": "holiday",
+      "category": "Thanksgiving Sides",
+      "reusedImage": "images/recipes/audit-2026-06/hamburger-steak-with-gravy.jpg",
+      "expectedPath": "images/recipes/photo-review/giblet-gravy.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "spanish-tortilla-espanola",
+      "title": "Spanish Tortilla Espanola",
+      "cuisine": "mediterranean",
+      "category": "Spanish Tapas",
+      "reusedImage": "images/recipes/audit-2026-06/breakfast-casserole.jpg",
+      "expectedPath": "images/recipes/photo-review/spanish-tortilla-espanola.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "idaho-loaded-baked-potatoes",
+      "title": "Idaho Loaded Baked Potatoes",
+      "cuisine": "idaho",
+      "category": "Idaho Potato Table",
+      "reusedImage": "images/recipes/audit-2026-06/loaded-baked-potato-soup.jpg",
+      "expectedPath": "images/recipes/photo-review/idaho-loaded-baked-potatoes.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "kids-potato-stamp-art",
+      "title": "Potato Stamp Art",
+      "cuisine": "western-kids",
+      "category": "Kids Activities",
+      "reusedImage": "images/recipes/audit-2026-06/loaded-baked-potato-soup.jpg",
+      "expectedPath": "images/recipes/photo-review/kids-potato-stamp-art.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "polish-bigos",
+      "title": "Polish Bigos",
+      "cuisine": "global",
+      "category": "Polish Stew Pot",
+      "reusedImage": "images/recipes/audit-2026-06/loaded-baked-potato-soup.jpg",
+      "expectedPath": "images/recipes/photo-review/polish-bigos.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "turkey-leftover-soup",
+      "title": "Thanksgiving Turkey Leftover Soup",
+      "cuisine": "holiday",
+      "category": "Thanksgiving Leftovers",
+      "reusedImage": "images/recipes/audit-2026-06/loaded-baked-potato-soup.jpg",
+      "expectedPath": "images/recipes/photo-review/turkey-leftover-soup.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "tongan-lu-pulu",
+      "title": "Tongan Lu Pulu",
+      "cuisine": "global",
+      "category": "Tongan Feast",
+      "reusedImage": "images/regional/mississippi/ham-hocks-beans.jpg",
+      "expectedPath": "images/recipes/photo-review/tongan-lu-pulu.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "south-dakota-wojapi",
+      "title": "Wojapi Berry Sauce",
+      "cuisine": "south-dakota",
+      "category": "Lakota & Dakota Foodways",
+      "reusedImage": "images/regional/mississippi/blackberry-cobbler.jpg",
+      "expectedPath": "images/recipes/photo-review/south-dakota-wojapi.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "alaska-berry-cobbler",
+      "title": "Alaska Berry Cobbler",
+      "cuisine": "alaska",
+      "category": "Wild Berry Desserts",
+      "reusedImage": "images/regional/mississippi/blackberry-cobbler.jpg",
+      "expectedPath": "images/recipes/photo-review/alaska-berry-cobbler.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "papua-new-guinea-coconut-fish",
+      "title": "Papua New Guinea Coconut Fish",
+      "cuisine": "global",
+      "category": "Papua New Guinea Coastal Pot",
+      "reusedImage": "images/cuisines/africa/tanzania/coconut-fish-curry.jpg",
+      "expectedPath": "images/recipes/photo-review/papua-new-guinea-coconut-fish.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "egyptian-koshari-bowls",
+      "title": "Egyptian Koshari Bowls",
+      "cuisine": "mediterranean",
+      "category": "Egyptian Street Food",
+      "reusedImage": "images/cuisines/africa/egypt/koshari.jpg",
+      "expectedPath": "images/recipes/photo-review/egyptian-koshari-bowls.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "classic-cookout-hot-dogs",
+      "title": "Classic Cookout Hot Dogs",
+      "cuisine": "bbq",
+      "category": "Fourth of July Collection",
+      "reusedImage": "images/recipes/audit-2026-06/chicago-style-hot-dog.jpg",
+      "expectedPath": "images/recipes/photo-review/classic-cookout-hot-dogs.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "christmas-eve-tamales",
+      "title": "Christmas Eve Tamales",
+      "cuisine": "holiday",
+      "category": "Christmas Eve",
+      "reusedImage": "images/recipes/audit-2026-06/chicago-hot-tamales.jpg",
+      "expectedPath": "images/recipes/photo-review/christmas-eve-tamales.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "black-hills-bison-burgers",
+      "title": "Black Hills Bison Burgers",
+      "cuisine": "south-dakota",
+      "category": "Ranch & Road Food",
+      "reusedImage": "images/recipes/audit-2026-06/wisconsin-butter-burgers.jpg",
+      "expectedPath": "images/recipes/photo-review/black-hills-bison-burgers.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "colorado-bison-burgers",
+      "title": "Colorado Bison Burgers",
+      "cuisine": "colorado",
+      "category": "Mountain Grill",
+      "reusedImage": "images/recipes/audit-2026-06/wisconsin-butter-burgers.jpg",
+      "expectedPath": "images/recipes/photo-review/colorado-bison-burgers.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "all-american-burgers",
+      "title": "All-American Burgers",
+      "cuisine": "bbq",
+      "category": "Fourth of July Collection",
+      "reusedImage": "images/recipes/audit-2026-06/wisconsin-butter-burgers.jpg",
+      "expectedPath": "images/recipes/photo-review/all-american-burgers.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "argentinian-beef-empanadas",
+      "title": "Argentinian Beef Empanadas",
+      "cuisine": "global",
+      "category": "Argentina Bakery",
+      "reusedImage": "images/recipes/audit-2026-06/upper-peninsula-pasties.jpg",
+      "expectedPath": "images/recipes/photo-review/argentinian-beef-empanadas.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "new-zealand-meat-pies",
+      "title": "New Zealand Meat Pies",
+      "cuisine": "global",
+      "category": "New Zealand Bakery",
+      "reusedImage": "images/recipes/audit-2026-06/upper-peninsula-pasties.jpg",
+      "expectedPath": "images/recipes/photo-review/new-zealand-meat-pies.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "montana-trout-skillet",
+      "title": "Montana Trout Skillet",
+      "cuisine": "montana",
+      "category": "River Fish",
+      "reusedImage": "images/recipes/audit-2026-06/great-lakes-whitefish.jpg",
+      "expectedPath": "images/recipes/photo-review/montana-trout-skillet.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "sufganiyot-style-doughnuts",
+      "title": "Sufganiyot-Style Jam Doughnuts",
+      "cuisine": "holiday",
+      "category": "Hanukkah Desserts",
+      "reusedImage": "images/recipes/audit-2026-06/paczki.jpg",
+      "expectedPath": "images/recipes/photo-review/sufganiyot-style-doughnuts.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "north-dakota-potato-hotdish",
+      "title": "North Dakota Potato Hotdish",
+      "cuisine": "north-dakota",
+      "category": "Farm Kitchen Comfort",
+      "reusedImage": "images/recipes/audit-2026-06/tater-tot-hotdish.jpg",
+      "expectedPath": "images/recipes/photo-review/north-dakota-potato-hotdish.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "north-dakota-walleye-supper",
+      "title": "North Dakota Walleye Supper",
+      "cuisine": "north-dakota",
+      "category": "Lake & River Fish",
+      "reusedImage": "images/recipes/audit-2026-06/pan-fried-walleye.jpg",
+      "expectedPath": "images/recipes/photo-review/north-dakota-walleye-supper.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "south-dakota-walleye-fry",
+      "title": "South Dakota Walleye Fry",
+      "cuisine": "south-dakota",
+      "category": "River & Lake Fish",
+      "reusedImage": "images/recipes/audit-2026-06/pan-fried-walleye.jpg",
+      "expectedPath": "images/recipes/photo-review/south-dakota-walleye-fry.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "north-dakota-lefse",
+      "title": "North Dakota Lefse",
+      "cuisine": "north-dakota",
+      "category": "Scandinavian Prairie Table",
+      "reusedImage": "images/recipes/audit-2026-06/lefse.jpg",
+      "expectedPath": "images/recipes/photo-review/north-dakota-lefse.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "north-dakota-sunflower-seed-bars",
+      "title": "Sunflower Seed Dessert Bars",
+      "cuisine": "north-dakota",
+      "category": "Prairie Sweets",
+      "reusedImage": "images/recipes/audit-2026-06/midwest-dessert-bars.jpg",
+      "expectedPath": "images/recipes/photo-review/north-dakota-sunflower-seed-bars.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "australian-lamingtons",
+      "title": "Australian Lamingtons",
+      "cuisine": "global",
+      "category": "Australian Bakery",
+      "reusedImage": "images/recipes/audit-2026-06/midwest-dessert-bars.jpg",
+      "expectedPath": "images/recipes/photo-review/australian-lamingtons.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "german-schnitzel",
+      "title": "German Schnitzel",
+      "cuisine": "global",
+      "category": "German Comfort",
+      "reusedImage": "images/recipes/audit-2026-06/breaded-pork-tenderloin-sandwich.jpg",
+      "expectedPath": "images/recipes/photo-review/german-schnitzel.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "eastern-european-pierogies",
+      "title": "Eastern European Pierogies",
+      "cuisine": "global",
+      "category": "Eastern European Dumplings",
+      "reusedImage": "images/recipes/audit-2026-06/cleveland-pierogies.jpg",
+      "expectedPath": "images/recipes/photo-review/eastern-european-pierogies.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "idaho-finger-steaks",
+      "title": "Idaho Finger Steaks",
+      "cuisine": "idaho",
+      "category": "Idaho Counter Food",
+      "reusedImage": "images/recipes/audit-2026-06/kansas-chicken-fried-steak.jpg",
+      "expectedPath": "images/recipes/photo-review/idaho-finger-steaks.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "north-dakota-fleischkuekle",
+      "title": "North Dakota Fleischkuekle",
+      "cuisine": "north-dakota",
+      "category": "North Dakota German-Russian",
+      "reusedImage": "images/recipes/audit-2026-06/runza.jpg",
+      "expectedPath": "images/recipes/photo-review/north-dakota-fleischkuekle.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "santa-maria-tri-tip",
+      "title": "Santa Maria Tri-Tip",
+      "cuisine": "central-california",
+      "category": "Central Coast BBQ",
+      "reusedImage": "images/recipes/audit-2026-06/nebraska-steak.jpg",
+      "expectedPath": "images/recipes/photo-review/santa-maria-tri-tip.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "argentinian-chimichurri-steak",
+      "title": "Argentinian Chimichurri Steak",
+      "cuisine": "global",
+      "category": "Argentina Asado",
+      "reusedImage": "images/recipes/audit-2026-06/nebraska-steak.jpg",
+      "expectedPath": "images/recipes/photo-review/argentinian-chimichurri-steak.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "beef-tenderloin",
+      "title": "Beef Tenderloin",
+      "cuisine": "holiday",
+      "category": "Christmas Mains",
+      "reusedImage": "images/recipes/audit-2026-06/nebraska-steak.jpg",
+      "expectedPath": "images/recipes/photo-review/beef-tenderloin.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "valentine-steak-dinner",
+      "title": "Valentine Steak Dinner",
+      "cuisine": "holiday",
+      "category": "Valentine's Day Mains",
+      "reusedImage": "images/recipes/audit-2026-06/nebraska-steak.jpg",
+      "expectedPath": "images/recipes/photo-review/valentine-steak-dinner.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "garlic-butter-steak-bites",
+      "title": "Garlic Butter Steak Bites",
+      "cuisine": "holiday",
+      "category": "Valentine's Day Mains",
+      "reusedImage": "images/recipes/audit-2026-06/nebraska-steak.jpg",
+      "expectedPath": "images/recipes/photo-review/garlic-butter-steak-bites.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "navajo-tacos",
+      "title": "Navajo Tacos",
+      "cuisine": "arizona",
+      "category": "Native Food Context",
+      "reusedImage": "images/recipes/southwest-2026/navajo-tacos.jpg",
+      "expectedPath": "images/recipes/photo-review/navajo-tacos.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "oklahoma-indian-tacos",
+      "title": "Oklahoma Indian Tacos",
+      "cuisine": "oklahoma",
+      "category": "Native Food Context",
+      "reusedImage": "images/recipes/southwest-2026/navajo-tacos.jpg",
+      "expectedPath": "images/recipes/photo-review/oklahoma-indian-tacos.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "arizona-fry-bread",
+      "title": "Arizona Fry Bread",
+      "cuisine": "arizona",
+      "category": "Native Food Context",
+      "reusedImage": "images/recipes/audit-2026-06/northern-plains-fry-bread.jpg",
+      "expectedPath": "images/recipes/photo-review/arizona-fry-bread.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "oregon-marionberry-pie",
+      "title": "Oregon Marionberry Pie",
+      "cuisine": "oregon",
+      "category": "Oregon Desserts",
+      "reusedImage": "images/recipes/new-england-2026/maine-blueberry-pie.jpg",
+      "expectedPath": "images/recipes/photo-review/oregon-marionberry-pie.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "montana-huckleberry-crisp",
+      "title": "Montana Huckleberry Crisp",
+      "cuisine": "montana",
+      "category": "Mountain Desserts",
+      "reusedImage": "images/recipes/new-england-2026/maine-blueberry-pie.jpg",
+      "expectedPath": "images/recipes/photo-review/montana-huckleberry-crisp.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "banana-bread",
+      "title": "Banana Bread",
+      "cuisine": "southern",
+      "category": "Breads",
+      "reusedImage": "images/recipes/new-england-2026/brown-bread.jpg",
+      "expectedPath": "images/recipes/photo-review/banana-bread.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "pumpkin-bread",
+      "title": "Pumpkin Bread",
+      "cuisine": "southern",
+      "category": "Breads",
+      "reusedImage": "images/recipes/new-england-2026/brown-bread.jpg",
+      "expectedPath": "images/recipes/photo-review/pumpkin-bread.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "alaska-halibut-chowder",
+      "title": "Alaska Halibut Chowder",
+      "cuisine": "alaska",
+      "category": "Alaska Chowders",
+      "reusedImage": "images/recipes/new-england-2026/fish-chowder.jpg",
+      "expectedPath": "images/recipes/photo-review/alaska-halibut-chowder.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "new-zealand-seafood-chowder",
+      "title": "New Zealand Seafood Chowder",
+      "cuisine": "global",
+      "category": "New Zealand Coastal Soup",
+      "reusedImage": "images/recipes/new-england-2026/fish-chowder.jpg",
+      "expectedPath": "images/recipes/photo-review/new-zealand-seafood-chowder.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "classic-apple-pie",
+      "title": "Classic Apple Pie",
+      "cuisine": "southern",
+      "category": "Fourth of July Collection",
+      "reusedImage": "images/recipes/new-england-2026/vermont-cheddar-apple-pie.jpg",
+      "expectedPath": "images/recipes/photo-review/classic-apple-pie.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "build-your-own-tacos",
+      "title": "Build-Your-Own Taco Tray",
+      "cuisine": "southwest-kids",
+      "category": "Fun Food",
+      "reusedImage": "images/recipes/southwest-2026/breakfast-tacos.jpg",
+      "expectedPath": "images/recipes/photo-review/build-your-own-tacos.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "tex-mex-breakfast-tacos",
+      "title": "Tex-Mex Breakfast Tacos",
+      "cuisine": "mexican",
+      "category": "Borderlands Breakfast",
+      "reusedImage": "images/recipes/southwest-2026/breakfast-tacos.jpg",
+      "expectedPath": "images/recipes/photo-review/tex-mex-breakfast-tacos.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "pueblo-green-chile",
+      "title": "Colorado Pueblo Green Chile",
+      "cuisine": "colorado",
+      "category": "Colorado Chile",
+      "reusedImage": "images/recipes/southwest-2026/green-chile-stew.jpg",
+      "expectedPath": "images/recipes/photo-review/pueblo-green-chile.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "utah-honey-scones",
+      "title": "Utah Honey Scones",
+      "cuisine": "utah",
+      "category": "Utah Breads",
+      "reusedImage": "images/recipes/southwest-2026/sopapillas.jpg",
+      "expectedPath": "images/recipes/photo-review/utah-honey-scones.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "idaho-huckleberry-pancakes",
+      "title": "Idaho Huckleberry Pancakes",
+      "cuisine": "idaho",
+      "category": "Mountain Breakfast",
+      "reusedImage": "images/recipes/southwest-2026/blue-corn-pancakes.jpg",
+      "expectedPath": "images/recipes/photo-review/idaho-huckleberry-pancakes.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "jumbo-slice-pizza",
+      "title": "D.C. Jumbo Slice Pizza",
+      "cuisine": "washington-dc",
+      "category": "D.C. Late Night",
+      "reusedImage": "images/recipes/mid-atlantic-2026/new-york-pizza.jpg",
+      "expectedPath": "images/recipes/photo-review/jumbo-slice-pizza.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "kids-crab-coloring",
+      "title": "Simple Crab Coloring Activity",
+      "cuisine": "mid-atlantic-kids",
+      "category": "Kids Activities",
+      "reusedImage": "images/recipes/mid-atlantic-2026/maryland-crab-cakes.jpg",
+      "expectedPath": "images/recipes/photo-review/kids-crab-coloring.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "dungeness-crab-melt",
+      "title": "Dungeness Crab Melt",
+      "cuisine": "washington-state",
+      "category": "Coastal Sandwiches",
+      "reusedImage": "images/recipes/mid-atlantic-2026/crab-dip.jpg",
+      "expectedPath": "images/recipes/photo-review/dungeness-crab-melt.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "mumbo-sauce",
+      "title": "D.C. Mumbo Sauce",
+      "cuisine": "washington-dc",
+      "category": "D.C. Sauces",
+      "reusedImage": "images/recipes/mid-atlantic-2026/old-bay-fries.jpg",
+      "expectedPath": "images/recipes/photo-review/mumbo-sauce.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "utah-fry-sauce",
+      "title": "Utah Fry Sauce",
+      "cuisine": "utah",
+      "category": "Utah Sauces",
+      "reusedImage": "images/recipes/mid-atlantic-2026/boardwalk-fries.jpg",
+      "expectedPath": "images/recipes/photo-review/utah-fry-sauce.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "dc-chili-dogs",
+      "title": "D.C. Chili Dogs",
+      "cuisine": "washington-dc",
+      "category": "D.C. Carryout",
+      "reusedImage": "images/recipes/mid-atlantic-2026/dc-half-smoke.jpg",
+      "expectedPath": "images/recipes/photo-review/dc-chili-dogs.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "salvadoran-pupusa-supper",
+      "title": "Salvadoran Pupusa Supper",
+      "cuisine": "mexican",
+      "category": "Central American Masa",
+      "reusedImage": "images/recipes/mid-atlantic-2026/salvadoran-pupusas.jpg",
+      "expectedPath": "images/recipes/photo-review/salvadoran-pupusa-supper.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "california-sourdough-toast",
+      "title": "California Sourdough Toast",
+      "cuisine": "northern-california",
+      "category": "Sourdough Table",
+      "reusedImage": "assets/fresh-bread.jpeg",
+      "expectedPath": "images/recipes/photo-review/california-sourdough-toast.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "irish-soda-bread",
+      "title": "Irish Soda Bread",
+      "cuisine": "holiday",
+      "category": "St. Patrick's Day Breads",
+      "reusedImage": "assets/fresh-bread.jpeg",
+      "expectedPath": "images/recipes/photo-review/irish-soda-bread.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "feast-seven-fishes-stew",
+      "title": "Feast of the Seven Fishes Seafood Stew",
+      "cuisine": "holiday",
+      "category": "Christmas Eve",
+      "reusedImage": "images/recipes/kitchen-2026/feast-seven-fishes-seafood-stew.png",
+      "expectedPath": "images/recipes/photo-review/feast-seven-fishes-stew.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "palestinian-musakhan-style-chicken",
+      "title": "Palestinian Musakhan-Style Chicken",
+      "cuisine": "mediterranean",
+      "category": "Palestinian Sumac Chicken",
+      "reusedImage": "images/recipes/audit-2026-06/smothered-chicken.jpg",
+      "expectedPath": "images/recipes/photo-review/palestinian-musakhan-style-chicken.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
+    },
+    {
+      "id": "standing-rib-roast",
+      "title": "Standing Rib Roast",
+      "cuisine": "holiday",
+      "category": "Christmas Mains",
+      "reusedImage": "images/recipes/holiday-2026/prime-rib.png",
+      "expectedPath": "images/recipes/photo-review/standing-rib-roast.jpg",
+      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
     }
   ],
   "cuisineCollections": [
@@ -2855,20 +5455,6 @@
           "image": "images/recipes/asian-hub-2026/asian-garlic-fried-rice.png"
         },
         {
-          "id": "asian-orange-chicken",
-          "title": "Orange Chicken",
-          "cuisine": "asian-inspired",
-          "category": "Quick Meals",
-          "image": "images/recipes/asian-hub-2026/orange-cashew-chicken.png"
-        },
-        {
-          "id": "asian-cashew-chicken",
-          "title": "Cashew Chicken",
-          "cuisine": "asian-inspired",
-          "category": "Family Dinners",
-          "image": "images/recipes/asian-hub-2026/orange-cashew-chicken.png"
-        },
-        {
           "id": "asian-beef-broccoli",
           "title": "Beef and Broccoli",
           "cuisine": "asian-inspired",
@@ -2897,25 +5483,11 @@
           "image": "images/cuisines/asian/asian-07.png"
         },
         {
-          "id": "asian-thai-basil-chicken",
-          "title": "Thai Basil Chicken",
-          "cuisine": "asian-inspired",
-          "category": "Quick Meals",
-          "image": "images/recipes/asian-hub-2026/thai-basil-chicken.png"
-        },
-        {
           "id": "asian-miso-noodles",
           "title": "Miso Butter Noodles",
           "cuisine": "asian-inspired",
           "category": "Beginner Basics",
           "image": "images/cuisines/asian/asian-09.png"
-        },
-        {
-          "id": "asian-crab-rangoon",
-          "title": "Crab Rangoon",
-          "cuisine": "asian-inspired",
-          "category": "Party & Hosting",
-          "image": "images/cuisines/asian/asian-10.png"
         }
       ]
     },
@@ -3553,14 +6125,6 @@
       "image": "images/recipes/audit-2026-06/southern-fried-chicken.png"
     },
     {
-      "id": "mac-and-cheese",
-      "title": "Baked Mac and Cheese",
-      "cuisine": "southern",
-      "category": "Southern Comfort",
-      "primaryCookbookSection": "sides",
-      "image": "images/cuisines/southern/southern-02.png"
-    },
-    {
       "id": "collard-greens",
       "title": "Collard Greens",
       "cuisine": "southern",
@@ -3673,22 +6237,6 @@
       "image": "images/recipes/asian-hub-2026/asian-garlic-fried-rice.png"
     },
     {
-      "id": "asian-orange-chicken",
-      "title": "Orange Chicken",
-      "cuisine": "asian-inspired",
-      "category": "Quick Meals",
-      "primaryCookbookSection": "poultry",
-      "image": "images/recipes/asian-hub-2026/orange-cashew-chicken.png"
-    },
-    {
-      "id": "asian-cashew-chicken",
-      "title": "Cashew Chicken",
-      "cuisine": "asian-inspired",
-      "category": "Family Dinners",
-      "primaryCookbookSection": "poultry",
-      "image": "images/recipes/asian-hub-2026/orange-cashew-chicken.png"
-    },
-    {
       "id": "asian-beef-broccoli",
       "title": "Beef and Broccoli",
       "cuisine": "asian-inspired",
@@ -3721,28 +6269,12 @@
       "image": "images/cuisines/asian/asian-07.png"
     },
     {
-      "id": "asian-thai-basil-chicken",
-      "title": "Thai Basil Chicken",
-      "cuisine": "asian-inspired",
-      "category": "Quick Meals",
-      "primaryCookbookSection": "poultry",
-      "image": "images/recipes/asian-hub-2026/thai-basil-chicken.png"
-    },
-    {
       "id": "asian-miso-noodles",
       "title": "Miso Butter Noodles",
       "cuisine": "asian-inspired",
       "category": "Beginner Basics",
       "primaryCookbookSection": "miscellaneous",
       "image": "images/cuisines/asian/asian-09.png"
-    },
-    {
-      "id": "asian-crab-rangoon",
-      "title": "Crab Rangoon",
-      "cuisine": "asian-inspired",
-      "category": "Party & Hosting",
-      "primaryCookbookSection": "fish-seafood",
-      "image": "images/cuisines/asian/asian-10.png"
     },
     {
       "id": "bbq-smoked-ribs",
@@ -6945,14 +9477,6 @@
       "image": "images/recipes/southwest-2026/oklahoma-fried-pies.jpg"
     },
     {
-      "id": "oklahoma-peach-cobbler",
-      "title": "Oklahoma Peach Cobbler",
-      "cuisine": "oklahoma",
-      "category": "Oklahoma Desserts",
-      "primaryCookbookSection": "desserts",
-      "image": "images/regional/mississippi/peach-cobbler.jpg"
-    },
-    {
       "id": "cactus-cookies",
       "title": "Decorate a Cactus Cookie",
       "cuisine": "southwest-kids",
@@ -7319,14 +9843,6 @@
       "category": "Seattle Counter Food",
       "primaryCookbookSection": "poultry",
       "image": "images/recipes/audit-2026-06/orange-chicken.jpg"
-    },
-    {
-      "id": "washington-apple-crisp",
-      "title": "Washington Apple Crisp",
-      "cuisine": "washington-state",
-      "category": "Orchard Desserts",
-      "primaryCookbookSection": "desserts",
-      "image": "images/recipes/new-england-2026/apple-crisp.jpg"
     },
     {
       "id": "dungeness-crab-melt",
@@ -7974,7 +10490,7 @@
       "cuisine": "global",
       "category": "Swedish Supper",
       "primaryCookbookSection": "miscellaneous",
-      "image": "images/recipes/audit-2026-06/party-meatballs.jpg"
+      "image": "images/recipes/photo-review/swedish-meatballs.png"
     },
     {
       "id": "persian-herb-stew",
@@ -8722,6 +11238,7 @@
     }
   ],
   "cookbookClassificationIssues": [],
+  "cookbookCardDuplicateIssues": [],
   "ingredientSearchSmoke": [
     {
       "term": "ribeye",
@@ -9356,19 +11873,6 @@
       ]
     },
     {
-      "id": "mac-and-cheese",
-      "title": "Baked Mac and Cheese",
-      "cuisine": "southern",
-      "category": "Southern Comfort",
-      "missing": [],
-      "recommendedMissing": [
-        "cultural_origin",
-        "chef_tips",
-        "nutrition",
-        "pairings"
-      ]
-    },
-    {
       "id": "collard-greens",
       "title": "Collard Greens",
       "cuisine": "southern",
@@ -9551,32 +12055,6 @@
       ]
     },
     {
-      "id": "asian-orange-chicken",
-      "title": "Orange Chicken",
-      "cuisine": "asian-inspired",
-      "category": "Quick Meals",
-      "missing": [],
-      "recommendedMissing": [
-        "cultural_origin",
-        "chef_tips",
-        "nutrition",
-        "pairings"
-      ]
-    },
-    {
-      "id": "asian-cashew-chicken",
-      "title": "Cashew Chicken",
-      "cuisine": "asian-inspired",
-      "category": "Family Dinners",
-      "missing": [],
-      "recommendedMissing": [
-        "cultural_origin",
-        "chef_tips",
-        "nutrition",
-        "pairings"
-      ]
-    },
-    {
       "id": "asian-beef-broccoli",
       "title": "Beef and Broccoli",
       "cuisine": "asian-inspired",
@@ -9629,36 +12107,10 @@
       ]
     },
     {
-      "id": "asian-thai-basil-chicken",
-      "title": "Thai Basil Chicken",
-      "cuisine": "asian-inspired",
-      "category": "Quick Meals",
-      "missing": [],
-      "recommendedMissing": [
-        "cultural_origin",
-        "chef_tips",
-        "nutrition",
-        "pairings"
-      ]
-    },
-    {
       "id": "asian-miso-noodles",
       "title": "Miso Butter Noodles",
       "cuisine": "asian-inspired",
       "category": "Beginner Basics",
-      "missing": [],
-      "recommendedMissing": [
-        "cultural_origin",
-        "chef_tips",
-        "nutrition",
-        "pairings"
-      ]
-    },
-    {
-      "id": "asian-crab-rangoon",
-      "title": "Crab Rangoon",
-      "cuisine": "asian-inspired",
-      "category": "Party & Hosting",
       "missing": [],
       "recommendedMissing": [
         "cultural_origin",
@@ -14868,19 +17320,6 @@
       ]
     },
     {
-      "id": "oklahoma-peach-cobbler",
-      "title": "Oklahoma Peach Cobbler",
-      "cuisine": "oklahoma",
-      "category": "Oklahoma Desserts",
-      "missing": [],
-      "recommendedMissing": [
-        "cultural_origin",
-        "chef_tips",
-        "nutrition",
-        "pairings"
-      ]
-    },
-    {
       "id": "cactus-cookies",
       "title": "Decorate a Cactus Cookie",
       "cuisine": "southwest-kids",
@@ -15470,19 +17909,6 @@
       "title": "Seattle Teriyaki Chicken",
       "cuisine": "washington-state",
       "category": "Seattle Counter Food",
-      "missing": [],
-      "recommendedMissing": [
-        "cultural_origin",
-        "chef_tips",
-        "nutrition",
-        "pairings"
-      ]
-    },
-    {
-      "id": "washington-apple-crisp",
-      "title": "Washington Apple Crisp",
-      "cuisine": "washington-state",
-      "category": "Orchard Desserts",
       "missing": [],
       "recommendedMissing": [
         "cultural_origin",
@@ -18224,19 +20650,6 @@
       ]
     },
     {
-      "id": "mac-and-cheese",
-      "title": "Baked Mac and Cheese",
-      "cuisine": "southern",
-      "category": "Southern Comfort",
-      "missing": [],
-      "recommendedMissing": [
-        "cultural_origin",
-        "chef_tips",
-        "nutrition",
-        "pairings"
-      ]
-    },
-    {
       "id": "collard-greens",
       "title": "Collard Greens",
       "cuisine": "southern",
@@ -18419,32 +20832,6 @@
       ]
     },
     {
-      "id": "asian-orange-chicken",
-      "title": "Orange Chicken",
-      "cuisine": "asian-inspired",
-      "category": "Quick Meals",
-      "missing": [],
-      "recommendedMissing": [
-        "cultural_origin",
-        "chef_tips",
-        "nutrition",
-        "pairings"
-      ]
-    },
-    {
-      "id": "asian-cashew-chicken",
-      "title": "Cashew Chicken",
-      "cuisine": "asian-inspired",
-      "category": "Family Dinners",
-      "missing": [],
-      "recommendedMissing": [
-        "cultural_origin",
-        "chef_tips",
-        "nutrition",
-        "pairings"
-      ]
-    },
-    {
       "id": "asian-beef-broccoli",
       "title": "Beef and Broccoli",
       "cuisine": "asian-inspired",
@@ -18497,36 +20884,10 @@
       ]
     },
     {
-      "id": "asian-thai-basil-chicken",
-      "title": "Thai Basil Chicken",
-      "cuisine": "asian-inspired",
-      "category": "Quick Meals",
-      "missing": [],
-      "recommendedMissing": [
-        "cultural_origin",
-        "chef_tips",
-        "nutrition",
-        "pairings"
-      ]
-    },
-    {
       "id": "asian-miso-noodles",
       "title": "Miso Butter Noodles",
       "cuisine": "asian-inspired",
       "category": "Beginner Basics",
-      "missing": [],
-      "recommendedMissing": [
-        "cultural_origin",
-        "chef_tips",
-        "nutrition",
-        "pairings"
-      ]
-    },
-    {
-      "id": "asian-crab-rangoon",
-      "title": "Crab Rangoon",
-      "cuisine": "asian-inspired",
-      "category": "Party & Hosting",
       "missing": [],
       "recommendedMissing": [
         "cultural_origin",
@@ -23736,19 +26097,6 @@
       ]
     },
     {
-      "id": "oklahoma-peach-cobbler",
-      "title": "Oklahoma Peach Cobbler",
-      "cuisine": "oklahoma",
-      "category": "Oklahoma Desserts",
-      "missing": [],
-      "recommendedMissing": [
-        "cultural_origin",
-        "chef_tips",
-        "nutrition",
-        "pairings"
-      ]
-    },
-    {
       "id": "cactus-cookies",
       "title": "Decorate a Cactus Cookie",
       "cuisine": "southwest-kids",
@@ -24338,19 +26686,6 @@
       "title": "Seattle Teriyaki Chicken",
       "cuisine": "washington-state",
       "category": "Seattle Counter Food",
-      "missing": [],
-      "recommendedMissing": [
-        "cultural_origin",
-        "chef_tips",
-        "nutrition",
-        "pairings"
-      ]
-    },
-    {
-      "id": "washington-apple-crisp",
-      "title": "Washington Apple Crisp",
-      "cuisine": "washington-state",
-      "category": "Orchard Desserts",
       "missing": [],
       "recommendedMissing": [
         "cultural_origin",

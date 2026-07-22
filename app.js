@@ -3455,11 +3455,37 @@ const recipeIdAliases = {
   tortillas: "corn-tortillas",
   "strawberry-soda": "hibiscus-red-punch",
   "red-velvet-cake": "strawberry-shortcake",
-  "watermelon-platter": "cookout-watermelon-wedges"
+  "watermelon-platter": "cookout-watermelon-wedges",
+  "asian-orange-chicken": "orange-chicken",
+  "asian-crab-rangoon": "crab-rangoon",
+  "asian-cashew-chicken": "cashew-chicken",
+  "mac-and-cheese": "southern-baked-mac-cheese",
+  "asian-thai-basil-chicken": "thai-basil-chicken",
+  "oklahoma-peach-cobbler": "peach-cobbler",
+  "washington-apple-crisp": "apple-crisp"
 };
 
 function canonicalRecipeId(id) {
-  return recipeIdAliases[id] || id;
+  const seen = new Set();
+  let canonical = id;
+  while (recipeIdAliases[canonical] && !seen.has(canonical)) {
+    seen.add(canonical);
+    canonical = recipeIdAliases[canonical];
+  }
+  return canonical;
+}
+
+function isCanonicalRecipeRecord(recipe) {
+  return Boolean(recipe?.id) && canonicalRecipeId(recipe.id) === recipe.id;
+}
+
+function uniqueCanonicalRecipes(items = []) {
+  const seen = new Set();
+  return items.filter((recipe) => {
+    if (!recipe || !isCanonicalRecipeRecord(recipe) || seen.has(recipe.id)) return false;
+    seen.add(recipe.id);
+    return true;
+  });
 }
 
 function recipeById(id) {
@@ -3527,13 +3553,13 @@ function recipeAllowedInGeneralCollection(recipe) {
 }
 
 function allRecipeCollection({ includeTraining = false } = {}) {
-  return [...userRecipeCollection(), ...recipes].filter((recipe) =>
+  return uniqueCanonicalRecipes([...userRecipeCollection(), ...recipes]).filter((recipe) =>
     recipeHasPublishReadyPhoto(recipe) && (includeTraining || !isTrainingOnlyRecipe(recipe))
   );
 }
 
 function recipeLinksFor(ids = []) {
-  return ids
+  return [...new Set(ids.map(canonicalRecipeId))]
     .map((id) => recipeById(id))
     .filter(Boolean)
     .map((recipe) => `<a href="#recipes/${recipe.id}">${recipe.title}</a>`);
@@ -3541,7 +3567,7 @@ function recipeLinksFor(ids = []) {
 
 function recipesForMenu(menu) {
   const ids = menuRecipeSections.flatMap(([, key]) => menu[key] || []);
-  return [...new Set(ids)].map((id) => recipeById(id)).filter(Boolean);
+  return [...new Set(ids.map(canonicalRecipeId))].map((id) => recipeById(id)).filter(Boolean);
 }
 
 function holidayTableByTitle(title = "") {
@@ -3767,7 +3793,7 @@ const weeklyMealPlan = [
 ];
 
 function recipesByIds(ids = []) {
-  return [...new Set(ids)].map((id) => recipeById(id)).filter(Boolean);
+  return [...new Set(ids.map(canonicalRecipeId))].map((id) => recipeById(id)).filter(Boolean);
 }
 
 function trackRecentlyViewedRecipe(id) {
@@ -6473,6 +6499,7 @@ function recipeHasPublishReadyPhoto(recipe) {
 }
 
 const recipeImageOverrides = {
+  "swedish-meatballs": "images/recipes/photo-review/swedish-meatballs.png",
   "bierocks": "images/recipes/audit-2026-06/bierocks.jpg",
   "caramel-cheese-popcorn": "images/recipes/audit-2026-06/caramel-cheese-popcorn.jpg",
   "chicago-gyros": "images/recipes/audit-2026-06/chicago-gyros.jpg",
@@ -6981,7 +7008,7 @@ Object.assign(recipeImageOverrides, {
   "polish-bigos": "images/recipes/audit-2026-06/loaded-baked-potato-soup.jpg",
   "hungarian-chicken-paprikash": "images/recipes/audit-2026-06/smothered-chicken.jpg",
   "irish-beef-stew": "images/recipes/generated-2026-07/irish-beef-stew.png",
-  "swedish-meatballs": "images/recipes/audit-2026-06/party-meatballs.jpg",
+  "swedish-meatballs": "images/recipes/photo-review/swedish-meatballs.png",
   "persian-herb-stew": "images/recipes/audit-2026-06/green-bean-casserole.jpg",
   "palestinian-musakhan-style-chicken": "images/recipes/audit-2026-06/smothered-chicken.jpg",
   "saudi-kabsa-chicken": "images/recipes/audit-2026-06/rice-pilaf.jpg",
@@ -7883,7 +7910,7 @@ function recipesForCuisine(cuisineId, limit = 12) {
   const canonical = canonicalCuisineId(cuisineId || "global");
   const relatedIds = [canonical, ...(cuisineRecipeAliases[canonical] || [])];
   const wanted = new Set(relatedIds);
-  const publishableRecipes = recipes.filter(recipeAllowedInGeneralCollection);
+  const publishableRecipes = allRecipeCollection();
   const picked = [];
   const add = (items) => {
     items.forEach((item) => {
@@ -8348,10 +8375,10 @@ function relatedRecipesFor(recipe, limit = 6) {
     });
   };
   add((recipe.related_recipe_ids || []).map((id) => recipeById(id)));
-  add(recipes.filter((item) => recipeAllowedInGeneralCollection(item) && item.cuisine === recipe.cuisine));
+  add(allRecipeCollection().filter((item) => item.cuisine === recipe.cuisine));
   if (picked.length < limit) {
     const tags = new Set(recipe.tags || []);
-    add(recipes.filter((item) => recipeAllowedInGeneralCollection(item) && (item.tags?.some((tag) => tags.has(tag)) || item.category === recipe.category)));
+    add(allRecipeCollection().filter((item) => item.tags?.some((tag) => tags.has(tag)) || item.category === recipe.category));
   }
   return picked.slice(0, limit);
 }
@@ -15822,6 +15849,7 @@ function cookbookSectionRoute(section = "") {
 
 function recipesForCookbookChapter(chapter, limit = Number.POSITIVE_INFINITY) {
   const seen = new Set();
+  const seenImages = new Set();
   return allRecipeCollection()
     .filter((recipe) => {
       if (cookbookNearDuplicateAliases.has(recipe.id)) return false;
@@ -15831,8 +15859,11 @@ function recipesForCookbookChapter(chapter, limit = Number.POSITIVE_INFINITY) {
       const matches = chapter.id === "main-dishes"
         ? ["beef", "poultry", "fish-seafood"].includes(primarySection)
         : primarySection === chapter.id;
-      if (matches) seen.add(displayId);
-      return matches;
+      const image = recipePhotoFor(recipe);
+      if (!matches || seenImages.has(image)) return false;
+      seen.add(displayId);
+      seenImages.add(image);
+      return true;
     })
     .slice(0, Number.isFinite(limit) ? limit : undefined);
 }
@@ -16051,7 +16082,9 @@ function recipeStepMicroTip(recipe, index) {
 }
 
 function renderRecipe(id) {
-  const recipe = recipeById(id) || recipes.find((item) => item.id === canonicalRecipeId(id));
+  const canonicalId = canonicalRecipeId(id);
+  if (canonicalId !== id && typeof history !== "undefined") history.replaceState(null, "", `#recipes/${canonicalId}`);
+  const recipe = recipeById(canonicalId) || recipes.find((item) => item.id === canonicalId);
   if (!recipe) {
     app.innerHTML = `
       ${hero("Recipe Not Found", "That recipe link does not match a real recipe in the Let's Cook Y'all library.", exactRecipePhotoNeededImage, `<a class="small-button" href="#recipes">Browse Real Recipes</a>`)}

@@ -18,7 +18,9 @@ globalThis.__cookbookTest = {
   cookbookChapterByKey,
   cookbookSectionRoute,
   cookbookChapterShelf,
+  dailyDiverseRecipes,
   recipesForCookbookChapter,
+  recipePhotoFor,
   recipeCookbookPrimarySection,
   allRecipeCollection,
   rankRecipesForDiscovery,
@@ -111,6 +113,7 @@ for (const key of expectedSections) {
   const chapterRecipes = api.recipesForCookbookChapter(chapter);
   assert(chapterRecipes.length > 0, `${key} must contain real recipes`);
   assert(chapterRecipes.every((recipe) => key === "main-dishes" ? ["beef", "poultry", "fish-seafood"].includes(api.recipeCookbookPrimarySection(recipe)) : api.recipeCookbookPrimarySection(recipe) === key), `${key} contains a misclassified recipe`);
+  assert.strictEqual(new Set(chapterRecipes.map(api.recipePhotoFor)).size, chapterRecipes.length, `${key} must not repeat a primary image in one cookbook result set`);
   assert.strictEqual(api.cookbookSectionRoute(key), `#recipes?section=${key}`, `${key} route is not canonical`);
 }
 
@@ -119,12 +122,12 @@ assert(cookies.some((recipe) => recipe.id === "chewy-chocolate-cookies"), "Cooki
 assert(!cookies.some((recipe) => api.recipeCookbookPrimarySection(recipe) === "soups"), "Cookies must not show soups");
 
 const poultry = api.recipesForCookbookChapter(api.cookbookChapterByKey("poultry"));
-assert(poultry.some((recipe) => recipe.id === "asian-orange-chicken"), "Orange Chicken must be Poultry");
+assert(poultry.some((recipe) => recipe.id === "orange-chicken"), "Orange Chicken must be Poultry");
 assert(poultry.every((recipe) => api.recipeCookbookPrimarySection(recipe) === "poultry"), "Poultry must exclude beef and seafood");
 
 const desserts = api.recipesForCookbookChapter(api.cookbookChapterByKey("desserts"));
 assert(desserts.some((recipe) => recipe.id === "carrot-cake"), "Carrot Cake must be Desserts");
-assert(!desserts.some((recipe) => recipe.id === "asian-orange-chicken"), "Desserts must exclude Orange Chicken");
+assert(!desserts.some((recipe) => recipe.id === "orange-chicken"), "Desserts must exclude Orange Chicken");
 
 const byId = (id) => api.allRecipeCollection().find((recipe) => recipe.id === id);
 assert.strictEqual(api.recipeCookbookPrimarySection(byId("alabama-white-sauce-chicken")), "poultry", "A sauce name must not pull a chicken main into Miscellaneous");
@@ -148,6 +151,9 @@ assert(chapterShelf.includes('class="living-recipe-box is-open"'), "A direct coo
 const closedChapterShelf = api.cookbookChapterShelf();
 assert(closedChapterShelf.includes('class="living-recipe-box "'), "The cookbook must load with its recipe box closed");
 assert(chapterShelf.includes('data-cookbook-subchapter-select="beef"') && chapterShelf.includes('data-cookbook-subchapter-select="poultry"') && chapterShelf.includes('data-cookbook-subchapter-select="fish-seafood"'), "Main Dishes must expose Beef, Poultry, and Fish & Seafood");
+const rotation = api.dailyDiverseRecipes(api.allRecipeCollection(), 18, "integrity-test");
+assert.strictEqual(new Set(rotation.map((recipe) => recipe.id)).size, rotation.length, "Daily rotation must not repeat canonical recipe IDs");
+assert.strictEqual(new Set(rotation.map(api.recipePhotoFor)).size, rotation.length, "Daily rotation must not repeat primary images");
 
 function topRecipe(query) {
   return api.rankRecipesForDiscovery(api.allRecipeCollection(), { query })[0]?.recipe;
@@ -155,7 +161,7 @@ function topRecipe(query) {
 
 assert.strictEqual(topRecipe("Chocolate Chip Cookies")?.id, "chewy-chocolate-cookies", "Exact Chocolate Chip Cookies search must rank first");
 assert.strictEqual(topRecipe("Carrot Cake")?.id, "carrot-cake", "Exact Carrot Cake search must rank first");
-assert.strictEqual(topRecipe("Orange Chicken")?.id, "asian-orange-chicken", "Exact Orange Chicken search must rank first");
+assert.strictEqual(topRecipe("Orange Chicken")?.id, "orange-chicken", "Exact Orange Chicken search must rank first");
 assert(/steak|rib|beef/i.test(`${topRecipe("ribeye")?.title} ${(topRecipe("ribeye")?.ingredients || []).join(" ")}`), "Ribeye must return a relevant recipe first");
 assert.strictEqual(api.rankRecipesForDiscovery(api.allRecipeCollection(), { query: "zzzxqvnotfood" }).filter((row) => row.score > 0).length, 0, "Nonsense searches must not return unrelated recipes");
 

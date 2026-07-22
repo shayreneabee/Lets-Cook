@@ -11,7 +11,9 @@ source = source.replace(
 );
 
 source += `
-globalThis.__recipeImageAudit = recipes.map((recipe) => {
+globalThis.__recipeImageAudit = {
+  canonicalRecipeId,
+  rows: recipes.map((recipe) => {
   const resolved = resolveRecipeImage(recipe);
   return {
     id: recipe.id,
@@ -23,7 +25,8 @@ globalThis.__recipeImageAudit = recipes.map((recipe) => {
     fallbackUsed: resolved.fallbackUsed,
     missingRecipeImage: resolved.missingImage
   };
-});
+  })
+};
 `;
 
 const storage = new Map();
@@ -67,7 +70,8 @@ context.globalThis = context;
 vm.createContext(context);
 vm.runInContext(source, context, { filename: "app.js" });
 
-const rows = context.__recipeImageAudit;
+const canonicalRecipeId = (id) => context.__recipeImageAudit.canonicalRecipeId(id);
+const rows = context.__recipeImageAudit.rows.filter((row) => canonicalRecipeId(row.id) === row.id);
 const byImage = new Map();
 for (const row of rows) {
   if (!byImage.has(row.image)) byImage.set(row.image, []);
@@ -95,6 +99,13 @@ const sharedImages = [...byImage.entries()]
     image,
     recipes: recipes.map(({ id, title }) => ({ id, title }))
   }));
+const unrelatedSharedImages = sharedImages.filter((group) => new Set(group.recipes.map((recipe) => recipe.title.toLowerCase().replace(/[^a-z0-9]+/g, "-"))).size > 1);
+const imageReviewQueue = unrelatedSharedImages.flatMap((group) => group.recipes.slice(1).map((recipe) => ({
+  ...recipe,
+  reusedImage: group.image,
+  expectedPath: `images/recipes/photo-review/${recipe.id}.jpg`,
+  reason: "Shared primary image belongs to a different named dish."
+})));
 
 const report = {
   generatedAt: new Date().toISOString(),
@@ -104,6 +115,8 @@ const report = {
   fallbacks,
   photoQueue,
   sharedImages,
+  unrelatedSharedImages,
+  imageReviewQueue,
   recipes: rows
 };
 
@@ -116,6 +129,8 @@ console.log(`Missing files: ${missingFiles.length}`);
 console.log(`Fallback/queued images: ${fallbacks.length}`);
 console.log(`Photo queue items: ${photoQueue.length}`);
 console.log(`Shared image groups: ${sharedImages.length}`);
+console.log(`Unrelated shared image groups: ${unrelatedSharedImages.length}`);
+console.log(`Image review queue items: ${imageReviewQueue.length}`);
 console.log(`Report: ${path.relative(root, outputPath)}`);
 
 if (missingFiles.length) process.exitCode = 1;

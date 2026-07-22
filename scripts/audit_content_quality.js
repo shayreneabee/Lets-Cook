@@ -14,6 +14,8 @@ source += `
 globalThis.__contentQualityAudit = {
   recipes,
   recipeIdAliases,
+  canonicalRecipeId,
+  allRecipeCollection,
   cuisines,
   controlledCuisineRecipeIds,
   trainingOnlyRecipeIds: [...trainingOnlyRecipeIds],
@@ -31,6 +33,15 @@ globalThis.__contentQualityAudit = {
     category: recipe.category || "",
     primaryCookbookSection: recipeCookbookPrimarySection(recipe),
     image: resolveRecipeImage(recipe).image
+  })),
+  cookbookChapterResults: cookbookChapterDefinitions.map((chapter) => ({
+    id: chapter.id,
+    title: chapter.title,
+    recipes: recipesForCookbookChapter(chapter).map((recipe) => ({
+      id: recipe.id,
+      title: recipe.title,
+      image: resolveRecipeImage(recipe).image
+    }))
   })),
   curatedHolidayTables,
   livingCookbookChapters,
@@ -114,8 +125,12 @@ vm.runInContext(source, context, { filename: "app.js" });
 
 const audit = context.__contentQualityAudit;
 const recipes = audit.recipes;
-const recipeIds = new Set(recipes.map((recipe) => recipe.id));
-const canonicalRecipeId = (id) => audit.recipeIdAliases?.[id] || id;
+const canonicalRecipeId = (id) => audit.canonicalRecipeId ? audit.canonicalRecipeId(id) : (audit.recipeIdAliases?.[id] || id);
+const canonicalRecipes = recipes.filter((recipe) => canonicalRecipeId(recipe.id) === recipe.id);
+const retiredDuplicateRecords = recipes
+  .filter((recipe) => canonicalRecipeId(recipe.id) !== recipe.id)
+  .map((recipe) => ({ ...compactRecipe(recipe), canonicalId: canonicalRecipeId(recipe.id) }));
+const recipeIds = new Set(canonicalRecipes.map((recipe) => recipe.id));
 const hasRecipeId = (id) => recipeIds.has(canonicalRecipeId(id));
 const normalize = (value) => String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 const requiredHolidays = [
@@ -171,15 +186,36 @@ function compactRecipe(recipe) {
   return { id: recipe.id, title: recipe.title, cuisine: recipe.cuisine || "", category: recipe.category || "" };
 }
 
-const duplicateRecipeIds = duplicatesBy(recipes, (recipe) => recipe.id).map(({ key, items }) => ({ id: key, recipes: items.map(compactRecipe) }));
-const duplicateRecipeTitles = duplicatesBy(recipes, (recipe) => normalize(recipe.title)).map(({ key, items }) => ({ titleKey: key, recipes: items.map(compactRecipe) }));
+const duplicateRecipeIds = duplicatesBy(canonicalRecipes, (recipe) => recipe.id).map(({ key, items }) => ({ id: key, recipes: items.map(compactRecipe) }));
+const duplicateRecipeTitles = duplicatesBy(canonicalRecipes, (recipe) => normalize(recipe.title)).map(({ key, items }) => ({ titleKey: key, recipes: items.map(compactRecipe) }));
+const duplicateRecipeSlugs = duplicatesBy(canonicalRecipes, (recipe) => normalize(recipe.slug || recipe.id)).map(({ key, items }) => ({ slugKey: key, recipes: items.map(compactRecipe) }));
+const normalizedIngredientSignature = (recipe) => [...new Set((recipe.ingredients || []).map((item) => normalize(String(item).replace(/\d+[\d/ .-]*/g, ""))).filter(Boolean))].sort().join("|");
+const normalizedInstructionSignature = (recipe) => (recipe.instructions || recipe.steps || []).map((item) => normalize(item)).filter(Boolean).join("|");
+const allowedIngredientVariationSets = new Set([
+  "arizona-fry-bread|northern-plains-fry-bread"
+]);
+const ingredientSignatureGroups = duplicatesBy(canonicalRecipes, normalizedIngredientSignature)
+  .filter((group) => group.items.length > 1 && group.key.split("|").length >= 3)
+  .map(({ key, items }) => ({ signature: key, recipes: items.map(compactRecipe) }));
+const ingredientVariationReviews = ingredientSignatureGroups.filter((group) => allowedIngredientVariationSets.has(group.recipes.map((recipe) => recipe.id).sort().join("|")));
+const duplicateIngredientLists = ingredientSignatureGroups.filter((group) => !allowedIngredientVariationSets.has(group.recipes.map((recipe) => recipe.id).sort().join("|")));
+const duplicateInstructionLists = duplicatesBy(canonicalRecipes, normalizedInstructionSignature)
+  .filter((group) => group.items.length > 1 && group.key.split("|").length >= 3)
+  .map(({ key, items }) => ({ signature: key, recipes: items.map(compactRecipe) }));
 
-const imageRows = audit.imageRows;
+const imageRows = audit.imageRows.filter((row) => canonicalRecipeId(row.id) === row.id);
 const imageGroups = duplicatesBy(imageRows, (row) => row.image).map(({ key, items }) => ({
   image: key,
   count: items.length,
   recipes: items.map(({ id, title, cuisine, category }) => ({ id, title, cuisine, category }))
 }));
+const unrelatedSharedImages = imageGroups.filter((group) => new Set(group.recipes.map((recipe) => normalize(recipe.title))).size > 1);
+const imageReviewQueue = unrelatedSharedImages.flatMap((group) => group.recipes.slice(1).map((recipe) => ({
+  ...recipe,
+  reusedImage: group.image,
+  expectedPath: `images/recipes/photo-review/${recipe.id}.jpg`,
+  reason: "Primary image is shared with a different public dish and requires an exact replacement."
+})));
 
 const genericImagePatterns = [
   /^assets\/logo\.png$/,
@@ -271,7 +307,7 @@ const menuReferenceIssues = audit.menuPairings.map((menu) => {
   };
 }).filter((row) => row.missingIds.length || row.duplicateIds.length);
 
-const incompleteRecipes = recipes.map((recipe) => {
+const incompleteRecipes = canonicalRecipes.map((recipe) => {
   const missing = [];
   if (!recipe.id) missing.push("id");
   if (!recipe.title) missing.push("title");
@@ -367,15 +403,27 @@ const cookbookClassificationIssues = audit.cookbookSections.flatMap((recipe) => 
   const rule = cookbookClassificationRules.find((item) => item.section === recipe.primaryCookbookSection && item.forbidden.test(text));
   return rule ? [{ ...recipe, reason: rule.reason }] : [];
 });
+const cookbookCardDuplicateIssues = audit.cookbookChapterResults.flatMap((chapter) => {
+  const duplicateIds = duplicatesBy(chapter.recipes, (recipe) => recipe.id).map(({ key }) => key);
+  const duplicateImages = duplicatesBy(chapter.recipes, (recipe) => recipe.image).map(({ key, items }) => ({ image: key, recipeIds: items.map((recipe) => recipe.id) }));
+  return duplicateIds.length || duplicateImages.length ? [{ chapter: chapter.id, duplicateIds, duplicateImages }] : [];
+});
 
 const report = {
   generatedAt: new Date().toISOString(),
   summary: {
-    totalRecipes: recipes.length,
+    totalRecipes: canonicalRecipes.length,
+    retiredDuplicateRecords: retiredDuplicateRecords.length,
     duplicateRecipeIdGroups: duplicateRecipeIds.length,
     duplicateRecipeTitleGroups: duplicateRecipeTitles.length,
+    duplicateRecipeSlugGroups: duplicateRecipeSlugs.length,
+    duplicateIngredientListGroups: duplicateIngredientLists.length,
+    ingredientVariationReviewGroups: ingredientVariationReviews.length,
+    duplicateInstructionListGroups: duplicateInstructionLists.length,
     uniqueImages: new Set(imageRows.map((row) => row.image)).size,
     sharedImageGroups: imageGroups.length,
+    unrelatedSharedImageGroups: unrelatedSharedImages.length,
+    imageReviewQueueItems: imageReviewQueue.length,
     genericRecipeImages: genericRecipeImages.length,
     semanticImageMismatches: semanticImageMismatches.length,
     fallbackImages: fallbackImages.length,
@@ -386,6 +434,7 @@ const report = {
     menuReferenceIssues: menuReferenceIssues.length,
     cuisineCollectionIssues: cuisineCollectionIssues.length,
     cookbookClassificationIssues: cookbookClassificationIssues.length,
+    cookbookCardDuplicateIssues: cookbookCardDuplicateIssues.length,
     ingredientSearchIssues: ingredientSearchIssues.length,
     trainingOnlyGeneralLeaks: trainingOnlyGeneralLeaks.length,
     recipesMissingRequiredDetails: recipesMissingRequiredDetails.length,
@@ -393,7 +442,14 @@ const report = {
   },
   duplicateRecipeIds,
   duplicateRecipeTitles,
+  duplicateRecipeSlugs,
+  duplicateIngredientLists,
+  ingredientVariationReviews,
+  duplicateInstructionLists,
+  retiredDuplicateRecords,
   sharedImages: imageGroups,
+  unrelatedSharedImages,
+  imageReviewQueue,
   cuisineCollections: audit.cuisineCollections.filter((collection) => audit.controlledCuisineRecipeIds?.[collection.id]?.length),
   genericRecipeImages,
   semanticImageMismatches,
@@ -405,6 +461,7 @@ const report = {
   cuisineCollectionIssues,
   cookbookSections: audit.cookbookSections,
   cookbookClassificationIssues,
+  cookbookCardDuplicateIssues,
   ingredientSearchSmoke: audit.ingredientSearchSmoke,
   ingredientSearchIssues,
   trainingOnlyGeneralLeaks,
@@ -425,9 +482,16 @@ const md = [
   "## Summary",
   "",
   `- Recipes audited: ${report.summary.totalRecipes}`,
+  `- Retired duplicate recipe records: ${report.summary.retiredDuplicateRecords}`,
   `- Duplicate recipe ID groups: ${report.summary.duplicateRecipeIdGroups}`,
   `- Duplicate recipe title groups: ${report.summary.duplicateRecipeTitleGroups}`,
+  `- Duplicate recipe slug groups: ${report.summary.duplicateRecipeSlugGroups}`,
+  `- Duplicate ingredient-list groups: ${report.summary.duplicateIngredientListGroups}`,
+  `- Intentional ingredient-list variations reviewed: ${report.summary.ingredientVariationReviewGroups}`,
+  `- Duplicate instruction-list groups: ${report.summary.duplicateInstructionListGroups}`,
   `- Shared image groups: ${report.summary.sharedImageGroups}`,
+  `- Unrelated shared image groups: ${report.summary.unrelatedSharedImageGroups}`,
+  `- Image review queue items: ${report.summary.imageReviewQueueItems}`,
   `- Generic recipe image assignments: ${report.summary.genericRecipeImages}`,
   `- Semantic image mismatches: ${report.summary.semanticImageMismatches}`,
   `- Fallback/queued images: ${report.summary.fallbackImages}`,
@@ -437,6 +501,7 @@ const md = [
   `- Menu reference issue groups: ${report.summary.menuReferenceIssues}`,
   `- Cuisine collection issues: ${report.summary.cuisineCollectionIssues}`,
   `- Cookbook classification issues: ${report.summary.cookbookClassificationIssues}`,
+  `- Cookbook duplicate-card issues: ${report.summary.cookbookCardDuplicateIssues}`,
   `- Ingredient search smoke issues: ${report.summary.ingredientSearchIssues}`,
   `- Training-only recipes in general discovery: ${report.summary.trainingOnlyGeneralLeaks}`,
   `- Recipes missing required details: ${report.summary.recipesMissingRequiredDetails}`,
@@ -480,7 +545,15 @@ const md = [
 fs.writeFileSync(path.join(dataDir, "content-quality-audit.md"), `${md}\n`);
 
 console.log(`Recipes audited: ${report.summary.totalRecipes}`);
+console.log(`Retired duplicate recipe records: ${report.summary.retiredDuplicateRecords}`);
 console.log(`Duplicate recipe ID groups: ${report.summary.duplicateRecipeIdGroups}`);
+console.log(`Duplicate recipe title groups: ${report.summary.duplicateRecipeTitleGroups}`);
+console.log(`Duplicate recipe slug groups: ${report.summary.duplicateRecipeSlugGroups}`);
+console.log(`Duplicate ingredient-list groups: ${report.summary.duplicateIngredientListGroups}`);
+console.log(`Intentional ingredient-list variations reviewed: ${report.summary.ingredientVariationReviewGroups}`);
+console.log(`Duplicate instruction-list groups: ${report.summary.duplicateInstructionListGroups}`);
+console.log(`Unrelated shared image groups: ${report.summary.unrelatedSharedImageGroups}`);
+console.log(`Image review queue items: ${report.summary.imageReviewQueueItems}`);
 console.log(`Generic recipe images: ${report.summary.genericRecipeImages}`);
 console.log(`Semantic image mismatches: ${report.summary.semanticImageMismatches}`);
 console.log(`Fallback/queued images: ${report.summary.fallbackImages}`);
@@ -488,10 +561,11 @@ console.log(`Missing image files: ${report.summary.missingImageFiles}`);
 console.log(`Complete required holidays: ${report.summary.completeRequiredHolidays}/${report.summary.requiredHolidayCount}`);
 console.log(`Cuisine collection issues: ${report.summary.cuisineCollectionIssues}`);
 console.log(`Cookbook classification issues: ${report.summary.cookbookClassificationIssues}`);
+console.log(`Cookbook duplicate-card issues: ${report.summary.cookbookCardDuplicateIssues}`);
 console.log(`Ingredient search smoke issues: ${report.summary.ingredientSearchIssues}`);
 console.log(`Training-only recipes in general discovery: ${report.summary.trainingOnlyGeneralLeaks}`);
 console.log("Reports: data/content-quality-audit.json, data/content-quality-audit.md");
 
-if (missingImageFiles.length || duplicateRecipeIds.length || semanticImageMismatches.length || menuReferenceIssues.length || cuisineCollectionIssues.length || cookbookClassificationIssues.length || ingredientSearchIssues.length || trainingOnlyGeneralLeaks.length) {
+if (missingImageFiles.length || duplicateRecipeIds.length || duplicateRecipeTitles.length || duplicateRecipeSlugs.length || duplicateIngredientLists.length || duplicateInstructionLists.length || semanticImageMismatches.length || menuReferenceIssues.length || cuisineCollectionIssues.length || cookbookClassificationIssues.length || cookbookCardDuplicateIssues.length || ingredientSearchIssues.length || trainingOnlyGeneralLeaks.length) {
   process.exitCode = 1;
 }
