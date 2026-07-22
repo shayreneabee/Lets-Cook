@@ -143,6 +143,10 @@ for (const group of ["Appetizers, Snacks & Party Food", "Pasta, Rice, Pizza & Ha
 const chapterShelf = api.cookbookChapterShelf("poultry");
 assert.strictEqual((chapterShelf.match(/data-cookbook-chapter-select=/g) || []).length, 10, "Recipe box must render ten top-level divider cards");
 assert(!chapterShelf.includes("cookbook-chapter-scroll"), "Recipe box must not use the old horizontal scroller");
+assert(chapterShelf.includes('data-living-recipe-box') && chapterShelf.includes('data-recipe-box-toggle'), "Living Cookbook must use an interactive recipe box with an open control");
+assert(chapterShelf.includes('class="living-recipe-box is-open"'), "A direct cookbook chapter route must open the recipe box");
+const closedChapterShelf = api.cookbookChapterShelf();
+assert(closedChapterShelf.includes('class="living-recipe-box "'), "The cookbook must load with its recipe box closed");
 assert(chapterShelf.includes('data-cookbook-subchapter-select="beef"') && chapterShelf.includes('data-cookbook-subchapter-select="poultry"') && chapterShelf.includes('data-cookbook-subchapter-select="fish-seafood"'), "Main Dishes must expose Beef, Poultry, and Fish & Seafood");
 
 function topRecipe(query) {

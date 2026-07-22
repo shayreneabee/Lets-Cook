@@ -15840,30 +15840,34 @@ function recipesForCookbookChapter(chapter, limit = Number.POSITIVE_INFINITY) {
 function cookbookChapterShelf(selectedSection = "") {
   const selectedChapter = cookbookChapterByKey(selectedSection);
   const activeTopLevelId = selectedChapter?.parentId || selectedChapter?.id || "";
+  const isOpen = Boolean(selectedChapter);
   return `
     <section class="cream-section cookbook-chapter-shelf recipe-box-experience">
       <div class="section-heading compact-heading">
         <p class="eyebrow">Living Cookbook</p>
-        <h2>Open the recipe box.</h2>
-        <p>Choose a divider card and discover every recipe tucked inside. Your selection opens below without leaving the page.</p>
+        <h2>The recipe box is on the table.</h2>
+        <p>Open it, pull forward a divider, and discover every recipe tucked inside.</p>
       </div>
-      <div class="cookbook-chapter-grid" role="list" aria-label="Cookbook recipe chapters">
-        ${cookbookChapterDefinitions.map((chapter) => {
-          const allChapterRecipes = recipesForCookbookChapter(chapter);
-          const cover = recipeById(chapter.coverId) || allChapterRecipes[0] || recipes[0];
-          const active = activeTopLevelId === chapter.id;
-          return `
-            <button class="cookbook-chapter-card ${active ? "active" : ""}" type="button" role="listitem" data-cookbook-chapter-select="${chapter.id}" aria-pressed="${active}" aria-label="${chapter.title}, browse all ${allChapterRecipes.length} recipes">
-              <img src="${recipePhotoFor(cover)}" alt="" />
-              <span>${chapter.icon} ${allChapterRecipes.length} recipes</span>
-              <strong>${chapter.title}</strong>
-              <small>${chapter.intro}</small>
-            </button>
-          `;
-        }).join("")}
-      </div>
-      <div class="main-dish-subnav" data-main-dish-subnav ${activeTopLevelId === "main-dishes" ? "" : "hidden"} aria-label="Main dish chapters">
-        ${cookbookChapterByKey("main-dishes").subchapters.map((chapter) => `<button type="button" class="main-dish-chip ${selectedSection === chapter.id ? "active" : ""}" data-cookbook-subchapter-select="${chapter.id}" aria-pressed="${selectedSection === chapter.id}">${chapter.icon} ${chapter.title}</button>`).join("")}
+      <div class="living-recipe-box ${isOpen ? "is-open" : ""}" data-living-recipe-box>
+        <div class="recipe-box-lid" aria-hidden="true"><span class="recipe-box-lid-shine"></span></div>
+        <button class="recipe-box-open-control" type="button" data-recipe-box-toggle aria-expanded="${isOpen}" aria-controls="recipeBoxInterior">
+          <span class="recipe-box-brand">Let’s Cook Y’all</span>
+          <strong>${isOpen ? "The Living Cookbook is open" : "Open the Living Cookbook"}</strong>
+          <small>${isOpen ? "Choose a divider card inside" : "Tap to lift the lid and browse the recipe cards"}</small>
+          <span class="recipe-box-handle" aria-hidden="true"></span>
+        </button>
+        <div class="recipe-box-interior" id="recipeBoxInterior" aria-label="Cookbook chapter dividers">
+          <div class="recipe-box-card-well" role="list">
+            ${cookbookChapterDefinitions.map((chapter, index) => {
+              const allChapterRecipes = recipesForCookbookChapter(chapter);
+              const active = activeTopLevelId === chapter.id;
+              return `<button class="cookbook-chapter-divider ${active ? "active" : ""}" type="button" role="listitem" data-cookbook-chapter-select="${chapter.id}" aria-pressed="${active}" style="--divider-index:${index}" aria-label="${chapter.title}, browse all ${allChapterRecipes.length} recipes"><span class="divider-icon">${chapter.icon}</span><strong>${chapter.title}</strong><small>${allChapterRecipes.length} recipes</small></button>`;
+            }).join("")}
+          </div>
+          <div class="main-dish-subnav" data-main-dish-subnav ${activeTopLevelId === "main-dishes" ? "" : "hidden"} aria-label="Main dish chapters">
+            ${cookbookChapterByKey("main-dishes").subchapters.map((chapter) => `<button type="button" class="main-dish-chip ${selectedSection === chapter.id ? "active" : ""}" data-cookbook-subchapter-select="${chapter.id}" aria-pressed="${selectedSection === chapter.id}">${chapter.icon} ${chapter.title}</button>`).join("")}
+          </div>
+        </div>
       </div>
     </section>
   `;
@@ -15932,6 +15936,10 @@ function selectCookbookChapter(section = "") {
   });
   const subnav = document.querySelector("[data-main-dish-subnav]");
   if (subnav) subnav.hidden = activeTopLevelId !== "main-dishes";
+  const recipeBox = document.querySelector("[data-living-recipe-box]");
+  const recipeBoxToggle = document.querySelector("[data-recipe-box-toggle]");
+  recipeBox?.classList.add("is-open");
+  recipeBoxToggle?.setAttribute("aria-expanded", "true");
   document.querySelectorAll("[data-cookbook-subchapter-select]").forEach((chip) => {
     const active = chip.dataset.cookbookSubchapterSelect === section;
     chip.classList.toggle("active", active);
@@ -15939,10 +15947,14 @@ function selectCookbookChapter(section = "") {
   });
   const heading = document.querySelector("#cookbookResultsHeading");
   const intro = document.querySelector("#cookbookResultsIntro");
+  const action = document.querySelector("#cookbookResultsAction");
   const results = document.querySelector("#results");
   const sectionNode = document.querySelector("#cookbookResults");
   if (heading) heading.innerHTML = `<span aria-hidden="true">${chapter.icon || "🍽️"}</span> ${chapter.title}`;
   if (intro) intro.textContent = chapter.intro;
+  const actionLabel = `View all ${recipesForCookbookChapter(chapter).length} ${chapter.title} recipes`;
+  if (action) action.textContent = actionLabel;
+  else intro?.insertAdjacentHTML("afterend", `<button class="cookbook-view-all" id="cookbookResultsAction" type="button" data-cookbook-view-all>${actionLabel}</button>`);
   if (results) {
     results.className = chapter.id === "miscellaneous" ? "" : "recipe-grid";
     results.innerHTML = cookbookResultsMarkup(chapter);
@@ -15955,18 +15967,28 @@ function selectCookbookChapter(section = "") {
   sectionNode?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
+function toggleLivingRecipeBox() {
+  const recipeBox = document.querySelector("[data-living-recipe-box]");
+  const toggle = document.querySelector("[data-recipe-box-toggle]");
+  if (!recipeBox || !toggle) return;
+  const isOpen = recipeBox.classList.toggle("is-open");
+  toggle.setAttribute("aria-expanded", String(isOpen));
+  toggle.querySelector("strong").textContent = isOpen ? "The Living Cookbook is open" : "Open the Living Cookbook";
+  toggle.querySelector("small").textContent = isOpen ? "Choose a divider card inside" : "Tap to lift the lid and browse the recipe cards";
+}
+
 function renderRecipes() {
   const routeState = routeParts();
   const requestedSection = routeState.section;
   const selectedChapter = cookbookChapterByKey(requestedSection);
   const invalidSection = Boolean(requestedSection && !selectedChapter);
-  const initialRecipes = selectedChapter ? recipesForCookbookChapter(selectedChapter) : invalidSection ? [] : allRecipeCollection();
-  const resultsTitle = selectedChapter ? selectedChapter.title : invalidSection ? "Cookbook section not found" : "All Recipes";
+  const initialRecipes = selectedChapter ? recipesForCookbookChapter(selectedChapter) : [];
+  const resultsTitle = selectedChapter ? selectedChapter.title : invalidSection ? "Cookbook section not found" : "Choose a cookbook divider";
   const resultsIntro = selectedChapter
     ? selectedChapter.intro
     : invalidSection
       ? `“${escapeHTML(requestedSection)}” is not a valid Living Cookbook section.`
-      : "Browse every publish-ready recipe, or choose a Living Cookbook chapter above.";
+      : "Open the recipe box above, then select a divider to see every recipe in that chapter.";
   const quickFilters = [
     ["Southern", "cuisine:southern"],
     ["Mexican", "cuisine:mexican"],
@@ -15999,16 +16021,16 @@ function renderRecipes() {
       </div>
       <div class="quick-filter-row">${quickFilters.map(([label, value]) => `<button class="quick-filter" type="button" data-quick-filter="${value}">${label}</button>`).join("")}</div>
     </section>
-    ${requestedSection ? "" : featuredCookbookSections()}
     <section class="cream-section cookbook-results-section" id="cookbookResults">
       <div class="section-heading compact-heading">
         <p class="eyebrow">Living Cookbook</p>
         <h2 id="cookbookResultsHeading" tabindex="-1">${resultsTitle}</h2>
         <p id="cookbookResultsIntro">${resultsIntro}</p>
+        ${selectedChapter ? `<button class="cookbook-view-all" id="cookbookResultsAction" type="button" data-cookbook-view-all>View all ${initialRecipes.length} ${selectedChapter.title} recipes</button>` : ""}
       </div>
       <div id="results" class="${selectedChapter?.id === "miscellaneous" ? "" : "recipe-grid"}">${initialRecipes.length
         ? selectedChapter ? cookbookResultsMarkup(selectedChapter, initialRecipes) : initialRecipes.map(recipeCard).join("")
-        : `<div class="empty-state"><h3>${invalidSection ? "That chapter does not exist." : `No ${selectedChapter?.title?.toLowerCase() || "matching"} recipes have been added yet.`}</h3><p>${invalidSection ? "Choose a real chapter from the Living Cookbook above." : "This inventory gap has been flagged for editorial review."}</p></div>`}
+        : `<div class="empty-state"><h3>${invalidSection ? "That chapter does not exist." : "Your recipe cards are waiting."}</h3><p>${invalidSection ? "Choose a real chapter from the Living Cookbook above." : "Open the Living Cookbook and pull forward a divider to start browsing."}</p></div>`}
       </div>
     </section>
     <section id="learningResults" class="cream-section learning-search-results" aria-label="Cookbook chapters and learning suggestions"></section>
@@ -17171,8 +17193,10 @@ function handleSearch(event) {
 }
 
 function handleClick(event) {
+  const recipeBoxToggle = event.target.closest("[data-recipe-box-toggle]");
   const cookbookChapterButton = event.target.closest("[data-cookbook-chapter-select]");
   const cookbookSubchapterButton = event.target.closest("[data-cookbook-subchapter-select]");
+  const cookbookViewAllButton = event.target.closest("[data-cookbook-view-all]");
   const selectKitchenDateButton = event.target.closest("[data-select-kitchen-date]");
   const swapCalendarMealButton = event.target.closest("[data-swap-calendar-meal]");
   const addMealGroceryButton = event.target.closest("[data-add-meal-grocery]");
@@ -17228,6 +17252,14 @@ function handleClick(event) {
   const closeKitchenMathButton = event.target.closest("[data-close-kitchen-math]");
   const scaleServingsButton = event.target.closest("[data-scale-servings]");
 
+  if (recipeBoxToggle) {
+    toggleLivingRecipeBox();
+    return;
+  }
+  if (cookbookViewAllButton) {
+    document.querySelector("#results")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    return;
+  }
   if (cookbookChapterButton) {
     selectCookbookChapter(cookbookChapterButton.dataset.cookbookChapterSelect);
     return;
