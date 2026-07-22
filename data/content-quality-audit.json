@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-22T21:05:32.811Z",
+  "generatedAt": "2026-07-22T22:51:02.462Z",
   "summary": {
     "totalRecipes": 682,
     "duplicateRecipeIdGroups": 0,
@@ -3285,7 +3285,7 @@
       "title": "Easy Stovetop Mac and Cheese",
       "cuisine": "southern",
       "category": "Kid-Friendly Cooking",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "sides",
       "image": "images/recipes/audit-2026-06/stovetop-mac-and-cheese.jpg"
     },
     {
@@ -3365,7 +3365,7 @@
       "title": "Deviled Eggs",
       "cuisine": "southern",
       "category": "Beginner Basics",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/regional/mississippi/deviled-eggs.jpg"
     },
     {
@@ -3421,7 +3421,7 @@
       "title": "Fried Rice",
       "cuisine": "asian-inspired",
       "category": "Quick Weeknight Meals",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/asian-hub-2026/asian-garlic-fried-rice.png"
     },
     {
@@ -3477,7 +3477,7 @@
       "title": "Pineapple Fried Rice",
       "cuisine": "asian-inspired",
       "category": "Global Flavors",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/pineapple-fried-rice.jpg"
     },
     {
@@ -3557,7 +3557,7 @@
       "title": "Baked Mac and Cheese",
       "cuisine": "southern",
       "category": "Southern Comfort",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "sides",
       "image": "images/cuisines/southern/southern-02.png"
     },
     {
@@ -3565,7 +3565,7 @@
       "title": "Collard Greens",
       "cuisine": "southern",
       "category": "Beginner Basics",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "vegetables",
       "image": "images/cuisines/southern/southern-03.png"
     },
     {
@@ -3605,7 +3605,7 @@
       "title": "Baked Mac and Cheese",
       "cuisine": "southern",
       "category": "Soul Food",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "sides",
       "image": "images/regional/mississippi/mac-and-cheese.jpg"
     },
     {
@@ -3613,7 +3613,7 @@
       "title": "Slow-Cooked Collard Greens",
       "cuisine": "southern",
       "category": "Soul Food",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "vegetables",
       "image": "images/regional/mississippi/collard-greens.jpg"
     },
     {
@@ -3621,7 +3621,7 @@
       "title": "Black-Eyed Peas",
       "cuisine": "southern",
       "category": "Soul Food",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "vegetables",
       "image": "images/cuisines/southern/southern-04.png"
     },
     {
@@ -3629,7 +3629,7 @@
       "title": "Cornbread Dressing",
       "cuisine": "southern",
       "category": "Holiday",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "sides",
       "image": "images/recipes/audit-2026-06/southern-cornbread-dressing.jpg"
     },
     {
@@ -3645,7 +3645,7 @@
       "title": "Creamy Stone-Ground Grits",
       "cuisine": "southern",
       "category": "Beginner Basics",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "breakfast",
       "image": "images/cuisines/southern/southern-07.png"
     },
     {
@@ -3701,7 +3701,7 @@
       "title": "Vegetable Lo Mein",
       "cuisine": "asian-inspired",
       "category": "Vegetarian",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/cuisines/asian/asian-05.png"
     },
     {
@@ -3709,7 +3709,7 @@
       "title": "Dumpling Bowl",
       "cuisine": "asian-inspired",
       "category": "Quick Meals",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/cuisines/asian/asian-06.png"
     },
     {
@@ -3773,7 +3773,7 @@
       "title": "BBQ Chicken Quarters",
       "cuisine": "bbq",
       "category": "BBQ",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "poultry",
       "image": "images/regional/mississippi/bbq-chicken.jpg"
     },
     {
@@ -3805,7 +3805,7 @@
       "title": "Dirty Rice",
       "cuisine": "cajun",
       "category": "Cajun",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "sides",
       "image": "images/recipes/audit-2026-06/cajun-dirty-rice.jpg"
     },
     {
@@ -3813,7 +3813,7 @@
       "title": "Shrimp Creole",
       "cuisine": "creole",
       "category": "Creole",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "fish-seafood",
       "image": "images/recipes/audit-2026-06/creole-shrimp-creole.jpg"
     },
     {
@@ -3861,7 +3861,7 @@
       "title": "Suya Skewers",
       "cuisine": "nigerian",
       "category": "West African",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/cuisines/africa/nigeria/suya-skewers.jpg"
     },
     {
@@ -3869,7 +3869,7 @@
       "title": "Nigerian Fried Rice",
       "cuisine": "nigerian",
       "category": "West African",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/nigerian-fried-rice.jpg"
     },
     {
@@ -3957,7 +3957,7 @@
       "title": "Tibs",
       "cuisine": "ethiopian",
       "category": "East African",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/cuisines/africa/ethiopia/tibs.jpg"
     },
     {
@@ -4045,7 +4045,7 @@
       "title": "Swordfish Tacos with Citrus Slaw",
       "cuisine": "mexican",
       "category": "Seafood",
-      "primaryCookbookSection": "salads",
+      "primaryCookbookSection": "sides",
       "image": "images/recipes/audit-2026-06/swordfish-tacos.jpg"
     },
     {
@@ -4061,7 +4061,7 @@
       "title": "Swordfish with Garlic Butter",
       "cuisine": "mediterranean",
       "category": "Seafood",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "fish-seafood",
       "image": "images/recipes/audit-2026-06/garlic-butter-swordfish.jpg"
     },
     {
@@ -4069,7 +4069,7 @@
       "title": "Southern Potato Salad",
       "cuisine": "southern",
       "category": "Sides",
-      "primaryCookbookSection": "salads",
+      "primaryCookbookSection": "sides",
       "image": "images/regional/mississippi/potato-salad.jpg"
     },
     {
@@ -4077,7 +4077,7 @@
       "title": "Candied Yams",
       "cuisine": "southern",
       "category": "Sides",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "sides",
       "image": "images/recipes/audit-2026-06/candied-yams.jpg"
     },
     {
@@ -4085,7 +4085,7 @@
       "title": "Creamy Coleslaw",
       "cuisine": "southern",
       "category": "Sides",
-      "primaryCookbookSection": "salads",
+      "primaryCookbookSection": "sides",
       "image": "images/regional/mississippi/coleslaw.jpg"
     },
     {
@@ -4093,7 +4093,7 @@
       "title": "BBQ Baked Beans",
       "cuisine": "bbq",
       "category": "Sides",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "sides",
       "image": "images/juneteenth/bbq-baked-beans.png"
     },
     {
@@ -4101,7 +4101,7 @@
       "title": "Golden Hushpuppies",
       "cuisine": "southern",
       "category": "Breads",
-      "primaryCookbookSection": "fish-seafood",
+      "primaryCookbookSection": "sides",
       "image": "images/regional/mississippi/hushpuppies.jpg"
     },
     {
@@ -4117,7 +4117,7 @@
       "title": "Fish Fry Tartar Sauce",
       "cuisine": "southern",
       "category": "Sauces",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "fish-seafood",
       "image": "images/recipes/audit-2026-06/tartar-sauce.jpg"
     },
     {
@@ -4173,7 +4173,7 @@
       "title": "Caribbean Rice and Peas",
       "cuisine": "caribbean",
       "category": "Sides",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "sides",
       "image": "images/recipes/audit-2026-06/rice-and-peas.jpg"
     },
     {
@@ -4261,7 +4261,7 @@
       "title": "Herbed Rice Pilaf",
       "cuisine": "mediterranean",
       "category": "Sides",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "sides",
       "image": "images/recipes/audit-2026-06/rice-pilaf.jpg"
     },
     {
@@ -4309,7 +4309,7 @@
       "title": "Soft Slider Buns",
       "cuisine": "bbq",
       "category": "Breads",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/slider-buns.jpg"
     },
     {
@@ -4325,7 +4325,7 @@
       "title": "Smothered Green Beans",
       "cuisine": "cajun",
       "category": "Sides",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "vegetables",
       "image": "images/recipes/audit-2026-06/smothered-green-beans.jpg"
     },
     {
@@ -4349,7 +4349,7 @@
       "title": "Steamed White Rice",
       "cuisine": "creole",
       "category": "Sides",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "sides",
       "image": "images/recipes/audit-2026-06/white-rice.jpg"
     },
     {
@@ -4389,7 +4389,7 @@
       "title": "Cucumber Raita",
       "cuisine": "indian",
       "category": "Sauces",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "salads",
       "image": "images/recipes/audit-2026-06/cucumber-raita.jpg"
     },
     {
@@ -4429,7 +4429,7 @@
       "title": "Birria-Style Tacos",
       "cuisine": "mexican",
       "category": "Main Dishes",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/birria-style-tacos.jpg"
     },
     {
@@ -4445,7 +4445,7 @@
       "title": "Cilantro Lime Rice",
       "cuisine": "mexican",
       "category": "Sides",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "sides",
       "image": "images/recipes/audit-2026-06/cilantro-lime-rice.jpg"
     },
     {
@@ -4461,7 +4461,7 @@
       "title": "Citrus Taco Slaw",
       "cuisine": "mexican",
       "category": "Sides",
-      "primaryCookbookSection": "salads",
+      "primaryCookbookSection": "sides",
       "image": "images/recipes/audit-2026-06/mexican-slaw.jpg"
     },
     {
@@ -4565,7 +4565,7 @@
       "title": "Mississippi Comeback Sauce",
       "cuisine": "mississippi-favorites",
       "category": "Sauces",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "fish-seafood",
       "image": "images/recipes/audit-2026-06/comeback-sauce.jpg"
     },
     {
@@ -4637,7 +4637,7 @@
       "title": "Texas Smoked Sausage Links",
       "cuisine": "texas",
       "category": "BBQ",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/texas-smoked-sausage.jpg"
     },
     {
@@ -4645,7 +4645,7 @@
       "title": "Texas Jalapeno Cheddar Sausage",
       "cuisine": "texas",
       "category": "BBQ",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/jalapeno-cheddar-sausage.jpg"
     },
     {
@@ -4653,7 +4653,7 @@
       "title": "Alabama White Sauce Chicken",
       "cuisine": "alabama",
       "category": "BBQ",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "poultry",
       "image": "images/regional/alabama-white-sauce-chicken.png"
     },
     {
@@ -4661,7 +4661,7 @@
       "title": "Alabama Pulled Pork Sandwiches",
       "cuisine": "alabama",
       "category": "BBQ",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/alabama-pulled-pork-sandwiches.jpg"
     },
     {
@@ -4709,7 +4709,7 @@
       "title": "Arkansas Delta Hot Tamales",
       "cuisine": "arkansas",
       "category": "Main Dishes",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "vegetables",
       "image": "images/recipes/audit-2026-06/arkansas-delta-tamales.jpg"
     },
     {
@@ -4717,7 +4717,7 @@
       "title": "Chocolate Gravy and Biscuits",
       "cuisine": "arkansas",
       "category": "Breakfast",
-      "primaryCookbookSection": "desserts",
+      "primaryCookbookSection": "breakfast",
       "image": "images/recipes/audit-2026-06/arkansas-chocolate-gravy-biscuits.jpg"
     },
     {
@@ -4733,7 +4733,7 @@
       "title": "Hoppin' John",
       "cuisine": "low-country",
       "category": "Sides",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "vegetables",
       "image": "images/regional/hoppin-john.png"
     },
     {
@@ -4757,7 +4757,7 @@
       "title": "Virginia Country Ham Biscuits",
       "cuisine": "virginia",
       "category": "Breakfast",
-      "primaryCookbookSection": "breads",
+      "primaryCookbookSection": "breakfast",
       "image": "images/recipes/audit-2026-06/virginia-country-ham.jpg"
     },
     {
@@ -4813,7 +4813,7 @@
       "title": "Florida Smoked Mullet",
       "cuisine": "florida",
       "category": "Seafood",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "fish-seafood",
       "image": "images/recipes/audit-2026-06/smoked-mullet.jpg"
     },
     {
@@ -4821,7 +4821,7 @@
       "title": "Florida Cuban Sandwich",
       "cuisine": "florida",
       "category": "Sandwiches",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/regional/cuban-sandwich.png"
     },
     {
@@ -4845,7 +4845,7 @@
       "title": "Mississippi Butter Beans",
       "cuisine": "mississippi-favorites",
       "category": "Sides",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "vegetables",
       "image": "images/regional/mississippi/butter-beans.jpg"
     },
     {
@@ -4853,7 +4853,7 @@
       "title": "Turnip Greens with Pot Liquor",
       "cuisine": "mississippi-favorites",
       "category": "Sides",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "vegetables",
       "image": "images/regional/mississippi/turnip-greens.jpg"
     },
     {
@@ -4885,7 +4885,7 @@
       "title": "Texas Chicken Fried Steak",
       "cuisine": "texas",
       "category": "Main Dishes",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "beef",
       "image": "images/recipes/audit-2026-06/chicken-fried-steak.jpg"
     },
     {
@@ -4893,7 +4893,7 @@
       "title": "Texas Sausage Kolaches",
       "cuisine": "texas",
       "category": "Breakfast",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "breakfast",
       "image": "images/recipes/audit-2026-06/texas-kolaches.jpg"
     },
     {
@@ -4949,7 +4949,7 @@
       "title": "Carolina Hush Puppies",
       "cuisine": "north-carolina",
       "category": "Breads",
-      "primaryCookbookSection": "fish-seafood",
+      "primaryCookbookSection": "sides",
       "image": "images/recipes/audit-2026-06/carolina-hush-puppies.jpg"
     },
     {
@@ -4965,7 +4965,7 @@
       "title": "Gullah Geechee Heritage Plate",
       "cuisine": "low-country",
       "category": "Platters",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/gullah-geechee-favorites.jpg"
     },
     {
@@ -5013,7 +5013,7 @@
       "title": "Sweet Potato Casserole",
       "cuisine": "southern",
       "category": "Southern Casseroles",
-      "primaryCookbookSection": "desserts",
+      "primaryCookbookSection": "sides",
       "image": "images/recipes/audit-2026-06/sweet-potato-casserole.jpg"
     },
     {
@@ -5021,7 +5021,7 @@
       "title": "Green Bean Casserole",
       "cuisine": "southern",
       "category": "Southern Casseroles",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "sides",
       "image": "images/recipes/audit-2026-06/green-bean-casserole.jpg"
     },
     {
@@ -5037,7 +5037,7 @@
       "title": "Hashbrown Casserole",
       "cuisine": "southern",
       "category": "Southern Casseroles",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "breakfast",
       "image": "images/recipes/audit-2026-06/hashbrown-casserole.jpg"
     },
     {
@@ -5045,7 +5045,7 @@
       "title": "Mexican Cornbread Casserole",
       "cuisine": "southern",
       "category": "Southern Casseroles",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "breads",
       "image": "images/recipes/audit-2026-06/mexican-cornbread-casserole.jpg"
     },
     {
@@ -5077,7 +5077,7 @@
       "title": "Funeral Potatoes",
       "cuisine": "southern",
       "category": "Southern Casseroles",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "vegetables",
       "image": "images/recipes/audit-2026-06/funeral-potatoes.jpg"
     },
     {
@@ -5133,7 +5133,7 @@
       "title": "Chicken & Dressing",
       "cuisine": "southern",
       "category": "Repast & Homegoing Foods",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "poultry",
       "image": "images/regional/mississippi/chicken-dressing.jpg"
     },
     {
@@ -5141,7 +5141,7 @@
       "title": "Brown Sugar Baked Ham",
       "cuisine": "southern",
       "category": "Repast & Homegoing Foods",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/baked-ham.jpg"
     },
     {
@@ -5165,7 +5165,7 @@
       "title": "Yogurt Parfait Cups",
       "cuisine": "kids-korner",
       "category": "Healthy Heroes",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "breakfast",
       "image": "images/recipes/audit-2026-06/yogurt-parfait-cups.jpg"
     },
     {
@@ -5205,7 +5205,7 @@
       "title": "Mac & Cheese Bites",
       "cuisine": "southern",
       "category": "Southern Favorites",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "sides",
       "image": "images/recipes/audit-2026-06/mac-and-cheese-bites.jpg"
     },
     {
@@ -5253,7 +5253,7 @@
       "title": "English Muffin Pizzas",
       "cuisine": "american",
       "category": "Fun Food",
-      "primaryCookbookSection": "breads",
+      "primaryCookbookSection": "breakfast",
       "image": "images/recipes/audit-2026-06/english-muffin-pizzas.jpg"
     },
     {
@@ -5277,7 +5277,7 @@
       "title": "Breakfast Egg Cups",
       "cuisine": "american",
       "category": "Easy Bites",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "breakfast",
       "image": "images/recipes/audit-2026-06/breakfast-egg-cups.jpg"
     },
     {
@@ -5285,7 +5285,7 @@
       "title": "Taco Cups",
       "cuisine": "mexican",
       "category": "Food Around The World",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/taco-cups.jpg"
     },
     {
@@ -5301,7 +5301,7 @@
       "title": "Sheet Pan Nachos",
       "cuisine": "mexican",
       "category": "Fun Food",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/sheet-pan-nachos.jpg"
     },
     {
@@ -5325,7 +5325,7 @@
       "title": "Smothered Chicken",
       "cuisine": "southern",
       "category": "Family Dinner",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "poultry",
       "image": "images/recipes/generated-2026-07/smothered-chicken-onion-gravy.png"
     },
     {
@@ -5333,7 +5333,7 @@
       "title": "Baked Spaghetti",
       "cuisine": "italian",
       "category": "Family Dinner",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/baked-spaghetti.jpg"
     },
     {
@@ -5349,7 +5349,7 @@
       "title": "Hamburger Steak with Onion Gravy",
       "cuisine": "southern",
       "category": "Family Dinner",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "beef",
       "image": "images/recipes/audit-2026-06/hamburger-steak-with-gravy.jpg"
     },
     {
@@ -5357,7 +5357,7 @@
       "title": "Chicken Alfredo",
       "cuisine": "italian-american",
       "category": "Family Dinner",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "poultry",
       "image": "images/recipes/audit-2026-06/chicken-alfredo.jpg"
     },
     {
@@ -5365,7 +5365,7 @@
       "title": "Sausage Breakfast Casserole",
       "cuisine": "southern",
       "category": "Breakfast",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "breakfast",
       "image": "images/recipes/audit-2026-06/breakfast-casserole.jpg"
     },
     {
@@ -5445,7 +5445,7 @@
       "title": "Slow-Simmered Pig Feet",
       "cuisine": "mississippi-favorites",
       "category": "Country Kitchen",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/regional/mississippi/pig-feet.jpg"
     },
     {
@@ -5461,7 +5461,7 @@
       "title": "Neck Bones and Rice",
       "cuisine": "mississippi-favorites",
       "category": "Country Kitchen",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/regional/mississippi/neck-bones-rice.jpg"
     },
     {
@@ -5477,7 +5477,7 @@
       "title": "Crisp Fried Fatback",
       "cuisine": "mississippi-favorites",
       "category": "Country Kitchen",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "breakfast",
       "image": "images/regional/mississippi/fried-fatback.jpg"
     },
     {
@@ -5493,7 +5493,7 @@
       "title": "Purple Hull Peas",
       "cuisine": "mississippi-favorites",
       "category": "Country Kitchen",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "vegetables",
       "image": "images/regional/mississippi/purple-hull-peas.jpg"
     },
     {
@@ -5501,7 +5501,7 @@
       "title": "Mustard Greens with Pot Liquor",
       "cuisine": "mississippi-favorites",
       "category": "Country Kitchen",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "vegetables",
       "image": "images/regional/mississippi/mustard-greens.jpg"
     },
     {
@@ -5517,7 +5517,7 @@
       "title": "Baked Beans with Ground Beef",
       "cuisine": "mississippi-favorites",
       "category": "Cookouts & Church Events",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "sides",
       "image": "images/regional/mississippi/beef-baked-beans.jpg"
     },
     {
@@ -5525,7 +5525,7 @@
       "title": "Baked Beans with Beef and Bacon",
       "cuisine": "mississippi-favorites",
       "category": "Cookouts & Church Events",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "sides",
       "image": "images/regional/mississippi/beef-bacon-baked-beans.jpg"
     },
     {
@@ -5597,7 +5597,7 @@
       "title": "Fried Bologna Sandwich",
       "cuisine": "mississippi-favorites",
       "category": "Gas Station & Corner Store",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/regional/mississippi/bologna-sandwich.jpg"
     },
     {
@@ -5637,7 +5637,7 @@
       "title": "Hot Sausage Sandwich",
       "cuisine": "mississippi-favorites",
       "category": "Gas Station & Corner Store",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/regional/mississippi/hot-sausage-sandwich.jpg"
     },
     {
@@ -5645,7 +5645,7 @@
       "title": "Mississippi Delta Hot Tamales",
       "cuisine": "mississippi-favorites",
       "category": "Gas Station & Corner Store",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "vegetables",
       "image": "images/regional/mississippi/delta-tamales.jpg"
     },
     {
@@ -5717,7 +5717,7 @@
       "title": "Kenyan Nyama Choma",
       "cuisine": "kenya",
       "category": "Celebration Foods",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "vegetables",
       "image": "images/cuisines/africa/kenya/nyama-choma.jpg"
     },
     {
@@ -5765,7 +5765,7 @@
       "title": "Tanzanian Chipsi Mayai",
       "cuisine": "tanzania",
       "category": "Street Foods",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/cuisines/africa/tanzania/chipsi-mayai.jpg"
     },
     {
@@ -5781,7 +5781,7 @@
       "title": "South African Bobotie",
       "cuisine": "south-africa",
       "category": "Family Meals",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/cuisines/africa/south-africa/bobotie.jpg"
     },
     {
@@ -5789,7 +5789,7 @@
       "title": "Durban Bunny Chow",
       "cuisine": "south-africa",
       "category": "Street Foods",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/cuisines/africa/south-africa/bunny-chow.jpg"
     },
     {
@@ -5797,7 +5797,7 @@
       "title": "Chakalaka with Pap",
       "cuisine": "south-africa",
       "category": "Family Meals",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/cuisines/africa/south-africa/chakalaka-pap.jpg"
     },
     {
@@ -5853,7 +5853,7 @@
       "title": "Egyptian Ful Medames",
       "cuisine": "egypt",
       "category": "Family Meals",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "breakfast",
       "image": "images/cuisines/africa/egypt/ful-medames.jpg"
     },
     {
@@ -5861,7 +5861,7 @@
       "title": "Egyptian Molokhia",
       "cuisine": "egypt",
       "category": "Family Meals",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/cuisines/africa/egypt/molokhia.jpg"
     },
     {
@@ -5877,7 +5877,7 @@
       "title": "Tunisian Brik",
       "cuisine": "tunisia",
       "category": "Street Foods",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/cuisines/africa/tunisia/brik.jpg"
     },
     {
@@ -5893,7 +5893,7 @@
       "title": "Tunisian Lamb Couscous",
       "cuisine": "tunisia",
       "category": "Celebration Foods",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/cuisines/africa/tunisia/lamb-couscous.jpg"
     },
     {
@@ -5909,7 +5909,7 @@
       "title": "Chicago Polish Sausage",
       "cuisine": "chicago",
       "category": "Chicago Street Food",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/chicago-polish-sausage.jpg"
     },
     {
@@ -5917,7 +5917,7 @@
       "title": "Maxwell Street Polish",
       "cuisine": "chicago",
       "category": "Chicago Street Food",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/maxwell-street-polish.jpg"
     },
     {
@@ -5933,7 +5933,7 @@
       "title": "Chicago-Style Hot Dog",
       "cuisine": "chicago",
       "category": "Chicago Street Food",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/chicago-style-hot-dog.jpg"
     },
     {
@@ -5941,7 +5941,7 @@
       "title": "Chicago Gyros",
       "cuisine": "chicago",
       "category": "Chicago Street Food",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/chicago-gyros.jpg"
     },
     {
@@ -5957,7 +5957,7 @@
       "title": "Jibarito",
       "cuisine": "chicago",
       "category": "Chicago Street Food",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/jibarito.jpg"
     },
     {
@@ -5965,7 +5965,7 @@
       "title": "Chicago Pork Chop Sandwich",
       "cuisine": "chicago",
       "category": "Chicago Street Food",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/chicago-pork-chop-sandwich.jpg"
     },
     {
@@ -5989,7 +5989,7 @@
       "title": "Chicago Mild Sauce",
       "cuisine": "chicago",
       "category": "South Side / West Side Favorites",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "poultry",
       "image": "images/recipes/audit-2026-06/chicago-mild-sauce.jpg"
     },
     {
@@ -5997,7 +5997,7 @@
       "title": "Harold's-Style Fried Chicken",
       "cuisine": "chicago",
       "category": "South Side / West Side Favorites",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "poultry",
       "image": "images/recipes/audit-2026-06/harolds-style-fried-chicken.jpg"
     },
     {
@@ -6077,7 +6077,7 @@
       "title": "Wisconsin Brats",
       "cuisine": "wisconsin",
       "category": "Wisconsin",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/wisconsin-brats.jpg"
     },
     {
@@ -6165,7 +6165,7 @@
       "title": "Tater Tot Hotdish",
       "cuisine": "minnesota",
       "category": "Minnesota",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/tater-tot-hotdish.jpg"
     },
     {
@@ -6277,7 +6277,7 @@
       "title": "Goetta",
       "cuisine": "ohio",
       "category": "Ohio",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "breakfast",
       "image": "images/recipes/audit-2026-06/goetta.jpg"
     },
     {
@@ -6389,7 +6389,7 @@
       "title": "Bierocks",
       "cuisine": "kansas",
       "category": "Kansas",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "breads",
       "image": "images/recipes/audit-2026-06/bierocks.jpg"
     },
     {
@@ -6397,7 +6397,7 @@
       "title": "Kansas Chicken Fried Steak",
       "cuisine": "kansas",
       "category": "Kansas",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "beef",
       "image": "images/recipes/audit-2026-06/kansas-chicken-fried-steak.jpg"
     },
     {
@@ -6469,7 +6469,7 @@
       "title": "North Dakota Potato Hotdish",
       "cuisine": "north-dakota",
       "category": "Farm Kitchen Comfort",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "vegetables",
       "image": "images/recipes/audit-2026-06/tater-tot-hotdish.jpg"
     },
     {
@@ -6501,7 +6501,7 @@
       "title": "South Dakota Indian Tacos",
       "cuisine": "south-dakota",
       "category": "Native Community Favorites",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/southwest-2026/navajo-tacos.jpg"
     },
     {
@@ -6517,7 +6517,7 @@
       "title": "Prairie Pheasant Sandwich",
       "cuisine": "south-dakota",
       "category": "Hunting Season Table",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/baked-chicken-tenders.jpg"
     },
     {
@@ -6605,7 +6605,7 @@
       "title": "Apple Cider Doughnuts",
       "cuisine": "new-hampshire",
       "category": "Orchard Sweets",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "desserts",
       "image": "images/recipes/new-england-2026/apple-cider-doughnuts.jpg"
     },
     {
@@ -6621,7 +6621,7 @@
       "title": "Maple-Glazed Pork Chops",
       "cuisine": "new-hampshire",
       "category": "Maple Suppers",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/new-england-2026/maple-glazed-pork-chops.jpg"
     },
     {
@@ -6637,7 +6637,7 @@
       "title": "New England Maple Baked Beans",
       "cuisine": "new-hampshire",
       "category": "New England Supper",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "sides",
       "image": "images/recipes/new-england-2026/maple-baked-beans.jpg"
     },
     {
@@ -6645,7 +6645,7 @@
       "title": "Vermont Maple Baked Beans",
       "cuisine": "vermont",
       "category": "Vermont Farm Table",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "sides",
       "image": "images/recipes/new-england-2026/vermont-maple-baked-beans.jpg"
     },
     {
@@ -6669,7 +6669,7 @@
       "title": "Boston Baked Beans",
       "cuisine": "massachusetts",
       "category": "Boston Classics",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "sides",
       "image": "images/recipes/new-england-2026/boston-baked-beans.jpg"
     },
     {
@@ -6733,7 +6733,7 @@
       "title": "Rhode Island Johnnycakes",
       "cuisine": "rhode-island",
       "category": "Cornmeal Classics",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "breakfast",
       "image": "images/recipes/new-england-2026/rhode-island-johnnycakes.jpg"
     },
     {
@@ -6789,7 +6789,7 @@
       "title": "Texas Breakfast Tacos",
       "cuisine": "texas",
       "category": "Texas Breakfast",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "breakfast",
       "image": "images/recipes/southwest-2026/breakfast-tacos.jpg"
     },
     {
@@ -6853,7 +6853,7 @@
       "title": "Blue Corn Pancakes",
       "cuisine": "new-mexico",
       "category": "New Mexico Breakfast",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "breakfast",
       "image": "images/recipes/southwest-2026/blue-corn-pancakes.jpg"
     },
     {
@@ -6869,7 +6869,7 @@
       "title": "Sonoran Hot Dogs",
       "cuisine": "arizona",
       "category": "Arizona Sonoran",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/southwest-2026/sonoran-hot-dogs.jpg"
     },
     {
@@ -6901,7 +6901,7 @@
       "title": "Arizona Chimichangas",
       "cuisine": "arizona",
       "category": "Arizona Comfort",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/southwest-2026/chimichangas.jpg"
     },
     {
@@ -6925,7 +6925,7 @@
       "title": "Oklahoma Chicken Fried Steak",
       "cuisine": "oklahoma",
       "category": "Oklahoma Comfort",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "beef",
       "image": "images/recipes/audit-2026-06/chicken-fried-steak.jpg"
     },
     {
@@ -6933,7 +6933,7 @@
       "title": "Oklahoma Indian Tacos",
       "cuisine": "oklahoma",
       "category": "Native Food Context",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/southwest-2026/navajo-tacos.jpg"
     },
     {
@@ -6965,7 +6965,7 @@
       "title": "Build-Your-Own Taco Tray",
       "cuisine": "southwest-kids",
       "category": "Fun Food",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/southwest-2026/breakfast-tacos.jpg"
     },
     {
@@ -6997,7 +6997,7 @@
       "title": "New York Bagels with Cream Cheese",
       "cuisine": "new-york",
       "category": "Deli Breakfast",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "breakfast",
       "image": "images/recipes/mid-atlantic-2026/bagels-cream-cheese.jpg"
     },
     {
@@ -7005,7 +7005,7 @@
       "title": "Pastrami on Rye",
       "cuisine": "new-york",
       "category": "Deli Classics",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/mid-atlantic-2026/pastrami-on-rye.jpg"
     },
     {
@@ -7045,7 +7045,7 @@
       "title": "Pork Roll, Egg, and Cheese",
       "cuisine": "new-jersey",
       "category": "Jersey Breakfast",
-      "primaryCookbookSection": "breads",
+      "primaryCookbookSection": "breakfast",
       "image": "images/recipes/mid-atlantic-2026/pork-roll-egg-cheese.jpg"
     },
     {
@@ -7061,7 +7061,7 @@
       "title": "New Jersey Italian Hot Dogs",
       "cuisine": "new-jersey",
       "category": "Jersey Street Food",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/mid-atlantic-2026/italian-hot-dogs.jpg"
     },
     {
@@ -7117,7 +7117,7 @@
       "title": "Scrapple",
       "cuisine": "pennsylvania",
       "category": "Breakfast",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "breakfast",
       "image": "images/recipes/mid-atlantic-2026/scrapple.jpg"
     },
     {
@@ -7173,7 +7173,7 @@
       "title": "Maryland Crab Dip",
       "cuisine": "maryland",
       "category": "Maryland Appetizers",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "fish-seafood",
       "image": "images/recipes/mid-atlantic-2026/crab-dip.jpg"
     },
     {
@@ -7205,7 +7205,7 @@
       "title": "Boardwalk Fries",
       "cuisine": "delaware",
       "category": "Boardwalk Food",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/mid-atlantic-2026/boardwalk-fries.jpg"
     },
     {
@@ -7229,7 +7229,7 @@
       "title": "D.C. Half-Smoke",
       "cuisine": "washington-dc",
       "category": "D.C. Carryout",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/mid-atlantic-2026/dc-half-smoke.jpg"
     },
     {
@@ -7253,7 +7253,7 @@
       "title": "Salvadoran Pupusas",
       "cuisine": "washington-dc",
       "category": "D.C. Immigrant Foodways",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/mid-atlantic-2026/salvadoran-pupusas.jpg"
     },
     {
@@ -7381,7 +7381,7 @@
       "title": "Idaho Huckleberry Pancakes",
       "cuisine": "idaho",
       "category": "Mountain Breakfast",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "breakfast",
       "image": "images/recipes/southwest-2026/blue-corn-pancakes.jpg"
     },
     {
@@ -7389,7 +7389,7 @@
       "title": "Colorado Pueblo Green Chile",
       "cuisine": "colorado",
       "category": "Colorado Chile",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/southwest-2026/green-chile-stew.jpg"
     },
     {
@@ -7397,7 +7397,7 @@
       "title": "Denver Omelet",
       "cuisine": "colorado",
       "category": "Diner Breakfast",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "breakfast",
       "image": "images/recipes/audit-2026-06/breakfast-egg-cups.jpg"
     },
     {
@@ -7445,7 +7445,7 @@
       "title": "Montana Huckleberry Crisp",
       "cuisine": "montana",
       "category": "Mountain Desserts",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "desserts",
       "image": "images/recipes/new-england-2026/maine-blueberry-pie.jpg"
     },
     {
@@ -7469,7 +7469,7 @@
       "title": "Wyoming Cowboy Beans",
       "cuisine": "wyoming",
       "category": "Ranch Sides",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "vegetables",
       "image": "images/recipes/audit-2026-06/texas-pinto-beans.jpg"
     },
     {
@@ -7517,7 +7517,7 @@
       "title": "Mission-Style Burritos",
       "cuisine": "northern-california",
       "category": "Bay Area Counter Food",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/living-cookbook-2026/mission-burritos.png"
     },
     {
@@ -7533,7 +7533,7 @@
       "title": "Santa Maria Tri-Tip",
       "cuisine": "central-california",
       "category": "Central Coast BBQ",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/nebraska-steak.jpg"
     },
     {
@@ -7573,7 +7573,7 @@
       "title": "Korean BBQ Tacos",
       "cuisine": "southern-california",
       "category": "Los Angeles Foodways",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/living-cookbook-2026/korean-bbq-tacos.png"
     },
     {
@@ -7613,7 +7613,7 @@
       "title": "Kalua Pork",
       "cuisine": "hawaii",
       "category": "Hawaii Plate Lunch",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/juneteenth/pulled-pork-shoulder.png"
     },
     {
@@ -7621,7 +7621,7 @@
       "title": "Loco Moco",
       "cuisine": "hawaii",
       "category": "Hawaii Comfort",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/living-cookbook-2026/loco-moco.png"
     },
     {
@@ -7637,7 +7637,7 @@
       "title": "Haupia",
       "cuisine": "hawaii",
       "category": "Hawaii Desserts",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/strawberry-shortcake.png"
     },
     {
@@ -7669,7 +7669,7 @@
       "title": "Mini Island Rice Cups",
       "cuisine": "western-kids",
       "category": "Kids Activities",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/pineapple-fried-rice.jpg"
     },
     {
@@ -7685,7 +7685,7 @@
       "title": "Chinese Dumpling Night",
       "cuisine": "asian-inspired",
       "category": "China Family Table",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/asian-hub-2026/chinese-dumpling-night.png"
     },
     {
@@ -7757,7 +7757,7 @@
       "title": "Puerto Rican Mofongo Bowls",
       "cuisine": "caribbean",
       "category": "Puerto Rican Plantains",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "vegetables",
       "image": "images/recipes/living-cookbook-2026/puerto-rican-mofongo-bowls.png"
     },
     {
@@ -7797,7 +7797,7 @@
       "title": "Egyptian Koshari Bowls",
       "cuisine": "mediterranean",
       "category": "Egyptian Street Food",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/cuisines/africa/egypt/koshari.jpg"
     },
     {
@@ -7845,7 +7845,7 @@
       "title": "German Schnitzel",
       "cuisine": "global",
       "category": "German Comfort",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/breaded-pork-tenderloin-sandwich.jpg"
     },
     {
@@ -7853,7 +7853,7 @@
       "title": "British Shepherd's Pie",
       "cuisine": "global",
       "category": "British Pub Comfort",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/generated-2026-07/shepherds-pie.png"
     },
     {
@@ -7861,7 +7861,7 @@
       "title": "Eastern European Pierogies",
       "cuisine": "global",
       "category": "Eastern European Dumplings",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/cleveland-pierogies.jpg"
     },
     {
@@ -7869,7 +7869,7 @@
       "title": "Salvadoran Pupusa Supper",
       "cuisine": "mexican",
       "category": "Central American Masa",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/mid-atlantic-2026/salvadoran-pupusas.jpg"
     },
     {
@@ -7877,7 +7877,7 @@
       "title": "Peruvian Arroz con Pollo",
       "cuisine": "mexican",
       "category": "Peruvian Rice Pot",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/living-cookbook-2026/peruvian-arroz-con-pollo.png"
     },
     {
@@ -7885,7 +7885,7 @@
       "title": "Colombian Arepa Plates",
       "cuisine": "mexican",
       "category": "Colombian Griddle",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/living-cookbook-2026/colombian-arepa-plates.png"
     },
     {
@@ -7893,7 +7893,7 @@
       "title": "Cuban Sandwich Press",
       "cuisine": "caribbean",
       "category": "Cuban Counter",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/regional/cuban-sandwich.png"
     },
     {
@@ -7909,7 +7909,7 @@
       "title": "Tex-Mex Breakfast Tacos",
       "cuisine": "mexican",
       "category": "Borderlands Breakfast",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "breakfast",
       "image": "images/recipes/southwest-2026/breakfast-tacos.jpg"
     },
     {
@@ -7925,7 +7925,7 @@
       "title": "Argentinian Chimichurri Steak",
       "cuisine": "global",
       "category": "Argentina Asado",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "beef",
       "image": "images/recipes/audit-2026-06/nebraska-steak.jpg"
     },
     {
@@ -7933,7 +7933,7 @@
       "title": "Venezuelan Arepas",
       "cuisine": "mexican",
       "category": "Venezuelan Griddle",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "vegetables",
       "image": "images/recipes/living-cookbook-2026/venezuelan-arepas.png"
     },
     {
@@ -7941,7 +7941,7 @@
       "title": "Chilean Pastel de Choclo",
       "cuisine": "mexican",
       "category": "Chilean Corn Bake",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "vegetables",
       "image": "images/recipes/audit-2026-06/mexican-cornbread-casserole.jpg"
     },
     {
@@ -8021,7 +8021,7 @@
       "title": "Nepali Momo Dumplings",
       "cuisine": "asian-inspired",
       "category": "Nepal Dumpling Table",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/asian-hub-2026/nepali-momo-dumplings.png"
     },
     {
@@ -8037,7 +8037,7 @@
       "title": "Malaysian Nasi Lemak",
       "cuisine": "asian-inspired",
       "category": "Malaysian Coconut Rice",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/asian-hub-2026/malaysian-nasi-lemak.png"
     },
     {
@@ -8045,7 +8045,7 @@
       "title": "Indonesian Nasi Goreng",
       "cuisine": "asian-inspired",
       "category": "Indonesian Fried Rice",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/asian-hub-2026/indonesian-nasi-goreng.png"
     },
     {
@@ -8069,7 +8069,7 @@
       "title": "New Zealand Roast Lamb",
       "cuisine": "global",
       "category": "New Zealand Sunday Roast",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/lamb-bone-broth-soup.jpg"
     },
     {
@@ -8117,7 +8117,7 @@
       "title": "Tongan Lu Pulu",
       "cuisine": "global",
       "category": "Tongan Feast",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/regional/mississippi/ham-hocks-beans.jpg"
     },
     {
@@ -8157,7 +8157,7 @@
       "title": "Honey Glazed Ham",
       "cuisine": "holiday",
       "category": "Holiday Mains",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/baked-ham.jpg"
     },
     {
@@ -8181,7 +8181,7 @@
       "title": "Oyster Dressing",
       "cuisine": "holiday",
       "category": "Thanksgiving Sides",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "sides",
       "image": "images/recipes/audit-2026-06/fried-oysters.jpg"
     },
     {
@@ -8189,7 +8189,7 @@
       "title": "Giblet Gravy",
       "cuisine": "holiday",
       "category": "Thanksgiving Sides",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "poultry",
       "image": "images/recipes/audit-2026-06/hamburger-steak-with-gravy.jpg"
     },
     {
@@ -8293,7 +8293,7 @@
       "title": "Strawberry Salad with Poppy Seed Dressing",
       "cuisine": "holiday",
       "category": "Easter Sides",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "salads",
       "image": "images/recipes/holiday-2026/strawberry-poppy-seed-salad.png"
     },
     {
@@ -8301,7 +8301,7 @@
       "title": "Halloween Monster Noodle Bowls",
       "cuisine": "holiday",
       "category": "Halloween Mains",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/holiday-2026/halloween-monster-noodle-bowls.png"
     },
     {
@@ -8381,7 +8381,7 @@
       "title": "Hot Cross Buns",
       "cuisine": "holiday",
       "category": "Easter Breads",
-      "primaryCookbookSection": "breads",
+      "primaryCookbookSection": "breakfast",
       "image": "images/recipes/holiday-2026/hot-cross-buns.png"
     },
     {
@@ -8437,7 +8437,7 @@
       "title": "Christmas Eve Tamales",
       "cuisine": "holiday",
       "category": "Christmas Eve",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/chicago-hot-tamales.jpg"
     },
     {
@@ -8461,7 +8461,7 @@
       "title": "New Year's Hoppin' John",
       "cuisine": "holiday",
       "category": "New Year's Sides",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "vegetables",
       "image": "images/recipes/audit-2026-06/red-beans-and-rice.jpg"
     },
     {
@@ -8493,7 +8493,7 @@
       "title": "Eid Kebab Platter",
       "cuisine": "holiday",
       "category": "Ramadan / Eid Mains",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/cuisines/africa/nigeria/suya-skewers.jpg"
     },
     {
@@ -8509,7 +8509,7 @@
       "title": "Classic Cookout Hot Dogs",
       "cuisine": "bbq",
       "category": "Fourth of July Collection",
-      "primaryCookbookSection": "beef",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/chicago-style-hot-dog.jpg"
     },
     {
@@ -8549,7 +8549,7 @@
       "title": "White Sandwich Bread",
       "cuisine": "global",
       "category": "Breads",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "breads",
       "image": "images/recipes/audit-2026-06/french-bread.jpg"
     },
     {
@@ -8565,7 +8565,7 @@
       "title": "Banana Bread",
       "cuisine": "southern",
       "category": "Breads",
-      "primaryCookbookSection": "breads",
+      "primaryCookbookSection": "breakfast",
       "image": "images/recipes/new-england-2026/brown-bread.jpg"
     },
     {
@@ -8597,7 +8597,7 @@
       "title": "Cinnamon Rolls",
       "cuisine": "southern",
       "category": "Breads",
-      "primaryCookbookSection": "breads",
+      "primaryCookbookSection": "breakfast",
       "image": "images/recipes/audit-2026-06/dinner-rolls.jpg"
     },
     {
@@ -8701,7 +8701,7 @@
       "title": "Brunch Cups",
       "cuisine": "hosting",
       "category": "Party Cups",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "breakfast",
       "image": "images/recipes/audit-2026-06/brunch-cups.jpg"
     },
     {
@@ -8709,7 +8709,7 @@
       "title": "Tailgate Cups",
       "cuisine": "hosting",
       "category": "Party Cups",
-      "primaryCookbookSection": "vegetables",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/tailgate-cups.jpg"
     },
     {
@@ -8717,7 +8717,7 @@
       "title": "Holiday Cups",
       "cuisine": "hosting",
       "category": "Party Cups",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/holiday-cups.jpg"
     }
   ],

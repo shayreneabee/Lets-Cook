@@ -3475,9 +3475,11 @@ function isTrainingOnlyRecipe(recipe) {
 }
 
 const cookbookPrimarySectionLabels = {
+  breakfast: "Breakfast",
   soups: "Soups",
   salads: "Salads",
   vegetables: "Vegetables",
+  sides: "Sides",
   beef: "Beef",
   poultry: "Poultry",
   "fish-seafood": "Fish & Seafood",
@@ -3501,20 +3503,22 @@ function recipeCookbookPrimarySection(recipe = {}) {
   const primaryText = `${title} ${category} ${tags}`;
   const has = (pattern, source = text) => pattern.test(source);
 
-  if (has(/sauce|gravy|chutney|salsa|seasoning|tzatziki|comeback|mumbo|chimichurri|vinaigrette|dressing|dip/, primaryText)
-    && !has(/\b(cake|cookies?|pie|cobbler|pudding|shortcake|dessert|kheer|flan|baklava|fruitcake|yule log|pavlova|lamington|cupcake|candy|chocolate|sundae|ice cream)\b/, primaryText)) return "miscellaneous";
   if (has(/frito pie|tomato pie|pizza pie|macaroni pie|meat pie|pot pie/, primaryText)) return "miscellaneous";
   if (has(/soup|stew|gumbo|chili|chowder|bisque|pepper soup|harira|caldo|yakamein|oxtail|court-bouillon|courtbouillon|barley soup/, primaryText)) return "soups";
-  if (has(/salad|slaw|coleslaw|raita|kachumber|tabbouleh|fruit plate|fruit salad|cucumber salad|greens salad/, primaryText)) return "salads";
+  if (has(/potato salad|pasta salad|coleslaw|\bslaw\b|mac and cheese|macaroni and cheese|dirty rice|rice pilaf|mashed potatoes?|sweet potato casserole|candied yams?|stuffing|cornbread dressing|oyster dressing|baked beans|green bean casserole|hush ?pupp|rice and peas|cilantro lime rice|steamed white rice/, primaryText)) return "sides";
+  if (has(/salad|raita|kachumber|tabbouleh|fruit plate|fruit salad|cucumber salad|greens salad/, primaryText)) return "salads";
   if (has(/seafood|shrimp|fish|salmon|crab|oyster|crawfish|prawn|poke|cioppino|swordfish|walleye|perch|catfish|mullet|halibut|tuna|lobster|clam/, primaryText)) return "fish-seafood";
-  if (has(/beef|steak|brisket|\bribs?\b|burger|meatloaf|bulgogi|bison|chislic|prime rib|tenderloin|pot roast|roast beef|ground beef|hamburger/, text)) return "beef";
-  if (has(/chicken|turkey|wings|adobo|teriyaki|tikka|tandoori|paprikash|kabsa|poultry|duck|goose/, text)) return "poultry";
+  if (has(/beef|steak|brisket|\bribs?\b|burger|meatloaf|bulgogi|bison|chislic|prime rib|tenderloin|pot roast|roast beef|ground beef|hamburger/, primaryText)) return "beef";
+  if (has(/chicken|turkey|wings|adobo|teriyaki|tikka|tandoori|paprikash|kabsa|poultry|duck|goose/, primaryText)) return "poultry";
+  if (has(/breakfast|brunch|pancakes?|waffles?|omelets?|french toast|breakfast burrito|breakfast sandwich|breakfast tacos?|egg cups?|scrapple|johnnycake|biscuits? (and|&) gravy|cinnamon rolls?|breakfast casserole|muffins?/, primaryText)) return "breakfast";
   if (has(/\b(cookies?|snickerdoodles?|shortbread|gingerbread|molasses cookies?|thumbprint|crinkle cookies?|tea cakes?|pecan sandies|macadamia cookies?)\b/, primaryText)) return "cookies";
-  if (has(/\b(cake|pie|cobbler|pudding|shortcake|sweet|dessert|bars?|kheer|flan|baklava|fruitcake|yule log|pavlova|lamington|cupcake|red velvet|carrot cake|coconut cake|pound cake|moon pie|biscochito|tart|candy|chocolate|sundae|ice cream)\b/, primaryText)
+  if (has(/\b(cake|pie|cobbler|crisp|doughnuts?|donuts?|pudding|shortcake|sweet|dessert|bars?|kheer|flan|baklava|fruitcake|yule log|pavlova|lamington|cupcake|red velvet|carrot cake|coconut cake|pound cake|moon pie|biscochito|tart|candy|chocolate|sundae|ice cream)\b/, primaryText)
     && !has(/pot pie|meat pie|macaroni pie|tomato pie|pizza pie|shepherd|cottage/, primaryText)) return "desserts";
-  if (has(/bread|biscuit|roll|cornbread|naan|tortilla|pita|lefse|sourdough|hushpuppies|hot water|fry bread|flatbread|muffin/, primaryText)
+  if (has(/sandwich bread|bread|biscuit|roll|cornbread|naan|tortilla|pita|lefse|sourdough|hushpuppies|hot water|fry bread|flatbread|muffin/, primaryText)
     && !has(/bread pudding|breaded|bread crumbs|bread crumbs|sandwich|burger|hot dog|po.?boy|poboy|gyro|burrito|taco|wrap/, primaryText)) return "breads";
-  if (has(/vegetable|okra|greens|green bean|collard|turnip|mustard|corn|potato|yam|artichoke|plantain|squash|cabbage|ratatouille|beans|lentil|dal|paneer|hummus|chana|peas|broccoli|asparagus|mushroom/, text)) return "vegetables";
+  if (has(/sandwich bread/, primaryText)) return "breads";
+  if (has(/sauce|gravy|chutney|salsa|seasoning|tzatziki|comeback|mumbo|vinaigrette|dip|frito pie|tomato pie|pizza pie|macaroni pie|meat pie|pot pie|deviled eggs?|smoothie|drinks?|punch|lemonade|lassi|chai|coffee milk|pizza|pasta|spaghetti|noodles?|jollof|biryani|sandwich|wrap|hot dog|wiener|quesadilla|charcuterie/, primaryText)) return "miscellaneous";
+  if (has(/vegetable|okra|greens|green bean|collard|turnip|mustard greens|corn|potato|yam|artichoke|plantain|squash|cabbage|ratatouille|beans|lentil|dal|paneer|hummus|chana|peas|broccoli|asparagus|mushroom/, primaryText)) return "vegetables";
   return "miscellaneous";
 }
 
@@ -15778,22 +15782,38 @@ function renderLesson(id) {
 }
 
 const cookbookChapterDefinitions = [
-  { id: "soups", title: "Soups", intro: "Brothy bowls, stews, chowders, gumbo, chili, and cozy pots for slow evenings.", pattern: /soup|stew|gumbo|chili|chowder|bisque|pepper soup|harira|caldo|yakamein|oxtail|court-bouillon|courtbouillon|barley/ },
-  { id: "salads", title: "Salads", intro: "Fresh plates, fruit bowls, slaws, picnic sides, and crisp table brighteners.", pattern: /salad|slaw|coleslaw|raita|kachumber|tabbouleh|greens|fruit plate|fruit salad|cucumber/ },
-  { id: "vegetables", title: "Vegetables", intro: "Garden sides, greens, beans, squash, potatoes, plantains, and market vegetables.", pattern: /vegetable|okra|greens|green bean|collard|turnip|mustard|corn|potato|yam|artichoke|plantain|squash|cabbage|ratatouille|beans|lentil|dal|paneer|hummus/ },
-  { id: "beef", title: "Main Dishes: Beef", intro: "Steaks, roasts, brisket, burgers, bison, bulgogi, and Sunday-table beef dishes.", pattern: /beef|steak|brisket|rib|burger|meatloaf|bulgogi|oxtail|bison|chislic|prime rib|tenderloin|roast/ },
-  { id: "poultry", title: "Main Dishes: Poultry", intro: "Chicken, turkey, wings, braises, bowls, curries, and weeknight poultry favorites.", pattern: /chicken|turkey|wings|adobo|teriyaki|tikka|tandoori|paprikash|kabsa|poultry|duck|goose/ },
-  { id: "fish-seafood", title: "Main Dishes: Fish & Seafood", intro: "Fish fries, salmon, shrimp, crab, oysters, poke, prawns, and coastal suppers.", pattern: /seafood|shrimp|fish|salmon|crab|oyster|crawfish|prawn|poke|cioppino|swordfish|walleye|perch|catfish|mullet|halibut|tuna/ },
-  { id: "miscellaneous", title: "Miscellaneous", intro: "Appetizers, sandwiches, tacos, rice dishes, casseroles, noodles, sauces, and party plates.", pattern: /appetizer|starter|dip|rangoon|deviled|sliders|nachos|quesadilla|fritters|charcuterie|meatballs|snack|sandwich|wrap|hot dog|po.?boy|poboy|gyro|burrito|taco|roll|banh mi|jibarito|pasta|spaghetti|alfredo|noodle|lo mein|mac and cheese|macaroni|ravioli|rice|jollof|biryani|pilaf|arroz|fried rice|red rice|dirty rice|nasi|koshari|casserole|hotdish|dressing|gravy|sauce|chutney|salsa|seasoning|tzatziki|comeback|mumbo|chimichurri|vinaigrette|breakfast|brunch|eggs|pancakes|smoothie|hash|holiday|thanksgiving|christmas|easter|halloween|juneteenth|fourth|valentine|new year|diwali|eid/ },
-  { id: "breads", title: "Breads", intro: "Biscuits, cornbread, rolls, flatbreads, naan, tortillas, hushpuppies, and griddle breads.", pattern: /bread|biscuit|roll|cornbread|naan|tortilla|pita|lefse|sourdough|hushpuppies|hot water|fry bread|flatbread/ },
-  { id: "cookies", title: "Cookies", intro: "Chocolate chip, sugar, peanut butter, oatmeal, shortbread, tea cakes, and holiday cookie tins.", pattern: /cookies?|snickerdoodle|shortbread|gingerbread|molasses|thumbprint|crinkle|tea cakes|sandies|macadamia/ },
-  { id: "desserts", title: "Desserts", intro: "Cakes, pies, cobblers, puddings, sweet bars, fruit treats, and celebration desserts.", pattern: /dessert|cake|pie|cobbler|pudding|shortcake|sweet|bars|paczki|kringle|kheer|flan|baklava|fruitcake|yule log|pavlova|lamington|cupcake|red velvet|carrot cake|coconut cake|pound cake|moon pie|biscochito|tart/ }
+  { id: "breakfast", icon: "🍳", title: "Breakfast", intro: "Start your morning with comforting classics and family favorites.", coverId: "idaho-huckleberry-pancakes" },
+  { id: "soups", icon: "🥣", title: "Soups", intro: "Cozy bowls, slow-simmered stews, and brothy favorites for every season.", coverId: "yakamein" },
+  { id: "salads", icon: "🥗", title: "Salads", intro: "Fresh, colorful plates with plenty of crunch and garden flavor.", coverId: "greek-salad" },
+  { id: "vegetables", icon: "🥬", title: "Vegetables", intro: "Market vegetables, soulful greens, and garden favorites worth celebrating.", coverId: "southern-collard-greens" },
+  { id: "main-dishes", icon: "🍽️", title: "Main Dishes", intro: "The satisfying center of the table, from weeknight favorites to Sunday suppers.", coverId: "smothered-chicken", subchapters: [
+    { id: "beef", icon: "🥩", title: "Beef", intro: "Steaks, roasts, brisket, burgers, and hearty beef favorites." },
+    { id: "poultry", icon: "🍗", title: "Poultry", intro: "Chicken, turkey, wings, curries, and comforting poultry dishes." },
+    { id: "fish-seafood", icon: "🐟", title: "Fish & Seafood", intro: "Fish fries, salmon, shrimp, crab, oysters, and coastal suppers." }
+  ] },
+  { id: "sides", icon: "🥔", title: "Sides", intro: "The perfect dishes that complete every meal.", coverId: "southern-baked-mac-cheese" },
+  { id: "breads", icon: "🍞", title: "Breads", intro: "Biscuits, cornbread, rolls, flatbreads, and warm loaves for passing around.", coverId: "classic-cornbread" },
+  { id: "cookies", icon: "🍪", title: "Cookies", intro: "Beloved classics, holiday tins, and just-one-more treats.", coverId: "chewy-chocolate-cookies" },
+  { id: "desserts", icon: "🍰", title: "Desserts", intro: "Sweet endings worth saving room for.", coverId: "peach-cobbler" },
+  { id: "miscellaneous", icon: "🥘", title: "Miscellaneous", intro: "Appetizers, handhelds, sauces, drinks, and delicious extras from the recipe box.", coverId: "charcuterie-boards" }
 ];
 
-const cookbookChapterKeys = new Set(cookbookChapterDefinitions.map((chapter) => chapter.id));
+const cookbookChapterKeys = new Set(cookbookChapterDefinitions.flatMap((chapter) => [chapter.id, ...(chapter.subchapters || []).map((subchapter) => subchapter.id)]));
+const cookbookNearDuplicateAliases = new Map([
+  ["cuban-sandwich-press", "cuban-sandwich"],
+  ["mini-quesadillas", "cheese-quesadilla-triangles"],
+  ["cowboy-trail-mix", "trail-mix-jars"],
+  ["tex-mex-breakfast-tacos", "breakfast-tacos"],
+  ["salvadoran-pupusa-supper", "salvadoran-pupusas"]
+]);
 
 function cookbookChapterByKey(section = "") {
-  return cookbookChapterDefinitions.find((chapter) => chapter.id === section) || null;
+  for (const chapter of cookbookChapterDefinitions) {
+    if (chapter.id === section) return chapter;
+    const subchapter = chapter.subchapters?.find((item) => item.id === section);
+    if (subchapter) return { ...subchapter, parentId: chapter.id };
+  }
+  return null;
 }
 
 function cookbookSectionRoute(section = "") {
@@ -15804,35 +15824,46 @@ function recipesForCookbookChapter(chapter, limit = Number.POSITIVE_INFINITY) {
   const seen = new Set();
   return allRecipeCollection()
     .filter((recipe) => {
-      if (seen.has(recipe.id)) return false;
-      const matches = recipeCookbookPrimarySection(recipe) === chapter.id;
-      if (matches) seen.add(recipe.id);
+      if (cookbookNearDuplicateAliases.has(recipe.id)) return false;
+      const displayId = cookbookNearDuplicateAliases.get(recipe.id) || recipe.id;
+      if (seen.has(displayId)) return false;
+      const primarySection = recipeCookbookPrimarySection(recipe);
+      const matches = chapter.id === "main-dishes"
+        ? ["beef", "poultry", "fish-seafood"].includes(primarySection)
+        : primarySection === chapter.id;
+      if (matches) seen.add(displayId);
       return matches;
     })
     .slice(0, Number.isFinite(limit) ? limit : undefined);
 }
 
 function cookbookChapterShelf(selectedSection = "") {
+  const selectedChapter = cookbookChapterByKey(selectedSection);
+  const activeTopLevelId = selectedChapter?.parentId || selectedChapter?.id || "";
   return `
-    <section class="cream-section cookbook-chapter-shelf">
+    <section class="cream-section cookbook-chapter-shelf recipe-box-experience">
       <div class="section-heading compact-heading">
         <p class="eyebrow">Living Cookbook</p>
         <h2>Open the recipe box.</h2>
-        <p>Simple chapters for the way home cooks actually browse: soups, salads, vegetables, main dishes, breads, and desserts.</p>
+        <p>Choose a divider card and discover every recipe tucked inside. Your selection opens below without leaving the page.</p>
       </div>
-      <div class="cookbook-chapter-scroll" aria-label="Cookbook recipe chapters">
+      <div class="cookbook-chapter-grid" role="list" aria-label="Cookbook recipe chapters">
         ${cookbookChapterDefinitions.map((chapter) => {
           const allChapterRecipes = recipesForCookbookChapter(chapter);
-          const previewRecipes = allChapterRecipes.slice(0, 8);
-          const cover = previewRecipes[0] || recipes[0];
+          const cover = recipeById(chapter.coverId) || allChapterRecipes[0] || recipes[0];
+          const active = activeTopLevelId === chapter.id;
           return `
-            <a class="cookbook-chapter-card ${selectedSection === chapter.id ? "active" : ""}" href="${cookbookSectionRoute(chapter.id)}" data-cookbook-section="${chapter.id}" ${selectedSection === chapter.id ? 'aria-current="page"' : ""} aria-label="${chapter.title}, browse all ${allChapterRecipes.length} recipes">
+            <button class="cookbook-chapter-card ${active ? "active" : ""}" type="button" role="listitem" data-cookbook-chapter-select="${chapter.id}" aria-pressed="${active}" aria-label="${chapter.title}, browse all ${allChapterRecipes.length} recipes">
               <img src="${recipePhotoFor(cover)}" alt="" />
-              <span>${allChapterRecipes.length} recipes · browse all</span>
+              <span>${chapter.icon} ${allChapterRecipes.length} recipes</span>
               <strong>${chapter.title}</strong>
-            </a>
+              <small>${chapter.intro}</small>
+            </button>
           `;
         }).join("")}
+      </div>
+      <div class="main-dish-subnav" data-main-dish-subnav ${activeTopLevelId === "main-dishes" ? "" : "hidden"} aria-label="Main dish chapters">
+        ${cookbookChapterByKey("main-dishes").subchapters.map((chapter) => `<button type="button" class="main-dish-chip ${selectedSection === chapter.id ? "active" : ""}" data-cookbook-subchapter-select="${chapter.id}" aria-pressed="${selectedSection === chapter.id}">${chapter.icon} ${chapter.title}</button>`).join("")}
       </div>
     </section>
   `;
@@ -15843,7 +15874,7 @@ function featuredCookbookSections() {
   return `
     <section class="cream-section cookbook-featured-sections">
       ${featuredIds.map((chapterId) => {
-        const chapter = cookbookChapterDefinitions.find((item) => item.id === chapterId);
+        const chapter = cookbookChapterByKey(chapterId);
         const chapterRecipes = chapter ? recipesForCookbookChapter(chapter, 6) : [];
         if (!chapter || !chapterRecipes.length) return "";
         return `
@@ -15859,6 +15890,69 @@ function featuredCookbookSections() {
       }).join("")}
     </section>
   `;
+}
+
+const miscellaneousGroupDefinitions = [
+  ["Breakfast & Brunch", /breakfast|brunch|omelet|pancake|johnnycake|grits|egg cups?|scrapple|parfait/],
+  ["Appetizers, Snacks & Party Food", /appetizer|snack|dip|nachos|quesadilla|charcuterie|trail mix|kabob|fruit cups?|cheese curds|toasted ravioli|party|ants on a log|apple nachos/],
+  ["Pasta, Rice, Pizza & Handhelds", /pasta|spaghetti|noodle|mac and cheese|macaroni|rice|pilaf|jollof|biryani|pizza|sandwich|wrap|hot dog|wiener|burrito|taco|musubi|pupusa|pierogi|kolache|boudin/],
+  ["Sauces, Condiments & Seasonings", /sauce|gravy|chutney|salsa|seasoning|relish|pickled|tzatziki/],
+  ["Pork, Lamb, Sausage & Other Mains", /pork|ham|lamb|sausage|brat|polish|half-smoke|pig feet|griot|bbq|barbecue|meatball|merguez|tri-tip/],
+  ["Drinks & Sips", /drink|punch|lemonade|smoothie|lassi|chai|cocoa|eggnog|coffee milk|agua fresca/],
+  ["Sides & Table Extras", /side|fries|beans|casserole|dressing|watermelon|pap|foutou|plate|cups/]
+];
+
+function miscellaneousRecipeGroup(recipe) {
+  const text = `${recipe.title} ${recipe.category || ""} ${(recipe.tags || []).join(" ")}`.toLowerCase();
+  return miscellaneousGroupDefinitions.find(([, pattern]) => pattern.test(text))?.[0] || "More From the Recipe Box";
+}
+
+function miscellaneousChapterMarkup(chapterRecipes) {
+  const groupNames = [...miscellaneousGroupDefinitions.map(([name]) => name), "More From the Recipe Box"];
+  return `<div class="miscellaneous-cookbook-groups">${groupNames.map((groupName) => {
+    const grouped = chapterRecipes.filter((recipe) => miscellaneousRecipeGroup(recipe) === groupName);
+    if (!grouped.length) return "";
+    return `<section class="miscellaneous-recipe-group"><div class="section-heading compact-heading"><p class="eyebrow">Miscellaneous · ${grouped.length} recipes</p><h3>${groupName}</h3></div><div class="recipe-grid">${grouped.map(recipeCard).join("")}</div></section>`;
+  }).join("")}</div>`;
+}
+
+function cookbookResultsMarkup(chapter, chapterRecipes = recipesForCookbookChapter(chapter)) {
+  if (!chapterRecipes.length) return `<div class="empty-state"><h3>No ${chapter.title.toLowerCase()} recipes have been added yet.</h3><p>This inventory gap has been flagged for editorial review.</p></div>`;
+  return chapter.id === "miscellaneous" ? miscellaneousChapterMarkup(chapterRecipes) : chapterRecipes.map(recipeCard).join("");
+}
+
+function selectCookbookChapter(section = "") {
+  const chapter = cookbookChapterByKey(section);
+  if (!chapter) return;
+  const activeTopLevelId = chapter.parentId || chapter.id;
+  document.querySelectorAll("[data-cookbook-chapter-select]").forEach((card) => {
+    const active = card.dataset.cookbookChapterSelect === activeTopLevelId;
+    card.classList.toggle("active", active);
+    card.setAttribute("aria-pressed", String(active));
+  });
+  const subnav = document.querySelector("[data-main-dish-subnav]");
+  if (subnav) subnav.hidden = activeTopLevelId !== "main-dishes";
+  document.querySelectorAll("[data-cookbook-subchapter-select]").forEach((chip) => {
+    const active = chip.dataset.cookbookSubchapterSelect === section;
+    chip.classList.toggle("active", active);
+    chip.setAttribute("aria-pressed", String(active));
+  });
+  const heading = document.querySelector("#cookbookResultsHeading");
+  const intro = document.querySelector("#cookbookResultsIntro");
+  const results = document.querySelector("#results");
+  const sectionNode = document.querySelector("#cookbookResults");
+  if (heading) heading.innerHTML = `<span aria-hidden="true">${chapter.icon || "🍽️"}</span> ${chapter.title}`;
+  if (intro) intro.textContent = chapter.intro;
+  if (results) {
+    results.className = chapter.id === "miscellaneous" ? "" : "recipe-grid";
+    results.innerHTML = cookbookResultsMarkup(chapter);
+  }
+  if (sectionNode) {
+    sectionNode.classList.remove("is-changing");
+    requestAnimationFrame(() => sectionNode.classList.add("is-changing"));
+  }
+  history.replaceState(null, "", cookbookSectionRoute(section));
+  sectionNode?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 function renderRecipes() {
@@ -15910,10 +16004,10 @@ function renderRecipes() {
       <div class="section-heading compact-heading">
         <p class="eyebrow">Living Cookbook</p>
         <h2 id="cookbookResultsHeading" tabindex="-1">${resultsTitle}</h2>
-        <p>${resultsIntro}</p>
+        <p id="cookbookResultsIntro">${resultsIntro}</p>
       </div>
-      <div id="results" class="recipe-grid">${initialRecipes.length
-        ? initialRecipes.map(recipeCard).join("")
+      <div id="results" class="${selectedChapter?.id === "miscellaneous" ? "" : "recipe-grid"}">${initialRecipes.length
+        ? selectedChapter ? cookbookResultsMarkup(selectedChapter, initialRecipes) : initialRecipes.map(recipeCard).join("")
         : `<div class="empty-state"><h3>${invalidSection ? "That chapter does not exist." : `No ${selectedChapter?.title?.toLowerCase() || "matching"} recipes have been added yet.`}</h3><p>${invalidSection ? "Choose a real chapter from the Living Cookbook above." : "This inventory gap has been flagged for editorial review."}</p></div>`}
       </div>
     </section>
@@ -17077,6 +17171,8 @@ function handleSearch(event) {
 }
 
 function handleClick(event) {
+  const cookbookChapterButton = event.target.closest("[data-cookbook-chapter-select]");
+  const cookbookSubchapterButton = event.target.closest("[data-cookbook-subchapter-select]");
   const selectKitchenDateButton = event.target.closest("[data-select-kitchen-date]");
   const swapCalendarMealButton = event.target.closest("[data-swap-calendar-meal]");
   const addMealGroceryButton = event.target.closest("[data-add-meal-grocery]");
@@ -17131,6 +17227,15 @@ function handleClick(event) {
   const openKitchenMathButton = event.target.closest("[data-open-kitchen-math]");
   const closeKitchenMathButton = event.target.closest("[data-close-kitchen-math]");
   const scaleServingsButton = event.target.closest("[data-scale-servings]");
+
+  if (cookbookChapterButton) {
+    selectCookbookChapter(cookbookChapterButton.dataset.cookbookChapterSelect);
+    return;
+  }
+  if (cookbookSubchapterButton) {
+    selectCookbookChapter(cookbookSubchapterButton.dataset.cookbookSubchapterSelect);
+    return;
+  }
 
   if (calendarRecipeOpen) {
     plannerAnalytics("recipe_open_from_calendar", { recipeId: calendarRecipeOpen.dataset.calendarRecipeOpen });

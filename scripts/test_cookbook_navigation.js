@@ -17,6 +17,7 @@ globalThis.__cookbookTest = {
   cookbookChapterKeys,
   cookbookChapterByKey,
   cookbookSectionRoute,
+  cookbookChapterShelf,
   recipesForCookbookChapter,
   recipeCookbookPrimarySection,
   allRecipeCollection,
@@ -27,8 +28,10 @@ globalThis.__cookbookTest = {
   renderCommunity,
   communityPostCard,
   cookingProfileHome,
-  communityVideoForm
-  ,augustCalendarConfig,
+  communityVideoForm,
+  renderRecipes,
+  miscellaneousChapterMarkup,
+  augustCalendarConfig,
   augustDateKeys,
   defaultMenuForDate,
   generatedMenusForWeek,
@@ -97,15 +100,17 @@ vm.createContext(context);
 vm.runInContext(source, context, { filename: "app.js" });
 
 const api = context.__cookbookTest;
-const expectedSections = ["soups", "salads", "vegetables", "beef", "poultry", "fish-seafood", "miscellaneous", "breads", "cookies", "desserts"];
-assert.deepStrictEqual([...api.cookbookChapterKeys], expectedSections, "Cookbook must use only the canonical section keys");
+const expectedTopLevelSections = ["breakfast", "soups", "salads", "vegetables", "main-dishes", "sides", "breads", "cookies", "desserts", "miscellaneous"];
+const expectedSections = ["breakfast", "soups", "salads", "vegetables", "main-dishes", "beef", "poultry", "fish-seafood", "sides", "breads", "cookies", "desserts", "miscellaneous"];
+assert.deepStrictEqual([...api.cookbookChapterDefinitions].map((chapter) => chapter.id), expectedTopLevelSections, "Cookbook must show the approved divider cards in order");
+assert.deepStrictEqual([...api.cookbookChapterKeys], expectedSections, "Cookbook must expose top-level and Main Dish chapter keys");
 
 for (const key of expectedSections) {
   const chapter = api.cookbookChapterByKey(key);
   assert(chapter, `Missing cookbook chapter: ${key}`);
   const chapterRecipes = api.recipesForCookbookChapter(chapter);
   assert(chapterRecipes.length > 0, `${key} must contain real recipes`);
-  assert(chapterRecipes.every((recipe) => api.recipeCookbookPrimarySection(recipe) === key), `${key} contains a misclassified recipe`);
+  assert(chapterRecipes.every((recipe) => key === "main-dishes" ? ["beef", "poultry", "fish-seafood"].includes(api.recipeCookbookPrimarySection(recipe)) : api.recipeCookbookPrimarySection(recipe) === key), `${key} contains a misclassified recipe`);
   assert.strictEqual(api.cookbookSectionRoute(key), `#recipes?section=${key}`, `${key} route is not canonical`);
 }
 
@@ -120,6 +125,25 @@ assert(poultry.every((recipe) => api.recipeCookbookPrimarySection(recipe) === "p
 const desserts = api.recipesForCookbookChapter(api.cookbookChapterByKey("desserts"));
 assert(desserts.some((recipe) => recipe.id === "carrot-cake"), "Carrot Cake must be Desserts");
 assert(!desserts.some((recipe) => recipe.id === "asian-orange-chicken"), "Desserts must exclude Orange Chicken");
+
+const byId = (id) => api.allRecipeCollection().find((recipe) => recipe.id === id);
+assert.strictEqual(api.recipeCookbookPrimarySection(byId("alabama-white-sauce-chicken")), "poultry", "A sauce name must not pull a chicken main into Miscellaneous");
+assert.strictEqual(api.recipeCookbookPrimarySection(byId("argentinian-chimichurri-steak")), "beef", "Chimichurri Steak must remain in Beef");
+assert.strictEqual(api.recipeCookbookPrimarySection(byId("montana-huckleberry-crisp")), "desserts", "Fruit crisps must be Desserts");
+assert.strictEqual(api.recipeCookbookPrimarySection(byId("apple-cider-doughnuts")), "desserts", "Doughnuts must be Desserts");
+assert.strictEqual(api.recipeCookbookPrimarySection(byId("white-sandwich-bread")), "breads", "Sandwich bread must remain in Breads");
+assert.strictEqual(api.recipeCookbookPrimarySection(byId("deviled-eggs")), "miscellaneous", "Deviled Eggs belong in Miscellaneous, not Vegetables");
+assert.strictEqual(api.recipeCookbookPrimarySection(byId("frito-pie")), "miscellaneous", "Savory Frito Pie must not be classified as soup or dessert");
+assert.strictEqual(api.recipeCookbookPrimarySection(byId("idaho-huckleberry-pancakes")), "breakfast", "Pancakes belong in Breakfast");
+assert.strictEqual(api.recipeCookbookPrimarySection(byId("southern-baked-mac-cheese")), "sides", "Mac and Cheese belongs in Sides");
+const miscellaneous = api.recipesForCookbookChapter(api.cookbookChapterByKey("miscellaneous"));
+for (const duplicateId of ["cuban-sandwich-press", "mini-quesadillas", "cowboy-trail-mix", "tex-mex-breakfast-tacos", "salvadoran-pupusa-supper"]) assert(!miscellaneous.some((recipe) => recipe.id === duplicateId), `${duplicateId} must not duplicate its canonical dish in Miscellaneous`);
+const miscellaneousMarkup = api.miscellaneousChapterMarkup(miscellaneous);
+for (const group of ["Appetizers, Snacks & Party Food", "Pasta, Rice, Pizza & Handhelds", "Sauces, Condiments & Seasonings", "Drinks & Sips"]) assert(miscellaneousMarkup.includes(group), `Miscellaneous must include the ${group} shelf`);
+const chapterShelf = api.cookbookChapterShelf("poultry");
+assert.strictEqual((chapterShelf.match(/data-cookbook-chapter-select=/g) || []).length, 10, "Recipe box must render ten top-level divider cards");
+assert(!chapterShelf.includes("cookbook-chapter-scroll"), "Recipe box must not use the old horizontal scroller");
+assert(chapterShelf.includes('data-cookbook-subchapter-select="beef"') && chapterShelf.includes('data-cookbook-subchapter-select="poultry"') && chapterShelf.includes('data-cookbook-subchapter-select="fish-seafood"'), "Main Dishes must expose Beef, Poultry, and Fish & Seafood");
 
 function topRecipe(query) {
   return api.rankRecipesForDiscovery(api.allRecipeCollection(), { query })[0]?.recipe;
