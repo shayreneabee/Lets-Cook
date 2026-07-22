@@ -28,6 +28,18 @@ globalThis.__cookbookTest = {
   communityPostCard,
   cookingProfileHome,
   communityVideoForm
+  ,augustCalendarConfig,
+  augustDateKeys,
+  defaultMenuForDate,
+  resolvedKitchenMenu,
+  calendarRecipe,
+  calendarMealsForDates,
+  buildKitchenGroceryItems,
+  todayPlateSection,
+  monthlyKitchenCalendarSection,
+  groceryPlanningSection,
+  setHousehold(value) { household = { ...household, ...value }; },
+  setPantryOwned(value) { pantryOwned = value; }
 };
 `;
 
@@ -156,6 +168,37 @@ assert(element.innerHTML.includes("data-community-post-form"), "Community feed n
 assert(element.innerHTML.includes("Fork & Spoon"), "Community feed needs the signature appreciation action");
 api.renderCommunity("welcome-table");
 assert(element.innerHTML.includes("Shay Bee") && element.innerHTML.includes("cook-profile-cover"), "Public community routes must render a real cooking profile");
+
+assert.strictEqual(api.augustDateKeys().length, 31, "August calendar must include all 31 days");
+for (const dateKey of api.augustDateKeys()) {
+  const menu = api.defaultMenuForDate(dateKey);
+  for (const slot of ["breakfast", "lunch", "dinner", "snack"]) {
+    const recipe = api.calendarRecipe(menu[slot].recipeId);
+    assert(recipe, `${dateKey} ${slot} must point to a real publishable recipe`);
+    assert(recipe.ingredients.length > 0, `${dateKey} ${slot} recipe must have ingredients`);
+    assert((recipe.instructions || recipe.directions).length > 0, `${dateKey} ${slot} recipe must have instructions`);
+    assert(recipe.image || recipe.image_url, `${dateKey} ${slot} recipe must have an image`);
+  }
+}
+const todayMarkup = api.todayPlateSection();
+assert(todayMarkup.includes("Today’s Plate"), "Homepage must include Today’s Plate");
+assert.strictEqual((todayMarkup.match(/data-calendar-recipe-open=/g) || []).length, 8, "Every Today’s Plate meal must have two direct recipe links");
+const monthMarkup = api.monthlyKitchenCalendarSection();
+assert(monthMarkup.includes("This Month at Let’s Cook Y’all") && monthMarkup.includes("August: Back to School"), "Homepage must include the August Back-to-School calendar");
+assert.strictEqual((monthMarkup.match(/data-select-kitchen-date=/g) || []).length, 31, "Every August date must be selectable");
+
+api.setHousehold({ servings: 4, allergies: "", dietary: "", avoid: "" });
+api.setPantryOwned([]);
+const weekItems = api.buildKitchenGroceryItems("week");
+assert(weekItems.length > 0, "Weekly grocery list must use real recipe ingredients");
+const groceryKeys = weekItems.map((item) => `${item.name.toLowerCase()}|${String(item.unit || "").toLowerCase()}`);
+assert.strictEqual(new Set(groceryKeys).size, groceryKeys.length, "Weekly grocery list must consolidate duplicate ingredients");
+const ownedName = weekItems[0].name.toLowerCase();
+api.setPantryOwned([ownedName]);
+assert(api.buildKitchenGroceryItems("week").find((item) => item.name.toLowerCase() === ownedName)?.owned, "Pantry-owned items must be separated from items to purchase");
+const groceryMarkup = api.groceryPlanningSection();
+for (const action of ["save", "print", "email", "download", "share"]) assert(groceryMarkup.includes(`data-${action}-grocery-list`), `Grocery action missing: ${action}`);
+assert(groceryMarkup.includes("data-clear-grocery-checked"), "Grocery list must clear checked items");
 
 const routedPages = new Set([
   "home", "lets-cook", "find-the-beat", "second-chance", "community", "kitchen", "america-250",

@@ -13,6 +13,116 @@
   --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
+/* Monthly kitchen calendar, Today's Plate, and grocery planning */
+.monthly-kitchen-section,
+.todays-plate-section,
+.kitchen-grocery-section { padding: clamp(34px, 6vw, 88px) clamp(16px, 6vw, 88px); color: var(--navy, #102542); }
+.monthly-kitchen-section { background: linear-gradient(150deg, #fff8d9 0%, #fffdf7 52%, #e9f8ed 100%); }
+.todays-plate-section { background: #fffdf7; }
+.kitchen-grocery-section { background: linear-gradient(145deg, #e8f7ed, #fffdf7); }
+.home-section-kicker { display: flex; justify-content: space-between; align-items: end; gap: 24px; max-width: 1440px; margin: 0 auto 28px; }
+.home-section-kicker h2 { margin: 2px 0 8px; font-family: var(--serif); font-size: clamp(2.6rem, 5vw, 5.6rem); line-height: .94; }
+.home-section-kicker p { max-width: 780px; }
+.kitchen-calendar-weekdays,
+.kitchen-calendar-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); max-width: 1440px; margin-inline: auto; }
+.kitchen-calendar-weekdays { border-radius: 22px 22px 0 0; overflow: hidden; background: #102542; color: #fff; }
+.kitchen-calendar-weekdays span { padding: 12px 8px; text-align: center; font-weight: 900; }
+.kitchen-calendar-grid { overflow: hidden; border: 1px solid rgba(16,37,66,.13); border-radius: 0 0 24px 24px; background: rgba(255,255,255,.8); box-shadow: 0 24px 65px rgba(16,37,66,.11); }
+.kitchen-calendar-blank,
+.kitchen-calendar-day { min-height: 154px; border: 0; border-right: 1px solid rgba(16,37,66,.1); border-bottom: 1px solid rgba(16,37,66,.1); background: rgba(255,255,255,.76); }
+.kitchen-calendar-blank { background: rgba(16,37,66,.035); }
+.kitchen-calendar-day { display: flex; flex-direction: column; gap: 5px; padding: 13px; text-align: left; color: #102542; cursor: pointer; transition: transform .18s ease, background .18s ease, box-shadow .18s ease; }
+.kitchen-calendar-day:hover,
+.kitchen-calendar-day:focus-visible { z-index: 1; background: #fff5c4; box-shadow: inset 0 0 0 3px #ffca28; transform: translateY(-2px); }
+.kitchen-calendar-day.selected { background: #e7f8ee; box-shadow: inset 0 0 0 3px #087443; }
+.kitchen-calendar-day.today time { background: #ff5f7e; color: #fff; }
+.kitchen-calendar-day time { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: #fff2b5; font-weight: 950; }
+.kitchen-calendar-day strong { margin-top: 3px; font-size: .92rem; line-height: 1.15; }
+.kitchen-calendar-day span { overflow: hidden; color: var(--muted); font-size: .78rem; text-overflow: ellipsis; white-space: nowrap; }
+.kitchen-calendar-day small { margin-top: auto; color: #087443; font-weight: 850; }
+.kitchen-day-view { max-width: 1440px; margin: 38px auto 0; padding: clamp(22px, 4vw, 42px); border-radius: 30px; background: #fff; box-shadow: 0 18px 55px rgba(16,37,66,.11); scroll-margin-top: 100px; }
+.kitchen-day-actions,
+.grocery-list-actions,
+.grocery-scope-tabs { display: flex; flex-wrap: wrap; gap: 10px; }
+.today-meal-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; max-width: 1440px; margin: 0 auto; }
+.today-meal-card { display: grid; grid-template-columns: minmax(150px, .72fr) 1.25fr; overflow: hidden; min-width: 0; border: 1px solid rgba(16,37,66,.1); border-radius: 26px; background: #fff; box-shadow: 0 14px 38px rgba(16,37,66,.09); }
+.today-meal-card > a { min-height: 250px; }
+.today-meal-card img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.today-meal-card > div { padding: 22px; }
+.today-meal-card h3 { margin: 3px 0 8px; font-family: var(--serif); font-size: clamp(1.65rem, 3vw, 2.65rem); line-height: 1; }
+.today-meal-card p { color: var(--muted); }
+.today-meal-meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.today-meal-meta span { padding: 6px 9px; border-radius: 999px; background: #e7f8ee; color: #087443; font-weight: 800; font-size: .8rem; }
+.calendar-meal-missing { padding: 24px; border: 2px dashed #d3545d; border-radius: 20px; background: #fff1f2; }
+.calendar-edit-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; margin-top: 24px; }
+.calendar-edit-grid article { display: grid; grid-template-columns: 1fr 110px; gap: 10px; padding: 16px; border-radius: 18px; background: #f7f6ef; }
+.calendar-edit-grid label,
+.household-planner-form label { display: grid; gap: 6px; font-weight: 850; }
+.calendar-edit-grid :is(select,input),
+.household-planner-form :is(input,select) { min-width: 0; width: 100%; padding: 11px; border: 1px solid rgba(16,37,66,.14); border-radius: 12px; background: #fff; }
+.grocery-scope-tabs button { padding: 10px 14px; border: 1px solid rgba(16,37,66,.13); border-radius: 999px; background: #fff; color: #102542; font-weight: 850; cursor: pointer; }
+.grocery-scope-tabs button.active { border-color: #087443; background: #087443; color: #fff; }
+.household-planner-form { display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 12px; max-width: 1440px; margin: 0 auto 22px; padding: 22px; border-radius: 24px; background: #fff; box-shadow: 0 12px 35px rgba(16,37,66,.08); }
+.household-planner-form button { align-self: end; }
+.grocery-summary-strip { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; max-width: 1440px; margin: 0 auto 20px; }
+.grocery-summary-strip span { display: grid; min-width: 150px; padding: 14px 20px; border-radius: 18px; background: #102542; color: #fff; text-align: center; }
+.grocery-summary-strip strong { color: #ffca28; font-size: 1.7rem; }
+.grocery-department-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; max-width: 1440px; margin: 0 auto; }
+.grocery-department { padding: 22px; border-radius: 22px; background: #fff; box-shadow: 0 10px 30px rgba(16,37,66,.07); }
+.grocery-department h3 { margin-top: 0; font-family: var(--serif); font-size: 1.65rem; color: #087443; }
+.grocery-department label,
+.already-have-group label { display: grid; grid-template-columns: 22px 1fr; gap: 4px 8px; align-items: start; padding: 10px 0; border-bottom: 1px solid rgba(16,37,66,.08); cursor: pointer; }
+.grocery-department input,
+.already-have-group input { width: 18px; height: 18px; accent-color: #087443; }
+.grocery-department small { grid-column: 2; color: var(--muted); }
+.already-have-group { max-width: 1440px; margin: 20px auto; padding: 18px 22px; border-radius: 22px; background: #fff5c4; }
+.already-have-group summary { font-weight: 950; cursor: pointer; }
+.grocery-list-actions { max-width: 1440px; margin: 24px auto 0; }
+.saved-grocery-lists { max-width: 1440px; margin: 25px auto 0; padding-top: 20px; border-top: 1px solid rgba(16,37,66,.12); }
+.saved-grocery-lists article { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(16,37,66,.1); }
+.floating-back-to-top { position: fixed; right: 22px; bottom: 22px; z-index: 50; display: flex; align-items: center; gap: 7px; padding: 12px 16px; border: 0; border-radius: 999px; background: #102542; color: #fff; box-shadow: 0 12px 35px rgba(16,37,66,.3); font-weight: 900; opacity: 0; pointer-events: none; transform: translateY(20px); transition: .2s ease; }
+.floating-back-to-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+@media (max-width: 1050px) {
+  .household-planner-form { grid-template-columns: repeat(3, minmax(0,1fr)); }
+  .grocery-department-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .today-meal-card { grid-template-columns: 1fr; }
+  .today-meal-card > a { min-height: 210px; }
+}
+@media (max-width: 720px) {
+  .home-section-kicker { align-items: stretch; flex-direction: column; }
+  .kitchen-calendar-weekdays { display: none; }
+  .kitchen-calendar-grid { display: grid; grid-template-columns: 1fr; gap: 10px; overflow: visible; border: 0; background: transparent; box-shadow: none; }
+  .kitchen-calendar-blank { display: none; }
+  .kitchen-calendar-day { display: grid; grid-template-columns: 42px 1fr; min-height: 0; border: 1px solid rgba(16,37,66,.1); border-radius: 16px; }
+  .kitchen-calendar-day time { grid-row: 1 / span 3; }
+  .kitchen-calendar-day strong,
+  .kitchen-calendar-day span,
+  .kitchen-calendar-day small { grid-column: 2; }
+  .today-meal-grid,
+  .calendar-edit-grid,
+  .grocery-department-grid,
+  .household-planner-form { grid-template-columns: 1fr; }
+  .today-meal-card { grid-template-columns: 108px 1fr; }
+  .today-meal-card > a { min-height: 180px; }
+  .today-meal-card > div { padding: 15px; }
+  .today-meal-card > div > p:not(.eyebrow) { display: none; }
+  .today-meal-card .card-actions { grid-column: 1 / -1; }
+  .today-meal-card .small-button { min-height: 38px; font-size: .75rem; }
+  .calendar-edit-grid article { grid-template-columns: 1fr; }
+  .floating-back-to-top span { display: none; }
+  .floating-back-to-top { right: 14px; bottom: 14px; width: 48px; height: 48px; justify-content: center; padding: 0; }
+}
+@media print {
+  body * { visibility: hidden; }
+  .kitchen-grocery-section,
+  .kitchen-grocery-section * { visibility: visible; }
+  .kitchen-grocery-section { position: absolute; inset: 0; padding: 20px; background: #fff; }
+  .household-planner-form,
+  .grocery-list-actions,
+  .grocery-scope-tabs,
+  .floating-back-to-top { display: none !important; }
+}
+
 /* Cooking community and social kitchen profiles */
 .cooking-community-page,
 .cook-profile-shell { background: #fffaf0; color: var(--navy, #102542); }

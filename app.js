@@ -5668,6 +5668,211 @@ const america250ExpansionRecipes = [
   midAtlanticRecipe("cookout-watermelon-wedges", "Cookout Watermelon Wedges", "bbq", "Fourth of July Collection", "Cold watermelon wedges with lime, mint, and optional salt for a fast summer table refresher.", ["1 seedless watermelon", "2 limes", "Fresh mint", "Flaky salt optional"], ["Chill watermelon well.", "Slice into wedges.", "Arrange on a platter.", "Squeeze lime over the fruit.", "Add mint and a tiny pinch of salt if desired."], ["america 250", "fourth of july", "watermelon", "fruit"], { prep: "10 min", cook: "0 min", servings: 12, image: "images/juneteenth/watermelon-platter.png" })
 ];
 
+const augustCalendarConfig = {
+  year: 2026,
+  month: 7,
+  key: "2026-08",
+  title: "August: Back to School",
+  breakfast: ["tex-mex-breakfast-tacos", "breakfast-egg-cups", "yogurt-parfait-cups", "berry-banana-smoothies", "soft-scrambled-eggs", "virginia-country-ham", "idaho-huckleberry-pancakes", "breakfast-casserole"],
+  lunch: ["chicken-salad-croissants", "turkey-pinwheels", "pb-and-j-sandwich", "greek-salad", "mission-burritos", "cuban-sandwich", "argentinian-beef-empanadas", "spam-musubi"],
+  dinner: ["chicken-street-tacos", "lemon-herb-salmon", "caribbean-curry-chicken", "filipino-chicken-adobo", "asian-garlic-fried-rice", "beginner-chicken-biryani", "nigerian-jollof-rice", "chicken-parmesan", "cajun-chicken-sausage-gumbo", "sheet-pan-nachos"],
+  snack: ["fruit-kabobs", "trail-mix-jars", "smoothie-cups", "fruit-cups", "mini-quesadillas", "yogurt-parfait-cups"]
+};
+
+const calendarMealLabels = { breakfast: "Breakfast", lunch: "Lunch", dinner: "Dinner", snack: "Snack" };
+
+function kitchenDateKey(date = new Date()) {
+  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+}
+
+const groceryDepartmentLabels = {
+  produce: "Produce",
+  "meat/seafood": "Meat and Seafood",
+  dairy: "Dairy and Eggs",
+  pantry: "Pantry",
+  spices: "Spices and Seasonings",
+  frozen: "Frozen",
+  bakery: "Bakery",
+  drinks: "Beverages",
+  other: "Other"
+};
+
+function groceryScopeDates(scope = activeGroceryScope) {
+  if (scope === "today") return [kitchenDateKey()];
+  if (scope === "day") return [selectedKitchenDate];
+  if (scope === "month") return augustDateKeys();
+  return weekDateKeys(selectedKitchenDate);
+}
+
+function householdExclusionTerms() {
+  return [household.allergies, household.dietary, household.avoid].join(",").toLowerCase().split(/[,;\n]/).map((item) => item.trim()).filter(Boolean);
+}
+
+function ingredientConflictsWithDiet(item) {
+  const dietary = String(household.dietary || "").toLowerCase();
+  const name = String(item.name || "").toLowerCase();
+  const meat = /beef|steak|pork|bacon|ham|chicken|turkey|lamb|sausage|shrimp|salmon|tuna|fish|crab|lobster|anchov/.test(name);
+  const animalProduct = meat || /milk|cream|butter|cheese|egg|honey|yogurt/.test(name);
+  return (dietary.includes("vegetarian") && meat)
+    || (dietary.includes("vegan") && animalProduct)
+    || (dietary.includes("dairy-free") && /milk|cream|butter|cheese|yogurt/.test(name));
+}
+
+function buildKitchenGroceryItems(scope = activeGroceryScope, mealsOverride = null) {
+  const meals = mealsOverride || calendarMealsForDates(groceryScopeDates(scope));
+  const exclusions = householdExclusionTerms();
+  const items = [];
+  meals.forEach((meal) => {
+    const recipe = calendarRecipe(meal.recipeId);
+    if (!recipe) return;
+    combinedShoppingList([recipe], Number(meal.servings || household.servings || recipe.servings || 4)).forEach((item) => {
+      const searchable = `${item.name} ${item.unit}`.toLowerCase();
+      if (!exclusions.some((term) => searchable.includes(term)) && !ingredientConflictsWithDiet(item)) items.push(item);
+    });
+  });
+  const consolidated = new Map();
+  items.forEach((item) => {
+    const key = `${item.name.toLowerCase()}|${String(item.unit || "").toLowerCase()}`;
+    const current = consolidated.get(key) || { ...item, quantity: item.quantity || null, recipes: [] };
+    if (current !== item && item.quantity) current.quantity = Number(current.quantity || 0) + Number(item.quantity);
+    current.recipes = [...new Set([...(current.recipes || []), ...(item.recipes || [])])];
+    current.owned = pantryOwned.includes(item.name.toLowerCase());
+    consolidated.set(key, current);
+  });
+  activeGroceryItems = [...consolidated.values()].filter((item) => !clearedGroceryItems.includes(`${item.name.toLowerCase()}|${String(item.unit || "").toLowerCase()}`)).sort((a, b) => (a.category || "other").localeCompare(b.category || "other") || a.name.localeCompare(b.name));
+  plannerAnalytics("grocery_list_generated", { scope, items: activeGroceryItems.length });
+  return activeGroceryItems;
+}
+
+function groceryListText(items = activeGroceryItems) {
+  const needed = items.filter((item) => !item.owned);
+  const owned = items.filter((item) => item.owned);
+  const lines = [`Let’s Cook Y’all — ${activeGroceryScope} grocery list`, ""];
+  Object.entries(groceryDepartmentLabels).forEach(([key, label]) => {
+    const group = needed.filter((item) => item.category === key);
+    if (group.length) lines.push(label, ...group.map((item) => `- ${item.quantity ? `${formatFraction(item.quantity)} ${singularizeUnit(item.unit, item.quantity)} ` : ""}${item.name}`), "");
+  });
+  if (owned.length) lines.push("Already Have", ...owned.map((item) => `- ${item.name}`));
+  return lines.join("\n");
+}
+
+function groceryPlanningSection() {
+  const items = buildKitchenGroceryItems(activeGroceryScope);
+  const needed = items.filter((item) => !item.owned);
+  const owned = items.filter((item) => item.owned);
+  const groups = Object.entries(groceryDepartmentLabels).map(([key, label]) => {
+    const group = needed.filter((item) => (item.category || "other") === key);
+    if (!group.length) return "";
+    return `<section class="grocery-department"><h3>${label}</h3>${group.map((item) => `<label><input type="checkbox" data-grocery-owned="${escapeHTML(item.name.toLowerCase())}" /><span>${item.quantity ? `<strong>${formatFraction(item.quantity)} ${singularizeUnit(item.unit, item.quantity)}</strong> ` : ""}${escapeHTML(item.name)}</span><small>${item.recipes.slice(0, 2).map(escapeHTML).join(" · ")}</small></label>`).join("")}</section>`;
+  }).join("");
+  return `<section class="kitchen-grocery-section" id="kitchenGroceryList" aria-labelledby="kitchenGroceryTitle"><div class="home-section-kicker"><div><p class="eyebrow">One organized grocery run</p><h2 id="kitchenGroceryTitle">Kitchen Grocery List</h2><p>${needed.length} items needed · ${owned.length} already in your kitchen · ${groceryScopeDates(activeGroceryScope).length} day${groceryScopeDates(activeGroceryScope).length === 1 ? "" : "s"}</p></div><div class="grocery-scope-tabs">${[["today", "Today’s Plate"], ["day", "Selected Day"], ["week", "This Week"], ["month", "Entire Month"]].map(([id,label]) => `<button class="${activeGroceryScope === id ? "active" : ""}" type="button" data-grocery-scope="${id}">${label}</button>`).join("")}</div></div><form class="household-planner-form" data-household-form><label>Adults<input name="adults" type="number" min="1" max="20" value="${household.adults || 2}" /></label><label>Children<input name="children" type="number" min="0" max="20" value="${household.children || 0}" /></label><label>Preferred servings<input name="servings" type="number" min="1" max="40" value="${household.servings || 4}" /></label><label>Allergies<input name="allergies" value="${escapeHTML(household.allergies || "")}" placeholder="peanuts, shellfish" /></label><label>Dietary restrictions<input name="dietary" value="${escapeHTML(household.dietary || "")}" placeholder="vegetarian, dairy-free" /></label><label>Foods to avoid<input name="avoid" value="${escapeHTML(household.avoid || "")}" placeholder="mushrooms" /></label><button class="small-button" type="submit">Update Grocery List</button></form><div class="grocery-summary-strip"><span><strong>${needed.length}</strong> Need to buy</span><span><strong>${owned.length}</strong> Already have</span><span><strong>${items.length}</strong> Total ingredients</span></div><div class="grocery-department-grid">${groups || `<div class="empty-state">No ingredients are needed for this scope.</div>`}</div>${owned.length ? `<details class="already-have-group" open><summary>Already Have (${owned.length})</summary>${owned.map((item) => `<label><input type="checkbox" checked data-grocery-owned="${escapeHTML(item.name.toLowerCase())}" /><span>${escapeHTML(item.name)}</span></label>`).join("")}</details>` : ""}<div class="grocery-list-actions"><button class="small-button" type="button" data-save-grocery-list>Save Grocery List</button><button class="small-button secondary" type="button" data-print-grocery-list>Print Grocery List</button><button class="small-button secondary" type="button" data-email-grocery-list>Email Grocery List</button><button class="small-button secondary" type="button" data-download-grocery-list>Download Grocery List</button><button class="small-button secondary" type="button" data-share-grocery-list>Share Grocery List</button><button class="small-button secondary" type="button" data-clear-grocery-checked>Clear Checked Items</button></div><p class="status-message" data-grocery-status aria-live="polite"></p>${groceryLists.length ? `<div class="saved-grocery-lists"><h3>Saved plans and lists</h3>${groceryLists.slice(0, 6).map((list) => `<article><strong>${escapeHTML(list.name)}</strong><span>${escapeHTML(list.scope)} · ${list.items.length} items</span><button type="button" data-load-grocery-list="${list.id}">Open</button></article>`).join("")}</div>` : ""}</section>`;
+}
+
+function calendarRecipe(id) {
+  const recipe = recipeById(id);
+  return recipe && recipeAllowedInGeneralCollection(recipe) && recipe.ingredients?.length && (recipe.instructions?.length || recipe.directions?.length) ? recipe : null;
+}
+
+function validCalendarPool(ids = []) {
+  return ids.filter((id) => calendarRecipe(id));
+}
+
+function defaultMenuForDate(dateKey) {
+  const date = new Date(`${dateKey}T12:00:00`);
+  const day = Number(dateKey.slice(-2)) || date.getDate() || 1;
+  const weekday = date.getDay();
+  const choose = (slot, offset = 0) => {
+    const pool = validCalendarPool(augustCalendarConfig[slot]);
+    return pool.length ? pool[(day + weekday * 2 + offset) % pool.length] : "";
+  };
+  return {
+    date: dateKey,
+    breakfast: { recipeId: choose("breakfast"), servings: household.servings || 4 },
+    lunch: { recipeId: choose("lunch", 1), servings: household.servings || 4 },
+    dinner: { recipeId: choose("dinner", 2), servings: household.servings || 4 },
+    snack: { recipeId: choose("snack", 3), servings: household.servings || 4 },
+    notes: weekday === 0 ? "Sunday supper: make enough for Monday leftovers." : weekday === 6 ? "Weekend table: prep slowly and invite help." : "Back-to-school rhythm: prep one component ahead when possible."
+  };
+}
+
+function resolvedKitchenMenu(dateKey) {
+  const base = defaultMenuForDate(dateKey);
+  const custom = kitchenPlan[dateKey] || {};
+  return { ...base, ...custom, ...Object.fromEntries(Object.keys(calendarMealLabels).map((slot) => [slot, { ...base[slot], ...(custom[slot] || {}) }])) };
+}
+
+function calendarMealsForDates(dateKeys = []) {
+  return dateKeys.flatMap((dateKey) => {
+    const menu = resolvedKitchenMenu(dateKey);
+    return Object.keys(calendarMealLabels).map((slot) => ({ dateKey, slot, ...menu[slot] })).filter((meal) => meal.recipeId && !meal.removed && calendarRecipe(meal.recipeId));
+  });
+}
+
+function augustDateKeys() {
+  return Array.from({ length: 31 }, (_, index) => `${augustCalendarConfig.key}-${String(index + 1).padStart(2, "0")}`);
+}
+
+function weekDateKeys(anchor = selectedKitchenDate) {
+  const date = new Date(`${anchor}T12:00:00`);
+  date.setDate(date.getDate() - date.getDay());
+  return Array.from({ length: 7 }, (_, index) => {
+    const next = new Date(date);
+    next.setDate(date.getDate() + index);
+    return kitchenDateKey(next);
+  });
+}
+
+function plannerAnalytics(eventName, metadata = {}) {
+  const events = readJSON("letsCookPlannerAnalytics", []);
+  localStorage.setItem("letsCookPlannerAnalytics", JSON.stringify([{ event: eventName, metadata, at: new Date().toISOString() }, ...events].slice(0, 250)));
+}
+
+function persistKitchenPlanningState() {
+  localStorage.setItem("letsCookKitchenPlan", JSON.stringify(kitchenPlan));
+  localStorage.setItem("letsCookGroceryLists", JSON.stringify(groceryLists));
+  localStorage.setItem("letsCookHousehold", JSON.stringify(household));
+  localStorage.setItem("letsCookPantryOwned", JSON.stringify(pantryOwned));
+  localStorage.setItem("letsCookClearedGroceryItems", JSON.stringify(clearedGroceryItems));
+  localStorage.setItem("letsCookSelectedKitchenDate", JSON.stringify(selectedKitchenDate));
+  return persistLetsCookState();
+}
+
+function calendarMealCard(meal, slot, { compact = false } = {}) {
+  const recipe = calendarRecipe(meal?.recipeId);
+  if (!recipe) return `<article class="calendar-meal-missing"><strong>${calendarMealLabels[slot]}</strong><span>Needs admin review — no valid recipe is scheduled.</span></article>`;
+  return `<article class="today-meal-card ${compact ? "compact" : ""}" data-calendar-meal="${slot}">
+    <a href="#recipes/${recipe.id}" data-calendar-recipe-open="${recipe.id}"><img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" /></a>
+    <div><p class="eyebrow">${calendarMealLabels[slot]}</p><h3>${recipe.title}</h3>${compact ? "" : `<p>${recipe.description}</p>`}<div class="today-meal-meta"><span>${meal.servings || recipe.servings} servings</span><span>${recipeDuration(recipe)}</span></div><div class="card-actions"><a class="small-button" href="#recipes/${recipe.id}" data-calendar-recipe-open="${recipe.id}">View Recipe</a><button class="small-button secondary" type="button" data-swap-calendar-meal="${slot}">Swap Meal</button><button class="small-button secondary" type="button" data-add-meal-grocery="${slot}">Add to Grocery List</button><button class="small-button secondary" type="button" data-calendar-made="${slot}">${cookedRecipes.includes(recipe.id) ? "Made It ✓" : "Made It"}</button></div></div>
+  </article>`;
+}
+
+function todayPlateSection() {
+  const todayKey = kitchenDateKey();
+  const menu = resolvedKitchenMenu(todayKey);
+  plannerAnalytics("todays_plate_view", { date: todayKey });
+  return `<section class="todays-plate-section" aria-labelledby="todaysPlateTitle"><div class="home-section-kicker"><div><p class="eyebrow">${new Date(`${todayKey}T12:00:00`).toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" })}</p><h2 id="todaysPlateTitle">Today’s Plate</h2><p>No daily decision spiral. Here is what’s on the table.</p></div><div class="hero-actions"><button class="small-button" type="button" data-grocery-scope="today">Grocery List</button><button class="small-button secondary" type="button" data-select-kitchen-date="${todayKey}">See This Day</button><button class="small-button secondary" type="button" data-grocery-scope="week">See This Week</button></div></div><div class="today-meal-grid">${Object.keys(calendarMealLabels).map((slot) => calendarMealCard(menu[slot], slot)).join("")}</div></section>`;
+}
+
+function monthlyKitchenCalendarSection() {
+  const firstWeekday = new Date(augustCalendarConfig.year, augustCalendarConfig.month, 1).getDay();
+  const today = kitchenDateKey();
+  plannerAnalytics("calendar_view", { month: augustCalendarConfig.key });
+  const blanks = Array.from({ length: firstWeekday }, () => `<div class="kitchen-calendar-blank" aria-hidden="true"></div>`).join("");
+  const days = augustDateKeys().map((dateKey) => {
+    const menu = resolvedKitchenMenu(dateKey);
+    const dinner = calendarRecipe(menu.dinner.recipeId);
+    const isSelected = selectedKitchenDate === dateKey;
+    return `<button class="kitchen-calendar-day ${today === dateKey ? "today" : ""} ${isSelected ? "selected" : ""}" type="button" data-select-kitchen-date="${dateKey}" aria-pressed="${isSelected}"><time datetime="${dateKey}">${Number(dateKey.slice(-2))}</time><strong>${dinner?.title || "Menu needs review"}</strong><span>${calendarRecipe(menu.breakfast.recipeId)?.title || "Breakfast"}</span><small>Open full day →</small></button>`;
+  }).join("");
+  return `<section class="monthly-kitchen-section" aria-labelledby="monthlyKitchenTitle"><div class="home-section-kicker"><div><p class="eyebrow">This Month at Let’s Cook Y’all</p><h2 id="monthlyKitchenTitle">${augustCalendarConfig.title}</h2><p>Breakfasts, lunch boxes, snacks, cultural meals, quick dinners, weekend brunch, and Sunday supper—planned for one organized grocery run.</p></div><div class="hero-actions"><button class="small-button" type="button" data-use-kitchen-week>Use This Week</button><button class="small-button secondary" type="button" data-customize-kitchen-week>Customize Week</button><button class="small-button secondary" type="button" data-grocery-scope="month">Shop The Month</button></div></div><div class="kitchen-calendar-weekdays" aria-hidden="true">${["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"].map((day) => `<span>${day}</span>`).join("")}</div><div class="kitchen-calendar-grid">${blanks}${days}</div>${kitchenDayView(selectedKitchenDate)}</section>`;
+}
+
+function kitchenDayView(dateKey) {
+  const menu = resolvedKitchenMenu(dateKey);
+  const dateLabel = new Date(`${dateKey}T12:00:00`).toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" });
+  return `<section class="kitchen-day-view" id="kitchenDayView"><div class="section-heading compact-heading"><p class="eyebrow">Complete daily menu</p><h2>${dateLabel}</h2><p>${menu.notes || "Add a note for prep, lunch packing, or leftovers."}</p></div><div class="kitchen-day-actions"><button class="small-button" type="button" data-grocery-scope="day">Build This Day’s List</button><button class="small-button secondary" type="button" data-copy-kitchen-day>Copy Day</button><button class="small-button secondary" type="button" data-restore-kitchen-day>Restore Defaults</button></div><div class="today-meal-grid day-menu-grid">${Object.keys(calendarMealLabels).map((slot) => calendarMealCard(menu[slot], slot)).join("")}</div><div class="calendar-edit-grid">${Object.keys(calendarMealLabels).map((slot) => `<article><label>${calendarMealLabels[slot]} recipe<select data-calendar-recipe-select="${slot}"><option value="">Remove meal</option>${allRecipeCollection().filter(recipeAllowedInGeneralCollection).sort((a,b) => a.title.localeCompare(b.title)).map((recipe) => `<option value="${recipe.id}"${menu[slot].recipeId === recipe.id ? " selected" : ""}>${recipe.title}</option>`).join("")}</select></label><label>Servings<input data-calendar-servings="${slot}" type="number" min="1" max="40" value="${menu[slot].servings || household.servings || 4}" /></label></article>`).join("")}</div></section>`;
+}
+
 const foundationalBreadAndCookieRecipes = [
   midAtlanticRecipe("sourdough-bread", "Sourdough Bread", "global", "Breads", "A crackly naturally leavened loaf with an open crumb and deep fermented flavor.", ["100 g active sourdough starter", "375 g warm water", "500 g bread flour", "10 g kosher salt"], ["Mix starter and water, then add flour and rest 30 minutes.", "Work in salt and complete four stretch-and-fold rounds.", "Bulk ferment until airy, shape, and refrigerate overnight.", "Score and bake in a covered Dutch oven at 475 F.", "Uncover and bake until deeply browned; cool completely."], ["sourdough", "bread", "fermentation"], { image: "images/recipes/audit-2026-06/french-bread.jpg", prep: "45 min plus rising", cook: "45 min", servings: 12, level: "Advanced" }),
   midAtlanticRecipe("white-sandwich-bread", "White Sandwich Bread", "global", "Breads", "A soft, fine-crumbed everyday loaf that slices cleanly for toast and lunch boxes.", ["4 cups bread flour", "2 1/4 tsp yeast", "1 1/2 cups warm milk", "3 tbsp butter", "2 tbsp sugar", "2 tsp salt"], ["Mix and knead a soft smooth dough.", "Rise until doubled.", "Shape tightly and place in a loaf pan.", "Rise until crowned above the rim.", "Bake at 375 F until golden and 195 F inside."], ["sandwich bread", "lunch", "yeast bread"], { image: "images/recipes/audit-2026-06/french-bread.jpg", prep: "25 min plus rising", cook: "35 min", servings: 12 }),
@@ -8401,6 +8606,14 @@ let communityActions = readJSON("letsCookCommunityActions", {});
 let kitchenNotes = readJSON("letsCookKitchenNotes", []);
 let communityProfile = readJSON("letsCookCommunityProfile", { coverPhoto: "assets/cooking-family.jpeg", favoriteCuisines: ["Southern", "Creole", "Global Flavors"], cookingStyle: "Comfort food with a curious streak" });
 let activeProfileTab = "posts";
+let kitchenPlan = readJSON("letsCookKitchenPlan", {});
+let groceryLists = readJSON("letsCookGroceryLists", []);
+let household = readJSON("letsCookHousehold", { adults: 2, children: 2, servings: 4, allergies: "", dietary: "", avoid: "" });
+let pantryOwned = readJSON("letsCookPantryOwned", []);
+let clearedGroceryItems = readJSON("letsCookClearedGroceryItems", []);
+let selectedKitchenDate = readJSON("letsCookSelectedKitchenDate", "2026-08-01");
+let activeGroceryScope = "week";
+let activeGroceryItems = [];
 let lessonProgress = readJSON("letsCookLessonProgress", {});
 let pantryScanState = readJSON("letsCookPantryScan", { ingredients: [], notes: "" });
 let pantryFavoriteIngredients = readJSON("letsCookPantryFavorites", []);
@@ -8467,6 +8680,9 @@ document.addEventListener("submit", handleSubmit);
 document.addEventListener("input", handleSearch);
 document.addEventListener("change", handleSearch);
 document.addEventListener("error", handleImageFallback, true);
+window.addEventListener("scroll", () => {
+  document.querySelector(".floating-back-to-top")?.classList.toggle("visible", window.scrollY > 700);
+}, { passive: true });
 window.reportLetsCookMissingImages = reportMissingImages;
 window.reportLetsCookRecipeImages = recipeImageReport;
 window.auditLetsCookImageContent = imageContentAudit;
@@ -8547,12 +8763,14 @@ function siteFooterMarkup(route = "") {
         </nav>
       </div>
     </footer>
+    <button class="floating-back-to-top" type="button" data-back-to-top aria-label="Back to top">↑ <span>Back to Top</span></button>
   `;
 }
 
 function appendSiteFooter(route = "") {
   const existing = document.querySelector(".site-footer-v2");
   if (existing) existing.remove();
+  document.querySelector(".floating-back-to-top")?.remove();
   app.insertAdjacentHTML("beforeend", siteFooterMarkup(route));
 }
 
@@ -12429,7 +12647,7 @@ function homepageEditorialHeroSection() {
         <h1 id="homeHeroTitle">August tastes like the garden showed out.</h1>
         <p>Farmers-market produce, back-to-school lunches, easy weeknight dinners, fresh salads, grilling, and one more peach dessert.</p>
         <form class="home-hero-search" data-ingredient-form>
-          <label for="homeHeroSearch">What are we cooking today?</label>
+          <label for="homeHeroSearch">What Y’all Cooking?</label>
           <div>
             <input id="homeHeroSearch" name="ingredient" placeholder="ribeye, chicken thighs, peaches..." />
             <button class="small-button" type="submit">Find Food</button>
@@ -12570,6 +12788,9 @@ function renderLetsCookHome() {
   app.innerHTML = `
     ${cookSubnav()}
     ${homepageEditorialHeroSection()}
+    ${monthlyKitchenCalendarSection()}
+    ${todayPlateSection()}
+    ${groceryPlanningSection()}
     ${homepageRecipeDiscoverySection()}
     ${homepageIngredientEditorialSection()}
     ${homepageCuisineScrollSection()}
@@ -16603,6 +16824,23 @@ function logZeroRecipeSearch(query = "") {
 }
 
 function handleSearch(event) {
+  if (event?.target?.matches("[data-calendar-recipe-select]")) {
+    const slot = event.target.dataset.calendarRecipeSelect;
+    const recipeId = event.target.value;
+    const current = resolvedKitchenMenu(selectedKitchenDate)[slot];
+    kitchenPlan[selectedKitchenDate] = { ...(kitchenPlan[selectedKitchenDate] || {}), [slot]: { ...current, recipeId, removed: !recipeId } };
+    plannerAnalytics("meal_swap", { date: selectedKitchenDate, slot, to: recipeId || "removed" });
+    persistKitchenPlanningState();
+    renderLetsCookHome();
+    return;
+  }
+  if (event?.target?.matches("[data-calendar-servings]")) {
+    const slot = event.target.dataset.calendarServings;
+    const current = resolvedKitchenMenu(selectedKitchenDate)[slot];
+    kitchenPlan[selectedKitchenDate] = { ...(kitchenPlan[selectedKitchenDate] || {}), [slot]: { ...current, servings: Math.max(1, Number(event.target.value) || 1) } };
+    persistKitchenPlanningState();
+    return;
+  }
   if (event?.target?.matches("[data-holiday-jump]")) {
     const destination = event.target.value;
     if (destination) window.location.hash = destination;
@@ -16688,6 +16926,24 @@ function handleSearch(event) {
 }
 
 function handleClick(event) {
+  const selectKitchenDateButton = event.target.closest("[data-select-kitchen-date]");
+  const swapCalendarMealButton = event.target.closest("[data-swap-calendar-meal]");
+  const addMealGroceryButton = event.target.closest("[data-add-meal-grocery]");
+  const calendarMadeButton = event.target.closest("[data-calendar-made]");
+  const useKitchenWeekButton = event.target.closest("[data-use-kitchen-week]");
+  const customizeKitchenWeekButton = event.target.closest("[data-customize-kitchen-week]");
+  const copyKitchenDayButton = event.target.closest("[data-copy-kitchen-day]");
+  const restoreKitchenDayButton = event.target.closest("[data-restore-kitchen-day]");
+  const groceryScopeButton = event.target.closest("[data-grocery-scope]");
+  const groceryOwnedInput = event.target.closest("[data-grocery-owned]");
+  const saveGroceryButton = event.target.closest("[data-save-grocery-list]");
+  const printGroceryButton = event.target.closest("[data-print-grocery-list]");
+  const emailGroceryButton = event.target.closest("[data-email-grocery-list]");
+  const downloadGroceryButton = event.target.closest("[data-download-grocery-list]");
+  const shareGroceryButton = event.target.closest("[data-share-grocery-list]");
+  const clearGroceryButton = event.target.closest("[data-clear-grocery-checked]");
+  const loadGroceryButton = event.target.closest("[data-load-grocery-list]");
+  const calendarRecipeOpen = event.target.closest("[data-calendar-recipe-open]");
   const profileTabButton = event.target.closest("[data-profile-tab]");
   const editProfileButton = event.target.closest("[data-edit-profile]");
   const communityActionButton = event.target.closest("[data-community-action]");
@@ -16719,6 +16975,140 @@ function handleClick(event) {
   const openKitchenMathButton = event.target.closest("[data-open-kitchen-math]");
   const closeKitchenMathButton = event.target.closest("[data-close-kitchen-math]");
   const scaleServingsButton = event.target.closest("[data-scale-servings]");
+
+  if (calendarRecipeOpen) {
+    plannerAnalytics("recipe_open_from_calendar", { recipeId: calendarRecipeOpen.dataset.calendarRecipeOpen });
+  }
+  if (selectKitchenDateButton) {
+    selectedKitchenDate = selectKitchenDateButton.dataset.selectKitchenDate;
+    localStorage.setItem("letsCookSelectedKitchenDate", JSON.stringify(selectedKitchenDate));
+    renderLetsCookHome();
+    document.querySelector("#kitchenDayView")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    return;
+  }
+  if (swapCalendarMealButton) {
+    const slot = swapCalendarMealButton.dataset.swapCalendarMeal;
+    const dateKey = swapCalendarMealButton.closest(".kitchen-day-view") ? selectedKitchenDate : kitchenDateKey();
+    const current = resolvedKitchenMenu(dateKey)[slot]?.recipeId;
+    const pool = validCalendarPool(augustCalendarConfig[slot]);
+    const replacement = pool[(Math.max(0, pool.indexOf(current)) + 1) % pool.length];
+    if (replacement) {
+      kitchenPlan[dateKey] = { ...(kitchenPlan[dateKey] || {}), [slot]: { ...resolvedKitchenMenu(dateKey)[slot], recipeId: replacement } };
+      plannerAnalytics("meal_swap", { date: dateKey, slot, from: current, to: replacement });
+      persistKitchenPlanningState();
+      renderLetsCookHome();
+    } else plannerAnalytics("planner_recipe_search_zero", { slot });
+    return;
+  }
+  if (addMealGroceryButton) {
+    selectedKitchenDate = addMealGroceryButton.closest(".kitchen-day-view") ? selectedKitchenDate : kitchenDateKey();
+    activeGroceryScope = "day";
+    renderLetsCookHome();
+    document.querySelector("#kitchenGroceryList")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    return;
+  }
+  if (calendarMadeButton) {
+    const card = calendarMadeButton.closest("[data-calendar-meal]");
+    const recipeId = card?.querySelector("[data-calendar-recipe-open]")?.dataset.calendarRecipeOpen;
+    if (recipeId) {
+      cookedRecipes = toggleValue(cookedRecipes, recipeId);
+      persistLetsCookState();
+      renderLetsCookHome();
+    }
+    return;
+  }
+  if (useKitchenWeekButton) {
+    weekDateKeys(selectedKitchenDate).forEach((dateKey) => { kitchenPlan[dateKey] = defaultMenuForDate(dateKey); });
+    plannerAnalytics("weekly_plan_adopted", { week: weekDateKeys(selectedKitchenDate)[0] });
+    persistKitchenPlanningState();
+    renderLetsCookHome();
+    return;
+  }
+  if (customizeKitchenWeekButton) {
+    plannerAnalytics("custom_plan_created", { week: weekDateKeys(selectedKitchenDate)[0] });
+    document.querySelector("#kitchenDayView")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    return;
+  }
+  if (copyKitchenDayButton) {
+    const source = resolvedKitchenMenu(selectedKitchenDate);
+    const target = new Date(`${selectedKitchenDate}T12:00:00`);
+    target.setDate(target.getDate() + 1);
+    const targetKey = kitchenDateKey(target);
+    kitchenPlan[targetKey] = JSON.parse(JSON.stringify(source));
+    kitchenPlan[targetKey].date = targetKey;
+    selectedKitchenDate = targetKey;
+    persistKitchenPlanningState();
+    renderLetsCookHome();
+    return;
+  }
+  if (restoreKitchenDayButton) {
+    delete kitchenPlan[selectedKitchenDate];
+    persistKitchenPlanningState();
+    renderLetsCookHome();
+    return;
+  }
+  if (groceryScopeButton) {
+    activeGroceryScope = groceryScopeButton.dataset.groceryScope || "week";
+    renderLetsCookHome();
+    document.querySelector("#kitchenGroceryList")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    return;
+  }
+  if (groceryOwnedInput) {
+    const name = groceryOwnedInput.dataset.groceryOwned;
+    pantryOwned = groceryOwnedInput.checked ? [...new Set([...pantryOwned, name])] : pantryOwned.filter((item) => item !== name);
+    plannerAnalytics("pantry_item_marked_owned", { ingredient: name, owned: groceryOwnedInput.checked });
+    persistKitchenPlanningState();
+    renderLetsCookHome();
+    document.querySelector("#kitchenGroceryList")?.scrollIntoView({ block: "start" });
+    return;
+  }
+  if (saveGroceryButton) {
+    const name = activeGroceryScope === "month" ? "August Back-to-School" : activeGroceryScope === "week" ? `Quick Week · ${weekDateKeys(selectedKitchenDate)[0]}` : `Family Plan · ${selectedKitchenDate}`;
+    groceryLists = [{ id: `grocery-${Date.now()}`, name, scope: activeGroceryScope, items: activeGroceryItems, household, savedAt: new Date().toISOString() }, ...groceryLists].slice(0, 20);
+    plannerAnalytics("grocery_list_saved", { scope: activeGroceryScope });
+    persistKitchenPlanningState();
+    renderLetsCookHome();
+    return;
+  }
+  if (printGroceryButton) {
+    plannerAnalytics("grocery_list_printed", { scope: activeGroceryScope });
+    window.print();
+    return;
+  }
+  if (emailGroceryButton) {
+    plannerAnalytics("grocery_list_emailed", { scope: activeGroceryScope });
+    window.location.href = `mailto:?subject=${encodeURIComponent("Let’s Cook Y’all Grocery List")}&body=${encodeURIComponent(groceryListText())}`;
+    return;
+  }
+  if (downloadGroceryButton) {
+    const blob = new Blob([groceryListText()], { type: "text/plain" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = `lets-cook-yall-${activeGroceryScope}-grocery-list.txt`;
+    link.click();
+    URL.revokeObjectURL(link.href);
+    plannerAnalytics("grocery_list_downloaded", { scope: activeGroceryScope });
+    return;
+  }
+  if (shareGroceryButton) {
+    const text = groceryListText();
+    if (navigator.share) navigator.share({ title: "Let’s Cook Y’all Grocery List", text }).catch(() => {});
+    else navigator.clipboard?.writeText(text).then(() => { const status = document.querySelector("[data-grocery-status]"); if (status) status.textContent = "Grocery list copied for sharing."; }).catch(() => {});
+    return;
+  }
+  if (clearGroceryButton) {
+    const checkedKeys = activeGroceryItems.filter((item) => item.owned).map((item) => `${item.name.toLowerCase()}|${String(item.unit || "").toLowerCase()}`);
+    clearedGroceryItems = [...new Set([...clearedGroceryItems, ...checkedKeys])];
+    plannerAnalytics("grocery_checked_cleared", { count: checkedKeys.length, scope: activeGroceryScope });
+    persistKitchenPlanningState();
+    renderLetsCookHome();
+    return;
+  }
+  if (loadGroceryButton) {
+    const list = groceryLists.find((item) => item.id === loadGroceryButton.dataset.loadGroceryList);
+    if (list) { activeGroceryScope = list.scope; household = { ...household, ...(list.household || {}) }; activeGroceryItems = list.items || []; renderLetsCookHome(); }
+    return;
+  }
 
   if (profileTabButton) {
     activeProfileTab = profileTabButton.dataset.profileTab || "posts";
@@ -16988,6 +17378,22 @@ function handleClick(event) {
 
 
 async function handleSubmit(event) {
+  if (event.target.matches("[data-household-form]")) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    household = {
+      adults: Math.max(1, Number(formData.get("adults")) || 1),
+      children: Math.max(0, Number(formData.get("children")) || 0),
+      servings: Math.max(1, Number(formData.get("servings")) || 4),
+      allergies: formData.get("allergies")?.toString().trim() || "",
+      dietary: formData.get("dietary")?.toString().trim() || "",
+      avoid: formData.get("avoid")?.toString().trim() || ""
+    };
+    persistKitchenPlanningState();
+    renderLetsCookHome();
+    document.querySelector("#kitchenGroceryList")?.scrollIntoView({ block: "start" });
+    return;
+  }
   if (event.target.matches("[data-community-post-form]")) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -17322,6 +17728,9 @@ function applyLetsCookState(payload, status = "") {
   savedMenus = payload.savedMenus || savedMenus || [];
   lessonProgress = payload.lessonProgress || lessonProgress || {};
   submissions = payload.submissions || submissions || [];
+  kitchenPlan = payload.kitchenPlan && Object.keys(payload.kitchenPlan).length ? payload.kitchenPlan : kitchenPlan;
+  groceryLists = Array.isArray(payload.groceryLists) && payload.groceryLists.length ? payload.groceryLists : groceryLists;
+  household = payload.household && Object.keys(payload.household).length ? { ...household, ...payload.household } : household;
   if (Array.isArray(payload.userRecipes) && (payload.authenticated || payload.userRecipes.length)) {
     userRecipes = payload.userRecipes;
   }
@@ -17349,13 +17758,16 @@ async function persistLetsCookState() {
   localStorage.setItem("letsCookRoadTripPassport", JSON.stringify(roadTripPassport));
   localStorage.setItem("letsCookSavedCuisineCountries", JSON.stringify(savedCuisineCountries));
   localStorage.setItem("letsCookCuisinePassportStamps", JSON.stringify(cuisinePassportStamps));
+  localStorage.setItem("letsCookKitchenPlan", JSON.stringify(kitchenPlan));
+  localStorage.setItem("letsCookGroceryLists", JSON.stringify(groceryLists));
+  localStorage.setItem("letsCookHousehold", JSON.stringify(household));
   if (!letsCookSession.authenticated) {
     return false;
   }
   const response = await fetch("/api/lets-cook/state", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ saved, cookedRecipes, planned, recentlyViewed, savedMenus, lessonProgress, userRecipes })
+    body: JSON.stringify({ saved, cookedRecipes, planned, recentlyViewed, savedMenus, lessonProgress, userRecipes, kitchenPlan, groceryLists, household })
   });
   const payload = await response.json().catch(() => ({}));
   applyLetsCookState(payload, response.ok ? "Saved to your Let's Cook account." : payload.error || "Save failed.");
