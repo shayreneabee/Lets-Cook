@@ -14241,6 +14241,207 @@ body {
   .cookbook-chapter-divider { transition: none; }
 }
 
+/* Recipe-box motion pass: reserve its footprint, then animate the contents in place.
+   This keeps the page steady while making the physical interactions feel deliberate. */
+.living-recipe-box {
+  min-height: 625px;
+  padding: clamp(24px, 4vw, 52px);
+  overflow: visible;
+  perspective: 1400px;
+  transform-style: preserve-3d;
+  contain: layout paint;
+  transition: box-shadow 280ms ease, border-color 280ms ease;
+}
+
+.living-recipe-box.is-opening,
+.living-recipe-box.is-open,
+.living-recipe-box.is-selecting {
+  min-height: 625px;
+}
+
+.recipe-box-lid {
+  transform: translate3d(0, 0, 0) rotateX(0deg);
+  transform-origin: 50% 100%;
+  will-change: transform, opacity;
+  transition: transform 680ms cubic-bezier(.18, .78, .2, 1), opacity 340ms ease;
+}
+
+.living-recipe-box.is-opening .recipe-box-lid,
+.living-recipe-box.is-open .recipe-box-lid,
+.living-recipe-box.is-selecting .recipe-box-lid {
+  opacity: 0.83;
+  transform: translate3d(0, -76px, 0) rotateX(58deg);
+}
+
+.living-recipe-box.is-closing .recipe-box-lid {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) rotateX(0deg);
+}
+
+.recipe-box-open-control {
+  position: absolute;
+  z-index: 5;
+  top: clamp(48px, 7vw, 82px);
+  left: 50%;
+  margin: 0;
+  transform: translateX(-50%);
+  transition: top 420ms cubic-bezier(.2,.75,.25,1), min-height 420ms cubic-bezier(.2,.75,.25,1), padding 420ms cubic-bezier(.2,.75,.25,1), transform 180ms ease, box-shadow 180ms ease;
+}
+
+.recipe-box-open-control:hover,
+.recipe-box-open-control:focus-visible { transform: translateX(-50%) translateY(-4px); }
+.recipe-box-open-control:active { transform: translateX(-50%) translateY(1px) scale(.992); }
+
+.living-recipe-box.is-opening .recipe-box-open-control,
+.living-recipe-box.is-open .recipe-box-open-control,
+.living-recipe-box.is-selecting .recipe-box-open-control {
+  top: 26px;
+  min-height: 108px;
+  padding: 18px 28px 20px;
+  box-shadow: 0 10px 18px rgba(95, 50, 28, 0.15), inset 0 0 0 5px rgba(244, 190, 113, 0.24);
+}
+
+.living-recipe-box.is-opening .recipe-box-open-control small,
+.living-recipe-box.is-open .recipe-box-open-control small,
+.living-recipe-box.is-selecting .recipe-box-open-control small,
+.living-recipe-box.is-opening .recipe-box-handle,
+.living-recipe-box.is-open .recipe-box-handle,
+.living-recipe-box.is-selecting .recipe-box-handle { display: none; }
+
+.recipe-box-interior {
+  min-height: 495px;
+  max-height: none;
+  margin-top: 0;
+  padding-top: 142px;
+  overflow: visible;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate3d(0, 20px, -16px);
+  transition: opacity 220ms ease, transform 420ms cubic-bezier(.2,.75,.25,1), visibility 0s linear 420ms;
+}
+
+.living-recipe-box.is-opening .recipe-box-interior,
+.living-recipe-box.is-open .recipe-box-interior,
+.living-recipe-box.is-selecting .recipe-box-interior {
+  max-height: none;
+  margin-top: 0;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 120ms, 120ms, 0s;
+}
+
+.recipe-box-card-well {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.recipe-box-card-well::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 12px;
+  border-radius: 9px;
+  background: linear-gradient(180deg, rgba(55, 28, 19, 0.35), transparent 24%);
+}
+
+.cookbook-chapter-divider {
+  opacity: 0;
+  transform: translate3d(0, 24px, -24px) rotateX(-2deg);
+  will-change: transform, opacity;
+  transition: opacity 230ms ease, transform 300ms cubic-bezier(.2,.8,.2,1), box-shadow 220ms ease, background 220ms ease;
+}
+
+.living-recipe-box.is-opening .cookbook-chapter-divider,
+.living-recipe-box.is-open .cookbook-chapter-divider,
+.living-recipe-box.is-selecting .cookbook-chapter-divider {
+  opacity: 1;
+  transform: translate3d(0, var(--divider-rest, 0px), 0) rotateX(0deg);
+  transition-delay: calc(140ms + var(--divider-index) * 48ms);
+}
+
+.living-recipe-box.is-selecting .cookbook-chapter-divider:not(.active) {
+  transform: translate3d(0, calc(var(--divider-rest, 0px) + 7px), -12px) scale(.985);
+  opacity: .74;
+  transition-delay: 0ms;
+}
+
+.living-recipe-box.is-selecting .cookbook-chapter-divider.active,
+.living-recipe-box.is-open .cookbook-chapter-divider.active,
+.cookbook-chapter-divider:hover,
+.cookbook-chapter-divider:focus-visible {
+  z-index: 2;
+  transform: translate3d(0, calc(var(--divider-rest, 0px) - 18px), 36px) scale(1.025);
+}
+
+.cookbook-results-section.is-leaving #results {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 140ms ease, transform 140ms ease;
+}
+
+.cookbook-results-section.is-changing #results {
+  animation: cookbook-index-slide 280ms cubic-bezier(.2,.75,.25,1) both;
+}
+
+.cookbook-results-section.is-changing #results .recipe-card {
+  animation: cookbook-index-slide 360ms cubic-bezier(.2,.75,.25,1) both;
+}
+
+.cookbook-results-section.is-changing #results .recipe-card:nth-child(2) { animation-delay: 35ms; }
+.cookbook-results-section.is-changing #results .recipe-card:nth-child(3) { animation-delay: 70ms; }
+.cookbook-results-section.is-changing #results .recipe-card:nth-child(4) { animation-delay: 105ms; }
+.cookbook-results-section.is-changing #results .recipe-card:nth-child(5) { animation-delay: 140ms; }
+.cookbook-results-section.is-changing #results .recipe-card:nth-child(6) { animation-delay: 175ms; }
+
+@media (max-width: 900px) {
+  .living-recipe-box,
+  .living-recipe-box.is-opening,
+  .living-recipe-box.is-open,
+  .living-recipe-box.is-selecting { min-height: 670px; }
+}
+
+@media (max-width: 680px) {
+  .living-recipe-box,
+  .living-recipe-box.is-opening,
+  .living-recipe-box.is-open,
+  .living-recipe-box.is-selecting { min-height: 608px; }
+  .recipe-box-open-control { top: 48px; }
+  .living-recipe-box.is-opening .recipe-box-open-control,
+  .living-recipe-box.is-open .recipe-box-open-control,
+  .living-recipe-box.is-selecting .recipe-box-open-control { top: 22px; }
+  .recipe-box-interior { min-height: 480px; padding-top: 136px; }
+  .recipe-box-card-well { overflow-x: auto; overflow-y: hidden; }
+}
+
+@media (max-width: 680px) {
+  .living-recipe-box.is-opening,
+  .living-recipe-box.is-open,
+  .living-recipe-box.is-selecting { min-height: 1235px; }
+  .recipe-box-card-well {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    min-height: auto;
+    overflow: visible;
+    gap: 10px;
+  }
+  .cookbook-chapter-divider { min-height: 160px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .living-recipe-box,
+  .recipe-box-lid,
+  .recipe-box-open-control,
+  .recipe-box-interior,
+  .cookbook-chapter-divider,
+  .cookbook-results-section.is-leaving #results,
+  .cookbook-results-section.is-changing #results,
+  .cookbook-results-section.is-changing #results .recipe-card { animation: none; transition: none; }
+}
+
 /* August seasonal layer: high-contrast, late-summer, and intentionally independent
    from the permanent design system so September can replace it cleanly. */
 .august-announcement {

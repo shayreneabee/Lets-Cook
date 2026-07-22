@@ -15833,6 +15833,8 @@ const cookbookNearDuplicateAliases = new Map([
   ["tex-mex-breakfast-tacos", "breakfast-tacos"],
   ["salvadoran-pupusa-supper", "salvadoran-pupusas"]
 ]);
+let livingRecipeBoxState = "closed";
+let livingRecipeBoxTimer = null;
 
 function cookbookChapterByKey(section = "") {
   for (const chapter of cookbookChapterDefinitions) {
@@ -15879,12 +15881,12 @@ function cookbookChapterShelf(selectedSection = "") {
         <h2>The recipe box is on the table.</h2>
         <p>Open it, pull forward a divider, and discover every recipe tucked inside.</p>
       </div>
-      <div class="living-recipe-box ${isOpen ? "is-open" : ""}" data-living-recipe-box>
+      <div class="living-recipe-box ${isOpen ? "is-open" : ""}" data-living-recipe-box data-recipe-box-state="${isOpen ? "open" : "closed"}">
         <div class="recipe-box-lid" aria-hidden="true"><span class="recipe-box-lid-shine"></span></div>
         <button class="recipe-box-open-control" type="button" data-recipe-box-toggle aria-expanded="${isOpen}" aria-controls="recipeBoxInterior">
           <span class="recipe-box-brand">Let’s Cook Y’all</span>
-          <strong>${isOpen ? "The Living Cookbook is open" : "Open the Living Cookbook"}</strong>
-          <small>${isOpen ? "Choose a divider card inside" : "Tap to lift the lid and browse the recipe cards"}</small>
+          <strong>${isOpen ? "Close the Living Cookbook" : "Open the Living Cookbook"}</strong>
+          <small>${isOpen ? "Your recipe cards are ready inside" : "Tap to lift the lid and browse the recipe cards"}</small>
           <span class="recipe-box-handle" aria-hidden="true"></span>
         </button>
         <div class="recipe-box-interior" id="recipeBoxInterior" aria-label="Cookbook chapter dividers">
@@ -15892,7 +15894,8 @@ function cookbookChapterShelf(selectedSection = "") {
             ${cookbookChapterDefinitions.map((chapter, index) => {
               const allChapterRecipes = recipesForCookbookChapter(chapter);
               const active = activeTopLevelId === chapter.id;
-              return `<button class="cookbook-chapter-divider ${active ? "active" : ""}" type="button" role="listitem" data-cookbook-chapter-select="${chapter.id}" aria-pressed="${active}" style="--divider-index:${index}" aria-label="${chapter.title}, browse all ${allChapterRecipes.length} recipes"><span class="divider-icon">${chapter.icon}</span><strong>${chapter.title}</strong><small>${allChapterRecipes.length} recipes</small></button>`;
+              const restingOffset = index % 2 ? "-9px" : "0px";
+              return `<button class="cookbook-chapter-divider ${active ? "active" : ""}" type="button" role="listitem" data-cookbook-chapter-select="${chapter.id}" aria-pressed="${active}" style="--divider-index:${index};--divider-rest:${restingOffset}" aria-label="${chapter.title}, browse all ${allChapterRecipes.length} recipes"><span class="divider-icon">${chapter.icon}</span><strong>${chapter.title}</strong><small>${allChapterRecipes.length} recipes</small></button>`;
             }).join("")}
           </div>
           <div class="main-dish-subnav" data-main-dish-subnav ${activeTopLevelId === "main-dishes" ? "" : "hidden"} aria-label="Main dish chapters">
@@ -15956,9 +15959,35 @@ function cookbookResultsMarkup(chapter, chapterRecipes = recipesForCookbookChapt
   return chapter.id === "miscellaneous" ? miscellaneousChapterMarkup(chapterRecipes) : chapterRecipes.map(recipeCard).join("");
 }
 
+function setLivingRecipeBoxState(nextState) {
+  const recipeBox = document.querySelector("[data-living-recipe-box]");
+  const toggle = document.querySelector("[data-recipe-box-toggle]");
+  if (!recipeBox || !toggle) return false;
+  clearTimeout(livingRecipeBoxTimer);
+  livingRecipeBoxState = nextState;
+  recipeBox.dataset.recipeBoxState = nextState;
+  recipeBox.classList.toggle("is-opening", nextState === "opening");
+  recipeBox.classList.toggle("is-open", nextState === "opening" || nextState === "open" || nextState === "selecting");
+  recipeBox.classList.toggle("is-selecting", nextState === "selecting");
+  recipeBox.classList.toggle("is-closing", nextState === "closing");
+  const open = nextState === "opening" || nextState === "open" || nextState === "selecting";
+  toggle.setAttribute("aria-expanded", String(open));
+  toggle.querySelector("strong").textContent = open ? "Close the Living Cookbook" : "Open the Living Cookbook";
+  toggle.querySelector("small").textContent = open ? "Your recipe cards are ready inside" : "Tap to lift the lid and browse the recipe cards";
+  return true;
+}
+
+function scrollCookbookResultsIfNeeded(sectionNode) {
+  const heading = sectionNode?.querySelector("#cookbookResultsHeading");
+  if (!heading || typeof window === "undefined") return;
+  const bounds = heading.getBoundingClientRect();
+  const outsideViewport = bounds.top < 84 || bounds.bottom > window.innerHeight - 28;
+  if (outsideViewport) heading.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
 function selectCookbookChapter(section = "") {
   const chapter = cookbookChapterByKey(section);
-  if (!chapter) return;
+  if (!chapter || ["opening", "closing", "selecting"].includes(livingRecipeBoxState)) return;
   const activeTopLevelId = chapter.parentId || chapter.id;
   document.querySelectorAll("[data-cookbook-chapter-select]").forEach((card) => {
     const active = card.dataset.cookbookChapterSelect === activeTopLevelId;
@@ -15968,9 +15997,7 @@ function selectCookbookChapter(section = "") {
   const subnav = document.querySelector("[data-main-dish-subnav]");
   if (subnav) subnav.hidden = activeTopLevelId !== "main-dishes";
   const recipeBox = document.querySelector("[data-living-recipe-box]");
-  const recipeBoxToggle = document.querySelector("[data-recipe-box-toggle]");
-  recipeBox?.classList.add("is-open");
-  recipeBoxToggle?.setAttribute("aria-expanded", "true");
+  if (recipeBox && livingRecipeBoxState === "closed") setLivingRecipeBoxState("opening");
   document.querySelectorAll("[data-cookbook-subchapter-select]").forEach((chip) => {
     const active = chip.dataset.cookbookSubchapterSelect === section;
     chip.classList.toggle("active", active);
@@ -15981,37 +16008,46 @@ function selectCookbookChapter(section = "") {
   const action = document.querySelector("#cookbookResultsAction");
   const results = document.querySelector("#results");
   const sectionNode = document.querySelector("#cookbookResults");
-  if (heading) heading.innerHTML = `<span aria-hidden="true">${chapter.icon || "🍽️"}</span> ${chapter.title}`;
-  if (intro) intro.textContent = chapter.intro;
-  const actionLabel = `View all ${recipesForCookbookChapter(chapter).length} ${chapter.title} recipes`;
-  if (action) action.textContent = actionLabel;
-  else intro?.insertAdjacentHTML("afterend", `<button class="cookbook-view-all" id="cookbookResultsAction" type="button" data-cookbook-view-all>${actionLabel}</button>`);
-  if (results) {
-    results.className = chapter.id === "miscellaneous" ? "" : "recipe-grid";
-    results.innerHTML = cookbookResultsMarkup(chapter);
-  }
-  if (sectionNode) {
-    sectionNode.classList.remove("is-changing");
-    requestAnimationFrame(() => sectionNode.classList.add("is-changing"));
-  }
-  history.replaceState(null, "", cookbookSectionRoute(section));
-  sectionNode?.scrollIntoView({ behavior: "smooth", block: "start" });
+  setLivingRecipeBoxState("selecting");
+  sectionNode?.classList.add("is-leaving");
+  livingRecipeBoxTimer = setTimeout(() => {
+    if (heading) heading.innerHTML = `<span aria-hidden="true">${chapter.icon || "🍽️"}</span> ${chapter.title}`;
+    if (intro) intro.textContent = chapter.intro;
+    const actionLabel = `View all ${recipesForCookbookChapter(chapter).length} ${chapter.title} recipes`;
+    if (action) action.textContent = actionLabel;
+    else intro?.insertAdjacentHTML("afterend", `<button class="cookbook-view-all" id="cookbookResultsAction" type="button" data-cookbook-view-all>${actionLabel}</button>`);
+    if (results) {
+      results.className = chapter.id === "miscellaneous" ? "" : "recipe-grid";
+      results.innerHTML = cookbookResultsMarkup(chapter);
+    }
+    if (sectionNode) {
+      sectionNode.classList.remove("is-leaving", "is-changing");
+      requestAnimationFrame(() => sectionNode.classList.add("is-changing"));
+    }
+    if (typeof history !== "undefined") history.replaceState(null, "", cookbookSectionRoute(section));
+    setLivingRecipeBoxState("open");
+    setTimeout(() => scrollCookbookResultsIfNeeded(sectionNode), 180);
+  }, 150);
 }
 
 function toggleLivingRecipeBox() {
   const recipeBox = document.querySelector("[data-living-recipe-box]");
   const toggle = document.querySelector("[data-recipe-box-toggle]");
-  if (!recipeBox || !toggle) return;
-  const isOpen = recipeBox.classList.toggle("is-open");
-  toggle.setAttribute("aria-expanded", String(isOpen));
-  toggle.querySelector("strong").textContent = isOpen ? "The Living Cookbook is open" : "Open the Living Cookbook";
-  toggle.querySelector("small").textContent = isOpen ? "Choose a divider card inside" : "Tap to lift the lid and browse the recipe cards";
+  if (!recipeBox || !toggle || ["opening", "closing", "selecting"].includes(livingRecipeBoxState)) return;
+  if (livingRecipeBoxState === "open") {
+    setLivingRecipeBoxState("closing");
+    livingRecipeBoxTimer = setTimeout(() => setLivingRecipeBoxState("closed"), 560);
+    return;
+  }
+  setLivingRecipeBoxState("opening");
+  livingRecipeBoxTimer = setTimeout(() => setLivingRecipeBoxState("open"), 680);
 }
 
 function renderRecipes() {
   const routeState = routeParts();
   const requestedSection = routeState.section;
   const selectedChapter = cookbookChapterByKey(requestedSection);
+  livingRecipeBoxState = selectedChapter ? "open" : "closed";
   const invalidSection = Boolean(requestedSection && !selectedChapter);
   const initialRecipes = selectedChapter ? recipesForCookbookChapter(selectedChapter) : [];
   const resultsTitle = selectedChapter ? selectedChapter.title : invalidSection ? "Cookbook section not found" : "Choose a cookbook divider";
