@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-22T23:37:39.212Z",
+  "generatedAt": "2026-07-23T00:01:39.568Z",
   "totalRecipes": 675,
-  "uniqueImages": 560,
+  "uniqueImages": 568,
   "missingFiles": [],
   "fallbacks": [],
   "photoQueue": [],
@@ -16,31 +16,6 @@
         {
           "id": "asian-garlic-fried-rice",
           "title": "Garlic Fried Rice"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/audit-2026-06/strawberry-shortcake.png",
-      "recipes": [
-        {
-          "id": "dessert-charcuterie-board",
-          "title": "Dessert Charcuterie Board"
-        },
-        {
-          "id": "haupia",
-          "title": "Haupia"
-        },
-        {
-          "id": "new-zealand-pavlova",
-          "title": "New Zealand Pavlova"
-        },
-        {
-          "id": "valentine-chocolate-fondue",
-          "title": "Valentine Chocolate Fondue"
-        },
-        {
-          "id": "strawberry-shortcake",
-          "title": "Strawberry Shortcake"
         }
       ]
     },
@@ -321,31 +296,6 @@
         {
           "id": "samoan-palusami",
           "title": "Samoan Palusami"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/audit-2026-06/french-bread.jpg",
-      "recipes": [
-        {
-          "id": "french-bread",
-          "title": "Warm French Bread"
-        },
-        {
-          "id": "sourdough-bread",
-          "title": "Sourdough Bread"
-        },
-        {
-          "id": "white-sandwich-bread",
-          "title": "White Sandwich Bread"
-        },
-        {
-          "id": "rosemary-focaccia",
-          "title": "Focaccia"
-        },
-        {
-          "id": "classic-garlic-bread",
-          "title": "Garlic Bread"
         }
       ]
     },
@@ -1211,31 +1161,6 @@
       ]
     },
     {
-      "image": "images/recipes/audit-2026-06/strawberry-shortcake.png",
-      "recipes": [
-        {
-          "id": "dessert-charcuterie-board",
-          "title": "Dessert Charcuterie Board"
-        },
-        {
-          "id": "haupia",
-          "title": "Haupia"
-        },
-        {
-          "id": "new-zealand-pavlova",
-          "title": "New Zealand Pavlova"
-        },
-        {
-          "id": "valentine-chocolate-fondue",
-          "title": "Valentine Chocolate Fondue"
-        },
-        {
-          "id": "strawberry-shortcake",
-          "title": "Strawberry Shortcake"
-        }
-      ]
-    },
-    {
       "image": "images/recipes/audit-2026-06/pineapple-fried-rice.jpg",
       "recipes": [
         {
@@ -1512,31 +1437,6 @@
         {
           "id": "samoan-palusami",
           "title": "Samoan Palusami"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/audit-2026-06/french-bread.jpg",
-      "recipes": [
-        {
-          "id": "french-bread",
-          "title": "Warm French Bread"
-        },
-        {
-          "id": "sourdough-bread",
-          "title": "Sourdough Bread"
-        },
-        {
-          "id": "white-sandwich-bread",
-          "title": "White Sandwich Bread"
-        },
-        {
-          "id": "rosemary-focaccia",
-          "title": "Focaccia"
-        },
-        {
-          "id": "classic-garlic-bread",
-          "title": "Garlic Bread"
         }
       ]
     },
@@ -2396,34 +2296,6 @@
       "reason": "Shared primary image belongs to a different named dish."
     },
     {
-      "id": "haupia",
-      "title": "Haupia",
-      "reusedImage": "images/recipes/audit-2026-06/strawberry-shortcake.png",
-      "expectedPath": "images/recipes/photo-review/haupia.jpg",
-      "reason": "Shared primary image belongs to a different named dish."
-    },
-    {
-      "id": "new-zealand-pavlova",
-      "title": "New Zealand Pavlova",
-      "reusedImage": "images/recipes/audit-2026-06/strawberry-shortcake.png",
-      "expectedPath": "images/recipes/photo-review/new-zealand-pavlova.jpg",
-      "reason": "Shared primary image belongs to a different named dish."
-    },
-    {
-      "id": "valentine-chocolate-fondue",
-      "title": "Valentine Chocolate Fondue",
-      "reusedImage": "images/recipes/audit-2026-06/strawberry-shortcake.png",
-      "expectedPath": "images/recipes/photo-review/valentine-chocolate-fondue.jpg",
-      "reason": "Shared primary image belongs to a different named dish."
-    },
-    {
-      "id": "strawberry-shortcake",
-      "title": "Strawberry Shortcake",
-      "reusedImage": "images/recipes/audit-2026-06/strawberry-shortcake.png",
-      "expectedPath": "images/recipes/photo-review/strawberry-shortcake.jpg",
-      "reason": "Shared primary image belongs to a different named dish."
-    },
-    {
       "id": "kids-mini-poke-cups",
       "title": "Mini Island Rice Cups",
       "reusedImage": "images/recipes/audit-2026-06/pineapple-fried-rice.jpg",
@@ -2596,34 +2468,6 @@
       "title": "Samoan Palusami",
       "reusedImage": "images/recipes/audit-2026-06/smothered-green-beans.jpg",
       "expectedPath": "images/recipes/photo-review/samoan-palusami.jpg",
-      "reason": "Shared primary image belongs to a different named dish."
-    },
-    {
-      "id": "sourdough-bread",
-      "title": "Sourdough Bread",
-      "reusedImage": "images/recipes/audit-2026-06/french-bread.jpg",
-      "expectedPath": "images/recipes/photo-review/sourdough-bread.jpg",
-      "reason": "Shared primary image belongs to a different named dish."
-    },
-    {
-      "id": "white-sandwich-bread",
-      "title": "White Sandwich Bread",
-      "reusedImage": "images/recipes/audit-2026-06/french-bread.jpg",
-      "expectedPath": "images/recipes/photo-review/white-sandwich-bread.jpg",
-      "reason": "Shared primary image belongs to a different named dish."
-    },
-    {
-      "id": "rosemary-focaccia",
-      "title": "Focaccia",
-      "reusedImage": "images/recipes/audit-2026-06/french-bread.jpg",
-      "expectedPath": "images/recipes/photo-review/rosemary-focaccia.jpg",
-      "reason": "Shared primary image belongs to a different named dish."
-    },
-    {
-      "id": "classic-garlic-bread",
-      "title": "Garlic Bread",
-      "reusedImage": "images/recipes/audit-2026-06/french-bread.jpg",
-      "expectedPath": "images/recipes/photo-review/classic-garlic-bread.jpg",
       "reason": "Shared primary image belongs to a different named dish."
     },
     {
@@ -3420,7 +3264,7 @@
       "title": "Dessert Charcuterie Board",
       "cuisine": "hosting",
       "category": "Party & Hosting",
-      "image": "images/recipes/audit-2026-06/strawberry-shortcake.png",
+      "image": "images/recipes/photo-review/dessert-charcuterie-board.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -8590,7 +8434,7 @@
       "title": "Haupia",
       "cuisine": "hawaii",
       "category": "Hawaii Desserts",
-      "image": "images/recipes/audit-2026-06/strawberry-shortcake.png",
+      "image": "images/recipes/photo-review/haupia.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -9140,7 +8984,7 @@
       "title": "New Zealand Pavlova",
       "cuisine": "global",
       "category": "New Zealand Dessert",
-      "image": "images/recipes/audit-2026-06/strawberry-shortcake.png",
+      "image": "images/recipes/photo-review/new-zealand-pavlova.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -9490,7 +9334,7 @@
       "title": "Valentine Chocolate Fondue",
       "cuisine": "holiday",
       "category": "Valentine's Day Desserts",
-      "image": "images/recipes/audit-2026-06/strawberry-shortcake.png",
+      "image": "images/recipes/photo-review/valentine-chocolate-fondue.png",
       "source": "recipe-data",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -9720,7 +9564,7 @@
       "title": "Sourdough Bread",
       "cuisine": "global",
       "category": "Breads",
-      "image": "images/recipes/audit-2026-06/french-bread.jpg",
+      "image": "images/recipes/photo-review/sourdough-bread.png",
       "source": "recipe-data",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -9730,7 +9574,7 @@
       "title": "White Sandwich Bread",
       "cuisine": "global",
       "category": "Breads",
-      "image": "images/recipes/audit-2026-06/french-bread.jpg",
+      "image": "images/recipes/photo-review/white-sandwich-bread.png",
       "source": "recipe-data",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -9770,7 +9614,7 @@
       "title": "Focaccia",
       "cuisine": "italian",
       "category": "Breads",
-      "image": "images/recipes/audit-2026-06/french-bread.jpg",
+      "image": "images/recipes/photo-review/rosemary-focaccia.png",
       "source": "recipe-data",
       "fallbackUsed": false,
       "missingRecipeImage": false
@@ -9780,7 +9624,7 @@
       "title": "Garlic Bread",
       "cuisine": "italian",
       "category": "Breads",
-      "image": "images/recipes/audit-2026-06/french-bread.jpg",
+      "image": "images/recipes/photo-review/classic-garlic-bread.png",
       "source": "recipe-data",
       "fallbackUsed": false,
       "missingRecipeImage": false

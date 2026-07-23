@@ -1,6 +1,6 @@
 # Let's Cook Y'all Content Quality Audit
 
-Generated: 2026-07-22T23:37:38.950Z
+Generated: 2026-07-23T00:01:42.947Z
 
 ## Summary
 
@@ -12,9 +12,9 @@ Generated: 2026-07-22T23:37:38.950Z
 - Duplicate ingredient-list groups: 0
 - Intentional ingredient-list variations reviewed: 1
 - Duplicate instruction-list groups: 0
-- Shared image groups: 81
-- Unrelated shared image groups: 81
-- Image review queue items: 115
+- Shared image groups: 79
+- Unrelated shared image groups: 79
+- Image review queue items: 107
 - Generic recipe image assignments: 0
 - Semantic image mismatches: 0
 - Fallback/queued images: 0
@@ -56,7 +56,6 @@ Generated: 2026-07-22T23:37:38.950Z
 ## Top Shared Images
 
 - images/recipes/asian-hub-2026/asian-garlic-fried-rice.png: 2 recipes
-- images/recipes/audit-2026-06/strawberry-shortcake.png: 5 recipes
 - images/recipes/audit-2026-06/pineapple-fried-rice.jpg: 2 recipes
 - images/recipes/audit-2026-06/lamb-bone-broth-soup.jpg: 2 recipes
 - images/recipes/audit-2026-06/biryani.jpg: 2 recipes
@@ -75,6 +74,7 @@ Generated: 2026-07-22T23:37:38.950Z
 - images/juneteenth/hibiscus-red-punch.png: 2 recipes
 - images/recipes/audit-2026-06/greek-salad.jpg: 3 recipes
 - images/recipes/audit-2026-06/roasted-vegetables.jpg: 2 recipes
+- images/recipes/audit-2026-06/rice-pilaf.jpg: 3 recipes
 
 ## Generic Recipe Images To Replace
 

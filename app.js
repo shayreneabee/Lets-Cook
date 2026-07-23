@@ -5670,7 +5670,7 @@ const holidayExpansionRecipes = [
   midAtlanticRecipe("coconut-cake", "Coconut Cake", "holiday", "Easter Desserts", "Tender layer cake with coconut frosting and fluffy coconut all over.", ["2 cake layers", "Coconut milk", "Vanilla frosting", "2 cups shredded coconut", "Sugar"], ["Bake cake layers.", "Cool completely.", "Brush lightly with coconut milk if desired.", "Frost layers and outside.", "Press coconut onto frosting."], ["coconut cake", "easter", "dessert"], { image: "assets/lc-desserts.jpg", prep: "45 min", cook: "30 min", servings: 12 }),
   midAtlanticRecipe("spring-vegetables", "Spring Vegetables", "holiday", "Easter Sides", "Asparagus, peas, carrots, and herbs sauteed lightly for Easter plates.", ["1 bunch asparagus", "2 cups peas", "3 carrots", "2 tbsp butter", "Lemon", "Mint or parsley"], ["Cut vegetables evenly.", "Blanch carrots and asparagus until crisp-tender.", "Saute with butter.", "Add peas.", "Finish with lemon and herbs."], ["spring vegetables", "easter", "side"], { image: "assets/ingredients.jpeg", prep: "15 min", cook: "12 min", servings: 6 }),
   midAtlanticRecipe("chocolate-covered-strawberries", "Chocolate Covered Strawberries", "holiday", "Valentine's Day Desserts", "Juicy strawberries dipped in chocolate for date night, Galentine's brunch, dessert boards, or a sweet family treat.", ["1 lb strawberries", "8 oz chocolate", "1 tsp coconut oil optional", "White chocolate drizzle optional", "Sprinkles optional"], ["Wash and dry strawberries completely.", "Melt chocolate gently.", "Dip strawberries and place on parchment.", "Add drizzle or sprinkles before the chocolate sets.", "Chill briefly and serve the same day."], ["valentine", "strawberries", "chocolate", "dessert"], { image: "images/recipes/audit-2026-06/strawberry-shortcake.png", prep: "25 min", cook: "5 min", servings: 8, level: "Beginner" }),
-  midAtlanticRecipe("valentine-chocolate-fondue", "Valentine Chocolate Fondue", "holiday", "Valentine's Day Desserts", "Warm chocolate fondue with fruit, cookies, marshmallows, and pound cake for a cozy shareable dessert.", ["10 oz chocolate", "3/4 cup heavy cream", "1 tsp vanilla", "Strawberries", "Bananas", "Pound cake cubes", "Marshmallows", "Cookies"], ["Warm cream until steaming.", "Pour over chocolate and rest 2 minutes.", "Stir until glossy and add vanilla.", "Arrange dippers on a platter.", "Serve warm and stir as needed."], ["valentine", "fondue", "chocolate", "date night"], { image: "images/recipes/audit-2026-06/strawberry-shortcake.png", prep: "15 min", cook: "5 min", servings: 6, level: "Beginner" }),
+  midAtlanticRecipe("valentine-chocolate-fondue", "Valentine Chocolate Fondue", "holiday", "Valentine's Day Desserts", "Warm chocolate fondue with fruit, cookies, marshmallows, and pound cake for a cozy shareable dessert.", ["10 oz chocolate", "3/4 cup heavy cream", "1 tsp vanilla", "Strawberries", "Bananas", "Pound cake cubes", "Marshmallows", "Cookies"], ["Warm cream until steaming.", "Pour over chocolate and rest 2 minutes.", "Stir until glossy and add vanilla.", "Arrange dippers on a platter.", "Serve warm and stir as needed."], ["valentine", "fondue", "chocolate", "date night"], { image: "images/recipes/photo-review/valentine-chocolate-fondue.png", prep: "15 min", cook: "5 min", servings: 6, level: "Beginner" }),
   midAtlanticRecipe("irish-soda-bread", "Irish Soda Bread", "holiday", "St. Patrick's Day Breads", "A simple quick bread with buttermilk, baking soda, and a craggy golden crust for stew night.", ["4 cups flour", "1 tsp baking soda", "1 tsp salt", "1 3/4 cups buttermilk", "2 tbsp butter optional"], ["Heat oven to 425 F.", "Whisk flour, baking soda, and salt.", "Stir in buttermilk to make a shaggy dough.", "Shape into a round and score the top.", "Bake until golden and hollow-sounding."], ["st patricks", "irish", "soda bread", "bread"], { image: "assets/fresh-bread.jpeg", prep: "15 min", cook: "40 min", servings: 8, level: "Beginner" }),
   midAtlanticRecipe("colcannon-potatoes", "Colcannon Potatoes", "holiday", "St. Patrick's Day Sides", "Creamy mashed potatoes folded with cabbage or kale, scallions, butter, and a little comfort.", ["3 lb potatoes", "4 tbsp butter", "1 cup milk", "3 cups cabbage or kale", "4 scallions", "Salt", "Pepper"], ["Boil potatoes until tender.", "Cook cabbage or kale in butter until softened.", "Mash potatoes with warm milk.", "Fold in greens and scallions.", "Season and serve with extra butter."], ["st patricks", "irish", "potatoes", "side"], { image: "images/recipes/audit-2026-06/funeral-potatoes.jpg", prep: "15 min", cook: "30 min", servings: 8 }),
   midAtlanticRecipe("hot-cross-buns", "Hot Cross Buns", "holiday", "Easter Breads", "Soft spiced buns with dried fruit and a simple cross for Easter brunch or church supper tables.", ["3 1/2 cups flour", "1 packet yeast", "1 cup milk", "1/4 cup sugar", "1 egg", "4 tbsp butter", "1 cup raisins", "Cinnamon", "Icing"], ["Make a soft enriched dough with flour, yeast, milk, sugar, egg, butter, and cinnamon.", "Knead in raisins and let rise.", "Shape buns and rise again.", "Bake until golden.", "Pipe crosses after cooling slightly."], ["easter", "hot cross buns", "bread", "brunch"], { image: "images/recipes/audit-2026-06/dinner-rolls.jpg", prep: "35 min", cook: "22 min", servings: 12, level: "Intermediate" }),
@@ -6000,13 +6000,13 @@ function kitchenDayView(dateKey) {
 }
 
 const foundationalBreadAndCookieRecipes = [
-  midAtlanticRecipe("sourdough-bread", "Sourdough Bread", "global", "Breads", "A crackly naturally leavened loaf with an open crumb and deep fermented flavor.", ["100 g active sourdough starter", "375 g warm water", "500 g bread flour", "10 g kosher salt"], ["Mix starter and water, then add flour and rest 30 minutes.", "Work in salt and complete four stretch-and-fold rounds.", "Bulk ferment until airy, shape, and refrigerate overnight.", "Score and bake in a covered Dutch oven at 475 F.", "Uncover and bake until deeply browned; cool completely."], ["sourdough", "bread", "fermentation"], { image: "images/recipes/audit-2026-06/french-bread.jpg", prep: "45 min plus rising", cook: "45 min", servings: 12, level: "Advanced" }),
-  midAtlanticRecipe("white-sandwich-bread", "White Sandwich Bread", "global", "Breads", "A soft, fine-crumbed everyday loaf that slices cleanly for toast and lunch boxes.", ["4 cups bread flour", "2 1/4 tsp yeast", "1 1/2 cups warm milk", "3 tbsp butter", "2 tbsp sugar", "2 tsp salt"], ["Mix and knead a soft smooth dough.", "Rise until doubled.", "Shape tightly and place in a loaf pan.", "Rise until crowned above the rim.", "Bake at 375 F until golden and 195 F inside."], ["sandwich bread", "lunch", "yeast bread"], { image: "images/recipes/audit-2026-06/french-bread.jpg", prep: "25 min plus rising", cook: "35 min", servings: 12 }),
+  midAtlanticRecipe("sourdough-bread", "Sourdough Bread", "global", "Breads", "A crackly naturally leavened loaf with an open crumb and deep fermented flavor.", ["100 g active sourdough starter", "375 g warm water", "500 g bread flour", "10 g kosher salt"], ["Mix starter and water, then add flour and rest 30 minutes.", "Work in salt and complete four stretch-and-fold rounds.", "Bulk ferment until airy, shape, and refrigerate overnight.", "Score and bake in a covered Dutch oven at 475 F.", "Uncover and bake until deeply browned; cool completely."], ["sourdough", "bread", "fermentation"], { image: "images/recipes/photo-review/sourdough-bread.png", prep: "45 min plus rising", cook: "45 min", servings: 12, level: "Advanced" }),
+  midAtlanticRecipe("white-sandwich-bread", "White Sandwich Bread", "global", "Breads", "A soft, fine-crumbed everyday loaf that slices cleanly for toast and lunch boxes.", ["4 cups bread flour", "2 1/4 tsp yeast", "1 1/2 cups warm milk", "3 tbsp butter", "2 tbsp sugar", "2 tsp salt"], ["Mix and knead a soft smooth dough.", "Rise until doubled.", "Shape tightly and place in a loaf pan.", "Rise until crowned above the rim.", "Bake at 375 F until golden and 195 F inside."], ["sandwich bread", "lunch", "yeast bread"], { image: "images/recipes/photo-review/white-sandwich-bread.png", prep: "25 min plus rising", cook: "35 min", servings: 12 }),
   midAtlanticRecipe("jalapeno-cornbread", "Jalapeño Cornbread", "southern", "Breads", "Skillet cornbread with jalapeño, scallions, and optional cheddar for chili and cookouts.", ["1 1/2 cups cornmeal", "1/2 cup flour", "1 tbsp baking powder", "1 1/2 cups buttermilk", "2 eggs", "1 jalapeño", "1 cup cheddar optional", "3 tbsp oil"], ["Heat an oiled skillet in a 425 F oven.", "Mix dry ingredients.", "Whisk buttermilk and eggs, then combine.", "Fold in jalapeño and cheese.", "Pour into the hot skillet and bake until crisp and golden."], ["cornbread", "jalapeno", "skillet"], { image: "images/juneteenth/cast-iron-skillet-cornbread.png", prep: "15 min", cook: "24 min", servings: 8 }),
   midAtlanticRecipe("banana-bread", "Banana Bread", "southern", "Breads", "A moist quick bread packed with ripe banana and warm vanilla.", ["3 ripe bananas", "1/2 cup melted butter", "3/4 cup brown sugar", "2 eggs", "1 tsp vanilla", "1 1/2 cups flour", "1 tsp baking soda", "1/2 tsp salt"], ["Heat oven to 350 F and grease a loaf pan.", "Mash bananas with butter and sugar.", "Whisk in eggs and vanilla.", "Fold in flour, baking soda, and salt just until combined.", "Bake until a tester comes out clean."], ["banana bread", "quick bread", "breakfast"], { image: "images/recipes/new-england-2026/brown-bread.jpg", prep: "15 min", cook: "55 min", servings: 10 }),
   midAtlanticRecipe("pumpkin-bread", "Pumpkin Bread", "southern", "Breads", "A tender spiced pumpkin loaf for breakfast, snacks, and fall lunch boxes.", ["1 3/4 cups flour", "1 tsp baking soda", "2 tsp pumpkin spice", "1/2 tsp salt", "1 cup pumpkin puree", "2 eggs", "3/4 cup brown sugar", "1/2 cup oil"], ["Heat oven to 350 F and grease a loaf pan.", "Whisk dry ingredients.", "Whisk pumpkin, eggs, sugar, and oil.", "Fold wet and dry mixtures together.", "Bake until set through the center."], ["pumpkin bread", "quick bread", "fall"], { image: "images/recipes/new-england-2026/brown-bread.jpg", prep: "15 min", cook: "55 min", servings: 10 }),
-  midAtlanticRecipe("rosemary-focaccia", "Focaccia", "italian", "Breads", "Olive-oil-rich focaccia with a crisp bottom, airy crumb, rosemary, and flaky salt.", ["4 cups bread flour", "2 1/4 tsp yeast", "2 cups warm water", "2 tsp salt", "1/3 cup olive oil", "Rosemary", "Flaky salt"], ["Mix a wet dough and refrigerate overnight.", "Pour into an oiled pan and let rise until bubbly.", "Dimple deeply with oiled fingers.", "Top with rosemary, oil, and salt.", "Bake at 425 F until deeply golden."], ["focaccia", "italian bread", "olive oil"], { image: "images/recipes/audit-2026-06/french-bread.jpg", prep: "20 min plus rising", cook: "28 min", servings: 12 }),
-  midAtlanticRecipe("classic-garlic-bread", "Garlic Bread", "italian", "Breads", "Crusty bread spread with garlic-herb butter and baked until crisp at the edges.", ["1 French or Italian loaf", "8 tbsp softened butter", "4 garlic cloves", "2 tbsp parsley", "1/4 cup parmesan optional", "Salt"], ["Split the loaf lengthwise.", "Mix butter, garlic, parsley, salt, and parmesan.", "Spread to every edge.", "Bake at 400 F until hot and crisp.", "Broil briefly for extra color and slice."], ["garlic bread", "italian", "side"], { image: "images/recipes/audit-2026-06/french-bread.jpg", prep: "10 min", cook: "12 min", servings: 8 }),
+  midAtlanticRecipe("rosemary-focaccia", "Focaccia", "italian", "Breads", "Olive-oil-rich focaccia with a crisp bottom, airy crumb, rosemary, and flaky salt.", ["4 cups bread flour", "2 1/4 tsp yeast", "2 cups warm water", "2 tsp salt", "1/3 cup olive oil", "Rosemary", "Flaky salt"], ["Mix a wet dough and refrigerate overnight.", "Pour into an oiled pan and let rise until bubbly.", "Dimple deeply with oiled fingers.", "Top with rosemary, oil, and salt.", "Bake at 425 F until deeply golden."], ["focaccia", "italian bread", "olive oil"], { image: "images/recipes/photo-review/rosemary-focaccia.png", prep: "20 min plus rising", cook: "28 min", servings: 12 }),
+  midAtlanticRecipe("classic-garlic-bread", "Garlic Bread", "italian", "Breads", "Crusty bread spread with garlic-herb butter and baked until crisp at the edges.", ["1 French or Italian loaf", "8 tbsp softened butter", "4 garlic cloves", "2 tbsp parsley", "1/4 cup parmesan optional", "Salt"], ["Split the loaf lengthwise.", "Mix butter, garlic, parsley, salt, and parmesan.", "Spread to every edge.", "Bake at 400 F until hot and crisp.", "Broil briefly for extra color and slice."], ["garlic bread", "italian", "side"], { image: "images/recipes/photo-review/classic-garlic-bread.png", prep: "10 min", cook: "12 min", servings: 8 }),
   midAtlanticRecipe("classic-cinnamon-rolls", "Cinnamon Rolls", "southern", "Breads", "Soft swirled breakfast rolls with cinnamon-brown sugar filling and vanilla glaze.", ["4 cups flour", "2 1/4 tsp yeast", "1 cup warm milk", "1/3 cup butter", "2 eggs", "3/4 cup brown sugar", "2 tbsp cinnamon", "Vanilla glaze"], ["Mix, knead, and rise the enriched dough.", "Roll into a rectangle and spread with butter, sugar, and cinnamon.", "Roll up, cut, and place in a baking dish.", "Rise until puffy and bake at 350 F.", "Glaze while warm."], ["cinnamon rolls", "breakfast", "yeast bread"], { image: "images/recipes/audit-2026-06/dinner-rolls.jpg", prep: "35 min plus rising", cook: "25 min", servings: 12, level: "Intermediate" }),
   midAtlanticRecipe("classic-peanut-butter-cookies", "Peanut Butter Cookies", "southern", "Cookies", "Tender peanut butter cookies with the classic crisscross top.", ["1 cup peanut butter", "1/2 cup butter", "3/4 cup brown sugar", "1/2 cup sugar", "1 egg", "1 1/2 cups flour", "1 tsp baking soda"], ["Cream butter, peanut butter, and sugars.", "Beat in egg.", "Fold in flour and baking soda.", "Roll into balls and press with a fork.", "Bake at 350 F until the edges set."], ["peanut butter cookies", "cookies"], { image: "images/recipes/cookies-2026/peanut-butter-cookies.png", prep: "15 min", cook: "10 min", servings: 24 }),
   midAtlanticRecipe("oatmeal-raisin-cookies", "Oatmeal Raisin Cookies", "southern", "Cookies", "Chewy oatmeal cookies with raisins, cinnamon, and crisp golden edges.", ["1 cup butter", "1 cup brown sugar", "2 eggs", "1 1/2 cups flour", "3 cups rolled oats", "1 cup raisins", "1 tsp cinnamon", "1 tsp baking soda"], ["Cream butter and sugar, then beat in eggs.", "Mix flour, cinnamon, and baking soda.", "Fold in oats and raisins.", "Scoop onto lined pans.", "Bake at 350 F until golden at the edges."], ["oatmeal raisin cookies", "cookies"], { image: "images/recipes/cookies-2026/oatmeal-raisin-cookies.png", prep: "15 min", cook: "12 min", servings: 30 }),
@@ -6930,9 +6930,9 @@ Object.assign(recipeImageOverrides, {
   "indonesian-nasi-goreng": "images/recipes/audit-2026-06/shrimp-fried-rice.jpg",
   "hawaiian-poke-bowls": "images/recipes/audit-2026-06/blackened-swordfish.jpg",
   "fried-rice": "images/recipes/audit-2026-06/shrimp-fried-rice.jpg",
-  "dessert-charcuterie-board": "images/recipes/audit-2026-06/strawberry-shortcake.png",
+  "dessert-charcuterie-board": "images/recipes/photo-review/dessert-charcuterie-board.png",
   "seattle-teriyaki-chicken": "images/recipes/audit-2026-06/orange-chicken.jpg",
-  "haupia": "images/recipes/audit-2026-06/strawberry-shortcake.png",
+  "haupia": "images/recipes/photo-review/haupia.png",
   "palestinian-musakhan-style-chicken": "images/recipes/audit-2026-06/smothered-chicken.jpg",
   "roast-duck": "images/recipes/holiday-2026/roast-turkey.png",
   "san-francisco-cioppino": "images/recipes/audit-2026-06/florida-blue-crab.jpg",
@@ -7021,7 +7021,7 @@ Object.assign(recipeImageOverrides, {
   "australian-lamingtons": "images/recipes/audit-2026-06/midwest-dessert-bars.jpg",
   "australian-barbecue-prawns": "images/recipes/audit-2026-06/shrimp-dejonghe.jpg",
   "new-zealand-roast-lamb": "images/recipes/audit-2026-06/lamb-bone-broth-soup.jpg",
-  "new-zealand-pavlova": "images/recipes/audit-2026-06/strawberry-shortcake.png",
+  "new-zealand-pavlova": "images/recipes/photo-review/new-zealand-pavlova.png",
   "new-zealand-seafood-chowder": "images/recipes/new-england-2026/fish-chowder.jpg",
   "new-zealand-meat-pies": "images/recipes/audit-2026-06/upper-peninsula-pasties.jpg",
   "fijian-kokoda": "images/recipes/audit-2026-06/blackened-swordfish.jpg",
@@ -15826,6 +15826,20 @@ const cookbookChapterDefinitions = [
 ];
 
 const cookbookChapterKeys = new Set(cookbookChapterDefinitions.flatMap((chapter) => [chapter.id, ...(chapter.subchapters || []).map((subchapter) => subchapter.id)]));
+const recipeBoxTabDefinitions = [
+  { id: "breakfast", icon: "🍳", title: "Breakfast", intro: "Bright starts, slow mornings, and family favorites.", chapter: "breakfast" },
+  { id: "soups", icon: "🥣", title: "Soups", intro: "Cozy bowls, brothy classics, and simmered comfort.", chapter: "soups" },
+  { id: "salads", icon: "🥗", title: "Salads", intro: "Fresh crunch, color, and market-table flavor.", chapter: "salads" },
+  { id: "chicken", icon: "🍗", title: "Chicken", intro: "Chicken, turkey, wings, curries, and comfort food.", chapter: "poultry" },
+  { id: "beef", icon: "🥩", title: "Beef", intro: "Steaks, roasts, brisket, burgers, and hearty plates.", chapter: "beef" },
+  { id: "seafood", icon: "🐟", title: "Seafood", intro: "Fish fries, shrimp, crab, salmon, and coastal supper.", chapter: "fish-seafood" },
+  { id: "vegetables", icon: "🥬", title: "Vegetables", intro: "Garden vegetables and soulful greens worth celebrating.", chapter: "vegetables" },
+  { id: "pasta", icon: "🍝", title: "Pasta", intro: "Noodles, baked pasta, rice, and comforting bowls.", matcher: (recipe) => /pasta|spaghetti|noodle|macaroni|mac and cheese|lasagna|risotto|pilaf/.test(recipeBoxRecipeText(recipe)) },
+  { id: "breads", icon: "🍞", title: "Breads", intro: "Warm loaves, biscuits, rolls, cornbread, and flatbreads.", chapter: "breads" },
+  { id: "desserts", icon: "🍰", title: "Desserts", intro: "Sweet endings, cookies, and treats worth saving room for.", matcher: (recipe) => ["desserts", "cookies"].includes(recipeCookbookPrimarySection(recipe)) },
+  { id: "holiday-tables", icon: "🎉", title: "Holiday Tables", intro: "Recipes made for celebrations, traditions, and gathering everybody close.", matcher: (recipe) => /holiday|thanksgiving|christmas|easter|valentine|mardi gras|ramadan|eid|hanukkah|diwali|juneteenth|new year|game day|super bowl/i.test(`${recipe.category || ""} ${(recipe.tags || []).join(" ")} ${recipe.cuisine || ""}`) },
+  { id: "global-cuisine", icon: "🌎", title: "Global Cuisine", intro: "Cook around the world with culturally curious, flavor-forward recipes.", matcher: (recipe) => !/^(southern|creole|cajun|soul-food|bbq|low-country|mississippi|holiday|hosting|western-kids)$/i.test(recipe.cuisine || "") }
+];
 const cookbookNearDuplicateAliases = new Map([
   ["cuban-sandwich-press", "cuban-sandwich"],
   ["mini-quesadillas", "cheese-quesadilla-triangles"],
@@ -15843,6 +15857,39 @@ function cookbookChapterByKey(section = "") {
     if (subchapter) return { ...subchapter, parentId: chapter.id };
   }
   return null;
+}
+
+function recipeBoxTabByKey(section = "") {
+  return recipeBoxTabDefinitions.find((tab) => tab.id === section) || null;
+}
+
+function recipeBoxRecipeText(recipe) {
+  return `${recipe.title || ""} ${recipe.category || ""} ${(recipe.tags || []).join(" ")} ${(recipe.ingredients || []).join(" ")}`.toLowerCase();
+}
+
+function recipeMatchesRecipeBoxTab(recipe, tab) {
+  if (!tab) return false;
+  if (tab.chapter) {
+    const chapter = cookbookChapterByKey(tab.chapter);
+    return chapter?.id === "main-dishes"
+      ? ["beef", "poultry", "fish-seafood"].includes(recipeCookbookPrimarySection(recipe))
+      : recipeCookbookPrimarySection(recipe) === chapter?.id;
+  }
+  return Boolean(tab.matcher?.(recipe));
+}
+
+function recipesForRecipeBoxTab(tab, limit = Number.POSITIVE_INFINITY) {
+  const seen = new Set();
+  const seenImages = new Set();
+  return allRecipeCollection().filter((recipe) => {
+    if (cookbookNearDuplicateAliases.has(recipe.id) || !recipeMatchesRecipeBoxTab(recipe, tab)) return false;
+    const canonicalId = cookbookNearDuplicateAliases.get(recipe.id) || recipe.id;
+    const image = recipePhotoFor(recipe);
+    if (seen.has(canonicalId) || seenImages.has(image)) return false;
+    seen.add(canonicalId);
+    seenImages.add(image);
+    return true;
+  }).slice(0, Number.isFinite(limit) ? limit : undefined);
 }
 
 function cookbookSectionRoute(section = "") {
@@ -15871,18 +15918,18 @@ function recipesForCookbookChapter(chapter, limit = Number.POSITIVE_INFINITY) {
 }
 
 function cookbookChapterShelf(selectedSection = "") {
-  const selectedChapter = cookbookChapterByKey(selectedSection);
-  const activeTopLevelId = selectedChapter?.parentId || selectedChapter?.id || "";
-  const isOpen = Boolean(selectedChapter);
+  const selectedTab = recipeBoxTabByKey(selectedSection);
+  const activeTabId = selectedTab?.id || "";
+  const isOpen = Boolean(selectedTab);
   return `
-    <section class="cream-section cookbook-chapter-shelf recipe-box-experience">
-      <div class="section-heading compact-heading">
+    <section class="cream-section cookbook-chapter-shelf recipe-box-experience recipe-box-page-hero">
+      <div class="section-heading compact-heading recipe-box-stage-copy">
         <p class="eyebrow">Living Cookbook</p>
-        <h2>The recipe box is on the table.</h2>
-        <p>Open it, pull forward a divider, and discover every recipe tucked inside.</p>
+        <h1>The recipe box is on the table.</h1>
+        <p>Open the lid, pull forward a handwritten divider, and find something beautiful to cook.</p>
       </div>
       <div class="living-recipe-box ${isOpen ? "is-open" : ""}" data-living-recipe-box data-recipe-box-state="${isOpen ? "open" : "closed"}">
-        <div class="recipe-box-lid" aria-hidden="true"><span class="recipe-box-lid-shine"></span></div>
+        <div class="recipe-box-lid"><span class="recipe-box-lid-shine"></span><label class="recipe-box-lid-search" for="searchBox"><span>What are y’all cooking?</span><input id="searchBox" type="search" value="${escapeHTML(routeParts().query)}" placeholder="Try ribeye, chicken thighs, peaches..." /></label></div>
         <button class="recipe-box-open-control" type="button" data-recipe-box-toggle aria-expanded="${isOpen}" aria-controls="recipeBoxInterior">
           <span class="recipe-box-brand">Let’s Cook Y’all</span>
           <strong>${isOpen ? "Close the Living Cookbook" : "Open the Living Cookbook"}</strong>
@@ -15891,18 +15938,22 @@ function cookbookChapterShelf(selectedSection = "") {
         </button>
         <div class="recipe-box-interior" id="recipeBoxInterior" aria-label="Cookbook chapter dividers">
           <div class="recipe-box-card-well" role="list">
-            ${cookbookChapterDefinitions.map((chapter, index) => {
-              const allChapterRecipes = recipesForCookbookChapter(chapter);
-              const active = activeTopLevelId === chapter.id;
+            ${recipeBoxTabDefinitions.map((tab, index) => {
+              const allTabRecipes = recipesForRecipeBoxTab(tab);
+              const active = activeTabId === tab.id;
               const restingOffset = index % 2 ? "-9px" : "0px";
-              return `<button class="cookbook-chapter-divider ${active ? "active" : ""}" type="button" role="listitem" data-cookbook-chapter-select="${chapter.id}" aria-pressed="${active}" style="--divider-index:${index};--divider-rest:${restingOffset}" aria-label="${chapter.title}, browse all ${allChapterRecipes.length} recipes"><span class="divider-icon">${chapter.icon}</span><strong>${chapter.title}</strong><small>${allChapterRecipes.length} recipes</small></button>`;
+              return `<button class="cookbook-chapter-divider ${active ? "active" : ""}" type="button" role="listitem" data-cookbook-chapter-select="${tab.id}" aria-pressed="${active}" style="--divider-index:${index};--divider-rest:${restingOffset}" aria-label="${tab.title}, browse all ${allTabRecipes.length} recipes"><span class="divider-icon">${tab.icon}</span><strong>${tab.title}</strong><small>${allTabRecipes.length} recipes</small></button>`;
             }).join("")}
-          </div>
-          <div class="main-dish-subnav" data-main-dish-subnav ${activeTopLevelId === "main-dishes" ? "" : "hidden"} aria-label="Main dish chapters">
-            ${cookbookChapterByKey("main-dishes").subchapters.map((chapter) => `<button type="button" class="main-dish-chip ${selectedSection === chapter.id ? "active" : ""}" data-cookbook-subchapter-select="${chapter.id}" aria-pressed="${selectedSection === chapter.id}">${chapter.icon} ${chapter.title}</button>`).join("")}
           </div>
         </div>
       </div>
+      <section class="recipe-box-filter-drawer" data-recipe-filter-drawer>
+        <button class="recipe-filter-drawer-handle" type="button" data-recipe-filter-drawer-toggle aria-expanded="false" aria-controls="recipeBoxFilters"><span>✦</span> Open the brass drawer: filters</button>
+        <div class="recipe-filter-drawer-panel" id="recipeBoxFilters" hidden>
+          <div class="recipe-filter-presets" aria-label="Quick recipe filters"><button type="button" data-recipe-box-preset="time:30">Under 30 Minutes</button><button type="button" data-recipe-box-preset="level:Beginner">Beginner</button><button type="button" data-recipe-box-preset="cuisine:southern">Southern</button><button type="button" data-recipe-box-preset="cuisine:cajun">Cajun</button><button type="button" data-recipe-box-preset="category:Vegetarian">Vegetarian</button></div>
+          <div class="recipe-filter-selects"><select id="categoryFilter" class="filter-select"><option value="">All categories</option>${categories.map((category) => `<option>${category}</option>`).join("")}</select><select id="cuisineFilter" class="filter-select"><option value="">All cuisines</option>${cuisines.map((cuisine) => `<option value="${cuisine.id}">${cuisine.name}</option>`).join("")}</select><select id="timeFilter" class="filter-select"><option value="">Any cook time</option><option value="15">15 min or less</option><option value="30">30 min or less</option><option value="45">45 min or less</option><option value="60">1 hour or less</option></select><select id="levelFilter" class="filter-select"><option value="">All levels</option><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></div>
+        </div>
+      </section>
     </section>
   `;
 }
@@ -15986,23 +16037,15 @@ function scrollCookbookResultsIfNeeded(sectionNode) {
 }
 
 function selectCookbookChapter(section = "") {
-  const chapter = cookbookChapterByKey(section);
-  if (!chapter || ["opening", "closing", "selecting"].includes(livingRecipeBoxState)) return;
-  const activeTopLevelId = chapter.parentId || chapter.id;
+  const tab = recipeBoxTabByKey(section);
+  if (!tab || ["opening", "closing", "selecting"].includes(livingRecipeBoxState)) return;
   document.querySelectorAll("[data-cookbook-chapter-select]").forEach((card) => {
-    const active = card.dataset.cookbookChapterSelect === activeTopLevelId;
+    const active = card.dataset.cookbookChapterSelect === tab.id;
     card.classList.toggle("active", active);
     card.setAttribute("aria-pressed", String(active));
   });
-  const subnav = document.querySelector("[data-main-dish-subnav]");
-  if (subnav) subnav.hidden = activeTopLevelId !== "main-dishes";
   const recipeBox = document.querySelector("[data-living-recipe-box]");
   if (recipeBox && livingRecipeBoxState === "closed") setLivingRecipeBoxState("opening");
-  document.querySelectorAll("[data-cookbook-subchapter-select]").forEach((chip) => {
-    const active = chip.dataset.cookbookSubchapterSelect === section;
-    chip.classList.toggle("active", active);
-    chip.setAttribute("aria-pressed", String(active));
-  });
   const heading = document.querySelector("#cookbookResultsHeading");
   const intro = document.querySelector("#cookbookResultsIntro");
   const action = document.querySelector("#cookbookResultsAction");
@@ -16011,14 +16054,14 @@ function selectCookbookChapter(section = "") {
   setLivingRecipeBoxState("selecting");
   sectionNode?.classList.add("is-leaving");
   livingRecipeBoxTimer = setTimeout(() => {
-    if (heading) heading.innerHTML = `<span aria-hidden="true">${chapter.icon || "🍽️"}</span> ${chapter.title}`;
-    if (intro) intro.textContent = chapter.intro;
-    const actionLabel = `View all ${recipesForCookbookChapter(chapter).length} ${chapter.title} recipes`;
+    if (heading) heading.innerHTML = `<span aria-hidden="true">${tab.icon || "🍽️"}</span> ${tab.title}`;
+    if (intro) intro.textContent = tab.intro;
+    const actionLabel = `View all ${recipesForRecipeBoxTab(tab).length} ${tab.title} recipes`;
     if (action) action.textContent = actionLabel;
     else intro?.insertAdjacentHTML("afterend", `<button class="cookbook-view-all" id="cookbookResultsAction" type="button" data-cookbook-view-all>${actionLabel}</button>`);
     if (results) {
-      results.className = chapter.id === "miscellaneous" ? "" : "recipe-grid";
-      results.innerHTML = cookbookResultsMarkup(chapter);
+      results.className = "recipe-grid";
+      results.innerHTML = cookbookResultsMarkup(tab, recipesForRecipeBoxTab(tab));
     }
     if (sectionNode) {
       sectionNode.classList.remove("is-leaving", "is-changing");
@@ -16046,13 +16089,13 @@ function toggleLivingRecipeBox() {
 function renderRecipes() {
   const routeState = routeParts();
   const requestedSection = routeState.section;
-  const selectedChapter = cookbookChapterByKey(requestedSection);
-  livingRecipeBoxState = selectedChapter ? "open" : "closed";
-  const invalidSection = Boolean(requestedSection && !selectedChapter);
-  const initialRecipes = selectedChapter ? recipesForCookbookChapter(selectedChapter) : [];
-  const resultsTitle = selectedChapter ? selectedChapter.title : invalidSection ? "Cookbook section not found" : "Choose a cookbook divider";
-  const resultsIntro = selectedChapter
-    ? selectedChapter.intro
+  const selectedTab = recipeBoxTabByKey(requestedSection);
+  livingRecipeBoxState = selectedTab ? "open" : "closed";
+  const invalidSection = Boolean(requestedSection && !selectedTab);
+  const initialRecipes = selectedTab ? recipesForRecipeBoxTab(selectedTab) : [];
+  const resultsTitle = selectedTab ? selectedTab.title : invalidSection ? "Cookbook section not found" : "Choose a recipe card";
+  const resultsIntro = selectedTab
+    ? selectedTab.intro
     : invalidSection
       ? `“${escapeHTML(requestedSection)}” is not a valid Living Cookbook section.`
       : "Open the recipe box above, then select a divider to see every recipe in that chapter.";
@@ -16068,35 +16111,17 @@ function renderRecipes() {
     ["Chef's Table", "skill:Chef's Table"]
   ];
   app.innerHTML = `
-    ${hero("Recipes", "Southern classics, quick weeknight meals, global flavor, family dinners, beginner basics, party bites, and kid-friendly cooking.", photoFor("hero", "learning", 3, "assets/lc-pasta.jpg"))}
     ${cookSubnav()}
-    ${cookbookChapterShelf(selectedChapter?.id || "")}
-    <section class="band">
-      <div class="toolbar search-toolbar">
-        <label class="sr-only" for="searchBox">Search recipes</label>
-        <input id="searchBox" class="search-input" type="search" value="${escapeHTML(routeState.query)}" placeholder="Search ribeye, chicken thighs, ground beef, rice..." />
-        <label class="sr-only" for="pantryBox">Search by ingredients you have</label>
-        <input id="pantryBox" class="search-input" type="search" placeholder="What do you have? ribeye, onions, potatoes..." />
-        <label class="sr-only" for="categoryFilter">Filter by category</label>
-        <select id="categoryFilter" class="filter-select"><option value="">All categories</option>${categories.map((category) => `<option>${category}</option>`).join("")}</select>
-        <label class="sr-only" for="cuisineFilter">Filter by cuisine</label>
-        <select id="cuisineFilter" class="filter-select"><option value="">All cuisines</option>${cuisines.map((cuisine) => `<option value="${cuisine.id}">${cuisine.name}</option>`).join("")}</select>
-        <label class="sr-only" for="timeFilter">Filter by cook time</label>
-        <select id="timeFilter" class="filter-select"><option value="">Any cook time</option><option value="15">15 min or less</option><option value="30">30 min or less</option><option value="45">45 min or less</option><option value="60">1 hour or less</option></select>
-        <label class="sr-only" for="levelFilter">Filter by skill level</label>
-        <select id="levelFilter" class="filter-select"><option value="">All levels</option><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select>
-      </div>
-      <div class="quick-filter-row">${quickFilters.map(([label, value]) => `<button class="quick-filter" type="button" data-quick-filter="${value}">${label}</button>`).join("")}</div>
-    </section>
+    ${cookbookChapterShelf(selectedTab?.id || "")}
     <section class="cream-section cookbook-results-section" id="cookbookResults">
       <div class="section-heading compact-heading">
         <p class="eyebrow">Living Cookbook</p>
         <h2 id="cookbookResultsHeading" tabindex="-1">${resultsTitle}</h2>
         <p id="cookbookResultsIntro">${resultsIntro}</p>
-        ${selectedChapter ? `<button class="cookbook-view-all" id="cookbookResultsAction" type="button" data-cookbook-view-all>View all ${initialRecipes.length} ${selectedChapter.title} recipes</button>` : ""}
+        ${selectedTab ? `<button class="cookbook-view-all" id="cookbookResultsAction" type="button" data-cookbook-view-all>View all ${initialRecipes.length} ${selectedTab.title} recipes</button>` : ""}
       </div>
-      <div id="results" class="${selectedChapter?.id === "miscellaneous" ? "" : "recipe-grid"}">${initialRecipes.length
-        ? selectedChapter ? cookbookResultsMarkup(selectedChapter, initialRecipes) : initialRecipes.map(recipeCard).join("")
+      <div id="results" class="recipe-grid">${initialRecipes.length
+        ? selectedTab ? cookbookResultsMarkup(selectedTab, initialRecipes) : initialRecipes.map(recipeCard).join("")
         : `<div class="empty-state"><h3>${invalidSection ? "That chapter does not exist." : "Your recipe cards are waiting."}</h3><p>${invalidSection ? "Choose a real chapter from the Living Cookbook above." : "Open the Living Cookbook and pull forward a divider to start browsing."}</p></div>`}
       </div>
     </section>
@@ -17221,8 +17246,8 @@ function handleSearch(event) {
   const level = document.querySelector("#levelFilter")?.value || "";
   const quick = document.querySelector(".quick-filter.active, .cookbook-chapter-card.active")?.dataset.quickFilter || "";
   const requestedSection = routeParts().section;
-  const selectedRouteChapter = cookbookChapterByKey(requestedSection);
-  const invalidRouteSection = Boolean(requestedSection && !selectedRouteChapter);
+  const selectedRouteTab = recipeBoxTabByKey(requestedSection);
+  const invalidRouteSection = Boolean(requestedSection && !selectedRouteTab);
   const hasDiscoveryTerms = Boolean(query || pantry.length);
   const matchesStaticFilters = (recipe, { relaxed = false } = {}) => {
     const quickMatch = !quick
@@ -17232,7 +17257,7 @@ function handleSearch(event) {
       || (quick.startsWith("chapter:") && recipeCookbookPrimarySection(recipe) === quick.replace("chapter:", ""));
     return !invalidRouteSection
       && quickMatch
-      && (!selectedRouteChapter || recipeCookbookPrimarySection(recipe) === selectedRouteChapter.id)
+      && (!selectedRouteTab || recipeMatchesRecipeBoxTab(recipe, selectedRouteTab))
       && (!cuisine || recipe.cuisine === cuisine)
       && (relaxed || !category || recipe.category === category || recipe.tags?.includes(category))
       && (relaxed || !maxTime || (recipe.cookTimeMinutes || 999) <= maxTime)
@@ -17266,6 +17291,8 @@ function handleClick(event) {
   const cookbookChapterButton = event.target.closest("[data-cookbook-chapter-select]");
   const cookbookSubchapterButton = event.target.closest("[data-cookbook-subchapter-select]");
   const cookbookViewAllButton = event.target.closest("[data-cookbook-view-all]");
+  const recipeFilterDrawerToggle = event.target.closest("[data-recipe-filter-drawer-toggle]");
+  const recipeBoxPreset = event.target.closest("[data-recipe-box-preset]");
   const selectKitchenDateButton = event.target.closest("[data-select-kitchen-date]");
   const swapCalendarMealButton = event.target.closest("[data-swap-calendar-meal]");
   const addMealGroceryButton = event.target.closest("[data-add-meal-grocery]");
@@ -17323,6 +17350,25 @@ function handleClick(event) {
 
   if (recipeBoxToggle) {
     toggleLivingRecipeBox();
+    return;
+  }
+  if (recipeFilterDrawerToggle) {
+    const drawer = document.querySelector("[data-recipe-filter-drawer]");
+    const panel = drawer?.querySelector("[data-recipe-filter-drawer-panel], #recipeBoxFilters");
+    if (!panel) return;
+    const opening = panel.hidden;
+    panel.hidden = !opening;
+    drawer?.classList.toggle("is-open", opening);
+    recipeFilterDrawerToggle.setAttribute("aria-expanded", String(opening));
+    return;
+  }
+  if (recipeBoxPreset) {
+    const [kind, value] = recipeBoxPreset.dataset.recipeBoxPreset.split(":");
+    const targets = { time: "#timeFilter", level: "#levelFilter", cuisine: "#cuisineFilter", category: "#categoryFilter" };
+    const control = document.querySelector(targets[kind]);
+    if (control) control.value = control.value === value ? "" : value;
+    document.querySelectorAll("[data-recipe-box-preset]").forEach((button) => button.classList.toggle("active", button === recipeBoxPreset && control?.value === value));
+    handleSearch();
     return;
   }
   if (cookbookViewAllButton) {
