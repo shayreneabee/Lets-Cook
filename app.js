@@ -5738,12 +5738,62 @@ function householdExclusionTerms() {
   return [household.allergies, household.dietary, household.avoid].join(",").toLowerCase().split(/[,;\n]/).map((item) => item.trim()).filter(Boolean);
 }
 
+const dietaryAllergenRules = {
+  milk: /milk|cream|butter|cheese|yogurt|whey|casein|feta|parmesan/,
+  eggs: /\begg|mayonnaise|meringue/,
+  fish: /fish|salmon|tuna|anchov|cod|tilapia|swordfish|trout|walleye/,
+  shellfish: /shrimp|crab|lobster|oyster|mussel|clam|scallop|prawn/,
+  "tree nuts": /almond|pecan|walnut|cashew|pistachio|hazelnut|macadamia|coconut/,
+  peanuts: /peanut/,
+  wheat: /flour|bread|pasta|noodle|wheat|biscuit|roll|cake|cookie|tortilla/,
+  soy: /soy|tofu|edamame|miso|tempeh/,
+  sesame: /sesame|tahini/,
+  gluten: /flour|bread|pasta|noodle|wheat|barley|rye|soy sauce/
+};
+
+function recipeDietaryProfile(recipe = {}) {
+  const ingredientText = (recipe.ingredients || []).map((item) => String(typeof item === "string" ? item : item.name || item.item || "")).join(" ").toLowerCase();
+  const tagText = `${recipe.title || ""} ${recipe.category || ""} ${(recipe.tags || []).join(" ")}`.toLowerCase();
+  const combined = `${ingredientText} ${tagText}`;
+  const animalMeat = /beef|steak|pork|bacon|ham|chicken|turkey|lamb|sausage|venison|duck|goose|meatball|pepperoni|prosciutto|salami/.test(ingredientText);
+  const seafood = dietaryAllergenRules.fish.test(ingredientText) || dietaryAllergenRules.shellfish.test(ingredientText);
+  const animalProducts = animalMeat || seafood || /milk|cream|butter|cheese|mozzarella|ricotta|yogurt|\begg|honey|gelatin/.test(ingredientText);
+  const allergens = Object.entries(dietaryAllergenRules).filter(([, rule]) => rule.test(ingredientText)).map(([name]) => name);
+  const ambiguousPreparedFood = /cookies?|cake|brownie|dessert|charcuterie|bagels?|coleslaw/.test(`${ingredientText} ${tagText}`) && !/\bvegan\b/.test(tagText);
+  const vegan = !animalProducts && !ambiguousPreparedFood && !/vegetarian buttermilk|vegetarian cheese/.test(combined);
+  const vegetarian = !animalMeat && !seafood;
+  return {
+    eatingStyles: vegan ? ["vegan", "vegetarian", "pescatarian"] : vegetarian ? ["vegetarian", "pescatarian"] : seafood && !animalMeat ? ["pescatarian"] : [],
+    allergens,
+    glutenStatus: allergens.includes("gluten") ? "contains gluten" : "no gluten ingredients listed",
+    verification: recipe.dietaryVerification || "ingredient-reviewed",
+    substitutions: recipe.substitutions || (vegan ? "Use plant milk, plant butter, or tofu swaps where the recipe notes allow." : "Check the recipe notes for ingredient swaps."),
+    cookbookChapter: recipeCookbookPrimarySection(recipe)
+  };
+}
+
+function recipeAllowedForCookYourWay(recipe = {}) {
+  const profile = recipeDietaryProfile(recipe);
+  const style = household.eatingStyle || (String(household.dietary || "").toLowerCase().includes("vegan") ? "vegan" : String(household.dietary || "").toLowerCase().includes("vegetarian") ? "vegetarian" : "no-preference");
+  const forbidden = householdExclusionTerms().flatMap((item) => item === "dairy" ? ["milk"] : item === "gluten-free" ? ["gluten"] : [item]);
+  if (style !== "no-preference" && !profile.eatingStyles.includes(style)) return false;
+  return !forbidden.some((item) => profile.allergens.includes(item) || `${recipe.title} ${(recipe.ingredients || []).join(" ")}`.toLowerCase().includes(item));
+}
+
+function cookYourWayMarkup() {
+  const styles = [["vegan", "Vegan"], ["vegetarian", "Vegetarian"], ["pescatarian", "Pescatarian"], ["no-preference", "No Preference"]];
+  const allergens = ["milk", "eggs", "fish", "shellfish", "tree nuts", "peanuts", "wheat", "soy", "sesame", "gluten"];
+  const selectedAllergens = householdExclusionTerms();
+  return `<section class="cream-section cook-your-way" aria-labelledby="cookYourWayTitle"><div class="section-heading compact-heading"><p class="eyebrow">Your table, your way</p><h2 id="cookYourWayTitle">Cook Your Way</h2><p>Set your eating style and ingredients to avoid. Recipes, menus, grocery lists, and recommendations will follow these choices.</p></div><form class="cook-your-way-form" data-household-form><input type="hidden" name="adults" value="${household.adults || 2}" /><input type="hidden" name="children" value="${household.children || 0}" /><input type="hidden" name="servings" value="${household.servings || 4}" /><fieldset><legend>Eating style</legend><div>${styles.map(([id, label]) => `<label><input type="radio" name="eatingStyle" value="${id}" ${household.eatingStyle === id ? "checked" : ""} />${label}</label>`).join("")}</div></fieldset><fieldset><legend>Ingredients or allergens to avoid</legend><div>${allergens.map((item) => `<label><input type="checkbox" name="allergen" value="${item}" ${selectedAllergens.includes(item) ? "checked" : ""} />${item}</label>`).join("")}</div></fieldset><label class="cook-your-way-avoid">Anything else to avoid?<input name="avoid" value="${escapeHTML(household.avoid || "")}" placeholder="mushrooms, cilantro..." /></label><input type="hidden" name="dietary" value="${escapeHTML(household.dietary || "")}" /><button class="small-button" type="submit">Save My Cooking Preferences</button></form></section>`;
+}
+
 function ingredientConflictsWithDiet(item) {
-  const dietary = String(household.dietary || "").toLowerCase();
+  const dietary = `${household.dietary || ""} ${household.eatingStyle || ""}`.toLowerCase();
   const name = String(item.name || "").toLowerCase();
   const meat = /beef|steak|pork|bacon|ham|chicken|turkey|lamb|sausage|shrimp|salmon|tuna|fish|crab|lobster|anchov/.test(name);
   const animalProduct = meat || /milk|cream|butter|cheese|egg|honey|yogurt/.test(name);
-  return (dietary.includes("vegetarian") && meat)
+  return (dietary.includes("pescatarian") && /beef|steak|pork|bacon|ham|chicken|turkey|lamb|sausage/.test(name))
+    || (dietary.includes("vegetarian") && meat)
     || (dietary.includes("vegan") && animalProduct)
     || (dietary.includes("dairy-free") && /milk|cream|butter|cheese|yogurt/.test(name));
 }
@@ -5824,7 +5874,7 @@ function plannerRecipeTraits(recipe) {
 
 function plannerCandidatesFor(slot) {
   return allRecipeCollection().filter((recipe) => {
-    if (!calendarRecipe(recipe.id)) return false;
+    if (!calendarRecipe(recipe.id) || !recipeAllowedForCookYourWay(recipe)) return false;
     const text = `${recipe.title} ${recipe.category || ""} ${(recipe.tags || []).join(" ")}`.toLowerCase();
     if (slot === "breakfast") return /breakfast|brunch|pancake|waffle|biscuit|oat|egg|smoothie|toast|muffin/.test(text);
     if (slot === "lunch") return /lunch|sandwich|wrap|salad|soup|taco|bowl|burger|pizza|quesadilla/.test(text);
@@ -8735,7 +8785,7 @@ let communityProfile = readJSON("letsCookCommunityProfile", { coverPhoto: "asset
 let activeProfileTab = "posts";
 let kitchenPlan = readJSON("letsCookKitchenPlan", {});
 let groceryLists = readJSON("letsCookGroceryLists", []);
-let household = readJSON("letsCookHousehold", { adults: 2, children: 2, servings: 4, allergies: "", dietary: "", avoid: "" });
+let household = readJSON("letsCookHousehold", { adults: 2, children: 2, servings: 4, eatingStyle: "no-preference", allergies: "", dietary: "", avoid: "" });
 let pantryOwned = readJSON("letsCookPantryOwned", []);
 let clearedGroceryItems = readJSON("letsCookClearedGroceryItems", []);
 let activePlannerMonth = readJSON("letsCookPlannerMonth", "2026-08");
@@ -11718,11 +11768,7 @@ function livingCookbookHub() {
 function renderLivingCookbook(id) {
   const chapter = livingCookbookById(id);
   if (!chapter) {
-    app.innerHTML = `
-      ${hero("Living Cookbook", "Cookbook chapters for Southern casseroles, church supper classics, repast foods, and holiday tables.", photoFor("hero", "hospitality", 8, "assets/lc-fried-chicken.jpg"), `<a class="small-button" href="#cuisine/southern">Southern Recipes</a><a class="small-button secondary" href="#hosting">Hosting Guides</a>`)}
-      ${cookSubnav()}
-      ${livingCookbookHub()}
-    `;
+    renderRecipes();
     return;
   }
 
@@ -12916,12 +12962,18 @@ function homepageCommunityEditorialSection() {
   `;
 }
 
+function homepageLivingCookbookPreview() {
+  const recipe = recipeById("white-sandwich-bread") || recipeById("carrot-cake") || allRecipeCollection()[0];
+  return `<section class="home-living-cookbook-preview" aria-labelledby="homeCookbookTitle"><figure><img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" /></figure><div><p class="eyebrow">The family recipe box</p><h2 id="homeCookbookTitle">A whole cookbook, waiting to be opened.</h2><p>Browse breakfast through desserts, pull a divider forward, and find every recipe in one beautiful living collection.</p><a class="small-button" href="#living-cookbook">Open the Living Cookbook</a></div></section>`;
+}
+
 function renderLetsCookHome() {
   const publishableRecipes = recipes.filter(recipeAllowedInGeneralCollection);
   const recipeOfWeek = recipeById("smothered-chicken") || recipeById("yakamein") || publishableRecipes[0];
   app.innerHTML = `
     ${cookSubnav()}
     ${homepageEditorialHeroSection()}
+    ${homepageLivingCookbookPreview()}
     ${homepageWeeklyStrip()}
     ${homepageRecipeDiscoverySection()}
     ${homepageIngredientEditorialSection()}
@@ -13164,13 +13216,12 @@ function renderCommunity(id = "") {
 function cookSubnav() {
   return `
     <section class="app-subnav" aria-label="Let's Cook Ya'll navigation">
-      <a href="#america-250">America 250</a>
-      <a href="#cuisine-explorer">Cuisine Explorer</a>
-      <a href="#kids-korner">Kids Korner</a>
-      <a href="#what-yall-cooking">What Y'all Cooking?</a>
+      <a href="#lets-cook">Home</a>
+      <a href="#living-cookbook">Living Cookbook</a>
       <a href="#lets-plan">Let’s Plan</a>
-      <a href="#culinary-academy">Academy</a>
-      <a href="#account">My Profile</a>
+      <a href="#living-cookbook/holiday-tables">Celebrate</a>
+      <a href="#cook101">Cook101</a>
+      <a href="#community">Community</a>
     </section>
   `;
 }
@@ -15826,20 +15877,7 @@ const cookbookChapterDefinitions = [
 ];
 
 const cookbookChapterKeys = new Set(cookbookChapterDefinitions.flatMap((chapter) => [chapter.id, ...(chapter.subchapters || []).map((subchapter) => subchapter.id)]));
-const recipeBoxTabDefinitions = [
-  { id: "breakfast", icon: "🍳", title: "Breakfast", intro: "Bright starts, slow mornings, and family favorites.", chapter: "breakfast" },
-  { id: "soups", icon: "🥣", title: "Soups", intro: "Cozy bowls, brothy classics, and simmered comfort.", chapter: "soups" },
-  { id: "salads", icon: "🥗", title: "Salads", intro: "Fresh crunch, color, and market-table flavor.", chapter: "salads" },
-  { id: "chicken", icon: "🍗", title: "Chicken", intro: "Chicken, turkey, wings, curries, and comfort food.", chapter: "poultry" },
-  { id: "beef", icon: "🥩", title: "Beef", intro: "Steaks, roasts, brisket, burgers, and hearty plates.", chapter: "beef" },
-  { id: "seafood", icon: "🐟", title: "Seafood", intro: "Fish fries, shrimp, crab, salmon, and coastal supper.", chapter: "fish-seafood" },
-  { id: "vegetables", icon: "🥬", title: "Vegetables", intro: "Garden vegetables and soulful greens worth celebrating.", chapter: "vegetables" },
-  { id: "pasta", icon: "🍝", title: "Pasta", intro: "Noodles, baked pasta, rice, and comforting bowls.", matcher: (recipe) => /pasta|spaghetti|noodle|macaroni|mac and cheese|lasagna|risotto|pilaf/.test(recipeBoxRecipeText(recipe)) },
-  { id: "breads", icon: "🍞", title: "Breads", intro: "Warm loaves, biscuits, rolls, cornbread, and flatbreads.", chapter: "breads" },
-  { id: "desserts", icon: "🍰", title: "Desserts", intro: "Sweet endings, cookies, and treats worth saving room for.", matcher: (recipe) => ["desserts", "cookies"].includes(recipeCookbookPrimarySection(recipe)) },
-  { id: "holiday-tables", icon: "🎉", title: "Holiday Tables", intro: "Recipes made for celebrations, traditions, and gathering everybody close.", matcher: (recipe) => /holiday|thanksgiving|christmas|easter|valentine|mardi gras|ramadan|eid|hanukkah|diwali|juneteenth|new year|game day|super bowl/i.test(`${recipe.category || ""} ${(recipe.tags || []).join(" ")} ${recipe.cuisine || ""}`) },
-  { id: "global-cuisine", icon: "🌎", title: "Global Cuisine", intro: "Cook around the world with culturally curious, flavor-forward recipes.", matcher: (recipe) => !/^(southern|creole|cajun|soul-food|bbq|low-country|mississippi|holiday|hosting|western-kids)$/i.test(recipe.cuisine || "") }
-];
+const recipeBoxTabDefinitions = cookbookChapterDefinitions.map((chapter) => ({ id: chapter.id, icon: chapter.icon, title: chapter.title, intro: chapter.intro, chapter: chapter.id }));
 const cookbookNearDuplicateAliases = new Map([
   ["cuban-sandwich-press", "cuban-sandwich"],
   ["mini-quesadillas", "cheese-quesadilla-triangles"],
@@ -15860,7 +15898,12 @@ function cookbookChapterByKey(section = "") {
 }
 
 function recipeBoxTabByKey(section = "") {
-  return recipeBoxTabDefinitions.find((tab) => tab.id === section) || null;
+  const primary = recipeBoxTabDefinitions.find((tab) => tab.id === section);
+  if (primary) return primary;
+  const chapter = cookbookChapterByKey(section);
+  return chapter?.parentId === "main-dishes"
+    ? { id: chapter.id, icon: chapter.icon, title: chapter.title, intro: chapter.intro, chapter: chapter.id, parentId: chapter.parentId }
+    : null;
 }
 
 function recipeBoxRecipeText(recipe) {
@@ -15893,7 +15936,8 @@ function recipesForRecipeBoxTab(tab, limit = Number.POSITIVE_INFINITY) {
 }
 
 function cookbookSectionRoute(section = "") {
-  return `#recipes?section=${encodeURIComponent(section)}`;
+  const route = routeParts().route === "living-cookbook" ? "living-cookbook" : "recipes";
+  return `#${route}?section=${encodeURIComponent(section)}`;
 }
 
 function recipesForCookbookChapter(chapter, limit = Number.POSITIVE_INFINITY) {
@@ -15920,6 +15964,7 @@ function recipesForCookbookChapter(chapter, limit = Number.POSITIVE_INFINITY) {
 function cookbookChapterShelf(selectedSection = "") {
   const selectedTab = recipeBoxTabByKey(selectedSection);
   const activeTabId = selectedTab?.id || "";
+  const activeTopLevelId = selectedTab?.parentId || activeTabId;
   const isOpen = Boolean(selectedTab);
   return `
     <section class="cream-section cookbook-chapter-shelf recipe-box-experience recipe-box-page-hero">
@@ -15940,10 +15985,13 @@ function cookbookChapterShelf(selectedSection = "") {
           <div class="recipe-box-card-well" role="list">
             ${recipeBoxTabDefinitions.map((tab, index) => {
               const allTabRecipes = recipesForRecipeBoxTab(tab);
-              const active = activeTabId === tab.id;
+              const active = activeTopLevelId === tab.id;
               const restingOffset = index % 2 ? "-9px" : "0px";
               return `<button class="cookbook-chapter-divider ${active ? "active" : ""}" type="button" role="listitem" data-cookbook-chapter-select="${tab.id}" aria-pressed="${active}" style="--divider-index:${index};--divider-rest:${restingOffset}" aria-label="${tab.title}, browse all ${allTabRecipes.length} recipes"><span class="divider-icon">${tab.icon}</span><strong>${tab.title}</strong><small>${allTabRecipes.length} recipes</small></button>`;
             }).join("")}
+          </div>
+          <div class="main-dish-subnav" ${activeTopLevelId === "main-dishes" ? "" : "hidden"} aria-label="Main dish chapters">
+            ${(cookbookChapterByKey("main-dishes")?.subchapters || []).map((chapter) => `<button class="${activeTabId === chapter.id ? "active" : ""}" type="button" data-cookbook-chapter-select="${chapter.id}" aria-pressed="${activeTabId === chapter.id}">${chapter.icon} ${chapter.title}</button>`).join("")}
           </div>
         </div>
       </div>
@@ -16040,10 +16088,12 @@ function selectCookbookChapter(section = "") {
   const tab = recipeBoxTabByKey(section);
   if (!tab || ["opening", "closing", "selecting"].includes(livingRecipeBoxState)) return;
   document.querySelectorAll("[data-cookbook-chapter-select]").forEach((card) => {
-    const active = card.dataset.cookbookChapterSelect === tab.id;
+    const active = card.dataset.cookbookChapterSelect === tab.id || (card.dataset.cookbookChapterSelect === (tab.parentId || tab.id) && Boolean(tab.parentId));
     card.classList.toggle("active", active);
     card.setAttribute("aria-pressed", String(active));
   });
+  const subnav = document.querySelector(".main-dish-subnav");
+  if (subnav) subnav.hidden = (tab.parentId || tab.id) !== "main-dishes";
   const recipeBox = document.querySelector("[data-living-recipe-box]");
   if (recipeBox && livingRecipeBoxState === "closed") setLivingRecipeBoxState("opening");
   const heading = document.querySelector("#cookbookResultsHeading");
@@ -16088,6 +16138,7 @@ function toggleLivingRecipeBox() {
 
 function renderRecipes() {
   const routeState = routeParts();
+  const isDedicatedCookbook = routeState.route === "living-cookbook";
   const requestedSection = routeState.section;
   const selectedTab = recipeBoxTabByKey(requestedSection);
   livingRecipeBoxState = selectedTab ? "open" : "closed";
@@ -16110,6 +16161,9 @@ function renderRecipes() {
     ["Quick Meals", "category:Quick Meals"],
     ["Chef's Table", "skill:Chef's Table"]
   ];
+  const dietaryRecipes = allRecipeCollection().filter((recipe) => recipeDietaryProfile(recipe).eatingStyles.includes("vegan")).slice(0, 12);
+  const seasonalRecipes = dailyDiverseRecipes(allRecipeCollection().filter((recipe) => /peach|corn|tomato|okra|melon|summer|salad|grill/.test(recipeBoxRecipeText(recipe))), 8, "living-cookbook-seasonal");
+  const recentRecipes = [...allRecipeCollection()].sort((a, b) => String(b.createdAt || b.updatedAt || b.id).localeCompare(String(a.createdAt || a.updatedAt || a.id))).slice(0, 8);
   app.innerHTML = `
     ${cookSubnav()}
     ${cookbookChapterShelf(selectedTab?.id || "")}
@@ -16125,6 +16179,10 @@ function renderRecipes() {
         : `<div class="empty-state"><h3>${invalidSection ? "That chapter does not exist." : "Your recipe cards are waiting."}</h3><p>${invalidSection ? "Choose a real chapter from the Living Cookbook above." : "Open the Living Cookbook and pull forward a divider to start browsing."}</p></div>`}
       </div>
     </section>
+    ${isDedicatedCookbook ? `${cookYourWayMarkup()}
+      <section class="cream-section dietary-cookbook-collection"><div class="section-heading compact-heading"><p class="eyebrow">Vegan & Plant-Based</p><h2>Full plates for every kind of table.</h2><p>Hearty breakfasts, cultural recipes, holiday-ready dishes, weeknight meals, brunch, and Cook Along Together ideas—built from ingredient-reviewed recipes.</p><a class="small-button" href="#living-cookbook?section=vegetables">Browse plant-forward recipes</a></div><div class="recipe-grid">${dietaryRecipes.map(recipeCard).join("")}</div></section>
+      <section class="cream-section cookbook-seasonal-collections"><div class="section-heading compact-heading"><p class="eyebrow">Seasonal collections</p><h2>What’s good right now.</h2></div><div class="recipe-grid">${seasonalRecipes.map(recipeCard).join("")}</div></section>
+      <section class="cream-section cookbook-recently-added"><div class="section-heading compact-heading"><p class="eyebrow">Recently added</p><h2>Fresh cards in the box.</h2></div><div class="recipe-grid">${recentRecipes.map(recipeCard).join("")}</div></section>` : ""}
     <section id="learningResults" class="cream-section learning-search-results" aria-label="Cookbook chapters and learning suggestions"></section>
   `;
   if (routeState.query) handleSearch();
@@ -17257,6 +17315,7 @@ function handleSearch(event) {
       || (quick.startsWith("chapter:") && recipeCookbookPrimarySection(recipe) === quick.replace("chapter:", ""));
     return !invalidRouteSection
       && quickMatch
+      && recipeAllowedForCookYourWay(recipe)
       && (!selectedRouteTab || recipeMatchesRecipeBoxTab(recipe, selectedRouteTab))
       && (!cuisine || recipe.cuisine === cuisine)
       && (relaxed || !category || recipe.category === category || recipe.tags?.includes(category))
@@ -17833,18 +17892,24 @@ async function handleSubmit(event) {
   if (event.target.matches("[data-household-form]")) {
     event.preventDefault();
     const formData = new FormData(event.target);
+    const selectedAllergens = formData.getAll("allergen").map((item) => item.toString().trim()).filter(Boolean);
     household = {
       adults: Math.max(1, Number(formData.get("adults")) || 1),
       children: Math.max(0, Number(formData.get("children")) || 0),
       servings: Math.max(1, Number(formData.get("servings")) || 4),
-      allergies: formData.get("allergies")?.toString().trim() || "",
-      dietary: formData.get("dietary")?.toString().trim() || "",
+      eatingStyle: formData.get("eatingStyle")?.toString() || household.eatingStyle || "no-preference",
+      allergies: selectedAllergens.length ? selectedAllergens.join(", ") : (formData.has("allergies") ? formData.get("allergies")?.toString().trim() : household.allergies) || "",
+      dietary: formData.get("dietary")?.toString().trim() || household.dietary || "",
       avoid: formData.get("avoid")?.toString().trim() || ""
     };
     generatedWeekMenuCache.clear();
     persistKitchenPlanningState();
-    renderKitchenPlannerSurface();
-    document.querySelector("#kitchenGroceryList")?.scrollIntoView({ block: "start" });
+    const currentRoute = routeParts().route;
+    if (currentRoute === "living-cookbook") renderLivingCookbook(routeParts().id);
+    else {
+      renderKitchenPlannerSurface();
+      document.querySelector("#kitchenGroceryList")?.scrollIntoView({ block: "start" });
+    }
     return;
   }
   if (event.target.matches("[data-community-post-form]")) {
