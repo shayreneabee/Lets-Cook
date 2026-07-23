@@ -5766,7 +5766,7 @@ function recipeDietaryProfile(recipe = {}) {
     eatingStyles: vegan ? ["vegan", "vegetarian", "pescatarian"] : vegetarian ? ["vegetarian", "pescatarian"] : seafood && !animalMeat ? ["pescatarian"] : [],
     allergens,
     glutenStatus: allergens.includes("gluten") ? "contains gluten" : "no gluten ingredients listed",
-    verification: recipe.dietaryVerification || "ingredient-reviewed",
+    verification: vegan ? (recipe.dietaryVerification || "verified vegan") : (recipe.dietaryVerification || "ingredient-reviewed"),
     substitutions: recipe.substitutions || (vegan ? "Use plant milk, plant butter, or tofu swaps where the recipe notes allow." : "Check the recipe notes for ingredient swaps."),
     cookbookChapter: recipeCookbookPrimarySection(recipe)
   };
@@ -9036,7 +9036,7 @@ function render() {
   else if (route === "about") renderAbout();
   else if (route === "account") renderAccount();
   else if (route === "privacy" || route === "terms" || route === "contact") renderSimpleInfoPage(route);
-  else if (route === "search") renderRecipes();
+  else if (route === "search") renderSearchPage();
   else if (route === "cuisine") renderCuisine(id);
   else renderPlatformHome();
   appendSiteFooter(route);
@@ -13418,6 +13418,7 @@ function matchedSearchGroupKeys(text, group) {
 
 function recipeSearchIndex(recipe = {}) {
   if (recipeSearchIndexCache.has(recipe)) return recipeSearchIndexCache.get(recipe);
+  const dietaryProfile = recipeDietaryProfile(recipe);
   const titleText = normalizeIngredientTerm(recipe.title || "");
   const alternateTitleText = normalizeIngredientTerm([
     ...recipeSearchValues(recipe.alternateTitle),
@@ -13448,6 +13449,10 @@ function recipeSearchIndex(recipe = {}) {
     ...(recipe.holidays || []),
     ...(recipe.methods || []),
     ...(recipe.techniques || []),
+    ...dietaryProfile.eatingStyles,
+    ...dietaryProfile.allergens,
+    dietaryProfile.glutenStatus,
+    dietaryProfile.verification,
     ...recipeSearchValues(recipe.substitutions),
     ...recipeSearchValues(recipe.relatedTerms)
   ].join(" "));
@@ -13469,6 +13474,7 @@ function recipeSearchIndex(recipe = {}) {
     ...holidays,
     ...techniques,
     ...substitutions
+    , ...dietaryProfile.eatingStyles
   ]);
   Object.entries(recipeSearchAliasMap).forEach(([key, aliases]) => {
     if ([key, ...aliases].some((alias) => allText.includes(normalizeIngredientTerm(alias)))) {
@@ -15877,7 +15883,22 @@ const cookbookChapterDefinitions = [
 ];
 
 const cookbookChapterKeys = new Set(cookbookChapterDefinitions.flatMap((chapter) => [chapter.id, ...(chapter.subchapters || []).map((subchapter) => subchapter.id)]));
-const recipeBoxTabDefinitions = cookbookChapterDefinitions.map((chapter) => ({ id: chapter.id, icon: chapter.icon, title: chapter.title, intro: chapter.intro, chapter: chapter.id }));
+const veganRecipeBoxTab = {
+  id: "vegan-plant-based",
+  icon: "🌱",
+  title: "Vegan & Plant-Based",
+  resultsTitle: "Vegan & Plant-Based Recipes",
+  intro: "Flavorful, satisfying recipes made entirely without animal products.",
+  matcher: (recipe) => {
+    const profile = recipeDietaryProfile(recipe);
+    return profile.eatingStyles.includes("vegan") && profile.verification === "verified vegan";
+  }
+};
+
+const recipeBoxTabDefinitions = cookbookChapterDefinitions.flatMap((chapter) => {
+  const tab = { id: chapter.id, icon: chapter.icon, title: chapter.title, intro: chapter.intro, chapter: chapter.id };
+  return chapter.id === "miscellaneous" ? [veganRecipeBoxTab, tab] : [tab];
+});
 const cookbookNearDuplicateAliases = new Map([
   ["cuban-sandwich-press", "cuban-sandwich"],
   ["mini-quesadillas", "cheese-quesadilla-triangles"],
@@ -16104,7 +16125,7 @@ function selectCookbookChapter(section = "") {
   setLivingRecipeBoxState("selecting");
   sectionNode?.classList.add("is-leaving");
   livingRecipeBoxTimer = setTimeout(() => {
-    if (heading) heading.innerHTML = `<span aria-hidden="true">${tab.icon || "🍽️"}</span> ${tab.title}`;
+    if (heading) heading.innerHTML = `<span aria-hidden="true">${tab.icon || "🍽️"}</span> ${tab.resultsTitle || tab.title}`;
     if (intro) intro.textContent = tab.intro;
     const actionLabel = `View all ${recipesForRecipeBoxTab(tab).length} ${tab.title} recipes`;
     if (action) action.textContent = actionLabel;
@@ -16144,7 +16165,7 @@ function renderRecipes() {
   livingRecipeBoxState = selectedTab ? "open" : "closed";
   const invalidSection = Boolean(requestedSection && !selectedTab);
   const initialRecipes = selectedTab ? recipesForRecipeBoxTab(selectedTab) : [];
-  const resultsTitle = selectedTab ? selectedTab.title : invalidSection ? "Cookbook section not found" : "Choose a recipe card";
+  const resultsTitle = selectedTab ? (selectedTab.resultsTitle || selectedTab.title) : invalidSection ? "Cookbook section not found" : "Choose a recipe card";
   const resultsIntro = selectedTab
     ? selectedTab.intro
     : invalidSection
@@ -16186,6 +16207,26 @@ function renderRecipes() {
     <section id="learningResults" class="cream-section learning-search-results" aria-label="Cookbook chapters and learning suggestions"></section>
   `;
   if (routeState.query) handleSearch();
+}
+
+function canonicalSearchResults(query = "") {
+  const seen = new Set();
+  return rankRecipesForDiscovery(allRecipeCollection(), { query })
+    .filter((row) => !query || row.score > 0)
+    .filter((row) => recipeAllowedForCookYourWay(row.recipe))
+    .filter((row) => {
+      const canonicalId = canonicalRecipeId(row.recipe.id);
+      if (seen.has(canonicalId)) return false;
+      seen.add(canonicalId);
+      return true;
+    })
+    .map((row) => row.recipe);
+}
+
+function renderSearchPage() {
+  const query = routeParts().query;
+  const results = canonicalSearchResults(query);
+  app.innerHTML = `${cookSubnav()}<section class="cream-section site-search-page"><div class="section-heading compact-heading"><p class="eyebrow">Find what’s cooking</p><h1>Search Let’s Cook Y’all</h1><p>Recipes come first—then cookbook chapters, cuisines, and collections when they can help you keep exploring.</p><form class="site-search-form" data-search-form role="search"><label for="searchBox">Search the cookbook</label><div><input id="searchBox" name="q" type="search" value="${escapeHTML(query)}" placeholder="Search recipes, ingredients, cuisines, or collections…" autocomplete="search" /><button type="button" class="secondary" data-search-clear>Clear</button><button class="small-button" type="submit">Search</button></div></form></div><div id="results" class="recipe-grid">${query ? (results.length ? results.map(recipeCard).join("") : `<div class="empty-state"><h2>No recipes matched “${escapeHTML(query)}”.</h2><p>Try a recipe name, ingredient, cuisine, chapter, or cooking method—like chicken, Cajun, air fryer, breakfast, or one-pot meals.</p></div>`) : `<div class="empty-state"><h2>What are y’all looking for?</h2><p>Try Carrot Cake, chicken and mushrooms, vegan dinner, Cajun, air fryer, or breakfast.</p></div>`}</div><section id="learningResults" class="learning-search-results" aria-label="Cookbook chapters and learning suggestions">${query ? learningSearchResults(query) : ""}</section></section>`;
 }
 
 function recipeStepMicroTip(recipe, index) {
@@ -17334,6 +17375,13 @@ function handleSearch(event) {
       .slice(0, 24)
       .map((row) => row.recipe);
   }
+  const seenCanonicalResults = new Set();
+  results = results.filter((recipe) => {
+    const canonicalId = canonicalRecipeId(recipe.id);
+    if (seenCanonicalResults.has(canonicalId)) return false;
+    seenCanonicalResults.add(canonicalId);
+    return true;
+  });
   const resultsNode = document.querySelector("#results");
   if (resultsNode) {
     resultsNode.innerHTML = results.length
@@ -17352,6 +17400,7 @@ function handleClick(event) {
   const cookbookViewAllButton = event.target.closest("[data-cookbook-view-all]");
   const recipeFilterDrawerToggle = event.target.closest("[data-recipe-filter-drawer-toggle]");
   const recipeBoxPreset = event.target.closest("[data-recipe-box-preset]");
+  const searchClearButton = event.target.closest("[data-search-clear]");
   const selectKitchenDateButton = event.target.closest("[data-select-kitchen-date]");
   const swapCalendarMealButton = event.target.closest("[data-swap-calendar-meal]");
   const addMealGroceryButton = event.target.closest("[data-add-meal-grocery]");
@@ -17409,6 +17458,13 @@ function handleClick(event) {
 
   if (recipeBoxToggle) {
     toggleLivingRecipeBox();
+    return;
+  }
+  if (searchClearButton) {
+    const input = document.querySelector("#searchBox");
+    if (input) input.value = "";
+    if (routeParts().route === "search") window.location.hash = "#search";
+    else handleSearch();
     return;
   }
   if (recipeFilterDrawerToggle) {
@@ -17889,6 +17945,12 @@ function handleClick(event) {
 
 
 async function handleSubmit(event) {
+  if (event.target.matches("[data-search-form]")) {
+    event.preventDefault();
+    const query = normalizeIngredientTerm(new FormData(event.target).get("q") || "");
+    window.location.hash = query ? `#search?q=${encodeURIComponent(query)}` : "#search";
+    return;
+  }
   if (event.target.matches("[data-household-form]")) {
     event.preventDefault();
     const formData = new FormData(event.target);

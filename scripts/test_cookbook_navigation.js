@@ -19,6 +19,8 @@ globalThis.__cookbookTest = {
   recipeBoxTabDefinitions,
   recipeBoxTabByKey,
   recipesForRecipeBoxTab,
+  canonicalSearchResults,
+  renderSearchPage,
   recipeDietaryProfile,
   recipeAllowedForCookYourWay,
   cookbookSectionRoute,
@@ -111,7 +113,7 @@ const expectedTopLevelSections = ["breakfast", "soups", "salads", "vegetables", 
 const expectedSections = ["breakfast", "soups", "salads", "vegetables", "main-dishes", "beef", "poultry", "fish-seafood", "sides", "breads", "cookies", "desserts", "miscellaneous"];
 assert.deepStrictEqual([...api.cookbookChapterDefinitions].map((chapter) => chapter.id), expectedTopLevelSections, "Cookbook must show the approved divider cards in order");
 assert.deepStrictEqual([...api.cookbookChapterKeys], expectedSections, "Cookbook must expose top-level and Main Dish chapter keys");
-const expectedRecipeBoxTabs = ["breakfast", "soups", "salads", "vegetables", "main-dishes", "sides", "breads", "cookies", "desserts", "miscellaneous"];
+const expectedRecipeBoxTabs = ["breakfast", "soups", "salads", "vegetables", "main-dishes", "sides", "breads", "cookies", "desserts", "vegan-plant-based", "miscellaneous"];
 assert.deepStrictEqual([...api.recipeBoxTabDefinitions].map((tab) => tab.id), expectedRecipeBoxTabs, "Recipe box must offer the approved simple cookbook chapters");
 for (const tabId of expectedRecipeBoxTabs) {
   const tab = api.recipeBoxTabByKey(tabId);
@@ -162,7 +164,7 @@ for (const duplicateId of ["cuban-sandwich-press", "mini-quesadillas", "cowboy-t
 const miscellaneousMarkup = api.miscellaneousChapterMarkup(miscellaneous);
 for (const group of ["Appetizers, Snacks & Party Food", "Pasta, Rice, Pizza & Handhelds", "Sauces, Condiments & Seasonings", "Drinks & Sips"]) assert(miscellaneousMarkup.includes(group), `Miscellaneous must include the ${group} shelf`);
 const chapterShelf = api.cookbookChapterShelf("poultry");
-assert.strictEqual((chapterShelf.match(/data-cookbook-chapter-select=/g) || []).length, 13, "Recipe box must render ten divider cards plus Main Dishes subchapters");
+assert.strictEqual((chapterShelf.match(/data-cookbook-chapter-select=/g) || []).length, 14, "Recipe box must render eleven divider cards plus Main Dishes subchapters");
 assert(!chapterShelf.includes("cookbook-chapter-scroll"), "Recipe box must not use the old horizontal scroller");
 assert(chapterShelf.includes('data-living-recipe-box') && chapterShelf.includes('data-recipe-box-toggle'), "Living Cookbook must use an interactive recipe box with an open control");
 assert(chapterShelf.includes('class="living-recipe-box is-open"'), "A direct cookbook tab route must open the recipe box");
@@ -170,6 +172,12 @@ const closedChapterShelf = api.cookbookChapterShelf();
 assert(closedChapterShelf.includes('class="living-recipe-box "'), "The cookbook must load with its recipe box closed");
 for (const tab of expectedRecipeBoxTabs) assert(chapterShelf.includes(`data-cookbook-chapter-select="${tab}"`), `Recipe box is missing its ${tab} divider`);
 for (const tab of ["beef", "poultry", "fish-seafood"]) assert(chapterShelf.includes(`data-cookbook-chapter-select="${tab}"`), `Recipe box is missing its Main Dishes ${tab} divider`);
+const veganTab = api.recipeBoxTabByKey("vegan-plant-based");
+const veganRecipes = api.recipesForRecipeBoxTab(veganTab);
+assert(veganRecipes.length > 12, "Vegan divider must contain a substantial canonical recipe selection");
+assert(veganRecipes.every((recipe) => api.recipeDietaryProfile(recipe).verification === "verified vegan"), "Vegan divider must only show verified vegan recipes");
+assert(new Set(veganRecipes.map((recipe) => api.recipeCookbookPrimarySection(recipe))).size >= 5, "Vegan divider must span multiple cookbook chapters");
+assert.strictEqual(new Set(veganRecipes.map((recipe) => recipe.id)).size, veganRecipes.length, "Vegan divider must not duplicate canonical recipe records");
 const rotation = api.dailyDiverseRecipes(api.allRecipeCollection(), 18, "integrity-test");
 assert.strictEqual(new Set(rotation.map((recipe) => recipe.id)).size, rotation.length, "Daily rotation must not repeat canonical recipe IDs");
 assert.strictEqual(new Set(rotation.map(api.recipePhotoFor)).size, rotation.length, "Daily rotation must not repeat primary images");
@@ -181,6 +189,8 @@ function topRecipe(query) {
 assert.strictEqual(topRecipe("Chocolate Chip Cookies")?.id, "chewy-chocolate-cookies", "Exact Chocolate Chip Cookies search must rank first");
 assert.strictEqual(topRecipe("Carrot Cake")?.id, "carrot-cake", "Exact Carrot Cake search must rank first");
 assert.strictEqual(topRecipe("Orange Chicken")?.id, "orange-chicken", "Exact Orange Chicken search must rank first");
+assert(api.canonicalSearchResults("vegan dinner").length > 0, "Search must discover dietary metadata");
+assert.strictEqual(new Set(api.canonicalSearchResults("chicken").map((recipe) => recipe.id)).size, api.canonicalSearchResults("chicken").length, "Search results must not repeat canonical recipe records");
 assert(/steak|rib|beef/i.test(`${topRecipe("ribeye")?.title} ${(topRecipe("ribeye")?.ingredients || []).join(" ")}`), "Ribeye must return a relevant recipe first");
 assert.strictEqual(api.rankRecipesForDiscovery(api.allRecipeCollection(), { query: "zzzxqvnotfood" }).filter((row) => row.score > 0).length, 0, "Nonsense searches must not return unrelated recipes");
 
