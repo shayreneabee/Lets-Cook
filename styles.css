@@ -14912,6 +14912,39 @@ body {
 .site-search-form button { min-height: 48px; }
 @media (max-width: 650px) { .site-search-form > div { flex-wrap: wrap; } .site-search-form input { width: 100%; flex-basis: 100%; } .site-search-form button { flex: 1; } }
 
+.visual-cookbook-collections { max-width: 1240px; margin-inline: auto; }
+.visual-cookbook-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.visual-cookbook-card { position: relative; display: grid; min-height: 248px; overflow: hidden; padding: 0; border: 0; border-radius: 20px; background: #20313e; color: #fff; text-align: left; cursor: pointer; box-shadow: 0 12px 26px rgba(31,50,61,.16); transition: transform 180ms ease, box-shadow 180ms ease, outline-color 180ms ease; }
+.visual-cookbook-card:hover, .visual-cookbook-card:focus-visible, .visual-cookbook-card.active { transform: translateY(-5px); box-shadow: 0 20px 34px rgba(31,50,61,.25); outline: 4px solid #f4c858; outline-offset: 3px; }
+.visual-cookbook-card.active::after { content: "Open"; position: absolute; top: 13px; right: 13px; padding: 6px 10px; border-radius: 999px; background: #f4c858; color: #20313e; font-size: .76rem; font-weight: 950; }
+.visual-cookbook-photo, .visual-cookbook-photo img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.visual-cookbook-photo img { object-fit: cover; transition: transform 280ms ease; }
+.visual-cookbook-card:hover img, .visual-cookbook-card.active img { transform: scale(1.055); }
+.visual-cookbook-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(13,29,38,.05) 20%, rgba(13,29,38,.9) 100%); }
+.visual-cookbook-copy { position: relative; z-index: 1; align-self: end; display: grid; gap: 5px; padding: 18px; }
+.visual-cookbook-copy strong { font-family: var(--font-display); font-size: 1.48rem; line-height: 1; }
+.visual-cookbook-copy small { min-height: 33px; font-size: .88rem; line-height: 1.25; }
+.visual-cookbook-copy em { color: #ffe7a2; font-size: .78rem; font-style: normal; font-weight: 900; letter-spacing: .05em; text-transform: uppercase; }
+@media (max-width: 960px) { .visual-cookbook-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 650px) { .visual-cookbook-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; } .visual-cookbook-card { min-height: 215px; border-radius: 16px; } .visual-cookbook-copy { padding: 13px; } .visual-cookbook-copy strong { font-size: 1.25rem; } .visual-cookbook-copy small { min-height: 43px; font-size: .8rem; } }
+
+.cuisine-explorer-drawer { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; max-width: 1240px; margin: 24px auto 42px; padding: clamp(20px, 3vw, 34px); border-radius: 26px; background: #fff8e9; box-shadow: 0 14px 34px rgba(31,50,61,.12); }
+.cuisine-explorer-drawer form, .cuisine-drawer-search-results { grid-column: 1 / -1; }
+.cuisine-explorer-drawer label { display: block; margin-bottom: 8px; color: #20313e; font-weight: 900; }
+.cuisine-explorer-drawer input { width: 100%; min-height: 54px; padding: 12px 16px; border: 2px solid #cbd0c0; border-radius: 15px; background: #fff; color: #20313e; font: inherit; }
+.cuisine-explorer-drawer input:focus-visible { border-color: #3f9a4d; outline: 3px solid rgba(63,154,77,.28); outline-offset: 2px; }
+.cuisine-explorer-drawer h3 { margin: 0 0 9px; color: #20313e; font-size: 1rem; }
+.cuisine-drawer-links { display: flex; flex-wrap: wrap; gap: 8px; }
+.cuisine-drawer-links a { padding: 8px 10px; border-radius: 999px; background: #f3e7c9; color: #20313e; font-weight: 800; font-size: .86rem; }
+.cuisine-drawer-links a:hover, .cuisine-drawer-links a:focus-visible { background: #f4c858; outline: none; }
+.cuisine-drawer-recent { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.cuisine-drawer-recent h3 { width: 100%; }
+.cuisine-drawer-recent a, .cuisine-drawer-search-recipes a { display: inline-flex; align-items: center; gap: 8px; color: #20313e; font-weight: 850; }
+.cuisine-drawer-recent img, .cuisine-drawer-search-recipes img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; }
+.cuisine-drawer-search-results { display: grid; gap: 14px; padding: 15px; border-radius: 16px; background: #f7f0df; }
+.cuisine-drawer-search-recipes { display: flex; flex-wrap: wrap; gap: 12px; }
+@media (max-width: 700px) { .cuisine-explorer-drawer { grid-template-columns: 1fr; margin-inline: 14px; } .cuisine-explorer-drawer form, .cuisine-drawer-search-results, .cuisine-drawer-recent { grid-column: auto; } }
+
 .menu-toggle span { background: var(--navy) !important; }
 
 .america-250-announcement,

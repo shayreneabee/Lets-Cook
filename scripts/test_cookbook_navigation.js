@@ -19,6 +19,10 @@ globalThis.__cookbookTest = {
   recipeBoxTabDefinitions,
   recipeBoxTabByKey,
   recipesForRecipeBoxTab,
+  cookbookCollectionDefinitions,
+  cookbookCollectionById,
+  recipesForCookbookCollection,
+  cookbookCollectionCards,
   canonicalSearchResults,
   renderSearchPage,
   recipeDietaryProfile,
@@ -115,6 +119,18 @@ assert.deepStrictEqual([...api.cookbookChapterDefinitions].map((chapter) => chap
 assert.deepStrictEqual([...api.cookbookChapterKeys], expectedSections, "Cookbook must expose top-level and Main Dish chapter keys");
 const expectedRecipeBoxTabs = ["breakfast", "soups", "salads", "vegetables", "main-dishes", "sides", "breads", "cookies", "desserts", "vegan-plant-based", "miscellaneous"];
 assert.deepStrictEqual([...api.recipeBoxTabDefinitions].map((tab) => tab.id), expectedRecipeBoxTabs, "Recipe box must offer the approved simple cookbook chapters");
+const expectedVisualCollections = ["breakfast-brunch", "weeknight-dinners", "soups-stews-bowls", "salads-sides", "main-dishes", "breads", "desserts-baking", "holiday-tables", "budget-meals", "30-minute-meals", "slow-cooker-one-pot", "around-the-world", "southern-comfort", "louisiana-classics", "meal-prep", "vegetarian", "vegan", "gluten-free", "allergy-friendly"];
+assert.deepStrictEqual([...api.cookbookCollectionDefinitions].map((collection) => collection.id), expectedVisualCollections, "Living Cookbook must offer every requested visual collection");
+for (const collectionId of expectedVisualCollections) {
+  const collection = api.cookbookCollectionById(collectionId);
+  const collectionRecipes = api.recipesForCookbookCollection(collection);
+  assert(collection && collectionRecipes.length > 0, `${collectionId} must resolve to canonical recipe cards`);
+  assert.strictEqual(new Set(collectionRecipes.map((recipe) => recipe.id)).size, collectionRecipes.length, `${collectionId} must not duplicate recipes`);
+}
+const collectionMarkup = api.cookbookCollectionCards("vegan");
+assert(collectionMarkup.includes("Pick a Cookbook") && collectionMarkup.includes("Browse by craving, occasion, cooking style, or dietary need."), "Visual collection shelf must use the approved heading copy");
+assert.strictEqual((collectionMarkup.match(/data-cookbook-collection-select=/g) || []).length, expectedVisualCollections.length, "Visual collection shelf must render every requested cover");
+assert(/class="visual-cookbook-card active"[^>]*data-cookbook-collection-select="vegan"/.test(collectionMarkup), "Selected visual collection must have an active state");
 for (const tabId of expectedRecipeBoxTabs) {
   const tab = api.recipeBoxTabByKey(tabId);
   const tabRecipes = api.recipesForRecipeBoxTab(tab);
@@ -195,7 +211,7 @@ assert(/steak|rib|beef/i.test(`${topRecipe("ribeye")?.title} ${(topRecipe("ribey
 assert.strictEqual(api.rankRecipesForDiscovery(api.allRecipeCollection(), { query: "zzzxqvnotfood" }).filter((row) => row.score > 0).length, 0, "Nonsense searches must not return unrelated recipes");
 
 context.location.hash = "#recipes?section=cookies";
-assert.deepStrictEqual({ ...api.routeParts() }, { route: "recipes", id: undefined, section: "cookies", query: "" }, "Refresh must restore Cookies from the URL");
+assert.deepStrictEqual({ ...api.routeParts() }, { route: "recipes", id: undefined, section: "cookies", collection: "", query: "" }, "Refresh must restore Cookies from the URL");
 context.location.hash = "#recipes?section=soups";
 assert.strictEqual(api.routeParts().section, "soups", "Back/Forward state must restore Soups");
 context.location.hash = "#recipes?section=not-real";

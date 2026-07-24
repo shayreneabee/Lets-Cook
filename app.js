@@ -8848,8 +8848,8 @@ function focusCookbookResults(behavior = "smooth") {
 
 window.addEventListener("hashchange", () => {
   render();
-  const { route, section } = routeParts();
-  if (route === "recipes" && section) focusCookbookResults("smooth");
+  const { route, section, collection } = routeParts();
+  if ((route === "recipes" && section) || (route === "living-cookbook" && collection)) focusCookbookResults("smooth");
   else {
     announceRouteChange();
     scrollToRouteTop("smooth");
@@ -8882,7 +8882,7 @@ function routeParts() {
   const [path, queryString = ""] = raw.split("?");
   const [route, id] = path.split("/");
   const params = new URLSearchParams(queryString);
-  return { route, id, section: params.get("section") || "", query: params.get("q") || "" };
+  return { route, id, section: params.get("section") || "", collection: params.get("collection") || "", query: params.get("q") || "" };
 }
 
 function siteFooterMarkup(route = "") {
@@ -14567,6 +14567,37 @@ function renderCuisineExplorerDetail(id) {
   `;
 }
 
+const cuisineDrawerGroups = [
+  ["Popular Cuisines", [["Southern", "southern"], ["Mexican", "mexican"], ["Italian", "italian"], ["Indian", "indian"], ["Asian Inspired", "asian-inspired"]]],
+  ["Regional American", [["Southern", "southern"], ["Midwest", "midwest"], ["New England", "new-england"], ["Southwest", "southwest"], ["Mid-Atlantic", "mid-atlantic"]]],
+  ["African", [["Nigerian", "nigerian"], ["Ghanaian", "ghanaian"], ["Ethiopian", "ethiopian"], ["Moroccan", "moroccan"]]],
+  ["Asian", [["Chinese", "chinese"], ["Japanese", "japanese"], ["Korean", "korean"], ["Thai", "thai"], ["Filipino", "philippines"], ["Indian", "indian"]]],
+  ["Caribbean", [["Caribbean", "caribbean"], ["Jamaican", "jamaican"], ["Puerto Rican", "puerto-rico"]]],
+  ["European", [["Italian", "italian"], ["French", "french"], ["Greek", "greece"], ["German", "germany"]]],
+  ["Latin American", [["Mexican", "mexican"], ["Brazilian", "brazil"], ["Peruvian", "peru"], ["Colombian", "colombia"]]],
+  ["Middle Eastern", [["Lebanese", "lebanon"], ["Turkish", "turkey"], ["Egyptian", "egypt"]]],
+  ["Dietary Collections", [["Vegetarian", "collection:vegetarian"], ["Vegan", "collection:vegan"], ["Gluten-Free", "collection:gluten-free"], ["Allergy-Friendly", "collection:allergy-friendly"]]]
+];
+
+function cuisineDrawerMarkup() {
+  const recent = recipesByIds(recentlyViewed).slice(0, 5);
+  const groupMarkup = cuisineDrawerGroups.map(([label, items]) => `<section><h3>${label}</h3><div class="cuisine-drawer-links">${items.map(([name, id]) => id.startsWith("collection:") ? `<a href="#living-cookbook?collection=${id.replace("collection:", "")}">${name}</a>` : `<a href="#cuisine-explorer/${id}">${name}</a>`).join("")}</div></section>`).join("");
+  return `<aside class="cuisine-explorer-drawer" aria-label="Cuisine Explorer drawer"><form data-cuisine-drawer-search role="search"><label for="cuisineDrawerSearch">Search the cuisine explorer</label><input id="cuisineDrawerSearch" name="q" type="search" placeholder="Search cuisines, dishes, ingredients, or collections…" autocomplete="search" /></form><div id="cuisineDrawerResults" aria-live="polite"></div>${recent.length ? `<section class="cuisine-drawer-recent"><h3>Recently Viewed</h3>${recent.map((recipe) => `<a href="#recipes/${recipe.id}"><img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" /><span>${recipe.title}</span></a>`).join("")}</section>` : ""}${groupMarkup}</aside>`;
+}
+
+function renderCuisineDrawerSearchResults(query = "") {
+  const target = document.querySelector("#cuisineDrawerResults");
+  const normalized = normalizeIngredientTerm(query);
+  if (!target) return;
+  if (!normalized) { target.innerHTML = ""; return; }
+  const recipes = canonicalSearchResults(normalized).slice(0, 8);
+  const holidayQuery = /thanksgiving|christmas|easter|holiday|celebrat/.test(normalized);
+  const cuisineTerms = normalized === "cajun" ? ["cajun", "creole", "louisiana"] : [normalized];
+  const collections = cookbookCollectionDefinitions.filter((collection) => normalizeIngredientTerm(`${collection.title} ${collection.description} ${collection.id}`).includes(normalized) || normalized.includes(normalizeIngredientTerm(collection.title)) || (holidayQuery && collection.id === "holiday-tables")).slice(0, 5);
+  const matchingCuisines = cuisines.filter((cuisine) => cuisineTerms.some((term) => normalizeIngredientTerm(`${cuisine.name} ${cuisine.blurb || ""} ${cuisine.id}`).includes(term) || term.includes(normalizeIngredientTerm(cuisine.name)))).slice(0, 5);
+  target.innerHTML = `<div class="cuisine-drawer-search-results">${recipes.length ? `<section><h3>Recipes</h3><div class="cuisine-drawer-search-recipes">${recipes.map((recipe) => `<a href="#recipes/${recipe.id}"><img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" /><span>${recipe.title}</span></a>`).join("")}</div></section>` : ""}${collections.length ? `<section><h3>Cookbook collections</h3><div class="cuisine-drawer-links">${collections.map((collection) => `<a href="#living-cookbook?collection=${collection.id}">${collection.title}</a>`).join("")}</div></section>` : ""}${matchingCuisines.length ? `<section><h3>Cuisines</h3><div class="cuisine-drawer-links">${matchingCuisines.map((cuisine) => `<a href="#cuisine-explorer/${cuisine.id}">${cuisine.name}</a>`).join("")}</div></section>` : ""}${!recipes.length && !collections.length && !matchingCuisines.length ? `<p class="content-note">No matches yet. Try Cajun, shrimp, Thanksgiving, vegan, chicken, or air fryer.</p>` : ""}</div>`;
+}
+
 function renderCuisineExplorer(id) {
   if (id && renderHolidayTableDetail(id)) return;
   const regionalId = id ? regionalSoulFoodAliases[id] || id : "";
@@ -14649,6 +14680,7 @@ function renderCuisineExplorer(id) {
       </div>
     </section>
     ${cookSubnav()}
+    ${cuisineDrawerMarkup()}
     <section class="cream-section cuisine-market-section">
       <div class="section-heading">
         <p class="eyebrow">International food market</p>
@@ -15899,6 +15931,52 @@ const recipeBoxTabDefinitions = cookbookChapterDefinitions.flatMap((chapter) => 
   const tab = { id: chapter.id, icon: chapter.icon, title: chapter.title, intro: chapter.intro, chapter: chapter.id };
   return chapter.id === "miscellaneous" ? [veganRecipeBoxTab, tab] : [tab];
 });
+
+const cookbookCollectionDefinitions = [
+  ["breakfast-brunch", "Breakfast & Brunch", "Easy starts, slow mornings, and weekend favorites.", (r) => recipeCookbookPrimarySection(r) === "breakfast"],
+  ["weeknight-dinners", "Weeknight Dinners", "Dependable plates for a busy table.", (r) => /weeknight|family dinner|quick meals?/.test(`${r.category} ${(r.tags || []).join(" ")}`.toLowerCase())],
+  ["soups-stews-bowls", "Soups, Stews & Bowls", "Big flavor in one comforting bowl.", (r) => recipeCookbookPrimarySection(r) === "soups"],
+  ["salads-sides", "Salads & Sides", "Fresh, crunchy, creamy, and table-ready.", (r) => ["salads", "sides", "vegetables"].includes(recipeCookbookPrimarySection(r))],
+  ["main-dishes", "Main Dishes", "The plate everybody gathers around.", (r) => ["beef", "poultry", "fish-seafood"].includes(recipeCookbookPrimarySection(r))],
+  ["breads", "Breads", "Warm loaves, rolls, biscuits, and more.", (r) => recipeCookbookPrimarySection(r) === "breads"],
+  ["desserts-baking", "Desserts & Baking", "Sweet things worth making from scratch.", (r) => ["desserts", "cookies"].includes(recipeCookbookPrimarySection(r))],
+  ["holiday-tables", "Holiday Tables", "Recipes for the moments we gather.", (r) => /holiday|thanksgiving|christmas|easter|celebration/.test(`${r.category} ${(r.tags || []).join(" ")}`.toLowerCase())],
+  ["budget-meals", "Budget Meals", "Stretch the grocery cart, not the flavor.", (r) => /budget|pantry|beans|rice|pasta/.test(`${r.category} ${(r.tags || []).join(" ")}`.toLowerCase())],
+  ["30-minute-meals", "30-Minute Meals", "Fast, flavorful, and dinner-ready.", (r) => Number(r.cookTimeMinutes || 999) <= 30],
+  ["slow-cooker-one-pot", "Slow Cooker & One-Pot", "Set it, simmer it, and serve it warm.", (r) => /slow cooker|crockpot|one pot|one-pot/.test(`${r.title} ${r.category} ${(r.tags || []).join(" ")}`.toLowerCase())],
+  ["around-the-world", "Around the World", "A passport of flavors from many tables.", (r) => !["american", "southern"].includes(r.cuisine)],
+  ["southern-comfort", "Southern Comfort", "Sunday-worthy comfort with a little soul.", (r) => r.cuisine === "southern" || /southern|soul food/.test(`${r.category} ${(r.tags || []).join(" ")}`.toLowerCase())],
+  ["louisiana-classics", "Louisiana Classics", "Cajun and Creole favorites with real depth.", (r) => /cajun|creole|louisiana/.test(`${r.cuisine} ${r.category} ${(r.tags || []).join(" ")}`.toLowerCase())],
+  ["meal-prep", "Meal Prep", "Cook once and make the week easier.", (r) => /meal prep|make ahead|lunch prep/.test(`${r.category} ${(r.tags || []).join(" ")}`.toLowerCase())],
+  ["vegetarian", "Vegetarian", "Hearty vegetables, grains, beans, and comfort food.", (r) => recipeDietaryProfile(r).eatingStyles.includes("vegetarian")],
+  ["vegan", "Vegan", "Plant-based recipes with plenty of flavor.", (r) => recipeDietaryProfile(r).eatingStyles.includes("vegan") && recipeDietaryProfile(r).verification === "verified vegan"],
+  ["gluten-free", "Gluten-Free", "Recipes with no gluten ingredients listed.", (r) => recipeDietaryProfile(r).glutenStatus === "no gluten ingredients listed"],
+  ["allergy-friendly", "Allergy-Friendly", "Ingredient-reviewed choices for more tables.", (r) => recipeDietaryProfile(r).allergens.length === 0]
+].map(([id, title, description, matcher]) => ({ id, title, description, matcher }));
+
+function cookbookCollectionById(id = "") { return cookbookCollectionDefinitions.find((collection) => collection.id === id) || null; }
+
+function recipesForCookbookCollection(collection) {
+  if (!collection) return [];
+  const seen = new Set();
+  return allRecipeCollection().filter((recipe) => {
+    const canonicalId = canonicalRecipeId(recipe.id);
+    if (cookbookNearDuplicateAliases.has(recipe.id) || seen.has(canonicalId) || !collection.matcher(recipe)) return false;
+    seen.add(canonicalId);
+    return true;
+  });
+}
+
+function cookbookCollectionCards(selectedId = "") {
+  const usedCoverImages = new Set();
+  return `<section class="cream-section visual-cookbook-collections" aria-labelledby="pickCookbookTitle"><div class="section-heading compact-heading"><p class="eyebrow">Living Cookbook collections</p><h2 id="pickCookbookTitle">Pick a Cookbook</h2><p>Browse by craving, occasion, cooking style, or dietary need.</p></div><div class="visual-cookbook-grid">${cookbookCollectionDefinitions.map((collection) => {
+    const recipes = recipesForCookbookCollection(collection);
+    const coverRecipe = recipes.find((recipe) => !usedCoverImages.has(recipePhotoFor(recipe))) || recipes[0];
+    if (coverRecipe) usedCoverImages.add(recipePhotoFor(coverRecipe));
+    const active = collection.id === selectedId;
+    return `<button class="visual-cookbook-card ${active ? "active" : ""}" type="button" data-cookbook-collection-select="${collection.id}" aria-pressed="${active}" ${coverRecipe ? `style="--collection-photo:url('${recipePhotoFor(coverRecipe)}')"` : ""}><span class="visual-cookbook-photo">${coverRecipe ? `<img src="${recipePhotoFor(coverRecipe)}" alt="${coverRecipe.title}" />` : ""}</span><span class="visual-cookbook-copy"><strong>${collection.title}</strong><small>${collection.description}</small><em>${recipes.length} recipes</em></span></button>`;
+  }).join("")}</div></section>`;
+}
 const cookbookNearDuplicateAliases = new Map([
   ["cuban-sandwich-press", "cuban-sandwich"],
   ["mini-quesadillas", "cheese-quesadilla-triangles"],
@@ -16161,12 +16239,13 @@ function renderRecipes() {
   const routeState = routeParts();
   const isDedicatedCookbook = routeState.route === "living-cookbook";
   const requestedSection = routeState.section;
+  const selectedCollection = cookbookCollectionById(routeState.collection);
   const selectedTab = recipeBoxTabByKey(requestedSection);
   livingRecipeBoxState = selectedTab ? "open" : "closed";
   const invalidSection = Boolean(requestedSection && !selectedTab);
-  const initialRecipes = selectedTab ? recipesForRecipeBoxTab(selectedTab) : [];
-  const resultsTitle = selectedTab ? (selectedTab.resultsTitle || selectedTab.title) : invalidSection ? "Cookbook section not found" : "Choose a recipe card";
-  const resultsIntro = selectedTab
+  const initialRecipes = selectedCollection ? recipesForCookbookCollection(selectedCollection) : selectedTab ? recipesForRecipeBoxTab(selectedTab) : [];
+  const resultsTitle = selectedCollection ? selectedCollection.title : selectedTab ? (selectedTab.resultsTitle || selectedTab.title) : invalidSection ? "Cookbook section not found" : "Choose a recipe card";
+  const resultsIntro = selectedCollection ? selectedCollection.description : selectedTab
     ? selectedTab.intro
     : invalidSection
       ? `“${escapeHTML(requestedSection)}” is not a valid Living Cookbook section.`
@@ -16187,13 +16266,14 @@ function renderRecipes() {
   const recentRecipes = [...allRecipeCollection()].sort((a, b) => String(b.createdAt || b.updatedAt || b.id).localeCompare(String(a.createdAt || a.updatedAt || a.id))).slice(0, 8);
   app.innerHTML = `
     ${cookSubnav()}
+    ${isDedicatedCookbook ? cookbookCollectionCards(selectedCollection?.id || "") : ""}
     ${cookbookChapterShelf(selectedTab?.id || "")}
     <section class="cream-section cookbook-results-section" id="cookbookResults">
       <div class="section-heading compact-heading">
         <p class="eyebrow">Living Cookbook</p>
         <h2 id="cookbookResultsHeading" tabindex="-1">${resultsTitle}</h2>
         <p id="cookbookResultsIntro">${resultsIntro}</p>
-        ${selectedTab ? `<button class="cookbook-view-all" id="cookbookResultsAction" type="button" data-cookbook-view-all>View all ${initialRecipes.length} ${selectedTab.title} recipes</button>` : ""}
+        ${selectedCollection ? `<button class="cookbook-view-all" type="button" data-cookbook-collection-reset>Reset filters</button>` : selectedTab ? `<button class="cookbook-view-all" id="cookbookResultsAction" type="button" data-cookbook-view-all>View all ${initialRecipes.length} ${selectedTab.title} recipes</button>` : ""}
       </div>
       <div id="results" class="recipe-grid">${initialRecipes.length
         ? selectedTab ? cookbookResultsMarkup(selectedTab, initialRecipes) : initialRecipes.map(recipeCard).join("")
@@ -17278,6 +17358,10 @@ function logZeroRecipeSearch(query = "") {
 }
 
 function handleSearch(event) {
+  if (event?.target?.matches("#cuisineDrawerSearch")) {
+    renderCuisineDrawerSearchResults(event.target.value);
+    return;
+  }
   if (event?.target?.matches("[data-cook-along-age]")) {
     cookAlongAge = event.target.value;
     localStorage.setItem("letsCookAlongAge", JSON.stringify(cookAlongAge));
@@ -17400,6 +17484,8 @@ function handleClick(event) {
   const cookbookViewAllButton = event.target.closest("[data-cookbook-view-all]");
   const recipeFilterDrawerToggle = event.target.closest("[data-recipe-filter-drawer-toggle]");
   const recipeBoxPreset = event.target.closest("[data-recipe-box-preset]");
+  const cookbookCollectionButton = event.target.closest("[data-cookbook-collection-select]");
+  const cookbookCollectionReset = event.target.closest("[data-cookbook-collection-reset]");
   const searchClearButton = event.target.closest("[data-search-clear]");
   const selectKitchenDateButton = event.target.closest("[data-select-kitchen-date]");
   const swapCalendarMealButton = event.target.closest("[data-swap-calendar-meal]");
@@ -17458,6 +17544,14 @@ function handleClick(event) {
 
   if (recipeBoxToggle) {
     toggleLivingRecipeBox();
+    return;
+  }
+  if (cookbookCollectionButton) {
+    window.location.hash = `#living-cookbook?collection=${encodeURIComponent(cookbookCollectionButton.dataset.cookbookCollectionSelect)}`;
+    return;
+  }
+  if (cookbookCollectionReset) {
+    window.location.hash = "#living-cookbook";
     return;
   }
   if (searchClearButton) {
@@ -17945,6 +18039,12 @@ function handleClick(event) {
 
 
 async function handleSubmit(event) {
+  if (event.target.matches("[data-cuisine-drawer-search]")) {
+    event.preventDefault();
+    const query = new FormData(event.target).get("q")?.toString() || "";
+    renderCuisineDrawerSearchResults(query);
+    return;
+  }
   if (event.target.matches("[data-search-form]")) {
     event.preventDefault();
     const query = normalizeIngredientTerm(new FormData(event.target).get("q") || "");
