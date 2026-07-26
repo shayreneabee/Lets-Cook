@@ -3462,7 +3462,8 @@ const recipeIdAliases = {
   "mac-and-cheese": "southern-baked-mac-cheese",
   "asian-thai-basil-chicken": "thai-basil-chicken",
   "oklahoma-peach-cobbler": "peach-cobbler",
-  "washington-apple-crisp": "apple-crisp"
+  "washington-apple-crisp": "apple-crisp",
+  "agua-fresca": "watermelon-agua-fresca"
 };
 
 function canonicalRecipeId(id) {
@@ -5702,7 +5703,7 @@ const augustCalendarConfig = {
   year: 2026,
   month: 7,
   key: "2026-08",
-  title: "August: Back to School",
+  title: "August: Around the World",
   breakfast: ["tex-mex-breakfast-tacos", "breakfast-egg-cups", "yogurt-parfait-cups", "berry-banana-smoothies", "soft-scrambled-eggs", "virginia-country-ham", "idaho-huckleberry-pancakes", "breakfast-casserole"],
   lunch: ["chicken-salad-croissants", "turkey-pinwheels", "pb-and-j-sandwich", "greek-salad", "mission-burritos", "cuban-sandwich", "argentinian-beef-empanadas", "spam-musubi"],
   dinner: ["chicken-street-tacos", "lemon-herb-salmon", "caribbean-curry-chicken", "filipino-chicken-adobo", "asian-garlic-fried-rice", "beginner-chicken-biryani", "nigerian-jollof-rice", "chicken-parmesan", "cajun-chicken-sausage-gumbo", "sheet-pan-nachos"],
@@ -6039,7 +6040,7 @@ function monthlyKitchenCalendarSection() {
     const monthName = new Date(`${dateKey}T12:00:00`).toLocaleDateString(undefined, { month: "short" });
     return `<button class="kitchen-calendar-day ${today === dateKey ? "today" : ""} ${isSelected ? "selected" : ""} ${complete ? "completed" : ""}" type="button" data-select-kitchen-date="${dateKey}" aria-pressed="${isSelected}"><time datetime="${dateKey}">${monthName} ${Number(dateKey.slice(-2))}</time><strong>${dinner?.title || "Menu needs review"}</strong>${cookAlongBadge(dinner)}<span>${calendarRecipe(menu.breakfast.recipeId)?.title || "Breakfast"}</span><small>${complete ? "✓ Completed" : "Open full day →"}</small></button>`;
   }).join("");
-  return `<section class="monthly-kitchen-section" aria-labelledby="monthlyKitchenTitle"><div class="home-section-kicker"><div><p class="eyebrow">Full kitchen calendar</p><h2 id="monthlyKitchenTitle">${launchView ? "Late July into August: Back to School" : new Date(year, month - 1, 1).toLocaleDateString(undefined, { month: "long", year: "numeric" })}</h2><p>Breakfasts, lunch boxes, snacks, cultural meals, quick dinners, weekend brunch, and Sunday supper.</p></div><div class="hero-actions"><button class="small-button secondary" type="button" data-planner-month="previous">← Previous</button><button class="small-button secondary" type="button" data-planner-month="next">Next →</button><button class="small-button" type="button" data-use-kitchen-week>Use This Week</button><button class="small-button secondary" type="button" data-customize-kitchen-week>Customize Week</button><button class="small-button secondary" type="button" data-grocery-scope="month">Shop The Month</button></div></div>${weeklyPlanProgress()}<div class="kitchen-calendar-weekdays" aria-hidden="true">${["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"].map((day) => `<span>${day}</span>`).join("")}</div><div class="kitchen-calendar-grid">${blanks}${days}</div>${kitchenDayView(selectedKitchenDate)}</section>`;
+  return `<section class="monthly-kitchen-section" aria-labelledby="monthlyKitchenTitle"><div class="home-section-kicker"><div><p class="eyebrow">Full kitchen calendar</p><h2 id="monthlyKitchenTitle">${launchView ? "August: Around the World" : new Date(year, month - 1, 1).toLocaleDateString(undefined, { month: "long", year: "numeric" })}</h2><p>Balanced breakfasts, lunch boxes, snacks, cultural meals, traditional drinks, quick dinners, weekend brunch, and Sunday supper.</p></div><div class="hero-actions"><button class="small-button secondary" type="button" data-planner-month="previous">← Previous</button><button class="small-button secondary" type="button" data-planner-month="next">Next →</button><button class="small-button" type="button" data-use-kitchen-week>Use This Week</button><button class="small-button secondary" type="button" data-customize-kitchen-week>Customize Week</button><button class="small-button secondary" type="button" data-grocery-scope="month">Shop The Month</button></div></div>${weeklyPlanProgress()}<div class="kitchen-calendar-weekdays" aria-hidden="true">${["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"].map((day) => `<span>${day}</span>`).join("")}</div><div class="kitchen-calendar-grid">${blanks}${days}</div>${kitchenDayView(selectedKitchenDate)}</section>`;
 }
 
 function kitchenDayView(dateKey) {
@@ -6090,7 +6091,9 @@ function drinkRecipe(id, title, drinkType, description, ingredients, directions,
     garnish: extras.garnish || "Fresh citrus or herbs",
     glassware: extras.glassware || "Highball glass",
     alcoholFreeVersion: extras.alcoholFreeVersion || "",
-    lowSugar: Boolean(extras.lowSugar)
+    lowSugar: Boolean(extras.lowSugar),
+    culturalNotes: extras.culturalNotes || "",
+    source: extras.source || ""
   };
 }
 
@@ -6121,7 +6124,8 @@ const drinksCollectionRecipes = [
   drinkRecipe("apple-cider-mocktail", "Apple Cider Mocktail", "mocktail", "Spiced apple cider with ginger beer and autumn citrus.", ["1 cup apple cider", "1 oz lemon juice", "8 oz ginger beer", "Pinch cinnamon", "Ice", "2 apple slices"], ["Stir apple cider, lemon juice, and cinnamon together.", "Fill two glasses with ice.", "Divide cider mixture between glasses.", "Top with ginger beer and apple slices."], ["apple cider", "fall", "holiday", "no alcohol"], { garnish: "Apple fan and cinnamon stick", glassware: "Rocks glass" }),
   drinkRecipe("blueberry-lemon-fizz", "Blueberry Lemon Fizz", "mocktail", "Blueberry, lemon, and sparkling water with lively color.", ["1/2 cup blueberries", "2 oz lemon juice", "1 oz simple syrup", "8 oz sparkling water", "Ice", "2 lemon wheels"], ["Muddle blueberries with lemon juice and syrup.", "Strain into two ice-filled glasses.", "Top with sparkling water.", "Garnish with lemon wheels."], ["blueberry", "lemon", "fizz", "no alcohol"], { garnish: "Blueberries and lemon wheel", glassware: "Highball glass" }),
   drinkRecipe("mango-mule", "Mango Mule", "mocktail", "Mango, lime, and ginger beer with mule-style spice.", ["1/2 cup mango nectar", "1 oz lime juice", "8 oz ginger beer", "Ice", "2 lime wedges"], ["Fill two mule mugs with ice.", "Divide mango nectar and lime juice between mugs.", "Top with ginger beer.", "Stir once and garnish with lime."], ["mango", "ginger", "no alcohol"], { garnish: "Lime wedge and mint", glassware: "Copper mule mug" }),
-  drinkRecipe("hibiscus-punch", "Hibiscus Punch", "punch", "A floral, ruby punch with orange, ginger, and sparkling water.", ["3 cups brewed hibiscus tea, chilled", "1 cup orange juice", "1/2 cup pineapple juice", "12 oz sparkling water", "1 tbsp grated ginger", "Orange slices", "Ice"], ["Stir hibiscus tea, juices, and ginger in a pitcher.", "Chill until serving time.", "Add sparkling water, orange slices, and ice just before serving.", "Ladle into glasses."], ["hibiscus", "punch", "party", "holiday", "no alcohol"], { servings: 8, garnish: "Orange wheels and mint", glassware: "Punch cup" })
+  drinkRecipe("hibiscus-punch", "Hibiscus Punch", "punch", "A floral, ruby punch with orange, ginger, and sparkling water.", ["3 cups brewed hibiscus tea, chilled", "1 cup orange juice", "1/2 cup pineapple juice", "12 oz sparkling water", "1 tbsp grated ginger", "Orange slices", "Ice"], ["Stir hibiscus tea, juices, and ginger in a pitcher.", "Chill until serving time.", "Add sparkling water, orange slices, and ice just before serving.", "Ladle into glasses."], ["hibiscus", "punch", "party", "holiday", "no alcohol"], { servings: 8, garnish: "Orange wheels and mint", glassware: "Punch cup" }),
+  drinkRecipe("blackberry-sage-yaupon-tea", "Blackberry Sage & Yaupon Tea", "tea", "A chilled tea built around yaupon holly, blackberries, sage, and maple, credited to contemporary Indigenous foodways educators.", ["4 cups water", "2 tbsp loose yaupon tea or 4 yaupon tea bags", "1 cup fresh blackberries", "6 fresh sage leaves", "2 tbsp pure maple syrup, plus more to taste", "1 tbsp fresh lemon juice", "Ice"], ["Bring water just to a boil, remove from heat, and steep yaupon tea for 5 minutes.", "Strain the tea and let it cool for 10 minutes.", "Gently muddle blackberries, sage, maple syrup, and lemon juice in a pitcher.", "Pour in the tea, stir, and chill for at least 1 hour.", "Strain over ice and garnish with a blackberry and sage leaf."], ["indigenous foodways", "yaupon", "blackberry", "sage", "maple", "cherokee", "no alcohol"], { servings: 4, cuisine: "north-american-indigenous", garnish: "Blackberry and fresh sage", glassware: "Tall clear glass", culturalNotes: "Yaupon holly is native to the Americas and has longstanding use in Indigenous foodways. This contemporary recipe is presented with specific credit rather than as one universal Native beverage.", source: { name: "Blackberry Sage & Yaupon Tea by Nico Albert Williams, Smithsonian Folklife Festival", url: "https://festival.si.edu/2024/indigenous-voices-americas/recipes", type: "adapted" } })
 ];
 
 const existingRecipeIds = new Set(recipes.map((recipe) => recipe.id));
@@ -7281,6 +7285,7 @@ Object.assign(recipeImageOverrides, {
   "blueberry-lemon-fizz": "images/recipes/drinks-2026/blueberry-lemon-fizz.png",
   "mango-mule": "images/recipes/drinks-2026/mango-mule.png",
   "hibiscus-punch": "images/recipes/drinks-2026/hibiscus-punch.png",
+  "blackberry-sage-yaupon-tea": "images/recipes/drinks-2026/blackberry-sage-yaupon-tea.png",
   "spooky-party-punch": "images/recipes/drinks-2026/spooky-party-punch.png"
 });
 
@@ -8968,7 +8973,7 @@ function routeParts() {
   const [path, queryString = ""] = raw.split("?");
   const [route, id] = path.split("/");
   const params = new URLSearchParams(queryString);
-  return { route, id, section: params.get("section") || "", collection: params.get("collection") || "", drink: params.get("drink") || "", query: params.get("q") || "" };
+  return { route, id, section: params.get("section") || "", collection: params.get("collection") || "", culture: params.get("culture") || "", drink: params.get("drink") || "", query: params.get("q") || "" };
 }
 
 function siteFooterMarkup(route = "") {
@@ -12899,35 +12904,156 @@ function homepageEditorialRecipeLink(recipe, label = "", className = "") {
   `;
 }
 
+const augustAroundWorldWeeks = [
+  {
+    id: "indigenous-america",
+    week: 1,
+    dates: "August 1–7",
+    symbol: "🌽",
+    title: "Indigenous America",
+    routeLabel: "Indigenous foodways",
+    description: "Explore living, nation-specific food traditions through corn, beans, squash, wild rice, berries, bison, and salmon.",
+    history: "Indigenous foodways across the Americas are living traditions, not one single cuisine. This week centers ingredients and techniques while naming specific communities whenever the recipe record allows.",
+    map: "Many sovereign Native nations across North America",
+    methods: ["Nixtamalizing and grinding corn", "Cooking beans and squash together", "Smoking, drying, roasting, and plank cooking"],
+    ingredients: ["Corn", "Beans", "Squash", "Wild rice", "Berries", "Bison", "Salmon"],
+    traditions: ["Food knowledge is tied to land, season, family, and sovereignty.", "Fry bread is presented with its colonial history and community context.", "Harvest and gathering traditions vary by nation."],
+    facts: ["The Three Sisters—corn, beans, and squash—support one another in the field.", "Wild rice is a culturally important food for Anishinaabe communities.", "Food traditions continue to evolve in contemporary Native kitchens."],
+    recipeIds: ["south-dakota-wojapi", "northern-plains-fry-bread", "wild-rice-soup", "north-dakota-bison-barley-soup", "blue-corn-pancakes", "succotash", "cedar-plank-salmon", "navajo-tacos"],
+    drinkIds: ["blackberry-sage-yaupon-tea"]
+  },
+  {
+    id: "southern-black-foodways",
+    week: 2,
+    dates: "August 8–14",
+    symbol: "🎶",
+    title: "Southern Black Foodways",
+    routeLabel: "Southern Black foodways",
+    description: "Sunday dinner, smoke, seafood, garden vegetables, peach desserts, sweet tea, and red drinks—served with the history.",
+    history: "Southern Black cooking carries African knowledge, Indigenous ingredients, survival, farming, migration, entrepreneurship, celebration, and family memory.",
+    map: "The American South, with regional stories from the Delta to the Lowcountry",
+    methods: ["Slow braising and pot liquor", "Pit smoking and live-fire cooking", "Cornmeal frying and cast-iron baking"],
+    ingredients: ["Greens", "Black-eyed peas", "Okra", "Cornmeal", "Peaches", "Catfish", "Sweet potatoes"],
+    traditions: ["Sunday dinner makes room for both ceremony and rest.", "Fish fries and barbecue are community events as much as meals.", "Red drinks connect celebration across the African diaspora."],
+    facts: ["The Great Migration carried Southern dishes and techniques into cities across the country.", "Black farmers, cooks, caterers, and restaurateurs shaped American food culture.", "Soul food is regional, personal, and bigger than any one menu."],
+    recipeIds: ["fried-chicken", "southern-collard-greens", "southern-baked-mac-cheese", "fried-catfish", "bbq-pulled-pork", "smothered-pork-chops", "peach-cobbler", "banana-pudding"],
+    drinkIds: ["sweet-tea", "hibiscus-red-punch", "strawberry-basil-lemonade"]
+  },
+  {
+    id: "india",
+    week: 3,
+    dates: "August 15–21",
+    symbol: "🇮🇳",
+    title: "India",
+    routeLabel: "India",
+    description: "Cook across regional curries, rice dishes, breads, chutneys, street foods, chai, mango drinks, and layered spice.",
+    history: "Indian cooking changes dramatically by region, religion, season, language, and home. This collection is an invitation to notice those differences, not flatten them into one curry.",
+    map: "South Asia—from northern wheat and dairy traditions to southern rice, coconut, and fermented batters",
+    methods: ["Blooming whole and ground spices", "Dum steaming layered rice", "Tandoor-style high-heat cooking and griddle breads"],
+    ingredients: ["Basmati rice", "Lentils", "Chickpeas", "Ginger", "Turmeric", "Cumin", "Cardamom"],
+    traditions: ["Meals may balance rice or bread, dal, vegetables, pickles, chutney, yogurt, and a main dish.", "Tea hospitality is woven into everyday visits.", "Festival foods vary by region, faith, and family."],
+    facts: ["There is no single Indian curry powder or universal curry.", "Tempering spices in hot fat builds aroma at the start or finish of a dish.", "India has extensive vegetarian culinary traditions that predate modern diet labels."],
+    recipeIds: ["butter-chicken", "chana-masala", "indian-dal-tadka", "biryani", "palak-paneer", "garlic-naan", "chicken-tikka-masala", "kachumber-salad"],
+    drinkIds: ["masala-chai", "mango-lassi", "mango-mule"]
+  },
+  {
+    id: "africa",
+    week: 4,
+    dates: "August 22–31",
+    symbol: "🌍",
+    title: "Africa",
+    routeLabel: "African cuisines",
+    description: "Travel through distinct Nigerian, Ghanaian, Ethiopian, Moroccan, and South African kitchens without treating a continent as one cuisine.",
+    history: "Africa holds thousands of food cultures. This week rotates through a few specific countries so every dish keeps its own name, place, ingredients, and story.",
+    map: "West, East, North, and Southern Africa",
+    methods: ["Building pepper and tomato stew bases", "Fermenting teff for injera", "Slow braising, grilling, and cooking grains to share"],
+    ingredients: ["Rice", "Plantain", "Groundnuts", "Teff", "Berbere", "Preserved lemon", "Maize"],
+    traditions: ["Shared platters can make hospitality visible at the table.", "Tea, coffee, and chilled hibiscus drinks carry distinct regional rituals.", "Weddings, religious holidays, and naming celebrations each have local food traditions."],
+    facts: ["Jollof has beloved national and family variations across West Africa.", "Ethiopian injera is both bread and utensil.", "South African cooking includes Indigenous, Cape Malay, Indian, and many other regional influences."],
+    recipeIds: ["nigerian-jollof-rice", "nigerian-egusi-soup", "nigerian-suya-skewers", "ghanaian-waakye", "ghanaian-groundnut-soup", "ethiopian-doro-wat", "ethiopian-injera", "moroccan-chicken-tagine", "south-african-bobotie", "south-african-chakalaka-pap"],
+    drinkIds: ["hibiscus-punch", "sorrel-drink", "pineapple-ginger-fizz"]
+  }
+];
+
+function augustCultureForDate(value = new Date()) {
+  const date = value instanceof Date ? value : new Date(value);
+  const month = date.getMonth();
+  const day = month === 7 ? date.getDate() : month < 7 ? 1 : 31;
+  const week = day <= 7 ? 1 : day <= 14 ? 2 : day <= 21 ? 3 : 4;
+  return augustAroundWorldWeeks.find((item) => item.week === week) || augustAroundWorldWeeks[0];
+}
+
+function recipesForAugustCulture(culture = augustCultureForDate(), includeDrinks = false) {
+  const ids = includeDrinks ? [...culture.recipeIds, ...culture.drinkIds] : culture.recipeIds;
+  return ids.map((id) => recipeById(id)).filter((recipe) => recipe && recipeAllowedInGeneralCollection(recipe));
+}
+
+function augustCultureById(id = "") {
+  return augustAroundWorldWeeks.find((item) => item.id === id) || null;
+}
+
 function homepageEditorialHeroSection() {
-  const augustPool = allRecipeCollection().filter((recipe) => /peach|corn|okra|tomato|melon|salad|grill|weeknight|lunch/i.test(recipeSearchText(recipe)));
-  const heroRecipe = dailyDiverseRecipes(augustPool, 1, "homepage-hero")[0] || allRecipeCollection()[0];
-  const supporting = dailyDiverseRecipes(augustPool, 3, "homepage-sideboard", [heroRecipe]);
+  const culture = augustCultureForDate();
+  const supporting = recipesForAugustCulture(culture).slice(0, 3);
   return `
-    <section class="home-magazine-hero" aria-labelledby="homeHeroTitle">
+    <section class="home-magazine-hero around-world-hero" aria-labelledby="homeHeroTitle">
       <figure class="home-hero-photo">
-        <img src="images/seasonal/august-2026/farmers-market-kitchen.png" alt="Late-summer farmers market table with peaches, tomatoes, corn, okra, watermelon, and fresh herbs" />
+        <img src="images/seasonal/august-around-the-world-2026/around-the-world-hero.png" alt="A bright global cooking table with distinct dishes, ingredients, a map, and a travel journal" />
       </figure>
       <div class="home-hero-copy">
-        <p class="eyebrow">Let's Cook Y'all / Late summer</p>
-        <h1 id="homeHeroTitle">What Y’all Cooking?</h1>
-        <p>Farmers-market produce, back-to-school lunches, easy weeknight dinners, fresh salads, grilling, and one more peach dessert.</p>
-        <form class="home-hero-search" data-ingredient-form>
-          <label for="homeHeroSearch">What Y’all Cooking?</label>
+        <p class="eyebrow">🌍 Let’s Cook Y’all / August journey</p>
+        <h1 id="homeHeroTitle">Around the World</h1>
+        <p>Explore a new culture every week through authentic recipes, traditional drinks, history, ingredients, and the people who keep food traditions alive.</p>
+        <div class="around-world-hero-stamps" aria-label="August Around the World features"><span>Authentic recipes</span><span>Traditional drinks</span><span>History & traditions</span><span>Community challenge</span></div>
+        <form class="home-hero-search" data-search-form>
+          <label for="homeHeroSearch">Where should we cook next?</label>
           <div>
-            <input id="homeHeroSearch" name="ingredient" placeholder="ribeye, chicken thighs, peaches..." />
-            <button class="small-button" type="submit">Find Food</button>
+            <input id="homeHeroSearch" name="q" placeholder="Search a country, culture, dish, ingredient, or drink…" />
+            <button class="small-button" type="submit">Start Exploring</button>
           </div>
         </form>
         <div class="hero-actions">
-          <a class="small-button" href="#recipes">Find A Recipe</a>
-          <a class="small-button secondary" href="#recipes">Open the August collection</a>
+          <a class="small-button" href="#living-cookbook?culture=${culture.id}">${culture.symbol} Explore ${culture.title}</a>
+          <a class="small-button secondary" href="#cuisine-explorer">Open the World Map</a>
         </div>
       </div>
-      <div class="home-hero-sideboard" aria-label="Featured bites">
-        ${supporting.map((recipe, index) => homepageEditorialRecipeLink(recipe, ["Sweet finish", "Cold glass", "Bring dessert"][index])).join("")}
+      <div class="home-hero-sideboard" aria-label="${culture.title} featured recipes">
+        ${supporting.map((recipe, index) => homepageEditorialRecipeLink(recipe, ["First taste", "Cook the story", "Pass the plate"][index])).join("")}
       </div>
     </section>
+  `;
+}
+
+function homepageAroundWorldFeatureSections() {
+  const culture = augustCultureForDate();
+  const recipes = recipesForAugustCulture(culture);
+  const drink = culture.drinkIds.map((id) => recipeById(id)).find(Boolean);
+  const chefPicks = dailyDiverseRecipes(recipes, Math.min(4, recipes.length), `around-world-${culture.id}`);
+  return `
+    <section class="around-world-week" aria-labelledby="cultureWeekTitle">
+      <header class="around-world-week-header">
+        <div><p class="eyebrow">🌎 Culture of the Week · ${culture.dates}</p><h2 id="cultureWeekTitle">${culture.symbol} ${culture.title}</h2><p>${culture.description}</p></div>
+        <a class="small-button" href="#living-cookbook?culture=${culture.id}">View Complete Collection →</a>
+      </header>
+      <div class="around-world-feature-grid">
+        <article class="around-world-story"><span>📖 Learn the Culture</span><h3>A quick seat at the table</h3><p>${culture.history}</p><dl><div><dt>Regional map</dt><dd>${culture.map}</dd></div><div><dt>Dining traditions</dt><dd>${culture.traditions[0]}</dd></div></dl></article>
+        <article class="around-world-pantry"><span>🛒 Pantry Staples</span><h3>Start with the ingredients.</h3><div>${culture.ingredients.map((item) => `<a href="#search?q=${encodeURIComponent(item)}">${item}</a>`).join("")}</div></article>
+        ${drink ? `<a class="around-world-drink" href="#recipes/${drink.id}"><img src="${recipePhotoFor(drink)}" alt="${drink.title}" /><span>🥤 Featured Drink</span><h3>${drink.title}</h3><p>${drink.description}</p></a>` : ""}
+      </div>
+    </section>
+    <section class="around-world-recipes" aria-labelledby="aroundRecipesTitle">
+      <div class="home-section-kicker"><div><p class="eyebrow">🍽 Featured Recipes</p><h2 id="aroundRecipesTitle">Cook the week, one real dish at a time.</h2></div><a class="small-button secondary" href="#living-cookbook?culture=${culture.id}">See all ${culture.title} recipes</a></div>
+      <div class="around-world-recipe-grid">${recipes.slice(0, 8).map((recipe, index) => homepageEditorialRecipeLink(recipe, index < 4 ? "Featured recipe" : "More to explore", index === 0 ? "large" : "")).join("")}</div>
+    </section>
+    <section class="around-world-learning" aria-labelledby="aroundLearningTitle">
+      <div><p class="eyebrow">Traditional methods · signature ingredients · celebrations</p><h2 id="aroundLearningTitle">Learn enough to cook with curiosity and respect.</h2></div>
+      <div class="around-world-learning-grid">
+        <article><span>🔥 Traditional cooking methods</span><ul>${culture.methods.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article><span>💡 Fun facts</span><ul>${culture.facts.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+        <article><span>🍽 Dining & celebration</span><ul>${culture.traditions.map((item) => `<li>${item}</li>`).join("")}</ul></article>
+      </div>
+    </section>
+    <section class="around-world-chef-picks" aria-labelledby="chefPicksTitle"><div><p class="eyebrow">👨🏽‍🍳 Chef’s Picks</p><h2 id="chefPicksTitle">A balanced route through ${culture.title}.</h2></div><div>${chefPicks.map((recipe) => homepageEditorialRecipeLink(recipe, recipe.category || "Chef’s pick")).join("")}</div></section>
   `;
 }
 
@@ -12980,17 +13106,17 @@ function homepageCuisineScrollSection() {
 }
 
 function homepageSeasonalEditorialSection() {
-  const augustPool = allRecipeCollection().filter((recipe) => /peach|corn|okra|tomato|watermelon|melon|herb|salad|grill|lunch|weeknight/i.test(recipeSearchText(recipe)));
-  const recipes = dailyDiverseRecipes(augustPool, 6, "homepage-august-seasonal");
+  const culture = augustCultureForDate();
+  const recipes = recipesForAugustCulture(culture).slice(0, 6);
   return `
     <section class="home-seasonal-table" aria-labelledby="seasonalTitle">
       <div class="home-section-kicker">
-        <p class="eyebrow">Seasonal collection</p>
-        <h2 id="seasonalTitle">August: market bags, lunch boxes, and easy suppers.</h2>
-        <a class="small-button secondary" href="#recipes">See Today's Table</a>
+        <p class="eyebrow">Living Cookbook spotlight</p>
+        <h2 id="seasonalTitle">Around the World · This week: ${culture.symbol} ${culture.title}</h2>
+        <a class="small-button secondary" href="#living-cookbook?culture=${culture.id}">View Collection →</a>
       </div>
       <div class="home-seasonal-spread">
-        ${recipes.map((recipe, index) => homepageEditorialRecipeLink(recipe, ["Grill", "Backyard", "Side", "Fresh", "Cold fruit", "Dessert"][index], index === 0 ? "large" : "")).join("")}
+        ${recipes.map((recipe, index) => homepageEditorialRecipeLink(recipe, ["Start here", "Main dish", "At the table", "Technique", "Ingredient story", "Something sweet"][index], index === 0 ? "large" : "")).join("")}
       </div>
     </section>
   `;
@@ -13031,15 +13157,16 @@ function homepageRecipeOfWeekSection(recipe) {
 }
 
 function homepageCommunityEditorialSection() {
-  const communityRecipes = recipesByIds(["catfish-and-spaghetti", "delta-hot-tamales", "chopped-cheese", "dc-half-smoke", "fried-chicken", "banana-pudding"]).filter(Boolean);
+  const culture = augustCultureForDate();
+  const communityRecipes = recipesForAugustCulture(culture).slice(0, 6);
   const shown = communityRecipes.length ? communityRecipes : allRecipeCollection().slice(8, 14);
   return `
     <section class="home-community-table" aria-labelledby="communityTitle">
       <div>
-        <p class="eyebrow">Community recipes</p>
-        <h2 id="communityTitle">Fresh from the neighborhood.</h2>
-        <p>The plate Grandma makes, the church pan, the corner carryout, the cookout favorite, and the dish somebody says you have to try.</p>
-        <a class="small-button secondary" href="#kitchen">Open the Let's Cook Y'all Kitchen</a>
+        <p class="eyebrow">❤️ Community Favorites · 📸 What Y’all Cooking</p>
+        <h2 id="communityTitle">What Y’all Cooking Around the World</h2>
+        <p>Join this week’s ${culture.title} challenge with a recipe, cooking video, Kitchen Note, or family story. Credit the cook and cultural source that helped you learn.</p>
+        <a class="small-button secondary" href="#community">Join the Weekly Challenge</a>
       </div>
       <div class="home-community-polaroids">
         ${shown.map((recipe) => homepageEditorialRecipeLink(recipe, recipeStoryLabel(recipe))).join("")}
@@ -13049,20 +13176,22 @@ function homepageCommunityEditorialSection() {
 }
 
 function homepageLivingCookbookPreview() {
-  const recipe = recipeById("white-sandwich-bread") || recipeById("carrot-cake") || allRecipeCollection()[0];
-  return `<section class="home-living-cookbook-preview" aria-labelledby="homeCookbookTitle"><figure><img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" /></figure><div><p class="eyebrow">The family recipe box</p><h2 id="homeCookbookTitle">A whole cookbook, waiting to be opened.</h2><p>Browse breakfast through desserts, pull a divider forward, and find every recipe in one beautiful living collection.</p><a class="small-button" href="#living-cookbook">Open the Living Cookbook</a></div></section>`;
+  const culture = augustCultureForDate();
+  const recipe = recipesForAugustCulture(culture)[0] || allRecipeCollection()[0];
+  return `<section class="home-living-cookbook-preview around-world-cookbook-preview" aria-labelledby="homeCookbookTitle"><figure><img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" /></figure><div><p class="eyebrow">Around the World · Living Cookbook spotlight</p><h2 id="homeCookbookTitle">This week: ${culture.symbol} ${culture.title}</h2><p>${culture.description}</p><a class="small-button" href="#living-cookbook?culture=${culture.id}">View Collection →</a><a class="small-button secondary" href="#living-cookbook">Open the Recipe Box</a></div></section>`;
 }
 
 function renderLetsCookHome() {
   const publishableRecipes = recipes.filter(recipeAllowedInGeneralCollection);
-  const recipeOfWeek = recipeById("smothered-chicken") || recipeById("yakamein") || publishableRecipes[0];
+  const culture = augustCultureForDate();
+  const recipeOfWeek = recipesForAugustCulture(culture)[0] || publishableRecipes[0];
   app.innerHTML = `
     ${cookSubnav()}
     ${homepageEditorialHeroSection()}
     ${homepageLivingCookbookPreview()}
+    ${homepageAroundWorldFeatureSections()}
     ${homepageWeeklyStrip()}
     ${homepageRecipeDiscoverySection()}
-    ${homepageIngredientEditorialSection()}
     ${homepageCuisineScrollSection()}
     ${homepageSeasonalEditorialSection()}
     ${homepageLearnWhileCookingSection()}
@@ -13283,18 +13412,20 @@ function renderCommunity(id = "") {
       return;
     }
   }
+  const culture = augustCultureForDate();
   app.innerHTML = `
-    ${hero("The Cooking Community", "A friendly table for real meals, family recipes, helpful Kitchen Notes, and cooks cheering one another on.", "assets/cooking-family.jpeg")}
+    ${hero("What Y’all Cooking Around the World", `Share what you made for this week’s ${culture.title} challenge—photos, cooking videos, family stories, and useful Kitchen Notes.`, "images/seasonal/august-around-the-world-2026/around-the-world-hero.png")}
     ${cookSubnav()}
     <section class="cream-section cooking-community-page">
+      <section class="community-world-challenge"><div><p class="eyebrow">🌍 Weekly community challenge · ${culture.dates}</p><h2>${culture.symbol} Cook something from ${culture.title}</h2><p>${culture.description}</p></div><a class="small-button" href="#living-cookbook?culture=${culture.id}">Choose a Challenge Recipe</a></section>
       <div class="community-feed-layout">
-        <aside class="community-welcome-card"><p class="eyebrow">Pull up a chair</p><h2>Cook together, even from different kitchens.</h2><p>Share what you made, learn from another home cook, and keep feedback useful and kind.</p><a class="small-button" href="#account">Open My Kitchen Profile</a><div class="community-guidelines"><strong>At this table</strong><span>Encourage first.</span><span>Credit family and cultural sources.</span><span>Share practical Kitchen Notes.</span></div></aside>
+        <aside class="community-welcome-card"><p class="eyebrow">Pull up a chair</p><h2>Cook together, across cultures and kitchens.</h2><p>Share what you made, learn from another home cook, and keep feedback useful and kind.</p><a class="small-button" href="#account">Open My Kitchen Profile</a><div class="community-guidelines"><strong>At this table</strong><span>Encourage first.</span><span>Credit cooks, family, and cultural sources.</span><span>Share practical Kitchen Notes.</span></div></aside>
         <main class="community-feed" aria-label="Cooking community feed">
           ${communityComposer()}
-          <div class="community-feed-heading"><div><p class="eyebrow">Fresh from the community</p><h2>What everybody’s cooking</h2></div><span>${communityPostList().length} kitchen updates</span></div>
+          <div class="community-feed-heading"><div><p class="eyebrow">📸 Photos · videos · favorite cooks</p><h2>What Y’all Cooking Around the World</h2></div><span>${communityPostList().length} kitchen updates</span></div>
           ${communityPostList().map(communityPostCard).join("")}
         </main>
-        <aside class="community-discovery"><h2>Cooks to follow</h2>${launchCommunityPosts.map((post) => { const following = (communityActions.following || []).includes(post.author); return `<article><img src="${post.avatar}" alt="" /><div><strong>${post.author}</strong><span>${post.role}</span></div><button class="${following ? "active" : ""}" type="button" data-community-follow="${post.author}">${following ? "Following" : "Follow"}</button></article>`; }).join("")}<h2>Trending kitchens</h2><div class="community-topic-list"><a href="#recipes?section=breads">#BreadBakers</a><a href="#living-cookbook/holiday-tables">#HolidayTables</a><a href="#recipes?section=vegetables">#GardenHarvest</a><a href="#recipes?section=cookies">#CookieTin</a></div></aside>
+        <aside class="community-discovery"><h2>Featured creators</h2>${launchCommunityPosts.map((post) => { const following = (communityActions.following || []).includes(post.author); return `<article><img src="${post.avatar}" alt="" /><div><strong>${post.author}</strong><span>${post.role}</span></div><button class="${following ? "active" : ""}" type="button" data-community-follow="${post.author}">${following ? "Following" : "Follow"}</button></article>`; }).join("")}<h2>Trending kitchens</h2><div class="community-topic-list"><a href="#living-cookbook?culture=${culture.id}">#${culture.title.replace(/\s+/g, "")}</a><a href="#living-cookbook?collection=around-the-world">#AroundTheWorld</a><a href="#living-cookbook?collection=drinks">#TraditionalDrinks</a><a href="#culinary-academy/world-foods">#CookWithContext</a></div></aside>
       </div>
     </section>`;
 }
@@ -16350,12 +16481,15 @@ function renderRecipes() {
   const routeState = routeParts();
   const isDedicatedCookbook = routeState.route === "living-cookbook";
   const requestedSection = routeState.section;
-  const selectedCollection = cookbookCollectionById(routeState.collection);
+  const selectedCulture = augustCultureById(routeState.culture);
+  const selectedCollection = selectedCulture
+    ? { id: `culture-${selectedCulture.id}`, title: `${selectedCulture.symbol} ${selectedCulture.title}`, description: selectedCulture.description }
+    : cookbookCollectionById(routeState.collection);
   const selectedDrinkTab = selectedCollection?.id === "drinks" ? drinkTabById(routeState.drink) : null;
   const selectedTab = recipeBoxTabByKey(requestedSection);
   livingRecipeBoxState = selectedTab ? "open" : "closed";
   const invalidSection = Boolean(requestedSection && !selectedTab);
-  const collectionRecipes = selectedCollection ? recipesForCookbookCollection(selectedCollection) : [];
+  const collectionRecipes = selectedCulture ? recipesForAugustCulture(selectedCulture, true) : selectedCollection ? recipesForCookbookCollection(selectedCollection) : [];
   const initialRecipes = selectedDrinkTab ? collectionRecipes.filter(selectedDrinkTab[2]) : selectedCollection ? collectionRecipes : selectedTab ? recipesForRecipeBoxTab(selectedTab) : [];
   const resultsTitle = selectedDrinkTab ? selectedDrinkTab[1] : selectedCollection ? selectedCollection.title : selectedTab ? (selectedTab.resultsTitle || selectedTab.title) : invalidSection ? "Cookbook section not found" : "Choose a recipe card";
   const resultsIntro = selectedDrinkTab ? "Accurate drink recipes with measurements, glassware, garnish, and an alcohol-free path where it fits." : selectedCollection ? selectedCollection.description : selectedTab
@@ -16389,6 +16523,7 @@ function renderRecipes() {
   app.innerHTML = `
     ${cookSubnav()}
     ${isDedicatedCookbook ? cookbookCollectionCards(selectedCollection?.id || "") : ""}
+    ${selectedCulture ? `<section class="culture-collection-banner"><p class="eyebrow">August Around the World · Week ${selectedCulture.week}</p><h1>${selectedCulture.symbol} ${selectedCulture.title}</h1><p>${selectedCulture.history}</p><div>${selectedCulture.ingredients.map((item) => `<span>${item}</span>`).join("")}</div></section>` : ""}
     ${cookbookChapterShelf(selectedTab?.id || "")}
     <section class="cream-section cookbook-results-section" id="cookbookResults">
       <div class="section-heading compact-heading">
@@ -16403,6 +16538,7 @@ function renderRecipes() {
         : `<div class="empty-state"><h3>${invalidSection ? "That chapter does not exist." : "Your recipe cards are waiting."}</h3><p>${invalidSection ? "Choose a real chapter from the Living Cookbook above." : "Open the Living Cookbook and pull forward a divider to start browsing."}</p></div>`}
       </div>
     </section>
+    ${selectedCulture ? `<section class="around-world-learning cookbook-culture-learning"><div><p class="eyebrow">History, methods, and traditions</p><h2>Cook with context.</h2></div><div class="around-world-learning-grid"><article><span>🔥 Cooking methods</span><ul>${selectedCulture.methods.map((item) => `<li>${item}</li>`).join("")}</ul></article><article><span>💡 Fun facts</span><ul>${selectedCulture.facts.map((item) => `<li>${item}</li>`).join("")}</ul></article><article><span>🍽 At the table</span><ul>${selectedCulture.traditions.map((item) => `<li>${item}</li>`).join("")}</ul></article></div></section>` : ""}
     ${isDedicatedCookbook ? `${cookYourWayMarkup()}
       <section class="cream-section dietary-cookbook-collection"><div class="section-heading compact-heading"><p class="eyebrow">Vegan & Plant-Based</p><h2>Full plates for every kind of table.</h2><p>Hearty breakfasts, cultural recipes, holiday-ready dishes, weeknight meals, brunch, and Cook Along Together ideas—built from ingredient-reviewed recipes.</p><a class="small-button" href="#living-cookbook?section=vegetables">Browse plant-forward recipes</a></div><div class="recipe-grid">${dietaryRecipes.map(recipeCard).join("")}</div></section>
       <section class="cream-section cookbook-seasonal-collections"><div class="section-heading compact-heading"><p class="eyebrow">Seasonal collections</p><h2>What’s good right now.</h2></div><div class="recipe-grid">${seasonalRecipes.map(recipeCard).join("")}</div></section>
@@ -16426,10 +16562,32 @@ function canonicalSearchResults(query = "") {
     .map((row) => row.recipe);
 }
 
+function aroundWorldSearchMatches(query = "") {
+  const normalized = normalizeIngredientTerm(query);
+  if (!normalized) return [];
+  return augustAroundWorldWeeks.filter((culture) => normalizeIngredientTerm([
+    culture.title,
+    culture.routeLabel,
+    culture.description,
+    culture.history,
+    culture.map,
+    ...culture.ingredients,
+    ...culture.methods,
+    ...culture.traditions,
+    ...culture.facts
+  ].join(" ")).includes(normalized));
+}
+
+function aroundWorldSearchMarkup(query = "") {
+  const cultures = aroundWorldSearchMatches(query);
+  if (!cultures.length) return "";
+  return `<section class="around-world-search-results"><div class="section-heading compact-heading"><p class="eyebrow">Countries, cultures, and August collections</p><h2>Keep traveling through food.</h2></div><div>${cultures.map((culture) => `<a href="#living-cookbook?culture=${culture.id}"><span>${culture.symbol}</span><strong>${culture.title}</strong><small>${culture.description}</small></a>`).join("")}</div></section>`;
+}
+
 function renderSearchPage() {
   const query = routeParts().query;
   const results = canonicalSearchResults(query);
-  app.innerHTML = `${cookSubnav()}<section class="cream-section site-search-page"><div class="section-heading compact-heading"><p class="eyebrow">Find what’s cooking</p><h1>Search Let’s Cook Y’all</h1><p>Recipes come first—then cookbook chapters, cuisines, and collections when they can help you keep exploring.</p><form class="site-search-form" data-search-form role="search"><label for="searchBox">Search the cookbook</label><div><input id="searchBox" name="q" type="search" value="${escapeHTML(query)}" placeholder="Search recipes, ingredients, cuisines, or collections…" autocomplete="search" /><button type="button" class="secondary" data-search-clear>Clear</button><button class="small-button" type="submit">Search</button></div></form></div><div id="results" class="recipe-grid">${query ? (results.length ? results.map(recipeCard).join("") : `<div class="empty-state"><h2>No recipes matched “${escapeHTML(query)}”.</h2><p>Try a recipe name, ingredient, cuisine, chapter, or cooking method—like chicken, Cajun, air fryer, breakfast, or one-pot meals.</p></div>`) : `<div class="empty-state"><h2>What are y’all looking for?</h2><p>Try Carrot Cake, chicken and mushrooms, vegan dinner, Cajun, air fryer, or breakfast.</p></div>`}</div><section id="learningResults" class="learning-search-results" aria-label="Cookbook chapters and learning suggestions">${query ? learningSearchResults(query) : ""}</section></section>`;
+  app.innerHTML = `${cookSubnav()}<section class="cream-section site-search-page"><div class="section-heading compact-heading"><p class="eyebrow">Find what’s cooking</p><h1>Search Let’s Cook Y’all</h1><p>Search countries, cultures, recipes, ingredients, drinks, holidays, cooking methods, and collections. Canonical recipes always come first.</p><form class="site-search-form" data-search-form role="search"><label for="searchBox">Search the cookbook</label><div><input id="searchBox" name="q" type="search" value="${escapeHTML(query)}" placeholder="Search countries, cultures, recipes, ingredients, or drinks…" autocomplete="search" /><button type="button" class="secondary" data-search-clear>Clear</button><button class="small-button" type="submit">Search</button></div></form></div><div id="results" class="recipe-grid">${query ? (results.length ? results.map(recipeCard).join("") : `<div class="empty-state"><h2>No recipes matched “${escapeHTML(query)}”.</h2><p>Try a country, culture, recipe name, ingredient, drink, holiday, or method—like India, hibiscus, Cajun, chai, breakfast, or one-pot meals.</p></div>`) : `<div class="empty-state"><h2>Where should we cook next?</h2><p>Try India, Indigenous foodways, jollof, hibiscus, Southern Black foodways, chai, or Morocco.</p></div>`}</div>${query ? aroundWorldSearchMarkup(query) : ""}<section id="learningResults" class="learning-search-results" aria-label="Cookbook chapters and learning suggestions">${query ? learningSearchResults(query) : ""}</section></section>`;
 }
 
 function recipeStepMicroTip(recipe, index) {
@@ -16530,6 +16688,7 @@ function renderRecipe(id) {
           <p class="eyebrow">About this dish</p>
           <h2>${recipe.title}</h2>
           <p class="detail-copy">${recipe.description}</p>
+          ${recipe.culturalNotes ? `<aside class="content-note"><strong>Cook with context</strong><p>${recipe.culturalNotes}</p></aside>` : ""}
           <div class="recipe-card-meta">
             <div><small>Cuisine</small><strong>${cuisineName(recipe.cuisine)}</strong></div>
             <div><small>Prep</small><strong>${recipe.prep_time}</strong></div>

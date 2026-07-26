@@ -15262,3 +15262,416 @@ button.small-button.secondary,
   .drink-tabs { gap:.4rem; }
   .drink-tabs button { font-size:.82rem; padding:.5rem .65rem; }
 }
+
+/* August 2026: Around the World --------------------------------------------- */
+.around-world-hero {
+  min-height: min(850px, calc(100vh - 130px));
+  background: #102542 !important;
+}
+
+.around-world-hero .home-hero-photo::after {
+  background: linear-gradient(90deg, rgba(16, 37, 66, .94) 0%, rgba(16, 37, 66, .78) 36%, rgba(16, 37, 66, .08) 72%) !important;
+}
+
+.around-world-hero .home-hero-copy {
+  max-width: 720px;
+}
+
+.around-world-hero .home-hero-copy h1 {
+  max-width: 7ch;
+  color: #fff !important;
+  font-size: clamp(4rem, 10vw, 9rem);
+  letter-spacing: -.055em;
+}
+
+.around-world-hero .home-hero-copy > p,
+.around-world-hero .home-hero-copy label,
+.around-world-hero .home-hero-copy .eyebrow {
+  color: #fff !important;
+}
+
+.around-world-hero-stamps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.around-world-hero-stamps span {
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, .46);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .12);
+  color: #fff;
+  font-size: .82rem;
+  font-weight: 900;
+  backdrop-filter: blur(8px);
+}
+
+.around-world-cookbook-preview {
+  background:
+    linear-gradient(125deg, rgba(255, 212, 59, .25), transparent 42%),
+    #fff !important;
+  border: 1px solid rgba(16, 37, 66, .12);
+}
+
+.around-world-cookbook-preview > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.around-world-cookbook-preview :is(.eyebrow, h2, p) {
+  width: 100%;
+}
+
+.around-world-week,
+.around-world-recipes,
+.around-world-learning,
+.around-world-chef-picks {
+  padding: clamp(48px, 7vw, 104px) clamp(16px, 5vw, 76px);
+}
+
+.around-world-week {
+  color: #fff;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(255, 212, 59, .22), transparent 24rem),
+    linear-gradient(130deg, #075f3c, #087f5b 56%, #0a5575);
+}
+
+.around-world-week-header,
+.around-world-feature-grid,
+.around-world-recipes > *,
+.around-world-learning > *,
+.around-world-chef-picks > * {
+  width: min(100%, 1400px);
+  margin-inline: auto;
+}
+
+.around-world-week-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 28px;
+  margin-bottom: 34px;
+}
+
+.around-world-week-header h2,
+.around-world-learning h2,
+.around-world-chef-picks h2 {
+  margin: 4px 0 10px;
+  font-family: var(--serif);
+  font-size: clamp(2.7rem, 6vw, 6rem);
+  line-height: .94;
+}
+
+.around-world-week-header p {
+  max-width: 760px;
+}
+
+.around-world-feature-grid {
+  display: grid;
+  grid-template-columns: 1.25fr .78fr .9fr;
+  gap: 18px;
+}
+
+.around-world-feature-grid article,
+.around-world-drink {
+  padding: clamp(20px, 3vw, 34px);
+  border: 1px solid rgba(255, 255, 255, .2);
+  border-radius: 26px;
+  background: rgba(255, 255, 255, .1);
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 20px 48px rgba(5, 35, 33, .18);
+  backdrop-filter: blur(10px);
+}
+
+.around-world-feature-grid :is(h3, p, dt, dd, span) {
+  color: #fff;
+}
+
+.around-world-feature-grid h3 {
+  margin: 8px 0;
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 3vw, 2.7rem);
+}
+
+.around-world-story dl {
+  display: grid;
+  gap: 12px;
+  margin: 22px 0 0;
+}
+
+.around-world-story dl div {
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, .2);
+}
+
+.around-world-story dt,
+.around-world-feature-grid > * > span {
+  color: #fff18a;
+  font-weight: 950;
+}
+
+.around-world-story dd {
+  margin: 4px 0 0;
+}
+
+.around-world-pantry > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.around-world-pantry a {
+  padding: 8px 11px;
+  border-radius: 999px;
+  background: #fff;
+  color: #075f3c;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.around-world-drink {
+  display: grid;
+  align-content: end;
+  min-height: 430px;
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+}
+
+.around-world-drink::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, transparent 18%, rgba(16, 37, 66, .9) 90%);
+}
+
+.around-world-drink img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.around-world-recipes {
+  background: #fffdf7;
+}
+
+.around-world-recipe-grid {
+  display: grid;
+  grid-template-columns: 1.35fr repeat(3, 1fr);
+  grid-auto-rows: 270px;
+  gap: 14px;
+}
+
+.around-world-recipe-grid .home-editorial-dish.large {
+  grid-row: span 2;
+}
+
+.around-world-learning {
+  background:
+    radial-gradient(circle at 10% 20%, rgba(237, 63, 104, .12), transparent 20rem),
+    linear-gradient(135deg, #fff4a8, #fffdf7 56%, #e7fff0);
+}
+
+.around-world-learning-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 26px;
+}
+
+.around-world-learning-grid article {
+  padding: clamp(20px, 3vw, 30px);
+  border: 1px solid rgba(16, 37, 66, .12);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, .82);
+  box-shadow: 0 16px 38px rgba(16, 37, 66, .08);
+}
+
+.around-world-learning-grid span {
+  color: #075f3c;
+  font-weight: 950;
+}
+
+.around-world-learning-grid ul {
+  margin: 16px 0 0;
+  padding-left: 20px;
+}
+
+.around-world-learning-grid li + li {
+  margin-top: 10px;
+}
+
+.around-world-chef-picks {
+  color: #fff;
+  background: #102542;
+}
+
+.around-world-chef-picks > div:last-child {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.culture-collection-banner,
+.community-world-challenge,
+.around-world-search-results {
+  width: min(calc(100% - 32px), 1240px);
+  margin: 24px auto;
+  padding: clamp(24px, 4vw, 48px);
+  border-radius: 28px;
+}
+
+.culture-collection-banner {
+  background:
+    radial-gradient(circle at 90% 10%, rgba(255, 212, 59, .3), transparent 18rem),
+    linear-gradient(135deg, #102542, #075f3c);
+  color: #fff;
+}
+
+.culture-collection-banner h1 {
+  margin: 4px 0 10px;
+  color: #fff;
+  font-family: var(--serif);
+  font-size: clamp(3rem, 7vw, 6rem);
+}
+
+.culture-collection-banner > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.culture-collection-banner span {
+  padding: 7px 11px;
+  border: 1px solid rgba(255, 255, 255, .32);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .12);
+}
+
+.cookbook-culture-learning {
+  width: 100%;
+}
+
+.community-world-challenge {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-top: 0;
+  background: linear-gradient(135deg, #fff4a8, #ffe2cf 54%, #dff7e6);
+}
+
+.community-world-challenge h2 {
+  margin: 4px 0;
+  color: #102542;
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3.8rem);
+}
+
+.around-world-search-results {
+  background: linear-gradient(135deg, #effff3, #fff8e7);
+}
+
+.around-world-search-results > div:last-child {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.around-world-search-results a {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 3px 12px;
+  padding: 18px;
+  border-radius: 18px;
+  background: #fff;
+  color: #102542;
+  text-decoration: none;
+  box-shadow: 0 10px 28px rgba(16, 37, 66, .08);
+}
+
+.around-world-search-results a > span {
+  grid-row: 1 / 3;
+  font-size: 2rem;
+}
+
+.around-world-search-results small {
+  color: #536476;
+}
+
+@media (max-width: 980px) {
+  .around-world-feature-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .around-world-drink {
+    grid-column: 1 / -1;
+    min-height: 360px;
+  }
+
+  .around-world-recipe-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .around-world-learning-grid,
+  .around-world-chef-picks > div:last-child {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .around-world-hero {
+    min-height: 920px;
+  }
+
+  .around-world-hero .home-hero-photo::after {
+    background: linear-gradient(180deg, rgba(16, 37, 66, .35), rgba(16, 37, 66, .94) 52%, #102542 100%) !important;
+  }
+
+  .around-world-hero .home-hero-photo img {
+    object-position: 65% center;
+  }
+
+  .around-world-hero .home-hero-copy h1 {
+    font-size: clamp(3.5rem, 18vw, 6.5rem);
+  }
+
+  .around-world-week-header,
+  .community-world-challenge {
+    display: grid;
+    align-items: start;
+  }
+
+  .around-world-feature-grid,
+  .around-world-learning-grid,
+  .around-world-chef-picks > div:last-child,
+  .around-world-search-results > div:last-child {
+    grid-template-columns: 1fr;
+  }
+
+  .around-world-drink {
+    grid-column: auto;
+  }
+
+  .around-world-recipe-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 300px;
+  }
+
+  .around-world-recipe-grid .home-editorial-dish.large {
+    grid-row: auto;
+  }
+}

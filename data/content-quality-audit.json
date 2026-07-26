@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-07-23T00:01:42.947Z",
+  "generatedAt": "2026-07-26T18:35:13.430Z",
   "summary": {
-    "totalRecipes": 675,
-    "retiredDuplicateRecords": 7,
+    "totalRecipes": 702,
+    "retiredDuplicateRecords": 8,
     "duplicateRecipeIdGroups": 0,
     "duplicateRecipeTitleGroups": 0,
     "duplicateRecipeSlugGroups": 0,
     "duplicateIngredientListGroups": 0,
     "ingredientVariationReviewGroups": 1,
     "duplicateInstructionListGroups": 0,
-    "uniqueImages": 568,
-    "sharedImageGroups": 79,
-    "unrelatedSharedImageGroups": 79,
-    "imageReviewQueueItems": 107,
+    "uniqueImages": 596,
+    "sharedImageGroups": 78,
+    "unrelatedSharedImageGroups": 78,
+    "imageReviewQueueItems": 106,
     "genericRecipeImages": 0,
     "semanticImageMismatches": 0,
     "fallbackImages": 0,
@@ -27,7 +27,7 @@
     "ingredientSearchIssues": 0,
     "trainingOnlyGeneralLeaks": 0,
     "recipesMissingRequiredDetails": 0,
-    "recipesMissingRecommendedDetails": 675
+    "recipesMissingRecommendedDetails": 702
   },
   "duplicateRecipeIds": [],
   "duplicateRecipeTitles": [],
@@ -88,6 +88,13 @@
       "cuisine": "asian-inspired",
       "category": "Party & Hosting",
       "canonicalId": "crab-rangoon"
+    },
+    {
+      "id": "agua-fresca",
+      "title": "Watermelon Agua Fresca",
+      "cuisine": "mexican",
+      "category": "Drinks",
+      "canonicalId": "watermelon-agua-fresca"
     },
     {
       "id": "oklahoma-peach-cobbler",
@@ -408,24 +415,6 @@
           "title": "Jamaican Jerk Chicken",
           "cuisine": "caribbean",
           "category": "Jamaican Grill"
-        }
-      ]
-    },
-    {
-      "image": "images/juneteenth/hibiscus-red-punch.png",
-      "count": 2,
-      "recipes": [
-        {
-          "id": "hibiscus-red-punch",
-          "title": "Hibiscus Red Punch",
-          "cuisine": "southern",
-          "category": "Drinks"
-        },
-        {
-          "id": "spooky-party-punch",
-          "title": "Spooky Party Punch",
-          "cuisine": "holiday",
-          "category": "Halloween Drinks"
         }
       ]
     },
@@ -2004,24 +1993,6 @@
       ]
     },
     {
-      "image": "images/juneteenth/hibiscus-red-punch.png",
-      "count": 2,
-      "recipes": [
-        {
-          "id": "hibiscus-red-punch",
-          "title": "Hibiscus Red Punch",
-          "cuisine": "southern",
-          "category": "Drinks"
-        },
-        {
-          "id": "spooky-party-punch",
-          "title": "Spooky Party Punch",
-          "cuisine": "holiday",
-          "category": "Halloween Drinks"
-        }
-      ]
-    },
-    {
       "image": "images/recipes/audit-2026-06/greek-salad.jpg",
       "count": 3,
       "recipes": [
@@ -3461,15 +3432,6 @@
       "reason": "Primary image is shared with a different public dish and requires an exact replacement."
     },
     {
-      "id": "spooky-party-punch",
-      "title": "Spooky Party Punch",
-      "cuisine": "holiday",
-      "category": "Halloween Drinks",
-      "reusedImage": "images/juneteenth/hibiscus-red-punch.png",
-      "expectedPath": "images/recipes/photo-review/spooky-party-punch.jpg",
-      "reason": "Primary image is shared with a different public dish and requires an exact replacement."
-    },
-    {
       "id": "greek-chicken-souvlaki-plates",
       "title": "Greek Chicken Souvlaki Plates",
       "cuisine": "mediterranean",
@@ -4445,6 +4407,13 @@
           "cuisine": "cajun",
           "category": "Southern Casseroles",
           "image": "images/recipes/audit-2026-06/crawfish-cornbread-casserole.jpg"
+        },
+        {
+          "id": "hurricane",
+          "title": "Hurricane",
+          "cuisine": "cajun",
+          "category": "Drinks",
+          "image": "images/recipes/drinks-2026/hurricane.png"
         }
       ]
     },
@@ -4785,13 +4754,6 @@
           "cuisine": "mexican",
           "category": "Sauces",
           "image": "images/recipes/audit-2026-06/pickled-red-onions.jpg"
-        },
-        {
-          "id": "agua-fresca",
-          "title": "Watermelon Agua Fresca",
-          "cuisine": "mexican",
-          "category": "Drinks",
-          "image": "images/recipes/audit-2026-06/agua-fresca.jpg"
         },
         {
           "id": "churro-bites",
@@ -6811,14 +6773,6 @@
       "category": "Sauces",
       "primaryCookbookSection": "miscellaneous",
       "image": "images/recipes/audit-2026-06/pickled-red-onions.jpg"
-    },
-    {
-      "id": "agua-fresca",
-      "title": "Watermelon Agua Fresca",
-      "cuisine": "mexican",
-      "category": "Drinks",
-      "primaryCookbookSection": "miscellaneous",
-      "image": "images/recipes/audit-2026-06/agua-fresca.jpg"
     },
     {
       "id": "churro-bites",
@@ -10722,7 +10676,7 @@
       "cuisine": "holiday",
       "category": "Halloween Drinks",
       "primaryCookbookSection": "miscellaneous",
-      "image": "images/juneteenth/hibiscus-red-punch.png"
+      "image": "images/recipes/drinks-2026/spooky-party-punch.png"
     },
     {
       "id": "turkey-leftover-soup",
@@ -10971,6 +10925,230 @@
       "category": "Cookies",
       "primaryCookbookSection": "cookies",
       "image": "images/recipes/cookies-2026/pecan-sandies.png"
+    },
+    {
+      "id": "classic-margarita",
+      "title": "Classic Margarita",
+      "cuisine": "american",
+      "category": "Drinks",
+      "primaryCookbookSection": "miscellaneous",
+      "image": "images/recipes/drinks-2026/classic-margarita.png"
+    },
+    {
+      "id": "strawberry-margarita",
+      "title": "Strawberry Margarita",
+      "cuisine": "american",
+      "category": "Drinks",
+      "primaryCookbookSection": "miscellaneous",
+      "image": "images/recipes/drinks-2026/strawberry-margarita.png"
+    },
+    {
+      "id": "paloma",
+      "title": "Paloma",
+      "cuisine": "american",
+      "category": "Drinks",
+      "primaryCookbookSection": "miscellaneous",
+      "image": "images/recipes/drinks-2026/paloma.png"
+    },
+    {
+      "id": "classic-mojito",
+      "title": "Classic Mojito",
+      "cuisine": "american",
+      "category": "Drinks",
+      "primaryCookbookSection": "miscellaneous",
+      "image": "images/recipes/drinks-2026/classic-mojito.png"
+    },
+    {
+      "id": "old-fashioned",
+      "title": "Old Fashioned",
+      "cuisine": "american",
+      "category": "Drinks",
+      "primaryCookbookSection": "miscellaneous",
+      "image": "images/recipes/drinks-2026/old-fashioned.png"
+    },
+    {
+      "id": "whiskey-sour",
+      "title": "Whiskey Sour",
+      "cuisine": "american",
+      "category": "Drinks",
+      "primaryCookbookSection": "miscellaneous",
+      "image": "images/recipes/drinks-2026/whiskey-sour.png"
+    },
+    {
+      "id": "moscow-mule",
+      "title": "Moscow Mule",
+      "cuisine": "american",
+      "category": "Drinks",
+      "primaryCookbookSection": "miscellaneous",
+      "image": "images/recipes/drinks-2026/moscow-mule.png"
+    },
+    {
+      "id": "lemon-drop",
+      "title": "Lemon Drop",
+      "cuisine": "american",
+      "category": "Drinks",
+      "primaryCookbookSection": "miscellaneous",
+      "image": "images/recipes/drinks-2026/lemon-drop.png"
+    },
+    {
+      "id": "peach-bellini",
+      "title": "Peach Bellini",
+      "cuisine": "american",
+      "category": "Drinks",
+      "primaryCookbookSection": "breakfast",
+      "image": "images/recipes/drinks-2026/peach-bellini.png"
+    },
+    {
+      "id": "classic-mimosa",
+      "title": "Classic Mimosa",
+      "cuisine": "american",
+      "category": "Drinks",
+      "primaryCookbookSection": "breakfast",
+      "image": "images/recipes/drinks-2026/classic-mimosa.png"
+    },
+    {
+      "id": "espresso-martini",
+      "title": "Espresso Martini",
+      "cuisine": "american",
+      "category": "Drinks",
+      "primaryCookbookSection": "breakfast",
+      "image": "images/recipes/drinks-2026/espresso-martini.png"
+    },
+    {
+      "id": "hurricane",
+      "title": "Hurricane",
+      "cuisine": "cajun",
+      "category": "Drinks",
+      "primaryCookbookSection": "miscellaneous",
+      "image": "images/recipes/drinks-2026/hurricane.png"
+    },
+    {
+      "id": "french-75",
+      "title": "French 75",
+      "cuisine": "american",
+      "category": "Drinks",
+      "primaryCookbookSection": "breakfast",
+      "image": "images/recipes/drinks-2026/french-75.png"
+    },
+    {
+      "id": "classic-daiquiri",
+      "title": "Classic Daiquiri",
+      "cuisine": "american",
+      "category": "Drinks",
+      "primaryCookbookSection": "miscellaneous",
+      "image": "images/recipes/drinks-2026/classic-daiquiri.png"
+    },
+    {
+      "id": "summer-sangria",
+      "title": "Summer Sangria",
+      "cuisine": "american",
+      "category": "Drinks",
+      "primaryCookbookSection": "miscellaneous",
+      "image": "images/recipes/drinks-2026/summer-sangria.png"
+    },
+    {
+      "id": "virgin-mojito",
+      "title": "Virgin Mojito",
+      "cuisine": "american",
+      "category": "Drinks",
+      "primaryCookbookSection": "miscellaneous",
+      "image": "images/recipes/drinks-2026/virgin-mojito.png"
+    },
+    {
+      "id": "strawberry-basil-lemonade",
+      "title": "Strawberry Basil Lemonade",
+      "cuisine": "american",
+      "category": "Drinks",
+      "primaryCookbookSection": "miscellaneous",
+      "image": "images/recipes/drinks-2026/strawberry-basil-lemonade.png"
+    },
+    {
+      "id": "pineapple-ginger-fizz",
+      "title": "Pineapple Ginger Fizz",
+      "cuisine": "american",
+      "category": "Drinks",
+      "primaryCookbookSection": "miscellaneous",
+      "image": "images/recipes/drinks-2026/pineapple-ginger-fizz.png"
+    },
+    {
+      "id": "peach-tea-spritzer",
+      "title": "Peach Tea Spritzer",
+      "cuisine": "american",
+      "category": "Drinks",
+      "primaryCookbookSection": "breakfast",
+      "image": "images/recipes/drinks-2026/peach-tea-spritzer.png"
+    },
+    {
+      "id": "blackberry-lime-cooler",
+      "title": "Blackberry Lime Cooler",
+      "cuisine": "american",
+      "category": "Drinks",
+      "primaryCookbookSection": "miscellaneous",
+      "image": "images/recipes/drinks-2026/blackberry-lime-cooler.png"
+    },
+    {
+      "id": "cucumber-mint-refresher",
+      "title": "Cucumber Mint Refresher",
+      "cuisine": "american",
+      "category": "Drinks",
+      "primaryCookbookSection": "miscellaneous",
+      "image": "images/recipes/drinks-2026/cucumber-mint-refresher.png"
+    },
+    {
+      "id": "watermelon-agua-fresca",
+      "title": "Watermelon Agua Fresca",
+      "cuisine": "american",
+      "category": "Drinks",
+      "primaryCookbookSection": "miscellaneous",
+      "image": "images/recipes/drinks-2026/watermelon-agua-fresca.png"
+    },
+    {
+      "id": "cranberry-orange-sparkler",
+      "title": "Cranberry Orange Sparkler",
+      "cuisine": "american",
+      "category": "Drinks",
+      "primaryCookbookSection": "miscellaneous",
+      "image": "images/recipes/drinks-2026/cranberry-orange-sparkler.png"
+    },
+    {
+      "id": "apple-cider-mocktail",
+      "title": "Apple Cider Mocktail",
+      "cuisine": "american",
+      "category": "Drinks",
+      "primaryCookbookSection": "miscellaneous",
+      "image": "images/recipes/drinks-2026/apple-cider-mocktail.png"
+    },
+    {
+      "id": "blueberry-lemon-fizz",
+      "title": "Blueberry Lemon Fizz",
+      "cuisine": "american",
+      "category": "Drinks",
+      "primaryCookbookSection": "miscellaneous",
+      "image": "images/recipes/drinks-2026/blueberry-lemon-fizz.png"
+    },
+    {
+      "id": "mango-mule",
+      "title": "Mango Mule",
+      "cuisine": "american",
+      "category": "Drinks",
+      "primaryCookbookSection": "miscellaneous",
+      "image": "images/recipes/drinks-2026/mango-mule.png"
+    },
+    {
+      "id": "hibiscus-punch",
+      "title": "Hibiscus Punch",
+      "cuisine": "american",
+      "category": "Drinks",
+      "primaryCookbookSection": "miscellaneous",
+      "image": "images/recipes/drinks-2026/hibiscus-punch.png"
+    },
+    {
+      "id": "blackberry-sage-yaupon-tea",
+      "title": "Blackberry Sage & Yaupon Tea",
+      "cuisine": "north-american-indigenous",
+      "category": "Drinks",
+      "primaryCookbookSection": "miscellaneous",
+      "image": "images/recipes/drinks-2026/blackberry-sage-yaupon-tea.png"
     },
     {
       "id": "charcuterie-cups",
@@ -13126,19 +13304,6 @@
       ]
     },
     {
-      "id": "agua-fresca",
-      "title": "Watermelon Agua Fresca",
-      "cuisine": "mexican",
-      "category": "Drinks",
-      "missing": [],
-      "recommendedMissing": [
-        "cultural_origin",
-        "chef_tips",
-        "nutrition",
-        "pairings"
-      ]
-    },
-    {
       "id": "churro-bites",
       "title": "Churro Bites",
       "cuisine": "mexican",
@@ -19877,6 +20042,370 @@
       "title": "Pecan Sandies",
       "cuisine": "southern",
       "category": "Cookies",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "classic-margarita",
+      "title": "Classic Margarita",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "strawberry-margarita",
+      "title": "Strawberry Margarita",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "paloma",
+      "title": "Paloma",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "classic-mojito",
+      "title": "Classic Mojito",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "old-fashioned",
+      "title": "Old Fashioned",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "whiskey-sour",
+      "title": "Whiskey Sour",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "moscow-mule",
+      "title": "Moscow Mule",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "lemon-drop",
+      "title": "Lemon Drop",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "peach-bellini",
+      "title": "Peach Bellini",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "classic-mimosa",
+      "title": "Classic Mimosa",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "espresso-martini",
+      "title": "Espresso Martini",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "hurricane",
+      "title": "Hurricane",
+      "cuisine": "cajun",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "french-75",
+      "title": "French 75",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "classic-daiquiri",
+      "title": "Classic Daiquiri",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "summer-sangria",
+      "title": "Summer Sangria",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "virgin-mojito",
+      "title": "Virgin Mojito",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "strawberry-basil-lemonade",
+      "title": "Strawberry Basil Lemonade",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "pineapple-ginger-fizz",
+      "title": "Pineapple Ginger Fizz",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "peach-tea-spritzer",
+      "title": "Peach Tea Spritzer",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "blackberry-lime-cooler",
+      "title": "Blackberry Lime Cooler",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "cucumber-mint-refresher",
+      "title": "Cucumber Mint Refresher",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "watermelon-agua-fresca",
+      "title": "Watermelon Agua Fresca",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "cranberry-orange-sparkler",
+      "title": "Cranberry Orange Sparkler",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "apple-cider-mocktail",
+      "title": "Apple Cider Mocktail",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "blueberry-lemon-fizz",
+      "title": "Blueberry Lemon Fizz",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "mango-mule",
+      "title": "Mango Mule",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "hibiscus-punch",
+      "title": "Hibiscus Punch",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "blackberry-sage-yaupon-tea",
+      "title": "Blackberry Sage & Yaupon Tea",
+      "cuisine": "north-american-indigenous",
+      "category": "Drinks",
       "missing": [],
       "recommendedMissing": [
         "cultural_origin",
@@ -21903,19 +22432,6 @@
       ]
     },
     {
-      "id": "agua-fresca",
-      "title": "Watermelon Agua Fresca",
-      "cuisine": "mexican",
-      "category": "Drinks",
-      "missing": [],
-      "recommendedMissing": [
-        "cultural_origin",
-        "chef_tips",
-        "nutrition",
-        "pairings"
-      ]
-    },
-    {
       "id": "churro-bites",
       "title": "Churro Bites",
       "cuisine": "mexican",
@@ -28654,6 +29170,370 @@
       "title": "Pecan Sandies",
       "cuisine": "southern",
       "category": "Cookies",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "classic-margarita",
+      "title": "Classic Margarita",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "strawberry-margarita",
+      "title": "Strawberry Margarita",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "paloma",
+      "title": "Paloma",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "classic-mojito",
+      "title": "Classic Mojito",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "old-fashioned",
+      "title": "Old Fashioned",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "whiskey-sour",
+      "title": "Whiskey Sour",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "moscow-mule",
+      "title": "Moscow Mule",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "lemon-drop",
+      "title": "Lemon Drop",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "peach-bellini",
+      "title": "Peach Bellini",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "classic-mimosa",
+      "title": "Classic Mimosa",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "espresso-martini",
+      "title": "Espresso Martini",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "hurricane",
+      "title": "Hurricane",
+      "cuisine": "cajun",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "french-75",
+      "title": "French 75",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "classic-daiquiri",
+      "title": "Classic Daiquiri",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "summer-sangria",
+      "title": "Summer Sangria",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "virgin-mojito",
+      "title": "Virgin Mojito",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "strawberry-basil-lemonade",
+      "title": "Strawberry Basil Lemonade",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "pineapple-ginger-fizz",
+      "title": "Pineapple Ginger Fizz",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "peach-tea-spritzer",
+      "title": "Peach Tea Spritzer",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "blackberry-lime-cooler",
+      "title": "Blackberry Lime Cooler",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "cucumber-mint-refresher",
+      "title": "Cucumber Mint Refresher",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "watermelon-agua-fresca",
+      "title": "Watermelon Agua Fresca",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "cranberry-orange-sparkler",
+      "title": "Cranberry Orange Sparkler",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "apple-cider-mocktail",
+      "title": "Apple Cider Mocktail",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "blueberry-lemon-fizz",
+      "title": "Blueberry Lemon Fizz",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "mango-mule",
+      "title": "Mango Mule",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "hibiscus-punch",
+      "title": "Hibiscus Punch",
+      "cuisine": "american",
+      "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "blackberry-sage-yaupon-tea",
+      "title": "Blackberry Sage & Yaupon Tea",
+      "cuisine": "north-american-indigenous",
+      "category": "Drinks",
       "missing": [],
       "recommendedMissing": [
         "cultural_origin",

@@ -60,6 +60,11 @@ globalThis.__cookbookTest = {
   homepageWeeklyStrip,
   renderLetsPlan,
   renderLetsCookHome,
+  augustAroundWorldWeeks,
+  augustCultureForDate,
+  augustCultureById,
+  recipesForAugustCulture,
+  aroundWorldSearchMatches,
   cookAlongEligible,
   cookAlongTaskFor,
   setHousehold(value) { household = { ...household, ...value }; },
@@ -222,11 +227,24 @@ assert(api.canonicalSearchResults("vegan dinner").length > 0, "Search must disco
 assert.strictEqual(new Set(api.canonicalSearchResults("chicken").map((recipe) => recipe.id)).size, api.canonicalSearchResults("chicken").length, "Search results must not repeat canonical recipe records");
 assert(/steak|rib|beef/i.test(`${topRecipe("ribeye")?.title} ${(topRecipe("ribeye")?.ingredients || []).join(" ")}`), "Ribeye must return a relevant recipe first");
 assert.strictEqual(api.rankRecipesForDiscovery(api.allRecipeCollection(), { query: "zzzxqvnotfood" }).filter((row) => row.score > 0).length, 0, "Nonsense searches must not return unrelated recipes");
+assert.deepStrictEqual([...api.augustAroundWorldWeeks].map((culture) => culture.id), ["indigenous-america", "southern-black-foodways", "india", "africa"], "August must rotate through the four approved culture spotlights");
+assert.strictEqual(api.augustCultureForDate("2026-08-02T12:00:00").id, "indigenous-america", "August week 1 must feature Indigenous America");
+assert.strictEqual(api.augustCultureForDate("2026-08-09T12:00:00").id, "southern-black-foodways", "August week 2 must feature Southern Black Foodways");
+assert.strictEqual(api.augustCultureForDate("2026-08-16T12:00:00").id, "india", "August week 3 must feature India");
+assert.strictEqual(api.augustCultureForDate("2026-08-24T12:00:00").id, "africa", "August week 4 must feature multiple African countries");
+for (const culture of api.augustAroundWorldWeeks) {
+  assert(api.recipesForAugustCulture(culture).length >= 5, `${culture.title} must have a substantial canonical recipe collection`);
+  assert.strictEqual(new Set(api.recipesForAugustCulture(culture, true).map((recipe) => recipe.id)).size, api.recipesForAugustCulture(culture, true).length, `${culture.title} collection must not repeat recipe records`);
+}
+assert(api.aroundWorldSearchMatches("India").some((culture) => culture.id === "india"), "Search must return the India culture collection");
+assert(api.aroundWorldSearchMatches("hibiscus").some((culture) => culture.id === "africa"), "Search must connect signature ingredients and drinks to culture collections");
 
 context.location.hash = "#recipes?section=cookies";
-assert.deepStrictEqual({ ...api.routeParts() }, { route: "recipes", id: undefined, section: "cookies", collection: "", drink: "", query: "" }, "Refresh must restore Cookies from the URL");
+assert.deepStrictEqual({ ...api.routeParts() }, { route: "recipes", id: undefined, section: "cookies", collection: "", culture: "", drink: "", query: "" }, "Refresh must restore Cookies from the URL");
 context.location.hash = "#recipes?section=soups";
 assert.strictEqual(api.routeParts().section, "soups", "Back/Forward state must restore Soups");
+context.location.hash = "#living-cookbook?culture=india";
+assert.strictEqual(api.routeParts().culture, "india", "Around the World cookbook links must preserve the selected culture");
 context.location.hash = "#recipes?section=not-real";
 assert.strictEqual(api.cookbookChapterByKey(api.routeParts().section), null, "Invalid chapters must not fall back to Soups");
 
@@ -283,7 +301,7 @@ const todayMarkup = api.todayPlateSection();
 assert(todayMarkup.includes("Today’s Plate"), "Homepage must include Today’s Plate");
 assert.strictEqual((todayMarkup.match(/data-calendar-recipe-open=/g) || []).length, 8, "Every Today’s Plate meal must have two direct recipe links");
 const monthMarkup = api.monthlyKitchenCalendarSection();
-assert(monthMarkup.includes("Late July into August: Back to School"), "Let’s Plan calendar must bridge late July into August");
+assert(monthMarkup.includes("August: Around the World"), "Let’s Plan calendar must carry the August Around the World launch");
 assert.strictEqual((monthMarkup.match(/data-select-kitchen-date=/g) || []).length, 37, "Launch calendar must include July 26 through August 31");
 assert(monthMarkup.includes("data-planner-month=\"previous\"") && monthMarkup.includes("data-planner-month=\"next\""), "Calendar must support previous and next month navigation");
 
@@ -292,9 +310,11 @@ assert(weekMarkup.includes("This Week at Let’s Cook Y’all"), "Homepage needs
 assert.strictEqual((weekMarkup.match(/data-week-date=/g) || []).length, 7, "Homepage must show one week only");
 assert(weekMarkup.includes("#lets-plan") && weekMarkup.includes("Use This Week") && weekMarkup.includes("View Grocery List"), "Weekly preview must link to planning actions");
 api.renderLetsCookHome();
-assert(element.innerHTML.includes('<h1 id="homeHeroTitle">What Y’all Cooking?</h1>'), "Homepage hero must use the exact What Y’all Cooking? headline");
+assert(element.innerHTML.includes('<h1 id="homeHeroTitle">Around the World</h1>'), "Homepage hero must launch August Around the World");
+assert(element.innerHTML.includes("Culture of the Week") && element.innerHTML.includes("Featured Drink") && element.innerHTML.includes("Pantry Staples"), "Homepage must include the coordinated weekly culture features");
+assert(element.innerHTML.includes("What Y’all Cooking Around the World"), "Homepage must include the Around the World community challenge");
 assert(!element.innerHTML.includes("monthly-kitchen-section"), "Full monthly calendar must not appear on the homepage");
-assert(element.innerHTML.includes("homepage-week-strip"), "Homepage must render the weekly strip directly after its hero");
+assert(element.innerHTML.includes("homepage-week-strip"), "Homepage must retain the weekly meal-planning preview");
 api.renderLetsPlan();
 assert(element.innerHTML.includes("Today’s Plate") && element.innerHTML.includes("monthly-kitchen-section") && element.innerHTML.includes("Kitchen Grocery List"), "Let’s Plan must contain Today’s Plate, calendar, and groceries");
 

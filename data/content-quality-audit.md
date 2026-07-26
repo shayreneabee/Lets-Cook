@@ -1,20 +1,20 @@
 # Let's Cook Y'all Content Quality Audit
 
-Generated: 2026-07-23T00:01:42.947Z
+Generated: 2026-07-26T18:35:13.430Z
 
 ## Summary
 
-- Recipes audited: 675
-- Retired duplicate recipe records: 7
+- Recipes audited: 702
+- Retired duplicate recipe records: 8
 - Duplicate recipe ID groups: 0
 - Duplicate recipe title groups: 0
 - Duplicate recipe slug groups: 0
 - Duplicate ingredient-list groups: 0
 - Intentional ingredient-list variations reviewed: 1
 - Duplicate instruction-list groups: 0
-- Shared image groups: 79
-- Unrelated shared image groups: 79
-- Image review queue items: 107
+- Shared image groups: 78
+- Unrelated shared image groups: 78
+- Image review queue items: 106
 - Generic recipe image assignments: 0
 - Semantic image mismatches: 0
 - Fallback/queued images: 0
@@ -28,7 +28,7 @@ Generated: 2026-07-23T00:01:42.947Z
 - Ingredient search smoke issues: 0
 - Training-only recipes in general discovery: 0
 - Recipes missing required details: 0
-- Recipes missing recommended enrichment details: 675
+- Recipes missing recommended enrichment details: 702
 
 ## Required Holiday Coverage
 
@@ -71,10 +71,10 @@ Generated: 2026-07-23T00:01:42.947Z
 - images/recipes/audit-2026-06/swordfish-tacos.jpg: 2 recipes
 - images/recipes/audit-2026-06/dinner-rolls.jpg: 2 recipes
 - images/recipes/audit-2026-06/jerk-sauce.jpg: 2 recipes
-- images/juneteenth/hibiscus-red-punch.png: 2 recipes
 - images/recipes/audit-2026-06/greek-salad.jpg: 3 recipes
 - images/recipes/audit-2026-06/roasted-vegetables.jpg: 2 recipes
 - images/recipes/audit-2026-06/rice-pilaf.jpg: 3 recipes
+- images/recipes/audit-2026-06/smothered-green-beans.jpg: 2 recipes
 
 ## Generic Recipe Images To Replace
 

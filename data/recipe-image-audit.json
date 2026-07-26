@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-26T15:11:52.868Z",
+  "generatedAt": "2026-07-26T18:35:13.633Z",
   "totalRecipes": 702,
   "uniqueImages": 596,
   "missingFiles": [],
@@ -4645,17 +4645,6 @@
       "fallbackUsed": false,
       "missingRecipeImage": false,
       "isDrink": false
-    },
-    {
-      "id": "agua-fresca",
-      "title": "Watermelon Agua Fresca",
-      "cuisine": "mexican",
-      "category": "Drinks",
-      "image": "images/recipes/audit-2026-06/agua-fresca.jpg",
-      "source": "recipe",
-      "fallbackUsed": false,
-      "missingRecipeImage": false,
-      "isDrink": true
     },
     {
       "id": "churro-bites",
@@ -10664,6 +10653,17 @@
       "isDrink": true
     },
     {
+      "id": "blackberry-sage-yaupon-tea",
+      "title": "Blackberry Sage & Yaupon Tea",
+      "cuisine": "north-american-indigenous",
+      "category": "Drinks",
+      "image": "images/recipes/drinks-2026/blackberry-sage-yaupon-tea.png",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": true
+    },
+    {
       "id": "charcuterie-cups",
       "title": "Charcuterie Cups",
       "cuisine": "hosting",
@@ -10792,17 +10792,6 @@
       "cuisine": "indian",
       "category": "Drinks",
       "image": "images/recipes/audit-2026-06/mango-lassi.jpg",
-      "source": "recipe",
-      "fallbackUsed": false,
-      "missingRecipeImage": false,
-      "isDrink": true
-    },
-    {
-      "id": "agua-fresca",
-      "title": "Watermelon Agua Fresca",
-      "cuisine": "mexican",
-      "category": "Drinks",
-      "image": "images/recipes/audit-2026-06/agua-fresca.jpg",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false,
@@ -11210,6 +11199,17 @@
       "cuisine": "american",
       "category": "Drinks",
       "image": "images/recipes/drinks-2026/hibiscus-punch.png",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": true
+    },
+    {
+      "id": "blackberry-sage-yaupon-tea",
+      "title": "Blackberry Sage & Yaupon Tea",
+      "cuisine": "north-american-indigenous",
+      "category": "Drinks",
+      "image": "images/recipes/drinks-2026/blackberry-sage-yaupon-tea.png",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false,
