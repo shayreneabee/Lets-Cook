@@ -119,7 +119,7 @@ assert.deepStrictEqual([...api.cookbookChapterDefinitions].map((chapter) => chap
 assert.deepStrictEqual([...api.cookbookChapterKeys], expectedSections, "Cookbook must expose top-level and Main Dish chapter keys");
 const expectedRecipeBoxTabs = ["breakfast", "soups", "salads", "vegetables", "main-dishes", "sides", "breads", "cookies", "desserts", "vegan-plant-based", "miscellaneous"];
 assert.deepStrictEqual([...api.recipeBoxTabDefinitions].map((tab) => tab.id), expectedRecipeBoxTabs, "Recipe box must offer the approved simple cookbook chapters");
-const expectedVisualCollections = ["breakfast-brunch", "weeknight-dinners", "soups-stews-bowls", "salads-sides", "main-dishes", "breads", "desserts-baking", "holiday-tables", "budget-meals", "30-minute-meals", "slow-cooker-one-pot", "around-the-world", "southern-comfort", "louisiana-classics", "meal-prep", "vegetarian", "vegan", "gluten-free", "allergy-friendly"];
+const expectedVisualCollections = ["breakfast-brunch", "weeknight-dinners", "soups-stews-bowls", "salads-sides", "main-dishes", "breads", "desserts-baking", "drinks", "holiday-tables", "budget-meals", "30-minute-meals", "slow-cooker-one-pot", "around-the-world", "southern-comfort", "louisiana-classics", "meal-prep", "vegetarian", "vegan", "gluten-free", "allergy-friendly"];
 assert.deepStrictEqual([...api.cookbookCollectionDefinitions].map((collection) => collection.id), expectedVisualCollections, "Living Cookbook must offer every requested visual collection");
 for (const collectionId of expectedVisualCollections) {
   const collection = api.cookbookCollectionById(collectionId);
@@ -211,7 +211,7 @@ assert(/steak|rib|beef/i.test(`${topRecipe("ribeye")?.title} ${(topRecipe("ribey
 assert.strictEqual(api.rankRecipesForDiscovery(api.allRecipeCollection(), { query: "zzzxqvnotfood" }).filter((row) => row.score > 0).length, 0, "Nonsense searches must not return unrelated recipes");
 
 context.location.hash = "#recipes?section=cookies";
-assert.deepStrictEqual({ ...api.routeParts() }, { route: "recipes", id: undefined, section: "cookies", collection: "", query: "" }, "Refresh must restore Cookies from the URL");
+assert.deepStrictEqual({ ...api.routeParts() }, { route: "recipes", id: undefined, section: "cookies", collection: "", drink: "", query: "" }, "Refresh must restore Cookies from the URL");
 context.location.hash = "#recipes?section=soups";
 assert.strictEqual(api.routeParts().section, "soups", "Back/Forward state must restore Soups");
 context.location.hash = "#recipes?section=not-real";

@@ -6069,8 +6069,63 @@ const foundationalBreadAndCookieRecipes = [
   midAtlanticRecipe("pecan-sandies", "Pecan Sandies", "southern", "Cookies", "Crumbly butter cookies loaded with toasted pecans.", ["1 cup butter", "2/3 cup powdered sugar", "2 cups flour", "1 cup toasted pecans", "1 tsp vanilla", "1/2 tsp salt"], ["Cream butter and powdered sugar.", "Add vanilla, flour, and salt.", "Fold in pecans.", "Shape, chill, and slice.", "Bake at 325 F until the edges are lightly golden."], ["pecan sandies", "cookies", "pecans"], { image: "images/recipes/cookies-2026/pecan-sandies.png", prep: "20 min plus chilling", cook: "16 min", servings: 30 })
 ];
 
+const drinkCollectionCover = "assets/living-cookbook-drinks-cover.png";
+const drinkCategoryImages = {
+  cocktail: drinkCollectionCover,
+  mocktail: drinkCollectionCover,
+  punch: "images/recipes/holiday-2026/holiday-punch.png",
+  smoothie: "images/recipes/audit-2026-06/berry-banana-smoothies.jpg",
+  coffee: "images/recipes/new-england-2026/coffee-milk.jpg",
+  tea: "images/recipes/audit-2026-06/sweet-tea.jpg",
+  lemonade: "images/juneteenth/fresh-lemonade.png"
+};
+
+function drinkRecipe(id, title, drinkType, description, ingredients, directions, tags, extras = {}) {
+  const alcoholic = Boolean(extras.alcoholic);
+  return {
+    ...expansionRecipe(id, title, "Drinks", drinkCategoryImages[drinkType] || drinkCollectionCover, extras.prep || "10 min", "0 min", extras.servings || 2, "Beginner", description, ingredients, directions, ["drink", drinkType, alcoholic ? "contains alcohol" : "nonalcoholic", ...tags], { cuisine: extras.cuisine || "american", storage: "Serve fresh over ice. Refrigerate any prepared base for up to 2 days." }),
+    drinkType,
+    alcoholic,
+    temperature: extras.temperature || "cold",
+    garnish: extras.garnish || "Fresh citrus or herbs",
+    glassware: extras.glassware || "Highball glass",
+    alcoholFreeVersion: extras.alcoholFreeVersion || "",
+    lowSugar: Boolean(extras.lowSugar)
+  };
+}
+
+const drinksCollectionRecipes = [
+  drinkRecipe("classic-margarita", "Classic Margarita", "cocktail", "A balanced tequila, orange liqueur, and lime cocktail with a crisp salted rim.", ["4 oz blanco tequila", "2 oz orange liqueur", "2 oz fresh lime juice", "1 tsp agave syrup optional", "Kosher salt", "Ice"], ["Run a lime wedge around two rocks glasses and dip rims in salt.", "Shake tequila, orange liqueur, lime juice, agave, and ice until very cold.", "Fill glasses with fresh ice and strain the cocktail over it.", "Garnish each glass with a lime wheel."], ["tequila", "lime", "party", "frozen option"], { alcoholic: true, garnish: "Lime wheel", glassware: "Salt-rimmed rocks glass", alcoholFreeVersion: "Shake lime juice, orange juice, agave, and sparkling water over ice." }),
+  drinkRecipe("strawberry-margarita", "Strawberry Margarita", "cocktail", "Fresh strawberries make this tequila cocktail bright, tart, and not too sweet.", ["4 oz blanco tequila", "2 oz orange liqueur", "1 cup strawberries", "2 oz fresh lime juice", "1 tsp agave syrup", "Ice"], ["Blend strawberries, tequila, orange liqueur, lime juice, agave, and ice until smooth.", "Taste and adjust lime or agave.", "Pour into two salt-rimmed rocks glasses.", "Garnish with a strawberry and lime."], ["tequila", "strawberry", "frozen", "party"], { alcoholic: true, garnish: "Strawberry and lime wheel", glassware: "Salt-rimmed rocks glass", alcoholFreeVersion: "Replace tequila and liqueur with 1/2 cup orange juice and sparkling water." }),
+  drinkRecipe("paloma", "Paloma", "cocktail", "A tart, sparkling tequila highball with grapefruit and lime.", ["4 oz blanco tequila", "4 oz grapefruit soda", "1 oz fresh lime juice", "Pinch kosher salt", "Ice"], ["Fill two tall glasses with ice.", "Add tequila and lime juice to each glass.", "Top with grapefruit soda and a tiny pinch of salt.", "Stir once and garnish with grapefruit."], ["tequila", "grapefruit", "party"], { alcoholic: true, garnish: "Grapefruit wedge", glassware: "Highball glass", alcoholFreeVersion: "Use grapefruit soda, lime, and a splash of orange juice." }),
+  drinkRecipe("classic-mojito", "Classic Mojito", "cocktail", "Cool mint, lime, rum, and soda make a clean, refreshing highball.", ["4 oz white rum", "2 oz fresh lime juice", "4 tsp sugar", "16 mint leaves", "4 oz club soda", "Crushed ice"], ["Gently muddle mint, sugar, and lime juice in two glasses.", "Add rum and fill each glass with crushed ice.", "Top with club soda and stir lightly.", "Add a mint bouquet and lime wedge."], ["rum", "mint", "lime", "party"], { alcoholic: true, garnish: "Mint bouquet and lime wedge", glassware: "Highball glass", alcoholFreeVersion: "Skip rum and add 2 more ounces club soda per glass." }),
+  drinkRecipe("old-fashioned", "Old Fashioned", "cocktail", "A spirit-forward whiskey cocktail softened with sugar and aromatic bitters.", ["4 oz bourbon or rye whiskey", "2 tsp demerara syrup", "4 dashes aromatic bitters", "2 orange peels", "Large ice cube"], ["Add whiskey, syrup, and bitters to two rocks glasses.", "Add a large ice cube to each glass and stir 20 seconds.", "Express an orange peel over each drink.", "Drop in the peel and serve."], ["whiskey", "bourbon", "classic"], { alcoholic: true, garnish: "Expressed orange peel", glassware: "Rocks glass", alcoholFreeVersion: "Use nonalcoholic whiskey alternative with the same bitters and orange." }),
+  drinkRecipe("whiskey-sour", "Whiskey Sour", "cocktail", "Tart lemon and smooth whiskey make a classic shaken sour.", ["4 oz bourbon", "2 oz fresh lemon juice", "1 1/2 oz simple syrup", "2 egg whites optional", "Ice", "2 cherries"], ["Dry shake bourbon, lemon, syrup, and egg white if using.", "Add ice and shake hard until chilled and frothy.", "Strain over fresh ice in two rocks glasses.", "Garnish with cherries and lemon."], ["whiskey", "lemon", "sour"], { alcoholic: true, garnish: "Cherry and lemon peel", glassware: "Rocks glass", alcoholFreeVersion: "Use nonalcoholic bourbon alternative or steeped black tea." }),
+  drinkRecipe("moscow-mule", "Moscow Mule", "cocktail", "Vodka, spicy ginger beer, and lime served ice-cold.", ["4 oz vodka", "1 oz fresh lime juice", "8 oz ginger beer", "Ice", "2 lime wedges"], ["Fill two mule mugs with ice.", "Pour vodka and lime juice over the ice.", "Top with ginger beer and stir gently.", "Garnish with lime."], ["vodka", "ginger", "lime"], { alcoholic: true, garnish: "Lime wedge and mint", glassware: "Copper mule mug", alcoholFreeVersion: "Skip vodka and use extra ginger beer with lime." }),
+  drinkRecipe("lemon-drop", "Lemon Drop", "cocktail", "A bright vodka lemon cocktail with a light sugar rim.", ["4 oz vodka", "2 oz fresh lemon juice", "1 1/2 oz simple syrup", "1 oz orange liqueur", "Sugar", "Ice"], ["Rim two coupe glasses with lemon and sugar.", "Shake vodka, lemon juice, syrup, orange liqueur, and ice until frosty.", "Double strain into the prepared glasses.", "Garnish with a lemon twist."], ["vodka", "lemon", "party"], { alcoholic: true, garnish: "Lemon twist", glassware: "Coupe glass", alcoholFreeVersion: "Shake lemon juice, syrup, orange juice, and sparkling water." }),
+  drinkRecipe("peach-bellini", "Peach Bellini", "cocktail", "Peach purée and sparkling wine make an easy brunch toast.", ["1/2 cup peach purée", "8 oz chilled prosecco", "2 thin peach slices"], ["Spoon 2 tablespoons peach purée into each flute.", "Slowly top with chilled prosecco.", "Stir once very gently.", "Garnish with a peach slice."], ["peach", "brunch", "sparkling"], { alcoholic: true, garnish: "Thin peach slice", glassware: "Champagne flute", alcoholFreeVersion: "Use chilled sparkling white grape juice." }),
+  drinkRecipe("classic-mimosa", "Classic Mimosa", "cocktail", "Fresh orange juice and sparkling wine for an unfussy brunch drink.", ["6 oz chilled prosecco", "6 oz chilled orange juice", "2 orange twists"], ["Pour orange juice halfway up two flutes.", "Top slowly with prosecco.", "Do not over-stir so the bubbles stay lively.", "Garnish with orange twists."], ["brunch", "orange", "sparkling"], { alcoholic: true, garnish: "Orange twist", glassware: "Champagne flute", alcoholFreeVersion: "Use sparkling water or sparkling cider." }),
+  drinkRecipe("espresso-martini", "Espresso Martini", "cocktail", "Fresh espresso, vodka, and coffee liqueur shaken into a silky foam.", ["4 oz vodka", "2 oz coffee liqueur", "2 oz fresh espresso", "1 oz simple syrup", "Ice", "6 coffee beans"], ["Chill two coupe glasses.", "Shake vodka, coffee liqueur, espresso, syrup, and ice very hard.", "Double strain into the chilled glasses.", "Float three coffee beans on each foamy top."], ["espresso", "coffee", "vodka", "brunch"], { alcoholic: true, garnish: "Three coffee beans", glassware: "Coupe glass", alcoholFreeVersion: "Use cold brew concentrate and nonalcoholic coffee liqueur." }),
+  drinkRecipe("hurricane", "Hurricane", "cocktail", "A fruit-forward New Orleans rum cocktail with passion fruit and citrus.", ["4 oz dark rum", "2 oz light rum", "2 oz passion fruit juice", "2 oz orange juice", "2 oz lime juice", "1 oz grenadine", "Ice"], ["Shake both rums, juices, grenadine, and ice until cold.", "Fill two hurricane glasses with fresh ice.", "Strain the drink over ice.", "Garnish with orange and cherry."], ["rum", "new orleans", "party", "holiday"], { alcoholic: true, cuisine: "cajun", garnish: "Orange slice and cherry", glassware: "Hurricane glass", alcoholFreeVersion: "Use passion fruit, orange, lime, and grenadine with ginger ale." }),
+  drinkRecipe("french-75", "French 75", "cocktail", "Gin, lemon, and sparkling wine with crisp celebratory lift.", ["3 oz gin", "1 1/2 oz fresh lemon juice", "1 oz simple syrup", "6 oz chilled prosecco", "2 lemon twists"], ["Shake gin, lemon juice, syrup, and ice.", "Strain equally into two flutes.", "Top each with prosecco.", "Garnish with a lemon twist."], ["gin", "lemon", "celebration", "brunch"], { alcoholic: true, garnish: "Lemon twist", glassware: "Champagne flute", alcoholFreeVersion: "Use nonalcoholic gin and sparkling lemonade." }),
+  drinkRecipe("classic-daiquiri", "Classic Daiquiri", "cocktail", "A clean shaken rum sour—not the frozen mix version.", ["4 oz white rum", "2 oz fresh lime juice", "1 1/2 oz simple syrup", "Ice", "2 lime wheels"], ["Shake rum, lime juice, syrup, and ice until very cold.", "Double strain into two chilled coupe glasses.", "Garnish with lime wheels.", "Serve immediately."], ["rum", "lime", "classic"], { alcoholic: true, garnish: "Lime wheel", glassware: "Coupe glass", alcoholFreeVersion: "Use nonalcoholic white rum or coconut water and lime." }),
+  drinkRecipe("summer-sangria", "Summer Sangria", "cocktail", "Red wine, brandy, citrus, and fruit for an easy shareable pitcher.", ["1 bottle dry red wine", "4 oz brandy", "2 oz orange liqueur", "1 orange sliced", "1 peach sliced", "1 cup berries", "12 oz sparkling water"], ["Combine wine, brandy, orange liqueur, and fruit in a pitcher.", "Chill at least 1 hour.", "Add sparkling water just before serving.", "Pour over ice and spoon fruit into each glass."], ["wine", "peach", "party", "pitcher"], { alcoholic: true, servings: 6, garnish: "Seasonal fruit", glassware: "Wine glass", alcoholFreeVersion: "Use dealcoholized wine or hibiscus tea with sparkling water." }),
+  drinkRecipe("virgin-mojito", "Virgin Mojito", "mocktail", "Mint, lime, and bubbles with the same cool ritual as the classic.", ["2 oz fresh lime juice", "4 tsp sugar", "16 mint leaves", "8 oz club soda", "Crushed ice"], ["Gently muddle mint, sugar, and lime juice in two glasses.", "Fill with crushed ice.", "Top with club soda and stir lightly.", "Garnish with mint and lime."], ["mint", "lime", "no alcohol"], { garnish: "Mint bouquet and lime wedge", glassware: "Highball glass" }),
+  drinkRecipe("strawberry-basil-lemonade", "Strawberry Basil Lemonade", "mocktail", "Fresh berry lemonade with basil perfume and a soft pink finish.", ["1 cup strawberries", "3/4 cup lemon juice", "1/3 cup simple syrup", "3 cups cold water", "8 basil leaves", "Ice"], ["Muddle strawberries and basil with simple syrup.", "Stir in lemon juice and cold water.", "Strain if you prefer a smooth drink.", "Serve over ice with a basil leaf."], ["strawberry", "lemonade", "summer", "no alcohol"], { garnish: "Strawberry slice and basil", glassware: "Highball glass" }),
+  drinkRecipe("pineapple-ginger-fizz", "Pineapple Ginger Fizz", "mocktail", "Tropical pineapple brightened with ginger and sparkling water.", ["1 cup pineapple juice", "1 oz fresh lime juice", "1 tsp grated ginger", "8 oz sparkling water", "Ice", "2 pineapple wedges"], ["Stir pineapple juice, lime juice, and ginger together.", "Fill two highball glasses with ice.", "Divide juice mixture between glasses.", "Top with sparkling water and garnish."], ["pineapple", "ginger", "fizz", "no alcohol"], { garnish: "Pineapple wedge and lime", glassware: "Highball glass" }),
+  drinkRecipe("peach-tea-spritzer", "Peach Tea Spritzer", "mocktail", "Iced black tea with ripe peach and a sparkling finish.", ["2 cups brewed black tea, chilled", "1/2 cup peach nectar", "1 oz lemon juice", "8 oz sparkling water", "Ice", "2 peach slices"], ["Stir tea, peach nectar, and lemon juice together.", "Fill two tall glasses with ice.", "Divide tea mixture between glasses.", "Top with sparkling water and peach slices."], ["peach", "tea", "brunch", "no alcohol"], { garnish: "Peach slice and mint", glassware: "Highball glass" }),
+  drinkRecipe("blackberry-lime-cooler", "Blackberry Lime Cooler", "mocktail", "Tart blackberry and lime in a bright, grown-up cooler.", ["1/2 cup blackberries", "2 oz fresh lime juice", "1 oz simple syrup", "8 oz sparkling water", "Ice", "Mint"], ["Muddle blackberries with lime juice and syrup.", "Strain into two ice-filled glasses.", "Top with sparkling water.", "Garnish with blackberries and mint."], ["blackberry", "lime", "no alcohol"], { garnish: "Blackberries and mint", glassware: "Highball glass" }),
+  drinkRecipe("cucumber-mint-refresher", "Cucumber Mint Refresher", "mocktail", "Cool cucumber, mint, and lime built for hot afternoons.", ["1/2 cucumber sliced", "12 mint leaves", "2 oz lime juice", "1 oz simple syrup", "8 oz sparkling water", "Ice"], ["Muddle cucumber, mint, lime, and syrup.", "Strain into two ice-filled glasses.", "Top with sparkling water.", "Garnish with a cucumber ribbon."], ["cucumber", "mint", "low sugar", "no alcohol"], { lowSugar: true, garnish: "Cucumber ribbon and mint", glassware: "Collins glass" }),
+  drinkRecipe("watermelon-agua-fresca", "Watermelon Agua Fresca", "mocktail", "Blended watermelon with lime and a pinch of salt for pure summer refreshment.", ["4 cups cubed watermelon", "2 oz lime juice", "1 tsp sugar optional", "Pinch salt", "1 cup cold water", "Ice"], ["Blend watermelon, lime, sugar, salt, and water until smooth.", "Strain if desired.", "Chill or pour over ice.", "Garnish with a lime wedge."], ["watermelon", "agua fresca", "summer", "no alcohol"], { servings: 4, garnish: "Lime wedge and mint", glassware: "Highball glass" }),
+  drinkRecipe("cranberry-orange-sparkler", "Cranberry Orange Sparkler", "mocktail", "Cranberry and orange with bubbles for a holiday-ready toast.", ["1 cup cranberry juice", "1/2 cup orange juice", "8 oz sparkling water", "1 tsp maple syrup optional", "Ice", "Orange slices"], ["Stir cranberry juice, orange juice, and maple syrup if using.", "Fill two flutes with ice.", "Divide juice mixture between glasses.", "Top with sparkling water and orange slices."], ["cranberry", "orange", "holiday", "party", "no alcohol"], { garnish: "Orange wheel and cranberries", glassware: "Champagne flute" }),
+  drinkRecipe("apple-cider-mocktail", "Apple Cider Mocktail", "mocktail", "Spiced apple cider with ginger beer and autumn citrus.", ["1 cup apple cider", "1 oz lemon juice", "8 oz ginger beer", "Pinch cinnamon", "Ice", "2 apple slices"], ["Stir apple cider, lemon juice, and cinnamon together.", "Fill two glasses with ice.", "Divide cider mixture between glasses.", "Top with ginger beer and apple slices."], ["apple cider", "fall", "holiday", "no alcohol"], { garnish: "Apple fan and cinnamon stick", glassware: "Rocks glass" }),
+  drinkRecipe("blueberry-lemon-fizz", "Blueberry Lemon Fizz", "mocktail", "Blueberry, lemon, and sparkling water with lively color.", ["1/2 cup blueberries", "2 oz lemon juice", "1 oz simple syrup", "8 oz sparkling water", "Ice", "2 lemon wheels"], ["Muddle blueberries with lemon juice and syrup.", "Strain into two ice-filled glasses.", "Top with sparkling water.", "Garnish with lemon wheels."], ["blueberry", "lemon", "fizz", "no alcohol"], { garnish: "Blueberries and lemon wheel", glassware: "Highball glass" }),
+  drinkRecipe("mango-mule", "Mango Mule", "mocktail", "Mango, lime, and ginger beer with mule-style spice.", ["1/2 cup mango nectar", "1 oz lime juice", "8 oz ginger beer", "Ice", "2 lime wedges"], ["Fill two mule mugs with ice.", "Divide mango nectar and lime juice between mugs.", "Top with ginger beer.", "Stir once and garnish with lime."], ["mango", "ginger", "no alcohol"], { garnish: "Lime wedge and mint", glassware: "Copper mule mug" }),
+  drinkRecipe("hibiscus-punch", "Hibiscus Punch", "punch", "A floral, ruby punch with orange, ginger, and sparkling water.", ["3 cups brewed hibiscus tea, chilled", "1 cup orange juice", "1/2 cup pineapple juice", "12 oz sparkling water", "1 tbsp grated ginger", "Orange slices", "Ice"], ["Stir hibiscus tea, juices, and ginger in a pitcher.", "Chill until serving time.", "Add sparkling water, orange slices, and ice just before serving.", "Ladle into glasses."], ["hibiscus", "punch", "party", "holiday", "no alcohol"], { servings: 8, garnish: "Orange wheels and mint", glassware: "Punch cup" })
+];
+
 const existingRecipeIds = new Set(recipes.map((recipe) => recipe.id));
-recipes = [...recipes, ...[...nextFeatureRecipes, ...menuIntelligenceRecipes, ...regionalAuthenticityRecipes, ...livingCookbookRecipes, ...kidsKornerRecipes, ...kidsExpansionRecipes, ...familyExpansionRecipes, ...mississippiHeritageRecipes, ...africaExpansionRecipes, ...midwestExpansionRecipes, ...newEnglandExpansionRecipes, ...southwestExpansionRecipes, ...midAtlanticExpansionRecipes, ...westernExpansionRecipes, ...globalCuisineExpansionRecipes, ...holidayExpansionRecipes, ...america250ExpansionRecipes, ...foundationalBreadAndCookieRecipes].filter((recipe) => !existingRecipeIds.has(recipe.id))];
+recipes = [...recipes, ...[...nextFeatureRecipes, ...menuIntelligenceRecipes, ...regionalAuthenticityRecipes, ...livingCookbookRecipes, ...kidsKornerRecipes, ...kidsExpansionRecipes, ...familyExpansionRecipes, ...mississippiHeritageRecipes, ...africaExpansionRecipes, ...midwestExpansionRecipes, ...newEnglandExpansionRecipes, ...southwestExpansionRecipes, ...midAtlanticExpansionRecipes, ...westernExpansionRecipes, ...globalCuisineExpansionRecipes, ...holidayExpansionRecipes, ...america250ExpansionRecipes, ...foundationalBreadAndCookieRecipes, ...drinksCollectionRecipes].filter((recipe) => !existingRecipeIds.has(recipe.id))];
 
 const lessons = [
   {
@@ -8882,7 +8937,7 @@ function routeParts() {
   const [path, queryString = ""] = raw.split("?");
   const [route, id] = path.split("/");
   const params = new URLSearchParams(queryString);
-  return { route, id, section: params.get("section") || "", collection: params.get("collection") || "", query: params.get("q") || "" };
+  return { route, id, section: params.get("section") || "", collection: params.get("collection") || "", drink: params.get("drink") || "", query: params.get("q") || "" };
 }
 
 function siteFooterMarkup(route = "") {
@@ -13444,6 +13499,11 @@ function recipeSearchIndex(recipe = {}) {
     recipe.mealType,
     recipe.protein,
     recipe.season,
+    recipe.drinkType,
+    recipe.alcoholic ? "contains alcohol alcoholic cocktail" : "nonalcoholic no alcohol mocktail",
+    recipe.temperature,
+    recipe.garnish,
+    recipe.glassware,
     alternateTitleText,
     ...(recipe.tags || []),
     ...(recipe.holidays || []),
@@ -15940,6 +16000,7 @@ const cookbookCollectionDefinitions = [
   ["main-dishes", "Main Dishes", "The plate everybody gathers around.", (r) => ["beef", "poultry", "fish-seafood"].includes(recipeCookbookPrimarySection(r))],
   ["breads", "Breads", "Warm loaves, rolls, biscuits, and more.", (r) => recipeCookbookPrimarySection(r) === "breads"],
   ["desserts-baking", "Desserts & Baking", "Sweet things worth making from scratch.", (r) => ["desserts", "cookies"].includes(recipeCookbookPrimarySection(r))],
+  ["drinks", "Drinks", "Cocktails, mocktails, punches, smoothies, coffees, teas, and everyday sips.", (r) => String(r.category || "").toLowerCase().includes("drink") || (r.tags || []).some((tag) => /drink|cocktail|mocktail|smoothie|coffee|tea|lemonade|punch/.test(tag))],
   ["holiday-tables", "Holiday Tables", "Recipes for the moments we gather.", (r) => /holiday|thanksgiving|christmas|easter|celebration/.test(`${r.category} ${(r.tags || []).join(" ")}`.toLowerCase())],
   ["budget-meals", "Budget Meals", "Stretch the grocery cart, not the flavor.", (r) => /budget|pantry|beans|rice|pasta/.test(`${r.category} ${(r.tags || []).join(" ")}`.toLowerCase())],
   ["30-minute-meals", "30-Minute Meals", "Fast, flavorful, and dinner-ready.", (r) => Number(r.cookTimeMinutes || 999) <= 30],
@@ -15974,9 +16035,15 @@ function cookbookCollectionCards(selectedId = "") {
     const coverRecipe = recipes.find((recipe) => !usedCoverImages.has(recipePhotoFor(recipe))) || recipes[0];
     if (coverRecipe) usedCoverImages.add(recipePhotoFor(coverRecipe));
     const active = collection.id === selectedId;
-    return `<button class="visual-cookbook-card ${active ? "active" : ""}" type="button" data-cookbook-collection-select="${collection.id}" aria-pressed="${active}" ${coverRecipe ? `style="--collection-photo:url('${recipePhotoFor(coverRecipe)}')"` : ""}><span class="visual-cookbook-photo">${coverRecipe ? `<img src="${recipePhotoFor(coverRecipe)}" alt="${coverRecipe.title}" />` : ""}</span><span class="visual-cookbook-copy"><strong>${collection.title}</strong><small>${collection.description}</small><em>${recipes.length} recipes</em></span></button>`;
+    const coverImage = collection.id === "drinks" ? drinkCollectionCover : recipePhotoFor(coverRecipe);
+    const coverAlt = collection.id === "drinks" ? "A margarita and blackberry mocktail" : coverRecipe?.title;
+    return `<button class="visual-cookbook-card ${active ? "active" : ""}" type="button" data-cookbook-collection-select="${collection.id}" aria-pressed="${active}" ${coverImage ? `style="--collection-photo:url('${coverImage}')"` : ""}><span class="visual-cookbook-photo">${coverImage ? `<img src="${coverImage}" alt="${coverAlt}" />` : ""}</span><span class="visual-cookbook-copy"><strong>${collection.title}</strong><small>${collection.description}</small><em>${recipes.length} recipes</em></span></button>`;
   }).join("")}</div></section>`;
 }
+
+const drinkCollectionTabs = [["cocktails", "Cocktails", (recipe) => recipe.drinkType === "cocktail"], ["mocktails", "Mocktails", (recipe) => recipe.drinkType === "mocktail"], ["party-punches", "Party Punches", (recipe) => recipe.drinkType === "punch"], ["smoothies", "Smoothies", (recipe) => recipe.drinkType === "smoothie" || /smoothie/.test(recipeCookbookText(recipe))], ["coffee", "Coffee & Espresso", (recipe) => recipe.drinkType === "coffee" || /coffee|espresso/.test(recipeCookbookText(recipe))], ["tea", "Tea & Refreshers", (recipe) => recipe.drinkType === "tea" || /tea|refresher|agua fresca/.test(recipeCookbookText(recipe))], ["lemonades", "Lemonades", (recipe) => /lemonade|lemon fizz/.test(recipeCookbookText(recipe))], ["southern", "Southern Drinks", (recipe) => recipe.cuisine === "southern" || /southern/.test(recipeCookbookText(recipe))], ["holiday", "Holiday Drinks", (recipe) => /holiday|christmas|thanksgiving|new year|fall/.test(recipeCookbookText(recipe))], ["brunch", "Brunch Drinks", (recipe) => /brunch|mimosa|bellini|espresso/.test(recipeCookbookText(recipe))]];
+function drinkTabById(id = "") { return drinkCollectionTabs.find(([tabId]) => tabId === id) || null; }
+function drinksTabsMarkup(selectedId = "") { return `<section class="drink-tabs" aria-label="Drinks categories">${drinkCollectionTabs.map(([id, title]) => `<button type="button" class="${id === selectedId ? "active" : ""}" data-drink-tab-select="${id}" aria-pressed="${id === selectedId}">${title}</button>`).join("")}</section>`; }
 const cookbookNearDuplicateAliases = new Map([
   ["cuban-sandwich-press", "cuban-sandwich"],
   ["mini-quesadillas", "cheese-quesadilla-triangles"],
@@ -16240,17 +16307,28 @@ function renderRecipes() {
   const isDedicatedCookbook = routeState.route === "living-cookbook";
   const requestedSection = routeState.section;
   const selectedCollection = cookbookCollectionById(routeState.collection);
+  const selectedDrinkTab = selectedCollection?.id === "drinks" ? drinkTabById(routeState.drink) : null;
   const selectedTab = recipeBoxTabByKey(requestedSection);
   livingRecipeBoxState = selectedTab ? "open" : "closed";
   const invalidSection = Boolean(requestedSection && !selectedTab);
-  const initialRecipes = selectedCollection ? recipesForCookbookCollection(selectedCollection) : selectedTab ? recipesForRecipeBoxTab(selectedTab) : [];
-  const resultsTitle = selectedCollection ? selectedCollection.title : selectedTab ? (selectedTab.resultsTitle || selectedTab.title) : invalidSection ? "Cookbook section not found" : "Choose a recipe card";
-  const resultsIntro = selectedCollection ? selectedCollection.description : selectedTab
+  const collectionRecipes = selectedCollection ? recipesForCookbookCollection(selectedCollection) : [];
+  const initialRecipes = selectedDrinkTab ? collectionRecipes.filter(selectedDrinkTab[2]) : selectedCollection ? collectionRecipes : selectedTab ? recipesForRecipeBoxTab(selectedTab) : [];
+  const resultsTitle = selectedDrinkTab ? selectedDrinkTab[1] : selectedCollection ? selectedCollection.title : selectedTab ? (selectedTab.resultsTitle || selectedTab.title) : invalidSection ? "Cookbook section not found" : "Choose a recipe card";
+  const resultsIntro = selectedDrinkTab ? "Accurate drink recipes with measurements, glassware, garnish, and an alcohol-free path where it fits." : selectedCollection ? selectedCollection.description : selectedTab
     ? selectedTab.intro
     : invalidSection
       ? `“${escapeHTML(requestedSection)}” is not a valid Living Cookbook section.`
       : "Open the recipe box above, then select a divider to see every recipe in that chapter.";
   const quickFilters = [
+    ["Cocktail", "drink:cocktail"],
+    ["Mocktail", "drink:mocktail"],
+    ["Nonalcoholic", "alcohol:no"],
+    ["Brunch", "tag:brunch"],
+    ["Party", "tag:party"],
+    ["Holiday", "tag:holiday"],
+    ["Hot", "temperature:hot"],
+    ["Frozen", "tag:frozen"],
+    ["Low Sugar", "tag:low sugar"],
     ["Southern", "cuisine:southern"],
     ["Mexican", "cuisine:mexican"],
     ["Indian", "cuisine:indian"],
@@ -16273,6 +16351,7 @@ function renderRecipes() {
         <p class="eyebrow">Living Cookbook</p>
         <h2 id="cookbookResultsHeading" tabindex="-1">${resultsTitle}</h2>
         <p id="cookbookResultsIntro">${resultsIntro}</p>
+        ${selectedCollection?.id === "drinks" ? drinksTabsMarkup(selectedDrinkTab?.[0] || "") : ""}
         ${selectedCollection ? `<button class="cookbook-view-all" type="button" data-cookbook-collection-reset>Reset filters</button>` : selectedTab ? `<button class="cookbook-view-all" id="cookbookResultsAction" type="button" data-cookbook-view-all>View all ${initialRecipes.length} ${selectedTab.title} recipes</button>` : ""}
       </div>
       <div id="results" class="recipe-grid">${initialRecipes.length
@@ -16382,6 +16461,8 @@ function renderRecipe(id) {
         <h1>${recipe.title}</h1>
         <div class="script-accent">${recipeTagline(recipe)}</div>
         <p>${recipe.description}</p>
+        ${recipe.alcoholic ? `<p class="drink-alcohol-label">Contains alcohol</p>` : recipe.drinkType ? `<p class="drink-nonalcohol-label">Nonalcoholic</p>` : ""}
+        ${recipe.drinkType ? `<div class="drink-service-notes"><span><strong>Glassware:</strong> ${recipe.glassware}</span><span><strong>Garnish:</strong> ${recipe.garnish}</span>${recipe.alcoholFreeVersion ? `<a href="#recipes/${recipe.id}" data-drink-alcohol-free="${recipe.id}">Make it alcohol-free</a>` : ""}</div>` : ""}
         <div class="recipe-facts">
           <span><small>Prep Time</small>${recipe.prep_time}</span>
           <span><small>Cook Time</small>${recipe.cook_time}</span>
@@ -17175,6 +17256,7 @@ function recipeCard(recipe) {
         </div>
         <div class="recipe-story-label">${recipeStoryLabel(recipe)}</div>
         <h3>${recipe.title}</h3>
+        ${recipe.alcoholic ? `<p class="drink-alcohol-label">Contains alcohol</p>` : recipe.drinkType ? `<p class="drink-nonalcohol-label">Nonalcoholic</p>` : ""}
         ${recipe.review_status === "pending" ? `<p class="pending-review-note">Pending review. Saved to your recipe collection.</p>` : ""}
         <div class="recipe-mini-meta">
           <span>${recipeDuration(recipe)}</span>
@@ -17485,6 +17567,7 @@ function handleClick(event) {
   const recipeFilterDrawerToggle = event.target.closest("[data-recipe-filter-drawer-toggle]");
   const recipeBoxPreset = event.target.closest("[data-recipe-box-preset]");
   const cookbookCollectionButton = event.target.closest("[data-cookbook-collection-select]");
+  const drinkTabButton = event.target.closest("[data-drink-tab-select]");
   const cookbookCollectionReset = event.target.closest("[data-cookbook-collection-reset]");
   const searchClearButton = event.target.closest("[data-search-clear]");
   const selectKitchenDateButton = event.target.closest("[data-select-kitchen-date]");
@@ -17548,6 +17631,10 @@ function handleClick(event) {
   }
   if (cookbookCollectionButton) {
     window.location.hash = `#living-cookbook?collection=${encodeURIComponent(cookbookCollectionButton.dataset.cookbookCollectionSelect)}`;
+    return;
+  }
+  if (drinkTabButton) {
+    window.location.hash = `#living-cookbook?collection=drinks&drink=${encodeURIComponent(drinkTabButton.dataset.drinkTabSelect)}`;
     return;
   }
   if (cookbookCollectionReset) {

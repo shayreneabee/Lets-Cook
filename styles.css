@@ -15245,9 +15245,20 @@ button.small-button.secondary,
 .miscellaneous-recipe-group .section-heading { margin-bottom: 1.2rem; }
 .miscellaneous-recipe-group .section-heading h3 { margin: .15rem 0 0; color: #12233f; font-family: var(--display-font, Georgia, serif); font-size: clamp(1.7rem, 3vw, 2.6rem); }
 
+.drink-tabs { display:flex; flex-wrap:wrap; gap:.55rem; margin:1.2rem 0 .25rem; }
+.drink-tabs button { border:1px solid #f2b348; background:#fff8e9; color:#14233a; border-radius:999px; padding:.6rem .85rem; font:inherit; font-weight:800; cursor:pointer; }
+.drink-tabs button:hover, .drink-tabs button:focus-visible, .drink-tabs button.active { background:#ef6d5b; border-color:#ef6d5b; color:#fff; outline:none; }
+.drink-alcohol-label, .drink-nonalcohol-label { display:inline-flex; width:max-content; margin:.7rem 0 0; padding:.28rem .58rem; border-radius:999px; font-weight:800; font-size:.78rem; letter-spacing:.02em; }
+.drink-alcohol-label { background:#172f52; color:#fff; }
+.drink-nonalcohol-label { background:#e2f5dc; color:#174d2b; }
+.drink-service-notes { display:flex; flex-wrap:wrap; gap:.45rem 1rem; margin:.75rem 0; font-size:.9rem; color:#17314e; }
+.drink-service-notes a { color:#b43b50; font-weight:800; }
+
 @media (max-width: 720px) {
   .week-strip-days { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(72vw, 290px); scroll-snap-type: x mandatory; }
   .week-strip-day { scroll-snap-align: start; }
   .cook-along-step, .cook-along-jobs { grid-template-columns: 1fr; }
   .cook-along-step > img { max-height: 280px; }
+  .drink-tabs { gap:.4rem; }
+  .drink-tabs button { font-size:.82rem; padding:.5rem .65rem; }
 }
