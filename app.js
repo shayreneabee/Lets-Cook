@@ -7253,6 +7253,37 @@ Object.assign(recipeImageOverrides, {
   "fried-rice": "images/recipes/asian-hub-2026/asian-garlic-fried-rice.png"
 });
 
+Object.assign(recipeImageOverrides, {
+  "classic-margarita": "images/recipes/drinks-2026/classic-margarita.png",
+  "strawberry-margarita": "images/recipes/drinks-2026/strawberry-margarita.png",
+  "paloma": "images/recipes/drinks-2026/paloma.png",
+  "classic-mojito": "images/recipes/drinks-2026/classic-mojito.png",
+  "old-fashioned": "images/recipes/drinks-2026/old-fashioned.png",
+  "whiskey-sour": "images/recipes/drinks-2026/whiskey-sour.png",
+  "moscow-mule": "images/recipes/drinks-2026/moscow-mule.png",
+  "lemon-drop": "images/recipes/drinks-2026/lemon-drop.png",
+  "peach-bellini": "images/recipes/drinks-2026/peach-bellini.png",
+  "classic-mimosa": "images/recipes/drinks-2026/classic-mimosa.png",
+  "espresso-martini": "images/recipes/drinks-2026/espresso-martini.png",
+  "hurricane": "images/recipes/drinks-2026/hurricane.png",
+  "french-75": "images/recipes/drinks-2026/french-75.png",
+  "classic-daiquiri": "images/recipes/drinks-2026/classic-daiquiri.png",
+  "summer-sangria": "images/recipes/drinks-2026/summer-sangria.png",
+  "virgin-mojito": "images/recipes/drinks-2026/virgin-mojito.png",
+  "strawberry-basil-lemonade": "images/recipes/drinks-2026/strawberry-basil-lemonade.png",
+  "pineapple-ginger-fizz": "images/recipes/drinks-2026/pineapple-ginger-fizz.png",
+  "peach-tea-spritzer": "images/recipes/drinks-2026/peach-tea-spritzer.png",
+  "blackberry-lime-cooler": "images/recipes/drinks-2026/blackberry-lime-cooler.png",
+  "cucumber-mint-refresher": "images/recipes/drinks-2026/cucumber-mint-refresher.png",
+  "watermelon-agua-fresca": "images/recipes/drinks-2026/watermelon-agua-fresca.png",
+  "cranberry-orange-sparkler": "images/recipes/drinks-2026/cranberry-orange-sparkler.png",
+  "apple-cider-mocktail": "images/recipes/drinks-2026/apple-cider-mocktail.png",
+  "blueberry-lemon-fizz": "images/recipes/drinks-2026/blueberry-lemon-fizz.png",
+  "mango-mule": "images/recipes/drinks-2026/mango-mule.png",
+  "hibiscus-punch": "images/recipes/drinks-2026/hibiscus-punch.png",
+  "spooky-party-punch": "images/recipes/drinks-2026/spooky-party-punch.png"
+});
+
 const imageContentRegistry = {
   "images/cuisines/southern/southern-01.png": {
     title: "Southern Fried Chicken",

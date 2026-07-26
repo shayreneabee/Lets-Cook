@@ -13,6 +13,7 @@ source = source.replace(
 source += `
 globalThis.__recipeImageAudit = {
   canonicalRecipeId,
+  isDrinkRecipe,
   rows: recipes.map((recipe) => {
   const resolved = resolveRecipeImage(recipe);
   return {
@@ -23,7 +24,8 @@ globalThis.__recipeImageAudit = {
     image: resolved.image,
     source: resolved.source,
     fallbackUsed: resolved.fallbackUsed,
-    missingRecipeImage: resolved.missingImage
+    missingRecipeImage: resolved.missingImage,
+    isDrink: isDrinkRecipe(recipe)
   };
   })
 };
@@ -72,6 +74,7 @@ vm.runInContext(source, context, { filename: "app.js" });
 
 const canonicalRecipeId = (id) => context.__recipeImageAudit.canonicalRecipeId(id);
 const rows = context.__recipeImageAudit.rows.filter((row) => canonicalRecipeId(row.id) === row.id);
+const drinkRows = rows.filter((row) => row.isDrink);
 const byImage = new Map();
 for (const row of rows) {
   if (!byImage.has(row.image)) byImage.set(row.image, []);
@@ -100,6 +103,12 @@ const sharedImages = [...byImage.entries()]
     recipes: recipes.map(({ id, title }) => ({ id, title }))
   }));
 const unrelatedSharedImages = sharedImages.filter((group) => new Set(group.recipes.map((recipe) => recipe.title.toLowerCase().replace(/[^a-z0-9]+/g, "-"))).size > 1);
+const duplicateDrinkImages = sharedImages
+  .map((group) => ({
+    image: group.image,
+    recipes: group.recipes.filter((recipe) => drinkRows.some((drink) => drink.id === recipe.id))
+  }))
+  .filter((group) => group.recipes.length > 1);
 const imageReviewQueue = unrelatedSharedImages.flatMap((group) => group.recipes.slice(1).map((recipe) => ({
   ...recipe,
   reusedImage: group.image,
@@ -116,8 +125,10 @@ const report = {
   photoQueue,
   sharedImages,
   unrelatedSharedImages,
+  duplicateDrinkImages,
   imageReviewQueue,
-  recipes: rows
+  recipes: rows,
+  drinks: drinkRows
 };
 
 const outputPath = path.join(root, "data", "recipe-image-audit.json");
@@ -130,7 +141,10 @@ console.log(`Fallback/queued images: ${fallbacks.length}`);
 console.log(`Photo queue items: ${photoQueue.length}`);
 console.log(`Shared image groups: ${sharedImages.length}`);
 console.log(`Unrelated shared image groups: ${unrelatedSharedImages.length}`);
+console.log(`Duplicate drink image groups: ${duplicateDrinkImages.length}`);
 console.log(`Image review queue items: ${imageReviewQueue.length}`);
+console.log(`Drink recipes audited: ${drinkRows.length}`);
 console.log(`Report: ${path.relative(root, outputPath)}`);
 
 if (missingFiles.length) process.exitCode = 1;
+if (duplicateDrinkImages.length) process.exitCode = 1;

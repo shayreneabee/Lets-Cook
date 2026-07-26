@@ -135,6 +135,7 @@ assert(/class="visual-cookbook-card active"[^>]*data-cookbook-collection-select=
 const drinksCollection = api.recipesForCookbookCollection(api.cookbookCollectionById("drinks"));
 assert(drinksCollection.length >= 25, "Drinks must contain a substantial beverage library");
 assert(drinksCollection.every(api.isDrinkRecipe), "The Drinks collection must contain beverages only");
+assert.strictEqual(new Set(drinksCollection.map(api.recipePhotoFor)).size, drinksCollection.length, "Every drink recipe must have a unique primary image");
 const foodOnlyDrinkLeaks = drinksCollection.filter((recipe) => /\b(cake|cakes|cookie|cookies|bread|breads|bowl|bowls|sauce|frosting|marinade|steak|sandwich|sandwiches|dessert|desserts|shrimp cocktail|fruit cocktail)\b/i.test(`${recipe.title} ${recipe.category}`));
 assert.strictEqual(foodOnlyDrinkLeaks.length, 0, `Food leaked into Drinks: ${foodOnlyDrinkLeaks.map((recipe) => recipe.title).join(", ")}`);
 for (const foodTitle of ["Shrimp Cocktail", "Coffee Cake", "Tea Cakes", "Matcha Cake", "Smoothie Bowl", "Cocktail Sauce"]) {
