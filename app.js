@@ -16000,7 +16000,7 @@ const cookbookCollectionDefinitions = [
   ["main-dishes", "Main Dishes", "The plate everybody gathers around.", (r) => ["beef", "poultry", "fish-seafood"].includes(recipeCookbookPrimarySection(r))],
   ["breads", "Breads", "Warm loaves, rolls, biscuits, and more.", (r) => recipeCookbookPrimarySection(r) === "breads"],
   ["desserts-baking", "Desserts & Baking", "Sweet things worth making from scratch.", (r) => ["desserts", "cookies"].includes(recipeCookbookPrimarySection(r))],
-  ["drinks", "Drinks", "Cocktails, mocktails, punches, smoothies, coffees, teas, and everyday sips.", (r) => String(r.category || "").toLowerCase().includes("drink") || (r.tags || []).some((tag) => /drink|cocktail|mocktail|smoothie|coffee|tea|lemonade|punch/.test(tag))],
+  ["drinks", "Drinks", "Cocktails, mocktails, punches, smoothies, coffees, teas, and everyday sips.", isDrinkRecipe],
   ["holiday-tables", "Holiday Tables", "Recipes for the moments we gather.", (r) => /holiday|thanksgiving|christmas|easter|celebration/.test(`${r.category} ${(r.tags || []).join(" ")}`.toLowerCase())],
   ["budget-meals", "Budget Meals", "Stretch the grocery cart, not the flavor.", (r) => /budget|pantry|beans|rice|pasta/.test(`${r.category} ${(r.tags || []).join(" ")}`.toLowerCase())],
   ["30-minute-meals", "30-Minute Meals", "Fast, flavorful, and dinner-ready.", (r) => Number(r.cookTimeMinutes || 999) <= 30],
@@ -16014,6 +16014,19 @@ const cookbookCollectionDefinitions = [
   ["gluten-free", "Gluten-Free", "Recipes with no gluten ingredients listed.", (r) => recipeDietaryProfile(r).glutenStatus === "no gluten ingredients listed"],
   ["allergy-friendly", "Allergy-Friendly", "Ingredient-reviewed choices for more tables.", (r) => recipeDietaryProfile(r).allergens.length === 0]
 ].map(([id, title, description, matcher]) => ({ id, title, description, matcher }));
+
+const drinkOnlyTerms = new Set(["drink", "drinks", "beverage", "beverages", "cocktail", "cocktails", "mocktail", "mocktails", "punch", "smoothie", "smoothies", "coffee", "espresso", "tea", "lemonade", "limeade", "agua fresca", "refresher", "refreshers"]);
+function isDrinkRecipe(recipe = {}) {
+  if (recipe.drinkType) return true;
+  const category = normalizeIngredientTerm(recipe.category || "");
+  const title = normalizeIngredientTerm(recipe.title || "");
+  const tags = (recipe.tags || []).map((tag) => normalizeIngredientTerm(tag));
+  if (/\b(drinks?|beverages?|cocktails?|mocktails?|smoothies?)\b/.test(category)) return true;
+  if (/shrimp cocktail|fruit cocktail|cocktail sauce|coffee cake|tea cake|matcha cake|smoothie bowl/.test(title)) return false;
+  if (/\b(cake|cakes|cookie|cookies|bread|breads|bowl|bowls|sauce|glaze|frosting|marinade|steak|sandwich|sandwiches|dessert|desserts)\b/.test(`${title} ${category}`)) return false;
+  if (/\b(margarita|paloma|mojito|old fashioned|whiskey sour|moscow mule|lemon drop|bellini|mimosa|martini|hurricane|french 75|daiquiri|sangria|spritzer|cooler|fizz|cider|hot cocoa|chai|lassi|agua fresca|lemonade|limeade|sweet tea|iced tea|coffee|espresso|punch|smoothie|refresher)\b/.test(title)) return true;
+  return tags.some((tag) => drinkOnlyTerms.has(tag));
+}
 
 function cookbookCollectionById(id = "") { return cookbookCollectionDefinitions.find((collection) => collection.id === id) || null; }
 

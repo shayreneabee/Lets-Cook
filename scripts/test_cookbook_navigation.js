@@ -23,6 +23,7 @@ globalThis.__cookbookTest = {
   cookbookCollectionById,
   recipesForCookbookCollection,
   cookbookCollectionCards,
+  isDrinkRecipe,
   canonicalSearchResults,
   renderSearchPage,
   recipeDietaryProfile,
@@ -131,6 +132,17 @@ const collectionMarkup = api.cookbookCollectionCards("vegan");
 assert(collectionMarkup.includes("Pick a Cookbook") && collectionMarkup.includes("Browse by craving, occasion, cooking style, or dietary need."), "Visual collection shelf must use the approved heading copy");
 assert.strictEqual((collectionMarkup.match(/data-cookbook-collection-select=/g) || []).length, expectedVisualCollections.length, "Visual collection shelf must render every requested cover");
 assert(/class="visual-cookbook-card active"[^>]*data-cookbook-collection-select="vegan"/.test(collectionMarkup), "Selected visual collection must have an active state");
+const drinksCollection = api.recipesForCookbookCollection(api.cookbookCollectionById("drinks"));
+assert(drinksCollection.length >= 25, "Drinks must contain a substantial beverage library");
+assert(drinksCollection.every(api.isDrinkRecipe), "The Drinks collection must contain beverages only");
+const foodOnlyDrinkLeaks = drinksCollection.filter((recipe) => /\b(cake|cakes|cookie|cookies|bread|breads|bowl|bowls|sauce|frosting|marinade|steak|sandwich|sandwiches|dessert|desserts|shrimp cocktail|fruit cocktail)\b/i.test(`${recipe.title} ${recipe.category}`));
+assert.strictEqual(foodOnlyDrinkLeaks.length, 0, `Food leaked into Drinks: ${foodOnlyDrinkLeaks.map((recipe) => recipe.title).join(", ")}`);
+for (const foodTitle of ["Shrimp Cocktail", "Coffee Cake", "Tea Cakes", "Matcha Cake", "Smoothie Bowl", "Cocktail Sauce"]) {
+  assert.strictEqual(api.isDrinkRecipe({ title: foodTitle, category: "Food", tags: [foodTitle.split(" ").pop()] }), false, `${foodTitle} must never enter the Drinks collection`);
+}
+for (const drinkTitle of ["Classic Margarita", "Peach Bellini", "Virgin Mojito", "Southern Sweet Tea", "Mango Smoothie", "Espresso Martini"]) {
+  assert.strictEqual(api.isDrinkRecipe({ title: drinkTitle, category: "Drinks", tags: ["drink"] }), true, `${drinkTitle} must remain in Drinks`);
+}
 for (const tabId of expectedRecipeBoxTabs) {
   const tab = api.recipeBoxTabByKey(tabId);
   const tabRecipes = api.recipesForRecipeBoxTab(tab);
@@ -331,3 +343,4 @@ for (const href of literalInternalLinks) {
 }
 
 console.log(`Cookbook navigation tests passed for ${expectedSections.length} chapters, ${recipeIds.size} recipe cards, and ${literalInternalLinks.length} literal internal links.`);
+console.log(`Drinks audit passed for ${drinksCollection.length} beverage recipes with zero food-item leaks.`);
