@@ -13350,12 +13350,14 @@ body {
 
 .home-editorial-dish {
   position: relative;
+  isolation: isolate;
   display: grid;
   min-height: 210px;
   align-content: end;
   overflow: hidden;
   padding: 18px;
   border-radius: 8px;
+  background: #102542;
   color: #fffdf7;
   text-decoration: none;
   box-shadow: 0 24px 58px rgba(34, 22, 14, 0.2);
@@ -13527,8 +13529,10 @@ body {
   min-height: 330px;
   overflow: hidden;
   position: relative;
+  isolation: isolate;
   padding: 18px;
   border-radius: 8px;
+  background: #102542;
   color: #fffdf7;
   text-decoration: none;
   box-shadow: 0 20px 48px rgba(67, 42, 24, 0.14);
@@ -13592,12 +13596,14 @@ body {
 
 .home-cuisine-scroll a {
   position: relative;
+  isolation: isolate;
   display: grid;
   min-height: 420px;
   align-content: end;
   overflow: hidden;
   padding: 22px;
   border-radius: 8px;
+  background: #102542;
   color: #fffdf7;
   text-decoration: none;
   scroll-snap-align: start;
