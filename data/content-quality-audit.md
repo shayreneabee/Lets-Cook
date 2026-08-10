@@ -1,10 +1,10 @@
 # Let's Cook Y'all Content Quality Audit
 
-Generated: 2026-07-26T18:35:13.430Z
+Generated: 2026-08-10T16:13:03.803Z
 
 ## Summary
 
-- Recipes audited: 702
+- Recipes audited: 719
 - Retired duplicate recipe records: 8
 - Duplicate recipe ID groups: 0
 - Duplicate recipe title groups: 0
@@ -28,7 +28,7 @@ Generated: 2026-07-26T18:35:13.430Z
 - Ingredient search smoke issues: 0
 - Training-only recipes in general discovery: 0
 - Recipes missing required details: 0
-- Recipes missing recommended enrichment details: 702
+- Recipes missing recommended enrichment details: 719
 
 ## Required Holiday Coverage
 

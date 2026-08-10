@@ -119,13 +119,13 @@ vm.createContext(context);
 vm.runInContext(source, context, { filename: "app.js" });
 
 const api = context.__cookbookTest;
-const expectedTopLevelSections = ["breakfast", "soups", "salads", "vegetables", "main-dishes", "sides", "breads", "cookies", "desserts", "miscellaneous"];
-const expectedSections = ["breakfast", "soups", "salads", "vegetables", "main-dishes", "beef", "poultry", "fish-seafood", "sides", "breads", "cookies", "desserts", "miscellaneous"];
+const expectedTopLevelSections = ["breakfast", "soups", "salads", "vegetables", "appetizers-finger-foods", "main-dishes", "sides", "breads", "cookies", "desserts", "miscellaneous"];
+const expectedSections = ["breakfast", "soups", "salads", "vegetables", "appetizers-finger-foods", "main-dishes", "beef", "poultry", "fish-seafood", "sides", "breads", "cookies", "desserts", "miscellaneous"];
 assert.deepStrictEqual([...api.cookbookChapterDefinitions].map((chapter) => chapter.id), expectedTopLevelSections, "Cookbook must show the approved divider cards in order");
 assert.deepStrictEqual([...api.cookbookChapterKeys], expectedSections, "Cookbook must expose top-level and Main Dish chapter keys");
-const expectedRecipeBoxTabs = ["breakfast", "soups", "salads", "vegetables", "main-dishes", "sides", "breads", "cookies", "desserts", "vegan-plant-based", "miscellaneous"];
+const expectedRecipeBoxTabs = ["breakfast", "soups", "salads", "vegetables", "appetizers-finger-foods", "main-dishes", "sides", "breads", "cookies", "desserts", "vegan-plant-based", "miscellaneous"];
 assert.deepStrictEqual([...api.recipeBoxTabDefinitions].map((tab) => tab.id), expectedRecipeBoxTabs, "Recipe box must offer the approved simple cookbook chapters");
-const expectedVisualCollections = ["breakfast-brunch", "weeknight-dinners", "soups-stews-bowls", "salads-sides", "main-dishes", "breads", "desserts-baking", "drinks", "holiday-tables", "budget-meals", "30-minute-meals", "slow-cooker-one-pot", "around-the-world", "southern-comfort", "louisiana-classics", "meal-prep", "vegetarian", "vegan", "gluten-free", "allergy-friendly"];
+const expectedVisualCollections = ["breakfast-brunch", "appetizers-finger-foods", "weeknight-dinners", "soups-stews-bowls", "salads-sides", "main-dishes", "breads", "desserts-baking", "drinks", "holiday-tables", "budget-meals", "30-minute-meals", "slow-cooker-one-pot", "around-the-world", "southern-comfort", "louisiana-classics", "meal-prep", "vegetarian", "vegan", "gluten-free", "allergy-friendly"];
 assert.deepStrictEqual([...api.cookbookCollectionDefinitions].map((collection) => collection.id), expectedVisualCollections, "Living Cookbook must offer every requested visual collection");
 for (const collectionId of expectedVisualCollections) {
   const collection = api.cookbookCollectionById(collectionId);
@@ -184,7 +184,7 @@ assert.strictEqual(api.recipeCookbookPrimarySection(byId("argentinian-chimichurr
 assert.strictEqual(api.recipeCookbookPrimarySection(byId("montana-huckleberry-crisp")), "desserts", "Fruit crisps must be Desserts");
 assert.strictEqual(api.recipeCookbookPrimarySection(byId("apple-cider-doughnuts")), "desserts", "Doughnuts must be Desserts");
 assert.strictEqual(api.recipeCookbookPrimarySection(byId("white-sandwich-bread")), "breads", "Sandwich bread must remain in Breads");
-assert.strictEqual(api.recipeCookbookPrimarySection(byId("deviled-eggs")), "miscellaneous", "Deviled Eggs belong in Miscellaneous, not Vegetables");
+assert.strictEqual(api.recipeCookbookPrimarySection(byId("deviled-eggs")), "appetizers-finger-foods", "Deviled Eggs belong in Appetizers & Finger Foods");
 assert.strictEqual(api.recipeCookbookPrimarySection(byId("frito-pie")), "miscellaneous", "Savory Frito Pie must not be classified as soup or dessert");
 assert.strictEqual(api.recipeCookbookPrimarySection(byId("idaho-huckleberry-pancakes")), "breakfast", "Pancakes belong in Breakfast");
 assert.strictEqual(api.recipeCookbookPrimarySection(byId("southern-baked-mac-cheese")), "sides", "Mac and Cheese belongs in Sides");
@@ -198,7 +198,7 @@ for (const duplicateId of ["cuban-sandwich-press", "mini-quesadillas", "cowboy-t
 const miscellaneousMarkup = api.miscellaneousChapterMarkup(miscellaneous);
 for (const group of ["Appetizers, Snacks & Party Food", "Pasta, Rice, Pizza & Handhelds", "Sauces, Condiments & Seasonings", "Drinks & Sips"]) assert(miscellaneousMarkup.includes(group), `Miscellaneous must include the ${group} shelf`);
 const chapterShelf = api.cookbookChapterShelf("poultry");
-assert.strictEqual((chapterShelf.match(/data-cookbook-chapter-select=/g) || []).length, 14, "Recipe box must render eleven divider cards plus Main Dishes subchapters");
+assert.strictEqual((chapterShelf.match(/data-cookbook-chapter-select=/g) || []).length, 15, "Recipe box must render the divider cards plus Main Dishes subchapters");
 assert(!chapterShelf.includes("cookbook-chapter-scroll"), "Recipe box must not use the old horizontal scroller");
 assert(chapterShelf.includes('data-living-recipe-box') && chapterShelf.includes('data-recipe-box-toggle'), "Living Cookbook must use an interactive recipe box with an open control");
 assert(chapterShelf.includes('class="living-recipe-box is-open"'), "A direct cookbook tab route must open the recipe box");
@@ -240,7 +240,7 @@ assert(api.aroundWorldSearchMatches("India").some((culture) => culture.id === "i
 assert(api.aroundWorldSearchMatches("hibiscus").some((culture) => culture.id === "africa"), "Search must connect signature ingredients and drinks to culture collections");
 
 context.location.hash = "#recipes?section=cookies";
-assert.deepStrictEqual({ ...api.routeParts() }, { route: "recipes", id: undefined, section: "cookies", collection: "", culture: "", drink: "", query: "" }, "Refresh must restore Cookies from the URL");
+assert.deepStrictEqual({ ...api.routeParts() }, { route: "recipes", id: undefined, section: "cookies", collection: "", culture: "", drink: "", subcategory: "", query: "" }, "Refresh must restore Cookies from the URL");
 context.location.hash = "#recipes?section=soups";
 assert.strictEqual(api.routeParts().section, "soups", "Back/Forward state must restore Soups");
 context.location.hash = "#living-cookbook?culture=india";
@@ -354,7 +354,7 @@ const routedPages = new Set([
   "add-recipe", "submit-recipe", "cook101", "skills-academy", "culinary-academy", "build-a-meal",
   "kitchen-search", "pantry-scan", "cuisine-explorer", "food-encyclopedia", "what-yall-cooking",
   "menu-intelligence", "living-cookbook", "kids-cooking", "kids-korner", "recipes", "paths",
-  "pathways", "planner", "lets-plan", "cook-along", "hosting", "about", "account", "privacy", "terms", "contact", "search", "cuisine"
+  "pathways", "planner", "lets-plan", "cook-along", "hosting", "gathering-planner", "about", "account", "privacy", "terms", "contact", "search", "cuisine"
 ]);
 const localDocumentAnchors = new Set(["aiKitchenInventoryForm"]);
 const literalInternalLinks = [...source.matchAll(/href="#([^"$]+)"/g)].map((match) => match[1]);

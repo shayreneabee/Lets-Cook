@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-26T18:35:13.430Z",
+  "generatedAt": "2026-08-10T16:13:03.803Z",
   "summary": {
-    "totalRecipes": 702,
+    "totalRecipes": 719,
     "retiredDuplicateRecords": 8,
     "duplicateRecipeIdGroups": 0,
     "duplicateRecipeTitleGroups": 0,
@@ -9,7 +9,7 @@
     "duplicateIngredientListGroups": 0,
     "ingredientVariationReviewGroups": 1,
     "duplicateInstructionListGroups": 0,
-    "uniqueImages": 596,
+    "uniqueImages": 613,
     "sharedImageGroups": 78,
     "unrelatedSharedImageGroups": 78,
     "imageReviewQueueItems": 106,
@@ -27,7 +27,7 @@
     "ingredientSearchIssues": 0,
     "trainingOnlyGeneralLeaks": 0,
     "recipesMissingRequiredDetails": 0,
-    "recipesMissingRecommendedDetails": 702
+    "recipesMissingRecommendedDetails": 719
   },
   "duplicateRecipeIds": [],
   "duplicateRecipeTitles": [],
@@ -5683,7 +5683,7 @@
       "title": "Deviled Eggs",
       "cuisine": "southern",
       "category": "Beginner Basics",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "appetizers-finger-foods",
       "image": "images/regional/mississippi/deviled-eggs.jpg"
     },
     {
@@ -5747,15 +5747,15 @@
       "title": "Rotel Dip",
       "cuisine": "hosting",
       "category": "Party & Hosting",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "appetizers-finger-foods",
       "image": "images/recipes/audit-2026-06/rotel-dip.jpg"
     },
     {
       "id": "party-meatballs",
-      "title": "Party Meatballs",
+      "title": "Cocktail Meatballs",
       "cuisine": "hosting",
       "category": "Party & Hosting",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "appetizers-finger-foods",
       "image": "images/recipes/audit-2026-06/party-meatballs.jpg"
     },
     {
@@ -5787,7 +5787,7 @@
       "title": "Garlic Wings",
       "cuisine": "southern",
       "category": "Party & Hosting",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "appetizers-finger-foods",
       "image": "images/recipes/audit-2026-06/garlic-wings.jpg"
     },
     {
@@ -6347,7 +6347,7 @@
       "title": "Southern Potato Salad",
       "cuisine": "southern",
       "category": "Sides",
-      "primaryCookbookSection": "sides",
+      "primaryCookbookSection": "appetizers-finger-foods",
       "image": "images/regional/mississippi/potato-salad.jpg"
     },
     {
@@ -6587,7 +6587,7 @@
       "title": "Soft Slider Buns",
       "cuisine": "bbq",
       "category": "Breads",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "appetizers-finger-foods",
       "image": "images/recipes/audit-2026-06/slider-buns.jpg"
     },
     {
@@ -7467,7 +7467,7 @@
       "title": "Mini Chicken Sliders",
       "cuisine": "southern",
       "category": "Southern Favorites",
-      "primaryCookbookSection": "poultry",
+      "primaryCookbookSection": "appetizers-finger-foods",
       "image": "images/recipes/audit-2026-06/mini-chicken-sliders.jpg"
     },
     {
@@ -8627,7 +8627,7 @@
       "title": "Toasted Ravioli",
       "cuisine": "missouri",
       "category": "St. Louis Classics",
-      "primaryCookbookSection": "miscellaneous",
+      "primaryCookbookSection": "appetizers-finger-foods",
       "image": "images/recipes/audit-2026-06/toasted-ravioli.jpg"
     },
     {
@@ -9435,7 +9435,7 @@
       "title": "Maryland Crab Dip",
       "cuisine": "maryland",
       "category": "Maryland Appetizers",
-      "primaryCookbookSection": "fish-seafood",
+      "primaryCookbookSection": "appetizers-finger-foods",
       "image": "images/recipes/mid-atlantic-2026/crab-dip.jpg"
     },
     {
@@ -11151,6 +11151,142 @@
       "image": "images/recipes/drinks-2026/blackberry-sage-yaupon-tea.png"
     },
     {
+      "id": "classic-club-sandwiches",
+      "title": "Classic Club Sandwiches",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "primaryCookbookSection": "appetizers-finger-foods",
+      "image": "images/recipes/appetizers-2026/classic-club-sandwiches.png"
+    },
+    {
+      "id": "turkey-club-sandwich",
+      "title": "Turkey Club Sandwiches",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "primaryCookbookSection": "appetizers-finger-foods",
+      "image": "images/recipes/appetizers-2026/turkey-club-sandwich.png"
+    },
+    {
+      "id": "chicken-salad-finger-sandwiches",
+      "title": "Chicken Salad Finger Sandwiches",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "primaryCookbookSection": "appetizers-finger-foods",
+      "image": "images/recipes/appetizers-2026/chicken-salad-finger-sandwiches.png"
+    },
+    {
+      "id": "pimento-cheese-finger-sandwiches",
+      "title": "Pimento Cheese Finger Sandwiches",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "primaryCookbookSection": "appetizers-finger-foods",
+      "image": "images/recipes/appetizers-2026/pimento-cheese-finger-sandwiches.png"
+    },
+    {
+      "id": "ham-swiss-sliders",
+      "title": "Ham and Swiss Sliders",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "primaryCookbookSection": "appetizers-finger-foods",
+      "image": "images/recipes/appetizers-2026/ham-swiss-sliders.png"
+    },
+    {
+      "id": "roast-beef-sliders",
+      "title": "Roast Beef Sliders",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "primaryCookbookSection": "appetizers-finger-foods",
+      "image": "images/recipes/appetizers-2026/roast-beef-sliders.png"
+    },
+    {
+      "id": "muffuletta-sliders",
+      "title": "Muffuletta Sliders",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "primaryCookbookSection": "appetizers-finger-foods",
+      "image": "images/recipes/appetizers-2026/muffuletta-sliders.png"
+    },
+    {
+      "id": "turkey-cheese-pinwheels",
+      "title": "Turkey and Cheese Pinwheels",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "primaryCookbookSection": "appetizers-finger-foods",
+      "image": "images/recipes/appetizers-2026/turkey-cheese-pinwheels.png"
+    },
+    {
+      "id": "sausage-balls",
+      "title": "Sausage Balls",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "primaryCookbookSection": "appetizers-finger-foods",
+      "image": "images/recipes/appetizers-2026/sausage-balls.png"
+    },
+    {
+      "id": "cocktail-smokies",
+      "title": "Cocktail Smokies",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "primaryCookbookSection": "appetizers-finger-foods",
+      "image": "images/recipes/appetizers-2026/cocktail-smokies.png"
+    },
+    {
+      "id": "buffalo-chicken-dip",
+      "title": "Buffalo Chicken Dip",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "primaryCookbookSection": "appetizers-finger-foods",
+      "image": "images/recipes/appetizers-2026/buffalo-chicken-dip.png"
+    },
+    {
+      "id": "spinach-artichoke-dip",
+      "title": "Spinach Artichoke Dip",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "primaryCookbookSection": "appetizers-finger-foods",
+      "image": "images/recipes/appetizers-2026/spinach-artichoke-dip.png"
+    },
+    {
+      "id": "seven-layer-dip",
+      "title": "Seven-Layer Dip",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "primaryCookbookSection": "appetizers-finger-foods",
+      "image": "images/recipes/appetizers-2026/seven-layer-dip.png"
+    },
+    {
+      "id": "classic-pasta-salad",
+      "title": "Classic Pasta Salad",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "primaryCookbookSection": "appetizers-finger-foods",
+      "image": "images/recipes/appetizers-2026/classic-pasta-salad.png"
+    },
+    {
+      "id": "fresh-fruit-tray",
+      "title": "Fresh Fruit Tray",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "primaryCookbookSection": "appetizers-finger-foods",
+      "image": "images/recipes/appetizers-2026/fresh-fruit-tray.png"
+    },
+    {
+      "id": "vegetable-tray",
+      "title": "Vegetable Tray",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "primaryCookbookSection": "appetizers-finger-foods",
+      "image": "images/recipes/appetizers-2026/vegetable-tray.png"
+    },
+    {
+      "id": "cheese-cracker-tray",
+      "title": "Cheese and Cracker Tray",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "primaryCookbookSection": "appetizers-finger-foods",
+      "image": "images/recipes/appetizers-2026/cheese-cracker-tray.png"
+    },
+    {
       "id": "charcuterie-cups",
       "title": "Charcuterie Cups",
       "cuisine": "hosting",
@@ -11641,7 +11777,7 @@
     },
     {
       "id": "party-meatballs",
-      "title": "Party Meatballs",
+      "title": "Cocktail Meatballs",
       "cuisine": "hosting",
       "category": "Party & Hosting",
       "missing": [],
@@ -20406,6 +20542,227 @@
       "title": "Blackberry Sage & Yaupon Tea",
       "cuisine": "north-american-indigenous",
       "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "classic-club-sandwiches",
+      "title": "Classic Club Sandwiches",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "turkey-club-sandwich",
+      "title": "Turkey Club Sandwiches",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "chicken-salad-finger-sandwiches",
+      "title": "Chicken Salad Finger Sandwiches",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "pimento-cheese-finger-sandwiches",
+      "title": "Pimento Cheese Finger Sandwiches",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "ham-swiss-sliders",
+      "title": "Ham and Swiss Sliders",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "roast-beef-sliders",
+      "title": "Roast Beef Sliders",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "muffuletta-sliders",
+      "title": "Muffuletta Sliders",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "turkey-cheese-pinwheels",
+      "title": "Turkey and Cheese Pinwheels",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "sausage-balls",
+      "title": "Sausage Balls",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "cocktail-smokies",
+      "title": "Cocktail Smokies",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "buffalo-chicken-dip",
+      "title": "Buffalo Chicken Dip",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "spinach-artichoke-dip",
+      "title": "Spinach Artichoke Dip",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "seven-layer-dip",
+      "title": "Seven-Layer Dip",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "classic-pasta-salad",
+      "title": "Classic Pasta Salad",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "fresh-fruit-tray",
+      "title": "Fresh Fruit Tray",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "vegetable-tray",
+      "title": "Vegetable Tray",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "cheese-cracker-tray",
+      "title": "Cheese and Cracker Tray",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
       "missing": [],
       "recommendedMissing": [
         "cultural_origin",
@@ -20769,7 +21126,7 @@
     },
     {
       "id": "party-meatballs",
-      "title": "Party Meatballs",
+      "title": "Cocktail Meatballs",
       "cuisine": "hosting",
       "category": "Party & Hosting",
       "missing": [],
@@ -29534,6 +29891,227 @@
       "title": "Blackberry Sage & Yaupon Tea",
       "cuisine": "north-american-indigenous",
       "category": "Drinks",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "classic-club-sandwiches",
+      "title": "Classic Club Sandwiches",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "turkey-club-sandwich",
+      "title": "Turkey Club Sandwiches",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "chicken-salad-finger-sandwiches",
+      "title": "Chicken Salad Finger Sandwiches",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "pimento-cheese-finger-sandwiches",
+      "title": "Pimento Cheese Finger Sandwiches",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "ham-swiss-sliders",
+      "title": "Ham and Swiss Sliders",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "roast-beef-sliders",
+      "title": "Roast Beef Sliders",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "muffuletta-sliders",
+      "title": "Muffuletta Sliders",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "turkey-cheese-pinwheels",
+      "title": "Turkey and Cheese Pinwheels",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "sausage-balls",
+      "title": "Sausage Balls",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "cocktail-smokies",
+      "title": "Cocktail Smokies",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "buffalo-chicken-dip",
+      "title": "Buffalo Chicken Dip",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "spinach-artichoke-dip",
+      "title": "Spinach Artichoke Dip",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "seven-layer-dip",
+      "title": "Seven-Layer Dip",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "classic-pasta-salad",
+      "title": "Classic Pasta Salad",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "fresh-fruit-tray",
+      "title": "Fresh Fruit Tray",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "vegetable-tray",
+      "title": "Vegetable Tray",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
+      "missing": [],
+      "recommendedMissing": [
+        "cultural_origin",
+        "chef_tips",
+        "nutrition",
+        "pairings"
+      ]
+    },
+    {
+      "id": "cheese-cracker-tray",
+      "title": "Cheese and Cracker Tray",
+      "cuisine": "american",
+      "category": "Appetizers & Finger Foods",
       "missing": [],
       "recommendedMissing": [
         "cultural_origin",

@@ -3503,6 +3503,7 @@ function isTrainingOnlyRecipe(recipe) {
 
 const cookbookPrimarySectionLabels = {
   breakfast: "Breakfast",
+  "appetizers-finger-foods": "Appetizers & Finger Foods",
   soups: "Soups",
   salads: "Salads",
   vegetables: "Vegetables",
@@ -3530,6 +3531,7 @@ function recipeCookbookPrimarySection(recipe = {}) {
   const primaryText = `${title} ${category} ${tags}`;
   const has = (pattern, source = text) => pattern.test(source);
 
+  if (has(/appetizer|finger food|club sandwich|finger sandwich|sliders?|pinwheels?|deviled eggs?|sausage balls?|cocktail meatballs?|cocktail smokies|buffalo chicken dip|rotel dip|spinach artichoke dip|seven-layer dip|fruit tray|vegetable tray|cheese and cracker tray|party tray/, primaryText)) return "appetizers-finger-foods";
   if (has(/frito pie|tomato pie|pizza pie|macaroni pie|meat pie|pot pie/, primaryText)) return "miscellaneous";
   if (has(/soup|stew|gumbo|chili|chowder|bisque|pepper soup|harira|caldo|yakamein|oxtail|court-bouillon|courtbouillon|barley soup/, primaryText)) return "soups";
   if (has(/potato salad|pasta salad|coleslaw|\bslaw\b|mac and cheese|macaroni and cheese|dirty rice|rice pilaf|mashed potatoes?|sweet potato casserole|candied yams?|stuffing|cornbread dressing|oyster dressing|baked beans|green bean casserole|hush ?pupp|rice and peas|cilantro lime rice|steamed white rice/, primaryText)) return "sides";
@@ -5043,6 +5045,10 @@ function expansionRecipe(id, title, category, image, prep, cook, servings, level
     storage: extras.storage || "Refrigerate leftovers within 2 hours and use within 3 days.",
     reheating: extras.reheating || "Reheat until steaming hot throughout.",
     helperNote: extras.helperNote || "",
+    primaryCookbookSection: extras.primaryCookbookSection || "",
+    subcategories: extras.subcategories || [],
+    makeAhead: extras.makeAhead || "",
+    servingIdeas: extras.servingIdeas || [],
     kidsKorner: Boolean(extras.kidsKorner),
     ageTrack: extras.ageTrack || "",
     cultural_variations: [],
@@ -6128,8 +6134,48 @@ const drinksCollectionRecipes = [
   drinkRecipe("blackberry-sage-yaupon-tea", "Blackberry Sage & Yaupon Tea", "tea", "A chilled tea built around yaupon holly, blackberries, sage, and maple, credited to contemporary Indigenous foodways educators.", ["4 cups water", "2 tbsp loose yaupon tea or 4 yaupon tea bags", "1 cup fresh blackberries", "6 fresh sage leaves", "2 tbsp pure maple syrup, plus more to taste", "1 tbsp fresh lemon juice", "Ice"], ["Bring water just to a boil, remove from heat, and steep yaupon tea for 5 minutes.", "Strain the tea and let it cool for 10 minutes.", "Gently muddle blackberries, sage, maple syrup, and lemon juice in a pitcher.", "Pour in the tea, stir, and chill for at least 1 hour.", "Strain over ice and garnish with a blackberry and sage leaf."], ["indigenous foodways", "yaupon", "blackberry", "sage", "maple", "cherokee", "no alcohol"], { servings: 4, cuisine: "north-american-indigenous", garnish: "Blackberry and fresh sage", glassware: "Tall clear glass", culturalNotes: "Yaupon holly is native to the Americas and has longstanding use in Indigenous foodways. This contemporary recipe is presented with specific credit rather than as one universal Native beverage.", source: { name: "Blackberry Sage & Yaupon Tea by Nico Albert Williams, Smithsonian Folklife Festival", url: "https://festival.si.edu/2024/indigenous-voices-americas/recipes", type: "adapted" } })
 ];
 
+const appetizerRecipe = (id, title, image, prep, cook, servings, description, ingredients, steps, tags, subcategories) =>
+  expansionRecipe(id, title, "Appetizers & Finger Foods", image, prep, cook, servings, "Beginner", description, ingredients, steps, tags, {
+    primaryCookbookSection: "appetizers-finger-foods",
+    subcategories,
+    storage: "Refrigerate perishable food within 2 hours and use within 3 days.",
+    servingIdeas: ["Arrange on a clearly labeled platter.", "Keep hot food hot and cold food chilled until serving."]
+  });
+
+const appetizerFingerFoodRecipes = [
+  appetizerRecipe("classic-club-sandwiches", "Classic Club Sandwiches", "images/recipes/appetizers-2026/classic-club-sandwiches.png", "20 min", "10 min", 4, "Triple-decker toast layered with turkey, ham, bacon, lettuce, tomato, and mayonnaise.", ["12 slices white sandwich bread", "1/3 cup mayonnaise", "8 oz sliced roasted turkey", "6 oz sliced ham", "8 crisp bacon strips", "8 lettuce leaves", "2 tomatoes, thinly sliced", "1/2 tsp black pepper"], ["Toast bread until evenly golden.", "Spread one side of every slice with mayonnaise.", "Layer turkey, lettuce, and tomato on four slices; top with bread.", "Add ham and bacon, then cap with remaining toast.", "Secure each sandwich with four picks and cut into quarters."], ["sandwich", "party", "cold appetizer"], ["Sandwiches & Clubs", "Cold Appetizers", "Church and Family Gathering Foods"]),
+  appetizerRecipe("turkey-club-sandwich", "Turkey Club Sandwiches", "images/recipes/appetizers-2026/turkey-club-sandwich.png", "20 min", "10 min", 4, "A turkey-forward club with smoky bacon, tomato, lettuce, and avocado.", ["12 slices whole-wheat bread", "1/3 cup mayonnaise", "12 oz sliced roasted turkey", "8 crisp bacon strips", "1 avocado, sliced", "2 tomatoes, sliced", "8 lettuce leaves", "1/4 tsp black pepper"], ["Toast the bread.", "Spread mayonnaise over one side of each slice.", "Layer turkey, tomato, pepper, and lettuce on four slices.", "Add a second toast layer, then bacon and avocado.", "Top, secure, and quarter each club."], ["turkey", "sandwich", "lunch"], ["Sandwiches & Clubs", "Cold Appetizers"]),
+  appetizerRecipe("chicken-salad-finger-sandwiches", "Chicken Salad Finger Sandwiches", "images/recipes/appetizers-2026/chicken-salad-finger-sandwiches.png", "25 min", "0 min", 24, "Tender chicken salad and soft bread cut into tidy tea-sandwich fingers.", ["3 cups finely chopped cooked chicken", "1/2 cup mayonnaise", "1/3 cup finely diced celery", "2 tbsp sweet pickle relish", "1 tbsp lemon juice", "1/2 tsp salt", "1/4 tsp black pepper", "16 slices soft white bread"], ["Stir chicken, mayonnaise, celery, relish, lemon, salt, and pepper.", "Chill the filling for 20 minutes.", "Spread filling evenly over eight bread slices and top with remaining bread.", "Trim crusts with a serrated knife.", "Cut each sandwich into three fingers and keep chilled."], ["chicken salad", "finger sandwich", "make ahead"], ["Sandwiches & Clubs", "Cold Appetizers", "Funeral and Repast Foods"]),
+  appetizerRecipe("pimento-cheese-finger-sandwiches", "Pimento Cheese Finger Sandwiches", "images/recipes/appetizers-2026/pimento-cheese-finger-sandwiches.png", "20 min", "0 min", 24, "Creamy Southern pimento cheese tucked into delicate bread fingers.", ["8 oz sharp cheddar, finely shredded", "4 oz cream cheese, softened", "1/3 cup mayonnaise", "1/3 cup diced pimentos, drained", "1/4 tsp garlic powder", "1/8 tsp cayenne", "16 slices soft white bread", "2 tbsp softened butter"], ["Mix cheddar, cream cheese, mayonnaise, pimentos, garlic, and cayenne.", "Lightly butter one side of each bread slice.", "Spread pimento cheese over eight slices and top with remaining bread.", "Trim crusts.", "Cut each sandwich into three fingers and chill until serving."], ["pimento cheese", "southern", "finger sandwich"], ["Sandwiches & Clubs", "Southern Gathering Foods", "Church and Family Gathering Foods"]),
+  appetizerRecipe("ham-swiss-sliders", "Ham and Swiss Sliders", "images/recipes/appetizers-2026/ham-swiss-sliders.png", "15 min", "22 min", 12, "Buttery baked rolls filled with ham and melted Swiss cheese.", ["12 connected sweet rolls", "12 oz thin-sliced ham", "6 oz Swiss cheese", "4 tbsp melted butter", "1 tbsp Dijon mustard", "1 tsp Worcestershire sauce", "1 tsp poppy seeds", "1/2 tsp onion powder"], ["Heat oven to 350 F.", "Split the rolls horizontally without separating them.", "Layer ham and Swiss, replace the tops, and place in a baking dish.", "Stir butter, Dijon, Worcestershire, poppy seeds, and onion powder; brush over rolls.", "Cover and bake 15 minutes, uncover for 7 minutes, then separate."], ["sliders", "ham", "hot appetizer"], ["Sliders", "Hot Appetizers", "Funeral and Repast Foods"]),
+  appetizerRecipe("roast-beef-sliders", "Roast Beef Sliders", "images/recipes/appetizers-2026/roast-beef-sliders.png", "15 min", "22 min", 12, "Roast beef, provolone, and horseradish cream baked on soft rolls.", ["12 connected dinner rolls", "12 oz sliced roast beef", "6 oz provolone", "1/3 cup mayonnaise", "1 tbsp prepared horseradish", "3 tbsp melted butter", "1 tsp Worcestershire sauce", "1/2 tsp garlic powder"], ["Heat oven to 350 F.", "Mix mayonnaise and horseradish.", "Split rolls and spread with horseradish cream.", "Layer roast beef and provolone; replace tops.", "Brush with butter, Worcestershire, and garlic; cover and bake 15 minutes, then uncover for 7."], ["sliders", "beef", "party"], ["Sliders", "Hot Appetizers"]),
+  appetizerRecipe("muffuletta-sliders", "Muffuletta Sliders", "images/recipes/appetizers-2026/muffuletta-sliders.png", "20 min", "20 min", 12, "New Orleans-style sliders with olive salad, Italian meats, and melted provolone.", ["12 connected sesame rolls", "1/2 cup prepared olive salad, drained", "4 oz salami", "4 oz mortadella", "4 oz ham", "6 oz provolone", "3 tbsp melted butter", "1/2 tsp dried oregano"], ["Heat oven to 350 F.", "Split rolls horizontally.", "Spread olive salad over the bottom and layer salami, mortadella, ham, and provolone.", "Replace tops and brush with butter and oregano.", "Cover and bake 14 minutes; uncover and bake 6 minutes more."], ["sliders", "new orleans", "muffuletta"], ["Sliders", "Hot Appetizers", "Southern Gathering Foods"]),
+  appetizerRecipe("turkey-cheese-pinwheels", "Turkey and Cheese Pinwheels", "images/recipes/appetizers-2026/turkey-cheese-pinwheels.png", "20 min", "0 min", 32, "Colorful tortilla spirals with turkey, cheddar, spinach, and seasoned cream cheese.", ["4 large flour tortillas", "8 oz cream cheese, softened", "1 tbsp ranch seasoning", "12 oz sliced turkey", "8 cheddar slices", "2 cups baby spinach", "1 red bell pepper, finely diced"], ["Mix cream cheese and ranch seasoning.", "Spread over tortillas, leaving a narrow edge.", "Layer turkey, cheddar, spinach, and bell pepper.", "Roll tightly, wrap, and chill 30 minutes.", "Trim ends and cut each roll into eight pinwheels."], ["pinwheels", "turkey", "make ahead"], ["Pinwheels", "Cold Appetizers", "Church and Family Gathering Foods"]),
+  appetizerRecipe("sausage-balls", "Sausage Balls", "images/recipes/appetizers-2026/sausage-balls.png", "15 min", "22 min", 30, "Savory sausage-and-cheddar bites baked until golden.", ["1 lb breakfast sausage", "2 cups baking mix", "2 cups sharp cheddar, shredded", "1/3 cup milk", "1/2 tsp garlic powder", "1/4 tsp cayenne"], ["Heat oven to 375 F and line a sheet pan.", "Mix sausage, baking mix, cheddar, milk, garlic, and cayenne evenly.", "Shape into 1-inch balls.", "Bake 18 to 22 minutes until browned and centers reach 160 F.", "Rest 5 minutes before serving."], ["sausage", "southern", "party"], ["Sausage Balls", "Hot Appetizers", "Southern Gathering Foods"]),
+  appetizerRecipe("cocktail-smokies", "Cocktail Smokies", "images/recipes/appetizers-2026/cocktail-smokies.png", "5 min", "25 min", 12, "Little smoked sausages glazed with tangy barbecue and fruit preserves.", ["2 lb cocktail smoked sausages", "1 cup barbecue sauce", "3/4 cup grape jelly", "1 tbsp Dijon mustard", "1 tsp apple cider vinegar"], ["Combine barbecue sauce, jelly, Dijon, and vinegar in a saucepan.", "Heat over medium-low, stirring until smooth.", "Add sausages and bring to a gentle simmer.", "Cook 20 minutes, stirring occasionally, until hot and glazed.", "Hold warm at 140 F or above for serving."], ["smokies", "party", "slow cooker"], ["Hot Appetizers", "Church and Family Gathering Foods"]),
+  appetizerRecipe("buffalo-chicken-dip", "Buffalo Chicken Dip", "images/recipes/appetizers-2026/buffalo-chicken-dip.png", "15 min", "25 min", 10, "Creamy, tangy baked chicken dip with hot sauce and melted cheddar.", ["3 cups shredded cooked chicken", "8 oz cream cheese, softened", "1/2 cup hot sauce", "1/2 cup ranch dressing", "1 1/2 cups cheddar, divided", "2 tbsp sliced green onion"], ["Heat oven to 375 F.", "Mix chicken, cream cheese, hot sauce, ranch, and 1 cup cheddar.", "Spread in a 2-quart baking dish.", "Top with remaining cheddar and bake 22 to 25 minutes.", "Finish with green onion and serve hot."], ["dip", "chicken", "game day"], ["Dips", "Hot Appetizers"]),
+  appetizerRecipe("spinach-artichoke-dip", "Spinach Artichoke Dip", "images/recipes/appetizers-2026/spinach-artichoke-dip.png", "15 min", "25 min", 10, "A hot, creamy dip packed with spinach, artichokes, Parmesan, and mozzarella.", ["8 oz cream cheese, softened", "1/2 cup sour cream", "1/3 cup mayonnaise", "10 oz frozen spinach, thawed and squeezed dry", "14 oz artichoke hearts, drained and chopped", "1 cup mozzarella", "1/2 cup Parmesan", "2 garlic cloves, minced"], ["Heat oven to 375 F.", "Stir cream cheese, sour cream, mayonnaise, garlic, and half the cheeses.", "Fold in spinach and artichokes.", "Spread in a baking dish and top with remaining cheese.", "Bake 22 to 25 minutes until bubbling."], ["dip", "vegetarian", "party"], ["Dips", "Hot Appetizers"]),
+  appetizerRecipe("seven-layer-dip", "Seven-Layer Dip", "images/recipes/appetizers-2026/seven-layer-dip.png", "25 min", "0 min", 12, "A chilled party dip layered with beans, guacamole, seasoned sour cream, salsa, cheese, olives, and scallions.", ["16 oz refried beans", "2 cups guacamole", "1 1/2 cups sour cream", "1 tbsp taco seasoning", "1 1/2 cups thick salsa, drained", "1 1/2 cups cheddar, shredded", "1/2 cup sliced black olives", "1/2 cup sliced green onions"], ["Spread beans evenly in a shallow serving dish.", "Layer guacamole over beans.", "Mix sour cream with taco seasoning and spread over guacamole.", "Add salsa and cheddar.", "Finish with olives and green onions; chill 30 minutes."], ["dip", "cold appetizer", "party"], ["Dips", "Cold Appetizers"]),
+  appetizerRecipe("classic-pasta-salad", "Classic Pasta Salad", "images/recipes/appetizers-2026/classic-pasta-salad.png", "20 min", "10 min", 10, "Colorful rotini, crisp vegetables, cheese, and olives in a bright Italian dressing.", ["12 oz tri-color rotini", "1 pint cherry tomatoes, halved", "1 cucumber, diced", "1 bell pepper, diced", "1/2 red onion, finely sliced", "1 cup mozzarella cubes", "1/2 cup sliced olives", "3/4 cup Italian dressing"], ["Cook pasta in salted water until just tender.", "Drain and rinse under cold water; drain well.", "Combine pasta, tomatoes, cucumber, pepper, onion, mozzarella, and olives.", "Toss with dressing.", "Chill at least 1 hour and toss again before serving."], ["pasta salad", "potluck", "make ahead"], ["Cold Appetizers", "Church and Family Gathering Foods", "Funeral and Repast Foods"]),
+  appetizerRecipe("fresh-fruit-tray", "Fresh Fruit Tray", "images/recipes/appetizers-2026/fresh-fruit-tray.png", "30 min", "0 min", 12, "A bright, practical platter of bite-size seasonal fruit.", ["1 small pineapple, peeled and cubed", "1 lb strawberries, hulled", "2 cups seedless grapes", "2 cups melon cubes", "2 cups blueberries", "3 kiwis, peeled and sliced", "2 tbsp lime juice", "2 tbsp chopped mint"], ["Wash and dry all fruit thoroughly.", "Cut fruit into easy one- or two-bite pieces.", "Group fruit by color on a chilled platter.", "Brush cut fruit lightly with lime juice.", "Garnish with mint and refrigerate until serving."], ["fruit", "party tray", "no cook"], ["Party Trays", "Cold Appetizers", "Church and Family Gathering Foods"]),
+  appetizerRecipe("vegetable-tray", "Vegetable Tray", "images/recipes/appetizers-2026/vegetable-tray.png", "30 min", "0 min", 12, "Crisp raw vegetables arranged around a cool herb dip.", ["2 cups broccoli florets", "2 cups cauliflower florets", "2 bell peppers, sliced", "1 lb baby carrots", "1 cucumber, sliced", "2 cups cherry tomatoes", "1 cup ranch or herb dip"], ["Wash and dry vegetables.", "Cut vegetables into sturdy dipping pieces.", "Place dip in a bowl at the center of a chilled platter.", "Arrange vegetables in colorful sections.", "Cover and refrigerate until serving."], ["vegetables", "party tray", "no cook"], ["Party Trays", "Cold Appetizers"]),
+  appetizerRecipe("cheese-cracker-tray", "Cheese and Cracker Tray", "images/recipes/appetizers-2026/cheese-cracker-tray.png", "20 min", "0 min", 12, "A balanced gathering tray with three cheeses, crisp crackers, fruit, and pickles.", ["8 oz sharp cheddar", "8 oz pepper Jack", "8 oz mild Swiss", "12 oz assorted crackers", "2 cups grapes", "1 cup cornichons", "1/2 cup roasted nuts", "1/3 cup whole-grain mustard"], ["Cut cheeses into varied bite-size shapes.", "Place cheeses across a large platter.", "Add crackers in small stacks.", "Fill gaps with grapes, cornichons, and nuts.", "Serve mustard alongside and label nut and dairy allergens."], ["cheese", "crackers", "party tray"], ["Party Trays", "Cold Appetizers", "Funeral and Repast Foods"])
+];
+
 const existingRecipeIds = new Set(recipes.map((recipe) => recipe.id));
-recipes = [...recipes, ...[...nextFeatureRecipes, ...menuIntelligenceRecipes, ...regionalAuthenticityRecipes, ...livingCookbookRecipes, ...kidsKornerRecipes, ...kidsExpansionRecipes, ...familyExpansionRecipes, ...mississippiHeritageRecipes, ...africaExpansionRecipes, ...midwestExpansionRecipes, ...newEnglandExpansionRecipes, ...southwestExpansionRecipes, ...midAtlanticExpansionRecipes, ...westernExpansionRecipes, ...globalCuisineExpansionRecipes, ...holidayExpansionRecipes, ...america250ExpansionRecipes, ...foundationalBreadAndCookieRecipes, ...drinksCollectionRecipes].filter((recipe) => !existingRecipeIds.has(recipe.id))];
+recipes = [...recipes, ...[...nextFeatureRecipes, ...menuIntelligenceRecipes, ...regionalAuthenticityRecipes, ...livingCookbookRecipes, ...kidsKornerRecipes, ...kidsExpansionRecipes, ...familyExpansionRecipes, ...mississippiHeritageRecipes, ...africaExpansionRecipes, ...midwestExpansionRecipes, ...newEnglandExpansionRecipes, ...southwestExpansionRecipes, ...midAtlanticExpansionRecipes, ...westernExpansionRecipes, ...globalCuisineExpansionRecipes, ...holidayExpansionRecipes, ...america250ExpansionRecipes, ...foundationalBreadAndCookieRecipes, ...drinksCollectionRecipes, ...appetizerFingerFoodRecipes].filter((recipe) => !existingRecipeIds.has(recipe.id))];
+
+const appetizerExistingRecipeMetadata = {
+  "chicken-salad-croissants": { primaryCookbookSection: "appetizers-finger-foods", subcategories: ["Sandwiches & Clubs", "Cold Appetizers", "Funeral and Repast Foods"] },
+  "deviled-eggs": { primaryCookbookSection: "appetizers-finger-foods", subcategories: ["Deviled Eggs", "Cold Appetizers", "Southern Gathering Foods"] },
+  "garlic-wings": { primaryCookbookSection: "appetizers-finger-foods", subcategories: ["Wings", "Hot Appetizers"] },
+  "party-meatballs": { title: "Cocktail Meatballs", primaryCookbookSection: "appetizers-finger-foods", subcategories: ["Meatballs", "Hot Appetizers", "Church and Family Gathering Foods"] },
+  "rotel-dip": { primaryCookbookSection: "appetizers-finger-foods", subcategories: ["Dips", "Hot Appetizers", "Southern Gathering Foods"] },
+  "southern-potato-salad": { primaryCookbookSection: "appetizers-finger-foods", subcategories: ["Cold Appetizers", "Funeral and Repast Foods", "Church and Family Gathering Foods"] }
+};
+recipes.forEach((recipe) => {
+  if (appetizerExistingRecipeMetadata[recipe.id]) Object.assign(recipe, appetizerExistingRecipeMetadata[recipe.id]);
+});
 
 const lessons = [
   {
@@ -6955,6 +7001,30 @@ auditedRecipeImageIds.forEach((recipeId) => {
   recipeImageOverrides[recipeId] = `images/recipes/audit-2026-06/${recipeId}.jpg`;
 });
 recipeImageOverrides["white-perch-fry"] = recipeImageOverrides["mississippi-perch-fry"];
+Object.assign(recipeImageOverrides, {
+  "classic-club-sandwiches": "images/recipes/appetizers-2026/classic-club-sandwiches.png",
+  "turkey-club-sandwich": "images/recipes/appetizers-2026/turkey-club-sandwich.png",
+  "chicken-salad-finger-sandwiches": "images/recipes/appetizers-2026/chicken-salad-finger-sandwiches.png",
+  "pimento-cheese-finger-sandwiches": "images/recipes/appetizers-2026/pimento-cheese-finger-sandwiches.png",
+  "ham-swiss-sliders": "images/recipes/appetizers-2026/ham-swiss-sliders.png",
+  "roast-beef-sliders": "images/recipes/appetizers-2026/roast-beef-sliders.png",
+  "muffuletta-sliders": "images/recipes/appetizers-2026/muffuletta-sliders.png",
+  "turkey-cheese-pinwheels": "images/recipes/appetizers-2026/turkey-cheese-pinwheels.png",
+  "chicken-salad-croissants": "images/recipes/living-cookbook-2026/chicken-croissants.png",
+  "deviled-eggs": "images/regional/mississippi/deviled-eggs.jpg",
+  "sausage-balls": "images/recipes/appetizers-2026/sausage-balls.png",
+  "party-meatballs": "images/recipes/audit-2026-06/party-meatballs.jpg",
+  "cocktail-smokies": "images/recipes/appetizers-2026/cocktail-smokies.png",
+  "buffalo-chicken-dip": "images/recipes/appetizers-2026/buffalo-chicken-dip.png",
+  "rotel-dip": "images/recipes/audit-2026-06/rotel-dip.jpg",
+  "spinach-artichoke-dip": "images/recipes/appetizers-2026/spinach-artichoke-dip.png",
+  "seven-layer-dip": "images/recipes/appetizers-2026/seven-layer-dip.png",
+  "classic-pasta-salad": "images/recipes/appetizers-2026/classic-pasta-salad.png",
+  "southern-potato-salad": "images/regional/mississippi/potato-salad.jpg",
+  "fresh-fruit-tray": "images/recipes/appetizers-2026/fresh-fruit-tray.png",
+  "vegetable-tray": "images/recipes/appetizers-2026/vegetable-tray.png",
+  "cheese-cracker-tray": "images/recipes/appetizers-2026/cheese-cracker-tray.png"
+});
 
 newEnglandExpansionRecipes.forEach((recipe) => {
   recipeImageOverrides[recipe.id] = `images/recipes/new-england-2026/${recipe.id}.jpg`;
@@ -7482,6 +7552,7 @@ const ingredientUnits = new Set([
 ]);
 
 function normalizeRecipe(recipe) {
+  if (appetizerExistingRecipeMetadata[recipe.id]) Object.assign(recipe, appetizerExistingRecipeMetadata[recipe.id]);
   const imageOverride = recipeImageOverrides[recipe.id];
   if (imageOverride) {
     recipe.image = imageOverride;
@@ -8962,9 +9033,12 @@ function handleImageFallback(event) {
   const image = event.target;
   if (!(image instanceof HTMLImageElement)) return;
   const path = image.getAttribute("src") || "";
-  const fallback = imageFallbacks.get(path);
-  if (!fallback || image.dataset.fallbackApplied === "true") return;
+  const fallback = imageFallbacks.get(path) || image.dataset.fallback || "assets/logo.png";
+  if (image.dataset.fallbackApplied === "true") return;
   image.dataset.fallbackApplied = "true";
+  image.dataset.missingImage = path;
+  image.classList.add("image-fallback-applied");
+  console.warn("Recipe image needs editorial review:", path);
   image.src = fallback;
 }
 
@@ -8973,7 +9047,7 @@ function routeParts() {
   const [path, queryString = ""] = raw.split("?");
   const [route, id] = path.split("/");
   const params = new URLSearchParams(queryString);
-  return { route, id, section: params.get("section") || "", collection: params.get("collection") || "", culture: params.get("culture") || "", drink: params.get("drink") || "", query: params.get("q") || "" };
+  return { route, id, section: params.get("section") || "", collection: params.get("collection") || "", culture: params.get("culture") || "", drink: params.get("drink") || "", subcategory: params.get("subcategory") || "", query: params.get("q") || "" };
 }
 
 function siteFooterMarkup(route = "") {
@@ -9091,6 +9165,46 @@ function renderSimpleInfoPage(kind = "contact") {
   `;
 }
 
+function gatheringPlanFor(input = {}) {
+  const guests = Math.max(4, Math.min(500, Number(input.guests) || 40));
+  const fingerFoods = input.service !== "full-meal";
+  const respectful = input.type === "funeral-repast";
+  const menuIds = fingerFoods
+    ? ["chicken-salad-finger-sandwiches", "ham-swiss-sliders", "deviled-eggs", "party-meatballs", "classic-pasta-salad", "fresh-fruit-tray", "vegetable-tray"]
+    : ["baked-ham", "smothered-chicken", "southern-baked-mac-cheese", "southern-collard-greens", "southern-potato-salad", "dinner-rolls", "pound-cake", "sweet-tea"];
+  const menu = menuIds.map((id) => recipeById(id) || recipes.find((recipe) => recipe.id === id)).filter(Boolean);
+  const quantities = fingerFoods
+    ? [`${Math.ceil(guests * 2.5)} sandwich or slider pieces`, `${Math.ceil(guests * 2)} deviled egg halves`, `${Math.ceil(guests * 5)} hot bites`, `${Math.ceil(guests / 8)} large bowls of cold salad`, `${Math.ceil(guests * 4)} oz each of fruit and vegetables`]
+    : [`${Math.ceil(guests * 6)} oz cooked main dish per guest`, `${Math.ceil(guests / 10)} full pans of each hot side`, `${Math.ceil(guests * 0.75)} rolls`, `${Math.ceil(guests / 12)} desserts`, `${Math.ceil(guests * 1.5)} cups of beverages`];
+  const budget = Math.max(0, Number(input.budget) || 600);
+  const perGuest = budget / guests;
+  return {
+    ...input, guests, menu, quantities, respectful, perGuest,
+    shopping: [
+      `${Math.ceil(guests / 12)} labeled serving platters or pans`,
+      `${Math.ceil(guests * 1.15)} plates and napkin sets`,
+      `${Math.ceil(guests * 2)} cups`,
+      "Ice, foil, storage containers, disposable gloves, and food labels",
+      ...menu.slice(0, 6).map((recipe) => `${recipe.title}: ${recipe.ingredients.slice(0, 4).join(", ")}`)
+    ],
+    timeline: ["3–5 days before: confirm attendance, assignments, allergies, serving space, and refrigeration.", "2 days before: shop for shelf-stable items and prepare labels and supplies.", "1 day before: make cold dishes, desserts, dips, and trays that hold well.", "Event day: cook hot food, pack by serving temperature, and record arrival times.", "30 minutes before service: set the line, add labels, check temperatures, and place serving tools."],
+    assignments: ["Household 1: main sandwiches or entrée", "Household 2: hot appetizer or hot side", "Household 3: cold salads and vegetables", "Household 4: bread and dessert", "Household 5: beverages, ice, cups, and coolers", "Coordinator: labels, temperatures, serving utensils, leftovers, and cleanup"],
+    supplies: ["Serving spoons and tongs", "Plates, cups, flatware, and napkins", "Food labels and allergen cards", "Chafing dishes or insulated carriers", "Coolers, ice, and refrigerator space", "Foil, tape, markers, gloves, trash bags, and take-home containers"]
+  };
+}
+
+function gatheringPlanResultsMarkup(plan) {
+  const note = plan.respectful
+    ? "This plan is designed to support the family and guests with steady, comforting food and an easy service flow."
+    : "This plan balances variety, serving flow, budget, and practical preparation.";
+  const section = (title, items) => `<article><h3>${title}</h3><ul>${items.map((item) => `<li>${escapeHTML(item)}</li>`).join("")}</ul></article>`;
+  return `<div class="gathering-plan-summary"><p>${note}</p><strong>${plan.guests} guests · $${Number(plan.perGuest).toFixed(2)} planned per guest</strong>${plan.restrictions ? `<span>Dietary notes: ${escapeHTML(plan.restrictions)}</span>` : ""}</div><div class="gathering-plan-grid">${section("Coordinated menu", plan.menu.map((recipe) => recipe.title))}${section("Serving quantities", plan.quantities)}${section("Shopping list", plan.shopping)}${section("Preparation timeline", plan.timeline)}${section("Potluck assignments", plan.assignments)}${section("Serving supplies", plan.supplies)}</div><div class="gathering-plan-actions"><button class="small-button" type="button" data-print-gathering-plan>Print plan</button><button class="small-button secondary" type="button" data-share-gathering-plan>Share plan</button></div>`;
+}
+
+function renderGatheringPlanner(plan = gatheringPlanFor({ type: "funeral-repast", guests: 40, budget: 600, service: "finger-foods", source: "mixture", restrictions: "", space: "moderate" })) {
+  app.innerHTML = `${cookSubnav()}<section class="gathering-planner-hero"><p class="eyebrow">Practical care for every table</p><h1>Gathering Planner</h1><p>Build a coordinated food plan for a repast, church gathering, reunion, shower, graduation, or party.</p></section><section class="cream-section gathering-planner-shell"><form class="gathering-planner-form" data-gathering-planner-form><label>What type of gathering is this?<select name="type"><option value="funeral-repast">Funeral or repast</option><option value="church">Church gathering</option><option value="family-reunion">Family reunion</option><option value="shower">Shower</option><option value="graduation">Graduation</option><option value="party">Party</option></select></label><label>How many people are attending?<input name="guests" type="number" min="4" max="500" value="${plan.guests}" required></label><label>What is the budget?<input name="budget" type="number" min="0" step="25" value="${Number(plan.perGuest * plan.guests).toFixed(0)}"></label><label>Meal style<select name="service"><option value="finger-foods">Finger foods</option><option value="full-meal">Full meal</option></select></label><label>How will food be provided?<select name="source"><option value="mixture">A mixture</option><option value="homemade">Homemade</option><option value="catered">Catered</option><option value="potluck">Potluck</option></select></label><label>Dietary restrictions<input name="restrictions" placeholder="Vegetarian, nut-free, gluten-free…"></label><label>Cooking and refrigeration space<select name="space"><option value="limited">Limited</option><option value="moderate">Moderate</option><option value="full">Full kitchen and refrigeration</option></select></label><button class="small-button" type="submit">Build the plan</button></form><section id="gatheringPlanResults" class="gathering-plan-results" aria-live="polite">${gatheringPlanResultsMarkup(plan)}</section></section>`;
+}
+
 function render() {
   const { route, id } = routeParts();
   if (route !== "recipes" || !id) setShareMeta();
@@ -9124,6 +9238,7 @@ function render() {
   else if (route === "pathways") renderPaths();
   else if (route === "planner") renderPlanner(id);
   else if (route === "hosting") renderHosting(id);
+  else if (route === "gathering-planner") renderGatheringPlanner();
   else if (route === "about") renderAbout();
   else if (route === "account") renderAccount();
   else if (route === "privacy" || route === "terms" || route === "contact") renderSimpleInfoPage(route);
@@ -16124,6 +16239,7 @@ const cookbookChapterDefinitions = [
   { id: "soups", icon: "🥣", title: "Soups", intro: "Cozy bowls, slow-simmered stews, and brothy favorites for every season.", coverId: "yakamein" },
   { id: "salads", icon: "🥗", title: "Salads", intro: "Fresh, colorful plates with plenty of crunch and garden flavor.", coverId: "greek-salad" },
   { id: "vegetables", icon: "🥬", title: "Vegetables", intro: "Market vegetables, soulful greens, and garden favorites worth celebrating.", coverId: "southern-collard-greens" },
+  { id: "appetizers-finger-foods", icon: "🥪", title: "Appetizers & Finger Foods", intro: "Sandwiches, sliders, dips, trays, and gathering foods made for sharing.", coverId: "classic-club-sandwiches" },
   { id: "main-dishes", icon: "🍽️", title: "Main Dishes", intro: "The satisfying center of the table, from weeknight favorites to Sunday suppers.", coverId: "smothered-chicken", subchapters: [
     { id: "beef", icon: "🥩", title: "Beef", intro: "Steaks, roasts, brisket, burgers, and hearty beef favorites." },
     { id: "poultry", icon: "🍗", title: "Poultry", intro: "Chicken, turkey, wings, curries, and comforting poultry dishes." },
@@ -16133,7 +16249,7 @@ const cookbookChapterDefinitions = [
   { id: "breads", icon: "🍞", title: "Breads", intro: "Biscuits, cornbread, rolls, flatbreads, and warm loaves for passing around.", coverId: "classic-cornbread" },
   { id: "cookies", icon: "🍪", title: "Cookies", intro: "Beloved classics, holiday tins, and just-one-more treats.", coverId: "chewy-chocolate-cookies" },
   { id: "desserts", icon: "🍰", title: "Desserts", intro: "Sweet endings worth saving room for.", coverId: "peach-cobbler" },
-  { id: "miscellaneous", icon: "🥘", title: "Miscellaneous", intro: "Appetizers, handhelds, sauces, drinks, and delicious extras from the recipe box.", coverId: "charcuterie-boards" }
+  { id: "miscellaneous", icon: "🥘", title: "Miscellaneous", intro: "Sauces, condiments, pantry basics, and delicious extras from the recipe box.", coverId: "charcuterie-boards" }
 ];
 
 const cookbookChapterKeys = new Set(cookbookChapterDefinitions.flatMap((chapter) => [chapter.id, ...(chapter.subchapters || []).map((subchapter) => subchapter.id)]));
@@ -16156,6 +16272,7 @@ const recipeBoxTabDefinitions = cookbookChapterDefinitions.flatMap((chapter) => 
 
 const cookbookCollectionDefinitions = [
   ["breakfast-brunch", "Breakfast & Brunch", "Easy starts, slow mornings, and weekend favorites.", (r) => recipeCookbookPrimarySection(r) === "breakfast"],
+  ["appetizers-finger-foods", "Appetizers & Finger Foods", "Sandwiches, sliders, dips, trays, and gathering favorites.", (r) => recipeCookbookPrimarySection(r) === "appetizers-finger-foods"],
   ["weeknight-dinners", "Weeknight Dinners", "Dependable plates for a busy table.", (r) => /weeknight|family dinner|quick meals?/.test(`${r.category} ${(r.tags || []).join(" ")}`.toLowerCase())],
   ["soups-stews-bowls", "Soups, Stews & Bowls", "Big flavor in one comforting bowl.", (r) => recipeCookbookPrimarySection(r) === "soups"],
   ["salads-sides", "Salads & Sides", "Fresh, crunchy, creamy, and table-ready.", (r) => ["salads", "sides", "vegetables"].includes(recipeCookbookPrimarySection(r))],
@@ -16176,6 +16293,16 @@ const cookbookCollectionDefinitions = [
   ["gluten-free", "Gluten-Free", "Recipes with no gluten ingredients listed.", (r) => recipeDietaryProfile(r).glutenStatus === "no gluten ingredients listed"],
   ["allergy-friendly", "Allergy-Friendly", "Ingredient-reviewed choices for more tables.", (r) => recipeDietaryProfile(r).allergens.length === 0]
 ].map(([id, title, description, matcher]) => ({ id, title, description, matcher }));
+
+const appetizerSubcategoryDefinitions = [
+  "Sandwiches & Clubs", "Sliders", "Pinwheels", "Dips", "Deviled Eggs", "Meatballs",
+  "Sausage Balls", "Wings", "Party Trays", "Hot Appetizers", "Cold Appetizers",
+  "Southern Gathering Foods", "Funeral and Repast Foods", "Church and Family Gathering Foods"
+].map((title) => ({ id: slugify(title), title }));
+
+function appetizerSubcategoryMarkup(selected = "") {
+  return `<nav class="appetizer-subcategories" aria-label="Appetizer and finger food subcategories">${appetizerSubcategoryDefinitions.map((item) => `<button type="button" class="${item.id === selected ? "active" : ""}" data-appetizer-subcategory="${item.id}" aria-pressed="${item.id === selected}">${item.title}</button>`).join("")}</nav>`;
+}
 
 const drinkOnlyTerms = new Set(["drink", "drinks", "beverage", "beverages", "cocktail", "cocktails", "mocktail", "mocktails", "punch", "smoothie", "smoothies", "coffee", "espresso", "tea", "lemonade", "limeade", "agua fresca", "refresher", "refreshers"]);
 function isDrinkRecipe(recipe = {}) {
@@ -16489,7 +16616,10 @@ function renderRecipes() {
   const selectedTab = recipeBoxTabByKey(requestedSection);
   livingRecipeBoxState = selectedTab ? "open" : "closed";
   const invalidSection = Boolean(requestedSection && !selectedTab);
-  const collectionRecipes = selectedCulture ? recipesForAugustCulture(selectedCulture, true) : selectedCollection ? recipesForCookbookCollection(selectedCollection) : [];
+  const collectionRecipesUnfiltered = selectedCulture ? recipesForAugustCulture(selectedCulture, true) : selectedCollection ? recipesForCookbookCollection(selectedCollection) : [];
+  const collectionRecipes = selectedCollection?.id === "appetizers-finger-foods" && routeState.subcategory
+    ? collectionRecipesUnfiltered.filter((recipe) => (recipe.subcategories || []).some((item) => slugify(item) === routeState.subcategory))
+    : collectionRecipesUnfiltered;
   const initialRecipes = selectedDrinkTab ? collectionRecipes.filter(selectedDrinkTab[2]) : selectedCollection ? collectionRecipes : selectedTab ? recipesForRecipeBoxTab(selectedTab) : [];
   const resultsTitle = selectedDrinkTab ? selectedDrinkTab[1] : selectedCollection ? selectedCollection.title : selectedTab ? (selectedTab.resultsTitle || selectedTab.title) : invalidSection ? "Cookbook section not found" : "Choose a recipe card";
   const resultsIntro = selectedDrinkTab ? "Accurate drink recipes with measurements, glassware, garnish, and an alcohol-free path where it fits." : selectedCollection ? selectedCollection.description : selectedTab
@@ -16530,6 +16660,7 @@ function renderRecipes() {
         <p class="eyebrow">Living Cookbook</p>
         <h2 id="cookbookResultsHeading" tabindex="-1">${resultsTitle}</h2>
         <p id="cookbookResultsIntro">${resultsIntro}</p>
+        ${selectedCollection?.id === "appetizers-finger-foods" ? `${appetizerSubcategoryMarkup(routeState.subcategory)}<a class="small-button gathering-planner-link" href="#gathering-planner">Open the Gathering Planner</a>` : ""}
         ${selectedCollection?.id === "drinks" ? drinksTabsMarkup(selectedDrinkTab?.[0] || "") : ""}
         ${selectedCollection ? `<button class="cookbook-view-all" type="button" data-cookbook-collection-reset>Reset filters</button>` : selectedTab ? `<button class="cookbook-view-all" id="cookbookResultsAction" type="button" data-cookbook-view-all>View all ${initialRecipes.length} ${selectedTab.title} recipes</button>` : ""}
       </div>
@@ -17524,6 +17655,8 @@ function applyRecipeDatabase(database) {
     slug: recipe.slug,
     cuisine: recipe.cuisine,
     category: recipe.category,
+    primaryCookbookSection: recipe.primaryCookbookSection || "",
+    subcategories: recipe.subcategories || [],
     image: recipe.image || recipe.image_url || "assets/logo.png",
     image_url: recipe.image_url || recipe.image || "assets/logo.png",
     time: recipe.cookTime || `${recipe.cookTimeMinutes || 0} min`,
@@ -17770,6 +17903,7 @@ function handleClick(event) {
   const recipeFilterDrawerToggle = event.target.closest("[data-recipe-filter-drawer-toggle]");
   const recipeBoxPreset = event.target.closest("[data-recipe-box-preset]");
   const cookbookCollectionButton = event.target.closest("[data-cookbook-collection-select]");
+  const appetizerSubcategoryButton = event.target.closest("[data-appetizer-subcategory]");
   const drinkTabButton = event.target.closest("[data-drink-tab-select]");
   const cookbookCollectionReset = event.target.closest("[data-cookbook-collection-reset]");
   const searchClearButton = event.target.closest("[data-search-clear]");
@@ -17810,6 +17944,8 @@ function handleClick(event) {
   const cookedButton = event.target.closest("[data-cooked]");
   const planButton = event.target.closest("[data-plan]");
   const printButton = event.target.closest("[data-print-recipe]");
+  const printGatheringPlanButton = event.target.closest("[data-print-gathering-plan]");
+  const shareGatheringPlanButton = event.target.closest("[data-share-gathering-plan]");
   const pantryChip = event.target.closest("[data-pantry-chip]");
   const pantryModeButton = event.target.closest("[data-pantry-mode]");
   const pantryRunButton = event.target.closest("[data-run-pantry-scan]");
@@ -17834,6 +17970,11 @@ function handleClick(event) {
   }
   if (cookbookCollectionButton) {
     window.location.hash = `#living-cookbook?collection=${encodeURIComponent(cookbookCollectionButton.dataset.cookbookCollectionSelect)}`;
+    return;
+  }
+  if (appetizerSubcategoryButton) {
+    const selected = appetizerSubcategoryButton.dataset.appetizerSubcategory;
+    window.location.hash = `#living-cookbook?collection=appetizers-finger-foods&subcategory=${encodeURIComponent(selected)}`;
     return;
   }
   if (drinkTabButton) {
@@ -18325,10 +18466,28 @@ function handleClick(event) {
   if (printButton) {
     window.print();
   }
+  if (printGatheringPlanButton) {
+    window.print();
+    return;
+  }
+  if (shareGatheringPlanButton) {
+    const text = document.querySelector("#gatheringPlanResults")?.innerText || "Gathering plan from Let’s Cook Y’all";
+    if (navigator.share) navigator.share({ title: "Let’s Cook Y’all Gathering Plan", text }).catch(() => {});
+    else navigator.clipboard?.writeText(text);
+    return;
+  }
 }
 
 
 async function handleSubmit(event) {
+  if (event.target.matches("[data-gathering-planner-form]")) {
+    event.preventDefault();
+    const values = Object.fromEntries(new FormData(event.target).entries());
+    const plan = gatheringPlanFor(values);
+    const results = document.querySelector("#gatheringPlanResults");
+    if (results) results.innerHTML = gatheringPlanResultsMarkup(plan);
+    return;
+  }
   if (event.target.matches("[data-cuisine-drawer-search]")) {
     event.preventDefault();
     const query = new FormData(event.target).get("q")?.toString() || "";
@@ -18768,8 +18927,12 @@ function accountAvatar(user = {}, className = "profile-avatar") {
     : `<div class="${className} initials-avatar" aria-label="${escapeHTML(user.displayName || "Profile")}">${escapeHTML(user.initials || userInitials(user))}</div>`;
 }
 
-Promise.all([loadRecipeDatabase(), loadLetsCookState()]).finally(() => {
+// Render the bundled, production-safe recipe library immediately. The network
+// database and account state enhance the page afterward instead of leaving an
+// empty shell while a large payload downloads.
+if (typeof navigator !== "undefined" && navigator.userAgent) {
   render();
   announceRouteChange();
   scrollToRouteTop("auto");
-});
+  Promise.all([loadRecipeDatabase(), loadLetsCookState()]).finally(() => render());
+}
