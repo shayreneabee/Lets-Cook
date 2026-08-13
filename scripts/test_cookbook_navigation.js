@@ -22,6 +22,8 @@ globalThis.__cookbookTest = {
   cookbookCollectionDefinitions,
   cookbookCollectionById,
   recipesForCookbookCollection,
+  vegetarianCurationProfile,
+  vegetarianCollectionMarkup,
   cookbookCollectionCards,
   isDrinkRecipe,
   canonicalSearchResults,
@@ -36,6 +38,10 @@ globalThis.__cookbookTest = {
   recipeCookbookPrimarySection,
   allRecipeCollection,
   rankRecipesForDiscovery,
+  parseIngredientTerms,
+  inferredIngredientQueryTerms,
+  ingredientMatchGroups,
+  pantryScanMatches,
   routeParts,
   recipeCard,
   siteFooterMarkup,
@@ -65,6 +71,12 @@ globalThis.__cookbookTest = {
   augustCultureById,
   recipesForAugustCulture,
   aroundWorldSearchMatches,
+  worldGlobeDestinations,
+  worldGlobeDestinationById,
+  worldGlobeDestinationForQuery,
+  recipesForWorldDestination,
+  worldGlobeMarkup,
+  worldDestinationCollectionMarkup,
   cookAlongEligible,
   cookAlongTaskFor,
   setHousehold(value) { household = { ...household, ...value }; },
@@ -149,6 +161,16 @@ for (const foodTitle of ["Shrimp Cocktail", "Coffee Cake", "Tea Cakes", "Matcha 
 for (const drinkTitle of ["Classic Margarita", "Peach Bellini", "Virgin Mojito", "Southern Sweet Tea", "Mango Smoothie", "Espresso Martini"]) {
   assert.strictEqual(api.isDrinkRecipe({ title: drinkTitle, category: "Drinks", tags: ["drink"] }), true, `${drinkTitle} must remain in Drinks`);
 }
+const vegetarianCollection = api.recipesForCookbookCollection(api.cookbookCollectionById("vegetarian"));
+const firstVegetarianProfile = api.vegetarianCurationProfile(vegetarianCollection[0]);
+assert(firstVegetarianProfile.group === "meals", "Vegetarian must lead with a substantial complete meal");
+assert(!/peanut butter and jelly|\btoast\b|\bsnack\b/i.test(vegetarianCollection[0].title), "A simple snack must never lead Vegetarian");
+assert(!vegetarianCollection.some((recipe) => /bologna|grouper/i.test(recipe.title)), "Meat and fish title variants must not leak into Vegetarian");
+const vegetarianMarkup = api.vegetarianCollectionMarkup(vegetarianCollection);
+assert(vegetarianMarkup.includes("Featured Vegetarian Meals"), "Vegetarian must present a curated complete-meal group");
+assert(vegetarianMarkup.includes("Quick Bites & Easy Snacks"), "Vegetarian must preserve simple recipes in a secondary group");
+const vegetarianIdsInMarkup = [...vegetarianMarkup.matchAll(/href="#recipes\/([^"]+)"/g)].map((match) => match[1]);
+assert(vegetarianCollection.every((recipe) => vegetarianIdsInMarkup.includes(recipe.id)), "Vegetarian curation must not remove valid vegetarian recipes");
 for (const tabId of expectedRecipeBoxTabs) {
   const tab = api.recipeBoxTabByKey(tabId);
   const tabRecipes = api.recipesForRecipeBoxTab(tab);
@@ -204,6 +226,13 @@ assert(chapterShelf.includes('data-living-recipe-box') && chapterShelf.includes(
 assert(chapterShelf.includes('class="living-recipe-box is-open"'), "A direct cookbook tab route must open the recipe box");
 const closedChapterShelf = api.cookbookChapterShelf();
 assert(closedChapterShelf.includes('class="living-recipe-box "'), "The cookbook must load with its recipe box closed");
+const closedDedicatedCookbook = api.cookbookChapterShelf("", { includeCollections: true });
+assert(closedDedicatedCookbook.includes('class="cream-section visual-cookbook-collections recipe-box-contained-menu"'), "Visual cookbook collections must live inside the Living Cookbook experience");
+assert(/recipe-box-contained-menu[^>]*data-cookbook-open-content hidden/.test(closedDedicatedCookbook), "Collection menus must stay hidden until the Living Cookbook opens");
+assert(/recipe-box-filter-drawer[^>]*data-cookbook-open-content hidden/.test(closedDedicatedCookbook), "Cookbook filters must stay hidden until the Living Cookbook opens");
+const openDedicatedCookbook = api.cookbookChapterShelf("", { includeCollections: true, forceOpen: true });
+assert(!/recipe-box-contained-menu[^>]*data-cookbook-open-content hidden/.test(openDedicatedCookbook), "Opening the Living Cookbook must reveal its collection menus");
+assert(openDedicatedCookbook.includes('data-recipe-box-state="open"'), "Direct cookbook collection links must open the Living Cookbook");
 for (const tab of expectedRecipeBoxTabs) assert(chapterShelf.includes(`data-cookbook-chapter-select="${tab}"`), `Recipe box is missing its ${tab} divider`);
 for (const tab of ["beef", "poultry", "fish-seafood"]) assert(chapterShelf.includes(`data-cookbook-chapter-select="${tab}"`), `Recipe box is missing its Main Dishes ${tab} divider`);
 const veganTab = api.recipeBoxTabByKey("vegan-plant-based");
@@ -223,10 +252,32 @@ function topRecipe(query) {
 assert.strictEqual(topRecipe("Chocolate Chip Cookies")?.id, "chewy-chocolate-cookies", "Exact Chocolate Chip Cookies search must rank first");
 assert.strictEqual(topRecipe("Carrot Cake")?.id, "carrot-cake", "Exact Carrot Cake search must rank first");
 assert.strictEqual(topRecipe("Orange Chicken")?.id, "orange-chicken", "Exact Orange Chicken search must rank first");
+assert.strictEqual(topRecipe("shrimp egg rolls")?.id, "shrimp-egg-rolls", "Exact shrimp egg rolls must rank first");
+assert(["classic-pork-egg-rolls", "shrimp-egg-rolls", "chicken-egg-rolls", "vegetable-egg-rolls"].includes(topRecipe("egg rolls")?.id), "Generic egg rolls must surface a relevant egg-roll recipe");
+assert.strictEqual(topRecipe("lumpia")?.id, "filipino-lumpiang-shanghai", "Lumpia alias search must preserve the Filipino recipe identity");
+assert.strictEqual(topRecipe("shrim egg rolls")?.id, "shrimp-egg-rolls", "A fuzzy misspelling must recover Shrimp Egg Rolls");
+const shrimpCabbageRows = api.rankRecipesForDiscovery(api.allRecipeCollection(), { query: "shrimp cabbage" }).filter((row) => row.score > 0);
+assert(shrimpCabbageRows[0]?.allIngredientsMatched && shrimpCabbageRows[0]?.recipe.id === "shrimp-egg-rolls", "Whitespace-separated shrimp and cabbage must prioritize one recipe using both");
+assert.deepStrictEqual([...api.inferredIngredientQueryTerms("shrimp cabbage")], ["shrimp", "cabbage"], "Ingredient discovery must parse sensible whitespace-separated ingredients");
+const eggRollIds = ["classic-pork-egg-rolls", "shrimp-egg-rolls", "chicken-egg-rolls", "vegetable-egg-rolls", "cheesesteak-egg-rolls", "southwest-egg-rolls", "filipino-lumpiang-shanghai"];
+assert(eggRollIds.every((id) => api.allRecipeCollection().some((recipe) => recipe.id === id)), "All seven audited egg-roll and lumpia recipes must exist canonically");
+assert.strictEqual(new Set(eggRollIds.map((id) => api.allRecipeCollection().find((recipe) => recipe.id === id)?.image)).size, 7, "Every egg-roll recipe must use its own dish-specific photograph");
 assert(api.canonicalSearchResults("vegan dinner").length > 0, "Search must discover dietary metadata");
 assert.strictEqual(new Set(api.canonicalSearchResults("chicken").map((recipe) => recipe.id)).size, api.canonicalSearchResults("chicken").length, "Search results must not repeat canonical recipe records");
 assert(/steak|rib|beef/i.test(`${topRecipe("ribeye")?.title} ${(topRecipe("ribeye")?.ingredients || []).join(" ")}`), "Ribeye must return a relevant recipe first");
 assert.strictEqual(api.rankRecipesForDiscovery(api.allRecipeCollection(), { query: "zzzxqvnotfood" }).filter((row) => row.score > 0).length, 0, "Nonsense searches must not return unrelated recipes");
+assert.deepStrictEqual([...api.parseIngredientTerms("shrimp, spinach")], ["shrimp", "spinach"], "Comma-separated ingredients must be parsed independently");
+const chickenRiceRows = api.rankRecipesForDiscovery(api.allRecipeCollection(), { query: "chicken, rice" }).filter((row) => row.score > 0);
+assert(chickenRiceRows[0]?.allIngredientsMatched, "Recipes using all entered ingredients must rank first");
+assert.deepStrictEqual([...chickenRiceRows[0].matched].sort(), ["chicken", "rice"], "Combined matches must disclose every matched ingredient");
+const shrimpSpinachRows = api.rankRecipesForDiscovery(api.allRecipeCollection(), { query: "shrimp, spinach" }).filter((row) => row.score > 0);
+const shrimpSpinachGroups = api.ingredientMatchGroups(shrimpSpinachRows, ["shrimp", "spinach"]);
+assert(!shrimpSpinachGroups.exact.length, "Shrimp and spinach must not pretend to be an exact combined match when the canonical library has none");
+assert(!shrimpSpinachGroups.strongest.length && shrimpSpinachGroups.single.length > 0, "Single-ingredient recipes must remain fallback suggestions when no combined match exists");
+const pantryChickenRice = api.pantryScanMatches(["chicken", "rice"]);
+const firstPantrySingle = pantryChickenRice.findIndex((row) => row.matches.length === 1);
+const lastPantryCombined = pantryChickenRice.map((row) => row.matches.length).lastIndexOf(2);
+assert(firstPantrySingle === -1 || lastPantryCombined < firstPantrySingle, "Single-ingredient pantry matches must remain after combined matches");
 assert.deepStrictEqual([...api.augustAroundWorldWeeks].map((culture) => culture.id), ["indigenous-america", "southern-black-foodways", "india", "africa"], "August must rotate through the four approved culture spotlights");
 assert.strictEqual(api.augustCultureForDate("2026-08-02T12:00:00").id, "indigenous-america", "August week 1 must feature Indigenous America");
 assert.strictEqual(api.augustCultureForDate("2026-08-09T12:00:00").id, "southern-black-foodways", "August week 2 must feature Southern Black Foodways");
@@ -238,6 +289,19 @@ for (const culture of api.augustAroundWorldWeeks) {
 }
 assert(api.aroundWorldSearchMatches("India").some((culture) => culture.id === "india"), "Search must return the India culture collection");
 assert(api.aroundWorldSearchMatches("hibiscus").some((culture) => culture.id === "africa"), "Search must connect signature ingredients and drinks to culture collections");
+assert(api.worldGlobeDestinations.length >= 40, "World Map must expose a substantial set of globe destinations");
+assert.strictEqual(api.worldGlobeDestinationForQuery("Filipino").id, "philippines", "Filipino search must resolve to the Philippines globe destination");
+assert.strictEqual(api.worldGlobeDestinationForQuery("Nigeria").id, "nigeria", "Nigeria search must resolve to its globe destination");
+const philippinesDestination = api.worldGlobeDestinationById("philippines");
+assert(philippinesDestination && Number.isFinite(philippinesDestination.lat) && Number.isFinite(philippinesDestination.lon), "Philippines must have real globe coordinates");
+const philippinesRecipes = api.recipesForWorldDestination(philippinesDestination);
+assert(philippinesRecipes.length > 0, "Philippines must reveal its canonical recipe collection");
+assert(philippinesRecipes.every((recipe) => /philippines|filipino|filipina/i.test(`${recipe.title} ${recipe.cuisine} ${recipe.category} ${(recipe.tags || []).join(" ")}`)), "Philippines must never receive generic Asian recipes");
+const globeMarkup = api.worldGlobeMarkup(philippinesDestination);
+assert(globeMarkup.includes("data-world-globe") && globeMarkup.includes("data-world-globe-search"), "World Map must lead with an interactive, searchable globe");
+assert(globeMarkup.includes("Southeast Asia") && globeMarkup.includes("Philippines"), "World Map must preserve region-to-country geographic drilldown");
+const philippinesCollectionMarkup = api.worldDestinationCollectionMarkup(philippinesDestination);
+assert(philippinesCollectionMarkup.includes("Welcome to the Philippines") && philippinesCollectionMarkup.includes("Open the full recipe"), "A globe destination must reveal cultural context and full recipe links");
 
 context.location.hash = "#recipes?section=cookies";
 assert.deepStrictEqual({ ...api.routeParts() }, { route: "recipes", id: undefined, section: "cookies", collection: "", culture: "", drink: "", subcategory: "", query: "" }, "Refresh must restore Cookies from the URL");

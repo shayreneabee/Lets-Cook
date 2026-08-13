@@ -1,10 +1,10 @@
 # Let's Cook Y'all Content Quality Audit
 
-Generated: 2026-08-10T16:13:03.803Z
+Generated: 2026-08-13T03:42:01.880Z
 
 ## Summary
 
-- Recipes audited: 719
+- Recipes audited: 726
 - Retired duplicate recipe records: 8
 - Duplicate recipe ID groups: 0
 - Duplicate recipe title groups: 0
@@ -28,7 +28,7 @@ Generated: 2026-08-10T16:13:03.803Z
 - Ingredient search smoke issues: 0
 - Training-only recipes in general discovery: 0
 - Recipes missing required details: 0
-- Recipes missing recommended enrichment details: 719
+- Recipes missing recommended enrichment details: 726
 
 ## Required Holiday Coverage
 
@@ -97,8 +97,8 @@ Generated: 2026-08-10T16:13:03.803Z
 
 ## Ingredient Search Smoke
 
-- OK: ribeye -> Beef Tenderloin, Prime Rib, Nebraska Steak, Argentinian Chimichurri Steak, Kansas Chicken Fried Steak, St. Louis Pork Steaks, Philly Cheesesteak, Hamburger Steak with Onion Gravy
-- OK: chicken thighs -> Smothered Chicken, Japanese Teriyaki Chicken Bowls, Tandoori-Style Chicken, Chicken and Sausage Gumbo, Chicken Vesuvio, Seattle Teriyaki Chicken, Crispy Fried Chicken, Lemon Pepper Wings
+- OK: ribeye -> Valentine Steak Dinner, Nebraska Steak, Cheesesteak Egg Rolls, Garlic Butter Steak Bites, Philly Cheesesteak, Valentine Steak Dinner, Nebraska Steak, Cheesesteak Egg Rolls
+- OK: chicken thighs -> Smothered Chicken, Japanese Teriyaki Chicken Bowls, Tandoori-Style Chicken, Chicken and Sausage Gumbo, Chicken Vesuvio, Seattle Teriyaki Chicken, Filipino Chicken Adobo, Hungarian Chicken Paprikash
 - OK: ground beef -> Baked Beans with Ground Beef, Hamburger Steak with Onion Gravy, Pumpkin Chili, Baked Beans with Beef and Bacon, Argentinian Beef Empanadas, Southern Meatloaf, Connecticut Steamed Cheeseburgers, Oklahoma Onion Burgers
 
 Full machine-readable details are in `data/content-quality-audit.json`.

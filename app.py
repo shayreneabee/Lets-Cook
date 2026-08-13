@@ -9,9 +9,11 @@ import re
 import secrets
 import sqlite3
 import time
+from datetime import datetime, timezone
 from html import escape
 from pathlib import Path
-from urllib.parse import urlencode
+from urllib.parse import quote, urlencode, urlparse
+from urllib.request import Request, urlopen
 
 from flask import Flask, abort, jsonify, redirect, request, send_from_directory, session
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -45,6 +47,9 @@ APPLE_KEY_ID = os.getenv("APPLE_KEY_ID", "")
 APPLE_PRIVATE_KEY = os.getenv("APPLE_PRIVATE_KEY", "")
 FACEBOOK_CLIENT_ID = os.getenv("FACEBOOK_CLIENT_ID", "")
 FACEBOOK_CLIENT_SECRET = os.getenv("FACEBOOK_CLIENT_SECRET", "")
+EXTERNAL_RECIPE_PROVIDER = os.getenv("EXTERNAL_RECIPE_PROVIDER", "themealdb").strip().lower()
+EXTERNAL_RECIPE_BASE_URL = os.getenv("EXTERNAL_RECIPE_BASE_URL", "https://www.themealdb.com/api/json/v1/1").rstrip("/")
+EXTERNAL_RECIPE_TIMEOUT_SECONDS = float(os.getenv("EXTERNAL_RECIPE_TIMEOUT_SECONDS", "5"))
 SSO_SHARED_SECRET = os.getenv("SSO_SHARED_SECRET", "dev-sso-change-me")
 BRENT_SSO_URL = os.getenv("BRENT_SSO_URL", "https://www.brentandco.org/sso/start")
 SSO_TOKEN_TTL_SECONDS = int(os.getenv("SSO_TOKEN_TTL_SECONDS", "900"))
@@ -98,6 +103,19 @@ def log_sso_debug(event, app_name="lets-cook", callback_url=""):
 
 def init_db():
     with db() as conn:
+        conn.execute(
+            """
+            CREATE TABLE IF NOT EXISTS recipe_search_gaps (
+                normalized_query TEXT PRIMARY KEY,
+                query TEXT NOT NULL,
+                search_count INTEGER NOT NULL DEFAULT 1,
+                latest_search_date TEXT NOT NULL,
+                fallback_found INTEGER NOT NULL DEFAULT 0,
+                filled INTEGER NOT NULL DEFAULT 0,
+                updated_at INTEGER NOT NULL
+            )
+            """
+        )
         conn.execute(
             """
             CREATE TABLE IF NOT EXISTS users (
@@ -863,6 +881,126 @@ def load_state(user):
     }
 
 
+def normalize_recipe_search_query(value):
+    return re.sub(r"[^a-z0-9]+", " ", str(value or "").lower()).strip()
+
+
+def record_recipe_search_gap(query, fallback_found=False, filled=False):
+    normalized = normalize_recipe_search_query(query)
+    if not normalized:
+        return None
+    now = int(time.time())
+    latest = datetime.now(timezone.utc).isoformat()
+    with db() as conn:
+        conn.execute(
+            """
+            INSERT INTO recipe_search_gaps (
+                normalized_query, query, search_count, latest_search_date,
+                fallback_found, filled, updated_at
+            ) VALUES (?, ?, 1, ?, ?, ?, ?)
+            ON CONFLICT(normalized_query) DO UPDATE SET
+                query = excluded.query,
+                search_count = recipe_search_gaps.search_count + 1,
+                latest_search_date = excluded.latest_search_date,
+                fallback_found = MAX(recipe_search_gaps.fallback_found, excluded.fallback_found),
+                filled = MAX(recipe_search_gaps.filled, excluded.filled),
+                updated_at = excluded.updated_at
+            """,
+            (normalized, str(query).strip(), latest, int(bool(fallback_found)), int(bool(filled)), now),
+        )
+        return conn.execute("SELECT * FROM recipe_search_gaps WHERE normalized_query = ?", (normalized,)).fetchone()
+
+
+def external_recipe_results(query):
+    if EXTERNAL_RECIPE_PROVIDER != "themealdb":
+        return []
+    parsed = urlparse(EXTERNAL_RECIPE_BASE_URL)
+    if parsed.scheme != "https" or parsed.hostname not in {"www.themealdb.com", "themealdb.com"}:
+        app.logger.warning("Rejected unapproved external recipe source: %s", EXTERNAL_RECIPE_BASE_URL)
+        return []
+    url = f"{EXTERNAL_RECIPE_BASE_URL}/search.php?s={quote(str(query).strip())}"
+    request_object = Request(url, headers={"User-Agent": "LetsCookYall/1.0"})
+    try:
+        with urlopen(request_object, timeout=EXTERNAL_RECIPE_TIMEOUT_SECONDS) as response:
+            payload = json.loads(response.read().decode("utf-8"))
+    except Exception as error:
+        app.logger.info("External recipe fallback unavailable: %s", error)
+        return []
+    results = []
+    for meal in (payload.get("meals") or [])[:8]:
+        ingredients = []
+        for index in range(1, 21):
+            ingredient = (meal.get(f"strIngredient{index}") or "").strip()
+            measure = (meal.get(f"strMeasure{index}") or "").strip()
+            if ingredient:
+                ingredients.append(" ".join(part for part in (measure, ingredient) if part))
+        results.append({
+            "externalId": str(meal.get("idMeal") or ""),
+            "title": meal.get("strMeal") or "External recipe",
+            "image": meal.get("strMealThumb") or "",
+            "category": meal.get("strCategory") or "",
+            "cuisine": meal.get("strArea") or "",
+            "ingredients": ingredients,
+            "instructions": meal.get("strInstructions") or "",
+            "sourceName": "TheMealDB",
+            "sourceUrl": meal.get("strSource") or f"https://www.themealdb.com/meal/{meal.get('idMeal', '')}",
+            "isExternal": True,
+        })
+    return results
+
+
+@app.post("/api/recipe-search/fallback")
+def api_recipe_search_fallback():
+    payload = request.get_json(silent=True) or {}
+    query = (payload.get("query") or "").strip()
+    if not query:
+        return jsonify({"error": "A search query is required."}), 400
+    results = external_recipe_results(query)
+    record_recipe_search_gap(query, fallback_found=bool(results), filled=bool(payload.get("filled")))
+    return jsonify({
+        "query": query,
+        "normalizedQuery": normalize_recipe_search_query(query),
+        "provider": "TheMealDB" if EXTERNAL_RECIPE_PROVIDER == "themealdb" else "unavailable",
+        "results": results,
+    })
+
+
+@app.post("/api/recipe-search/gap-filled")
+def api_recipe_search_gap_filled():
+    payload = request.get_json(silent=True) or {}
+    query = (payload.get("query") or "").strip()
+    normalized = normalize_recipe_search_query(query)
+    if not normalized:
+        return jsonify({"error": "A search query is required."}), 400
+    with db() as conn:
+        cursor = conn.execute(
+            """
+            UPDATE recipe_search_gaps
+            SET filled = 1, updated_at = ?
+            WHERE normalized_query = ?
+            """,
+            (int(time.time()), normalized),
+        )
+    return jsonify({"normalizedQuery": normalized, "filled": bool(cursor.rowcount)})
+
+
+@app.get("/api/admin/recipe-search-gaps")
+def api_admin_recipe_search_gaps():
+    user = current_user()
+    if not user or not user["is_admin"]:
+        return jsonify({"error": "Administrator access required."}), 403
+    with db() as conn:
+        rows = conn.execute(
+            """
+            SELECT query, normalized_query, search_count, latest_search_date,
+                   fallback_found, filled
+            FROM recipe_search_gaps
+            ORDER BY filled ASC, search_count DESC, latest_search_date DESC
+            """
+        ).fetchall()
+    return jsonify({"gaps": [dict(row) for row in rows]})
+
+
 @app.get("/api/lets-cook/state")
 def api_state():
     return jsonify(load_state(current_user()))
@@ -1131,6 +1269,15 @@ def dashboard_html(user):
         platform_counts = conn.execute(
             "SELECT app_name, COUNT(*) AS total FROM app_memberships GROUP BY app_name ORDER BY app_name"
         ).fetchall()
+        search_gaps = conn.execute(
+            """
+            SELECT query, normalized_query, search_count, latest_search_date,
+                   fallback_found, filled
+            FROM recipe_search_gaps
+            ORDER BY filled ASC, search_count DESC, latest_search_date DESC
+            LIMIT 50
+            """
+        ).fetchall()
     apps = [
         ("Let’s Cook Y’all", "https://letscookyall.com/"),
         ("Find The Beat", "https://findthebeatmusic.com/"),
@@ -1162,6 +1309,17 @@ def dashboard_html(user):
         "</tr>"
         for row in latest_users
     )
+    search_gap_rows = "".join(
+        "<tr>"
+        f"<td>{escape(row['query'])}</td>"
+        f"<td>{escape(row['normalized_query'])}</td>"
+        f"<td>{row['search_count']}</td>"
+        f"<td>{escape(row['latest_search_date'])}</td>"
+        f"<td>{'Yes' if row['fallback_found'] else 'No'}</td>"
+        f"<td>{'Filled' if row['filled'] else 'Open'}</td>"
+        "</tr>"
+        for row in search_gaps
+    ) or "<tr><td colspan='6'>No recipe content gaps logged yet.</td></tr>"
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -1196,6 +1354,9 @@ def dashboard_html(user):
     </section>
     <section class="admin-panel-grid">
       <article><h2>Users by platform</h2><table><tbody>{platform_rows}</tbody></table></article>
+    </section>
+    <section class="admin-panel-grid">
+      <article><h2>Living Cookbook search gaps</h2><p>Unsuccessful searches and external-fallback activity reveal what cooks want added next.</p><table><thead><tr><th>Query</th><th>Normalized</th><th>Count</th><th>Latest search</th><th>Fallback</th><th>Status</th></tr></thead><tbody>{search_gap_rows}</tbody></table></article>
     </section>
     <section class="admin-panel-grid">
       <article><h2>User directory</h2><table><thead><tr><th>Name</th><th>Email</th><th>Type</th><th>Location</th><th>Profile</th><th>Last login</th></tr></thead><tbody>{user_rows}</tbody></table></article>

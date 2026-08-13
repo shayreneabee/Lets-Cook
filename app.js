@@ -5047,6 +5047,11 @@ function expansionRecipe(id, title, category, image, prep, cook, servings, level
     helperNote: extras.helperNote || "",
     primaryCookbookSection: extras.primaryCookbookSection || "",
     subcategories: extras.subcategories || [],
+    aliases: extras.aliases || [],
+    alternateTitles: extras.alternateTitles || [],
+    commonMisspellings: extras.commonMisspellings || [],
+    relatedTerms: extras.relatedTerms || [],
+    cultural_origin: extras.culturalOrigin || "",
     makeAhead: extras.makeAhead || "",
     servingIdeas: extras.servingIdeas || [],
     kidsKorner: Boolean(extras.kidsKorner),
@@ -5748,7 +5753,7 @@ function householdExclusionTerms() {
 const dietaryAllergenRules = {
   milk: /milk|cream|butter|cheese|yogurt|whey|casein|feta|parmesan/,
   eggs: /\begg|mayonnaise|meringue/,
-  fish: /fish|salmon|tuna|anchov|cod|tilapia|swordfish|trout|walleye/,
+  fish: /fish|salmon|tuna|anchov|cod|tilapia|swordfish|trout|walleye|grouper|catfish|snapper|mahi|halibut|haddock|sardine|pollock|flounder/,
   shellfish: /shrimp|crab|lobster|oyster|mussel|clam|scallop|prawn/,
   "tree nuts": /almond|pecan|walnut|cashew|pistachio|hazelnut|macadamia|coconut/,
   peanuts: /peanut/,
@@ -5762,8 +5767,8 @@ function recipeDietaryProfile(recipe = {}) {
   const ingredientText = (recipe.ingredients || []).map((item) => String(typeof item === "string" ? item : item.name || item.item || "")).join(" ").toLowerCase();
   const tagText = `${recipe.title || ""} ${recipe.category || ""} ${(recipe.tags || []).join(" ")}`.toLowerCase();
   const combined = `${ingredientText} ${tagText}`;
-  const animalMeat = /beef|steak|pork|bacon|ham|chicken|turkey|lamb|sausage|venison|duck|goose|meatball|pepperoni|prosciutto|salami/.test(ingredientText);
-  const seafood = dietaryAllergenRules.fish.test(ingredientText) || dietaryAllergenRules.shellfish.test(ingredientText);
+  const animalMeat = /beef|steak|brisket|oxtail|veal|pork|bacon|ham|chicken|turkey|lamb|sausage|chorizo|bologna|mortadella|pancetta|kielbasa|bratwurst|hot dog|venison|duck|goose|meatball|pepperoni|prosciutto|salami/.test(combined);
+  const seafood = dietaryAllergenRules.fish.test(combined) || dietaryAllergenRules.shellfish.test(combined);
   const animalProducts = animalMeat || seafood || /milk|cream|butter|cheese|mozzarella|ricotta|yogurt|\begg|honey|gelatin/.test(ingredientText);
   const allergens = Object.entries(dietaryAllergenRules).filter(([, rule]) => rule.test(ingredientText)).map(([name]) => name);
   const ambiguousPreparedFood = /cookies?|cake|brownie|dessert|charcuterie|bagels?|coleslaw/.test(`${ingredientText} ${tagText}`) && !/\bvegan\b/.test(tagText);
@@ -6134,11 +6139,13 @@ const drinksCollectionRecipes = [
   drinkRecipe("blackberry-sage-yaupon-tea", "Blackberry Sage & Yaupon Tea", "tea", "A chilled tea built around yaupon holly, blackberries, sage, and maple, credited to contemporary Indigenous foodways educators.", ["4 cups water", "2 tbsp loose yaupon tea or 4 yaupon tea bags", "1 cup fresh blackberries", "6 fresh sage leaves", "2 tbsp pure maple syrup, plus more to taste", "1 tbsp fresh lemon juice", "Ice"], ["Bring water just to a boil, remove from heat, and steep yaupon tea for 5 minutes.", "Strain the tea and let it cool for 10 minutes.", "Gently muddle blackberries, sage, maple syrup, and lemon juice in a pitcher.", "Pour in the tea, stir, and chill for at least 1 hour.", "Strain over ice and garnish with a blackberry and sage leaf."], ["indigenous foodways", "yaupon", "blackberry", "sage", "maple", "cherokee", "no alcohol"], { servings: 4, cuisine: "north-american-indigenous", garnish: "Blackberry and fresh sage", glassware: "Tall clear glass", culturalNotes: "Yaupon holly is native to the Americas and has longstanding use in Indigenous foodways. This contemporary recipe is presented with specific credit rather than as one universal Native beverage.", source: { name: "Blackberry Sage & Yaupon Tea by Nico Albert Williams, Smithsonian Folklife Festival", url: "https://festival.si.edu/2024/indigenous-voices-americas/recipes", type: "adapted" } })
 ];
 
-const appetizerRecipe = (id, title, image, prep, cook, servings, description, ingredients, steps, tags, subcategories) =>
+const appetizerRecipe = (id, title, image, prep, cook, servings, description, ingredients, steps, tags, subcategories, extras = {}) =>
   expansionRecipe(id, title, "Appetizers & Finger Foods", image, prep, cook, servings, "Beginner", description, ingredients, steps, tags, {
     primaryCookbookSection: "appetizers-finger-foods",
     subcategories,
+    ...extras,
     storage: "Refrigerate perishable food within 2 hours and use within 3 days.",
+    ...(extras.storage ? { storage: extras.storage } : {}),
     servingIdeas: ["Arrange on a clearly labeled platter.", "Keep hot food hot and cold food chilled until serving."]
   });
 
@@ -6162,8 +6169,18 @@ const appetizerFingerFoodRecipes = [
   appetizerRecipe("cheese-cracker-tray", "Cheese and Cracker Tray", "images/recipes/appetizers-2026/cheese-cracker-tray.png", "20 min", "0 min", 12, "A balanced gathering tray with three cheeses, crisp crackers, fruit, and pickles.", ["8 oz sharp cheddar", "8 oz pepper Jack", "8 oz mild Swiss", "12 oz assorted crackers", "2 cups grapes", "1 cup cornichons", "1/2 cup roasted nuts", "1/3 cup whole-grain mustard"], ["Cut cheeses into varied bite-size shapes.", "Place cheeses across a large platter.", "Add crackers in small stacks.", "Fill gaps with grapes, cornichons, and nuts.", "Serve mustard alongside and label nut and dairy allergens."], ["cheese", "crackers", "party tray"], ["Party Trays", "Cold Appetizers", "Funeral and Repast Foods"])
 ];
 
+const eggRollRecipes = [
+  appetizerRecipe("classic-pork-egg-rolls", "Classic Pork Egg Rolls", "images/recipes/egg-rolls-2026/classic-pork-egg-rolls.png", "35 min", "20 min", 12, "Chinese-American takeout-style egg rolls with a savory pork, cabbage, carrot, and shiitake filling in crisp wheat wrappers.", ["12 egg roll wrappers", "8 oz ground pork", "3 cups finely shredded green cabbage", "1 medium carrot, julienned", "1/2 cup sliced shiitake mushrooms", "3 scallions, thinly sliced", "2 garlic cloves, minced", "1 tbsp grated fresh ginger", "1 tbsp light soy sauce", "1 tsp toasted sesame oil", "1 tsp cornstarch mixed with 1 tbsp water", "1 large egg beaten with 1 tbsp water", "6 cups neutral oil for frying"], ["Cook pork in a wide skillet over medium-high heat until browned and 160 F; transfer to a bowl.", "Stir-fry cabbage, carrot, mushrooms, scallions, garlic, and ginger for 3 minutes so the vegetables stay crisp.", "Return pork, add soy sauce and sesame oil, then stir in the cornstarch slurry; cool the filling completely.", "Place 3 tablespoons filling across each wrapper, fold in the sides, roll tightly, and seal with egg wash.", "Fry in 350 F oil for 4 to 5 minutes, turning, until deeply golden; drain on a rack and serve hot."], ["egg rolls", "pork", "cabbage", "chinese american", "hot appetizer"], ["Egg Rolls & Lumpia", "Hot Appetizers"], { cuisine: "chinese-american", aliases: ["pork egg roll", "Chinese-American egg rolls", "takeout egg rolls"], relatedTerms: ["spring rolls", "lumpia"], culturalOrigin: "A Chinese-American restaurant classic with a thicker wheat wrapper and a cabbage-forward filling." }),
+  appetizerRecipe("shrimp-egg-rolls", "Shrimp Egg Rolls", "images/recipes/egg-rolls-2026/shrimp-egg-rolls.png", "35 min", "18 min", 12, "Crisp Chinese-American egg rolls filled with chopped shrimp, cabbage, carrot, mushrooms, and aromatic ginger.", ["12 egg roll wrappers", "12 oz peeled and deveined shrimp, chopped", "3 cups finely shredded green cabbage", "1 medium carrot, julienned", "1/2 cup sliced shiitake mushrooms", "3 scallions, thinly sliced", "2 garlic cloves, minced", "1 tbsp grated fresh ginger", "1 tbsp light soy sauce", "1 tsp toasted sesame oil", "1 tsp cornstarch mixed with 1 tbsp water", "1 large egg beaten with 1 tbsp water", "6 cups neutral oil for frying"], ["Pat shrimp dry and cook in a skillet over medium-high heat until just opaque and 145 F; transfer to a bowl.", "Stir-fry cabbage, carrot, mushrooms, scallions, garlic, and ginger for 3 minutes.", "Return shrimp, add soy sauce and sesame oil, then thicken with the cornstarch slurry; cool completely.", "Fill each wrapper with 3 tablespoons filling, fold the sides inward, roll tightly, and seal with egg wash.", "Fry in 350 F oil for 4 to 5 minutes until crisp and golden; drain on a rack."], ["shrimp egg rolls", "shrimp", "cabbage", "chinese american", "seafood appetizer"], ["Egg Rolls & Lumpia", "Hot Appetizers"], { cuisine: "chinese-american", aliases: ["shrimp egg roll", "seafood egg rolls"], commonMisspellings: ["shrim egg rolls", "shrimp eggrolls"], relatedTerms: ["spring rolls", "lumpia"], culturalOrigin: "A Chinese-American egg-roll variation that keeps shrimp identifiable and correctly attributes the restaurant tradition." }),
+  appetizerRecipe("chicken-egg-rolls", "Chicken Egg Rolls", "images/recipes/egg-rolls-2026/chicken-egg-rolls.png", "35 min", "18 min", 12, "Golden Chinese-American egg rolls with seasoned chicken, cabbage, carrots, and scallions.", ["12 egg roll wrappers", "12 oz ground chicken", "3 cups shredded green cabbage", "1 medium carrot, julienned", "3 scallions, thinly sliced", "2 garlic cloves, minced", "2 tsp grated ginger", "1 tbsp light soy sauce", "1 tsp toasted sesame oil", "1 tsp cornstarch mixed with 1 tbsp water", "1 large egg beaten with 1 tbsp water", "6 cups neutral oil for frying"], ["Cook chicken in a skillet until no pink remains and it reaches 165 F.", "Add cabbage, carrot, scallions, garlic, and ginger; stir-fry 3 minutes.", "Add soy sauce and sesame oil, stir in the slurry, and cool the filling completely.", "Fill, fold, and tightly roll the wrappers; seal the final corner with egg wash.", "Fry at 350 F for 4 to 5 minutes until golden and drain on a rack."], ["chicken egg rolls", "chicken", "cabbage", "chinese american"], ["Egg Rolls & Lumpia", "Hot Appetizers"], { cuisine: "chinese-american", aliases: ["chicken egg roll"], relatedTerms: ["spring rolls", "lumpia"] }),
+  appetizerRecipe("vegetable-egg-rolls", "Vegetable Egg Rolls", "images/recipes/egg-rolls-2026/vegetable-egg-rolls.png", "35 min", "18 min", 12, "Crisp vegetarian Chinese-American egg rolls packed with cabbage, carrot, shiitake mushrooms, bean sprouts, and scallions.", ["12 egg roll wrappers", "3 cups shredded green cabbage", "1 large carrot, julienned", "1 cup bean sprouts", "1 cup sliced shiitake mushrooms", "3 scallions, sliced", "2 garlic cloves, minced", "2 tsp grated ginger", "1 tbsp light soy sauce", "1 tsp toasted sesame oil", "1 tsp cornstarch mixed with 1 tbsp water", "2 tbsp water for sealing", "6 cups neutral oil for frying"], ["Stir-fry cabbage, carrot, sprouts, mushrooms, scallions, garlic, and ginger over high heat for 4 minutes.", "Add soy sauce and sesame oil, then thicken with the slurry; spread on a tray to cool.", "Place 3 tablespoons filling on each wrapper.", "Fold in the sides, roll tightly, and seal the corner with water.", "Fry at 350 F for 4 to 5 minutes until crisp; drain and serve with sweet-and-sour sauce."], ["vegetable egg rolls", "vegetarian", "cabbage", "chinese american"], ["Egg Rolls & Lumpia", "Hot Appetizers"], { cuisine: "chinese-american", aliases: ["vegetarian egg rolls", "veggie egg roll"], relatedTerms: ["spring rolls", "lumpia"] }),
+  appetizerRecipe("cheesesteak-egg-rolls", "Cheesesteak Egg Rolls", "images/recipes/egg-rolls-2026/cheesesteak-egg-rolls.png", "30 min", "20 min", 12, "A Philadelphia-inspired Chinese-American fusion appetizer with thin beef, onions, peppers, and melted provolone in crisp wrappers.", ["12 egg roll wrappers", "12 oz ribeye or shaved beef", "1 tbsp neutral oil", "1 small yellow onion, thinly sliced", "1 green bell pepper, thinly sliced", "1 tsp Worcestershire sauce", "6 oz provolone, cut into strips", "1 large egg beaten with 1 tbsp water", "6 cups neutral oil for frying", "1/2 cup horseradish mayonnaise for serving"], ["Freeze beef for 20 minutes for easier slicing, then slice very thinly across the grain.", "Sear beef in oil over high heat; add onion and pepper and cook until tender, then season with Worcestershire and cool.", "Place beef mixture and a strip of provolone on each wrapper.", "Fold, roll tightly, and seal with egg wash.", "Fry at 350 F for 4 to 5 minutes until golden; drain and serve with horseradish mayonnaise."], ["cheesesteak egg rolls", "beef", "ribeye", "philadelphia", "asian american fusion"], ["Egg Rolls & Lumpia", "Hot Appetizers"], { cuisine: "american-fusion", aliases: ["Philly cheesesteak egg rolls", "steak egg rolls"], relatedTerms: ["Philadelphia cheesesteak", "egg rolls"], culturalOrigin: "A modern Philadelphia–Chinese-American fusion appetizer, not a traditional Chinese dish." }),
+  appetizerRecipe("southwest-egg-rolls", "Southwest Egg Rolls", "images/recipes/egg-rolls-2026/southwest-egg-rolls.png", "30 min", "18 min", 12, "Crisp flour-tortilla rolls filled with black beans, corn, spinach, green chile, peppers, and Monterey Jack.", ["12 small flour tortillas", "1 can black beans, rinsed and drained", "1 cup roasted corn", "2 cups chopped baby spinach", "1 red bell pepper, finely diced", "1 can diced green chiles, drained", "1 1/2 cups shredded Monterey Jack", "1 tsp ground cumin", "1/2 tsp chili powder", "2 tbsp neutral oil for brushing", "1 cup avocado cilantro crema for serving"], ["Heat oven to 425 F and line a sheet pan.", "Mix beans, corn, spinach, bell pepper, chiles, cheese, cumin, and chili powder.", "Spoon filling across each tortilla, fold in the sides, and roll tightly.", "Place seam-side down, brush lightly with oil, and bake 16 to 18 minutes, turning once.", "Rest 5 minutes, slice diagonally, and serve with avocado crema."], ["southwest egg rolls", "black beans", "corn", "spinach", "vegetarian", "southwestern"], ["Egg Rolls & Lumpia", "Hot Appetizers"], { cuisine: "southwestern-american", aliases: ["Southwestern egg rolls", "black bean egg rolls"], relatedTerms: ["Tex-Mex rolls", "egg rolls"], culturalOrigin: "An American Southwest-inspired restaurant appetizer; the name describes the rolled format rather than an East or Southeast Asian origin." }),
+  appetizerRecipe("filipino-lumpiang-shanghai", "Filipino Lumpiang Shanghai", "images/recipes/egg-rolls-2026/filipino-lumpia.png", "45 min", "20 min", 24, "Slender Filipino fried lumpia filled with seasoned pork, carrot, onion, and scallion, served crisp with sweet chile sauce.", ["24 lumpia wrappers, thawed", "1 lb ground pork", "1 medium carrot, finely minced", "1 small yellow onion, finely minced", "4 scallions, finely sliced", "3 garlic cloves, minced", "1 large egg", "1 tbsp light soy sauce", "1 tsp kosher salt", "1/2 tsp black pepper", "2 tbsp water for sealing", "6 cups neutral oil for frying", "1 cup sweet chile sauce for serving"], ["Mix pork, carrot, onion, scallions, garlic, egg, soy sauce, salt, and pepper until evenly combined.", "Cook a teaspoon of filling in a skillet, taste, and adjust seasoning before rolling the batch.", "Place a narrow strip of filling near the bottom of each lumpia wrapper, fold the sides in, and roll into a slender cylinder; seal with water.", "Fry in 350 F oil in batches for 4 to 5 minutes until golden and the pork reaches 160 F.", "Drain on a rack and serve hot with sweet chile sauce or spiced vinegar."], ["lumpia", "lumpiang shanghai", "filipino", "pork", "party food"], ["Egg Rolls & Lumpia", "Hot Appetizers", "Church and Family Gathering Foods"], { cuisine: "filipino", aliases: ["lumpia", "Filipino spring rolls", "pork lumpia"], commonMisspellings: ["lumpiya", "lumpa"], relatedTerms: ["egg rolls", "spring rolls"], culturalOrigin: "Lumpiang Shanghai is a Filipino fried lumpia tradition. Its slender wrapper, finely minced filling, and Filipino table context are retained instead of relabeling it as a generic Asian egg roll." })
+];
+
 const existingRecipeIds = new Set(recipes.map((recipe) => recipe.id));
-recipes = [...recipes, ...[...nextFeatureRecipes, ...menuIntelligenceRecipes, ...regionalAuthenticityRecipes, ...livingCookbookRecipes, ...kidsKornerRecipes, ...kidsExpansionRecipes, ...familyExpansionRecipes, ...mississippiHeritageRecipes, ...africaExpansionRecipes, ...midwestExpansionRecipes, ...newEnglandExpansionRecipes, ...southwestExpansionRecipes, ...midAtlanticExpansionRecipes, ...westernExpansionRecipes, ...globalCuisineExpansionRecipes, ...holidayExpansionRecipes, ...america250ExpansionRecipes, ...foundationalBreadAndCookieRecipes, ...drinksCollectionRecipes, ...appetizerFingerFoodRecipes].filter((recipe) => !existingRecipeIds.has(recipe.id))];
+recipes = [...recipes, ...[...nextFeatureRecipes, ...menuIntelligenceRecipes, ...regionalAuthenticityRecipes, ...livingCookbookRecipes, ...kidsKornerRecipes, ...kidsExpansionRecipes, ...familyExpansionRecipes, ...mississippiHeritageRecipes, ...africaExpansionRecipes, ...midwestExpansionRecipes, ...newEnglandExpansionRecipes, ...southwestExpansionRecipes, ...midAtlanticExpansionRecipes, ...westernExpansionRecipes, ...globalCuisineExpansionRecipes, ...holidayExpansionRecipes, ...america250ExpansionRecipes, ...foundationalBreadAndCookieRecipes, ...drinksCollectionRecipes, ...appetizerFingerFoodRecipes, ...eggRollRecipes].filter((recipe) => !existingRecipeIds.has(recipe.id))];
 
 const appetizerExistingRecipeMetadata = {
   "chicken-salad-croissants": { primaryCookbookSection: "appetizers-finger-foods", subcategories: ["Sandwiches & Clubs", "Cold Appetizers", "Funeral and Repast Foods"] },
@@ -13599,14 +13616,14 @@ function ingredientDiscoverySection(seed = "chicken strips") {
   return `
     <section class="gold-section ingredient-discovery">
       <div class="ingredient-discovery-copy">
-        <p class="eyebrow">Start with one ingredient</p>
+        <p class="eyebrow">Start with what you have</p>
         <h2>Turn what you have into a whole cooking plan.</h2>
-        <p>Type an ingredient like chicken strips, shrimp, rice, pasta, or ground beef and learn what meals, cuisines, techniques, sides, substitutions, and weekly plans can come from it.</p>
+        <p>Enter one ingredient or combine several with commas—like shrimp, spinach—to find recipes that use them together before showing fallback ideas.</p>
       </div>
       <form class="ingredient-search-panel" data-ingredient-form>
         <label for="ingredientSearchInput">What's in your kitchen?</label>
         <div>
-          <input id="ingredientSearchInput" name="ingredient" value="${seed}" placeholder="chicken strips" />
+          <input id="ingredientSearchInput" name="ingredient" value="${seed}" placeholder="shrimp, spinach" />
           <button class="small-button" type="submit">Explore Ideas</button>
         </div>
       </form>
@@ -13623,6 +13640,11 @@ function normalizeIngredientTerm(term = "") {
 }
 
 const recipeSearchAliasMap = {
+  "egg roll": ["egg roll", "egg rolls", "spring roll", "spring rolls", "lumpia", "lumpiang shanghai"],
+  "egg rolls": ["egg roll", "egg rolls", "spring roll", "spring rolls", "lumpia", "lumpiang shanghai"],
+  "spring roll": ["spring roll", "spring rolls", "egg roll", "egg rolls", "lumpia", "fresh roll", "rice paper roll"],
+  "spring rolls": ["spring roll", "spring rolls", "egg roll", "egg rolls", "lumpia", "fresh roll", "rice paper roll"],
+  lumpia: ["lumpia", "lumpiang shanghai", "Filipino spring roll", "egg roll", "spring roll"],
   ribeye: ["ribeye", "rib eye", "steak", "beef steak", "strip steak", "sirloin", "beef tenderloin", "prime rib", "standing rib roast"],
   "rib eye": ["ribeye", "rib eye", "steak", "beef steak", "strip steak", "sirloin", "beef tenderloin", "prime rib", "standing rib roast"],
   steak: ["steak", "ribeye", "rib eye", "sirloin", "strip steak", "flank steak", "skirt steak", "beef tenderloin", "prime rib", "standing rib roast"],
@@ -13722,6 +13744,49 @@ const recipeSearchIndexCache = new WeakMap();
 function recipeSearchValues(value) {
   if (Array.isArray(value)) return value.filter(Boolean);
   return value ? [value] : [];
+}
+
+function parseIngredientTerms(value = "") {
+  const values = Array.isArray(value) ? value : [value];
+  return [...new Set(values.flatMap((entry) => String(entry || "").split(/[,;\n+]+/)).map(normalizeIngredientTerm).filter(Boolean))];
+}
+
+function hasExplicitMultipleIngredients(value = "") {
+  return /[,;\n+]/.test(String(value || "")) && parseIngredientTerms(value).length > 1;
+}
+
+function levenshteinDistance(left = "", right = "") {
+  const a = normalizeIngredientTerm(left);
+  const b = normalizeIngredientTerm(right);
+  const previous = Array.from({ length: b.length + 1 }, (_, index) => index);
+  for (let row = 1; row <= a.length; row += 1) {
+    const current = [row];
+    for (let column = 1; column <= b.length; column += 1) {
+      current[column] = Math.min(current[column - 1] + 1, previous[column] + 1, previous[column - 1] + (a[row - 1] === b[column - 1] ? 0 : 1));
+    }
+    previous.splice(0, previous.length, ...current);
+  }
+  return previous[b.length];
+}
+
+function fuzzyRecipeTitleScore(query = "", recipe = {}) {
+  const normalized = normalizeIngredientTerm(query);
+  if (normalized.length < 4) return 0;
+  const titles = [recipe.title, ...recipeSearchValues(recipe.alternateTitle), ...recipeSearchValues(recipe.alternateTitles), ...recipeSearchValues(recipe.aliases)].map(normalizeIngredientTerm).filter(Boolean);
+  const maxDistance = normalized.length >= 10 ? 3 : normalized.length >= 6 ? 2 : 1;
+  const distance = Math.min(...titles.map((title) => levenshteinDistance(normalized, title)));
+  return distance <= maxDistance ? 7200 - distance * 700 : 0;
+}
+
+function inferredIngredientQueryTerms(query = "") {
+  const normalized = normalizeIngredientTerm(query);
+  if (!normalized) return [];
+  if (hasExplicitMultipleIngredients(query)) return parseIngredientTerms(query);
+  const words = normalized.split(" ").filter(Boolean);
+  const dishPhrase = Object.keys(recipeSearchAliasMap).sort((a, b) => b.length - a.length).find((key) => normalized.includes(key) && /egg roll|spring roll|lumpia/.test(key));
+  if (dishPhrase) return words.filter((word) => !new Set(["egg", "roll", "rolls", "spring", "lumpia"]).has(word) && (ingredientCombinationAliasMap[word] || recipeSearchAliasMap[word] || ["shrimp", "pork", "chicken", "beef", "vegetable", "cabbage", "spinach"].includes(word)));
+  const ingredientWords = words.filter((word) => ingredientCombinationAliasMap[word] || ["shrimp", "cabbage", "spinach", "pork", "chicken", "beef", "rice", "beans", "potatoes", "tomatoes", "eggs"].includes(word));
+  return ingredientWords.length > 1 ? ingredientWords : [];
 }
 
 function expandRecipeSearchTerms(input = "") {
@@ -13872,14 +13937,61 @@ function recipeDiscoveryScore(recipe, rawTerms = []) {
   return score;
 }
 
+function ingredientCombinationEvidence(recipe = {}, ingredientTerms = []) {
+  const terms = uniquePantryIngredients(ingredientTerms);
+  const matched = terms.filter((term) => assistantIngredientTermMatches(recipe, term));
+  const unmatched = terms.filter((term) => !matched.includes(term));
+  const index = recipeSearchIndex(recipe);
+  const directIngredientMatches = matched.filter((term) => expandRecipeSearchTerms(term).some((expanded) => index.ingredientText.includes(expanded))).length;
+  const titleMatches = matched.filter((term) => expandRecipeSearchTerms(term).some((expanded) => index.titleText.includes(expanded))).length;
+  const primarySection = recipeCookbookPrimarySection(recipe);
+  const mainDishBonus = ["beef", "poultry", "fish-seafood", "vegetables", "miscellaneous"].includes(primarySection) ? 35 : 0;
+  const combinationBonus = matched.length > 1 ? directIngredientMatches * 90 + titleMatches * 30 + mainDishBonus : 0;
+  return {
+    matched,
+    unmatched,
+    matchCount: matched.length,
+    coverageRatio: terms.length ? matched.length / terms.length : 0,
+    allIngredientsMatched: Boolean(terms.length && matched.length === terms.length),
+    combinationBonus
+  };
+}
+
 function rankRecipesForDiscovery(recipeList, { query = "", pantry = [] } = {}) {
-  const queryTerms = query ? [query] : [];
-  const pantryTerms = pantry || [];
+  const explicitQueryIngredients = inferredIngredientQueryTerms(query);
+  const pantryTerms = uniquePantryIngredients(pantry || []);
+  const ingredientTerms = uniquePantryIngredients([...explicitQueryIngredients, ...pantryTerms]);
+  const queryTerms = query ? (explicitQueryIngredients.length ? explicitQueryIngredients : [query]) : [];
+  const prioritizeCoverage = ingredientTerms.length > 1;
   return recipeList.map((recipe) => {
-    const queryScore = recipeDiscoveryScore(recipe, queryTerms);
+    const exactTitle = normalizeIngredientTerm(recipe.title) === normalizeIngredientTerm(query);
+    const fuzzyScore = exactTitle ? 0 : fuzzyRecipeTitleScore(query, recipe);
+    const queryScore = explicitQueryIngredients.length
+      ? explicitQueryIngredients.reduce((sum, term) => sum + recipeDiscoveryScore(recipe, [term]), 0)
+      : recipeDiscoveryScore(recipe, queryTerms);
     const pantryScore = pantryTerms.reduce((sum, term) => sum + recipeDiscoveryScore(recipe, [term]), 0);
-    return { recipe, score: queryScore + pantryScore, queryScore, pantryScore };
-  }).sort((a, b) => b.score - a.score || a.recipe.title.localeCompare(b.recipe.title));
+    const evidence = ingredientCombinationEvidence(recipe, ingredientTerms);
+    const coverageScore = prioritizeCoverage
+      ? (evidence.allIngredientsMatched ? 1000000 : 0) + evidence.matchCount * 100000 + evidence.combinationBonus
+      : 0;
+    const index = recipeSearchIndex(recipe);
+    const normalizedQuery = normalizeIngredientTerm(query);
+    const titlePartialMatch = !exactTitle && Boolean(normalizedQuery && index.titleText.includes(normalizedQuery));
+    const aliasMatch = !exactTitle && Boolean(normalizedQuery && index.alternateTitleText.includes(normalizedQuery));
+    const regionalMatch = Boolean(normalizeIngredientTerm(query) && normalizeIngredientTerm(`${recipe.cuisine} ${recipe.category} ${(recipe.tags || []).join(" ")}`).includes(normalizeIngredientTerm(query)));
+    const layer = exactTitle ? 1 : titlePartialMatch || aliasMatch || fuzzyScore ? 2 : prioritizeCoverage && evidence.matchCount ? 3 : regionalMatch ? 4 : 5;
+    return { recipe, score: coverageScore + queryScore + pantryScore + fuzzyScore, queryScore, pantryScore, fuzzyScore, exactTitle, titlePartialMatch, aliasMatch, regionalMatch, layer, ...evidence, ingredientTerms };
+  }).sort((a, b) => {
+    if (a.layer !== b.layer) return a.layer - b.layer;
+    if (prioritizeCoverage) {
+      return Number(b.allIngredientsMatched) - Number(a.allIngredientsMatched)
+        || b.matchCount - a.matchCount
+        || b.combinationBonus - a.combinationBonus
+        || b.score - a.score
+        || a.recipe.title.localeCompare(b.recipe.title);
+    }
+    return b.score - a.score || a.recipe.title.localeCompare(b.recipe.title);
+  });
 }
 
 function assistantRecipeFamily(recipe = {}) {
@@ -13894,14 +14006,35 @@ function assistantRecipeFamily(recipe = {}) {
   return title.replace(/\b(classic|easy|homemade|southern|crispy|buttermilk|style|with|and|the)\b/g, "").replace(/\s+/g, " ").trim();
 }
 
+const ingredientCombinationAliasMap = {
+  shrimp: ["shrimp", "prawn", "prawns"],
+  spinach: ["spinach", "baby spinach", "frozen spinach"],
+  "ground beef": ["ground beef", "hamburger meat", "minced beef"],
+  "chicken thighs": ["chicken thigh", "chicken thighs", "boneless chicken thighs", "bone in chicken thighs"],
+  tomatoes: ["tomato", "tomatoes", "cherry tomatoes", "canned tomatoes"],
+  potatoes: ["potato", "potatoes", "russet potatoes", "red potatoes"],
+  eggs: ["egg", "eggs"],
+  beans: ["bean", "beans", "black beans", "pinto beans", "kidney beans", "white beans"],
+  rice: ["rice", "white rice", "brown rice", "jasmine rice", "basmati rice"]
+  , cabbage: ["cabbage", "green cabbage", "napa cabbage", "coleslaw mix"]
+};
+
+function ingredientCombinationVariants(term = "") {
+  const normalized = normalizeIngredientTerm(term);
+  const variants = new Set([normalized, ...(ingredientCombinationAliasMap[normalized] || [])]);
+  if (normalized.endsWith("s") && normalized.length > 3) variants.add(normalized.replace(/s$/, ""));
+  else if (normalized && !normalized.endsWith("s")) variants.add(`${normalized}s`);
+  return [...variants].map(normalizeIngredientTerm).filter(Boolean);
+}
+
+function ingredientTextIncludes(text = "", term = "") {
+  return ` ${normalizeIngredientTerm(text)} `.includes(` ${normalizeIngredientTerm(term)} `);
+}
+
 function assistantIngredientTermMatches(recipe = {}, term = "") {
   const index = recipeSearchIndex(recipe);
-  const expandedTerms = expandRecipeSearchTerms(term);
-  return expandedTerms.some((expanded) =>
-    index.ingredientText.includes(expanded)
-    || index.substitutions.includes(expanded)
-    || pantryRecipeKnownIngredients(recipe).some((known) => known.includes(expanded) || expanded.includes(known))
-  );
+  const variants = ingredientCombinationVariants(term);
+  return variants.some((variant) => ingredientTextIncludes(index.ingredientText, variant) || ingredientTextIncludes(index.substitutions, variant));
 }
 
 function assistantIngredientCoverage(recipe = {}, pantry = []) {
@@ -13955,6 +14088,7 @@ function assistantRecipeSearchRows(ingredients = [], { limit = 24, mode = pantry
   if (!pantry.length) return [];
   const modeProfile = pantryScanModes[mode] || pantryScanModes.flexible;
   const maxMissing = mode === "strict" ? 1 : mode === "surprise" ? 5 : 3;
+  const allowedMissing = pantry.length > 1 && mode !== "strict" ? 5 : maxMissing;
   const rows = allRecipeCollection().map((recipe) => {
     const coverage = assistantIngredientCoverage(recipe, pantry);
     const queryScore = pantry.reduce((sum, item) => sum + recipeDiscoveryScore(recipe, [item]), 0);
@@ -13982,15 +14116,21 @@ function assistantRecipeSearchRows(ingredients = [], { limit = 24, mode = pantry
     return {
       recipe,
       matches: coverage.matched,
+      unmatched: pantry.filter((item) => !coverage.matched.includes(item)),
       missing: coverage.missing,
       knownIngredients: coverage.knownIngredients,
       matchLabel: coverage.label,
-      score
+      score,
+      allIngredientsMatched: coverage.matched.length === pantry.length,
+      coverageRatio: coverage.matched.length / pantry.length
     };
   })
-    .filter((row) => row.matches.length && row.missing.length <= maxMissing)
-    .sort((a, b) => b.matches.length - a.matches.length || b.score - a.score || a.recipe.title.localeCompare(b.recipe.title));
-  return diversifyAssistantRecipeRows(rows, pantry, limit);
+    .filter((row) => row.matches.length && row.missing.length <= allowedMissing)
+    .sort((a, b) => Number(b.allIngredientsMatched) - Number(a.allIngredientsMatched) || b.matches.length - a.matches.length || b.score - a.score || a.recipe.title.localeCompare(b.recipe.title));
+  const exact = diversifyAssistantRecipeRows(rows.filter((row) => row.allIngredientsMatched), pantry, limit);
+  const combined = diversifyAssistantRecipeRows(rows.filter((row) => !row.allIngredientsMatched && row.matches.length > 1), pantry, limit);
+  const single = diversifyAssistantRecipeRows(rows.filter((row) => row.matches.length === 1), pantry, limit);
+  return [...exact, ...combined, ...single].slice(0, limit);
 }
 
 function recipeDiscoverySummaryMarkup({ query = "", pantry = [], results = [], relaxed = false } = {}) {
@@ -14230,7 +14370,7 @@ function kitchenSearchHero(term = "chicken") {
       <form class="kitchen-quick-search" data-ingredient-form>
         <label for="kitchenHeroIngredient">What do you have?</label>
         <div>
-          <input id="kitchenHeroIngredient" name="ingredient" value="${term}" placeholder="chicken, shrimp, rice..." />
+          <input id="kitchenHeroIngredient" name="ingredient" value="${term}" placeholder="shrimp, spinach, rice..." />
           <button class="small-button secondary" type="submit">Find Ideas</button>
         </div>
       </form>
@@ -14278,6 +14418,11 @@ function kitchenPopularRecipesSection() {
 }
 
 function kitchenIngredientIdeasSection(term = "chicken") {
+  const ingredientTerms = parseIngredientTerms(term);
+  if (ingredientTerms.length > 1) {
+    const rows = assistantRecipeSearchRows(ingredientTerms, { limit: 24, mode: "surprise" });
+    return `<section class="cream-section kitchen-ideas-section multi-ingredient-kitchen-results" aria-labelledby="kitchenIdeasTitle"><div class="section-heading compact-heading"><p class="eyebrow">Cook what you have together</p><h2 id="kitchenIdeasTitle">Dinner ideas for ${ingredientTerms.map(titleizeSlug).join(" + ")}</h2><p>Recipes using every entered ingredient come first. Closest and single-ingredient fallbacks are labeled separately.</p></div>${ingredientCombinationSearchMarkup(rows, ingredientTerms, { limit: 18 })}</section>`;
+  }
   const guide = ingredientGuideFor(term);
   return `
     <section class="cream-section kitchen-ideas-section" aria-labelledby="kitchenIdeasTitle">
@@ -14364,7 +14509,9 @@ function midwestRegionalHub() {
 }
 
 function renderKitchenSearch(id) {
-  const term = id ? normalizeIngredientTerm(id) : "chicken";
+  const decodedTerm = id ? (() => { try { return decodeURIComponent(id); } catch { return id; } })() : "chicken";
+  const parsedTerms = parseIngredientTerms(decodedTerm);
+  const term = parsedTerms.length > 1 ? parsedTerms.join(", ") : normalizeIngredientTerm(decodedTerm);
   app.innerHTML = `
     ${kitchenSearchHero(term)}
     ${cookSubnav()}
@@ -14399,7 +14546,7 @@ function pantryPackagedRecognitionsFromText(text = "") {
 
 function pantryIngredientsFromText(text = "") {
   const normalized = String(text).toLowerCase();
-  const typed = normalized.split(/,|\n| and /).map((item) => item.trim()).filter(Boolean);
+  const typed = normalized.split(/[,;\n+]|\s+and\s+/).map((item) => item.trim()).filter(Boolean);
   const spotted = pantryScanQuickIngredients.filter((item) => normalized.includes(item));
   const packaged = pantryPackagedRecognitionsFromText(text).map((item) => item.ingredient);
   return uniquePantryIngredients([...typed, ...spotted, ...packaged]);
@@ -14474,18 +14621,58 @@ function pantryFallbackIdeas(ingredients = [], mode = pantryModeFromState()) {
     .slice(0, mode === "surprise" ? 6 : 4);
 }
 
+function ingredientMatchGroups(rows = [], ingredients = []) {
+  const terms = uniquePantryIngredients(ingredients);
+  const normalizedRows = rows.map((row) => {
+    const matches = row.matches || ingredientCombinationEvidence(row.recipe, terms).matched;
+    const unmatched = row.unmatched || terms.filter((item) => !matches.includes(item));
+    return { ...row, matches, unmatched, allIngredientsMatched: Boolean(terms.length && matches.length === terms.length) };
+  });
+  const exact = normalizedRows.filter((row) => row.allIngredientsMatched);
+  const partial = normalizedRows.filter((row) => !row.allIngredientsMatched && row.matches.length > 1);
+  const single = normalizedRows.filter((row) => row.matches.length === 1);
+  const bestCount = Math.max(0, ...normalizedRows.map((row) => row.matches.length));
+  const strongest = exact.length ? exact : partial.filter((row) => row.matches.length === Math.max(0, ...partial.map((item) => item.matches.length)));
+  return { terms, exact, partial, single, strongest, bestCount };
+}
+
+function ingredientMatchBadges(row = {}, ingredients = []) {
+  const terms = uniquePantryIngredients(ingredients);
+  const matches = row.matches || [];
+  const unmatched = row.unmatched || terms.filter((item) => !matches.includes(item));
+  return `<div class="ingredient-match-badges" aria-label="Ingredient coverage"><span class="matched">Uses: ${matches.map(titleizeSlug).join(", ")}</span>${unmatched.length ? `<span class="unmatched">Doesn’t use: ${unmatched.map(titleizeSlug).join(", ")}</span>` : ""}</div>`;
+}
+
+function leftoverIngredientSuggestions(rows = [], ingredients = [], strongestRows = [], limit = 4) {
+  const terms = uniquePantryIngredients(ingredients);
+  if (!strongestRows.length) return { leftovers: [], rows: [] };
+  const usedByTopRecipe = new Set(strongestRows[0]?.matches || []);
+  const leftovers = terms.filter((item) => !usedByTopRecipe.has(item));
+  if (!leftovers.length) return { leftovers, rows: [] };
+  const supportiveSections = new Set(["sides", "salads", "vegetables", "miscellaneous", "appetizers-finger-foods"]);
+  const candidates = rows
+    .map((row) => {
+      const matches = row.matches || row.matched || ingredientCombinationEvidence(row.recipe, terms).matched;
+      return { ...row, matches, unmatched: row.unmatched || terms.filter((item) => !matches.includes(item)) };
+    })
+    .filter((row) => row.recipe?.id !== strongestRows[0]?.recipe?.id && row.matches.some((item) => leftovers.includes(item)))
+    .sort((a, b) => Number(supportiveSections.has(recipeCookbookPrimarySection(b.recipe))) - Number(supportiveSections.has(recipeCookbookPrimarySection(a.recipe))) || b.matches.length - a.matches.length || b.score - a.score);
+  return { leftovers, rows: candidates.slice(0, limit) };
+}
+
 function pantryScanResultsMarkup(ingredients = [], mode = pantryModeFromState()) {
   const modeProfile = pantryScanModes[mode] || pantryScanModes.flexible;
   if (!ingredients.length) {
     return `<div class="empty-state">Add ingredients or browse the grocery categories to get meal ideas from the real recipe library.</div>`;
   }
   const matches = pantryScanMatches(ingredients, mode);
+  const groups = ingredientMatchGroups(matches, ingredients);
   const fallbackIdeas = pantryFallbackIdeas(ingredients, mode);
-  const recipeMarkup = matches.map(({ recipe, matches: matchedIngredients, missing }) => `
+  const recipeRowMarkup = ({ recipe, matches: matchedIngredients, unmatched, missing }) => `
     <article class="planner-recipe-card pantry-result-card">
       <img src="${recipePhotoFor(recipe)}" alt="${escapeHTML(recipe.title)}" />
       <div>
-        <p class="eyebrow">Uses ${matchedIngredients.slice(0, 4).map(titleizeSlug).join(", ")}</p>
+        ${ingredientMatchBadges({ matches: matchedIngredients, unmatched }, ingredients)}
         <h3>${recipe.title}</h3>
         <p>${recipe.description || "A pantry-friendly Let's Cook Y'all recipe."}</p>
         ${missing.length ? `<p class="pantry-missing-note">You're only missing ${missing.slice(0, 3).map(titleizeSlug).join(", ")}${missing.length > 3 ? " and a few basics" : ""}.</p>` : `<p class="pantry-missing-note ready">You can cook this with what you selected.</p>`}
@@ -14500,7 +14687,12 @@ function pantryScanResultsMarkup(ingredients = [], mode = pantryModeFromState())
         </div>
       </div>
     </article>
-  `).join("");
+  `;
+  const strongestMarkup = groups.strongest.slice(0, 8).map(recipeRowMarkup).join("");
+  const nextBestRows = [...groups.partial, ...groups.single].filter((row) => !groups.strongest.some((strongest) => strongest.recipe.id === row.recipe.id));
+  const nextBestMarkup = nextBestRows.slice(0, 8).map(recipeRowMarkup).join("");
+  const leftover = leftoverIngredientSuggestions(matches, ingredients, groups.strongest);
+  const leftoverMarkup = leftover.rows.length ? `<section class="pantry-leftover-section"><div class="section-heading compact-heading"><p class="eyebrow">Still have ingredients left?</p><h3>Use ${leftover.leftovers.map(titleizeSlug).join(", ")} in something that completes the table.</h3><p>These are separate side, sauce, salad, or follow-up ideas—not the primary combined match.</p></div>${leftover.rows.map(recipeRowMarkup).join("")}</section>` : "";
   const fallbackMarkup = fallbackIdeas.length ? `
     <div class="pantry-inspiration-grid">
       ${fallbackIdeas.map((idea) => `
@@ -14519,10 +14711,16 @@ function pantryScanResultsMarkup(ingredients = [], mode = pantryModeFromState())
   return `
     <div class="pantry-results-summary">
       <p class="eyebrow">${modeProfile.eyebrow}</p>
-      <h3>Here are ${matches.length + fallbackIdeas.length} meals you can make or nearly make tonight.</h3>
-      <p>${modeProfile.copy}</p>
+      <h3>${groups.exact.length ? `${groups.exact.length} recipe${groups.exact.length === 1 ? "" : "s"} use all ${groups.terms.length} ingredients together.` : `No saved recipe uses all ${groups.terms.length} ingredients together yet.`}</h3>
+      <p>${groups.exact.length
+        ? "Exact combined matches come first, followed by recipes using most of what you entered."
+        : groups.strongest.length
+          ? `These are the closest combined matches, using ${groups.bestCount} of ${groups.terms.length} entered ingredients in the same dish. Nothing below is labeled as an exact match.`
+          : `No combined dish was found. The fallback recipes below each use ${groups.bestCount} of ${groups.terms.length} entered ingredients, and none is labeled as an exact match.`}</p>
     </div>
-    ${recipeMarkup}
+    ${strongestMarkup ? `<section class="pantry-strongest-matches" aria-label="Strongest combined ingredient matches">${strongestMarkup}</section>` : ""}
+    ${nextBestMarkup ? `<section class="pantry-next-best-matches"><div class="section-heading compact-heading"><p class="eyebrow">${groups.strongest.length ? "More close matches" : "Single-ingredient fallback suggestions"}</p><h3>${groups.strongest.length ? "Recipes using fewer of your entered ingredients" : "No combined dish was found, so these are not exact matches"}</h3></div>${nextBestMarkup}</section>` : ""}
+    ${leftoverMarkup}
     ${fallbackMarkup}
   `;
 }
@@ -14814,6 +15012,244 @@ function renderPantryScan(id = "pantry") {
   `;
 }
 
+const worldGlobeDestinations = [
+  ["united-states", "United States", "North America", "North America", 39.8, -98.6, ["usa", "us", "american"]],
+  ["canada", "Canada", "North America", "North America", 56.1, -106.3, ["canadian"]],
+  ["mexico", "Mexico", "North America", "North America", 23.6, -102.5, ["mexican"]],
+  ["cuba", "Cuba", "Caribbean", "Caribbean", 21.5, -79.4, ["cuban"]],
+  ["jamaica", "Jamaica", "Caribbean", "Caribbean", 18.1, -77.3, ["jamaican"]],
+  ["puerto-rico", "Puerto Rico", "Caribbean", "Caribbean", 18.2, -66.5, ["puerto rican"]],
+  ["haiti", "Haiti", "Caribbean", "Caribbean", 18.9, -72.3, ["haitian"]],
+  ["trinidad", "Trinidad & Tobago", "Caribbean", "Caribbean", 10.7, -61.2, ["trinidad", "trinidadian"]],
+  ["brazil", "Brazil", "Latin America", "South America", -14.2, -51.9, ["brazilian"]],
+  ["peru", "Peru", "Latin America", "South America", -9.2, -75.0, ["peruvian"]],
+  ["colombia", "Colombia", "Latin America", "South America", 4.6, -74.3, ["colombian"]],
+  ["argentina", "Argentina", "Latin America", "South America", -38.4, -63.6, ["argentinian"]],
+  ["nigeria", "Nigeria", "Africa", "West Africa", 9.1, 8.7, ["nigerian"]],
+  ["ghana", "Ghana", "Africa", "West Africa", 7.9, -1.0, ["ghanaian"]],
+  ["senegal", "Senegal", "Africa", "West Africa", 14.5, -14.5, ["senegalese"]],
+  ["ethiopia", "Ethiopia", "Africa", "East Africa", 9.1, 40.5, ["ethiopian"]],
+  ["kenya", "Kenya", "Africa", "East Africa", -0.0, 37.9, ["kenyan"]],
+  ["morocco", "Morocco", "Africa", "North Africa", 31.8, -7.1, ["moroccan"]],
+  ["egypt", "Egypt", "Africa", "North Africa", 26.8, 30.8, ["egyptian"]],
+  ["south-africa", "South Africa", "Africa", "Southern Africa", -30.6, 22.9, ["south african"]],
+  ["india", "India", "Asia", "South Asia", 20.6, 79.0, ["indian"]],
+  ["pakistan", "Pakistan", "Asia", "South Asia", 30.4, 69.3, ["pakistani"]],
+  ["china", "China", "Asia", "East Asia", 35.9, 104.2, ["chinese"]],
+  ["japan", "Japan", "Asia", "East Asia", 36.2, 138.3, ["japanese"]],
+  ["korea", "Korea", "Asia", "East Asia", 36.5, 127.9, ["korean", "south korea"]],
+  ["philippines", "Philippines", "Asia", "Southeast Asia", 12.9, 121.8, ["filipino", "filipina"]],
+  ["thailand", "Thailand", "Asia", "Southeast Asia", 15.9, 100.9, ["thai"]],
+  ["vietnam", "Vietnam", "Asia", "Southeast Asia", 14.1, 108.3, ["vietnamese"]],
+  ["indonesia", "Indonesia", "Asia", "Southeast Asia", -0.8, 113.9, ["indonesian"]],
+  ["malaysia", "Malaysia", "Asia", "Southeast Asia", 4.2, 101.9, ["malaysian"]],
+  ["singapore", "Singapore", "Asia", "Southeast Asia", 1.4, 103.8, ["singaporean"]],
+  ["turkey", "Turkey", "Europe", "Eastern Mediterranean", 39.0, 35.2, ["turkish"]],
+  ["greece", "Greece", "Europe", "Southern Europe", 39.1, 21.8, ["greek"]],
+  ["italy", "Italy", "Europe", "Southern Europe", 41.9, 12.6, ["italian"]],
+  ["spain", "Spain", "Europe", "Southern Europe", 40.5, -3.7, ["spanish"]],
+  ["france", "France", "Europe", "Western Europe", 46.2, 2.2, ["french"]],
+  ["germany", "Germany", "Europe", "Central Europe", 51.2, 10.5, ["german"]],
+  ["united-kingdom", "United Kingdom", "Europe", "Northern Europe", 55.4, -3.4, ["british", "england", "english"]],
+  ["ireland", "Ireland", "Europe", "Northern Europe", 53.1, -8.2, ["irish"]],
+  ["lebanon", "Lebanon", "Middle East", "Levant", 33.9, 35.9, ["lebanese"]],
+  ["israel", "Israel", "Middle East", "Levant", 31.0, 34.9, ["israeli"]],
+  ["australia", "Australia", "Oceania", "Oceania", -25.3, 133.8, ["australian"]],
+  ["new-zealand", "New Zealand", "Oceania", "Oceania", -40.9, 174.9, ["new zealand", "kiwi"]],
+  ["fiji", "Fiji", "Oceania", "Pacific Islands", -17.7, 178.1, ["fijian"]],
+  ["samoa", "Samoa", "Oceania", "Pacific Islands", -13.8, -172.1, ["samoan"]]
+].map(([id, title, region, subregion, lat, lon, aliases]) => ({ id, title, region, subregion, lat, lon, aliases }));
+
+const worldGlobeContinents = [
+  [[-168,72],[-140,70],[-125,55],[-117,50],[-105,25],[-82,9],[-76,18],[-64,44],[-52,48],[-57,60],[-82,72],[-110,74]],
+  [[-82,12],[-74,7],[-68,-5],[-52,-12],[-39,-22],[-53,-55],[-70,-54],[-80,-15]],
+  [[-18,36],[-9,43],[5,44],[18,40],[32,31],[44,12],[51,-12],[34,-35],[17,-35],[4,-10],[-13,7]],
+  [[-10,36],[-9,59],[8,71],[30,70],[42,55],[66,58],[92,77],[145,70],[180,62],[167,45],[142,35],[125,20],[104,7],[78,8],[60,25],[43,36],[25,41],[10,36]],
+  [[68,24],[76,8],[88,7],[92,22],[82,31]],
+  [[95,20],[112,8],[126,4],[141,-8],[128,-12],[111,-7]],
+  [[112,-10],[154,-11],[153,-39],[131,-44],[114,-34]],
+  [[-52,60],[-24,62],[-20,80],[-45,84],[-70,75]],
+  [[166,-35],[179,-37],[176,-47],[167,-46]]
+];
+
+let worldGlobeOrientation = { lon: -18, lat: 12 };
+let worldGlobeAnimationFrame = 0;
+
+function worldGlobeDestinationById(id = "") {
+  const normalized = slugify(id);
+  return worldGlobeDestinations.find((destination) => destination.id === normalized) || null;
+}
+
+function worldGlobeDestinationForQuery(query = "") {
+  const normalized = normalizeIngredientTerm(query);
+  if (!normalized) return null;
+  return worldGlobeDestinations.find((destination) => [destination.id, destination.title, ...destination.aliases].some((value) => {
+    const candidate = normalizeIngredientTerm(value);
+    return candidate === normalized || candidate.includes(normalized) || normalized.includes(candidate);
+  })) || null;
+}
+
+function recipesForWorldDestination(destinationOrId, limit = Number.POSITIVE_INFINITY) {
+  const destination = typeof destinationOrId === "string" ? worldGlobeDestinationById(destinationOrId) : destinationOrId;
+  if (!destination) return [];
+  const identityTerms = [destination.id, destination.title, ...destination.aliases].map(normalizeIngredientTerm).filter((term) => term.length > 2);
+  const seenRecipes = new Set();
+  const seenImages = new Set();
+  return allRecipeCollection().filter((recipe) => {
+    const identityText = normalizeIngredientTerm([recipe.title, recipe.cuisine, recipe.category, ...(recipe.tags || []), recipe.cultural_origin || ""].join(" "));
+    const belongs = identityTerms.some((term) => ` ${identityText} `.includes(` ${term} `));
+    const canonicalId = canonicalRecipeId(recipe.id);
+    const image = recipePhotoFor(recipe);
+    if (!belongs || seenRecipes.has(canonicalId) || seenImages.has(image) || !recipeHasPublishReadyPhoto(recipe)) return false;
+    seenRecipes.add(canonicalId);
+    seenImages.add(image);
+    return true;
+  }).slice(0, Number.isFinite(limit) ? limit : undefined);
+}
+
+function worldGlobeRegionMenuMarkup(selectedId = "") {
+  const regions = [...new Set(worldGlobeDestinations.map((destination) => destination.region))];
+  return `<nav class="world-globe-region-menu" aria-label="Browse destinations by region">${regions.map((region) => {
+    const destinations = worldGlobeDestinations.filter((destination) => destination.region === region);
+    const subregions = [...new Set(destinations.map((destination) => destination.subregion))];
+    return `<details ${destinations.some((destination) => destination.id === selectedId) ? "open" : ""}><summary>${region}<span>${destinations.length}</span></summary>${subregions.map((subregion) => `<div><h3>${subregion}</h3>${destinations.filter((destination) => destination.subregion === subregion).map((destination) => `<a class="${destination.id === selectedId ? "active" : ""}" href="#cuisine-explorer/${destination.id}" data-world-destination-link="${destination.id}">${destination.title}</a>`).join("")}</div>`).join("")}</details>`;
+  }).join("")}</nav>`;
+}
+
+function worldDestinationLeadRecipeMarkup(recipe) {
+  if (!recipe) return "";
+  const instructions = recipe.instructions || recipe.directions || [];
+  return `<article class="world-destination-lead-recipe"><img src="${recipePhotoFor(recipe)}" alt="${escapeHTML(recipe.title)}" /><div><p class="eyebrow">Start cooking here</p><h3>${escapeHTML(recipe.title)}</h3><p>${escapeHTML(recipe.description || "A destination-specific recipe from the canonical cookbook.")}</p><div class="world-lead-recipe-details"><section><h4>Ingredients</h4><ul>${(recipe.ingredients || []).slice(0, 6).map((item) => `<li>${escapeHTML(typeof item === "string" ? item : item.name || item.item || "")}</li>`).join("")}</ul></section><section><h4>First steps</h4><ol>${instructions.slice(0, 3).map((step) => `<li>${escapeHTML(step)}</li>`).join("")}</ol></section></div><a class="small-button" href="#recipes/${recipe.id}">Open the full recipe</a></div></article>`;
+}
+
+function worldDestinationCollectionMarkup(destination) {
+  if (!destination) return "";
+  const profile = countryCuisineProfiles[destination.id];
+  const recipes = recipesForWorldDestination(destination);
+  const categories = [...new Set(recipes.map(recipeCookbookPrimarySection))];
+  const welcomeName = ["philippines", "united-states", "united-kingdom"].includes(destination.id) ? `the ${destination.title}` : destination.title;
+  return `<section class="cream-section world-destination-panel ${destination ? "is-waiting" : ""}" data-world-destination-panel aria-live="polite"><div class="section-heading"><p class="eyebrow">Welcome to ${welcomeName}</p><h2>${destination.title} through food.</h2><p>${escapeHTML(profile?.overview || `Explore the recipes and cooking traditions currently available for ${destination.title}.`)}</p></div><div class="world-destination-context"><article><h3>Signature ingredients</h3><div>${(profile?.ingredients || []).slice(0, 8).map((item) => `<span>${escapeHTML(item)}</span>`).join("")}</div></article><article><h3>Traditional dishes</h3><div>${(profile?.dishes || []).slice(0, 8).map((item) => `<span>${escapeHTML(item)}</span>`).join("")}</div></article><article><h3>Cooking traditions</h3><div>${(profile?.techniques || []).slice(0, 6).map((item) => `<span>${escapeHTML(item)}</span>`).join("")}</div></article></div>${categories.length > 1 ? `<div class="world-destination-categories" aria-label="Available recipe categories">${categories.map((category) => `<span>${titleizeSlug(category)} · ${recipes.filter((recipe) => recipeCookbookPrimarySection(recipe) === category).length}</span>`).join("")}</div>` : ""}${recipes.length ? `${worldDestinationLeadRecipeMarkup(recipes[0])}<div class="section-heading compact-heading"><p class="eyebrow">Authentic destination matches</p><h3>Cook ${destination.title}.</h3><p>Only canonical recipes with explicit ${destination.title} identity metadata appear here.</p></div><div class="recipe-grid">${recipes.map(recipeCard).join("")}</div>` : cuisineComingSoonMarkup(`${destination.title} recipes`, destination.title)}<p class="world-destination-growth-note">${recipes.length < 5 ? `This collection currently has ${recipes.length} verified recipe${recipes.length === 1 ? "" : "s"}. We’ll grow it with accurate dishes and photography instead of filling the page with generic substitutes.` : "This collection can grow as more culturally reviewed recipes and matching photographs are added."}</p></section>`;
+}
+
+function worldGlobeMarkup(selectedDestination = null) {
+  const selectedId = selectedDestination?.id || "";
+  return `<section class="world-globe-experience" aria-labelledby="worldGlobeTitle"><div class="world-globe-copy"><div class="world-globe-intro"><p class="eyebrow">World Map · Travel through food</p><h1 id="worldGlobeTitle">Where should we cook next?</h1><p>Drag or swipe the globe, choose a marker, or search for a country. The destination’s real recipe collection appears after the globe arrives.</p></div><form class="world-globe-search" data-world-globe-search role="search"><label for="worldGlobeSearch">Find a country or food culture</label><div><input id="worldGlobeSearch" name="destination" value="${escapeHTML(selectedDestination?.title || "")}" list="worldGlobeDestinations" placeholder="Try Philippines, Nigeria, Greece…" autocomplete="off" /><button class="small-button" type="submit">Travel there</button></div><datalist id="worldGlobeDestinations">${worldGlobeDestinations.map((destination) => `<option value="${destination.title}">${destination.subregion}</option>`).join("")}</datalist><p class="world-globe-search-status" data-world-globe-search-status aria-live="polite"></p></form></div><div class="world-globe-layout"><div class="world-globe-stage"><canvas class="world-globe-canvas" data-world-globe width="760" height="760" tabindex="0" role="img" aria-label="Interactive globe. Drag left or right to rotate, use arrow keys, or choose a country from the destination menu."></canvas><div class="world-globe-orbit" aria-hidden="true"></div><div class="world-globe-destination-label" data-world-globe-label aria-live="polite">${selectedDestination ? `<span>Destination</span><strong>${selectedDestination.title}</strong><small>${selectedDestination.subregion}</small>` : `<span>Spin the globe</span><strong>Choose a destination</strong><small>Markers show available food cultures</small>`}</div><div class="world-globe-controls" aria-label="Globe rotation controls"><button type="button" data-globe-rotate="left" aria-label="Rotate globe left">←</button><button type="button" data-globe-rotate="up" aria-label="Rotate globe up">↑</button><button type="button" data-globe-rotate="down" aria-label="Rotate globe down">↓</button><button type="button" data-globe-rotate="right" aria-label="Rotate globe right">→</button></div></div><aside class="world-globe-destinations"><div><p class="eyebrow">Quick navigation</p><h2>Regions and countries</h2><p>The menu mirrors the globe for keyboard access and fast browsing.</p></div>${worldGlobeRegionMenuMarkup(selectedId)}</aside></div></section>`;
+}
+
+function initWorldGlobe(selectedId = "") {
+  const canvas = document.querySelector("[data-world-globe]");
+  if (!canvas) return;
+  cancelAnimationFrame(worldGlobeAnimationFrame);
+  const context = canvas.getContext("2d");
+  const selectedDestination = worldGlobeDestinationById(selectedId);
+  const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+  let orientation = { ...worldGlobeOrientation };
+  let markers = [];
+  let dragging = false;
+  let moved = false;
+  let startPointer = { x: 0, y: 0, lon: orientation.lon, lat: orientation.lat };
+  const radians = (degrees) => degrees * Math.PI / 180;
+  const project = (lon, lat, radius, centerX, centerY) => {
+    const lambda = radians(lon - orientation.lon);
+    const phi = radians(lat);
+    const centerLat = radians(orientation.lat);
+    const x = Math.cos(phi) * Math.sin(lambda);
+    const y = Math.sin(phi);
+    const z = Math.cos(phi) * Math.cos(lambda);
+    const y2 = y * Math.cos(centerLat) - z * Math.sin(centerLat);
+    const z2 = y * Math.sin(centerLat) + z * Math.cos(centerLat);
+    return { x: centerX + radius * x, y: centerY - radius * y2, z: z2, visible: z2 > -0.02 };
+  };
+  const drawLine = (points, radius, centerX, centerY, color, width = 1) => {
+    context.beginPath();
+    let drawing = false;
+    points.forEach(([lon, lat]) => {
+      const point = project(lon, lat, radius, centerX, centerY);
+      if (!point.visible) { drawing = false; return; }
+      if (!drawing) context.moveTo(point.x, point.y);
+      else context.lineTo(point.x, point.y);
+      drawing = true;
+    });
+    context.strokeStyle = color;
+    context.lineWidth = width;
+    context.stroke();
+  };
+  const draw = () => {
+    const cssSize = Math.min(canvas.clientWidth || 760, 760);
+    const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+    const size = Math.max(320, Math.round(cssSize * pixelRatio));
+    if (canvas.width !== size || canvas.height !== size) { canvas.width = size; canvas.height = size; }
+    context.setTransform(1, 0, 0, 1, 0, 0);
+    context.clearRect(0, 0, size, size);
+    const center = size / 2;
+    const radius = size * .42;
+    const ocean = context.createRadialGradient(center - radius * .35, center - radius * .4, radius * .08, center, center, radius);
+    ocean.addColorStop(0, "#42c8dc");
+    ocean.addColorStop(.55, "#147fa5");
+    ocean.addColorStop(1, "#073f62");
+    context.beginPath(); context.arc(center, center, radius, 0, Math.PI * 2); context.fillStyle = ocean; context.fill();
+    context.save(); context.beginPath(); context.arc(center, center, radius, 0, Math.PI * 2); context.clip();
+    for (let lat = -60; lat <= 60; lat += 30) drawLine(Array.from({ length: 73 }, (_, index) => [-180 + index * 5, lat]), radius, center, center, "rgba(223,250,255,.2)", pixelRatio);
+    for (let lon = -180; lon < 180; lon += 30) drawLine(Array.from({ length: 37 }, (_, index) => [lon, -90 + index * 5]), radius, center, center, "rgba(223,250,255,.17)", pixelRatio);
+    worldGlobeContinents.forEach((polygon) => {
+      const projected = polygon.map(([lon, lat]) => project(lon, lat, radius, center, center));
+      context.beginPath();
+      let started = false;
+      projected.forEach((point) => {
+        if (!point.visible) return;
+        if (!started) { context.moveTo(point.x, point.y); started = true; }
+        else context.lineTo(point.x, point.y);
+      });
+      if (started) { context.closePath(); context.fillStyle = "#7dbf69"; context.fill(); context.strokeStyle = "rgba(244,255,222,.65)"; context.lineWidth = 1.5 * pixelRatio; context.stroke(); }
+    });
+    markers = worldGlobeDestinations.map((destination) => ({ destination, point: project(destination.lon, destination.lat, radius, center, center) })).filter(({ point }) => point.z > .06);
+    markers.sort((a, b) => a.point.z - b.point.z).forEach(({ destination, point }) => {
+      const selected = destination.id === selectedId;
+      const markerRadius = (selected ? 9 : 5.5) * pixelRatio * (.68 + point.z * .32);
+      context.beginPath(); context.arc(point.x, point.y, markerRadius + (selected ? 6 * pixelRatio : 0), 0, Math.PI * 2); context.fillStyle = selected ? "rgba(255,205,73,.28)" : "rgba(255,255,255,.12)"; context.fill();
+      context.beginPath(); context.arc(point.x, point.y, markerRadius, 0, Math.PI * 2); context.fillStyle = selected ? "#ffd14f" : "#fff7d1"; context.fill(); context.strokeStyle = "#173846"; context.lineWidth = 2 * pixelRatio; context.stroke();
+    });
+    context.restore();
+    const shine = context.createRadialGradient(center - radius * .42, center - radius * .45, 0, center - radius * .2, center - radius * .2, radius * .7);
+    shine.addColorStop(0, "rgba(255,255,255,.42)"); shine.addColorStop(1, "rgba(255,255,255,0)");
+    context.beginPath(); context.arc(center, center, radius, 0, Math.PI * 2); context.fillStyle = shine; context.fill();
+    context.beginPath(); context.arc(center, center, radius, 0, Math.PI * 2); context.strokeStyle = "rgba(236,255,245,.72)"; context.lineWidth = 3 * pixelRatio; context.stroke();
+  };
+  const setOrientation = (lon, lat) => { orientation.lon = ((lon + 540) % 360) - 180; orientation.lat = Math.max(-65, Math.min(65, lat)); worldGlobeOrientation = { ...orientation }; canvas.dataset.globeLon = orientation.lon.toFixed(2); canvas.dataset.globeLat = orientation.lat.toFixed(2); draw(); };
+  const revealDestination = () => document.querySelector("[data-world-destination-panel]")?.classList.replace("is-waiting", "is-ready");
+  const animateToDestination = () => {
+    if (!selectedDestination) { draw(); return; }
+    const start = { ...orientation };
+    let deltaLon = selectedDestination.lon - start.lon;
+    if (deltaLon > 180) deltaLon -= 360;
+    if (deltaLon < -180) deltaLon += 360;
+    const duration = reduceMotion ? 0 : 1250;
+    const startTime = performance.now();
+    const frame = (now) => {
+      const progress = duration ? Math.min(1, (now - startTime) / duration) : 1;
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setOrientation(start.lon + deltaLon * eased, start.lat + (selectedDestination.lat - start.lat) * eased);
+      if (progress < 1) worldGlobeAnimationFrame = requestAnimationFrame(frame);
+      else { worldGlobeOrientation = { lon: selectedDestination.lon, lat: selectedDestination.lat }; revealDestination(); }
+    };
+    worldGlobeAnimationFrame = requestAnimationFrame(frame);
+  };
+  canvas.addEventListener("pointerdown", (event) => { dragging = true; moved = false; startPointer = { x: event.clientX, y: event.clientY, lon: orientation.lon, lat: orientation.lat }; canvas.setPointerCapture?.(event.pointerId); });
+  canvas.addEventListener("pointermove", (event) => { if (!dragging) return; const dx = event.clientX - startPointer.x; const dy = event.clientY - startPointer.y; if (Math.abs(dx) + Math.abs(dy) > 6) moved = true; setOrientation(startPointer.lon - dx * .32, startPointer.lat + dy * .2); });
+  canvas.addEventListener("pointerup", (event) => { if (!dragging) return; dragging = false; if (!moved) { const rect = canvas.getBoundingClientRect(); const scaleX = canvas.width / rect.width; const scaleY = canvas.height / rect.height; const x = (event.clientX - rect.left) * scaleX; const y = (event.clientY - rect.top) * scaleY; const hit = markers.map((marker) => ({ ...marker, distance: Math.hypot(marker.point.x - x, marker.point.y - y) })).filter((marker) => marker.distance < 22 * Math.min(window.devicePixelRatio || 1, 2)).sort((a, b) => a.distance - b.distance)[0]; if (hit) window.location.hash = `#cuisine-explorer/${hit.destination.id}`; } });
+  canvas.addEventListener("keydown", (event) => { const moves = { ArrowLeft: [-12, 0], ArrowRight: [12, 0], ArrowUp: [0, 8], ArrowDown: [0, -8] }; if (!moves[event.key]) return; event.preventDefault(); setOrientation(orientation.lon + moves[event.key][0], orientation.lat + moves[event.key][1]); });
+  document.querySelectorAll("[data-globe-rotate]").forEach((button) => button.addEventListener("click", () => { const move = { left: [-18, 0], right: [18, 0], up: [0, 10], down: [0, -10] }[button.dataset.globeRotate]; setOrientation(orientation.lon + move[0], orientation.lat + move[1]); }));
+  if (typeof ResizeObserver !== "undefined") new ResizeObserver(draw).observe(canvas);
+  else draw();
+  animateToDestination();
+}
+
+function renderWorldMapExperience(selectedId = "") {
+  const destination = worldGlobeDestinationById(selectedId);
+  app.innerHTML = `${cookSubnav()}${worldGlobeMarkup(destination)}${destination ? worldDestinationCollectionMarkup(destination) : ""}${cuisineDrawerMarkup()}<section class="cream-section cuisine-market-section world-region-fallback"><div class="section-heading"><p class="eyebrow">Regional paths</p><h2>Prefer the market lanes?</h2><p>The existing regional organization remains available for quick navigation and countries whose collections are still growing.</p></div><div class="cuisine-market-grid">${cuisineExplorerGroups.map(cuisineMarketCard).join("")}</div></section>`;
+  requestAnimationFrame(() => initWorldGlobe(destination?.id || ""));
+}
+
 function renderCuisineExplorerDetail(id) {
   const normalized = slugify(decodeURIComponent(id || ""));
   const group = cuisineExplorerGroups.find((item) => item.id === normalized);
@@ -14931,8 +15367,9 @@ function renderCuisineDrawerSearchResults(query = "") {
   const holidayQuery = /thanksgiving|christmas|easter|holiday|celebrat/.test(normalized);
   const cuisineTerms = normalized === "cajun" ? ["cajun", "creole", "louisiana"] : [normalized];
   const collections = cookbookCollectionDefinitions.filter((collection) => normalizeIngredientTerm(`${collection.title} ${collection.description} ${collection.id}`).includes(normalized) || normalized.includes(normalizeIngredientTerm(collection.title)) || (holidayQuery && collection.id === "holiday-tables")).slice(0, 5);
+  const countryMatches = worldGlobeDestinations.filter((destination) => [destination.title, destination.id, destination.region, destination.subregion, ...destination.aliases].some((value) => normalizeIngredientTerm(value).includes(normalized))).slice(0, 8);
   const matchingCuisines = cuisines.filter((cuisine) => cuisineTerms.some((term) => normalizeIngredientTerm(`${cuisine.name} ${cuisine.blurb || ""} ${cuisine.id}`).includes(term) || term.includes(normalizeIngredientTerm(cuisine.name)))).slice(0, 5);
-  target.innerHTML = `<div class="cuisine-drawer-search-results">${recipes.length ? `<section><h3>Recipes</h3><div class="cuisine-drawer-search-recipes">${recipes.map((recipe) => `<a href="#recipes/${recipe.id}"><img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" /><span>${recipe.title}</span></a>`).join("")}</div></section>` : ""}${collections.length ? `<section><h3>Cookbook collections</h3><div class="cuisine-drawer-links">${collections.map((collection) => `<a href="#living-cookbook?collection=${collection.id}">${collection.title}</a>`).join("")}</div></section>` : ""}${matchingCuisines.length ? `<section><h3>Cuisines</h3><div class="cuisine-drawer-links">${matchingCuisines.map((cuisine) => `<a href="#cuisine-explorer/${cuisine.id}">${cuisine.name}</a>`).join("")}</div></section>` : ""}${!recipes.length && !collections.length && !matchingCuisines.length ? `<p class="content-note">No matches yet. Try Cajun, shrimp, Thanksgiving, vegan, chicken, or air fryer.</p>` : ""}</div>`;
+  target.innerHTML = `<div class="cuisine-drawer-search-results">${countryMatches.length ? `<section><h3>Globe destinations</h3><div class="cuisine-drawer-links">${countryMatches.map((destination) => `<a href="#cuisine-explorer/${destination.id}">🌍 ${destination.title}<small>${destination.subregion}</small></a>`).join("")}</div></section>` : ""}${recipes.length ? `<section><h3>Recipes</h3><div class="cuisine-drawer-search-recipes">${recipes.map((recipe) => `<a href="#recipes/${recipe.id}"><img src="${recipePhotoFor(recipe)}" alt="${recipe.title}" /><span>${recipe.title}</span></a>`).join("")}</div></section>` : ""}${collections.length ? `<section><h3>Cookbook collections</h3><div class="cuisine-drawer-links">${collections.map((collection) => `<a href="#living-cookbook?collection=${collection.id}">${collection.title}</a>`).join("")}</div></section>` : ""}${matchingCuisines.length ? `<section><h3>Cuisines</h3><div class="cuisine-drawer-links">${matchingCuisines.map((cuisine) => `<a href="#cuisine-explorer/${cuisine.id}">${cuisine.name}</a>`).join("")}</div></section>` : ""}${!recipes.length && !collections.length && !matchingCuisines.length && !countryMatches.length ? `<p class="content-note">No matches yet. Try Philippines, Nigeria, Cajun, shrimp, Thanksgiving, vegan, or air fryer.</p>` : ""}</div>`;
 }
 
 function renderCuisineExplorer(id) {
@@ -14996,46 +15433,11 @@ function renderCuisineExplorer(id) {
   }
   if (westernId && westernRegionalPages[westernId]) return renderWesternRegionalPage(westernId);
   if (id === "african-cuisines") return africaCuisineHub();
+  if (id && worldGlobeDestinationById(id)) return renderWorldMapExperience(id);
   if (id && countryCuisineProfiles[id]) return renderCuisineExplorerDetail(id);
   if (id && africaCountryPages[id]) return renderAfricaCountryPage(id);
   if (id) return renderCuisineExplorerDetail(id);
-  app.innerHTML = `
-    <section class="cuisine-market-hero">
-      <div class="cuisine-market-hero-copy">
-        <p class="eyebrow">Cuisine Explorer</p>
-        <h1>Explore the world through food.</h1>
-        <p>Walk the market lanes: spice bowls, citrus crates, smokehouses, pasta tables, street stalls, seafood counters, garden baskets, and family recipes that make every cuisine feel alive.</p>
-        <div class="hero-actions">
-          <a class="small-button" href="#what-yall-cooking">Build A Menu</a>
-          <a class="small-button secondary" href="#culinary-academy/world-foods">Learn World Foods</a>
-        </div>
-      </div>
-      <div class="cuisine-market-stalls" aria-hidden="true">
-        <figure><img src="${cuisineCoverImages.indian}" alt="" /></figure>
-        <figure><img src="${cuisineCoverImages.mexican}" alt="" /></figure>
-        <figure><img src="${cuisineCoverImages.italian}" alt="" /></figure>
-      </div>
-    </section>
-    ${cookSubnav()}
-    ${cuisineDrawerMarkup()}
-    <section class="cream-section cuisine-market-section">
-      <div class="section-heading">
-        <p class="eyebrow">International food market</p>
-        <h2>Choose a destination that feels like a place, not a category.</h2>
-        <p>Each cuisine lane leads with atmosphere, ingredients, signature dishes, cultural highlights, and real paths into recipes and regional food stories.</p>
-      </div>
-      <div class="cuisine-market-grid">
-        ${cuisineExplorerGroups.map(cuisineMarketCard).join("")}
-      </div>
-    </section>
-    <section class="gold-section">
-      <div class="section-heading">
-        <p class="eyebrow">Same ingredient, new direction</p>
-        <h2>Chicken can become tacos, curry, pasta, bowls, wraps, or Sunday dinner.</h2>
-      </div>
-      ${ingredientGuideMarkup("chicken").replace("cream-section ingredient-results", "ingredient-results embedded-results")}
-    </section>
-  `;
+  renderWorldMapExperience();
 }
 
 const kitchenMathFacts = [
@@ -15517,7 +15919,9 @@ function renderWhatYallCooking(id) {
     const coverage = assistantIngredientCoverage(recipe, pantryIngredients);
     return { recipe, matches: coverage.matched, missing: coverage.missing, matchLabel: coverage.label, score: 0 };
   });
-  const resultRows = [...new Map([...starterRows, ...smartRows].map((row) => [row.recipe.id, row])).values()].slice(0, 8);
+  const resultRows = pantryIngredients.length
+    ? starterRows.slice(0, 8)
+    : [...new Map([...starterRows, ...smartRows].map((row) => [row.recipe.id, row])).values()].slice(0, 8);
   const resultRecipes = resultRows.map((row) => row.recipe);
   const activeScanLabel = id === "refrigerator" ? "Refrigerator" : id === "freezer" ? "Freezer" : id === "grocery-bags" ? "Grocery Bags" : id === "entire-kitchen" ? "Entire Kitchen" : "Pantry";
   app.innerHTML = `
@@ -15573,7 +15977,7 @@ function renderWhatYallCooking(id) {
         <label for="pantryScanNotes">What ingredients do you have today?</label>
         <textarea id="pantryScanNotes" name="ingredients" rows="5" placeholder="Chicken&#10;Rice&#10;Broccoli&#10;Butter">${escapeHTML(pantryScanState.notes || pantryIngredients.join("\n"))}</textarea>
         <div class="ai-kitchen-chip-row">
-          ${["chicken", "rice", "broccoli", "butter", "shrimp", "potatoes", "cheese", "tomatoes", "leftover chicken", "carrots"].map((item) => `<button class="${pantryIngredients.includes(item) ? "active" : ""}" type="button" data-pantry-chip="${item}">${titleizeSlug(item)}</button>`).join("")}
+          ${["chicken", "rice", "broccoli", "butter", "shrimp", "spinach", "potatoes", "cheese", "tomatoes", "leftover chicken", "carrots"].map((item) => `<button class="${pantryIngredients.includes(item) ? "active" : ""}" type="button" data-pantry-chip="${item}">${titleizeSlug(item)}</button>`).join("")}
         </div>
         <div class="ai-kitchen-actions">
           <button class="small-button" type="submit">Find Recipes</button>
@@ -15593,9 +15997,7 @@ function renderWhatYallCooking(id) {
       <div class="ai-kitchen-result-lanes" aria-label="Kitchen assistant result types">
         ${["🥘 Recipes", "📅 Weekly Meal Plan", "🛒 Shopping List", "🥬 Use Before It Spoils", "❤️ Save Recipe", "🍳 Cooking Mode"].map((item) => `<span>${item}</span>`).join("")}
       </div>
-      <div class="what-cooking-results-grid">
-        ${resultRows.length ? resultRows.map(aiKitchenResultCard).join("") : `<div class="empty-state">Tell me what you have and I&rsquo;ll help you find dinner.</div>`}
-      </div>
+      ${pantryIngredients.length ? `<div class="pantry-combination-output">${pantryScanResultsMarkup(pantryIngredients, pantryModeFromState())}</div>` : `<div class="what-cooking-results-grid">${resultRows.length ? resultRows.map(aiKitchenResultCard).join("") : `<div class="empty-state">Tell me what you have and I&rsquo;ll help you find dinner.</div>`}</div>`}
     </section>
   `;
 }
@@ -16295,7 +16697,7 @@ const cookbookCollectionDefinitions = [
 ].map(([id, title, description, matcher]) => ({ id, title, description, matcher }));
 
 const appetizerSubcategoryDefinitions = [
-  "Sandwiches & Clubs", "Sliders", "Pinwheels", "Dips", "Deviled Eggs", "Meatballs",
+  "Egg Rolls & Lumpia", "Sandwiches & Clubs", "Sliders", "Pinwheels", "Dips", "Deviled Eggs", "Meatballs",
   "Sausage Balls", "Wings", "Party Trays", "Hot Appetizers", "Cold Appetizers",
   "Southern Gathering Foods", "Funeral and Repast Foods", "Church and Family Gathering Foods"
 ].map((title) => ({ id: slugify(title), title }));
@@ -16319,20 +16721,76 @@ function isDrinkRecipe(recipe = {}) {
 
 function cookbookCollectionById(id = "") { return cookbookCollectionDefinitions.find((collection) => collection.id === id) || null; }
 
+function vegetarianCurationProfile(recipe = {}) {
+  const text = recipeBoxRecipeText(recipe);
+  const title = normalizeIngredientTerm(recipe.title || "");
+  const section = recipeCookbookPrimarySection(recipe);
+  const intentionalText = normalizeIngredientTerm([
+    recipe.category || "",
+    ...(recipe.tags || []),
+    ...(recipe.eatingStyles || []),
+    recipe.eatingStyle || "",
+    recipe.dietary || ""
+  ].join(" "));
+  const intentionallyTagged = /\bvegetarian\b|plant based|meatless/.test(intentionalText);
+  const proteinRich = /\b(beans?|lentils?|chickpeas?|tofu|tempeh|seitan|paneer|eggs?|quinoa|edamame|nuts?|peanut|cheese|yogurt)\b/.test(text);
+  const completeMeal = /\b(pasta|spaghetti|lasagna|ziti|noodles?|curry|biryani|grain bowl|rice bowl|buddha bowl|tacos?|enchiladas?|fajitas?|stuffed|casserole|pot pie|soup|stew|chili|gumbo|jambalaya|risotto|paella|pizza|burger|lo mein|fried rice|pilaf|couscous|frittata|omelet|breakfast burrito)\b/.test(text);
+  const basicSandwich = /\b(sandwich|sandwiches)\b/.test(title) && !/\b(club|croissant|muffuletta|reuben|falafel|portobello|vegetable|veggie burger)\b/.test(title);
+  const quickBite = /\b(peanut butter and jelly|pb and j|pbj|toast|ants on a log|trail mix|snack|fruit kabobs?|fruit cups?|crackers?|rice cakes?|tea sandwiches?|finger sandwiches?)\b/.test(title) || basicSandwich;
+  const supportingRecipe = ["breads", "cookies", "desserts", "sides", "drinks", "appetizers-finger-foods"].includes(section) || isDrinkRecipe(recipe);
+  let score = 0;
+  if (intentionallyTagged) score += 90;
+  if (completeMeal) score += 180;
+  if (proteinRich) score += 55;
+  if (/\b(dinner|main dish|entree|weeknight|family meal|meal prep)\b/.test(text)) score += 70;
+  if (section === "soups") score += 45;
+  if (section === "salads" && proteinRich) score += 65;
+  if (quickBite) score -= 240;
+  if (supportingRecipe) score -= 70;
+  const mealCourse = /\b(dinner|main dish|entree|weeknight|family meal|meal prep)\b/.test(text) && proteinRich;
+  const group = quickBite ? "quick-bites" : completeMeal || mealCourse || (section === "salads" && proteinRich) ? "meals" : "more";
+  return { intentionallyTagged, proteinRich, completeMeal, quickBite, supportingRecipe, score, group };
+}
+
+function vegetarianRecipeSort(a, b) {
+  const aProfile = vegetarianCurationProfile(a);
+  const bProfile = vegetarianCurationProfile(b);
+  return bProfile.score - aProfile.score || a.title.localeCompare(b.title);
+}
+
+function vegetarianCollectionMarkup(recipes = []) {
+  const groups = {
+    meals: recipes.filter((recipe) => vegetarianCurationProfile(recipe).group === "meals"),
+    more: recipes.filter((recipe) => vegetarianCurationProfile(recipe).group === "more"),
+    "quick-bites": recipes.filter((recipe) => vegetarianCurationProfile(recipe).group === "quick-bites")
+  };
+  const sectionMarkup = (key, eyebrow, title, description) => groups[key].length ? `
+    <section class="vegetarian-curated-group vegetarian-${key}">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">${eyebrow} · ${groups[key].length} recipes</p>
+        <h3>${title}</h3>
+        <p>${description}</p>
+      </div>
+      <div class="recipe-grid">${groups[key].map(recipeCard).join("")}</div>
+    </section>` : "";
+  return `${sectionMarkup("meals", "Start here", "Featured Vegetarian Meals", "Substantial pastas, curries, bowls, tacos, casseroles, soups, and protein-rich plates selected to feel like a complete meal.")}${sectionMarkup("more", "Round out the table", "More Vegetarian Recipes", "Salads, sides, breads, breakfasts, desserts, and other meat-free recipes worth keeping in the cookbook.")}${sectionMarkup("quick-bites", "Keep it easy", "Quick Bites & Easy Snacks", "Simple sandwiches, toast, and snack-style ideas live here instead of leading the Vegetarian collection.")}`;
+}
+
 function recipesForCookbookCollection(collection) {
   if (!collection) return [];
   const seen = new Set();
-  return allRecipeCollection().filter((recipe) => {
+  const recipes = allRecipeCollection().filter((recipe) => {
     const canonicalId = canonicalRecipeId(recipe.id);
     if (cookbookNearDuplicateAliases.has(recipe.id) || seen.has(canonicalId) || !collection.matcher(recipe)) return false;
     seen.add(canonicalId);
     return true;
   });
+  return collection.id === "vegetarian" ? recipes.sort(vegetarianRecipeSort) : recipes;
 }
 
-function cookbookCollectionCards(selectedId = "") {
+function cookbookCollectionCards(selectedId = "", hidden = false) {
   const usedCoverImages = new Set();
-  return `<section class="cream-section visual-cookbook-collections" aria-labelledby="pickCookbookTitle"><div class="section-heading compact-heading"><p class="eyebrow">Living Cookbook collections</p><h2 id="pickCookbookTitle">Pick a Cookbook</h2><p>Browse by craving, occasion, cooking style, or dietary need.</p></div><div class="visual-cookbook-grid">${cookbookCollectionDefinitions.map((collection) => {
+  return `<section class="cream-section visual-cookbook-collections recipe-box-contained-menu" data-cookbook-open-content ${hidden ? "hidden" : ""} aria-labelledby="pickCookbookTitle"><div class="section-heading compact-heading"><p class="eyebrow">Inside the Living Cookbook</p><h2 id="pickCookbookTitle">Pick a Cookbook</h2><p>Browse by craving, occasion, cooking style, or dietary need.</p></div><div class="visual-cookbook-grid">${cookbookCollectionDefinitions.map((collection) => {
     const recipes = recipesForCookbookCollection(collection);
     const coverRecipe = recipes.find((recipe) => !usedCoverImages.has(recipePhotoFor(recipe))) || recipes[0];
     if (coverRecipe) usedCoverImages.add(recipePhotoFor(coverRecipe));
@@ -16429,11 +16887,11 @@ function recipesForCookbookChapter(chapter, limit = Number.POSITIVE_INFINITY) {
     .slice(0, Number.isFinite(limit) ? limit : undefined);
 }
 
-function cookbookChapterShelf(selectedSection = "") {
+function cookbookChapterShelf(selectedSection = "", { includeCollections = false, selectedCollectionId = "", forceOpen = false } = {}) {
   const selectedTab = recipeBoxTabByKey(selectedSection);
   const activeTabId = selectedTab?.id || "";
   const activeTopLevelId = selectedTab?.parentId || activeTabId;
-  const isOpen = Boolean(selectedTab);
+  const isOpen = Boolean(selectedTab || forceOpen || selectedCollectionId);
   return `
     <section class="cream-section cookbook-chapter-shelf recipe-box-experience recipe-box-page-hero">
       <div class="section-heading compact-heading recipe-box-stage-copy">
@@ -16463,7 +16921,8 @@ function cookbookChapterShelf(selectedSection = "") {
           </div>
         </div>
       </div>
-      <section class="recipe-box-filter-drawer" data-recipe-filter-drawer>
+      ${includeCollections ? cookbookCollectionCards(selectedCollectionId, !isOpen) : ""}
+      <section class="recipe-box-filter-drawer" data-recipe-filter-drawer data-cookbook-open-content ${isOpen ? "" : "hidden"}>
         <button class="recipe-filter-drawer-handle" type="button" data-recipe-filter-drawer-toggle aria-expanded="false" aria-controls="recipeBoxFilters"><span>✦</span> Open the brass drawer: filters</button>
         <div class="recipe-filter-drawer-panel" id="recipeBoxFilters" hidden>
           <div class="recipe-filter-presets" aria-label="Quick recipe filters"><button type="button" data-recipe-box-preset="time:30">Under 30 Minutes</button><button type="button" data-recipe-box-preset="level:Beginner">Beginner</button><button type="button" data-recipe-box-preset="cuisine:southern">Southern</button><button type="button" data-recipe-box-preset="cuisine:cajun">Cajun</button><button type="button" data-recipe-box-preset="category:Vegetarian">Vegetarian</button></div>
@@ -16538,6 +16997,10 @@ function setLivingRecipeBoxState(nextState) {
   recipeBox.classList.toggle("is-selecting", nextState === "selecting");
   recipeBox.classList.toggle("is-closing", nextState === "closing");
   const open = nextState === "opening" || nextState === "open" || nextState === "selecting";
+  document.querySelectorAll("[data-cookbook-open-content]").forEach((node) => {
+    if (open) node.hidden = false;
+    else if (nextState === "closed") node.hidden = true;
+  });
   toggle.setAttribute("aria-expanded", String(open));
   toggle.querySelector("strong").textContent = open ? "Close the Living Cookbook" : "Open the Living Cookbook";
   toggle.querySelector("small").textContent = open ? "Your recipe cards are ready inside" : "Tap to lift the lid and browse the recipe cards";
@@ -16614,7 +17077,8 @@ function renderRecipes() {
     : cookbookCollectionById(routeState.collection);
   const selectedDrinkTab = selectedCollection?.id === "drinks" ? drinkTabById(routeState.drink) : null;
   const selectedTab = recipeBoxTabByKey(requestedSection);
-  livingRecipeBoxState = selectedTab ? "open" : "closed";
+  const cookbookIsOpen = Boolean(selectedTab || selectedCollection || selectedCulture);
+  livingRecipeBoxState = cookbookIsOpen ? "open" : "closed";
   const invalidSection = Boolean(requestedSection && !selectedTab);
   const collectionRecipesUnfiltered = selectedCulture ? recipesForAugustCulture(selectedCulture, true) : selectedCollection ? recipesForCookbookCollection(selectedCollection) : [];
   const collectionRecipes = selectedCollection?.id === "appetizers-finger-foods" && routeState.subcategory
@@ -16652,10 +17116,9 @@ function renderRecipes() {
   const recentRecipes = [...allRecipeCollection()].sort((a, b) => String(b.createdAt || b.updatedAt || b.id).localeCompare(String(a.createdAt || a.updatedAt || a.id))).slice(0, 8);
   app.innerHTML = `
     ${cookSubnav()}
-    ${isDedicatedCookbook ? cookbookCollectionCards(selectedCollection?.id || "") : ""}
-    ${selectedCulture ? `<section class="culture-collection-banner"><p class="eyebrow">August Around the World · Week ${selectedCulture.week}</p><h1>${selectedCulture.symbol} ${selectedCulture.title}</h1><p>${selectedCulture.history}</p><div>${selectedCulture.ingredients.map((item) => `<span>${item}</span>`).join("")}</div></section>` : ""}
-    ${cookbookChapterShelf(selectedTab?.id || "")}
-    <section class="cream-section cookbook-results-section" id="cookbookResults">
+    ${cookbookChapterShelf(selectedTab?.id || "", { includeCollections: isDedicatedCookbook, selectedCollectionId: selectedCollection?.id || "", forceOpen: cookbookIsOpen })}
+    ${selectedCulture ? `<section class="culture-collection-banner" data-cookbook-open-content ${cookbookIsOpen ? "" : "hidden"}><p class="eyebrow">August Around the World · Week ${selectedCulture.week}</p><h1>${selectedCulture.symbol} ${selectedCulture.title}</h1><p>${selectedCulture.history}</p><div>${selectedCulture.ingredients.map((item) => `<span>${item}</span>`).join("")}</div></section>` : ""}
+    <section class="cream-section cookbook-results-section" id="cookbookResults" data-cookbook-open-content ${cookbookIsOpen ? "" : "hidden"}>
       <div class="section-heading compact-heading">
         <p class="eyebrow">Living Cookbook</p>
         <h2 id="cookbookResultsHeading" tabindex="-1">${resultsTitle}</h2>
@@ -16664,22 +17127,22 @@ function renderRecipes() {
         ${selectedCollection?.id === "drinks" ? drinksTabsMarkup(selectedDrinkTab?.[0] || "") : ""}
         ${selectedCollection ? `<button class="cookbook-view-all" type="button" data-cookbook-collection-reset>Reset filters</button>` : selectedTab ? `<button class="cookbook-view-all" id="cookbookResultsAction" type="button" data-cookbook-view-all>View all ${initialRecipes.length} ${selectedTab.title} recipes</button>` : ""}
       </div>
-      <div id="results" class="recipe-grid">${initialRecipes.length
-        ? selectedTab ? cookbookResultsMarkup(selectedTab, initialRecipes) : initialRecipes.map(recipeCard).join("")
+      <div id="results" class="${selectedCollection?.id === "vegetarian" ? "vegetarian-curated-results" : "recipe-grid"}">${initialRecipes.length
+        ? selectedTab ? cookbookResultsMarkup(selectedTab, initialRecipes) : selectedCollection?.id === "vegetarian" ? vegetarianCollectionMarkup(initialRecipes) : initialRecipes.map(recipeCard).join("")
         : `<div class="empty-state"><h3>${invalidSection ? "That chapter does not exist." : "Your recipe cards are waiting."}</h3><p>${invalidSection ? "Choose a real chapter from the Living Cookbook above." : "Open the Living Cookbook and pull forward a divider to start browsing."}</p></div>`}
       </div>
     </section>
-    ${selectedCulture ? `<section class="around-world-learning cookbook-culture-learning"><div><p class="eyebrow">History, methods, and traditions</p><h2>Cook with context.</h2></div><div class="around-world-learning-grid"><article><span>🔥 Cooking methods</span><ul>${selectedCulture.methods.map((item) => `<li>${item}</li>`).join("")}</ul></article><article><span>💡 Fun facts</span><ul>${selectedCulture.facts.map((item) => `<li>${item}</li>`).join("")}</ul></article><article><span>🍽 At the table</span><ul>${selectedCulture.traditions.map((item) => `<li>${item}</li>`).join("")}</ul></article></div></section>` : ""}
-    ${isDedicatedCookbook ? `${cookYourWayMarkup()}
+    ${selectedCulture ? `<section class="around-world-learning cookbook-culture-learning" data-cookbook-open-content ${cookbookIsOpen ? "" : "hidden"}><div><p class="eyebrow">History, methods, and traditions</p><h2>Cook with context.</h2></div><div class="around-world-learning-grid"><article><span>🔥 Cooking methods</span><ul>${selectedCulture.methods.map((item) => `<li>${item}</li>`).join("")}</ul></article><article><span>💡 Fun facts</span><ul>${selectedCulture.facts.map((item) => `<li>${item}</li>`).join("")}</ul></article><article><span>🍽 At the table</span><ul>${selectedCulture.traditions.map((item) => `<li>${item}</li>`).join("")}</ul></article></div></section>` : ""}
+    ${isDedicatedCookbook ? `<div class="living-cookbook-expanded-content" data-cookbook-open-content ${cookbookIsOpen ? "" : "hidden"}>${cookYourWayMarkup()}
       <section class="cream-section dietary-cookbook-collection"><div class="section-heading compact-heading"><p class="eyebrow">Vegan & Plant-Based</p><h2>Full plates for every kind of table.</h2><p>Hearty breakfasts, cultural recipes, holiday-ready dishes, weeknight meals, brunch, and Cook Along Together ideas—built from ingredient-reviewed recipes.</p><a class="small-button" href="#living-cookbook?section=vegetables">Browse plant-forward recipes</a></div><div class="recipe-grid">${dietaryRecipes.map(recipeCard).join("")}</div></section>
       <section class="cream-section cookbook-seasonal-collections"><div class="section-heading compact-heading"><p class="eyebrow">Seasonal collections</p><h2>What’s good right now.</h2></div><div class="recipe-grid">${seasonalRecipes.map(recipeCard).join("")}</div></section>
-      <section class="cream-section cookbook-recently-added"><div class="section-heading compact-heading"><p class="eyebrow">Recently added</p><h2>Fresh cards in the box.</h2></div><div class="recipe-grid">${recentRecipes.map(recipeCard).join("")}</div></section>` : ""}
+      <section class="cream-section cookbook-recently-added"><div class="section-heading compact-heading"><p class="eyebrow">Recently added</p><h2>Fresh cards in the box.</h2></div><div class="recipe-grid">${recentRecipes.map(recipeCard).join("")}</div></section></div>` : ""}
     <section id="learningResults" class="cream-section learning-search-results" aria-label="Cookbook chapters and learning suggestions"></section>
   `;
   if (routeState.query) handleSearch();
 }
 
-function canonicalSearchResults(query = "") {
+function canonicalSearchRows(query = "") {
   const seen = new Set();
   return rankRecipesForDiscovery(allRecipeCollection(), { query })
     .filter((row) => !query || row.score > 0)
@@ -16689,8 +17152,62 @@ function canonicalSearchResults(query = "") {
       if (seen.has(canonicalId)) return false;
       seen.add(canonicalId);
       return true;
-    })
-    .map((row) => row.recipe);
+    });
+}
+
+function canonicalSearchResults(query = "") {
+  return canonicalSearchRows(query).map((row) => row.recipe);
+}
+
+function externalRecipeResultCard(recipe = {}) {
+  const sourceUrl = /^https:\/\//i.test(String(recipe.sourceUrl || "")) ? recipe.sourceUrl : "https://www.themealdb.com/";
+  return `<article class="external-recipe-card"><div class="external-recipe-photo">${recipe.image ? `<img src="${escapeHTML(recipe.image)}" alt="${escapeHTML(recipe.title || "External recipe")}" loading="lazy" />` : `<div class="recipe-image-fallback" aria-label="Photo unavailable">Photo unavailable</div>`}</div><div><p class="external-source-label">External recipe · ${escapeHTML(recipe.sourceName || "Approved provider")}</p><h3>${escapeHTML(recipe.title || "External recipe")}</h3><p>${[recipe.cuisine, recipe.category].filter(Boolean).map(escapeHTML).join(" · ")}</p>${Array.isArray(recipe.ingredients) && recipe.ingredients.length ? `<details><summary>Ingredients</summary><ul>${recipe.ingredients.slice(0, 12).map((item) => `<li>${escapeHTML(item)}</li>`).join("")}</ul></details>` : ""}<a class="small-button secondary" href="${escapeHTML(sourceUrl)}" target="_blank" rel="noopener noreferrer">View on ${escapeHTML(recipe.sourceName || "source")} ↗</a></div></article>`;
+}
+
+async function loadExternalRecipeFallback(query = "") {
+  const target = document.querySelector("#externalRecipeFallback");
+  if (!target || !query) return;
+  try {
+    const response = await fetch("/api/recipe-search/fallback", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ query })
+    });
+    if (!response.ok) throw new Error(`Fallback request failed: ${response.status}`);
+    const payload = await response.json();
+    const externalRows = Array.isArray(payload.results) ? payload.results : [];
+    logZeroRecipeSearch(query, externalRows.length > 0);
+    target.innerHTML = externalRows.length
+      ? `<div class="section-heading compact-heading"><p class="eyebrow">More from an approved recipe source</p><h2>External recipes for “${escapeHTML(query)}”</h2><p>These are provided by ${escapeHTML(payload.provider || "an external provider")}, not Let’s Cook Y’all house recipes. Titles, photos, ingredients, and instructions come directly from that source.</p></div><div class="external-recipe-grid">${externalRows.map(externalRecipeResultCard).join("")}</div>`
+      : `<div class="empty-state"><h2>No suitable recipe was found.</h2><p>We logged “${escapeHTML(query)}” as a Living Cookbook content gap for editorial review.</p></div>`;
+  } catch (error) {
+    logZeroRecipeSearch(query, false);
+    target.innerHTML = `<div class="empty-state"><h2>The external recipe source is unavailable.</h2><p>We logged “${escapeHTML(query)}” as a Living Cookbook content gap. Please try again later.</p></div>`;
+  }
+}
+
+function markSearchGapFilled(query = "") {
+  if (!query || typeof fetch !== "function") return;
+  fetch("/api/recipe-search/gap-filled", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ query })
+  }).catch(() => {});
+}
+
+function ingredientCombinationSearchMarkup(rows = [], ingredients = [], { limit = 24 } = {}) {
+  const groups = ingredientMatchGroups(rows, ingredients);
+  if (!groups.terms.length) return "";
+  if (!rows.length) return `<div class="empty-state"><h2>No recipes use those ingredients yet.</h2><p>Try removing one ingredient or add a broader term.</p></div>`;
+  const resultCard = (row) => `<div class="ingredient-combination-card">${ingredientMatchBadges(row, groups.terms)}${recipeCard(row.recipe)}</div>`;
+  const strongestLimit = groups.exact.length ? Math.min(limit, 16) : Math.min(limit, 12);
+  const strongestRows = groups.strongest.slice(0, strongestLimit);
+  const otherRows = [...groups.partial, ...groups.single]
+    .filter((row) => !strongestRows.some((strongest) => strongest.recipe.id === row.recipe.id))
+    .slice(0, Math.max(0, limit - strongestRows.length));
+  const leftover = leftoverIngredientSuggestions(rows, groups.terms, strongestRows);
+  const hasCombinedMatch = strongestRows.length > 0;
+  return `<section class="ingredient-combination-summary" role="status"><p class="eyebrow">Cook these ingredients together</p><h2>${groups.exact.length ? `Recipes using all ${groups.terms.length} ingredients` : hasCombinedMatch ? `Closest combined matches for ${groups.terms.map(titleizeSlug).join(" + ")}` : `No combined recipe yet for ${groups.terms.map(titleizeSlug).join(" + ")}`}</h2><p>${groups.exact.length ? "Every recipe in the first group uses all entered ingredients in the same dish." : hasCombinedMatch ? `No saved recipe currently uses every entered ingredient. The first group uses ${groups.bestCount} of ${groups.terms.length}; single-ingredient recipes are fallback suggestions only.` : "The current canonical library has no dish using more than one of these ingredients. The recipes below are clearly labeled single-ingredient fallback ideas."}</p></section>${hasCombinedMatch ? `<section class="ingredient-combination-grid" aria-label="Strongest combined matches">${strongestRows.map(resultCard).join("")}</section>` : ""}${otherRows.length ? `<section class="ingredient-fallback-results"><div class="section-heading compact-heading"><p class="eyebrow">Fallback suggestions</p><h2>Recipes using fewer entered ingredients</h2></div><div class="ingredient-combination-grid">${otherRows.map(resultCard).join("")}</div></section>` : ""}${leftover.rows.length ? `<section class="ingredient-leftover-results"><div class="section-heading compact-heading"><p class="eyebrow">Still have ingredients left?</p><h2>Use ${leftover.leftovers.map(titleizeSlug).join(", ")} alongside the main recipe</h2><p>These are clearly separated side, salad, sauce, or follow-up ideas.</p></div><div class="ingredient-combination-grid">${leftover.rows.map(resultCard).join("")}</div></section>` : ""}`;
 }
 
 function aroundWorldSearchMatches(query = "") {
@@ -16717,8 +17234,15 @@ function aroundWorldSearchMarkup(query = "") {
 
 function renderSearchPage() {
   const query = routeParts().query;
-  const results = canonicalSearchResults(query);
-  app.innerHTML = `${cookSubnav()}<section class="cream-section site-search-page"><div class="section-heading compact-heading"><p class="eyebrow">Find what’s cooking</p><h1>Search Let’s Cook Y’all</h1><p>Search countries, cultures, recipes, ingredients, drinks, holidays, cooking methods, and collections. Canonical recipes always come first.</p><form class="site-search-form" data-search-form role="search"><label for="searchBox">Search the cookbook</label><div><input id="searchBox" name="q" type="search" value="${escapeHTML(query)}" placeholder="Search countries, cultures, recipes, ingredients, or drinks…" autocomplete="search" /><button type="button" class="secondary" data-search-clear>Clear</button><button class="small-button" type="submit">Search</button></div></form></div><div id="results" class="recipe-grid">${query ? (results.length ? results.map(recipeCard).join("") : `<div class="empty-state"><h2>No recipes matched “${escapeHTML(query)}”.</h2><p>Try a country, culture, recipe name, ingredient, drink, holiday, or method—like India, hibiscus, Cajun, chai, breakfast, or one-pot meals.</p></div>`) : `<div class="empty-state"><h2>Where should we cook next?</h2><p>Try India, Indigenous foodways, jollof, hibiscus, Southern Black foodways, chai, or Morocco.</p></div>`}</div>${query ? aroundWorldSearchMarkup(query) : ""}<section id="learningResults" class="learning-search-results" aria-label="Cookbook chapters and learning suggestions">${query ? learningSearchResults(query) : ""}</section></section>`;
+  const rows = canonicalSearchRows(query);
+  const results = rows.map((row) => row.recipe);
+  const ingredientTerms = inferredIngredientQueryTerms(query);
+  const resultsMarkup = ingredientTerms.length > 1
+    ? ingredientCombinationSearchMarkup(rows, ingredientTerms)
+    : query ? (results.length ? results.map(recipeCard).join("") : `<div class="empty-state"><h2>No recipes matched “${escapeHTML(query)}”.</h2><p>Try a country, culture, recipe name, ingredient, drink, holiday, or method—like India, hibiscus, Cajun, chai, breakfast, or one-pot meals.</p></div>`) : `<div class="empty-state"><h2>Where should we cook next?</h2><p>Try India, Indigenous foodways, jollof, hibiscus, Southern Black foodways, chai, or Morocco.</p></div>`;
+  app.innerHTML = `${cookSubnav()}<section class="cream-section site-search-page"><div class="section-heading compact-heading"><p class="eyebrow">Find what’s cooking</p><h1>Search Let’s Cook Y’all</h1><p>Search countries, cultures, recipes, ingredients, drinks, holidays, cooking methods, and collections. Enter ingredients with commas or spaces to find recipes that use them together.</p><form class="site-search-form" data-search-form role="search"><label for="searchBox">Search the cookbook</label><div><input id="searchBox" name="q" type="search" value="${escapeHTML(query)}" placeholder="Try shrimp spinach…" autocomplete="search" /><button type="button" class="secondary" data-search-clear>Clear</button><button class="small-button" type="submit">Search</button></div></form></div><div id="results" class="${ingredientTerms.length > 1 ? "ingredient-combination-results" : "recipe-grid"}">${resultsMarkup}</div>${query && !results.length ? `<section id="externalRecipeFallback" class="external-recipe-fallback" aria-live="polite"><div class="search-fallback-loading">Checking an approved external recipe source…</div></section>` : ""}${query ? aroundWorldSearchMarkup(query) : ""}<section id="learningResults" class="learning-search-results" aria-label="Cookbook chapters and learning suggestions">${query ? learningSearchResults(query) : ""}</section></section>`;
+  if (query && results.length) markSearchGapFilled(query);
+  else if (query) loadExternalRecipeFallback(query);
 }
 
 function recipeStepMicroTip(recipe, index) {
@@ -17767,11 +18291,19 @@ function learningSearchResults(query) {
   `;
 }
 
-function logZeroRecipeSearch(query = "") {
+function logZeroRecipeSearch(query = "", fallbackFound = false) {
   const normalized = normalizeIngredientTerm(query);
   if (!normalized) return;
   const existing = readJSON("letsCookZeroSearches", []);
-  const next = [{ query: normalized, at: new Date().toISOString() }, ...existing.filter((item) => item.query !== normalized)].slice(0, 50);
+  const previous = existing.find((item) => (item.normalizedQuery || item.query) === normalized);
+  const next = [{
+    query: String(query).trim(),
+    normalizedQuery: normalized,
+    searchCount: Number(previous?.searchCount || 0) + 1,
+    latestSearchDate: new Date().toISOString(),
+    fallbackFound: Boolean(fallbackFound || previous?.fallbackFound),
+    filled: Boolean(previous?.filled)
+  }, ...existing.filter((item) => (item.normalizedQuery || item.query) !== normalized)].slice(0, 50);
   localStorage.setItem("letsCookZeroSearches", JSON.stringify(next));
 }
 
@@ -17839,8 +18371,10 @@ function handleSearch(event) {
   }
   renderPartyPlannerResults();
   renderRecipePartyResults();
-  const query = normalizeIngredientTerm(document.querySelector("#searchBox")?.value || "");
-  const pantry = (document.querySelector("#pantryBox")?.value || "").split(",").map((item) => normalizeIngredientTerm(item)).filter(Boolean);
+  const rawQuery = document.querySelector("#searchBox")?.value || "";
+  const queryIngredients = inferredIngredientQueryTerms(rawQuery);
+  const query = queryIngredients.length > 1 ? queryIngredients.join(", ") : normalizeIngredientTerm(rawQuery);
+  const pantry = parseIngredientTerms(document.querySelector("#pantryBox")?.value || "");
   const category = document.querySelector("#categoryFilter")?.value || "";
   const cuisine = document.querySelector("#cuisineFilter")?.value || "";
   const maxTime = Number(document.querySelector("#timeFilter")?.value || 0);
@@ -17867,32 +18401,35 @@ function handleSearch(event) {
   };
   const rankedRows = rankRecipesForDiscovery(allRecipeCollection(), { query, pantry });
   let relaxed = false;
-  let results = rankedRows
-    .filter((row) => (!hasDiscoveryTerms || row.score > 0) && matchesStaticFilters(row.recipe))
-    .map((row) => row.recipe);
-  if (!results.length && hasDiscoveryTerms) {
+  let resultRows = rankedRows
+    .filter((row) => (!hasDiscoveryTerms || row.score > 0) && matchesStaticFilters(row.recipe));
+  if (!resultRows.length && hasDiscoveryTerms) {
     relaxed = true;
-    results = rankedRows
+    resultRows = rankedRows
       .filter((row) => row.score > 0 && matchesStaticFilters(row.recipe, { relaxed: true }))
-      .slice(0, 24)
-      .map((row) => row.recipe);
+      .slice(0, 24);
   }
   const seenCanonicalResults = new Set();
-  results = results.filter((recipe) => {
-    const canonicalId = canonicalRecipeId(recipe.id);
+  resultRows = resultRows.filter((row) => {
+    const canonicalId = canonicalRecipeId(row.recipe.id);
     if (seenCanonicalResults.has(canonicalId)) return false;
     seenCanonicalResults.add(canonicalId);
     return true;
   });
+  const results = resultRows.map((row) => row.recipe);
+  const combinedIngredients = uniquePantryIngredients([...queryIngredients, ...pantry]);
   const resultsNode = document.querySelector("#results");
   if (resultsNode) {
-    resultsNode.innerHTML = results.length
-      ? results.map(recipeCard).join("")
-      : `<div class="empty-state"><h3>No relevant recipes found.</h3><p>Check the spelling, try one ingredient, or use a broader term such as chicken, beef, rice, greens, shrimp, potatoes, beans, or pasta.</p></div>`;
+    resultsNode.className = combinedIngredients.length > 1 ? "ingredient-combination-results" : "recipe-grid";
+    resultsNode.innerHTML = combinedIngredients.length > 1
+      ? ingredientCombinationSearchMarkup(resultRows, combinedIngredients)
+      : results.length ? results.map(recipeCard).join("") : `<div class="empty-state"><h3>No relevant recipes found.</h3><p>Check the spelling, try one ingredient, or use a broader term such as chicken, beef, rice, greens, shrimp, potatoes, beans, or pasta.</p></div>`;
   }
-  if (hasDiscoveryTerms && !results.length) logZeroRecipeSearch(query || pantry.join(", "));
   const learningNode = document.querySelector("#learningResults");
-  if (learningNode) learningNode.innerHTML = `${recipeDiscoverySummaryMarkup({ query, pantry, results, relaxed })}${learningSearchResults(query || pantry[0] || "")}`;
+  const discoveryQuery = query || pantry.join(", ");
+  if (learningNode) learningNode.innerHTML = `${recipeDiscoverySummaryMarkup({ query, pantry, results, relaxed })}${learningSearchResults(query || pantry[0] || "")}${hasDiscoveryTerms && !results.length ? `<section id="externalRecipeFallback" class="external-recipe-fallback" aria-live="polite"><div class="search-fallback-loading">Checking an approved external recipe source…</div></section>` : ""}`;
+  if (hasDiscoveryTerms && results.length) markSearchGapFilled(discoveryQuery);
+  else if (hasDiscoveryTerms) loadExternalRecipeFallback(discoveryQuery);
 }
 
 function handleClick(event) {
@@ -18480,6 +19017,18 @@ function handleClick(event) {
 
 
 async function handleSubmit(event) {
+  if (event.target.matches("[data-world-globe-search]")) {
+    event.preventDefault();
+    const query = new FormData(event.target).get("destination")?.toString().trim() || "";
+    const destination = worldGlobeDestinationForQuery(query);
+    const status = event.target.querySelector("[data-world-globe-search-status]");
+    if (!destination) {
+      if (status) status.textContent = `We do not have a globe destination for “${query}” yet. Try the region menu below.`;
+      return;
+    }
+    window.location.hash = `#cuisine-explorer/${destination.id}`;
+    return;
+  }
   if (event.target.matches("[data-gathering-planner-form]")) {
     event.preventDefault();
     const values = Object.fromEntries(new FormData(event.target).entries());
@@ -18496,7 +19045,8 @@ async function handleSubmit(event) {
   }
   if (event.target.matches("[data-search-form]")) {
     event.preventDefault();
-    const query = normalizeIngredientTerm(new FormData(event.target).get("q") || "");
+    const rawQuery = new FormData(event.target).get("q")?.toString().trim() || "";
+    const query = hasExplicitMultipleIngredients(rawQuery) ? parseIngredientTerms(rawQuery).join(", ") : normalizeIngredientTerm(rawQuery);
     window.location.hash = query ? `#search?q=${encodeURIComponent(query)}` : "#search";
     return;
   }
