@@ -1,4 +1,4 @@
-const CACHE_NAME = "lets-cook-community-food-v81";
+const CACHE_NAME = "lets-cook-community-food-v82";
 
 const OFFLINE_ASSETS = [
   "./",
@@ -7,6 +7,7 @@ const OFFLINE_ASSETS = [
   "./app.js",
   "./manifest.webmanifest",
   "./data/recipes.json",
+  "./data/world-countries-110m.json",
   "./assets/brent-co-logo.svg",
   "./assets/us-road-trip-map.svg",
   "./assets/editorial-cajun-pasta.jpg",

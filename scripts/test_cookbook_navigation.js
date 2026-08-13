@@ -72,6 +72,8 @@ globalThis.__cookbookTest = {
   recipesForAugustCulture,
   aroundWorldSearchMatches,
   worldGlobeDestinations,
+  worldDestinationCountryIds,
+  decodeWorldCountryTopology,
   worldGlobeDestinationById,
   worldGlobeDestinationForQuery,
   recipesForWorldDestination,
@@ -229,203 +231,4 @@ assert(closedChapterShelf.includes('class="living-recipe-box "'), "The cookbook 
 const closedDedicatedCookbook = api.cookbookChapterShelf("", { includeCollections: true });
 assert(closedDedicatedCookbook.includes('class="cream-section visual-cookbook-collections recipe-box-contained-menu"'), "Visual cookbook collections must live inside the Living Cookbook experience");
 assert(/recipe-box-contained-menu[^>]*data-cookbook-open-content hidden/.test(closedDedicatedCookbook), "Collection menus must stay hidden until the Living Cookbook opens");
-assert(/recipe-box-filter-drawer[^>]*data-cookbook-open-content hidden/.test(closedDedicatedCookbook), "Cookbook filters must stay hidden until the Living Cookbook opens");
-const openDedicatedCookbook = api.cookbookChapterShelf("", { includeCollections: true, forceOpen: true });
-assert(!/recipe-box-contained-menu[^>]*data-cookbook-open-content hidden/.test(openDedicatedCookbook), "Opening the Living Cookbook must reveal its collection menus");
-assert(openDedicatedCookbook.includes('data-recipe-box-state="open"'), "Direct cookbook collection links must open the Living Cookbook");
-for (const tab of expectedRecipeBoxTabs) assert(chapterShelf.includes(`data-cookbook-chapter-select="${tab}"`), `Recipe box is missing its ${tab} divider`);
-for (const tab of ["beef", "poultry", "fish-seafood"]) assert(chapterShelf.includes(`data-cookbook-chapter-select="${tab}"`), `Recipe box is missing its Main Dishes ${tab} divider`);
-const veganTab = api.recipeBoxTabByKey("vegan-plant-based");
-const veganRecipes = api.recipesForRecipeBoxTab(veganTab);
-assert(veganRecipes.length > 12, "Vegan divider must contain a substantial canonical recipe selection");
-assert(veganRecipes.every((recipe) => api.recipeDietaryProfile(recipe).verification === "verified vegan"), "Vegan divider must only show verified vegan recipes");
-assert(new Set(veganRecipes.map((recipe) => api.recipeCookbookPrimarySection(recipe))).size >= 5, "Vegan divider must span multiple cookbook chapters");
-assert.strictEqual(new Set(veganRecipes.map((recipe) => recipe.id)).size, veganRecipes.length, "Vegan divider must not duplicate canonical recipe records");
-const rotation = api.dailyDiverseRecipes(api.allRecipeCollection(), 18, "integrity-test");
-assert.strictEqual(new Set(rotation.map((recipe) => recipe.id)).size, rotation.length, "Daily rotation must not repeat canonical recipe IDs");
-assert.strictEqual(new Set(rotation.map(api.recipePhotoFor)).size, rotation.length, "Daily rotation must not repeat primary images");
-
-function topRecipe(query) {
-  return api.rankRecipesForDiscovery(api.allRecipeCollection(), { query })[0]?.recipe;
-}
-
-assert.strictEqual(topRecipe("Chocolate Chip Cookies")?.id, "chewy-chocolate-cookies", "Exact Chocolate Chip Cookies search must rank first");
-assert.strictEqual(topRecipe("Carrot Cake")?.id, "carrot-cake", "Exact Carrot Cake search must rank first");
-assert.strictEqual(topRecipe("Orange Chicken")?.id, "orange-chicken", "Exact Orange Chicken search must rank first");
-assert.strictEqual(topRecipe("shrimp egg rolls")?.id, "shrimp-egg-rolls", "Exact shrimp egg rolls must rank first");
-assert(["classic-pork-egg-rolls", "shrimp-egg-rolls", "chicken-egg-rolls", "vegetable-egg-rolls"].includes(topRecipe("egg rolls")?.id), "Generic egg rolls must surface a relevant egg-roll recipe");
-assert.strictEqual(topRecipe("lumpia")?.id, "filipino-lumpiang-shanghai", "Lumpia alias search must preserve the Filipino recipe identity");
-assert.strictEqual(topRecipe("shrim egg rolls")?.id, "shrimp-egg-rolls", "A fuzzy misspelling must recover Shrimp Egg Rolls");
-const shrimpCabbageRows = api.rankRecipesForDiscovery(api.allRecipeCollection(), { query: "shrimp cabbage" }).filter((row) => row.score > 0);
-assert(shrimpCabbageRows[0]?.allIngredientsMatched && shrimpCabbageRows[0]?.recipe.id === "shrimp-egg-rolls", "Whitespace-separated shrimp and cabbage must prioritize one recipe using both");
-assert.deepStrictEqual([...api.inferredIngredientQueryTerms("shrimp cabbage")], ["shrimp", "cabbage"], "Ingredient discovery must parse sensible whitespace-separated ingredients");
-const eggRollIds = ["classic-pork-egg-rolls", "shrimp-egg-rolls", "chicken-egg-rolls", "vegetable-egg-rolls", "cheesesteak-egg-rolls", "southwest-egg-rolls", "filipino-lumpiang-shanghai"];
-assert(eggRollIds.every((id) => api.allRecipeCollection().some((recipe) => recipe.id === id)), "All seven audited egg-roll and lumpia recipes must exist canonically");
-assert.strictEqual(new Set(eggRollIds.map((id) => api.allRecipeCollection().find((recipe) => recipe.id === id)?.image)).size, 7, "Every egg-roll recipe must use its own dish-specific photograph");
-assert(api.canonicalSearchResults("vegan dinner").length > 0, "Search must discover dietary metadata");
-assert.strictEqual(new Set(api.canonicalSearchResults("chicken").map((recipe) => recipe.id)).size, api.canonicalSearchResults("chicken").length, "Search results must not repeat canonical recipe records");
-assert(/steak|rib|beef/i.test(`${topRecipe("ribeye")?.title} ${(topRecipe("ribeye")?.ingredients || []).join(" ")}`), "Ribeye must return a relevant recipe first");
-assert.strictEqual(api.rankRecipesForDiscovery(api.allRecipeCollection(), { query: "zzzxqvnotfood" }).filter((row) => row.score > 0).length, 0, "Nonsense searches must not return unrelated recipes");
-assert.deepStrictEqual([...api.parseIngredientTerms("shrimp, spinach")], ["shrimp", "spinach"], "Comma-separated ingredients must be parsed independently");
-const chickenRiceRows = api.rankRecipesForDiscovery(api.allRecipeCollection(), { query: "chicken, rice" }).filter((row) => row.score > 0);
-assert(chickenRiceRows[0]?.allIngredientsMatched, "Recipes using all entered ingredients must rank first");
-assert.deepStrictEqual([...chickenRiceRows[0].matched].sort(), ["chicken", "rice"], "Combined matches must disclose every matched ingredient");
-const shrimpSpinachRows = api.rankRecipesForDiscovery(api.allRecipeCollection(), { query: "shrimp, spinach" }).filter((row) => row.score > 0);
-const shrimpSpinachGroups = api.ingredientMatchGroups(shrimpSpinachRows, ["shrimp", "spinach"]);
-assert(!shrimpSpinachGroups.exact.length, "Shrimp and spinach must not pretend to be an exact combined match when the canonical library has none");
-assert(!shrimpSpinachGroups.strongest.length && shrimpSpinachGroups.single.length > 0, "Single-ingredient recipes must remain fallback suggestions when no combined match exists");
-const pantryChickenRice = api.pantryScanMatches(["chicken", "rice"]);
-const firstPantrySingle = pantryChickenRice.findIndex((row) => row.matches.length === 1);
-const lastPantryCombined = pantryChickenRice.map((row) => row.matches.length).lastIndexOf(2);
-assert(firstPantrySingle === -1 || lastPantryCombined < firstPantrySingle, "Single-ingredient pantry matches must remain after combined matches");
-assert.deepStrictEqual([...api.augustAroundWorldWeeks].map((culture) => culture.id), ["indigenous-america", "southern-black-foodways", "india", "africa"], "August must rotate through the four approved culture spotlights");
-assert.strictEqual(api.augustCultureForDate("2026-08-02T12:00:00").id, "indigenous-america", "August week 1 must feature Indigenous America");
-assert.strictEqual(api.augustCultureForDate("2026-08-09T12:00:00").id, "southern-black-foodways", "August week 2 must feature Southern Black Foodways");
-assert.strictEqual(api.augustCultureForDate("2026-08-16T12:00:00").id, "india", "August week 3 must feature India");
-assert.strictEqual(api.augustCultureForDate("2026-08-24T12:00:00").id, "africa", "August week 4 must feature multiple African countries");
-for (const culture of api.augustAroundWorldWeeks) {
-  assert(api.recipesForAugustCulture(culture).length >= 5, `${culture.title} must have a substantial canonical recipe collection`);
-  assert.strictEqual(new Set(api.recipesForAugustCulture(culture, true).map((recipe) => recipe.id)).size, api.recipesForAugustCulture(culture, true).length, `${culture.title} collection must not repeat recipe records`);
-}
-assert(api.aroundWorldSearchMatches("India").some((culture) => culture.id === "india"), "Search must return the India culture collection");
-assert(api.aroundWorldSearchMatches("hibiscus").some((culture) => culture.id === "africa"), "Search must connect signature ingredients and drinks to culture collections");
-assert(api.worldGlobeDestinations.length >= 40, "World Map must expose a substantial set of globe destinations");
-assert.strictEqual(api.worldGlobeDestinationForQuery("Filipino").id, "philippines", "Filipino search must resolve to the Philippines globe destination");
-assert.strictEqual(api.worldGlobeDestinationForQuery("Nigeria").id, "nigeria", "Nigeria search must resolve to its globe destination");
-const philippinesDestination = api.worldGlobeDestinationById("philippines");
-assert(philippinesDestination && Number.isFinite(philippinesDestination.lat) && Number.isFinite(philippinesDestination.lon), "Philippines must have real globe coordinates");
-const philippinesRecipes = api.recipesForWorldDestination(philippinesDestination);
-assert(philippinesRecipes.length > 0, "Philippines must reveal its canonical recipe collection");
-assert(philippinesRecipes.every((recipe) => /philippines|filipino|filipina/i.test(`${recipe.title} ${recipe.cuisine} ${recipe.category} ${(recipe.tags || []).join(" ")}`)), "Philippines must never receive generic Asian recipes");
-const globeMarkup = api.worldGlobeMarkup(philippinesDestination);
-assert(globeMarkup.includes("data-world-globe") && globeMarkup.includes("data-world-globe-search"), "World Map must lead with an interactive, searchable globe");
-assert(globeMarkup.includes("Southeast Asia") && globeMarkup.includes("Philippines"), "World Map must preserve region-to-country geographic drilldown");
-const philippinesCollectionMarkup = api.worldDestinationCollectionMarkup(philippinesDestination);
-assert(philippinesCollectionMarkup.includes("Welcome to the Philippines") && philippinesCollectionMarkup.includes("Open the full recipe"), "A globe destination must reveal cultural context and full recipe links");
-
-context.location.hash = "#recipes?section=cookies";
-assert.deepStrictEqual({ ...api.routeParts() }, { route: "recipes", id: undefined, section: "cookies", collection: "", culture: "", drink: "", subcategory: "", query: "" }, "Refresh must restore Cookies from the URL");
-context.location.hash = "#recipes?section=soups";
-assert.strictEqual(api.routeParts().section, "soups", "Back/Forward state must restore Soups");
-context.location.hash = "#living-cookbook?culture=india";
-assert.strictEqual(api.routeParts().culture, "india", "Around the World cookbook links must preserve the selected culture");
-context.location.hash = "#recipes?section=not-real";
-assert.strictEqual(api.cookbookChapterByKey(api.routeParts().section), null, "Invalid chapters must not fall back to Soups");
-
-const recipeIds = new Set(api.allRecipeCollection().map((recipe) => recipe.id));
-for (const recipe of api.allRecipeCollection()) {
-  const card = api.recipeCard(recipe);
-  const linkedIds = [...card.matchAll(/href="#recipes\/([^"]+)"/g)].map((match) => match[1]);
-  assert(linkedIds.length >= 2, `${recipe.id} card must link its photo and action to a recipe page`);
-  assert(linkedIds.every((id) => recipeIds.has(id)), `${recipe.id} card points to a missing recipe`);
-}
-
-const footer = api.siteFooterMarkup("recipes");
-for (const route of ["#lets-cook", "#recipes", "#cuisine-explorer", "#america-250", "#cook101", "#living-cookbook/holiday-tables", "#account", "#add-recipe", "#about", "#contact", "#privacy", "#terms"]) {
-  assert(footer.includes(`href="${route}"`), `Footer route missing: ${route}`);
-}
-assert(footer.includes("data-back-to-top"), "Footer Back to Top must have a real handler target");
-
-const profileMarkup = api.cookingProfileHome({ displayName: "Test Cook", bio: "I cook colorful food.", city: "Chicago", state: "IL", accountType: "Home Cook", badges: ["Founding Cook"] });
-for (const tab of ["posts", "recipes", "videos", "favorites", "meal-plans", "reviews", "about"]) {
-  assert(profileMarkup.includes(`data-profile-tab="${tab}"`), `Cooking profile tab missing: ${tab}`);
-}
-assert(profileMarkup.includes("cook-profile-cover"), "Cooking profile needs a customizable cover");
-assert(profileMarkup.includes("cook-profile-avatar"), "Cooking profile needs an overlapping avatar");
-assert(profileMarkup.includes("Followers") && profileMarkup.includes("Following"), "Cooking profile needs community stats");
-assert(profileMarkup.includes("Favorite cuisines") && profileMarkup.includes("Cooking style"), "Cooking profile needs food identity details");
-
-const postMarkup = api.communityPostCard({ id: "test-post", author: "Test Cook", text: "Added mushrooms.", recipeId: "carrot-cake" });
-for (const action of ["fork", "made", "save"]) assert(postMarkup.includes(`data-community-action="${action}"`), `Community action missing: ${action}`);
-assert(postMarkup.includes("data-community-share"), "Community post must support sharing");
-assert(postMarkup.includes("data-community-follow"), "Community post must support following");
-assert(postMarkup.includes("data-kitchen-note-form"), "Community post must support Kitchen Notes");
-assert(postMarkup.includes("#recipes/carrot-cake"), "Community posts must link directly to recipes");
-assert(postMarkup.includes("#community/test-post"), "Community cook names must link to public profiles");
-assert(api.communityVideoForm().includes("accept=\"video/*\"") && api.communityVideoForm().includes("name=\"recipeId\""), "In My Kitchen must upload videos and link recipes");
-
-api.renderCommunity();
-assert(element.innerHTML.includes("data-community-post-form"), "Community feed needs a post composer");
-assert(element.innerHTML.includes("Fork & Spoon"), "Community feed needs the signature appreciation action");
-api.renderCommunity("welcome-table");
-assert(element.innerHTML.includes("Shay Bee") && element.innerHTML.includes("cook-profile-cover"), "Public community routes must render a real cooking profile");
-
-assert.strictEqual(api.augustDateKeys().length, 31, "August calendar must include all 31 days");
-for (const dateKey of api.augustDateKeys()) {
-  const menu = api.defaultMenuForDate(dateKey);
-  for (const slot of ["breakfast", "lunch", "dinner", "snack"]) {
-    const recipe = api.calendarRecipe(menu[slot].recipeId);
-    assert(recipe, `${dateKey} ${slot} must point to a real publishable recipe`);
-    assert(recipe.ingredients.length > 0, `${dateKey} ${slot} recipe must have ingredients`);
-    assert((recipe.instructions || recipe.directions).length > 0, `${dateKey} ${slot} recipe must have instructions`);
-    assert(recipe.image || recipe.image_url, `${dateKey} ${slot} recipe must have an image`);
-  }
-}
-const todayMarkup = api.todayPlateSection();
-assert(todayMarkup.includes("Todayâ€™s Plate"), "Homepage must include Todayâ€™s Plate");
-assert.strictEqual((todayMarkup.match(/data-calendar-recipe-open=/g) || []).length, 8, "Every Todayâ€™s Plate meal must have two direct recipe links");
-const monthMarkup = api.monthlyKitchenCalendarSection();
-assert(monthMarkup.includes("August: Around the World"), "Letâ€™s Plan calendar must carry the August Around the World launch");
-assert.strictEqual((monthMarkup.match(/data-select-kitchen-date=/g) || []).length, 37, "Launch calendar must include July 26 through August 31");
-assert(monthMarkup.includes("data-planner-month=\"previous\"") && monthMarkup.includes("data-planner-month=\"next\""), "Calendar must support previous and next month navigation");
-
-const weekMarkup = api.homepageWeeklyStrip();
-assert(weekMarkup.includes("This Week at Letâ€™s Cook Yâ€™all"), "Homepage needs the compact weekly preview");
-assert.strictEqual((weekMarkup.match(/data-week-date=/g) || []).length, 7, "Homepage must show one week only");
-assert(weekMarkup.includes("#lets-plan") && weekMarkup.includes("Use This Week") && weekMarkup.includes("View Grocery List"), "Weekly preview must link to planning actions");
-api.renderLetsCookHome();
-assert(element.innerHTML.includes('<h1 id="homeHeroTitle">Around the World</h1>'), "Homepage hero must launch August Around the World");
-assert(element.innerHTML.includes("Culture of the Week") && element.innerHTML.includes("Featured Drink") && element.innerHTML.includes("Pantry Staples"), "Homepage must include the coordinated weekly culture features");
-assert(element.innerHTML.includes("What Yâ€™all Cooking Around the World"), "Homepage must include the Around the World community challenge");
-assert(!element.innerHTML.includes("monthly-kitchen-section"), "Full monthly calendar must not appear on the homepage");
-assert(element.innerHTML.includes("homepage-week-strip"), "Homepage must retain the weekly meal-planning preview");
-api.renderLetsPlan();
-assert(element.innerHTML.includes("Todayâ€™s Plate") && element.innerHTML.includes("monthly-kitchen-section") && element.innerHTML.includes("Kitchen Grocery List"), "Letâ€™s Plan must contain Todayâ€™s Plate, calendar, and groceries");
-
-const familyRecipe = api.allRecipeCollection().find(api.cookAlongEligible);
-assert(familyRecipe, "At least one complete recipe must support Cook Along Together");
-const littleJob = api.cookAlongTaskFor(familyRecipe, "Stir the ingredients", "3-5");
-const juniorJob = api.cookAlongTaskFor(familyRecipe, "Stir the ingredients", "9-12");
-assert.notStrictEqual(littleJob.child, juniorJob.child, "Age selection must change the childâ€™s job");
-assert(/Adult only/i.test(api.cookAlongTaskFor(familyRecipe, "Bake in a hot oven", "9-12").adult), "Heat steps must remain adult-only");
-
-const curatedWeek = api.generatedMenusForWeek("2026-07-22");
-const curatedMeals = Object.values(curatedWeek).flatMap((menu) => [menu.breakfast, menu.lunch, menu.dinner, menu.snack]);
-assert.strictEqual(new Set(curatedMeals.map((meal) => meal.recipeId)).size, curatedMeals.length, "A curated week must not repeat recipes");
-const dinnerTraits = Object.values(curatedWeek).map((menu) => api.plannerRecipeTraits(api.calendarRecipe(menu.dinner.recipeId)));
-assert(new Set(dinnerTraits.map((item) => item.protein)).size >= 4, "Weekly dinners must balance proteins");
-assert(new Set(dinnerTraits.map((item) => item.cuisine)).size >= 4, "Weekly dinners must balance cuisines");
-assert(new Set(dinnerTraits.map((item) => item.method)).size >= 3, "Weekly dinners must balance cooking methods");
-const followingWeekIds = new Set(Object.values(api.generatedMenusForWeek("2026-07-29")).flatMap((menu) => [menu.breakfast.recipeId, menu.lunch.recipeId, menu.dinner.recipeId, menu.snack.recipeId]));
-const repeatedAcrossWeeks = curatedMeals.filter((meal) => followingWeekIds.has(meal.recipeId)).length;
-assert(repeatedAcrossWeeks <= 7, "Consecutive weeks must substantially rotate the menu");
-
-api.setHousehold({ servings: 4, eatingStyle: "no-preference", allergies: "", dietary: "", avoid: "" });
-api.setPantryOwned([]);
-const weekItems = api.buildKitchenGroceryItems("week");
-assert(weekItems.length > 0, "Weekly grocery list must use real recipe ingredients");
-const groceryKeys = weekItems.map((item) => `${item.name.toLowerCase()}|${String(item.unit || "").toLowerCase()}`);
-assert.strictEqual(new Set(groceryKeys).size, groceryKeys.length, "Weekly grocery list must consolidate duplicate ingredients");
-const ownedName = weekItems[0].name.toLowerCase();
-api.setPantryOwned([ownedName]);
-assert(api.buildKitchenGroceryItems("week").find((item) => item.name.toLowerCase() === ownedName)?.owned, "Pantry-owned items must be separated from items to purchase");
-const groceryMarkup = api.groceryPlanningSection();
-for (const action of ["save", "print", "email", "download", "share"]) assert(groceryMarkup.includes(`data-${action}-grocery-list`), `Grocery action missing: ${action}`);
-assert(groceryMarkup.includes("data-clear-grocery-checked"), "Grocery list must clear checked items");
-
-const routedPages = new Set([
-  "home", "lets-cook", "find-the-beat", "second-chance", "community", "kitchen", "america-250",
-  "add-recipe", "submit-recipe", "cook101", "skills-academy", "culinary-academy", "build-a-meal",
-  "kitchen-search", "pantry-scan", "cuisine-explorer", "food-encyclopedia", "what-yall-cooking",
-  "menu-intelligence", "living-cookbook", "kids-cooking", "kids-korner", "recipes", "paths",
-  "pathways", "planner", "lets-plan", "cook-along", "hosting", "gathering-planner", "about", "account", "privacy", "terms", "contact", "search", "cuisine"
-]);
-const localDocumentAnchors = new Set(["aiKitchenInventoryForm"]);
-const literalInternalLinks = [...source.matchAll(/href="#([^"$]+)"/g)].map((match) => match[1]);
-for (const href of literalInternalLinks) {
-  const route = href.split(/[/?]/)[0];
-  assert(routedPages.has(route) || localDocumentAnchors.has(route), `Literal internal link has no route or document target: #${href}`);
-}
-
-console.log(`Cookbook navigation tests passed for ${expectedSections.length} chapters, ${recipeIds.size} recipe cards, and ${literalInternalLinks.length} literal internal links.`);
-console.log(`Drinks audit passed for ${drinksCollection.length} beverage recipes with zero food-item leaks.`);
+assert(/recipe-box-filter-drawer[^>]*data-cookbook-open-content hidden/.test(closedDedicatedCookbook), "Cookbook filters must stay hidden until theÛx¶‰Ëkºwµçp…Á¤¹É•¥Á•Í½ÉÕÕÍÑÕ±ÑÕÉ”¡Õ±ÑÕÉ”°ÑÉÕ”¤¹±•¹Ñ °€‘íÕ±ÑÕÉ”¹Ñ¥Ñ±•ô½±±•Ñ¥½¸µÕÍĞ¹½ĞÉ•Á•…ĞÉ•¥Á”É•½É‘Í€¤ì)ô)…ÍÍ•ÉĞ¡…Á¤¹…É½Õ¹‘]½É±‘M•…É¡5…Ñ¡•Ì ‰%¹‘¥„ˆ¤¹Í½µ” ¡Õ±ÑÕÉ”¤€ôøÕ±ÑÕÉ”¹¥€ôôô€‰¥¹‘¥„ˆ¤°€‰M•…É µÕÍĞÉ•ÑÕÉ¸Ñ¡”%¹‘¥„Õ±ÑÕÉ”½±±•Ñ¥½¸ˆ¤ì)…ÍÍ•ÉĞ¡…Á¤¹…É½Õ¹‘]½É±‘M•…É¡5…Ñ¡•Ì ‰¡¥‰¥ÍÕÌˆ¤¹Í½µ” ¡Õ±ÑÕÉ”¤€ôøÕ±ÑÕÉ”¹¥€ôôô€‰…™É¥„ˆ¤°€‰M•…É µÕÍĞ½¹¹•ĞÍ¥¹…ÑÕÉ”¥¹É•‘¥•¹ÑÌ…¹‘É¥¹­ÌÑ¼Õ±ÑÕÉ”½±±•Ñ¥½¹Ìˆ¤ì)…ÍÍ•ÉĞ¡…Á¤¹İ½É±‘±½‰••ÍÑ¥¹…Ñ¥½¹Ì¹±•¹Ñ €øô€ĞÀ°€‰]½É±5…ÀµÕÍĞ•áÁ½Í”„ÍÕ‰ÍÑ…¹Ñ¥…°Í•Ğ½˜±½‰”‘•ÍÑ¥¹…Ñ¥½¹Ìˆ¤ì)½¹ÍĞİ½É±‘Q½Á½±½ä€ô)M=8¹Á…ÉÍ”¡™Ì¹É•…‘¥±•Må¹Œ¡Á…Ñ ¹©½¥¸¡É½½Ğ°€‰‘…Ñ„ˆ°€‰İ½É±µ½Õ¹ÑÉ¥•Ì´ÄÄÁ´¹©Í½¸ˆ¤°€‰ÕÑ˜àˆ¤¤ì)½¹ÍĞ½Õ¹ÑÉå•½µ•ÑÉä€ô…Á¤¹‘•½‘•]½É±‘½Õ¹ÑÉåQ½Á½±½ä¡İ½É±‘Q½Á½±½ä¤ì)…ÍÍ•ÉĞ¡½Õ¹ÑÉå•½µ•ÑÉä¹±•¹Ñ €øô€ÄÜÀ°€‰]½É±5…ÀµÕÍĞÉ•¹‘•È„½µÁ±•Ñ”É•…°µİ½É±½Õ¹ÑÉä‰½Õ¹‘…Éä‘…Ñ…Í•Ğˆ¤ì)½¹ÍĞÉ•ÅÕ•ÍÑ•‘•½É…Á¡¥•ÍÑ¥¹…Ñ¥½¹Ì€ôì(€Á¡¥±¥ÁÁ¥¹•Ìèì½Õ¹ÑÉå%è€ˆØÀàˆ°±…ĞèlĞ°€ÈÉt°±½¸èlÄÄÔ°€ÄÌÁtô°(€¹¥•É¥„èì½Õ¹ÑÉå%è€ˆÔØØˆ°±…ĞèlĞ°€ÄÑt°±½¸èlÈ°€ÄÕtô°(€¡…¹„èì½Õ¹ÑÉå%è€ˆÈààˆ°±…ĞèlĞ°€ÄÉt°±½¸èl´Ğ°€Étô°(€É••”èì½Õ¹ÑÉå%è€ˆÌÀÀˆ°±…ĞèlÌĞ°€ĞÍt°±½¸èlÄä°€ÌÁtô°(€€‰ÁÕ•ÉÑ¼µÉ¥¼ˆèì½Õ¹ÑÉå%è€ˆØÌÀˆ°±…ĞèlÄÜ°€Äåt°±½¸èl´Øà°€´ØÕtô°(€Á•ÉÔèì½Õ¹ÑÉå%è€ˆØÀĞˆ°±…Ğèl´Ää°€Åt°±½¸èl´àÈ°€´Øátô°(€­½É•„èì½Õ¹ÑÉå%è€ˆĞÄÀˆ°±…ĞèlÌÌ°€Ìåt°±½¸èlÄÈĞ°€ÄÌÉtô)ôì)™½È€¡½¹ÍĞm‘•ÍÑ¥¹…Ñ¥½¹%°•áÁ•Ñ•‘t½˜=‰©•Ğ¹•¹ÑÉ¥•Ì¡É•ÅÕ•ÍÑ•‘•½É…Á¡¥•ÍÑ¥¹…Ñ¥½¹Ì¤¤ì(€½¹ÍĞ‘•ÍÑ¥¹…Ñ¥½¸€ô…Á¤¹İ½É±‘±½‰••ÍÑ¥¹…Ñ¥½¹	å%¡‘•ÍÑ¥¹…Ñ¥½¹%¤ì(€…ÍÍ•ÉĞ¡‘•ÍÑ¥¹…Ñ¥½¸°€‘í‘•ÍÑ¥¹…Ñ¥½¹%‘ôµÕÍĞÉ•µ…¥¸…¸…Ù…¥±…‰±”±½‰”‘•ÍÑ¥¹…Ñ¥½¹€¤ì(€…ÍÍ•ÉĞ¡‘•ÍÑ¥¹…Ñ¥½¸¹±…Ğ€øô•áÁ•Ñ•¹±…ÑlÁt€˜˜‘•ÍÑ¥¹…Ñ¥½¸¹±…Ğ€ğô•áÁ•Ñ•¹±…ÑlÅt°€‘í‘•ÍÑ¥¹…Ñ¥½¹%‘ô±…Ñ¥ÑÕ‘”µÕÍĞµ…Ñ ¥ÑÌÉ•…°µİ½É±±½…Ñ¥½¹€¤ì(€…ÍÍ•ÉĞ¡‘•ÍÑ¥¹…Ñ¥½¸¹±½¸€øô•áÁ•Ñ•¹±½¹lÁt€˜˜‘•ÍÑ¥¹…Ñ¥½¸¹±½¸€ğô•áÁ•Ñ•¹±½¹lÅt°€‘í‘•ÍÑ¥¹…Ñ¥½¹%‘ô±½¹¥ÑÕ‘”µÕÍĞµ…Ñ ¥ÑÌÉ•…°µİ½É±±½…Ñ¥½¹€¤ì(€…ÍÍ•ÉĞ¹ÍÑÉ¥ÑÅÕ…°¡…Á¤¹İ½É±‘•ÍÑ¥¹…Ñ¥½¹½Õ¹ÑÉå%‘Ím‘•ÍÑ¥¹…Ñ¥½¹%‘t°•áÁ•Ñ•¹½Õ¹ÑÉå%°€‘í‘•ÍÑ¥¹…Ñ¥½¹%‘ôµÕÍĞµ…ÀÑ¼¥ÑÌÉ•…°%M<¹Õµ•É¥Œ½Õ¹ÑÉä•½µ•ÑÉå€¤ì(€…ÍÍ•ÉĞ¡½Õ¹ÑÉå•½µ•ÑÉä¹Í½µ” ¡½Õ¹ÑÉä¤€ôø½Õ¹ÑÉä¹¥€ôôô•áÁ•Ñ•¹½Õ¹ÑÉå%€˜˜½Õ¹ÑÉä¹Á½±å½¹Ì¹±•¹Ñ ¤°€‘í‘•ÍÑ¥¹…Ñ¥½¹%‘ôµÕÍĞ¡…Ù”É•…°ÁÉ½©•Ñ•½Õ¹ÑÉä‰½Õ¹‘…É¥•Í€¤ì)ô)…ÍÍ•ÉĞ …Í½ÕÉ”¹¥¹±Õ‘•Ì ‰½¹ÍĞİ½É±‘±½‰•½¹Ñ¥¹•¹ÑÌˆ¤°€‰]½É±5…ÀµÕÍĞ¹½Ğ™…±°‰…¬Ñ¼¡…¹µ‘É…İ¸½¹Ñ¥¹•¹Ğ…ÁÁÉ½á¥µ…Ñ¥½¹Ìˆ¤ì)…ÍÍ•ÉĞ¹ÍÑÉ¥ÑÅÕ…°¡…Á¤¹İ½É±‘±½‰••ÍÑ¥¹…Ñ¥½¹½ÉEÕ•Éä ‰¥±¥Á¥¹¼ˆ¤¹¥°€‰Á¡¥±¥ÁÁ¥¹•Ìˆ°€‰¥±¥Á¥¹¼Í•…É µÕÍĞÉ•Í½±Ù”Ñ¼Ñ¡”A¡¥±¥ÁÁ¥¹•Ì±½‰”‘•ÍÑ¥¹…Ñ¥½¸ˆ¤ì)…ÍÍ•ÉĞ¹ÍÑÉ¥ÑÅÕ…°¡…Á¤¹İ½É±‘±½‰••ÍÑ¥¹…Ñ¥½¹½ÉEÕ•Éä ‰9¥•É¥„ˆ¤¹¥°€‰¹¥•É¥„ˆ°€‰9¥•É¥„Í•…É µÕÍĞÉ•Í½±Ù”Ñ¼¥ÑÌ±½‰”‘•ÍÑ¥¹…Ñ¥½¸ˆ¤ì)½¹ÍĞÁ¡¥±¥ÁÁ¥¹•Í•ÍÑ¥¹…Ñ¥½¸€ô…Á¤¹İ½É±‘±½‰••ÍÑ¥¹…Ñ¥½¹	å% ‰Á¡¥±¥ÁÁ¥¹•Ìˆ¤ì)…ÍÍ•ÉĞ¡Á¡¥±¥ÁÁ¥¹•Í•ÍÑ¥¹…Ñ¥½¸€˜˜9Õµ‰•È¹¥Í¥¹¥Ñ”¡Á¡¥±¥ÁÁ¥¹•Í•ÍÑ¥¹…Ñ¥½¸¹±…Ğ¤€˜˜9Õµ‰•È¹¥Í¥¹¥Ñ”¡Á¡¥±¥ÁÁ¥¹•Í•ÍÑ¥¹…Ñ¥½¸¹±½¸¤°€‰A¡¥±¥ÁÁ¥¹•ÌµÕÍĞ¡…Ù”É•…°±½‰”½½É‘¥¹…Ñ•Ìˆ¤ì)½¹ÍĞÁ¡¥±¥ÁÁ¥¹•ÍI•¥Á•Ì€ô…Á¤¹É•¥Á•Í½É]½É±‘•ÍÑ¥¹…Ñ¥½¸¡Á¡¥±¥ÁÁ¥¹•Í•ÍÑ¥¹…Ñ¥½¸¤ì)…ÍÍ•ÉĞ¡Á¡¥±¥ÁÁ¥¹•ÍI•¥Á•Ì¹±•¹Ñ €ø€À°€‰A¡¥±¥ÁÁ¥¹•ÌµÕÍĞÉ•Ù•…°¥ÑÌ…¹½¹¥…°É•¥Á”½±±•Ñ¥½¸ˆ¤ì)…ÍÍ•ÉĞ¡Á¡¥±¥ÁÁ¥¹•ÍI•¥Á•Ì¹•Ù•Éä ¡É•¥Á”¤€ôø€½Á¡¥±¥ÁÁ¥¹•Íñ™¥±¥Á¥¹½ñ™¥±¥Á¥¹„½¤¹Ñ•ÍĞ¡€‘íÉ•¥Á”¹Ñ¥Ñ±•ô€‘íÉ•¥Á”¹Õ¥Í¥¹•ô€‘íÉ•¥Á”¹…Ñ•½Éåô€‘ì¡É•¥Á”¹Ñ…Ìñğmt¤¹©½¥¸ ˆ€ˆ¥õ€¤¤°€‰A¡¥±¥ÁÁ¥¹•ÌµÕÍĞ¹•Ù•ÈÉ••¥Ù”•¹•É¥ŒÍ¥…¸É•¥Á•Ìˆ¤ì)½¹ÍĞ±½‰•5…É­ÕÀ€ô…Á¤¹İ½É±‘±½‰•5…É­ÕÀ¡Á¡¥±¥ÁÁ¥¹•Í•ÍÑ¥¹…Ñ¥½¸¤ì)…ÍÍ•ÉĞ¡±½‰•5…É­ÕÀ¹¥¹±Õ‘•Ì ‰‘…Ñ„µİ½É±µ±½‰”ˆ¤€˜˜±½‰•5…É­ÕÀ¹¥¹±Õ‘•Ì ‰‘…Ñ„µİ½É±µ±½‰”µÍ•…É ˆ¤°€‰]½É±5…ÀµÕÍĞ±•…İ¥Ñ …¸¥¹Ñ•É…Ñ¥Ù”°Í•…É¡…‰±”±½‰”ˆ¤ì)…ÍÍ•ÉĞ¡±½‰•5…É­ÕÀ¹¥¹±Õ‘•Ì ‰M½ÕÑ¡•…ÍĞÍ¥„ˆ¤€˜˜±½‰•5…É­ÕÀ¹¥¹±Õ‘•Ì ‰A¡¥±¥ÁÁ¥¹•Ìˆ¤°€‰]½É±5…ÀµÕÍĞÁÉ•Í•ÉÙ”É•¥½¸µÑ¼µ½Õ¹ÑÉä•½É…Á¡¥Œ‘É¥±±‘½İ¸ˆ¤ì)½¹ÍĞÁ¡¥±¥ÁÁ¥¹•Í½±±•Ñ¥½¹5…É­ÕÀ€ô…Á¤¹İ½É±‘•ÍÑ¥¹…Ñ¥½¹½±±•Ñ¥½¹5…É­ÕÀ¡Á¡¥±¥ÁÁ¥¹•Í•ÍÑ¥¹…Ñ¥½¸¤ì)…ÍÍ•ÉĞ¡Á¡¥±¥ÁÁ¥¹•Í½±±•Ñ¥½¹5…É­ÕÀ¹¥¹±Õ‘•Ì ‰]•±½µ”Ñ¼Ñ¡”A¡¥±¥ÁÁ¥¹•Ìˆ¤€˜˜Á¡¥±¥ÁÁ¥¹•Í½±±•Ñ¥½¹5…É­ÕÀ¹¥¹±Õ‘•Ì ‰=Á•¸Ñ¡”™Õ±°É•¥Á”ˆ¤°€‰±½‰”‘•ÍÑ¥¹…Ñ¥½¸µÕÍĞÉ•Ù•…°Õ±ÑÕÉ…°½¹Ñ•áĞ…¹™Õ±°É•¥Á”±¥¹­Ìˆ¤ì()½¹Ñ•áĞ¹±½…Ñ¥½¸¹¡…Í €ô€ˆÉ•¥Á•ÌıÍ•Ñ¥½¸õ½½­¥•Ìˆì)…ÍÍ•ÉĞ¹‘••ÁMÑÉ¥ÑÅÕ…°¡ì€¸¸¹…Á¤¹É½ÕÑ•A…ÉÑÌ ¤ô°ìÉ½ÕÑ”è€‰É•¥Á•Ìˆ°¥èÕ¹‘•™¥¹•°Í•Ñ¥½¸è€‰½½­¥•Ìˆ°½±±•Ñ¥½¸è€ˆˆ°Õ±ÑÕÉ”è€ˆˆ°‘É¥¹¬è€ˆˆ°ÍÕ‰…Ñ•½Éäè€ˆˆ°ÅÕ•Éäè€ˆˆô°€‰I•™É•Í µÕÍĞÉ•ÍÑ½É”½½­¥•Ì™É½´Ñ¡”UI0ˆ¤ì)½¹Ñ•áĞ¹±½…Ñ¥½¸¹¡…Í €ô€ˆÉ•¥Á•ÌıÍ•Ñ¥½¸õÍ½ÕÁÌˆì)…ÍÍ•ÉĞ¹ÍÑÉ¥ÑÅÕ…°¡…Á¤¹É½ÕÑ•A…ÉÑÌ ¤¹Í•Ñ¥½¸°€‰Í½ÕÁÌˆ°€‰	…¬½½Éİ…ÉÍÑ…Ñ”µÕÍĞÉ•ÍÑ½É”M½ÕÁÌˆ¤ì)½¹Ñ•áĞ¹±½…Ñ¥½¸¹¡…Í €ô€ˆ±¥Ù¥¹œµ½½­‰½½¬ıÕ±ÑÕÉ”õ¥¹‘¥„ˆì)…ÍÍ•ÉĞ¹ÍÑÉ¥ÑÅÕ…°¡…Á¤¹É½ÕÑ•A…ÉÑÌ ¤¹Õ±ÑÕÉ”°€‰¥¹‘¥„ˆ°€‰É½Õ¹Ñ¡”]½É±½½­‰½½¬±¥¹­ÌµÕÍĞÁÉ•Í•ÉÙ”Ñ¡”Í•±•Ñ•Õ±ÑÕÉ”ˆ¤ì)½¹Ñ•áĞ¹±½…Ñ¥½¸¹¡…Í €ô€ˆÉ•¥Á•ÌıÍ•Ñ¥½¸õ¹½ĞµÉ•…°ˆì)…ÍÍ•ÉĞ¹ÍÑÉ¥ÑÅÕ…°¡…Á¤¹½½­‰½½­¡…ÁÑ•É	å-•ä¡…Á¤¹É½ÕÑ•A…ÉÑÌ ¤¹Í•Ñ¥½¸¤°¹Õ±°°€‰%¹Ù…±¥¡…ÁÑ•ÉÌµÕÍĞ¹½Ğ™…±°‰…¬Ñ¼M½ÕÁÌˆ¤ì()½¹ÍĞÉ•¥Á•%‘Ì€ô¹•ÜM•Ğ¡…Á¤¹…±±I•¥Á•½±±•Ñ¥½¸ ¤¹µ…À ¡É•¥Á”¤€ôøÉ•¥Á”¹¥¤¤ì)™½È€¡½¹ÍĞÉ•¥Á”½˜…Á¤¹…±±I•¥Á•½±±•Ñ¥½¸ ¤¤ì(€½¹ÍĞ…É€ô…Á¤¹É•¥Á•…É¡É•¥Á”¤ì(€½¹ÍĞ±¥¹­•‘%‘Ì€ôl¸¸¹…É¹µ…Ñ¡±° ½¡É•˜ôˆÉ•¥Á•Íp¼¡mx‰t¬¤ˆ½œ¥t¹µ…À ¡µ…Ñ ¤€ôøµ…Ñ¡lÅt¤ì(€…ÍÍ•ÉĞ¡±¥¹­•‘%‘Ì¹±•¹Ñ €øô€È°€‘íÉ•¥Á”¹¥‘ô…ÉµÕÍĞ±¥¹¬¥ÑÌÁ¡½Ñ¼…¹…Ñ¥½¸Ñ¼„É•¥Á”Á…•€¤ì(€…ÍÍ•ÉĞ¡±¥¹­•‘%‘Ì¹•Ù•Éä ¡¥¤€ôøÉ•¥Á•%‘Ì¹¡…Ì¡¥¤¤°€‘íÉ•¥Á”¹¥‘ô…ÉÁ½¥¹ÑÌÑ¼„µ¥ÍÍ¥¹œÉ•¥Á•€¤ì)ô()½¹ÍĞ™½½Ñ•È€ô…Á¤¹Í¥Ñ•½½Ñ•É5…É­ÕÀ ‰É•¥Á•Ìˆ¤ì)™½È€¡½¹ÍĞÉ½ÕÑ”½˜lˆ±•ÑÌµ½½¬ˆ°€ˆÉ•¥Á•Ìˆ°€ˆÕ¥Í¥¹”µ•áÁ±½É•Èˆ°€ˆ…µ•É¥„´ÈÔÀˆ°€ˆ½½¬ÄÀÄˆ°€ˆ±¥Ù¥¹œµ½½­‰½½¬½¡½±¥‘…äµÑ…‰±•Ìˆ°€ˆ…½Õ¹Ğˆ°€ˆ…‘µÉ•¥Á”ˆ°€ˆ…‰½ÕĞˆ°€ˆ½¹Ñ…Ğˆ°€ˆÁÉ¥Ù…äˆ°€ˆÑ•ÉµÌ‰t¤ì(€…ÍÍ•ÉĞ¡™½½Ñ•È¹¥¹±Õ‘•Ì¡¡É•˜ôˆ‘íÉ½ÕÑ•ô‰€¤°½½Ñ•ÈÉ½ÕÑ”µ¥ÍÍ¥¹œè€‘íÉ½ÕÑ•õ€¤ì)ô)…ÍÍ•ÉĞ¡™½½Ñ•È¹¥¹±Õ‘•Ì ‰‘…Ñ„µ‰…¬µÑ¼µÑ½Àˆ¤°€‰½½Ñ•È	…¬Ñ¼Q½ÀµÕÍĞ¡…Ù”„É•…°¡…¹‘±•ÈÑ…É•Ğˆ¤ì()½¹ÍĞÁÉ½™¥±•5…É­ÕÀ€ô…Á¤¹½½­¥¹AÉ½™¥±•!½µ”¡ì‘¥ÍÁ±…å9…µ”è€‰Q•ÍĞ½½¬ˆ°‰¥¼è€‰$½½¬½±½É™Õ°™½½¸ˆ°¥Ñäè€‰¡¥…¼ˆ°ÍÑ…Ñ”è€‰%0ˆ°…½Õ¹ÑQåÁ”è€‰!½µ”½½¬ˆ°‰…‘•Ìèl‰½Õ¹‘¥¹œ½½¬‰tô¤ì)™½È€¡½¹ÍĞÑ…ˆ½˜l‰Á½ÍÑÌˆ°€‰É•¥Á•Ìˆ°€‰Ù¥‘•½Ìˆ°€‰™…Ù½É¥Ñ•Ìˆ°€‰µ•…°µÁ±…¹Ìˆ°€‰É•Ù¥•İÌˆ°€‰…‰½ÕĞ‰t¤ì(€…ÍÍ•ÉĞ¡ÁÉ½™¥±•5…É­ÕÀ¹¥¹±Õ‘•Ì¡‘…Ñ„µÁÉ½™¥±”µÑ…ˆôˆ‘íÑ…‰ô‰€¤°½½­¥¹œÁÉ½™¥±”Ñ…ˆµ¥ÍÍ¥¹œè€‘íÑ…‰õ€¤ì)ô)…ÍÍ•ÉĞ¡ÁÉ½™¥±•5…É­ÕÀ¹¥¹±Õ‘•Ì ‰½½¬µÁÉ½™¥±”µ½Ù•Èˆ¤°€‰½½­¥¹œÁÉ½™¥±”¹••‘Ì„ÕÍÑ½µ¥é…‰±”½Ù•Èˆ¤ì)…ÍÍ•ÉĞ¡ÁÉ½™¥±•5…É­ÕÀ¹¥¹±Õ‘•Ì ‰½½¬µÁÉ½™¥±”µ…Ù…Ñ…Èˆ¤°€‰½½­¥¹œÁÉ½™¥±”¹••‘Ì…¸½Ù•É±…ÁÁ¥¹œ…Ù…Ñ…Èˆ¤ì)…ÍÍ•ÉĞ¡ÁÉ½™¥±•5…É­ÕÀ¹¥¹±Õ‘•Ì ‰½±±½İ•ÉÌˆ¤€˜˜ÁÉ½™¥±•5…É­ÕÀ¹¥¹±Õ‘•Ì ‰½±±½İ¥¹œˆ¤°€‰½½­¥¹œÁÉ½™¥±”¹••‘Ì½µµÕ¹¥ÑäÍÑ…ÑÌˆ¤ì)…ÍÍ•ÉĞ¡ÁÉ½™¥±•5…É­ÕÀ¹¥¹±Õ‘•Ì ‰…Ù½É¥Ñ”Õ¥Í¥¹•Ìˆ¤€˜˜ÁÉ½™¥±•5…É­ÕÀ¹¥¹±Õ‘•Ì ‰½½­¥¹œÍÑå±”ˆ¤°€‰½½­¥¹œÁÉ½™¥±”¹••‘Ì™½½¥‘•¹Ñ¥Ñä‘•Ñ…¥±Ìˆ¤ì()½¹ÍĞÁ½ÍÑ5…É­ÕÀ€ô…Á¤¹½µµÕ¹¥ÑåA½ÍÑ…É¡ì¥è€‰Ñ•ÍĞµÁ½ÍĞˆ°…ÕÑ¡½Èè€‰Q•ÍĞ½½¬ˆ°Ñ•áĞè€‰‘‘•µÕÍ¡É½½µÌ¸ˆ°É•¥Á•%è€‰…ÉÉ½Ğµ…­”ˆô¤ì)™½È€¡½¹ÍĞ…Ñ¥½¸½˜l‰™½É¬ˆ°€‰µ…‘”ˆ°€‰Í…Ù”‰t¤…ÍÍ•ÉĞ¡Á½ÍÑ5…É­ÕÀ¹¥¹±Õ‘•Ì¡‘…Ñ„µ½µµÕ¹¥Ñäµ…Ñ¥½¸ôˆ‘í…Ñ¥½¹ô‰€¤°½µµÕ¹¥Ñä…Ñ¥½¸µ¥ÍÍ¥¹œè€‘í…Ñ¥½¹õ€¤ì)…ÍÍ•ÉĞ¡Á½ÍÑ5…É­ÕÀ¹¥¹±Õ‘•Ì ‰‘…Ñ„µ½µµÕ¹¥ÑäµÍ¡…É”ˆ¤°€‰½µµÕ¹¥ÑäÁ½ÍĞµÕÍĞÍÕÁÁ½ÉĞÍ¡…É¥¹œˆ¤ì)…ÍÍ•ÉĞ¡Á½ÍÑ5…É­ÕÀ¹¥¹±Õ‘•Ì ‰‘…Ñ„µ½µµÕ¹¥Ñäµ™½±±½Üˆ¤°€‰½µµÕ¹¥ÑäÁ½ÍĞµÕÍĞÍÕÁÁ½ÉĞ™½±±½İ¥¹œˆ¤ì)…ÍÍ•ÉĞ¡Á½ÍÑ5…É­ÕÀ¹¥¹±Õ‘•Ì ‰‘…Ñ„µ­¥Ñ¡•¸µ¹½Ñ”µ™½É´ˆ¤°€‰½µµÕ¹¥ÑäÁ½ÍĞµÕÍĞÍÕÁÁ½ÉĞ-¥Ñ¡•¸9½Ñ•Ìˆ¤ì)…ÍÍ•ÉĞ¡Á½ÍÑ5…É­ÕÀ¹¥¹±Õ‘•Ì ˆÉ•¥Á•Ì½…ÉÉ½Ğµ…­”ˆ¤°€‰½µµÕ¹¥ÑäÁ½ÍÑÌµÕÍĞ±¥¹¬‘¥É•Ñ±äÑ¼É•¥Á•Ìˆ¤ì)…ÍÍ•ÉĞ¡Á½ÍÑ5…É­ÕÀ¹¥¹±Õ‘•Ì ˆ½µµÕ¹¥Ñä½Ñ•ÍĞµÁ½ÍĞˆ¤°€‰½µµÕ¹¥Ñä½½¬¹…µ•ÌµÕÍĞ±¥¹¬Ñ¼ÁÕ‰±¥ŒÁÉ½™¥±•Ìˆ¤ì)…ÍÍ•ÉĞ¡…Á¤¹½µµÕ¹¥ÑåY¥‘•½½É´ ¤¹¥¹±Õ‘•Ì ‰…•ÁĞõp‰Ù¥‘•¼¼©pˆˆ¤€˜˜…Á¤¹½µµÕ¹¥ÑåY¥‘•½½É´ ¤¹¥¹±Õ‘•Ì ‰¹…µ”õp‰É•¥Á•%‘pˆˆ¤°€‰%¸5ä-¥Ñ¡•¸µÕÍĞÕÁ±½…Ù¥‘•½Ì…¹±¥¹¬É•¥Á•Ìˆ¤ì()…Á¤¹É•¹‘•É½µµÕ¹¥Ñä ¤ì)…ÍÍ•ÉĞ¡•±•µ•¹Ğ¹¥¹¹•É!Q50¹¥¹±Õ‘•Ì ‰‘…Ñ„µ½µµÕ¹¥ÑäµÁ½ÍĞµ™½É´ˆ¤°€‰½µµÕ¹¥Ñä™••¹••‘Ì„Á½ÍĞ½µÁ½Í•Èˆ¤ì)…ÍÍ•ÉĞ¡•±•µ•¹Ğ¹¥¹¹•É!Q50¹¥¹±Õ‘•Ì ‰½É¬€˜MÁ½½¸ˆ¤°€‰½µµÕ¹¥Ñä™••¹••‘ÌÑ¡”Í¥¹…ÑÕÉ”…ÁÁÉ•¥…Ñ¥½¸…Ñ¥½¸ˆ¤ì)…Á¤¹É•¹‘•É½µµÕ¹¥Ñä ‰İ•±½µ”µÑ…‰±”ˆ¤ì)…ÍÍ•ÉĞ¡•±•µ•¹Ğ¹¥¹¹•É!Q50¹¥¹±Õ‘•Ì ‰M¡…ä	•”ˆ¤€˜˜•±•µ•¹Ğ¹¥¹¹•É!Q50¹¥¹±Õ‘•Ì ‰½½¬µÁÉ½™¥±”µ½Ù•Èˆ¤°€‰AÕ‰±¥Œ½µµÕ¹¥ÑäÉ½ÕÑ•ÌµÕÍĞÉ•¹‘•È„É•…°½½­¥¹œÁÉ½™¥±”ˆ¤ì()…ÍÍ•ÉĞ¹ÍÑÉ¥ÑÅÕ…°¡…Á¤¹…ÕÕÍÑ…Ñ•-•åÌ ¤¹±•¹Ñ °€ÌÄ°€‰ÕÕÍĞ…±•¹‘…ÈµÕÍĞ¥¹±Õ‘”…±°€ÌÄ‘…åÌˆ¤ì)™½È€¡½¹ÍĞ‘…Ñ•-•ä½˜…Á¤¹…ÕÕÍÑ…Ñ•-•åÌ ¤¤ì(€½¹ÍĞµ•¹Ô€ô…Á¤¹‘•™…Õ±Ñ5•¹Õ½É…Ñ”¡‘…Ñ•-•ä¤ì(€™½È€¡½¹ÍĞÍ±½Ğ½˜l‰‰É•…­™…ÍĞˆ°€‰±Õ¹ ˆ°€‰‘¥¹¹•Èˆ°€‰Í¹…¬‰t¤ì(€€€½¹ÍĞÉ•¥Á”€ô…Á¤¹…±•¹‘…ÉI•¥Á”¡µ•¹ÕmÍ±½Ñt¹É•¥Á•%¤ì(€€€…ÍÍ•ÉĞ¡É•¥Á”°€‘í‘…Ñ•-•åô€‘íÍ±½ÑôµÕÍĞÁ½¥¹ĞÑ¼„É•…°ÁÕ‰±¥Í¡…‰±”É•¥Á•€¤ì(€€€…ÍÍ•ÉĞ¡É•¥Á”¹¥¹É•‘¥•¹ÑÌ¹±•¹Ñ €ø€À°€‘í‘…Ñ•-•åô€‘íÍ±½ÑôÉ•¥Á”µÕÍĞ¡…Ù”¥¹É•‘¥•¹ÑÍ€¤ì(€€€…ÍÍ•ÉĞ ¡É•¥Á”¹¥¹ÍÑÉÕÑ¥½¹ÌñğÉ•¥Á”¹‘¥É•Ñ¥½¹Ì¤¹±•¹Ñ €ø€À°€‘í‘…Ñ•-•åô€‘íÍ±½ÑôÉ•¥Á”µÕÍĞ¡…Ù”¥¹ÍÑÉÕÑ¥½¹Í€¤ì(€€€…ÍÍ•ÉĞ¡É•¥Á”¹¥µ…”ñğÉ•¥Á”¹¥µ…•}ÕÉ°°€‘í‘…Ñ•-•åô€‘íÍ±½ÑôÉ•¥Á”µÕÍĞ¡…Ù”…¸¥µ…•€¤ì(€ô)ô)½¹ÍĞÑ½‘…å5…É­ÕÀ€ô…Á¤¹Ñ½‘…åA±…Ñ•M•Ñ¥½¸ ¤ì)…ÍÍ•ÉĞ¡Ñ½‘…å5…É­ÕÀ¹¥¹±Õ‘•Ì ‰Q½‘…çŠeÌA±…Ñ”ˆ¤°€‰!½µ•Á…”µÕÍĞ¥¹±Õ‘”Q½‘…çŠeÌA±…Ñ”ˆ¤ì)…ÍÍ•ÉĞ¹ÍÑÉ¥ÑÅÕ…° ¡Ñ½‘…å5…É­ÕÀ¹µ…Ñ  ½‘…Ñ„µ…±•¹‘…ÈµÉ•¥Á”µ½Á•¸ô½œ¤ñğmt¤¹±•¹Ñ °€à°€‰Ù•ÉäQ½‘…çŠeÌA±…Ñ”µ•…°µÕÍĞ¡…Ù”Ñİ¼‘¥É•ĞÉ•¥Á”±¥¹­Ìˆ¤ì)½¹ÍĞµ½¹Ñ¡5…É­ÕÀ€ô…Á¤¹µ½¹Ñ¡±å-¥Ñ¡•¹…±•¹‘…ÉM•Ñ¥½¸ ¤ì)…ÍÍ•ÉĞ¡µ½¹Ñ¡5…É­ÕÀ¹¥¹±Õ‘•Ì ‰ÕÕÍĞèÉ½Õ¹Ñ¡”]½É±ˆ¤°€‰1•ÓŠeÌA±…¸…±•¹‘…ÈµÕÍĞ…ÉÉäÑ¡”ÕÕÍĞÉ½Õ¹Ñ¡”]½É±±…Õ¹ ˆ¤ì)…ÍÍ•ÉĞ¹ÍÑÉ¥ÑÅÕ…° ¡µ½¹Ñ¡5…É­ÕÀ¹µ…Ñ  ½‘…Ñ„µÍ•±•Ğµ­¥Ñ¡•¸µ‘…Ñ”ô½œ¤ñğmt¤¹±•¹Ñ °€ÌÜ°€‰1…Õ¹ …±•¹‘…ÈµÕÍĞ¥¹±Õ‘”)Õ±ä€ÈØÑ¡É½Õ ÕÕÍĞ€ÌÄˆ¤ì)…ÍÍ•ÉĞ¡µ½¹Ñ¡5…É­ÕÀ¹¥¹±Õ‘•Ì ‰‘…Ñ„µÁ±…¹¹•Èµµ½¹Ñ õp‰ÁÉ•Ù¥½ÕÍpˆˆ¤€˜˜µ½¹Ñ¡5…É­ÕÀ¹¥¹±Õ‘•Ì ‰‘…Ñ„µÁ±…¹¹•Èµµ½¹Ñ õp‰¹•áÑpˆˆ¤°€‰…±•¹‘…ÈµÕÍĞÍÕÁÁ½ÉĞÁÉ•Ù¥½ÕÌ…¹¹•áĞµ½¹Ñ ¹…Ù¥…Ñ¥½¸ˆ¤ì()½¹ÍĞİ••­5…É­ÕÀ€ô…Á¤¹¡½µ•Á…•]••­±åMÑÉ¥À ¤ì)…ÍÍ•ÉĞ¡İ••­5…É­ÕÀ¹¥¹±Õ‘•Ì ‰Q¡¥Ì]••¬…Ğ1•ÓŠeÌ½½¬gŠe…±°ˆ¤°€‰!½µ•Á…”¹••‘ÌÑ¡”½µÁ…Ğİ••­±äÁÉ•Ù¥•Üˆ¤ì)…ÍÍ•ÉĞ¹ÍÑÉ¥ÑÅÕ…° ¡İ••­5…É­ÕÀ¹µ…Ñ  ½‘…Ñ„µİ••¬µ‘…Ñ”ô½œ¤ñğmt¤¹±•¹Ñ °€Ü°€‰!½µ•Á…”µÕÍĞÍ¡½Ü½¹”İ••¬½¹±äˆ¤ì)…ÍÍ•ÉĞ¡İ••­5…É­ÕÀ¹¥¹±Õ‘•Ì ˆ±•ÑÌµÁ±…¸ˆ¤€˜˜İ••­5…É­ÕÀ¹¥¹±Õ‘•Ì ‰UÍ”Q¡¥Ì]••¬ˆ¤€˜˜İ••­5…É­ÕÀ¹¥¹±Õ‘•Ì ‰Y¥•ÜÉ½•Éä1¥ÍĞˆ¤°€‰]••­±äÁÉ•Ù¥•ÜµÕÍĞ±¥¹¬Ñ¼Á±…¹¹¥¹œ…Ñ¥½¹Ìˆ¤ì)…Á¤¹É•¹‘•É1•ÑÍ½½­!½µ” ¤ì)…ÍÍ•ÉĞ¡•±•µ•¹Ğ¹¥¹¹•É!Q50¹¥¹±Õ‘•Ì œñ Ä¥ô‰¡½µ•!•É½Q¥Ñ±”ˆùÉ½Õ¹Ñ¡”]½É±ğ½ Äøœ¤°€‰!½µ•Á…”¡•É¼µÕÍĞ±…Õ¹ ÕÕÍĞÉ½Õ¹Ñ¡”]½É±ˆ¤ì)…ÍÍ•ÉĞ¡•±•µ•¹Ğ¹¥¹¹•É!Q50¹¥¹±Õ‘•Ì ‰Õ±ÑÕÉ”½˜Ñ¡”]••¬ˆ¤€˜˜•±•µ•¹Ğ¹¥¹¹•É!Q50¹¥¹±Õ‘•Ì ‰•…ÑÕÉ•É¥¹¬ˆ¤€˜˜•±•µ•¹Ğ¹¥¹¹•É!Q50¹¥¹±Õ‘•Ì ‰A…¹ÑÉäMÑ…Á±•Ìˆ¤°€‰!½µ•Á…”µÕÍĞ¥¹±Õ‘”Ñ¡”½½É‘¥¹…Ñ•İ••­±äÕ±ÑÕÉ”™•…ÑÕÉ•Ìˆ¤ì)…ÍÍ•ÉĞ¡•±•µ•¹Ğ¹¥¹¹•É!Q50¹¥¹±Õ‘•Ì ‰]¡…ĞgŠe…±°½½­¥¹œÉ½Õ¹Ñ¡”]½É±ˆ¤°€‰!½µ•Á…”µÕÍĞ¥¹±Õ‘”Ñ¡”É½Õ¹Ñ¡”]½É±½µµÕ¹¥Ñä¡…±±•¹”ˆ¤ì)…ÍÍ•ÉĞ …•±•µ•¹Ğ¹¥¹¹•É!Q50¹¥¹±Õ‘•Ì ‰µ½¹Ñ¡±äµ­¥Ñ¡•¸µÍ•Ñ¥½¸ˆ¤°€‰Õ±°µ½¹Ñ¡±ä…±•¹‘…ÈµÕÍĞ¹½Ğ…ÁÁ•…È½¸Ñ¡”¡½µ•Á…”ˆ¤ì)…ÍÍ•ÉĞ¡•±•µ•¹Ğ¹¥¹¹•É!Q50¹¥¹±Õ‘•Ì ‰¡½µ•Á…”µİ••¬µÍÑÉ¥Àˆ¤°€‰!½µ•Á…”µÕÍĞÉ•Ñ…¥¸Ñ¡”İ••­±äµ•…°µÁ±…¹¹¥¹œÁÉ•Ù¥•Üˆ¤ì)…Á¤¹É•¹‘•É1•ÑÍA±…¸ ¤ì)…ÍÍ•ÉĞ¡•±•µ•¹Ğ¹¥¹¹•É!Q50¹¥¹±Õ‘•Ì ‰Q½‘…çŠeÌA±…Ñ”ˆ¤€˜˜•±•µ•¹Ğ¹¥¹¹•É!Q50¹¥¹±Õ‘•Ì ‰µ½¹Ñ¡±äµ­¥Ñ¡•¸µÍ•Ñ¥½¸ˆ¤€˜˜•±•µ•¹Ğ¹¥¹¹•É!Q50¹¥¹±Õ‘•Ì ‰-¥Ñ¡•¸É½•Éä1¥ÍĞˆ¤°€‰1•ÓŠeÌA±…¸µÕÍĞ½¹Ñ…¥¸Q½‘…çŠeÌA±…Ñ”°…±•¹‘…È°…¹É½•É¥•Ìˆ¤ì()½¹ÍĞ™…µ¥±åI•¥Á”€ô…Á¤¹…±±I•¥Á•½±±•Ñ¥½¸ ¤¹™¥¹¡…Á¤¹½½­±½¹±¥¥‰±”¤ì)…ÍÍ•ÉĞ¡™…µ¥±åI•¥Á”°€‰Ğ±•…ÍĞ½¹”½µÁ±•Ñ”É•¥Á”µÕÍĞÍÕÁÁ½ÉĞ½½¬±½¹œQ½•Ñ¡•Èˆ¤ì)½¹ÍĞ±¥ÑÑ±•)½ˆ€ô…Á¤¹½½­±½¹Q…Í­½È¡™…µ¥±åI•¥Á”°€‰MÑ¥ÈÑ¡”¥¹É•‘¥•¹ÑÌˆ°€ˆÌ´Ôˆ¤ì)½¹ÍĞ©Õ¹¥½É)½ˆ€ô…Á¤¹½½­±½¹Q…Í­½È¡™…µ¥±åI•¥Á”°€‰MÑ¥ÈÑ¡”¥¹É•‘¥•¹ÑÌˆ°€ˆä´ÄÈˆ¤ì)…ÍÍ•ÉĞ¹¹½ÑMÑÉ¥ÑÅÕ…°¡±¥ÑÑ±•)½ˆ¹¡¥±°©Õ¹¥½É)½ˆ¹¡¥±°€‰”Í•±•Ñ¥½¸µÕÍĞ¡…¹”Ñ¡”¡¥±“ŠeÌ©½ˆˆ¤ì)…ÍÍ•ÉĞ ½‘Õ±Ğ½¹±ä½¤¹Ñ•ÍĞ¡…Á¤¹½½­±½¹Q…Í­½È¡™…µ¥±åI•¥Á”°€‰	…­”¥¸„¡½Ğ½Ù•¸ˆ°€ˆä´ÄÈˆ¤¹…‘Õ±Ğ¤°€‰!•…ĞÍÑ•ÁÌµÕÍĞÉ•µ…¥¸…‘Õ±Ğµ½¹±äˆ¤ì()½¹ÍĞÕÉ…Ñ•‘]••¬€ô…Á¤¹•¹•É…Ñ•‘5•¹ÕÍ½É]••¬ ˆÈÀÈØ´ÀÜ´ÈÈˆ¤ì)½¹ÍĞÕÉ…Ñ•‘5•…±Ì€ô=‰©•Ğ¹Ù…±Õ•Ì¡ÕÉ…Ñ•‘]••¬¤¹™±…Ñ5…À ¡µ•¹Ô¤€ôømµ•¹Ô¹‰É•…­™…ÍĞ°µ•¹Ô¹±Õ¹ °µ•¹Ô¹‘¥¹¹•È°µ•¹Ô¹Í¹…­t¤ì)…ÍÍ•ÉĞ¹ÍÑÉ¥ÑÅÕ…°¡¹•ÜM•Ğ¡ÕÉ…Ñ•‘5•…±Ì¹µ…À ¡µ•…°¤€ôøµ•…°¹É•¥Á•%¤¤¹Í¥é”°ÕÉ…Ñ•‘5•…±Ì¹±•¹Ñ °€‰ÕÉ…Ñ•İ••¬µÕÍĞ¹½ĞÉ•Á•…ĞÉ•¥Á•Ìˆ¤ì)½¹ÍĞ‘¥¹¹•ÉQÉ…¥ÑÌ€ô=‰©•Ğ¹Ù…±Õ•Ì¡ÕÉ…Ñ•‘]••¬¤¹µ…À ¡µ•¹Ô¤€ôø…Á¤¹Á±…¹¹•ÉI•¥Á•QÉ…¥ÑÌ¡…Á¤¹…±•¹‘…ÉI•¥Á”¡µ•¹Ô¹‘¥¹¹•È¹É•¥Á•%¤¤¤ì)…ÍÍ•ÉĞ¡¹•ÜM•Ğ¡‘¥¹¹•ÉQÉ…¥ÑÌ¹µ…À ¡¥Ñ•´¤€ôø¥Ñ•´¹ÁÉ½Ñ•¥¸¤¤¹Í¥é”€øô€Ğ°€‰]••­±ä‘¥¹¹•ÉÌµÕÍĞ‰…±…¹”ÁÉ½Ñ•¥¹Ìˆ¤ì)…ÍÍ•ÉĞ¡¹•ÜM•Ğ¡‘¥¹¹•ÉQÉ…¥ÑÌ¹µ…À ¡¥Ñ•´¤€ôø¥Ñ•´¹Õ¥Í¥¹”¤¤¹Í¥é”€øô€Ğ°€‰]••­±ä‘¥¹¹•ÉÌµÕÍĞ‰…±…¹”Õ¥Í¥¹•Ìˆ¤ì)…ÍÍ•ÉĞ¡¹•ÜM•Ğ¡‘¥¹¹•ÉQÉ…¥ÑÌ¹µ…À ¡¥Ñ•´¤€ôø¥Ñ•´¹µ•Ñ¡½¤¤¹Í¥é”€øô€Ì°€‰]••­±ä‘¥¹¹•ÉÌµÕÍĞ‰…±…¹”½½­¥¹œµ•Ñ¡½‘Ìˆ¤ì)½¹ÍĞ™½±±½İ¥¹]••­%‘Ì€ô¹•ÜM•Ğ¡=‰©•Ğ¹Ù…±Õ•Ì¡…Á¤¹•¹•É…Ñ•‘5•¹ÕÍ½É]••¬ ˆÈÀÈØ´ÀÜ´Èäˆ¤¤¹™±…Ñ5…À ¡µ•¹Ô¤€ôømµ•¹Ô¹‰É•…­™…ÍĞ¹É•¥Á•%°µ•¹Ô¹±Õ¹ ¹É•¥Á•%°µ•¹Ô¹‘¥¹¹•È¹É•¥Á•%°µ•¹Ô¹Í¹…¬¹É•¥Á•%‘t¤¤ì)½¹ÍĞÉ•Á•…Ñ•‘É½ÍÍ]••­Ì€ôÕÉ…Ñ•‘5•…±Ì¹™¥±Ñ•È ¡µ•…°¤€ôø™½±±½İ¥¹]••­%‘Ì¹¡…Ì¡µ•…°¹É•¥Á•%¤¤¹±•¹Ñ ì)…ÍÍ•ÉĞ¡É•Á•…Ñ•‘É½ÍÍ]••­Ì€ğô€Ü°€‰½¹Í•ÕÑ¥Ù”İ••­ÌµÕÍĞÍÕ‰ÍÑ…¹Ñ¥…±±äÉ½Ñ…Ñ”Ñ¡”µ•¹Ôˆ¤ì()…Á¤¹Í•Ñ!½ÕÍ•¡½±¡ìÍ•ÉÙ¥¹Ìè€Ğ°•…Ñ¥¹MÑå±”è€‰¹¼µÁÉ•™•É•¹”ˆ°…±±•É¥•Ìè€ˆˆ°‘¥•Ñ…Éäè€ˆˆ°…Ù½¥è€ˆˆô¤ì)…Á¤¹Í•ÑA…¹ÑÉå=İ¹•¡mt¤ì)½¹ÍĞİ••­%Ñ•µÌ€ô…Á¤¹‰Õ¥±‘-¥Ñ¡•¹É½•Éå%Ñ•µÌ ‰İ••¬ˆ¤ì)…ÍÍ•ÉĞ¡İ••­%Ñ•µÌ¹±•¹Ñ €ø€À°€‰]••­±äÉ½•Éä±¥ÍĞµÕÍĞÕÍ”É•…°É•¥Á”¥¹É•‘¥•¹ÑÌˆ¤ì)½¹ÍĞÉ½•Éå-•åÌ€ôİ••­%Ñ•µÌ¹µ…À ¡¥Ñ•´¤€ôø€‘í¥Ñ•´¹¹…µ”¹Ñ½1½İ•É…Í” ¥õğ‘íMÑÉ¥¹œ¡¥Ñ•´¹Õ¹¥Ğñğ€ˆˆ¤¹Ñ½1½İ•É…Í” ¥õ€¤ì)…ÍÍ•ÉĞ¹ÍÑÉ¥ÑÅÕ…°¡¹•ÜM•Ğ¡É½•Éå-•åÌ¤¹Í¥é”°É½•Éå-•åÌ¹±•¹Ñ °€‰]••­±äÉ½•Éä±¥ÍĞµÕÍĞ½¹Í½±¥‘…Ñ”‘ÕÁ±¥…Ñ”¥¹É•‘¥•¹ÑÌˆ¤ì)½¹ÍĞ½İ¹•‘9…µ”€ôİ••­%Ñ•µÍlÁt¹¹…µ”¹Ñ½1½İ•É…Í” ¤ì)…Á¤¹Í•ÑA…¹ÑÉå=İ¹•¡m½İ¹•‘9…µ•t¤ì)…ÍÍ•ÉĞ¡…Á¤¹‰Õ¥±‘-¥Ñ¡•¹É½•Éå%Ñ•µÌ ‰İ••¬ˆ¤¹™¥¹ ¡¥Ñ•´¤€ôø¥Ñ•´¹¹…µ”¹Ñ½1½İ•É…Í” ¤€ôôô½İ¹•‘9…µ”¤ü¹½İ¹•°€‰A…¹ÑÉäµ½İ¹•¥Ñ•µÌµÕÍĞ‰”Í•Á…É…Ñ•™É½´¥Ñ•µÌÑ¼ÁÕÉ¡…Í”ˆ¤ì)½¹ÍĞÉ½•Éå5…É­ÕÀ€ô…Á¤¹É½•ÉåA±…¹¹¥¹M•Ñ¥½¸ ¤ì)™½È€¡½¹ÍĞ…Ñ¥½¸½˜l‰Í…Ù”ˆ°€‰ÁÉ¥¹Ğˆ°€‰•µ…¥°ˆ°€‰‘½İ¹±½…ˆ°€‰Í¡…É”‰t¤…ÍÍ•ÉĞ¡É½•Éå5…É­ÕÀ¹¥¹±Õ‘•Ì¡‘…Ñ„´‘í…Ñ¥½¹ôµÉ½•Éäµ±¥ÍÑ€¤°É½•Éä…Ñ¥½¸µ¥ÍÍ¥¹œè€‘í…Ñ¥½¹õ€¤ì)…ÍÍ•ÉĞ¡É½•Éå5…É­ÕÀ¹¥¹±Õ‘•Ì ‰‘…Ñ„µ±•…ÈµÉ½•Éäµ¡•­•ˆ¤°€‰É½•Éä±¥ÍĞµÕÍĞ±•…È¡•­•¥Ñ•µÌˆ¤ì()½¹ÍĞÉ½ÕÑ•‘A…•Ì€ô¹•ÜM•Ğ¡l(€€‰¡½µ”ˆ°€‰±•ÑÌµ½½¬ˆ°€‰™¥¹µÑ¡”µ‰•…Ğˆ°€‰Í•½¹µ¡…¹”ˆ°€‰½µµÕ¹¥Ñäˆ°€‰­¥Ñ¡•¸ˆ°€‰…µ•É¥„´ÈÔÀˆ°(€€‰…‘µÉ•¥Á”ˆ°€‰ÍÕ‰µ¥ĞµÉ•¥Á”ˆ°€‰½½¬ÄÀÄˆ°€‰Í­¥±±Ìµ……‘•µäˆ°€‰Õ±¥¹…Éäµ……‘•µäˆ°€‰‰Õ¥±µ„µµ•…°ˆ°(€€‰­¥Ñ¡•¸µÍ•…É ˆ°€‰Á…¹ÑÉäµÍ…¸ˆ°€‰Õ¥Í¥¹”µ•áÁ±½É•Èˆ°€‰™½½µ•¹å±½Á•‘¥„ˆ°€‰İ¡…Ğµå…±°µ½½­¥¹œˆ°(€€‰µ•¹Ôµ¥¹Ñ•±±¥•¹”ˆ°€‰±¥Ù¥¹œµ½½­‰½½¬ˆ°€‰­¥‘Ìµ½½­¥¹œˆ°€‰­¥‘Ìµ­½É¹•Èˆ°€‰É•¥Á•Ìˆ°€‰Á…Ñ¡Ìˆ°(€€‰Á…Ñ¡İ…åÌˆ°€‰Á±…¹¹•Èˆ°€‰±•ÑÌµÁ±…¸ˆ°€‰½½¬µ…±½¹œˆ°€‰¡½ÍÑ¥¹œˆ°€‰…Ñ¡•É¥¹œµÁ±…¹¹•Èˆ°€‰…‰½ÕĞˆ°€‰…½Õ¹Ğˆ°€‰ÁÉ¥Ù…äˆ°€‰Ñ•ÉµÌˆ°€‰½¹Ñ…Ğˆ°€‰Í•…É ˆ°€‰Õ¥Í¥¹”ˆ)t¤ì)½¹ÍĞ±½…±½Õµ•¹Ñ¹¡½ÉÌ€ô¹•ÜM•Ğ¡l‰…¥-¥Ñ¡•¹%¹Ù•¹Ñ½Éå½É´‰t¤ì)½¹ÍĞ±¥Ñ•É…±%¹Ñ•É¹…±1¥¹­Ì€ôl¸¸¹Í½ÕÉ”¹µ…Ñ¡±° ½¡É•˜ôˆŒ¡mxˆ‘t¬¤ˆ½œ¥t¹µ…À ¡µ…Ñ ¤€ôøµ…Ñ¡lÅt¤ì)™½È€¡½¹ÍĞ¡É•˜½˜±¥Ñ•É…±%¹Ñ•É¹…±1¥¹­Ì¤ì(€½¹ÍĞÉ½ÕÑ”€ô¡É•˜¹ÍÁ±¥Ğ ½l¼ıt¼¥lÁtì(€…ÍÍ•ÉĞ¡É½ÕÑ•‘A…•Ì¹¡…Ì¡É½ÕÑ”¤ñğ±½…±½Õµ•¹Ñ¹¡½ÉÌ¹¡…Ì¡É½ÕÑ”¤°1¥Ñ•É…°¥¹Ñ•É¹…°±¥¹¬¡…Ì¹¼É½ÕÑ”½È‘½Õµ•¹ĞÑ…É•Ğè€Œ‘í¡É•™õ€¤ì)ô()½¹Í½±”¹±½œ¡½½­‰½½¬¹…Ù¥…Ñ¥½¸Ñ•ÍÑÌÁ…ÍÍ•™½È€‘í•áÁ•Ñ•‘M•Ñ¥½¹Ì¹±•¹Ñ¡ô¡…ÁÑ•ÉÌ°€‘íÉ•¥Á•%‘Ì¹Í¥é•ôÉ•¥Á”…É‘Ì°…¹€‘í±¥Ñ•É…±%¹Ñ•É¹…±1¥¹­Ì¹±•¹Ñ¡ô±¥Ñ•É…°¥¹Ñ•É¹…°±¥¹­Ì¹€¤ì)½¹Í½±”¹±½œ¡É¥¹­Ì…Õ‘¥ĞÁ…ÍÍ•™½È€‘í‘É¥¹­Í½±±•Ñ¥½¸¹±•¹Ñ¡ô‰•Ù•É…”É•¥Á•Ìİ¥Ñ é•É¼™½½µ¥Ñ•´±•…­Ì¹€¤ì
