@@ -3543,7 +3543,7 @@ function recipeCookbookPrimarySection(recipe = {}) {
   if (has(/chicken|turkey|wings|adobo|teriyaki|tikka|tandoori|paprikash|kabsa|poultry|duck|goose/, primaryText)) return "poultry";
   if (has(/breakfast|brunch|pancakes?|waffles?|omelets?|french toast|breakfast burrito|breakfast sandwich|breakfast tacos?|egg cups?|scrapple|johnnycake|biscuits? (and|&) gravy|cinnamon rolls?|breakfast casserole|muffins?/, primaryText)) return "breakfast";
   if (has(/\b(cookies?|snickerdoodles?|shortbread|gingerbread|molasses cookies?|thumbprint|crinkle cookies?|tea cakes?|pecan sandies|macadamia cookies?)\b/, primaryText)) return "cookies";
-  if (has(/\b(cake|pie|cobbler|crisp|doughnuts?|donuts?|pudding|shortcake|sweet|dessert|bars?|kheer|flan|baklava|fruitcake|yule log|pavlova|lamington|cupcake|red velvet|carrot cake|coconut cake|pound cake|moon pie|biscochito|tart|candy|chocolate|sundae|ice cream)\b/, primaryText)
+  if (has(/\b(cake|pie|cobbler|crisp|doughnuts?|donuts?|pudding|shortcake|dessert|bars?|kheer|flan|baklava|fruitcake|yule log|pavlova|lamington|cupcake|red velvet|carrot cake|coconut cake|pound cake|moon pie|biscochito|tart|candy|chocolate|sundae|ice cream)\b/, primaryText)
     && !has(/pot pie|meat pie|macaroni pie|tomato pie|pizza pie|shepherd|cottage/, primaryText)) return "desserts";
   if (has(/sandwich bread|bread|biscuit|roll|cornbread|naan|tortilla|pita|lefse|sourdough|hushpuppies|hot water|fry bread|flatbread|muffin/, primaryText)
     && !has(/bread pudding|breaded|bread crumbs|bread crumbs|sandwich|burger|hot dog|po.?boy|poboy|gyro|burrito|taco|wrap/, primaryText)) return "breads";
@@ -4259,6 +4259,7 @@ recipes.push(
     level: "Beginner",
     servings: 4,
     path: "amateur-home-chef",
+    primaryCookbookSection: "vegetables",
     description: "A colorful sheet-pan vegetable tray from Shay's real kitchen rotation: simple, flexible, and good with almost anything.",
     ingredients: ["Broccoli", "Zucchini", "Red onion", "Cherry tomatoes", "Sweet potatoes", "Olive oil", "Garlic seasoning"],
     steps: ["Cut vegetables into similar sizes.", "Toss with oil and seasoning.", "Roast sweet potatoes first, then add tender vegetables.", "Finish when browned at the edges."]
@@ -16970,6 +16971,13 @@ const cookbookCollectionDefinitions = [
   ["allergy-friendly", "Allergy-Friendly", "Ingredient-reviewed choices for more tables.", (r) => recipeDietaryProfile(r).allergens.length === 0]
 ].map(([id, title, description, matcher]) => ({ id, title, description, matcher }));
 
+const cookbookCollectionCoverOverrides = {
+  "desserts-baking": {
+    image: "images/recipes/photo-review/coconut-cake.webp",
+    alt: "Coconut cake with fluffy frosting and shredded coconut"
+  }
+};
+
 const appetizerSubcategoryDefinitions = [
   "Egg Rolls & Lumpia", "Sandwiches & Clubs", "Sliders", "Pinwheels", "Dips", "Deviled Eggs", "Meatballs",
   "Sausage Balls", "Wings", "Party Trays", "Hot Appetizers", "Cold Appetizers",
@@ -17069,8 +17077,9 @@ function cookbookCollectionCards(selectedId = "", hidden = false) {
     const coverRecipe = recipes.find((recipe) => !usedCoverImages.has(recipePhotoFor(recipe))) || recipes[0];
     if (coverRecipe) usedCoverImages.add(recipePhotoFor(coverRecipe));
     const active = collection.id === selectedId;
-    const coverImage = collection.id === "drinks" ? drinkCollectionCover : recipePhotoFor(coverRecipe);
-    const coverAlt = collection.id === "drinks" ? "A margarita and blackberry mocktail" : coverRecipe?.title;
+    const coverOverride = cookbookCollectionCoverOverrides[collection.id];
+    const coverImage = coverOverride?.image || (collection.id === "drinks" ? drinkCollectionCover : recipePhotoFor(coverRecipe));
+    const coverAlt = coverOverride?.alt || (collection.id === "drinks" ? "A margarita and blackberry mocktail" : coverRecipe?.title);
     return `<button class="visual-cookbook-card ${active ? "active" : ""}" type="button" data-cookbook-collection-select="${collection.id}" aria-pressed="${active}" ${coverImage ? `style="--collection-photo:url('${coverImage}')"` : ""}><span class="visual-cookbook-photo">${coverImage ? `<img src="${coverImage}" alt="${coverAlt}" />` : ""}</span><span class="visual-cookbook-copy"><strong>${collection.title}</strong><small>${collection.description}</small><em>${recipes.length} recipes</em></span></button>`;
   }).join("")}</div></section>`;
 }
