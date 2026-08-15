@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-13T03:41:59.081Z",
-  "totalRecipes": 726,
-  "uniqueImages": 620,
+  "generatedAt": "2026-08-15T03:08:16.868Z",
+  "totalRecipes": 790,
+  "uniqueImages": 688,
   "missingFiles": [],
   "fallbacks": [],
   "photoQueue": [],
@@ -320,10 +320,6 @@
           "title": "Louisiana Red Beans and Rice"
         },
         {
-          "id": "brazilian-feijoada-style-beans",
-          "title": "Brazilian Feijoada-Style Beans"
-        },
-        {
           "id": "new-years-hoppin-john",
           "title": "New Year's Hoppin' John"
         }
@@ -369,19 +365,6 @@
         {
           "id": "wyoming-cowboy-beans",
           "title": "Wyoming Cowboy Beans"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/audit-2026-06/mexican-cornbread-casserole.jpg",
-      "recipes": [
-        {
-          "id": "mexican-cornbread-casserole",
-          "title": "Mexican Cornbread Casserole"
-        },
-        {
-          "id": "chilean-pastel-de-choclo",
-          "title": "Chilean Pastel de Choclo"
         }
       ]
     },
@@ -659,10 +642,6 @@
           "title": "Upper Peninsula Pasties"
         },
         {
-          "id": "argentinian-beef-empanadas",
-          "title": "Argentinian Beef Empanadas"
-        },
-        {
           "id": "new-zealand-meat-pies",
           "title": "New Zealand Meat Pies"
         }
@@ -816,10 +795,6 @@
         {
           "id": "santa-maria-tri-tip",
           "title": "Santa Maria Tri-Tip"
-        },
-        {
-          "id": "argentinian-chimichurri-steak",
-          "title": "Argentinian Chimichurri Steak"
         },
         {
           "id": "beef-tenderloin",
@@ -1448,10 +1423,6 @@
           "title": "Louisiana Red Beans and Rice"
         },
         {
-          "id": "brazilian-feijoada-style-beans",
-          "title": "Brazilian Feijoada-Style Beans"
-        },
-        {
           "id": "new-years-hoppin-john",
           "title": "New Year's Hoppin' John"
         }
@@ -1497,19 +1468,6 @@
         {
           "id": "wyoming-cowboy-beans",
           "title": "Wyoming Cowboy Beans"
-        }
-      ]
-    },
-    {
-      "image": "images/recipes/audit-2026-06/mexican-cornbread-casserole.jpg",
-      "recipes": [
-        {
-          "id": "mexican-cornbread-casserole",
-          "title": "Mexican Cornbread Casserole"
-        },
-        {
-          "id": "chilean-pastel-de-choclo",
-          "title": "Chilean Pastel de Choclo"
         }
       ]
     },
@@ -1787,10 +1745,6 @@
           "title": "Upper Peninsula Pasties"
         },
         {
-          "id": "argentinian-beef-empanadas",
-          "title": "Argentinian Beef Empanadas"
-        },
-        {
           "id": "new-zealand-meat-pies",
           "title": "New Zealand Meat Pies"
         }
@@ -1944,10 +1898,6 @@
         {
           "id": "santa-maria-tri-tip",
           "title": "Santa Maria Tri-Tip"
-        },
-        {
-          "id": "argentinian-chimichurri-steak",
-          "title": "Argentinian Chimichurri Steak"
         },
         {
           "id": "beef-tenderloin",
@@ -2453,13 +2403,6 @@
       "reason": "Shared primary image belongs to a different named dish."
     },
     {
-      "id": "brazilian-feijoada-style-beans",
-      "title": "Brazilian Feijoada-Style Beans",
-      "reusedImage": "images/recipes/audit-2026-06/red-beans-and-rice.jpg",
-      "expectedPath": "images/recipes/photo-review/brazilian-feijoada-style-beans.jpg",
-      "reason": "Shared primary image belongs to a different named dish."
-    },
-    {
       "id": "new-years-hoppin-john",
       "title": "New Year's Hoppin' John",
       "reusedImage": "images/recipes/audit-2026-06/red-beans-and-rice.jpg",
@@ -2492,13 +2435,6 @@
       "title": "Wyoming Cowboy Beans",
       "reusedImage": "images/recipes/audit-2026-06/texas-pinto-beans.jpg",
       "expectedPath": "images/recipes/photo-review/wyoming-cowboy-beans.jpg",
-      "reason": "Shared primary image belongs to a different named dish."
-    },
-    {
-      "id": "chilean-pastel-de-choclo",
-      "title": "Chilean Pastel de Choclo",
-      "reusedImage": "images/recipes/audit-2026-06/mexican-cornbread-casserole.jpg",
-      "expectedPath": "images/recipes/photo-review/chilean-pastel-de-choclo.jpg",
       "reason": "Shared primary image belongs to a different named dish."
     },
     {
@@ -2684,13 +2620,6 @@
       "reason": "Shared primary image belongs to a different named dish."
     },
     {
-      "id": "argentinian-beef-empanadas",
-      "title": "Argentinian Beef Empanadas",
-      "reusedImage": "images/recipes/audit-2026-06/upper-peninsula-pasties.jpg",
-      "expectedPath": "images/recipes/photo-review/argentinian-beef-empanadas.jpg",
-      "reason": "Shared primary image belongs to a different named dish."
-    },
-    {
       "id": "new-zealand-meat-pies",
       "title": "New Zealand Meat Pies",
       "reusedImage": "images/recipes/audit-2026-06/upper-peninsula-pasties.jpg",
@@ -2786,13 +2715,6 @@
       "title": "Santa Maria Tri-Tip",
       "reusedImage": "images/recipes/audit-2026-06/nebraska-steak.jpg",
       "expectedPath": "images/recipes/photo-review/santa-maria-tri-tip.jpg",
-      "reason": "Shared primary image belongs to a different named dish."
-    },
-    {
-      "id": "argentinian-chimichurri-steak",
-      "title": "Argentinian Chimichurri Steak",
-      "reusedImage": "images/recipes/audit-2026-06/nebraska-steak.jpg",
-      "expectedPath": "images/recipes/photo-review/argentinian-chimichurri-steak.jpg",
       "reason": "Shared primary image belongs to a different named dish."
     },
     {
@@ -9258,9 +9180,9 @@
     {
       "id": "peruvian-arroz-con-pollo",
       "title": "Peruvian Arroz con Pollo",
-      "cuisine": "mexican",
+      "cuisine": "peruvian",
       "category": "Peruvian Rice Pot",
-      "image": "images/recipes/living-cookbook-2026/peruvian-arroz-con-pollo.png",
+      "image": "images/recipes/south-america-2026/peruvian-arroz-con-pollo.svg",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false,
@@ -9268,10 +9190,10 @@
     },
     {
       "id": "colombian-arepa-plates",
-      "title": "Colombian Arepa Plates",
-      "cuisine": "mexican",
+      "title": "Colombian Arepas with Beans and Avocado",
+      "cuisine": "colombian",
       "category": "Colombian Griddle",
-      "image": "images/recipes/living-cookbook-2026/colombian-arepa-plates.png",
+      "image": "images/recipes/south-america-2026/colombian-arepa-plates.svg",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false,
@@ -9290,10 +9212,10 @@
     },
     {
       "id": "brazilian-feijoada-style-beans",
-      "title": "Brazilian Feijoada-Style Beans",
-      "cuisine": "global",
+      "title": "Brazilian Feijoada",
+      "cuisine": "brazilian",
       "category": "Brazilian Bean Pot",
-      "image": "images/recipes/audit-2026-06/red-beans-and-rice.jpg",
+      "image": "images/recipes/south-america-2026/brazilian-feijoada-style-beans.svg",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false,
@@ -9313,9 +9235,9 @@
     {
       "id": "argentinian-beef-empanadas",
       "title": "Argentinian Beef Empanadas",
-      "cuisine": "global",
+      "cuisine": "argentinian",
       "category": "Argentina Bakery",
-      "image": "images/recipes/audit-2026-06/upper-peninsula-pasties.jpg",
+      "image": "images/recipes/south-america-2026/argentinian-beef-empanadas.svg",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false,
@@ -9324,9 +9246,9 @@
     {
       "id": "argentinian-chimichurri-steak",
       "title": "Argentinian Chimichurri Steak",
-      "cuisine": "global",
+      "cuisine": "argentinian",
       "category": "Argentina Asado",
-      "image": "images/recipes/audit-2026-06/nebraska-steak.jpg",
+      "image": "images/recipes/south-america-2026/argentinian-chimichurri-steak.svg",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false,
@@ -9335,9 +9257,9 @@
     {
       "id": "venezuelan-arepas",
       "title": "Venezuelan Arepas",
-      "cuisine": "mexican",
+      "cuisine": "venezuelan",
       "category": "Venezuelan Griddle",
-      "image": "images/recipes/living-cookbook-2026/venezuelan-arepas.png",
+      "image": "images/recipes/south-america-2026/venezuelan-arepas.svg",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false,
@@ -9346,9 +9268,9 @@
     {
       "id": "chilean-pastel-de-choclo",
       "title": "Chilean Pastel de Choclo",
-      "cuisine": "mexican",
+      "cuisine": "chilean",
       "category": "Chilean Corn Bake",
-      "image": "images/recipes/audit-2026-06/mexican-cornbread-casserole.jpg",
+      "image": "images/recipes/south-america-2026/chilean-pastel-de-choclo.svg",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false,
@@ -9602,6 +9524,710 @@
       "cuisine": "global",
       "category": "Papua New Guinea Coastal Pot",
       "image": "images/cuisines/africa/tanzania/coconut-fish-curry.jpg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "brazilian-pao-de-queijo",
+      "title": "Pão de Queijo",
+      "cuisine": "brazilian",
+      "category": "Brazilian Breads",
+      "image": "images/recipes/south-america-2026/brazilian-pao-de-queijo.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "brazilian-moqueca-baiana",
+      "title": "Moqueca Baiana",
+      "cuisine": "brazilian",
+      "category": "Brazilian Seafood",
+      "image": "images/recipes/south-america-2026/brazilian-moqueca-baiana.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "brazilian-coxinha",
+      "title": "Coxinha de Frango",
+      "cuisine": "brazilian",
+      "category": "Brazilian Street Food",
+      "image": "images/recipes/south-america-2026/brazilian-coxinha.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "brazilian-pastel",
+      "title": "Brazilian Pastel",
+      "cuisine": "brazilian",
+      "category": "Brazilian Street Food",
+      "image": "images/recipes/south-america-2026/brazilian-pastel.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "brazilian-churrasco-picanha",
+      "title": "Churrasco-Style Picanha",
+      "cuisine": "brazilian",
+      "category": "Brazilian Grill",
+      "image": "images/recipes/south-america-2026/brazilian-churrasco-picanha.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "brazilian-farofa",
+      "title": "Farofa de Cebola",
+      "cuisine": "brazilian",
+      "category": "Brazilian Sides",
+      "image": "images/recipes/south-america-2026/brazilian-farofa.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "brazilian-acaraje",
+      "title": "Acarajé",
+      "cuisine": "brazilian",
+      "category": "Brazilian Street Food",
+      "image": "images/recipes/south-america-2026/brazilian-acaraje.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "brazilian-vatapa",
+      "title": "Vatapá",
+      "cuisine": "brazilian",
+      "category": "Brazilian Sauces & Sides",
+      "image": "images/recipes/south-america-2026/brazilian-vatapa.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "brazilian-brigadeiro",
+      "title": "Brigadeiro",
+      "cuisine": "brazilian",
+      "category": "Brazilian Desserts",
+      "image": "images/recipes/south-america-2026/brazilian-brigadeiro.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "brazilian-beijinho",
+      "title": "Beijinho de Coco",
+      "cuisine": "brazilian",
+      "category": "Brazilian Desserts",
+      "image": "images/recipes/south-america-2026/brazilian-beijinho.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "brazilian-quindim",
+      "title": "Quindim",
+      "cuisine": "brazilian",
+      "category": "Brazilian Desserts",
+      "image": "images/recipes/south-america-2026/brazilian-quindim.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "brazilian-molho-campanha",
+      "title": "Molho à Campanha",
+      "cuisine": "brazilian",
+      "category": "Brazilian Sides",
+      "image": "images/recipes/south-america-2026/brazilian-molho-campanha.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "argentinian-milanesa",
+      "title": "Milanesa a la Napolitana",
+      "cuisine": "argentinian",
+      "category": "Argentinian Mains",
+      "image": "images/recipes/south-america-2026/argentinian-milanesa.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "argentinian-locro",
+      "title": "Argentinian Locro",
+      "cuisine": "argentinian",
+      "category": "Argentinian Soups & Stews",
+      "image": "images/recipes/south-america-2026/argentinian-locro.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "argentinian-provoleta",
+      "title": "Provoleta",
+      "cuisine": "argentinian",
+      "category": "Argentinian Appetizers",
+      "image": "images/recipes/south-america-2026/argentinian-provoleta.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "argentinian-alfajores",
+      "title": "Alfajores de Maicena",
+      "cuisine": "argentinian",
+      "category": "Argentinian Desserts",
+      "image": "images/recipes/south-america-2026/argentinian-alfajores.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "peruvian-ceviche",
+      "title": "Peruvian Fish Ceviche",
+      "cuisine": "peruvian",
+      "category": "Peruvian Seafood",
+      "image": "images/recipes/south-america-2026/peruvian-ceviche.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "peruvian-lomo-saltado",
+      "title": "Lomo Saltado",
+      "cuisine": "peruvian",
+      "category": "Peruvian Mains",
+      "image": "images/recipes/south-america-2026/peruvian-lomo-saltado.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "peruvian-aji-gallina",
+      "title": "Ají de Gallina",
+      "cuisine": "peruvian",
+      "category": "Peruvian Mains",
+      "image": "images/recipes/south-america-2026/peruvian-aji-gallina.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "peruvian-causa-limena",
+      "title": "Causa Limeña de Pollo",
+      "cuisine": "peruvian",
+      "category": "Peruvian Appetizers",
+      "image": "images/recipes/south-america-2026/peruvian-causa-limena.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "peruvian-anticuchos",
+      "title": "Anticuchos de Corazón",
+      "cuisine": "peruvian",
+      "category": "Peruvian Street Food",
+      "image": "images/recipes/south-america-2026/peruvian-anticuchos.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "peruvian-papa-huancaina",
+      "title": "Papa a la Huancaína",
+      "cuisine": "peruvian",
+      "category": "Peruvian Appetizers",
+      "image": "images/recipes/south-america-2026/peruvian-papa-huancaina.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "peruvian-suspiro-limena",
+      "title": "Suspiro a la Limeña",
+      "cuisine": "peruvian",
+      "category": "Peruvian Desserts",
+      "image": "images/recipes/south-america-2026/peruvian-suspiro-limena.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "colombian-bandeja-paisa",
+      "title": "Bandeja Paisa",
+      "cuisine": "colombian",
+      "category": "Colombian Mains",
+      "image": "images/recipes/south-america-2026/colombian-bandeja-paisa.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "colombian-ajiaco",
+      "title": "Ajiaco Santafereño",
+      "cuisine": "colombian",
+      "category": "Colombian Soups",
+      "image": "images/recipes/south-america-2026/colombian-ajiaco.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "colombian-sancocho",
+      "title": "Sancocho de Gallina",
+      "cuisine": "colombian",
+      "category": "Colombian Soups",
+      "image": "images/recipes/south-america-2026/colombian-sancocho.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "colombian-empanadas",
+      "title": "Colombian Beef and Potato Empanadas",
+      "cuisine": "colombian",
+      "category": "Colombian Street Food",
+      "image": "images/recipes/south-america-2026/colombian-empanadas.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "colombian-patacones",
+      "title": "Patacones with Hogao",
+      "cuisine": "colombian",
+      "category": "Colombian Sides",
+      "image": "images/recipes/south-america-2026/colombian-patacones.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "colombian-arroz-coco",
+      "title": "Colombian Arroz con Coco",
+      "cuisine": "colombian",
+      "category": "Colombian Sides",
+      "image": "images/recipes/south-america-2026/colombian-arroz-coco.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "colombian-bunuelos",
+      "title": "Buñuelos Colombianos",
+      "cuisine": "colombian",
+      "category": "Colombian Breads & Snacks",
+      "image": "images/recipes/south-america-2026/colombian-bunuelos.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "venezuelan-pabellon",
+      "title": "Pabellón Criollo",
+      "cuisine": "venezuelan",
+      "category": "Venezuelan Mains",
+      "image": "images/recipes/south-america-2026/venezuelan-pabellon.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "venezuelan-cachapas",
+      "title": "Cachapas with Queso de Mano",
+      "cuisine": "venezuelan",
+      "category": "Venezuelan Breakfast",
+      "image": "images/recipes/south-america-2026/venezuelan-cachapas.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "venezuelan-tequenos",
+      "title": "Tequeños",
+      "cuisine": "venezuelan",
+      "category": "Venezuelan Appetizers",
+      "image": "images/recipes/south-america-2026/venezuelan-tequenos.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "venezuelan-hallacas",
+      "title": "Hallacas",
+      "cuisine": "venezuelan",
+      "category": "Venezuelan Holiday Foods",
+      "image": "images/recipes/south-america-2026/venezuelan-hallacas.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "venezuelan-asado-negro",
+      "title": "Asado Negro",
+      "cuisine": "venezuelan",
+      "category": "Venezuelan Mains",
+      "image": "images/recipes/south-america-2026/venezuelan-asado-negro.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "chilean-empanadas-pino",
+      "title": "Chilean Empanadas de Pino",
+      "cuisine": "chilean",
+      "category": "Chilean Breads & Savory Pies",
+      "image": "images/recipes/south-america-2026/chilean-empanadas-pino.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "chilean-cazuela",
+      "title": "Chilean Chicken Cazuela",
+      "cuisine": "chilean",
+      "category": "Chilean Soups",
+      "image": "images/recipes/south-america-2026/chilean-cazuela.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "chilean-completo",
+      "title": "Chilean Completo Italiano",
+      "cuisine": "chilean",
+      "category": "Chilean Street Food",
+      "image": "images/recipes/south-america-2026/chilean-completo.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "chilean-sopaipillas",
+      "title": "Chilean Pumpkin Sopaipillas",
+      "cuisine": "chilean",
+      "category": "Chilean Breads & Snacks",
+      "image": "images/recipes/south-america-2026/chilean-sopaipillas.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "ecuadorian-encebollado",
+      "title": "Ecuadorian Encebollado",
+      "cuisine": "ecuadorian",
+      "category": "Ecuadorian Soups",
+      "image": "images/recipes/south-america-2026/ecuadorian-encebollado.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "ecuadorian-llapingachos",
+      "title": "Llapingachos",
+      "cuisine": "ecuadorian",
+      "category": "Ecuadorian Sides",
+      "image": "images/recipes/south-america-2026/ecuadorian-llapingachos.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "ecuadorian-hornado",
+      "title": "Ecuadorian Hornado",
+      "cuisine": "ecuadorian",
+      "category": "Ecuadorian Mains",
+      "image": "images/recipes/south-america-2026/ecuadorian-hornado.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "ecuadorian-locro-papa",
+      "title": "Ecuadorian Locro de Papa",
+      "cuisine": "ecuadorian",
+      "category": "Ecuadorian Soups",
+      "image": "images/recipes/south-america-2026/ecuadorian-locro-papa.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "ecuadorian-shrimp-ceviche",
+      "title": "Ecuadorian Shrimp Ceviche",
+      "cuisine": "ecuadorian",
+      "category": "Ecuadorian Seafood",
+      "image": "images/recipes/south-america-2026/ecuadorian-shrimp-ceviche.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "bolivian-saltenas",
+      "title": "Bolivian Salteñas",
+      "cuisine": "bolivian",
+      "category": "Bolivian Savory Pastries",
+      "image": "images/recipes/south-america-2026/bolivian-saltenas.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "bolivian-silpancho",
+      "title": "Silpancho Cochabambino",
+      "cuisine": "bolivian",
+      "category": "Bolivian Mains",
+      "image": "images/recipes/south-america-2026/bolivian-silpancho.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "bolivian-sopa-mani",
+      "title": "Bolivian Sopa de Maní",
+      "cuisine": "bolivian",
+      "category": "Bolivian Soups",
+      "image": "images/recipes/south-america-2026/bolivian-sopa-mani.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "bolivian-pique-macho",
+      "title": "Pique Macho",
+      "cuisine": "bolivian",
+      "category": "Bolivian Mains",
+      "image": "images/recipes/south-america-2026/bolivian-pique-macho.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "uruguayan-chivito",
+      "title": "Uruguayan Chivito",
+      "cuisine": "uruguayan",
+      "category": "Uruguayan Sandwiches",
+      "image": "images/recipes/south-america-2026/uruguayan-chivito.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "uruguayan-parrillada",
+      "title": "Uruguayan Parrillada",
+      "cuisine": "uruguayan",
+      "category": "Uruguayan Grill",
+      "image": "images/recipes/south-america-2026/uruguayan-parrillada.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "uruguayan-tortas-fritas",
+      "title": "Uruguayan Tortas Fritas",
+      "cuisine": "uruguayan",
+      "category": "Uruguayan Breads",
+      "image": "images/recipes/south-america-2026/uruguayan-tortas-fritas.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "uruguayan-chaja",
+      "title": "Postre Chajá",
+      "cuisine": "uruguayan",
+      "category": "Uruguayan Desserts",
+      "image": "images/recipes/south-america-2026/uruguayan-chaja.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "paraguayan-sopa-paraguaya",
+      "title": "Sopa Paraguaya",
+      "cuisine": "paraguayan",
+      "category": "Paraguayan Breads & Sides",
+      "image": "images/recipes/south-america-2026/paraguayan-sopa-paraguaya.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "paraguayan-chipa",
+      "title": "Chipa Paraguaya",
+      "cuisine": "paraguayan",
+      "category": "Paraguayan Breads",
+      "image": "images/recipes/south-america-2026/paraguayan-chipa.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "paraguayan-mbeju",
+      "title": "Mbejú",
+      "cuisine": "paraguayan",
+      "category": "Paraguayan Breakfast",
+      "image": "images/recipes/south-america-2026/paraguayan-mbeju.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "paraguayan-vori-vori",
+      "title": "Vori Vori de Pollo",
+      "cuisine": "paraguayan",
+      "category": "Paraguayan Soups",
+      "image": "images/recipes/south-america-2026/paraguayan-vori-vori.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "guyanese-pepperpot",
+      "title": "Guyanese Pepperpot",
+      "cuisine": "guyanese",
+      "category": "Guyanese Stews",
+      "image": "images/recipes/south-america-2026/guyanese-pepperpot.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "guyanese-cook-up-rice",
+      "title": "Guyanese Cook-Up Rice",
+      "cuisine": "guyanese",
+      "category": "Guyanese One-Pot Meals",
+      "image": "images/recipes/south-america-2026/guyanese-cook-up-rice.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "guyanese-metemgee",
+      "title": "Guyanese Metemgee",
+      "cuisine": "guyanese",
+      "category": "Guyanese Stews",
+      "image": "images/recipes/south-america-2026/guyanese-metemgee.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "guyanese-chicken-curry-roti",
+      "title": "Guyanese Chicken Curry with Roti",
+      "cuisine": "guyanese",
+      "category": "Indo-Guyanese Mains",
+      "image": "images/recipes/south-america-2026/guyanese-chicken-curry-roti.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "surinamese-pom",
+      "title": "Surinamese Pom",
+      "cuisine": "surinamese",
+      "category": "Surinamese Celebration Foods",
+      "image": "images/recipes/south-america-2026/surinamese-pom.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "surinamese-chicken-roti",
+      "title": "Surinamese Chicken Roti",
+      "cuisine": "surinamese",
+      "category": "Hindustani-Surinamese Mains",
+      "image": "images/recipes/south-america-2026/surinamese-chicken-roti.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "surinamese-saoto-soup",
+      "title": "Surinamese Saoto Soup",
+      "cuisine": "surinamese",
+      "category": "Javanese-Surinamese Soups",
+      "image": "images/recipes/south-america-2026/surinamese-saoto-soup.svg",
+      "source": "recipe",
+      "fallbackUsed": false,
+      "missingRecipeImage": false,
+      "isDrink": false
+    },
+    {
+      "id": "surinamese-moksi-alesi",
+      "title": "Moksi Alesi",
+      "cuisine": "surinamese",
+      "category": "Creole-Surinamese One-Pot Meals",
+      "image": "images/recipes/south-america-2026/surinamese-moksi-alesi.svg",
       "source": "recipe",
       "fallbackUsed": false,
       "missingRecipeImage": false,

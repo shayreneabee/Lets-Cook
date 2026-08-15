@@ -4,7 +4,7 @@ const vm = require("vm");
 const assert = require("assert");
 
 const root = path.resolve(__dirname, "..");
-let source = fs.readFileSync(path.join(root, "app.js"), "utf8");
+let source = `${fs.readFileSync(path.join(root, "data", "south-america-recipes.js"), "utf8")}\n${fs.readFileSync(path.join(root, "app.js"), "utf8")}`;
 
 source = source.replace(
   /Promise\.all\(\[loadRecipeDatabase\(\), loadLetsCookState\(\)\]\)\.finally\(\(\) => \{[\s\S]*?\n\}\);\s*$/,
@@ -80,6 +80,8 @@ globalThis.__cookbookTest = {
   recipesForWorldDestination,
   worldGlobeMarkup,
   worldDestinationCollectionMarkup,
+  southAmericaRegionOverviewMarkup,
+  southAmericaExpansionRecipes,
   cookAlongEligible,
   cookAlongTaskFor,
   setHousehold(value) { household = { ...household, ...value }; },
@@ -297,11 +299,12 @@ for (const culture of api.augustAroundWorldWeeks) {
 assert(source.length > 1_000_000, "Deployable app.js must not be truncated");
 assert(fs.statSync(path.join(root, "data", "world-countries-110m.json")).size > 100_000, "World geography asset must not be truncated");
 const productionHtml = fs.readFileSync(path.join(root, "index.html"), "utf8");
-assert(productionHtml.includes("app.js?v=20260814-august-shared-render-repair"), "Production HTML must request the repaired shared August JavaScript asset");
+assert(productionHtml.includes("data/south-america-recipes.js?v=20260814-south-america-audit"), "Production HTML must load the South America canonical recipe expansion");
+assert(productionHtml.includes("app.js?v=20260814-south-america-audit"), "Production HTML must request the South America audit JavaScript asset");
 assert(productionHtml.includes("lcy:app-rendered"), "Production HTML must recover visitors from a stale broken app bundle");
 assert(source.includes('window.dispatchEvent(new CustomEvent("lcy:app-rendered"))'), "The app must confirm successful shared rendering to the bootstrap watchdog");
 const serviceWorkerSource = fs.readFileSync(path.join(root, "sw.js"), "utf8");
-assert(serviceWorkerSource.includes('lets-cook-community-food-v84'), "The shared-render repair must invalidate stale service-worker caches");
+assert(serviceWorkerSource.includes('lets-cook-community-food-v85'), "The South America audit must invalidate stale service-worker caches");
 assert(api.aroundWorldSearchMatches("India").some((culture) => culture.id === "india"), "Search must return the India culture collection");
 assert(api.aroundWorldSearchMatches("hibiscus").some((culture) => culture.id === "africa"), "Search must connect signature ingredients and drinks to culture collections");
 assert(api.worldGlobeDestinations.length >= 40, "World Map must expose a substantial set of globe destinations");
@@ -338,6 +341,30 @@ assert(globeMarkup.includes("data-world-globe") && globeMarkup.includes("data-wo
 assert(globeMarkup.includes("Southeast Asia") && globeMarkup.includes("Philippines"), "World Map must preserve region-to-country geographic drilldown");
 const philippinesCollectionMarkup = api.worldDestinationCollectionMarkup(philippinesDestination);
 assert(philippinesCollectionMarkup.includes("Welcome to the Philippines") && philippinesCollectionMarkup.includes("Open the full recipe"), "A globe destination must reveal cultural context and full recipe links");
+
+const expectedSouthAmericaCounts = {
+  brazil: 13, argentina: 6, peru: 8, colombia: 8, venezuela: 6, chile: 5,
+  ecuador: 5, bolivia: 4, uruguay: 4, paraguay: 4, guyana: 4, suriname: 4
+};
+assert.strictEqual(Object.values(expectedSouthAmericaCounts).reduce((sum, count) => sum + count, 0), 71, "South America audit must deliver 71 canonical recipes");
+for (const [countryId, expectedCount] of Object.entries(expectedSouthAmericaCounts)) {
+  const destination = api.worldGlobeDestinationById(countryId);
+  assert(destination && destination.region === "South America", `${countryId} must be selectable inside South America`);
+  const countryRecipes = api.recipesForWorldDestination(destination);
+  assert.strictEqual(countryRecipes.length, expectedCount, `${countryId} must return its audited country-specific collection`);
+  assert(countryRecipes.every((recipe) => recipe.country === countryId && recipe.continent === "South America" && recipe.region === "South America"), `${countryId} results must use structured country and region metadata`);
+  assert(countryRecipes.every((recipe) => recipe.ingredients.length > 0 && (recipe.instructions || recipe.directions || []).length > 0 && (recipe.prep || recipe.prep_time) && (recipe.cook || recipe.cook_time) && (recipe.servings || recipe.yield)), `${countryId} recipes must open complete, usable recipe pages`);
+  assert.strictEqual(new Set(countryRecipes.map((recipe) => recipe.id)).size, countryRecipes.length, `${countryId} must not contain duplicate canonical recipes`);
+  assert.strictEqual(new Set(countryRecipes.map(api.recipePhotoFor)).size, countryRecipes.length, `${countryId} must not repeat recipe artwork`);
+}
+assert(api.southAmericaExpansionRecipes.every((recipe) => recipe.ingredients.length >= 5 && (recipe.instructions || []).length >= 5 && recipe.prepTime && recipe.cookTime && recipe.servings), "Every newly added South America recipe must include quantities, five clear steps, timing, and yield");
+const brazilTitles = api.recipesForWorldDestination("brazil").map((recipe) => recipe.title).join(" ");
+for (const dish of ["Feijoada", "Pão de Queijo", "Moqueca", "Coxinha", "Acarajé", "Brigadeiro"]) assert(brazilTitles.includes(dish), `Brazil must include ${dish}`);
+assert(api.canonicalSearchResults("Brazilian").some((recipe) => recipe.country === "brazil"), "Brazilian search must surface Brazilian recipes");
+assert(api.canonicalSearchResults("pao de queijo").some((recipe) => recipe.id === "brazilian-pao-de-queijo"), "Unaccented pão de queijo search must resolve correctly");
+assert(api.canonicalSearchResults("pão de queijo").some((recipe) => recipe.id === "brazilian-pao-de-queijo"), "Accented pão de queijo search must resolve correctly");
+const southAmericaMarkup = api.southAmericaRegionOverviewMarkup();
+assert(southAmericaMarkup.includes("71 culturally identified recipes") && Object.keys(expectedSouthAmericaCounts).every((country) => southAmericaMarkup.includes(`#cuisine-explorer/${country}`)), "South America overview must link every represented country and display the audited total");
 
 context.location.hash = "#recipes?section=cookies";
 assert.deepStrictEqual({ ...api.routeParts() }, { route: "recipes", id: undefined, section: "cookies", collection: "", culture: "", drink: "", subcategory: "", query: "" }, "Refresh must restore Cookies from the URL");

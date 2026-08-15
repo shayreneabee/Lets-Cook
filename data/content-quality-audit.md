@@ -1,10 +1,10 @@
 # Let's Cook Y'all Content Quality Audit
 
-Generated: 2026-08-13T03:42:01.880Z
+Generated: 2026-08-15T03:08:16.629Z
 
 ## Summary
 
-- Recipes audited: 726
+- Recipes audited: 790
 - Retired duplicate recipe records: 8
 - Duplicate recipe ID groups: 0
 - Duplicate recipe title groups: 0
@@ -12,9 +12,9 @@ Generated: 2026-08-13T03:42:01.880Z
 - Duplicate ingredient-list groups: 0
 - Intentional ingredient-list variations reviewed: 1
 - Duplicate instruction-list groups: 0
-- Shared image groups: 78
-- Unrelated shared image groups: 78
-- Image review queue items: 106
+- Shared image groups: 77
+- Unrelated shared image groups: 77
+- Image review queue items: 102
 - Generic recipe image assignments: 0
 - Semantic image mismatches: 0
 - Fallback/queued images: 0
@@ -28,7 +28,7 @@ Generated: 2026-08-13T03:42:01.880Z
 - Ingredient search smoke issues: 0
 - Training-only recipes in general discovery: 0
 - Recipes missing required details: 0
-- Recipes missing recommended enrichment details: 726
+- Recipes missing recommended enrichment details: 790
 
 ## Required Holiday Coverage
 
@@ -98,7 +98,7 @@ Generated: 2026-08-13T03:42:01.880Z
 ## Ingredient Search Smoke
 
 - OK: ribeye -> Valentine Steak Dinner, Nebraska Steak, Cheesesteak Egg Rolls, Garlic Butter Steak Bites, Philly Cheesesteak, Valentine Steak Dinner, Nebraska Steak, Cheesesteak Egg Rolls
-- OK: chicken thighs -> Smothered Chicken, Japanese Teriyaki Chicken Bowls, Tandoori-Style Chicken, Chicken and Sausage Gumbo, Chicken Vesuvio, Seattle Teriyaki Chicken, Filipino Chicken Adobo, Hungarian Chicken Paprikash
-- OK: ground beef -> Baked Beans with Ground Beef, Hamburger Steak with Onion Gravy, Pumpkin Chili, Baked Beans with Beef and Bacon, Argentinian Beef Empanadas, Southern Meatloaf, Connecticut Steamed Cheeseburgers, Oklahoma Onion Burgers
+- OK: chicken thighs -> Smothered Chicken, Chilean Chicken Cazuela, Tandoori-Style Chicken, Chicken and Sausage Gumbo, Chicken Vesuvio, Guyanese Chicken Curry with Roti, Seattle Teriyaki Chicken, Surinamese Pom
+- OK: ground beef -> Baked Beans with Ground Beef, Hamburger Steak with Onion Gravy, Pumpkin Chili, Baked Beans with Beef and Bacon, Argentinian Beef Empanadas, Colombian Beef and Potato Empanadas, Southern Meatloaf, Connecticut Steamed Cheeseburgers
 
 Full machine-readable details are in `data/content-quality-audit.json`.

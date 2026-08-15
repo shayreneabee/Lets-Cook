@@ -3,7 +3,7 @@ const path = require("path");
 const vm = require("vm");
 
 const root = path.resolve(__dirname, "..");
-let source = fs.readFileSync(path.join(root, "app.js"), "utf8");
+let source = `${fs.readFileSync(path.join(root, "data", "south-america-recipes.js"), "utf8")}\n${fs.readFileSync(path.join(root, "app.js"), "utf8")}`;
 
 source = source.replace(
   /Promise\.all\(\[loadRecipeDatabase\(\), loadLetsCookState\(\)\]\)\.finally\(\(\) => \{[\s\S]*?\n\}\);\s*$/,

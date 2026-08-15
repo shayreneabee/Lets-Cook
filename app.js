@@ -1735,6 +1735,8 @@ const globalCuisineCountrySeed = [
   ["bolivia", "Bolivia", "South America", "southAmerica", "potatoes, corn, quinoa, saltenas, soups, grilled meats, and highland comfort food", ["saltenas", "silpancho", "sopa de mani", "anticuchos"]],
   ["paraguay", "Paraguay", "South America", "southAmerica", "corn breads, mandioca, cheese, soups, grilled meats, terere, and family staples", ["sopa paraguaya", "chipa", "mbeju", "asado"]],
   ["uruguay", "Uruguay", "South America", "southAmerica", "asado, chivito, pasta, dulce de leche, mate, and neighborhood grill culture", ["chivito", "asado", "pasta", "alfajores"]],
+  ["guyana", "Guyana", "South America", "southAmerica", "Indigenous, African, Indo-Guyanese, Portuguese, Chinese, and Caribbean foodways through cassareep, rice, coconut, curries, roots, and pepper", ["pepperpot", "cook-up rice", "metemgee", "curry and roti"]],
+  ["suriname", "Suriname", "South America", "southAmerica", "Javanese, Hindustani, Creole, Indigenous, Chinese, Jewish, and other foodways through rice, roti, soups, pomtajer, coconut, and sambal", ["pom", "roti", "saoto soup", "moksi alesi"]],
   ["poland", "Poland", "Europe", "europe", "pierogi, soups, cabbage, potatoes, mushrooms, smoked meats, sour cream, and holiday baking", ["pierogi", "bigos", "barszcz", "golabki", "paczki"]],
   ["hungary", "Hungary", "Europe", "europe", "paprika, goulash, stews, dumplings, sour cream, peppers, pastries, and market soups", ["goulash", "paprikash", "langos", "dobos torte"]],
   ["romania", "Romania", "Europe", "europe", "sarmale, mamaliga, soups, grilled sausages, sour cream, pickles, and holiday breads", ["sarmale", "mamaliga", "mititei", "cozonac"]],
@@ -5052,6 +5054,11 @@ function expansionRecipe(id, title, category, image, prep, cook, servings, level
     commonMisspellings: extras.commonMisspellings || [],
     relatedTerms: extras.relatedTerms || [],
     cultural_origin: extras.culturalOrigin || "",
+    continent: extras.continent || "",
+    region: extras.region || "",
+    country: extras.country || "",
+    meal_type: extras.mealType || extras.meal_type || "",
+    dietary: extras.dietary || [],
     makeAhead: extras.makeAhead || "",
     servingIdeas: extras.servingIdeas || [],
     kidsKorner: Boolean(extras.kidsKorner),
@@ -5368,6 +5375,31 @@ function southwestRecipe(id, title, cuisine, category, description, ingredients,
   );
 }
 
+const southAmericaCuisineByCountry = {
+  brazil: "brazilian", argentina: "argentinian", peru: "peruvian", colombia: "colombian",
+  venezuela: "venezuelan", chile: "chilean", ecuador: "ecuadorian", bolivia: "bolivian",
+  uruguay: "uruguayan", paraguay: "paraguayan", guyana: "guyanese", suriname: "surinamese"
+};
+
+function southAmericaRecipe(spec) {
+  const [id, title, country, category, mealType, description, ingredients, steps, tags = [], extras = {}] = spec;
+  const cuisine = southAmericaCuisineByCountry[country];
+  return globalCuisineRecipe(id, title, cuisine, category, description, ingredients, steps, tags, {
+    ...extras,
+    image: `images/recipes/south-america-2026/${id}.svg`,
+    continent: "South America",
+    region: "South America",
+    country,
+    mealType,
+    aliases: extras.aliases || [],
+    commonMisspellings: extras.commonMisspellings || [],
+    relatedTerms: [...new Set([...(extras.relatedTerms || []), country, cuisine, "South America"])],
+    culturalOrigin: extras.culturalOrigin || `${title} is presented as a culturally grounded ${titleizeSlug(country)} dish, not a generic South American-inspired substitute.`
+  });
+}
+
+const southAmericaExpansionRecipes = SOUTH_AMERICA_RECIPE_SPECS.map(southAmericaRecipe);
+
 const southwestExpansionRecipes = [
   southwestRecipe("breakfast-tacos", "Texas Breakfast Tacos", "texas", "Texas Breakfast", "Warm flour tortillas filled with soft eggs, potatoes, cheese, salsa, and a little chile heat.", ["8 flour tortillas", "6 eggs", "2 cups diced potatoes", "1 cup shredded cheddar", "1/2 cup salsa", "1 tbsp butter", "Cilantro", "Lime"], ["Cook potatoes until browned and tender.", "Scramble eggs softly in butter.", "Warm tortillas.", "Fill with eggs, potatoes, cheese, salsa, cilantro, and lime.", "Serve immediately while tortillas are soft."], ["tacos", "breakfast", "texas"], { prep: "15 min", cook: "20 min", servings: 4 }),
   southwestRecipe("texas-barbacoa", "Texas Barbacoa", "texas", "Texas Borderland", "Slow-cooked beef chuck seasoned with chiles, garlic, cumin, and lime until it shreds for tacos.", ["3 lb beef chuck", "2 dried guajillo chiles", "2 chipotles", "4 garlic cloves", "1 tbsp cumin", "1 tsp Mexican oregano", "1 cup beef stock", "2 tbsp lime juice", "Corn tortillas"], ["Toast and soak dried chiles.", "Blend chiles with garlic, cumin, oregano, stock, and lime.", "Pour over beef in a Dutch oven or slow cooker.", "Cook until fork-tender.", "Shred and serve in tortillas with onion and cilantro."], ["barbacoa", "beef", "tacos"], { prep: "25 min", cook: "4 hr", servings: 8, level: "Advanced" }),
@@ -5584,7 +5616,19 @@ function globalCuisineRecipe(id, title, cuisine, category, description, ingredie
       ageTrack: extras.ageTrack,
       helperNote: extras.helperNote,
       storage: extras.storage || "Refrigerate leftovers in a covered container for up to 3 days.",
-      reheating: extras.reheating || "Reheat gently until hot throughout."
+      reheating: extras.reheating || "Reheat gently until hot throughout.",
+      continent: extras.continent || "",
+      region: extras.region || "",
+      country: extras.country || "",
+      mealType: extras.mealType || extras.meal_type || "",
+      dietary: extras.dietary || [],
+      primaryCookbookSection: extras.primaryCookbookSection || "",
+      subcategories: extras.subcategories || [],
+      aliases: extras.aliases || [],
+      alternateTitles: extras.alternateTitles || [],
+      commonMisspellings: extras.commonMisspellings || [],
+      relatedTerms: extras.relatedTerms || [],
+      culturalOrigin: extras.culturalOrigin || ""
     }
   );
 }
@@ -6180,7 +6224,7 @@ const eggRollRecipes = [
 ];
 
 const existingRecipeIds = new Set(recipes.map((recipe) => recipe.id));
-recipes = [...recipes, ...[...nextFeatureRecipes, ...menuIntelligenceRecipes, ...regionalAuthenticityRecipes, ...livingCookbookRecipes, ...kidsKornerRecipes, ...kidsExpansionRecipes, ...familyExpansionRecipes, ...mississippiHeritageRecipes, ...africaExpansionRecipes, ...midwestExpansionRecipes, ...newEnglandExpansionRecipes, ...southwestExpansionRecipes, ...midAtlanticExpansionRecipes, ...westernExpansionRecipes, ...globalCuisineExpansionRecipes, ...holidayExpansionRecipes, ...america250ExpansionRecipes, ...foundationalBreadAndCookieRecipes, ...drinksCollectionRecipes, ...appetizerFingerFoodRecipes, ...eggRollRecipes].filter((recipe) => !existingRecipeIds.has(recipe.id))];
+recipes = [...recipes, ...[...nextFeatureRecipes, ...menuIntelligenceRecipes, ...regionalAuthenticityRecipes, ...livingCookbookRecipes, ...kidsKornerRecipes, ...kidsExpansionRecipes, ...familyExpansionRecipes, ...mississippiHeritageRecipes, ...africaExpansionRecipes, ...midwestExpansionRecipes, ...newEnglandExpansionRecipes, ...southwestExpansionRecipes, ...midAtlanticExpansionRecipes, ...westernExpansionRecipes, ...globalCuisineExpansionRecipes, ...southAmericaExpansionRecipes, ...holidayExpansionRecipes, ...america250ExpansionRecipes, ...foundationalBreadAndCookieRecipes, ...drinksCollectionRecipes, ...appetizerFingerFoodRecipes, ...eggRollRecipes].filter((recipe) => !existingRecipeIds.has(recipe.id))];
 
 const appetizerExistingRecipeMetadata = {
   "chicken-salad-croissants": { primaryCookbookSection: "appetizers-finger-foods", subcategories: ["Sandwiches & Clubs", "Cold Appetizers", "Funeral and Repast Foods"] },
@@ -6192,6 +6236,7 @@ const appetizerExistingRecipeMetadata = {
 };
 recipes.forEach((recipe) => {
   if (appetizerExistingRecipeMetadata[recipe.id]) Object.assign(recipe, appetizerExistingRecipeMetadata[recipe.id]);
+  if (SOUTH_AMERICA_EXISTING_RECIPE_METADATA[recipe.id]) Object.assign(recipe, SOUTH_AMERICA_EXISTING_RECIPE_METADATA[recipe.id]);
 });
 
 const lessons = [
@@ -7063,6 +7108,13 @@ globalCuisineExpansionRecipes.forEach((recipe) => {
   recipeImageOverrides[recipe.id] = recipe.image || recipe.image_url || cuisineCoverImages[recipe.cuisine] || "assets/editorial-cooking-hero.jpg";
 });
 
+southAmericaExpansionRecipes.forEach((recipe) => {
+  recipeImageOverrides[recipe.id] = `images/recipes/south-america-2026/${recipe.id}.svg`;
+});
+Object.entries(SOUTH_AMERICA_EXISTING_RECIPE_METADATA).forEach(([recipeId, metadata]) => {
+  recipeImageOverrides[recipeId] = metadata.image;
+});
+
 const broadRecipeImageIds = [
   "pb-and-j-sandwich", "pbj-roll-ups", "mini-pizza-bagels", "mini-pizza-faces",
   "cheese-quesadilla-triangles", "english-muffin-pizzas", "tailgate-cups", "fruit-kabobs",
@@ -7374,6 +7426,14 @@ Object.assign(recipeImageOverrides, {
   "hibiscus-punch": "images/recipes/drinks-2026/hibiscus-punch.png",
   "blackberry-sage-yaupon-tea": "images/recipes/drinks-2026/blackberry-sage-yaupon-tea.png",
   "spooky-party-punch": "images/recipes/drinks-2026/spooky-party-punch.png"
+});
+
+// Country-audited South America imagery must win over legacy generic overrides.
+southAmericaExpansionRecipes.forEach((recipe) => {
+  recipeImageOverrides[recipe.id] = `images/recipes/south-america-2026/${recipe.id}.svg`;
+});
+Object.entries(SOUTH_AMERICA_EXISTING_RECIPE_METADATA).forEach(([recipeId, metadata]) => {
+  recipeImageOverrides[recipeId] = metadata.image;
 });
 
 const imageContentRegistry = {
@@ -13848,11 +13908,15 @@ function recipeSearchIndex(recipe = {}) {
     recipe.description,
     recipe.category,
     recipe.cuisine,
+    recipe.continent,
+    recipe.region,
+    recipe.country,
     recipe.level,
     recipe.difficulty,
     recipe.origin,
     recipe.culturalOrigin,
     recipe.mealType,
+    recipe.meal_type,
     recipe.protein,
     recipe.season,
     recipe.drinkType,
@@ -15035,10 +15099,18 @@ const worldGlobeDestinations = [
   ["puerto-rico", "Puerto Rico", "Caribbean", "Caribbean", 18.2, -66.5, ["puerto rican"]],
   ["haiti", "Haiti", "Caribbean", "Caribbean", 18.9, -72.3, ["haitian"]],
   ["trinidad", "Trinidad & Tobago", "Caribbean", "Caribbean", 10.7, -61.2, ["trinidad", "trinidadian"]],
-  ["brazil", "Brazil", "Latin America", "South America", -14.2, -51.9, ["brazilian"]],
-  ["peru", "Peru", "Latin America", "South America", -9.2, -75.0, ["peruvian"]],
-  ["colombia", "Colombia", "Latin America", "South America", 4.6, -74.3, ["colombian"]],
-  ["argentina", "Argentina", "Latin America", "South America", -38.4, -63.6, ["argentinian"]],
+  ["brazil", "Brazil", "South America", "Brazil", -14.2, -51.9, ["brazilian", "brasil"]],
+  ["peru", "Peru", "South America", "Andean & Pacific", -9.2, -75.0, ["peruvian"]],
+  ["colombia", "Colombia", "South America", "Andean & Caribbean", 4.6, -74.3, ["colombian"]],
+  ["argentina", "Argentina", "South America", "Southern Cone", -38.4, -63.6, ["argentinian", "argentine"]],
+  ["venezuela", "Venezuela", "South America", "Caribbean & Northern", 6.4, -66.6, ["venezuelan"]],
+  ["chile", "Chile", "South America", "Southern Cone", -35.7, -71.5, ["chilean"]],
+  ["ecuador", "Ecuador", "South America", "Andean & Pacific", -1.8, -78.2, ["ecuadorian"]],
+  ["bolivia", "Bolivia", "South America", "Andean & Interior", -16.3, -63.6, ["bolivian"]],
+  ["uruguay", "Uruguay", "South America", "Southern Cone", -32.5, -55.8, ["uruguayan"]],
+  ["paraguay", "Paraguay", "South America", "Interior & Guaraní", -23.4, -58.4, ["paraguayan", "guarani"]],
+  ["guyana", "Guyana", "South America", "The Guianas", 4.9, -58.9, ["guyanese"]],
+  ["suriname", "Suriname", "South America", "The Guianas", 3.9, -56.0, ["surinamese"]],
   ["nigeria", "Nigeria", "Africa", "West Africa", 9.1, 8.7, ["nigerian"]],
   ["ghana", "Ghana", "Africa", "West Africa", 7.9, -1.0, ["ghanaian"]],
   ["senegal", "Senegal", "Africa", "West Africa", 14.5, -14.5, ["senegalese"]],
@@ -15077,7 +15149,8 @@ const worldGlobeDestinations = [
 const worldCountryBoundaryUrl = "data/world-countries-110m.json";
 const worldDestinationCountryIds = {
   "united-states": "840", canada: "124", mexico: "484", cuba: "192", jamaica: "388", "puerto-rico": "630", haiti: "332", trinidad: "780",
-  brazil: "076", peru: "604", colombia: "170", argentina: "032", nigeria: "566", ghana: "288", senegal: "686", ethiopia: "231", kenya: "404",
+  brazil: "076", peru: "604", colombia: "170", argentina: "032", venezuela: "862", chile: "152", ecuador: "218", bolivia: "068",
+  uruguay: "858", paraguay: "600", guyana: "328", suriname: "740", nigeria: "566", ghana: "288", senegal: "686", ethiopia: "231", kenya: "404",
   morocco: "504", egypt: "818", "south-africa": "710", india: "356", pakistan: "586", china: "156", japan: "392", korea: "410", philippines: "608",
   thailand: "764", vietnam: "704", indonesia: "360", malaysia: "458", singapore: "702", turkey: "792", greece: "300", italy: "380", spain: "724",
   france: "250", germany: "276", "united-kingdom": "826", ireland: "372", lebanon: "422", israel: "376", australia: "036", "new-zealand": "554",
@@ -15155,7 +15228,12 @@ function recipesForWorldDestination(destinationOrId, limit = Number.POSITIVE_INF
   const seenImages = new Set();
   return allRecipeCollection().filter((recipe) => {
     const identityText = normalizeIngredientTerm([recipe.title, recipe.cuisine, recipe.category, ...(recipe.tags || []), recipe.cultural_origin || ""].join(" "));
-    const belongs = identityTerms.some((term) => ` ${identityText} `.includes(` ${term} `));
+    const structuredCountry = slugify(recipe.country || "");
+    const belongs = destination.region === "South America"
+      ? structuredCountry === destination.id
+      : structuredCountry
+        ? structuredCountry === destination.id
+        : identityTerms.some((term) => ` ${identityText} `.includes(` ${term} `));
     const canonicalId = canonicalRecipeId(recipe.id);
     const image = recipePhotoFor(recipe);
     if (!belongs || seenRecipes.has(canonicalId) || seenImages.has(image) || !recipeHasPublishReadyPhoto(recipe)) return false;
@@ -15170,8 +15248,20 @@ function worldGlobeRegionMenuMarkup(selectedId = "") {
   return `<nav class="world-globe-region-menu" aria-label="Browse destinations by region">${regions.map((region) => {
     const destinations = worldGlobeDestinations.filter((destination) => destination.region === region);
     const subregions = [...new Set(destinations.map((destination) => destination.subregion))];
-    return `<details ${destinations.some((destination) => destination.id === selectedId) ? "open" : ""}><summary>${region}<span>${destinations.length}</span></summary>${subregions.map((subregion) => `<div><h3>${subregion}</h3>${destinations.filter((destination) => destination.subregion === subregion).map((destination) => `<a class="${destination.id === selectedId ? "active" : ""}" href="#cuisine-explorer/${destination.id}" data-world-destination-link="${destination.id}">${destination.title}</a>`).join("")}</div>`).join("")}</details>`;
+    const regionId = slugify(region);
+    const regionLink = regionId === "south-america" ? `<a class="world-region-overview-link ${selectedId === regionId ? "active" : ""}" href="#cuisine-explorer/${regionId}">View all ${region}</a>` : "";
+    return `<details ${selectedId === regionId || destinations.some((destination) => destination.id === selectedId) ? "open" : ""}><summary>${region}<span>${destinations.length}</span></summary>${regionLink}${subregions.map((subregion) => `<div><h3>${subregion}</h3>${destinations.filter((destination) => destination.subregion === subregion).map((destination) => `<a class="${destination.id === selectedId ? "active" : ""}" href="#cuisine-explorer/${destination.id}" data-world-destination-link="${destination.id}">${destination.title}</a>`).join("")}</div>`).join("")}</details>`;
   }).join("")}</nav>`;
+}
+
+function southAmericaRegionOverviewMarkup() {
+  const destinations = worldGlobeDestinations.filter((destination) => destination.region === "South America");
+  const total = destinations.reduce((sum, destination) => sum + recipesForWorldDestination(destination).length, 0);
+  return `<section class="cream-section world-region-overview" aria-labelledby="southAmericaRegionTitle"><div class="section-heading"><p class="eyebrow">World Map · South America</p><h2 id="southAmericaRegionTitle">Explore South America country by country.</h2><p>${total} culturally identified recipes across ${destinations.length} countries. Choose a country to see only that country’s canonical recipes.</p></div><div class="cuisine-market-grid">${destinations.map((destination) => {
+    const countryRecipes = recipesForWorldDestination(destination);
+    const lead = countryRecipes[0];
+    return `<a class="cuisine-market-card" href="#cuisine-explorer/${destination.id}" data-world-destination-link="${destination.id}">${lead ? `<img src="${recipePhotoFor(lead)}" alt="${escapeHTML(lead.title)}" />` : ""}<div><p class="eyebrow">${escapeHTML(destination.subregion)}</p><h3>${escapeHTML(destination.title)}</h3><p>${countryRecipes.length} recipe${countryRecipes.length === 1 ? "" : "s"}</p><span>Explore ${escapeHTML(destination.title)} →</span></div></a>`;
+  }).join("")}</div></section>`;
 }
 
 function worldDestinationLeadRecipeMarkup(recipe) {
@@ -15319,7 +15409,8 @@ async function initWorldGlobe(selectedId = "") {
 
 function renderWorldMapExperience(selectedId = "") {
   const destination = worldGlobeDestinationById(selectedId);
-  app.innerHTML = `${cookSubnav()}${worldGlobeMarkup(destination)}${destination ? worldDestinationCollectionMarkup(destination) : ""}${cuisineDrawerMarkup()}<section class="cream-section cuisine-market-section world-region-fallback"><div class="section-heading"><p class="eyebrow">Regional paths</p><h2>Prefer the market lanes?</h2><p>The existing regional organization remains available for quick navigation and countries whose collections are still growing.</p></div><div class="cuisine-market-grid">${cuisineExplorerGroups.map(cuisineMarketCard).join("")}</div></section>`;
+  const isSouthAmericaOverview = slugify(selectedId) === "south-america";
+  app.innerHTML = `${cookSubnav()}${worldGlobeMarkup(destination)}${isSouthAmericaOverview ? southAmericaRegionOverviewMarkup() : destination ? worldDestinationCollectionMarkup(destination) : ""}${cuisineDrawerMarkup()}<section class="cream-section cuisine-market-section world-region-fallback"><div class="section-heading"><p class="eyebrow">Regional paths</p><h2>Prefer the market lanes?</h2><p>The existing regional organization remains available for quick navigation and countries whose collections are still growing.</p></div><div class="cuisine-market-grid">${cuisineExplorerGroups.map(cuisineMarketCard).join("")}</div></section>`;
   requestAnimationFrame(() => initWorldGlobe(destination?.id || ""));
 }
 
@@ -15420,7 +15511,7 @@ const cuisineDrawerGroups = [
   ["Asian", [["Chinese", "chinese"], ["Japanese", "japanese"], ["Korean", "korean"], ["Thai", "thai"], ["Filipino", "philippines"], ["Indian", "indian"]]],
   ["Caribbean", [["Caribbean", "caribbean"], ["Jamaican", "jamaican"], ["Puerto Rican", "puerto-rico"]]],
   ["European", [["Italian", "italian"], ["French", "french"], ["Greek", "greece"], ["German", "germany"]]],
-  ["Latin American", [["Mexican", "mexican"], ["Brazilian", "brazil"], ["Peruvian", "peru"], ["Colombian", "colombia"]]],
+  ["Latin American", [["South America", "south-america"], ["Mexican", "mexican"], ["Brazilian", "brazil"], ["Argentinian", "argentina"], ["Peruvian", "peru"], ["Colombian", "colombia"], ["Venezuelan", "venezuela"], ["Chilean", "chile"], ["Ecuadorian", "ecuador"], ["Bolivian", "bolivia"], ["Uruguayan", "uruguay"], ["Paraguayan", "paraguay"], ["Guyanese", "guyana"], ["Surinamese", "suriname"]]],
   ["Middle Eastern", [["Lebanese", "lebanon"], ["Turkish", "turkey"], ["Egyptian", "egypt"]]],
   ["Dietary Collections", [["Vegetarian", "collection:vegetarian"], ["Vegan", "collection:vegan"], ["Gluten-Free", "collection:gluten-free"], ["Allergy-Friendly", "collection:allergy-friendly"]]]
 ];
@@ -15506,7 +15597,7 @@ function renderCuisineExplorer(id) {
   }
   if (westernId && westernRegionalPages[westernId]) return renderWesternRegionalPage(westernId);
   if (id === "african-cuisines") return africaCuisineHub();
-  if (id && worldGlobeDestinationById(id)) return renderWorldMapExperience(id);
+  if (id === "south-america" || (id && worldGlobeDestinationById(id))) return renderWorldMapExperience(id);
   if (id && countryCuisineProfiles[id]) return renderCuisineExplorerDetail(id);
   if (id && africaCountryPages[id]) return renderAfricaCountryPage(id);
   if (id) return renderCuisineExplorerDetail(id);
@@ -18276,6 +18367,16 @@ function applyRecipeDatabase(database) {
     directions: recipe.directions || recipe.instructions || [],
     instructions: recipe.instructions || recipe.directions || [],
     tags: recipe.tags || [],
+    continent: recipe.continent || "",
+    region: recipe.region || "",
+    country: recipe.country || "",
+    meal_type: recipe.meal_type || recipe.mealType || "",
+    dietary: recipe.dietary || [],
+    aliases: recipe.aliases || [],
+    alternateTitles: recipe.alternateTitles || [],
+    commonMisspellings: recipe.commonMisspellings || [],
+    relatedTerms: recipe.relatedTerms || [],
+    cultural_origin: recipe.cultural_origin || "",
     cultural_variations: recipe.cultural_variations || [],
     video_url: recipe.video_url || recipe.videoUrl || "",
     videoUrl: recipe.videoUrl || recipe.video_url || "",
@@ -18296,6 +18397,9 @@ function applyRecipeDatabase(database) {
   const loadedIds = new Set(loadedRecipes.map((recipe) => recipe.id));
   const missingBundled = bundledRecipes.filter((recipe) => !loadedIds.has(recipe.id));
   recipes = [...loadedRecipes, ...missingBundled].map(normalizeRecipe);
+  recipes.forEach((recipe) => {
+    if (SOUTH_AMERICA_EXISTING_RECIPE_METADATA[recipe.id]) Object.assign(recipe, SOUTH_AMERICA_EXISTING_RECIPE_METADATA[recipe.id]);
+  });
 }
 
 async function loadRecipeDatabase() {

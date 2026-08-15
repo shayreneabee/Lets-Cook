@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 760 510" role="img" aria-labelledby="title desc">
+  <title id="title">Uruguayan Parrillada</title><desc id="desc">Editorial illustration created specifically for Uruguayan Parrillada from uruguay.</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5aa9de"/><stop offset="1" stop-color="#d7a829"/></linearGradient><filter id="shadow"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-opacity=".28"/></filter></defs>
+  <rect width="760" height="510" fill="url(#bg)"/><circle cx="94" cy="88" r="120" fill="#f8f5e9" opacity=".16"/><circle cx="690" cy="430" r="155" fill="#f8f5e9" opacity=".12"/>
+  <g filter="url(#shadow)"><ellipse cx="380" cy="325" rx="175" ry="92" fill="#fff8e6"/><path d="M270 340c42-95 82-125 120-90 45-45 92-5 115 88-70 38-160 40-235 2Z" fill="#d7a829"/><g fill="#5aa9de"><circle cx="330" cy="302" r="17"/><circle cx="390" cy="285" r="14"/><circle cx="450" cy="315" r="19"/></g></g>
+  <rect x="42" y="34" width="210" height="38" rx="19" fill="#f8f5e9" opacity=".94"/><text x="147" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#5aa9de">URUGUAY</text>
+  <rect x="36" y="425" width="688" height="58" rx="20" fill="#142c3a" opacity=".9"/><text x="380" y="463" text-anchor="middle" font-family="Georgia, serif" font-size="30" font-weight="700" fill="#fffaf0">Uruguayan Parrillada</text>
+  </svg>
