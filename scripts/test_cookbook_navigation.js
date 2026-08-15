@@ -297,7 +297,11 @@ for (const culture of api.augustAroundWorldWeeks) {
 assert(source.length > 1_000_000, "Deployable app.js must not be truncated");
 assert(fs.statSync(path.join(root, "data", "world-countries-110m.json")).size > 100_000, "World geography asset must not be truncated");
 const productionHtml = fs.readFileSync(path.join(root, "index.html"), "utf8");
-assert(productionHtml.includes("app.js?v=20260814-august-render-repair"), "Production HTML must request the repaired August JavaScript asset");
+assert(productionHtml.includes("app.js?v=20260814-august-shared-render-repair"), "Production HTML must request the repaired shared August JavaScript asset");
+assert(productionHtml.includes("lcy:app-rendered"), "Production HTML must recover visitors from a stale broken app bundle");
+assert(source.includes('window.dispatchEvent(new CustomEvent("lcy:app-rendered"))'), "The app must confirm successful shared rendering to the bootstrap watchdog");
+const serviceWorkerSource = fs.readFileSync(path.join(root, "sw.js"), "utf8");
+assert(serviceWorkerSource.includes('lets-cook-community-food-v84'), "The shared-render repair must invalidate stale service-worker caches");
 assert(api.aroundWorldSearchMatches("India").some((culture) => culture.id === "india"), "Search must return the India culture collection");
 assert(api.aroundWorldSearchMatches("hibiscus").some((culture) => culture.id === "africa"), "Search must connect signature ingredients and drinks to culture collections");
 assert(api.worldGlobeDestinations.length >= 40, "World Map must expose a substantial set of globe destinations");

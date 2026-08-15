@@ -19555,6 +19555,8 @@ function accountAvatar(user = {}, className = "profile-avatar") {
 // empty shell while a large payload downloads.
 if (typeof navigator !== "undefined" && navigator.userAgent) {
   render();
+  document.documentElement.dataset.lcyAppRendered = "true";
+  window.dispatchEvent(new CustomEvent("lcy:app-rendered"));
   announceRouteChange();
   scrollToRouteTop("auto");
   Promise.all([loadRecipeDatabase(), loadLetsCookState()]).finally(() => render());

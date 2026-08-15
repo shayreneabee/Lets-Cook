@@ -64,7 +64,85 @@
       </a>
     </footer>
 
-    <script src="app.js?v=20260814-august-render-repair"></script>
+    <script>
+      (() => {
+        const build = "20260814-august-shared-render-repair";
+        const recoveryKey = `lcy-app-recovery-${build}`;
+        let rendered = false;
+        let recovering = false;
+
+        function storageGet(key) {
+          try { return sessionStorage.getItem(key); } catch (_) { return null; }
+        }
+
+        function storageSet(key, value) {
+          try { sessionStorage.setItem(key, value); } catch (_) {}
+        }
+
+        function storageRemove(key) {
+          try { sessionStorage.removeItem(key); } catch (_) {}
+        }
+
+        function showLoadError() {
+          const app = document.getElementById("app");
+          if (!app || app.childElementCount) return;
+          app.innerHTML = `
+            <section class="empty-state" role="alert" aria-labelledby="appLoadErrorTitle">
+              <p class="eyebrow">Let's Cook Y'all</p>
+              <h1 id="appLoadErrorTitle">The cookbook couldn't finish loading.</h1>
+              <p>Please check your connection, then try once more.</p>
+              <button class="primary-button" type="button" onclick="location.reload()">Try Again</button>
+            </section>
+          `;
+        }
+
+        async function recoverEmptyApp() {
+          const app = document.getElementById("app");
+          if (rendered || app?.childElementCount || recovering) return;
+          recovering = true;
+
+          if (storageGet(recoveryKey)) {
+            showLoadError();
+            return;
+          }
+          storageSet(recoveryKey, "1");
+
+          try {
+            if ("serviceWorker" in navigator) {
+              const registrations = await navigator.serviceWorker.getRegistrations();
+              await Promise.all(registrations.map((registration) => registration.unregister()));
+            }
+            if ("caches" in window) {
+              const keys = await caches.keys();
+              await Promise.all(keys
+                .filter((key) => key.startsWith("lets-cook-community-food-"))
+                .map((key) => caches.delete(key)));
+            }
+          } catch (error) {
+            console.warn("Stale app-cache cleanup was unavailable.", error);
+          }
+
+          const url = new URL(location.href);
+          url.searchParams.set("app-recovery", build);
+          location.replace(url.href);
+        }
+
+        window.addEventListener("lcy:app-rendered", () => {
+          rendered = true;
+          storageRemove(recoveryKey);
+        });
+
+        window.addEventListener("error", (event) => {
+          const source = event.filename || event.target?.src || "";
+          if (source.includes("app.js")) recoverEmptyApp();
+        }, true);
+
+        window.addEventListener("DOMContentLoaded", () => {
+          window.setTimeout(recoverEmptyApp, 1500);
+        });
+      })();
+    </script>
+    <script id="lcyAppBundle" src="app.js?v=20260814-august-shared-render-repair"></script>
     <script>
       if ("serviceWorker" in navigator && location.protocol !== "file:") {
         window.addEventListener("load", () => {
