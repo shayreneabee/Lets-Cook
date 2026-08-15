@@ -1,6 +1,6 @@
 # Let's Cook Y'all Content Quality Audit
 
-Generated: 2026-08-15T03:08:16.629Z
+Generated: 2026-08-15T14:27:30.429Z
 
 ## Summary
 
@@ -12,9 +12,9 @@ Generated: 2026-08-15T03:08:16.629Z
 - Duplicate ingredient-list groups: 0
 - Intentional ingredient-list variations reviewed: 1
 - Duplicate instruction-list groups: 0
-- Shared image groups: 77
-- Unrelated shared image groups: 77
-- Image review queue items: 102
+- Shared image groups: 0
+- Unrelated shared image groups: 0
+- Image review queue items: 0
 - Generic recipe image assignments: 0
 - Semantic image mismatches: 0
 - Fallback/queued images: 0
@@ -55,26 +55,6 @@ Generated: 2026-08-15T03:08:16.629Z
 
 ## Top Shared Images
 
-- images/recipes/asian-hub-2026/asian-garlic-fried-rice.png: 2 recipes
-- images/recipes/audit-2026-06/pineapple-fried-rice.jpg: 2 recipes
-- images/recipes/audit-2026-06/lamb-bone-broth-soup.jpg: 2 recipes
-- images/recipes/audit-2026-06/biryani.jpg: 2 recipes
-- images/recipes/audit-2026-06/chana-masala.jpg: 2 recipes
-- images/recipes/audit-2026-06/southern-fried-chicken.png: 2 recipes
-- images/juneteenth/cast-iron-skillet-cornbread.png: 2 recipes
-- images/regional/mississippi/mac-and-cheese.jpg: 2 recipes
-- images/cuisines/africa/nigeria/suya-skewers.jpg: 2 recipes
-- images/cuisines/africa/morocco/vegetable-couscous.jpg: 2 recipes
-- images/recipes/audit-2026-06/indian-dal-tadka.jpg: 3 recipes
-- images/recipes/audit-2026-06/grilled-swordfish-lemon-herb.jpg: 4 recipes
-- images/recipes/audit-2026-06/blackened-swordfish.jpg: 2 recipes
-- images/recipes/audit-2026-06/swordfish-tacos.jpg: 2 recipes
-- images/recipes/audit-2026-06/dinner-rolls.jpg: 2 recipes
-- images/recipes/audit-2026-06/jerk-sauce.jpg: 2 recipes
-- images/recipes/audit-2026-06/greek-salad.jpg: 3 recipes
-- images/recipes/audit-2026-06/roasted-vegetables.jpg: 2 recipes
-- images/recipes/audit-2026-06/rice-pilaf.jpg: 3 recipes
-- images/recipes/audit-2026-06/smothered-green-beans.jpg: 2 recipes
 
 ## Generic Recipe Images To Replace
 

@@ -5386,7 +5386,7 @@ function southAmericaRecipe(spec) {
   const cuisine = southAmericaCuisineByCountry[country];
   return globalCuisineRecipe(id, title, cuisine, category, description, ingredients, steps, tags, {
     ...extras,
-    image: `images/recipes/south-america-2026/${id}.svg`,
+    image: `images/recipes/south-america-photos-2026/${id}.webp`,
     continent: "South America",
     region: "South America",
     country,
@@ -7109,7 +7109,7 @@ globalCuisineExpansionRecipes.forEach((recipe) => {
 });
 
 southAmericaExpansionRecipes.forEach((recipe) => {
-  recipeImageOverrides[recipe.id] = `images/recipes/south-america-2026/${recipe.id}.svg`;
+  recipeImageOverrides[recipe.id] = `images/recipes/south-america-photos-2026/${recipe.id}.webp`;
 });
 Object.entries(SOUTH_AMERICA_EXISTING_RECIPE_METADATA).forEach(([recipeId, metadata]) => {
   recipeImageOverrides[recipeId] = metadata.image;
@@ -7430,10 +7430,120 @@ Object.assign(recipeImageOverrides, {
 
 // Country-audited South America imagery must win over legacy generic overrides.
 southAmericaExpansionRecipes.forEach((recipe) => {
-  recipeImageOverrides[recipe.id] = `images/recipes/south-america-2026/${recipe.id}.svg`;
+  recipeImageOverrides[recipe.id] = `images/recipes/south-america-photos-2026/${recipe.id}.webp`;
 });
 Object.entries(SOUTH_AMERICA_EXISTING_RECIPE_METADATA).forEach(([recipeId, metadata]) => {
   recipeImageOverrides[recipeId] = metadata.image;
+});
+
+// Dish-specific replacements from the whole-site visual audit. These mappings
+// intentionally override unrelated shared photos while keeping canonical recipes intact.
+const sitePhotoReviewOverrides = {
+  "asian-garlic-fried-rice": "images/recipes/photo-review/asian-garlic-fried-rice.webp",
+  "kids-mini-poke-cups": "images/recipes/photo-review/kids-mini-poke-cups.webp",
+  "new-zealand-roast-lamb": "images/recipes/photo-review/new-zealand-roast-lamb.webp",
+  "pakistani-chicken-biryani": "images/recipes/photo-review/pakistani-chicken-biryani.webp",
+  "trinidad-doubles-style-chickpeas": "images/recipes/photo-review/trinidad-doubles-style-chickpeas.webp",
+  "southern-crispy-fried-chicken": "images/recipes/photo-review/southern-crispy-fried-chicken.webp",
+  "jalapeno-cornbread": "images/recipes/photo-review/jalapeno-cornbread.webp",
+  "bajan-macaroni-pie": "images/recipes/photo-review/bajan-macaroni-pie.webp",
+  "eid-kebab-platter": "images/recipes/photo-review/eid-kebab-platter.webp",
+  "moroccan-vegetable-couscous": "images/recipes/photo-review/moroccan-vegetable-couscous.webp",
+  "indian-yellow-dal-tadka": "images/recipes/photo-review/indian-yellow-dal-tadka.webp",
+  "turkish-red-lentil-soup": "images/recipes/photo-review/turkish-red-lentil-soup.webp",
+  "cedar-plank-salmon": "images/recipes/photo-review/cedar-plank-salmon.webp",
+  "alaska-salmon-bake": "images/recipes/photo-review/alaska-salmon-bake.webp",
+  "kids-salmon-rice-bowls": "images/recipes/photo-review/kids-salmon-rice-bowls.webp",
+  "fijian-kokoda": "images/recipes/photo-review/fijian-kokoda.webp",
+  "san-diego-fish-tacos": "images/recipes/photo-review/san-diego-fish-tacos.webp",
+  "classic-cinnamon-rolls": "images/recipes/photo-review/classic-cinnamon-rolls.webp",
+  "jamaican-jerk-chicken": "images/recipes/photo-review/jamaican-jerk-chicken.webp",
+  "greek-chicken-souvlaki-plates": "images/recipes/photo-review/greek-chicken-souvlaki-plates.webp",
+  "lebanese-tabbouleh": "images/recipes/photo-review/lebanese-tabbouleh.webp",
+  "french-ratatouille-skillet": "images/recipes/photo-review/french-ratatouille-skillet.webp",
+  "oregon-mushroom-risotto": "images/recipes/photo-review/oregon-mushroom-risotto.webp",
+  "saudi-kabsa-chicken": "images/recipes/photo-review/saudi-kabsa-chicken.webp",
+  "samoan-palusami": "images/recipes/photo-review/samoan-palusami.webp",
+  "pumpkin-chili": "images/recipes/photo-review/pumpkin-chili.webp",
+  "cuban-sandwich-press": "images/recipes/photo-review/cuban-sandwich-press.webp",
+  "new-years-hoppin-john": "images/recipes/photo-review/new-years-hoppin-john.webp",
+  "oyster-dressing": "images/recipes/photo-review/oyster-dressing.webp",
+  "oklahoma-chicken-fried-steak": "images/recipes/photo-review/oklahoma-chicken-fried-steak.webp",
+  "wyoming-chicken-fried-steak": "images/recipes/photo-review/wyoming-chicken-fried-steak.webp",
+  "wyoming-cowboy-beans": "images/recipes/photo-review/wyoming-cowboy-beans.webp",
+  "south-dakota-hutterite-potato-dinner": "images/recipes/photo-review/south-dakota-hutterite-potato-dinner.webp",
+  "utah-funeral-potatoes": "images/recipes/photo-review/utah-funeral-potatoes.webp",
+  "honey-glazed-ham": "images/recipes/photo-review/honey-glazed-ham.webp",
+  "kids-fruit-rainbow-plates": "images/recipes/photo-review/kids-fruit-rainbow-plates.webp",
+  "coconut-cake": "images/recipes/photo-review/coconut-cake.webp",
+  "mini-quesadillas": "images/recipes/photo-review/mini-quesadillas.webp",
+  "cowboy-trail-mix": "images/recipes/photo-review/cowboy-trail-mix.webp",
+  "denver-omelet": "images/recipes/photo-review/denver-omelet.webp",
+  "south-dakota-pheasant-sandwich": "images/recipes/photo-review/south-dakota-pheasant-sandwich.webp",
+  "montana-bison-meatloaf": "images/recipes/photo-review/montana-bison-meatloaf.webp",
+  "giblet-gravy": "images/recipes/photo-review/giblet-gravy.webp",
+  "spanish-tortilla-espanola": "images/recipes/photo-review/spanish-tortilla-espanola.webp",
+  "idaho-loaded-baked-potatoes": "images/recipes/photo-review/idaho-loaded-baked-potatoes.webp",
+  "kids-potato-stamp-art": "images/recipes/photo-review/kids-potato-stamp-art.webp",
+  "polish-bigos": "images/recipes/photo-review/polish-bigos.webp",
+  "turkey-leftover-soup": "images/recipes/photo-review/turkey-leftover-soup.webp",
+  "tongan-lu-pulu": "images/recipes/photo-review/tongan-lu-pulu.webp",
+  "south-dakota-wojapi": "images/recipes/photo-review/south-dakota-wojapi.webp",
+  "alaska-berry-cobbler": "images/recipes/photo-review/alaska-berry-cobbler.webp",
+  "papua-new-guinea-coconut-fish": "images/recipes/photo-review/papua-new-guinea-coconut-fish.webp",
+  "egyptian-koshari-bowls": "images/recipes/photo-review/egyptian-koshari-bowls.webp",
+  "classic-cookout-hot-dogs": "images/recipes/photo-review/classic-cookout-hot-dogs.webp",
+  "christmas-eve-tamales": "images/recipes/photo-review/christmas-eve-tamales.webp",
+  "black-hills-bison-burgers": "images/recipes/photo-review/black-hills-bison-burgers.webp",
+  "colorado-bison-burgers": "images/recipes/photo-review/colorado-bison-burgers.webp",
+  "all-american-burgers": "images/recipes/photo-review/all-american-burgers.webp",
+  "new-zealand-meat-pies": "images/recipes/photo-review/new-zealand-meat-pies.webp",
+  "montana-trout-skillet": "images/recipes/photo-review/montana-trout-skillet.webp",
+  "sufganiyot-style-doughnuts": "images/recipes/photo-review/sufganiyot-style-doughnuts.webp",
+  "north-dakota-potato-hotdish": "images/recipes/photo-review/north-dakota-potato-hotdish.webp",
+  "north-dakota-walleye-supper": "images/recipes/photo-review/north-dakota-walleye-supper.webp",
+  "south-dakota-walleye-fry": "images/recipes/photo-review/south-dakota-walleye-fry.webp",
+  "north-dakota-lefse": "images/recipes/photo-review/north-dakota-lefse.webp",
+  "north-dakota-sunflower-seed-bars": "images/recipes/photo-review/north-dakota-sunflower-seed-bars.webp",
+  "australian-lamingtons": "images/recipes/photo-review/australian-lamingtons.webp",
+  "german-schnitzel": "images/recipes/photo-review/german-schnitzel.webp",
+  "eastern-european-pierogies": "images/recipes/photo-review/eastern-european-pierogies.webp",
+  "idaho-finger-steaks": "images/recipes/photo-review/idaho-finger-steaks.webp",
+  "north-dakota-fleischkuekle": "images/recipes/photo-review/north-dakota-fleischkuekle.webp",
+  "santa-maria-tri-tip": "images/recipes/photo-review/santa-maria-tri-tip.webp",
+  "beef-tenderloin": "images/recipes/photo-review/beef-tenderloin.webp",
+  "valentine-steak-dinner": "images/recipes/photo-review/valentine-steak-dinner.webp",
+  "garlic-butter-steak-bites": "images/recipes/photo-review/garlic-butter-steak-bites.webp",
+  "navajo-tacos": "images/recipes/photo-review/navajo-tacos.webp",
+  "oklahoma-indian-tacos": "images/recipes/photo-review/oklahoma-indian-tacos.webp",
+  "arizona-fry-bread": "images/recipes/photo-review/arizona-fry-bread.webp",
+  "oregon-marionberry-pie": "images/recipes/photo-review/oregon-marionberry-pie.webp",
+  "montana-huckleberry-crisp": "images/recipes/photo-review/montana-huckleberry-crisp.webp",
+  "banana-bread": "images/recipes/photo-review/banana-bread.webp",
+  "pumpkin-bread": "images/recipes/photo-review/pumpkin-bread.webp",
+  "alaska-halibut-chowder": "images/recipes/photo-review/alaska-halibut-chowder.webp",
+  "new-zealand-seafood-chowder": "images/recipes/photo-review/new-zealand-seafood-chowder.webp",
+  "classic-apple-pie": "images/recipes/photo-review/classic-apple-pie.webp",
+  "build-your-own-tacos": "images/recipes/photo-review/build-your-own-tacos.webp",
+  "tex-mex-breakfast-tacos": "images/recipes/photo-review/tex-mex-breakfast-tacos.webp",
+  "pueblo-green-chile": "images/recipes/photo-review/pueblo-green-chile.webp",
+  "utah-honey-scones": "images/recipes/photo-review/utah-honey-scones.webp",
+  "idaho-huckleberry-pancakes": "images/recipes/photo-review/idaho-huckleberry-pancakes.webp",
+  "jumbo-slice-pizza": "images/recipes/photo-review/jumbo-slice-pizza.webp",
+  "kids-crab-coloring": "images/recipes/photo-review/kids-crab-coloring.webp",
+  "dungeness-crab-melt": "images/recipes/photo-review/dungeness-crab-melt.webp",
+  "mumbo-sauce": "images/recipes/photo-review/mumbo-sauce.webp",
+  "utah-fry-sauce": "images/recipes/photo-review/utah-fry-sauce.webp",
+  "dc-chili-dogs": "images/recipes/photo-review/dc-chili-dogs.webp",
+  "salvadoran-pupusa-supper": "images/recipes/photo-review/salvadoran-pupusa-supper.webp",
+  "california-sourdough-toast": "images/recipes/photo-review/california-sourdough-toast.webp",
+  "irish-soda-bread": "images/recipes/photo-review/irish-soda-bread.webp",
+  "feast-seven-fishes-stew": "images/recipes/photo-review/feast-seven-fishes-stew.webp",
+  "palestinian-musakhan-style-chicken": "images/recipes/photo-review/palestinian-musakhan-style-chicken.webp",
+  "standing-rib-roast": "images/recipes/photo-review/standing-rib-roast.webp",
+};
+Object.entries(sitePhotoReviewOverrides).forEach(([recipeId, image]) => {
+  recipeImageOverrides[recipeId] = image;
 });
 
 const imageContentRegistry = {

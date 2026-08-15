@@ -82,6 +82,7 @@ globalThis.__cookbookTest = {
   worldDestinationCollectionMarkup,
   southAmericaRegionOverviewMarkup,
   southAmericaExpansionRecipes,
+  sitePhotoReviewOverrides,
   cookAlongEligible,
   cookAlongTaskFor,
   setHousehold(value) { household = { ...household, ...value }; },
@@ -299,12 +300,12 @@ for (const culture of api.augustAroundWorldWeeks) {
 assert(source.length > 1_000_000, "Deployable app.js must not be truncated");
 assert(fs.statSync(path.join(root, "data", "world-countries-110m.json")).size > 100_000, "World geography asset must not be truncated");
 const productionHtml = fs.readFileSync(path.join(root, "index.html"), "utf8");
-assert(productionHtml.includes("data/south-america-recipes.js?v=20260814-south-america-audit"), "Production HTML must load the South America canonical recipe expansion");
-assert(productionHtml.includes("app.js?v=20260814-south-america-audit"), "Production HTML must request the South America audit JavaScript asset");
+assert(productionHtml.includes("data/south-america-recipes.js?v=20260815-photo-restoration"), "Production HTML must load the South America canonical recipe expansion");
+assert(productionHtml.includes("app.js?v=20260815-photo-restoration"), "Production HTML must request the restored photography JavaScript asset");
 assert(productionHtml.includes("lcy:app-rendered"), "Production HTML must recover visitors from a stale broken app bundle");
 assert(source.includes('window.dispatchEvent(new CustomEvent("lcy:app-rendered"))'), "The app must confirm successful shared rendering to the bootstrap watchdog");
 const serviceWorkerSource = fs.readFileSync(path.join(root, "sw.js"), "utf8");
-assert(serviceWorkerSource.includes('lets-cook-community-food-v85'), "The South America audit must invalidate stale service-worker caches");
+assert(serviceWorkerSource.includes('lets-cook-community-food-v86'), "The photo restoration must invalidate stale service-worker caches");
 assert(api.aroundWorldSearchMatches("India").some((culture) => culture.id === "india"), "Search must return the India culture collection");
 assert(api.aroundWorldSearchMatches("hibiscus").some((culture) => culture.id === "africa"), "Search must connect signature ingredients and drinks to culture collections");
 assert(api.worldGlobeDestinations.length >= 40, "World Map must expose a substantial set of globe destinations");
@@ -356,7 +357,10 @@ for (const [countryId, expectedCount] of Object.entries(expectedSouthAmericaCoun
   assert(countryRecipes.every((recipe) => recipe.ingredients.length > 0 && (recipe.instructions || recipe.directions || []).length > 0 && (recipe.prep || recipe.prep_time) && (recipe.cook || recipe.cook_time) && (recipe.servings || recipe.yield)), `${countryId} recipes must open complete, usable recipe pages`);
   assert.strictEqual(new Set(countryRecipes.map((recipe) => recipe.id)).size, countryRecipes.length, `${countryId} must not contain duplicate canonical recipes`);
   assert.strictEqual(new Set(countryRecipes.map(api.recipePhotoFor)).size, countryRecipes.length, `${countryId} must not repeat recipe artwork`);
+  assert(countryRecipes.every((recipe) => /\.(png|jpe?g|webp)$/i.test(api.recipePhotoFor(recipe))), `${countryId} must use food photography instead of illustration stand-ins`);
+  assert(countryRecipes.every((recipe) => fs.existsSync(path.join(root, api.recipePhotoFor(recipe)))), `${countryId} photography must exist in the production tree`);
 }
+assert(Object.values(api.sitePhotoReviewOverrides).every((image) => fs.existsSync(path.join(root, image))), "Every whole-site visual-audit replacement must ship with the production build");
 assert(api.southAmericaExpansionRecipes.every((recipe) => recipe.ingredients.length >= 5 && (recipe.instructions || []).length >= 5 && recipe.prepTime && recipe.cookTime && recipe.servings), "Every newly added South America recipe must include quantities, five clear steps, timing, and yield");
 const brazilTitles = api.recipesForWorldDestination("brazil").map((recipe) => recipe.title).join(" ");
 for (const dish of ["Feijoada", "Pão de Queijo", "Moqueca", "Coxinha", "Acarajé", "Brigadeiro"]) assert(brazilTitles.includes(dish), `Brazil must include ${dish}`);
