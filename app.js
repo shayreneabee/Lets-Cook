@@ -5802,11 +5802,68 @@ const dietaryAllergenRules = {
   shellfish: /shrimp|crab|lobster|oyster|mussel|clam|scallop|prawn/,
   "tree nuts": /almond|pecan|walnut|cashew|pistachio|hazelnut|macadamia|coconut/,
   peanuts: /peanut/,
-  wheat: /flour|bread|pasta|noodle|wheat|biscuit|roll|cake|cookie|tortilla/,
+  wheat: /\b(?:all[- ]purpose|bread|wheat|whole[- ]wheat|self[- ]rising|cake|pastry) flour\b|\b(?:wheat bread|breads?|breadsticks?|flatbreads?|cornbread|buns?|breadcrumbs?|panko|semolina|couscous|bulgur|barley|rye|seitan|flour tortillas?|regular pasta|egg noodles?|egg roll wrappers?|wonton wrappers?)\b/,
   soy: /soy|tofu|edamame|miso|tempeh/,
-  sesame: /sesame|tahini/,
-  gluten: /flour|bread|pasta|noodle|wheat|barley|rye|soy sauce/
+  sesame: /sesame|tahini/
 };
+
+function recipeDietaryMetadataValues(recipe = {}) {
+  return [
+    ...(Array.isArray(recipe.dietary) ? recipe.dietary : recipe.dietary ? [recipe.dietary] : []),
+    ...(Array.isArray(recipe.dietaryTags) ? recipe.dietaryTags : recipe.dietaryTags ? [recipe.dietaryTags] : []),
+    recipe.glutenStatus,
+    recipe.gluten_status,
+    recipe.dietaryVerification
+  ].filter(Boolean).map((value) => String(value).toLowerCase().trim());
+}
+
+function recipeGlutenAssessment(recipe = {}) {
+  const ingredientText = (recipe.ingredients || []).map((item) => String(typeof item === "string" ? item : item.name || item.item || "")).join(" ").toLowerCase();
+  const metadata = recipeDietaryMetadataValues(recipe);
+  const explicitContains = metadata.some((value) => /\bcontains gluten\b/.test(value));
+  const explicitGlutenFree = metadata.some((value) => /^(verified )?gluten[- ]free$/.test(value));
+  const conditionalMetadata = metadata.some((value) => /gluten[- ]free (?:when|with|if|without|using)|can be (?:made )?gluten[- ]free/.test(value));
+  const masked = ingredientText
+    .replace(/\b(?:certified\s+)?gluten[- ]free\s+(?:oats?|granola|cereal|flour(?: blend)?|breadcrumbs?|panko|pasta|noodles?|bread|bagels?|biscuits?|rolls?|croissants?|muffins?|wafers?|roti|wrappers?|crackers?|tortillas?|cake|cookies?|brownies?|pie crust|soy sauce|tamari|stock|broth|bouillon|gravy)\b/g, " verified-gf-ingredient ")
+    .replace(/\brice cakes?\b/g, " safe-rice-snack ")
+    .replace(/\brice paper wrappers?\b/g, " safe-rice-paper ")
+    .replace(/\b(?:rice|cassava|tapioca|almond|coconut|corn|chickpea|potato|sorghum|buckwheat)\s+flour\b/g, " safe-starch ")
+    .replace(/\b(?:rice|glass|bean thread|cellophane)\s+noodles?\b/g, " safe-rice-strands ")
+    .replace(/\bcorn tortillas?\b/g, " safe-corn-wrap ")
+    .replace(/\b(?:tamari|coconut aminos)\b/g, " naturally-gf-seasoning ");
+  const blockerRules = [
+    ["wheat flour", /\b(?:(?:all[- ]purpose|bread|wheat|whole[- ]wheat|white|self[- ]rising|cake|pastry)\s+)?flour\b/],
+    ["wheat-based grain", /\b(?:semolina|couscous|bulgur|barley|rye|malt(?:ed)?|seitan)\b/],
+    ["bread or breading", /\b(?:breads?|breadsticks?|flatbreads?|cornbread|buns?|bagels?|biscuits?|rolls?|croissants?|english muffins?|muffins?|vanilla wafers?|wafers?|loaf|roti|pierogi (?:dough|wrappers?)|breadcrumbs?|panko|crackers?|pretzels?|pastry|phyllo|flour tortillas?|wheat tortillas?|egg roll wrappers?|wonton wrappers?|spring roll wrappers?|empanada wrappers?|pizza crusts?|vatap[áa])\b/],
+    ["regular pasta or noodles", /\b(?:regular\s+)?(?:pasta|spaghetti|macaroni|rotini|gnocchi|lasagna noodles?|egg noodles?|noodles?)\b/],
+    ["wheat-based sauce", /\b(?:soy sauce|teriyaki sauce)\b/],
+    ["beer or malt beverage", /\b(?:beer|ale|lager|malt beverage)\b/],
+    ["prepared wheat product", /\b(?:(?:sponge|pound|yellow|chocolate|vanilla)?\s*cakes?|cookies?|brownies?|doughnuts?|donuts?|baking mix|corn muffin mix|(?:cake|cookie|biscuit|pie|pizza)\s+(?:mix|crust|dough))\b/]
+  ];
+  const blockers = blockerRules.filter(([, rule]) => rule.test(masked)).map(([label]) => label);
+  const uncertaintyRules = [
+    ["oats must be certified gluten-free", /\boats?\b/],
+    ["granola or cereal must be certified gluten-free", /\b(?:granola|cereal|corn flakes?|crispy rice cereal)\b/],
+    ["stock, broth, bouillon, or soup base must be verified", /\b(?:stock|broth|bouillon|soup base)\b/],
+    ["prepared gravy must be verified", /\bgravy\b/],
+    ["tortillas must specify corn or gluten-free", /\btortillas?\b/],
+    ["seasoning blend must be verified", /\b(?:(?:taco|cajun|creole|blackened|seafood|garlic|adobo) seasoning|seasoning blend|dry rub|bbq rub)\b/],
+    ["seasoning, soup, or pudding mix must be verified", /\b(?:(?:seasoning|sauce|soup|pudding|drink) (?:mix|packet|base)|packet (?:of )?[^,; ]* ?seasoning|condensed(?: [^,;]+)? soup|cream (?:of [^,;]+ )?soup)\b/],
+    ["prepared sauce or dressing must be verified", /\b(?:(?:enchilada|oyster|hoisin|barbecue|bbq|cocktail|chili|cream|soy-honey) sauce|(?:poppy seed|blue cheese|ranch|italian|salad) dressing)\b/],
+    ["Worcestershire sauce must be verified", /\bworcestershire(?: sauce)?\b/],
+    ["prepared meatballs or sausage must be verified", /\b(?:prepared |frozen )?meatballs?\b|\b(?:sausages?|chorizo|merguez|sausage bites?)\b/],
+    ["imitation seafood must be verified", /\bimitation (?:crab|lobster|seafood)\b/]
+  ];
+  const uncertainties = uncertaintyRules.filter(([, rule]) => rule.test(masked)).map(([label]) => label);
+  if (explicitContains || blockers.length) return { status: "contains gluten", qualifies: false, verification: "ingredient conflict found", blockers, uncertainties: [] };
+  if (conditionalMetadata || uncertainties.length) return { status: "needs gluten verification", qualifies: false, verification: "substitution or packaged-ingredient verification required", blockers: [], uncertainties: [...new Set([...(conditionalMetadata ? ["conditional gluten-free metadata"] : []), ...uncertainties])] };
+  if (explicitGlutenFree) return { status: "verified gluten-free", qualifies: true, verification: "structured metadata and ingredients reviewed", blockers: [], uncertainties: [] };
+  return { status: "ingredient-reviewed gluten-free", qualifies: true, verification: "no gluten ingredients listed", blockers: [], uncertainties: [] };
+}
+
+function recipeIsGlutenFree(recipe = {}) {
+  return recipeGlutenAssessment(recipe).qualifies;
+}
 
 function recipeDietaryProfile(recipe = {}) {
   const ingredientText = (recipe.ingredients || []).map((item) => String(typeof item === "string" ? item : item.name || item.item || "")).join(" ").toLowerCase();
@@ -5815,14 +5872,18 @@ function recipeDietaryProfile(recipe = {}) {
   const animalMeat = /beef|steak|brisket|oxtail|veal|pork|bacon|ham|chicken|turkey|lamb|sausage|chorizo|bologna|mortadella|pancetta|kielbasa|bratwurst|hot dog|venison|duck|goose|meatball|pepperoni|prosciutto|salami/.test(combined);
   const seafood = dietaryAllergenRules.fish.test(combined) || dietaryAllergenRules.shellfish.test(combined);
   const animalProducts = animalMeat || seafood || /milk|cream|butter|cheese|mozzarella|ricotta|yogurt|\begg|honey|gelatin/.test(ingredientText);
+  const glutenAssessment = recipeGlutenAssessment(recipe);
   const allergens = Object.entries(dietaryAllergenRules).filter(([, rule]) => rule.test(ingredientText)).map(([name]) => name);
+  if (glutenAssessment.status === "contains gluten") allergens.push("gluten");
   const ambiguousPreparedFood = /cookies?|cake|brownie|dessert|charcuterie|bagels?|coleslaw/.test(`${ingredientText} ${tagText}`) && !/\bvegan\b/.test(tagText);
   const vegan = !animalProducts && !ambiguousPreparedFood && !/vegetarian buttermilk|vegetarian cheese/.test(combined);
   const vegetarian = !animalMeat && !seafood;
   return {
     eatingStyles: vegan ? ["vegan", "vegetarian", "pescatarian"] : vegetarian ? ["vegetarian", "pescatarian"] : seafood && !animalMeat ? ["pescatarian"] : [],
-    allergens,
-    glutenStatus: allergens.includes("gluten") ? "contains gluten" : "no gluten ingredients listed",
+    allergens: [...new Set(allergens)],
+    glutenStatus: glutenAssessment.status,
+    glutenVerification: glutenAssessment.verification,
+    glutenReview: [...glutenAssessment.blockers, ...glutenAssessment.uncertainties],
     verification: vegan ? (recipe.dietaryVerification || "verified vegan") : (recipe.dietaryVerification || "ingredient-reviewed"),
     substitutions: recipe.substitutions || (vegan ? "Use plant milk, plant butter, or tofu swaps where the recipe notes allow." : "Check the recipe notes for ingredient swaps."),
     cookbookChapter: recipeCookbookPrimarySection(recipe)
@@ -5834,6 +5895,7 @@ function recipeAllowedForCookYourWay(recipe = {}) {
   const style = household.eatingStyle || (String(household.dietary || "").toLowerCase().includes("vegan") ? "vegan" : String(household.dietary || "").toLowerCase().includes("vegetarian") ? "vegetarian" : "no-preference");
   const forbidden = householdExclusionTerms().flatMap((item) => item === "dairy" ? ["milk"] : item === "gluten-free" ? ["gluten"] : [item]);
   if (style !== "no-preference" && !profile.eatingStyles.includes(style)) return false;
+  if (forbidden.includes("gluten") && !recipeIsGlutenFree(recipe)) return false;
   return !forbidden.some((item) => profile.allergens.includes(item) || `${recipe.title} ${(recipe.ingredients || []).join(" ")}`.toLowerCase().includes(item));
 }
 
@@ -16967,7 +17029,7 @@ const cookbookCollectionDefinitions = [
   ["meal-prep", "Meal Prep", "Cook once and make the week easier.", (r) => /meal prep|make ahead|lunch prep/.test(`${r.category} ${(r.tags || []).join(" ")}`.toLowerCase())],
   ["vegetarian", "Vegetarian", "Hearty vegetables, grains, beans, and comfort food.", (r) => recipeDietaryProfile(r).eatingStyles.includes("vegetarian")],
   ["vegan", "Vegan", "Plant-based recipes with plenty of flavor.", (r) => recipeDietaryProfile(r).eatingStyles.includes("vegan") && recipeDietaryProfile(r).verification === "verified vegan"],
-  ["gluten-free", "Gluten-Free", "Recipes with no gluten ingredients listed.", (r) => recipeDietaryProfile(r).glutenStatus === "no gluten ingredients listed"],
+  ["gluten-free", "Gluten-Free", "Ingredient-reviewed recipes with no gluten ingredients listed. For celiac disease or severe sensitivity, verify packaged ingredients and prevent cross-contact.", recipeIsGlutenFree],
   ["allergy-friendly", "Allergy-Friendly", "Ingredient-reviewed choices for more tables.", (r) => recipeDietaryProfile(r).allergens.length === 0]
 ].map(([id, title, description, matcher]) => ({ id, title, description, matcher }));
 
@@ -16975,6 +17037,10 @@ const cookbookCollectionCoverOverrides = {
   "desserts-baking": {
     image: "images/recipes/photo-review/coconut-cake.webp",
     alt: "Coconut cake with fluffy frosting and shredded coconut"
+  },
+  "around-the-world": {
+    image: "assets/around-the-world-cookbook-cover.webp",
+    alt: "A global table with biryani, jollof rice, sushi, tacos, mezze, lumpia, and curry"
   }
 };
 
@@ -17427,8 +17493,11 @@ function renderRecipes() {
 
 function canonicalSearchRows(query = "") {
   const seen = new Set();
+  const normalizedQuery = normalizeIngredientTerm(query);
+  const glutenFreeIntent = /\bgluten free\b/.test(normalizedQuery);
   return rankRecipesForDiscovery(allRecipeCollection(), { query })
     .filter((row) => !query || row.score > 0)
+    .filter((row) => !glutenFreeIntent || recipeIsGlutenFree(row.recipe))
     .filter((row) => recipeAllowedForCookYourWay(row.recipe))
     .filter((row) => {
       const canonicalId = canonicalRecipeId(row.recipe.id);

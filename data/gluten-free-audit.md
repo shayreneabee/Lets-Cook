@@ -1,0 +1,504 @@
+# Gluten-Free Recipe Audit
+
+Generated: 2026-08-15T18:57:12.331Z
+
+- Production recipes reviewed: 823
+- Previous broad-filter count: 550
+- Current ingredient-reviewed count: 244
+- Removed: 308
+- Added: 2
+- Needs packaged-ingredient or substitution verification: 171
+- Structured dietary entries corrected by ingredient validation: 17
+- Invalid gluten-free search results: 0
+- Duplicate canonical IDs: 0
+- Card title/image/link integrity issues: 0
+
+## Removed from Gluten-Free
+
+- stovetop-mac-and-cheese: Easy Stovetop Mac and Cheese — regular pasta or noodles
+- mini-pizza-bagels: Mini Pizza Bagels — bread or breading
+- crab-rangoon: Crab Rangoon — bread or breading
+- shrimp-and-grits-green-beans: Shrimp and Grits with Green Beans — stock, broth, bouillon, or soup base must be verified
+- oxtails: Braised Oxtails — stock, broth, bouillon, or soup base must be verified
+- roasted-vegetable-tray: Roasted Broccoli, Zucchini, Red Onion, Cherry Tomatoes, and Sweet Potatoes — seasoning blend must be verified
+- white-chicken-chili: White Chicken Chili / Southwest Chicken Soup — stock, broth, bouillon, or soup base must be verified
+- rotel-dip: Rotel Dip — tortillas must specify corn or gluten-free; prepared meatballs or sausage must be verified
+- party-meatballs: Cocktail Meatballs — prepared sauce or dressing must be verified; Worcestershire sauce must be verified; prepared meatballs or sausage must be verified
+- charcuterie-boards: Charcuterie Boards — bread or breading
+- dessert-charcuterie-board: Dessert Charcuterie Board — bread or breading; prepared wheat product
+- blackened-fish: Blackened Fish — seasoning blend must be verified
+- mealdb-braised-beef-chilli: Braised Beef Chilli — prepared meatballs or sausage must be verified
+- mealdb-chicken-enchilada-casserole: Chicken Enchilada Casserole — prepared sauce or dressing must be verified
+- shrimp-and-grits: Shrimp and Grits — stock, broth, bouillon, or soup base must be verified
+- collard-greens: Slow-Cooked Collard Greens — stock, broth, bouillon, or soup base must be verified
+- black-bean-enchiladas: Black Bean Enchiladas — prepared sauce or dressing must be verified
+- chicken-salad-croissants: Chicken Salad Croissants — bread or breading
+- easy-lunch-wraps: Easy Lunch Wraps — tortillas must specify corn or gluten-free
+- southern-baked-mac-cheese: Baked Mac and Cheese — regular pasta or noodles
+- southern-collard-greens: Southern Collard Greens — stock, broth, bouillon, or soup base must be verified
+- southern-black-eyed-peas: Black-Eyed Peas — stock, broth, bouillon, or soup base must be verified
+- southern-shrimp-and-grits: Southern Shrimp and Grits — stock, broth, bouillon, or soup base must be verified
+- cajun-jambalaya: Chicken and Sausage Jambalaya — stock, broth, bouillon, or soup base must be verified; seasoning blend must be verified; prepared meatballs or sausage must be verified
+- cajun-dirty-rice: Dirty Rice — stock, broth, bouillon, or soup base must be verified; seasoning blend must be verified
+- bbq-smoked-ribs: Sticky BBQ Ribs — prepared sauce or dressing must be verified
+- bbq-pulled-pork: Pulled Pork Shoulder — bread or breading
+- banana-pudding: Banana Pudding — bread or breading
+- southern-pecan-pie: Pecan Pie — prepared wheat product
+- pecan-pie: Pecan Pie — prepared wheat product
+- blackened-swordfish: Blackened Swordfish — seasoning blend must be verified
+- bbq-chicken-quarters: BBQ Chicken Quarters — seasoning blend must be verified; prepared sauce or dressing must be verified
+- bbq-brisket-basics: Smoked Brisket Basics — stock, broth, bouillon, or soup base must be verified; prepared sauce or dressing must be verified
+- creole-shrimp-creole: Shrimp Creole — stock, broth, bouillon, or soup base must be verified; seasoning blend must be verified
+- creole-courtbouillon: Fish Courtbouillon — stock, broth, bouillon, or soup base must be verified; seasoning blend must be verified
+- swordfish-tacos: Swordfish Tacos with Citrus Slaw — seasoning blend must be verified
+- bbq-baked-beans: BBQ Baked Beans — prepared sauce or dressing must be verified
+- mississippi-pot-roast: Mississippi Pot Roast — stock, broth, bouillon, or soup base must be verified; prepared gravy must be verified; seasoning, soup, or pudding mix must be verified
+- muffuletta: New Orleans Muffuletta — bread or breading
+- texas-beef-ribs: Texas Smoked Beef Ribs — stock, broth, bouillon, or soup base must be verified
+- texas-chili: Texas No-Bean Chili — stock, broth, bouillon, or soup base must be verified
+- alabama-white-sauce-chicken: Alabama White Sauce Chicken — Worcestershire sauce must be verified
+- frogmore-stew: Frogmore Stew — prepared meatballs or sausage must be verified
+- key-lime-pie: Florida Key Lime Pie — bread or breading
+- stone-crab-claws: Florida Stone Crab Claws — Worcestershire sauce must be verified
+- southern-stone-ground-grits: Creamy Stone-Ground Grits — stock, broth, bouillon, or soup base must be verified
+- nigerian-jollof-rice: Nigerian Jollof Rice — stock, broth, bouillon, or soup base must be verified
+- nigerian-egusi-soup: Egusi Soup — stock, broth, bouillon, or soup base must be verified
+- nigerian-fried-rice: Nigerian Fried Rice — stock, broth, bouillon, or soup base must be verified
+- nigerian-pepper-soup: Pepper Soup — stock, broth, bouillon, or soup base must be verified
+- nigerian-moi-moi: Moi Moi — stock, broth, bouillon, or soup base must be verified
+- ghanaian-jollof-rice: Ghanaian Jollof Rice — stock, broth, bouillon, or soup base must be verified
+- ghanaian-groundnut-soup: Groundnut Soup — stock, broth, bouillon, or soup base must be verified
+- ethiopian-doro-wat: Doro Wat — stock, broth, bouillon, or soup base must be verified
+- ethiopian-misir-wat: Misir Wat — stock, broth, bouillon, or soup base must be verified
+- moroccan-chicken-tagine: Chicken Tagine — stock, broth, bouillon, or soup base must be verified
+- moroccan-couscous-vegetables: Couscous with Vegetables — wheat-based grain
+- rum-cake: Caribbean Rum Cake — prepared wheat product
+- rice-pilaf: Herbed Rice Pilaf — stock, broth, bouillon, or soup base must be verified
+- baklava-cups: Baklava Cups — bread or breading
+- bbq-sauce-trio: BBQ Sauce Trio — Worcestershire sauce must be verified
+- smothered-green-beans: Smothered Green Beans — stock, broth, bouillon, or soup base must be verified; seasoning blend must be verified; prepared meatballs or sausage must be verified
+- corn-maque-choux: Corn Maque Choux — seasoning blend must be verified
+- okra-tomato-stew: Okra and Tomato Stew — stock, broth, bouillon, or soup base must be verified; seasoning blend must be verified
+- birria-style-tacos: Birria-Style Tacos — stock, broth, bouillon, or soup base must be verified
+- black-bean-side: Seasoned Black Beans — stock, broth, bouillon, or soup base must be verified
+- comeback-sauce: Mississippi Comeback Sauce — prepared sauce or dressing must be verified; Worcestershire sauce must be verified
+- crawfish-boil: Louisiana Crawfish Boil — prepared meatballs or sausage must be verified
+- alabama-pulled-pork-sandwiches: Alabama Pulled Pork Sandwiches — bread or breading
+- memphis-bbq-spaghetti: Memphis BBQ Spaghetti — regular pasta or noodles
+- arkansas-delta-tamales: Arkansas Delta Hot Tamales — stock, broth, bouillon, or soup base must be verified
+- virginia-country-ham: Virginia Country Ham Biscuits — bread or breading
+- virginia-brunswick-stew: Virginia Brunswick Stew — stock, broth, bouillon, or soup base must be verified; Worcestershire sauce must be verified
+- florida-blue-crab: Florida Blue Crab Boil — seasoning blend must be verified
+- smoked-mullet: Florida Smoked Mullet — bread or breading
+- mississippi-butter-beans: Mississippi Butter Beans — stock, broth, bouillon, or soup base must be verified
+- turnip-greens: Turnip Greens with Pot Liquor — stock, broth, bouillon, or soup base must be verified
+- red-beans-and-rice: Louisiana Red Beans and Rice — stock, broth, bouillon, or soup base must be verified; prepared meatballs or sausage must be verified
+- louisiana-boudin: Louisiana Boudin Links — seasoning blend must be verified; prepared meatballs or sausage must be verified
+- texas-pinto-beans: Texas Pinto Beans — stock, broth, bouillon, or soup base must be verified
+- carolina-red-rice: South Carolina Red Rice — stock, broth, bouillon, or soup base must be verified
+- vidalia-onion-pie: Georgia Vidalia Onion Pie — prepared wheat product
+- georgia-brunswick-stew: Georgia Brunswick Stew — stock, broth, bouillon, or soup base must be verified; prepared sauce or dressing must be verified; Worcestershire sauce must be verified
+- chicken-rice-casserole: Chicken & Rice Casserole — bread or breading
+- squash-casserole: Southern Squash Casserole — bread or breading
+- green-bean-casserole: Green Bean Casserole — prepared sauce or dressing must be verified; Worcestershire sauce must be verified
+- corn-casserole: Corn Casserole — bread or breading; prepared wheat product
+- hashbrown-casserole: Hashbrown Casserole — seasoning, soup, or pudding mix must be verified
+- king-ranch-chicken: King Ranch Chicken — seasoning, soup, or pudding mix must be verified; prepared sauce or dressing must be verified
+- chicken-spaghetti: Southern Chicken Spaghetti — regular pasta or noodles
+- funeral-potatoes: Funeral Potatoes — seasoning, soup, or pudding mix must be verified
+- watergate-salad: Watergate Salad — seasoning, soup, or pudding mix must be verified
+- mini-pizza-faces: Mini Pizza Faces — bread or breading
+- yogurt-parfait-cups: Yogurt Parfait Cups — granola or cereal must be certified gluten-free
+- apple-nachos: Apple Nachos — granola or cereal must be certified gluten-free
+- mini-chicken-sliders: Mini Chicken Sliders — bread or breading
+- banana-pudding-cups: Banana Pudding Cups — bread or breading
+- berry-banana-smoothies: Berry Banana Smoothies — oats must be certified gluten-free
+- crispy-rice-treats: Crispy Rice Treats — granola or cereal must be certified gluten-free
+- english-muffin-pizzas: English Muffin Pizzas — bread or breading
+- no-bake-cereal-bars: No-Bake Cereal Bars — oats must be certified gluten-free; granola or cereal must be certified gluten-free
+- trail-mix-jars: Trail Mix Jars — bread or breading
+- sheet-pan-nachos: Sheet Pan Nachos — tortillas must specify corn or gluten-free
+- simple-spaghetti: Simple Spaghetti — regular pasta or noodles
+- smoothie-cups: Build-Your-Own Smoothie Cups — oats must be certified gluten-free
+- baked-spaghetti: Baked Spaghetti — regular pasta or noodles
+- taco-soup: Taco Soup — stock, broth, bouillon, or soup base must be verified; seasoning blend must be verified
+- beef-tacos: Weeknight Beef Tacos — tortillas must specify corn or gluten-free
+- pickled-pig-feet: Pickled Pig Feet — stock, broth, bouillon, or soup base must be verified
+- neck-bones-and-rice: Neck Bones and Rice — stock, broth, bouillon, or soup base must be verified
+- ham-hocks-and-beans: Ham Hocks and Beans — stock, broth, bouillon, or soup base must be verified
+- mississippi-smoked-sausage: Skillet Smoked Sausage and Onions — seasoning blend must be verified; prepared meatballs or sausage must be verified
+- purple-hull-peas: Purple Hull Peas — stock, broth, bouillon, or soup base must be verified
+- mustard-greens: Mustard Greens with Pot Liquor — stock, broth, bouillon, or soup base must be verified
+- baked-beans-ground-beef: Baked Beans with Ground Beef — prepared sauce or dressing must be verified; Worcestershire sauce must be verified
+- baked-beans-beef-bacon: Baked Beans with Beef and Bacon — prepared sauce or dressing must be verified
+- mississippi-mud-pie: Mississippi Mud Pie — prepared wheat product
+- sweet-potato-pie: Southern Sweet Potato Pie — prepared wheat product
+- sausage-dogs: Smoked Sausage Dogs — bread or breading
+- kool-aid-pickles: Kool-Aid Pickles — seasoning, soup, or pudding mix must be verified
+- hot-sausage-sandwich: Hot Sausage Sandwich — bread or breading
+- delta-hot-tamales: Mississippi Delta Hot Tamales — stock, broth, bouillon, or soup base must be verified
+- senegalese-thieboudienne: Senegalese Thieboudienne — stock, broth, bouillon, or soup base must be verified
+- senegalese-chicken-yassa: Senegalese Chicken Yassa — stock, broth, bouillon, or soup base must be verified
+- senegalese-maafe: Senegalese Maafe — stock, broth, bouillon, or soup base must be verified
+- ivorian-foutou-sauce-graine: Foutou with Sauce Graine — stock, broth, bouillon, or soup base must be verified
+- kenyan-beef-pilau: Kenyan Beef Pilau — stock, broth, bouillon, or soup base must be verified
+- zimbabwean-sadza-beef-stew: Sadza with Beef Stew — stock, broth, bouillon, or soup base must be verified
+- egyptian-koshari: Egyptian Koshari — regular pasta or noodles
+- egyptian-molokhia: Egyptian Molokhia — stock, broth, bouillon, or soup base must be verified
+- egyptian-basbousa: Egyptian Basbousa — wheat-based grain
+- tunisian-brik: Tunisian Brik — bread or breading
+- tunisian-lamb-couscous: Tunisian Lamb Couscous — wheat-based grain
+- tunisian-ojja-merguez: Tunisian Ojja with Merguez — prepared meatballs or sausage must be verified
+- chicago-polish-sausage: Chicago Polish Sausage — bread or breading
+- maxwell-street-polish: Maxwell Street Polish — bread or breading
+- italian-beef: Italian Beef Sandwich — bread or breading
+- chicago-style-hot-dog: Chicago-Style Hot Dog — bread or breading
+- pizza-puff: Pizza Puff — bread or breading
+- jibarito: Jibarito — seasoning blend must be verified
+- chicago-pork-chop-sandwich: Chicago Pork Chop Sandwich — bread or breading
+- deep-dish-pizza: Chicago Deep Dish Pizza — prepared wheat product
+- tavern-style-thin-crust-pizza: Chicago Tavern-Style Thin Crust Pizza — bread or breading; prepared wheat product
+- chicago-mild-sauce: Chicago Mild Sauce — prepared sauce or dressing must be verified
+- gd-burger-gyro-meat: GD Burger with Gyro Meat — bread or breading
+- chicken-vesuvio: Chicken Vesuvio — stock, broth, bouillon, or soup base must be verified
+- chicago-hot-tamales: Chicago Hot Tamales — stock, broth, bouillon, or soup base must be verified
+- wisconsin-brats: Wisconsin Brats — bread or breading; beer or malt beverage
+- wisconsin-kringle: Wisconsin Kringle — bread or breading
+- wisconsin-butter-burgers: Wisconsin Butter Burgers — bread or breading
+- detroit-style-pizza: Detroit-Style Pizza — prepared wheat product
+- michigan-coney-dogs: Michigan Coney Dogs — bread or breading
+- tater-tot-hotdish: Tater Tot Hotdish — seasoning, soup, or pudding mix must be verified
+- wild-rice-soup: Wild Rice Soup — stock, broth, bouillon, or soup base must be verified
+- jucy-lucy: Jucy Lucy — bread or breading
+- cincinnati-chili: Cincinnati Chili — regular pasta or noodles
+- polish-boy: Polish Boy — bread or breading
+- goetta: Goetta — oats must be certified gluten-free; stock, broth, bouillon, or soup base must be verified
+- maid-rite-loose-meat-sandwich: Maid-Rite Loose Meat Sandwich — bread or breading
+- kansas-city-burnt-ends: Kansas City Burnt Ends — seasoning blend must be verified; prepared sauce or dressing must be verified
+- kansas-city-ribs: Kansas City Ribs — seasoning blend must be verified; prepared sauce or dressing must be verified
+- kansas-city-bbq-sauce: Kansas City BBQ Sauce — Worcestershire sauce must be verified
+- st-louis-style-pizza: St. Louis-Style Pizza — bread or breading; prepared wheat product
+- st-louis-pork-steaks: St. Louis Pork Steaks — beer or malt beverage
+- gooey-butter-cake: Gooey Butter Cake — prepared wheat product
+- kansas-burnt-ends: Kansas Burnt Ends — seasoning blend must be verified; prepared sauce or dressing must be verified
+- bierocks: Bierocks — bread or breading
+- runza: Runza — bread or breading
+- north-dakota-potato-hotdish: North Dakota Potato Hotdish — seasoning, soup, or pudding mix must be verified
+- south-dakota-chislic: South Dakota Chislic — bread or breading
+- black-hills-bison-burgers: Black Hills Bison Burgers — bread or breading
+- south-dakota-walleye-fry: South Dakota Walleye Fry — bread or breading
+- maine-lobster-roll: Maine Lobster Roll — bread or breading
+- fish-chowder: Maine Fish Chowder — stock, broth, bouillon, or soup base must be verified
+- yankee-pot-roast: Yankee Pot Roast — stock, broth, bouillon, or soup base must be verified
+- boston-cream-pie: Boston Cream Pie — bread or breading; prepared wheat product
+- north-shore-roast-beef-sandwich: North Shore Roast Beef Sandwich — bread or breading
+- rhode-island-clear-chowder: Rhode Island Clear Chowder — stock, broth, bouillon, or soup base must be verified
+- hot-wieners: Rhode Island Hot Wieners — bread or breading
+- new-haven-white-clam-pizza: New Haven White Clam Pizza — prepared wheat product
+- connecticut-lobster-roll: Connecticut Warm Lobster Roll — bread or breading
+- steamed-cheeseburgers: Connecticut Steamed Cheeseburgers — bread or breading
+- new-haven-apizza: New Haven Tomato Apizza — prepared wheat product
+- texas-barbacoa: Texas Barbacoa — stock, broth, bouillon, or soup base must be verified
+- green-chile-stew: New Mexico Green Chile Stew — stock, broth, bouillon, or soup base must be verified
+- carne-adovada: Carne Adovada — stock, broth, bouillon, or soup base must be verified
+- new-mexico-posole: New Mexico Posole — stock, broth, bouillon, or soup base must be verified
+- hatch-chile-burgers: Hatch Chile Burgers — bread or breading
+- sonoran-hot-dogs: Sonoran Hot Dogs — bread or breading
+- carne-asada: Arizona Carne Asada — tortillas must specify corn or gluten-free
+- oklahoma-onion-burgers: Oklahoma Onion Burgers — bread or breading
+- oklahoma-fried-pies: Oklahoma Fried Pies — prepared wheat product
+- cactus-cookies: Decorate a Cactus Cookie — prepared wheat product
+- build-your-own-tacos: Build-Your-Own Taco Tray — tortillas must specify corn or gluten-free
+- cowboy-trail-mix: Cowboy Trail Mix — bread or breading
+- mini-quesadillas: Mini Quesadillas — tortillas must specify corn or gluten-free
+- new-york-pizza: New York-Style Pizza — prepared wheat product
+- bagels-cream-cheese: New York Bagels with Cream Cheese — bread or breading
+- chopped-cheese: Chopped Cheese — bread or breading
+- buffalo-wings: Buffalo Wings — prepared sauce or dressing must be verified
+- new-york-cheesecake: New York Cheesecake — bread or breading
+- black-white-cookies: Black and White Cookies — prepared wheat product
+- pork-roll-egg-cheese: Pork Roll, Egg, and Cheese — bread or breading
+- new-jersey-tomato-pie: New Jersey Tomato Pie — prepared wheat product
+- disco-fries: Disco Fries — prepared gravy must be verified
+- boardwalk-sausage-peppers: Boardwalk Sausage and Peppers — bread or breading
+- philly-cheesesteak: Philly Cheesesteak — bread or breading
+- scrapple: Scrapple — bread or breading
+- maryland-crab-cakes: Maryland Crab Cakes — bread or breading
+- maryland-crab-soup: Maryland Crab Soup — stock, broth, bouillon, or soup base must be verified; seasoning blend must be verified
+- steamed-blue-crabs: Steamed Blue Crabs — beer or malt beverage
+- smith-island-cake: Smith Island Cake — prepared wheat product
+- crab-dip: Maryland Crab Dip — bread or breading
+- old-bay-fries: Old Bay Fries — seasoning blend must be verified
+- boardwalk-fries: Boardwalk Fries — wheat-based grain
+- dc-half-smoke: D.C. Half-Smoke — bread or breading
+- dc-chili-dogs: D.C. Chili Dogs — bread or breading
+- jumbo-slice-pizza: D.C. Jumbo Slice Pizza — prepared wheat product
+- kids-build-pizza: Build Your Own Pizza — bread or breading
+- kids-decorate-cookies: Decorate Cookies — prepared wheat product
+- kids-crab-coloring: Simple Crab Coloring Activity — bread or breading
+- kids-apple-pie-decorating: Apple Pie Decorating — prepared wheat product
+- oregon-mushroom-risotto: Oregon Mushroom Risotto — stock, broth, bouillon, or soup base must be verified
+- pueblo-green-chile: Colorado Pueblo Green Chile — stock, broth, bouillon, or soup base must be verified
+- colorado-bison-burgers: Colorado Bison Burgers — bread or breading
+- utah-funeral-potatoes: Utah Funeral Potatoes — seasoning, soup, or pudding mix must be verified
+- utah-fry-sauce: Utah Fry Sauce — Worcestershire sauce must be verified
+- utah-honey-scones: Utah Honey Scones — bread or breading
+- wyoming-cowboy-beans: Wyoming Cowboy Beans — stock, broth, bouillon, or soup base must be verified
+- nevada-shrimp-cocktail: Nevada Shrimp Cocktail — prepared sauce or dressing must be verified
+- san-francisco-cioppino: San Francisco Cioppino — stock, broth, bouillon, or soup base must be verified
+- mission-burritos: Mission-Style Burritos — tortillas must specify corn or gluten-free
+- san-diego-fish-tacos: San Diego Fish Tacos — tortillas must specify corn or gluten-free
+- california-burritos: California Burritos — tortillas must specify corn or gluten-free
+- alaska-halibut-chowder: Alaska Halibut Chowder — stock, broth, bouillon, or soup base must be verified
+- kalua-pork: Kalua Pork — stock, broth, bouillon, or soup base must be verified
+- loco-moco: Loco Moco — prepared gravy must be verified
+- kids-salmon-rice-bowls: Build a Salmon Rice Bowl — prepared sauce or dressing must be verified
+- kids-potato-stamp-art: Potato Stamp Art — prepared wheat product
+- puerto-rican-mofongo-bowls: Puerto Rican Mofongo Bowls — stock, broth, bouillon, or soup base must be verified
+- bajan-macaroni-pie: Bajan Macaroni Pie — regular pasta or noodles
+- turkish-red-lentil-soup: Turkish Red Lentil Soup — stock, broth, bouillon, or soup base must be verified
+- lebanese-tabbouleh: Lebanese Tabbouleh — wheat-based grain
+- moroccan-vegetable-couscous: Moroccan Vegetable Couscous — wheat-based grain
+- portuguese-caldo-verde: Portuguese Caldo Verde — stock, broth, bouillon, or soup base must be verified; prepared meatballs or sausage must be verified
+- british-shepherds-pie: British Shepherd's Pie — stock, broth, bouillon, or soup base must be verified
+- eastern-european-pierogies: Eastern European Pierogies — bread or breading
+- peruvian-arroz-con-pollo: Peruvian Arroz con Pollo — stock, broth, bouillon, or soup base must be verified
+- brazilian-feijoada-style-beans: Brazilian Feijoada — stock, broth, bouillon, or soup base must be verified; prepared meatballs or sausage must be verified
+- polish-bigos: Polish Bigos — prepared meatballs or sausage must be verified
+- irish-beef-stew: Irish Beef Stew — stock, broth, bouillon, or soup base must be verified
+- australian-lamingtons: Australian Lamingtons — prepared wheat product
+- new-zealand-roast-lamb: New Zealand Roast Lamb — stock, broth, bouillon, or soup base must be verified
+- argentinian-locro: Argentinian Locro — stock, broth, bouillon, or soup base must be verified; prepared meatballs or sausage must be verified
+- peruvian-papa-huancaina: Papa a la Huancaína — bread or breading
+- colombian-bandeja-paisa: Bandeja Paisa — conditional gluten-free metadata
+- colombian-ajiaco: Ajiaco Santafereño — stock, broth, bouillon, or soup base must be verified
+- colombian-sancocho: Sancocho de Gallina — stock, broth, bouillon, or soup base must be verified
+- venezuelan-pabellon: Pabellón Criollo — stock, broth, bouillon, or soup base must be verified
+- venezuelan-hallacas: Hallacas — stock, broth, bouillon, or soup base must be verified
+- venezuelan-asado-negro: Asado Negro — stock, broth, bouillon, or soup base must be verified
+- chilean-cazuela: Chilean Chicken Cazuela — stock, broth, bouillon, or soup base must be verified
+- chilean-completo: Chilean Completo Italiano — bread or breading
+- ecuadorian-encebollado: Ecuadorian Encebollado — stock, broth, bouillon, or soup base must be verified
+- ecuadorian-hornado: Ecuadorian Hornado — wheat-based grain; beer or malt beverage
+- ecuadorian-locro-papa: Ecuadorian Locro de Papa — stock, broth, bouillon, or soup base must be verified
+- uruguayan-chivito: Uruguayan Chivito — bread or breading
+- uruguayan-chaja: Postre Chajá — prepared wheat product
+- paraguayan-sopa-paraguaya: Sopa Paraguaya — conditional gluten-free metadata
+- paraguayan-vori-vori: Vori Vori de Pollo — conditional gluten-free metadata; stock, broth, bouillon, or soup base must be verified
+- guyanese-cook-up-rice: Guyanese Cook-Up Rice — stock, broth, bouillon, or soup base must be verified
+- guyanese-chicken-curry-roti: Guyanese Chicken Curry with Roti — bread or breading
+- surinamese-chicken-roti: Surinamese Chicken Roti — bread or breading
+- surinamese-moksi-alesi: Moksi Alesi — conditional gluten-free metadata; stock, broth, bouillon, or soup base must be verified
+- roast-turkey: Classic Roast Turkey — stock, broth, bouillon, or soup base must be verified
+- deep-fried-turkey: Deep Fried Turkey — seasoning blend must be verified
+- pumpkin-pie: Pumpkin Pie — prepared wheat product
+- yule-log: Chocolate Yule Log — prepared wheat product
+- holiday-punch: Holiday Punch — beer or malt beverage
+- strawberry-poppy-seed-salad: Strawberry Salad with Poppy Seed Dressing — prepared sauce or dressing must be verified
+- halloween-eyeball-grape-treats: Eyeball Grape Treats — bread or breading
+- coconut-cake: Coconut Cake — prepared wheat product
+- valentine-chocolate-fondue: Valentine Chocolate Fondue — prepared wheat product
+- red-white-blue-berry-trifle: Red, White & Blue Berry Trifle — prepared wheat product
+- pumpkin-chili: Pumpkin Chili — stock, broth, bouillon, or soup base must be verified
+- christmas-eve-tamales: Christmas Eve Tamales — stock, broth, bouillon, or soup base must be verified
+- new-years-hoppin-john: New Year's Hoppin' John — stock, broth, bouillon, or soup base must be verified
+- all-american-burgers: All-American Burgers — bread or breading
+- classic-cookout-hot-dogs: Classic Cookout Hot Dogs — bread or breading
+- strawberry-shortcake: Strawberry Shortcake — bread or breading
+- classic-garlic-bread: Garlic Bread — bread or breading
+- moscow-mule: Moscow Mule — beer or malt beverage
+- apple-cider-mocktail: Apple Cider Mocktail — beer or malt beverage
+- mango-mule: Mango Mule — beer or malt beverage
+- ham-swiss-sliders: Ham and Swiss Sliders — bread or breading
+- roast-beef-sliders: Roast Beef Sliders — bread or breading
+- muffuletta-sliders: Muffuletta Sliders — bread or breading
+- sausage-balls: Sausage Balls — prepared wheat product
+- cocktail-smokies: Cocktail Smokies — prepared sauce or dressing must be verified; prepared meatballs or sausage must be verified
+- buffalo-chicken-dip: Buffalo Chicken Dip — prepared sauce or dressing must be verified
+- seven-layer-dip: Seven-Layer Dip — seasoning blend must be verified
+- classic-pasta-salad: Classic Pasta Salad — regular pasta or noodles
+- cheese-cracker-tray: Cheese and Cracker Tray — bread or breading
+- cheesesteak-egg-rolls: Cheesesteak Egg Rolls — bread or breading
+- dessert-cups: Dessert Cups — prepared wheat product
+- brunch-cups: Brunch Cups — prepared meatballs or sausage must be verified
+- tailgate-cups: Tailgate Cups — tortillas must specify corn or gluten-free; prepared meatballs or sausage must be verified
+- holiday-cups: Holiday Cups — bread or breading; prepared wheat product
+
+## Added to Gluten-Free
+
+- vietnamese-spring-rolls: Vietnamese Fresh Spring Rolls — no gluten ingredients listed
+- brazilian-farofa: Farofa de Cebola — structured metadata and ingredients reviewed
+
+## Needs Manual Verification
+
+- shrimp-and-grits-green-beans: Shrimp and Grits with Green Beans — stock, broth, bouillon, or soup base must be verified
+- oxtails: Braised Oxtails — stock, broth, bouillon, or soup base must be verified
+- roasted-vegetable-tray: Roasted Broccoli, Zucchini, Red Onion, Cherry Tomatoes, and Sweet Potatoes — seasoning blend must be verified
+- white-chicken-chili: White Chicken Chili / Southwest Chicken Soup — stock, broth, bouillon, or soup base must be verified
+- rotel-dip: Rotel Dip — tortillas must specify corn or gluten-free; prepared meatballs or sausage must be verified
+- party-meatballs: Cocktail Meatballs — prepared sauce or dressing must be verified; Worcestershire sauce must be verified; prepared meatballs or sausage must be verified
+- blackened-fish: Blackened Fish — seasoning blend must be verified
+- mealdb-braised-beef-chilli: Braised Beef Chilli — prepared meatballs or sausage must be verified
+- mealdb-chicken-enchilada-casserole: Chicken Enchilada Casserole — prepared sauce or dressing must be verified
+- shrimp-and-grits: Shrimp and Grits — stock, broth, bouillon, or soup base must be verified
+- collard-greens: Slow-Cooked Collard Greens — stock, broth, bouillon, or soup base must be verified
+- black-bean-enchiladas: Black Bean Enchiladas — prepared sauce or dressing must be verified
+- easy-lunch-wraps: Easy Lunch Wraps — tortillas must specify corn or gluten-free
+- southern-collard-greens: Southern Collard Greens — stock, broth, bouillon, or soup base must be verified
+- southern-black-eyed-peas: Black-Eyed Peas — stock, broth, bouillon, or soup base must be verified
+- southern-shrimp-and-grits: Southern Shrimp and Grits — stock, broth, bouillon, or soup base must be verified
+- cajun-jambalaya: Chicken and Sausage Jambalaya — stock, broth, bouillon, or soup base must be verified; seasoning blend must be verified; prepared meatballs or sausage must be verified
+- cajun-dirty-rice: Dirty Rice — stock, broth, bouillon, or soup base must be verified; seasoning blend must be verified
+- bbq-smoked-ribs: Sticky BBQ Ribs — prepared sauce or dressing must be verified
+- blackened-swordfish: Blackened Swordfish — seasoning blend must be verified
+- bbq-chicken-quarters: BBQ Chicken Quarters — seasoning blend must be verified; prepared sauce or dressing must be verified
+- bbq-brisket-basics: Smoked Brisket Basics — stock, broth, bouillon, or soup base must be verified; prepared sauce or dressing must be verified
+- creole-shrimp-creole: Shrimp Creole — stock, broth, bouillon, or soup base must be verified; seasoning blend must be verified
+- creole-courtbouillon: Fish Courtbouillon — stock, broth, bouillon, or soup base must be verified; seasoning blend must be verified
+- swordfish-tacos: Swordfish Tacos with Citrus Slaw — seasoning blend must be verified
+- bbq-baked-beans: BBQ Baked Beans — prepared sauce or dressing must be verified
+- mississippi-pot-roast: Mississippi Pot Roast — stock, broth, bouillon, or soup base must be verified; prepared gravy must be verified; seasoning, soup, or pudding mix must be verified
+- texas-beef-ribs: Texas Smoked Beef Ribs — stock, broth, bouillon, or soup base must be verified
+- texas-chili: Texas No-Bean Chili — stock, broth, bouillon, or soup base must be verified
+- alabama-white-sauce-chicken: Alabama White Sauce Chicken — Worcestershire sauce must be verified
+- frogmore-stew: Frogmore Stew — prepared meatballs or sausage must be verified
+- stone-crab-claws: Florida Stone Crab Claws — Worcestershire sauce must be verified
+- southern-stone-ground-grits: Creamy Stone-Ground Grits — stock, broth, bouillon, or soup base must be verified
+- nigerian-jollof-rice: Nigerian Jollof Rice — stock, broth, bouillon, or soup base must be verified
+- nigerian-egusi-soup: Egusi Soup — stock, broth, bouillon, or soup base must be verified
+- nigerian-fried-rice: Nigerian Fried Rice — stock, broth, bouillon, or soup base must be verified
+- nigerian-pepper-soup: Pepper Soup — stock, broth, bouillon, or soup base must be verified
+- nigerian-moi-moi: Moi Moi — stock, broth, bouillon, or soup base must be verified
+- ghanaian-jollof-rice: Ghanaian Jollof Rice — stock, broth, bouillon, or soup base must be verified
+- ghanaian-groundnut-soup: Groundnut Soup — stock, broth, bouillon, or soup base must be verified
+- ethiopian-doro-wat: Doro Wat — stock, broth, bouillon, or soup base must be verified
+- ethiopian-misir-wat: Misir Wat — stock, broth, bouillon, or soup base must be verified
+- ethiopian-shiro-wat: Shiro Wat — stock, broth, bouillon, or soup base must be verified
+- moroccan-chicken-tagine: Chicken Tagine — stock, broth, bouillon, or soup base must be verified
+- rice-pilaf: Herbed Rice Pilaf — stock, broth, bouillon, or soup base must be verified
+- bbq-sauce-trio: BBQ Sauce Trio — Worcestershire sauce must be verified
+- smothered-green-beans: Smothered Green Beans — stock, broth, bouillon, or soup base must be verified; seasoning blend must be verified; prepared meatballs or sausage must be verified
+- corn-maque-choux: Corn Maque Choux — seasoning blend must be verified
+- okra-tomato-stew: Okra and Tomato Stew — stock, broth, bouillon, or soup base must be verified; seasoning blend must be verified
+- birria-style-tacos: Birria-Style Tacos — stock, broth, bouillon, or soup base must be verified
+- black-bean-side: Seasoned Black Beans — stock, broth, bouillon, or soup base must be verified
+- comeback-sauce: Mississippi Comeback Sauce — prepared sauce or dressing must be verified; Worcestershire sauce must be verified
+- crawfish-boil: Louisiana Crawfish Boil — prepared meatballs or sausage must be verified
+- arkansas-delta-tamales: Arkansas Delta Hot Tamales — stock, broth, bouillon, or soup base must be verified
+- virginia-brunswick-stew: Virginia Brunswick Stew — stock, broth, bouillon, or soup base must be verified; Worcestershire sauce must be verified
+- florida-blue-crab: Florida Blue Crab Boil — seasoning blend must be verified
+- mississippi-butter-beans: Mississippi Butter Beans — stock, broth, bouillon, or soup base must be verified
+- turnip-greens: Turnip Greens with Pot Liquor — stock, broth, bouillon, or soup base must be verified
+- red-beans-and-rice: Louisiana Red Beans and Rice — stock, broth, bouillon, or soup base must be verified; prepared meatballs or sausage must be verified
+- louisiana-boudin: Louisiana Boudin Links — seasoning blend must be verified; prepared meatballs or sausage must be verified
+- texas-pinto-beans: Texas Pinto Beans — stock, broth, bouillon, or soup base must be verified
+- carolina-red-rice: South Carolina Red Rice — stock, broth, bouillon, or soup base must be verified
+- georgia-brunswick-stew: Georgia Brunswick Stew — stock, broth, bouillon, or soup base must be verified; prepared sauce or dressing must be verified; Worcestershire sauce must be verified
+- green-bean-casserole: Green Bean Casserole — prepared sauce or dressing must be verified; Worcestershire sauce must be verified
+- hashbrown-casserole: Hashbrown Casserole — seasoning, soup, or pudding mix must be verified
+- king-ranch-chicken: King Ranch Chicken — seasoning, soup, or pudding mix must be verified; prepared sauce or dressing must be verified
+- funeral-potatoes: Funeral Potatoes — seasoning, soup, or pudding mix must be verified
+- watergate-salad: Watergate Salad — seasoning, soup, or pudding mix must be verified
+- yogurt-parfait-cups: Yogurt Parfait Cups — granola or cereal must be certified gluten-free
+- apple-nachos: Apple Nachos — granola or cereal must be certified gluten-free
+- berry-banana-smoothies: Berry Banana Smoothies — oats must be certified gluten-free
+- crispy-rice-treats: Crispy Rice Treats — granola or cereal must be certified gluten-free
+- no-bake-cereal-bars: No-Bake Cereal Bars — oats must be certified gluten-free; granola or cereal must be certified gluten-free
+- sheet-pan-nachos: Sheet Pan Nachos — tortillas must specify corn or gluten-free
+- smoothie-cups: Build-Your-Own Smoothie Cups — oats must be certified gluten-free
+- taco-soup: Taco Soup — stock, broth, bouillon, or soup base must be verified; seasoning blend must be verified
+- beef-tacos: Weeknight Beef Tacos — tortillas must specify corn or gluten-free
+- pickled-pig-feet: Pickled Pig Feet — stock, broth, bouillon, or soup base must be verified
+- neck-bones-and-rice: Neck Bones and Rice — stock, broth, bouillon, or soup base must be verified
+- ham-hocks-and-beans: Ham Hocks and Beans — stock, broth, bouillon, or soup base must be verified
+- mississippi-smoked-sausage: Skillet Smoked Sausage and Onions — seasoning blend must be verified; prepared meatballs or sausage must be verified
+- purple-hull-peas: Purple Hull Peas — stock, broth, bouillon, or soup base must be verified
+- mustard-greens: Mustard Greens with Pot Liquor — stock, broth, bouillon, or soup base must be verified
+- baked-beans-ground-beef: Baked Beans with Ground Beef — prepared sauce or dressing must be verified; Worcestershire sauce must be verified
+- baked-beans-beef-bacon: Baked Beans with Beef and Bacon — prepared sauce or dressing must be verified
+- kool-aid-pickles: Kool-Aid Pickles — seasoning, soup, or pudding mix must be verified
+- delta-hot-tamales: Mississippi Delta Hot Tamales — stock, broth, bouillon, or soup base must be verified
+- senegalese-thieboudienne: Senegalese Thieboudienne — stock, broth, bouillon, or soup base must be verified
+- senegalese-chicken-yassa: Senegalese Chicken Yassa — stock, broth, bouillon, or soup base must be verified
+- senegalese-maafe: Senegalese Maafe — stock, broth, bouillon, or soup base must be verified
+- ivorian-foutou-sauce-graine: Foutou with Sauce Graine — stock, broth, bouillon, or soup base must be verified
+- kenyan-beef-pilau: Kenyan Beef Pilau — stock, broth, bouillon, or soup base must be verified
+- zimbabwean-sadza-beef-stew: Sadza with Beef Stew — stock, broth, bouillon, or soup base must be verified
+- egyptian-molokhia: Egyptian Molokhia — stock, broth, bouillon, or soup base must be verified
+- tunisian-ojja-merguez: Tunisian Ojja with Merguez — prepared meatballs or sausage must be verified
+- jibarito: Jibarito — seasoning blend must be verified
+- chicago-mild-sauce: Chicago Mild Sauce — prepared sauce or dressing must be verified
+- chicken-vesuvio: Chicken Vesuvio — stock, broth, bouillon, or soup base must be verified
+- chicago-hot-tamales: Chicago Hot Tamales — stock, broth, bouillon, or soup base must be verified
+- tater-tot-hotdish: Tater Tot Hotdish — seasoning, soup, or pudding mix must be verified
+- wild-rice-soup: Wild Rice Soup — stock, broth, bouillon, or soup base must be verified
+- goetta: Goetta — oats must be certified gluten-free; stock, broth, bouillon, or soup base must be verified
+- kansas-city-burnt-ends: Kansas City Burnt Ends — seasoning blend must be verified; prepared sauce or dressing must be verified
+- kansas-city-ribs: Kansas City Ribs — seasoning blend must be verified; prepared sauce or dressing must be verified
+- kansas-city-bbq-sauce: Kansas City BBQ Sauce — Worcestershire sauce must be verified
+- kansas-burnt-ends: Kansas Burnt Ends — seasoning blend must be verified; prepared sauce or dressing must be verified
+- north-dakota-potato-hotdish: North Dakota Potato Hotdish — seasoning, soup, or pudding mix must be verified
+- fish-chowder: Maine Fish Chowder — stock, broth, bouillon, or soup base must be verified
+- yankee-pot-roast: Yankee Pot Roast — stock, broth, bouillon, or soup base must be verified
+- rhode-island-clear-chowder: Rhode Island Clear Chowder — stock, broth, bouillon, or soup base must be verified
+- texas-barbacoa: Texas Barbacoa — stock, broth, bouillon, or soup base must be verified
+- green-chile-stew: New Mexico Green Chile Stew — stock, broth, bouillon, or soup base must be verified
+- carne-adovada: Carne Adovada — stock, broth, bouillon, or soup base must be verified
+- new-mexico-posole: New Mexico Posole — stock, broth, bouillon, or soup base must be verified
+- carne-asada: Arizona Carne Asada — tortillas must specify corn or gluten-free
+- build-your-own-tacos: Build-Your-Own Taco Tray — tortillas must specify corn or gluten-free
+- mini-quesadillas: Mini Quesadillas — tortillas must specify corn or gluten-free
+- buffalo-wings: Buffalo Wings — prepared sauce or dressing must be verified
+- disco-fries: Disco Fries — prepared gravy must be verified
+- maryland-crab-soup: Maryland Crab Soup — stock, broth, bouillon, or soup base must be verified; seasoning blend must be verified
+- old-bay-fries: Old Bay Fries — seasoning blend must be verified
+- oregon-mushroom-risotto: Oregon Mushroom Risotto — stock, broth, bouillon, or soup base must be verified
+- pueblo-green-chile: Colorado Pueblo Green Chile — stock, broth, bouillon, or soup base must be verified
+- utah-funeral-potatoes: Utah Funeral Potatoes — seasoning, soup, or pudding mix must be verified
+- utah-fry-sauce: Utah Fry Sauce — Worcestershire sauce must be verified
+- wyoming-cowboy-beans: Wyoming Cowboy Beans — stock, broth, bouillon, or soup base must be verified
+- nevada-shrimp-cocktail: Nevada Shrimp Cocktail — prepared sauce or dressing must be verified
+- san-francisco-cioppino: San Francisco Cioppino — stock, broth, bouillon, or soup base must be verified
+- mission-burritos: Mission-Style Burritos — tortillas must specify corn or gluten-free
+- san-diego-fish-tacos: San Diego Fish Tacos — tortillas must specify corn or gluten-free
+- california-burritos: California Burritos — tortillas must specify corn or gluten-free
+- alaska-halibut-chowder: Alaska Halibut Chowder — stock, broth, bouillon, or soup base must be verified
+- kalua-pork: Kalua Pork — stock, broth, bouillon, or soup base must be verified
+- loco-moco: Loco Moco — prepared gravy must be verified
+- kids-salmon-rice-bowls: Build a Salmon Rice Bowl — prepared sauce or dressing must be verified
+- puerto-rican-mofongo-bowls: Puerto Rican Mofongo Bowls — stock, broth, bouillon, or soup base must be verified
+- turkish-red-lentil-soup: Turkish Red Lentil Soup — stock, broth, bouillon, or soup base must be verified
+- portuguese-caldo-verde: Portuguese Caldo Verde — stock, broth, bouillon, or soup base must be verified; prepared meatballs or sausage must be verified
+- british-shepherds-pie: British Shepherd's Pie — stock, broth, bouillon, or soup base must be verified
+- peruvian-arroz-con-pollo: Peruvian Arroz con Pollo — stock, broth, bouillon, or soup base must be verified
+- brazilian-feijoada-style-beans: Brazilian Feijoada — stock, broth, bouillon, or soup base must be verified; prepared meatballs or sausage must be verified
+- polish-bigos: Polish Bigos — prepared meatballs or sausage must be verified
+- irish-beef-stew: Irish Beef Stew — stock, broth, bouillon, or soup base must be verified
+- new-zealand-roast-lamb: New Zealand Roast Lamb — stock, broth, bouillon, or soup base must be verified
+- argentinian-locro: Argentinian Locro — stock, broth, bouillon, or soup base must be verified; prepared meatballs or sausage must be verified
+- colombian-bandeja-paisa: Bandeja Paisa — conditional gluten-free metadata
+- colombian-ajiaco: Ajiaco Santafereño — stock, broth, bouillon, or soup base must be verified
+- colombian-sancocho: Sancocho de Gallina — stock, broth, bouillon, or soup base must be verified
+- venezuelan-pabellon: Pabellón Criollo — stock, broth, bouillon, or soup base must be verified
+- venezuelan-hallacas: Hallacas — stock, broth, bouillon, or soup base must be verified
+- venezuelan-asado-negro: Asado Negro — stock, broth, bouillon, or soup base must be verified
+- chilean-cazuela: Chilean Chicken Cazuela — stock, broth, bouillon, or soup base must be verified
+- ecuadorian-encebollado: Ecuadorian Encebollado — stock, broth, bouillon, or soup base must be verified
+- ecuadorian-locro-papa: Ecuadorian Locro de Papa — stock, broth, bouillon, or soup base must be verified
+- uruguayan-parrillada: Uruguayan Parrillada — prepared meatballs or sausage must be verified
+- paraguayan-sopa-paraguaya: Sopa Paraguaya — conditional gluten-free metadata
+- paraguayan-vori-vori: Vori Vori de Pollo — conditional gluten-free metadata; stock, broth, bouillon, or soup base must be verified
+- guyanese-cook-up-rice: Guyanese Cook-Up Rice — stock, broth, bouillon, or soup base must be verified
+- surinamese-saoto-soup: Surinamese Saoto Soup — conditional gluten-free metadata
+- surinamese-moksi-alesi: Moksi Alesi — conditional gluten-free metadata; stock, broth, bouillon, or soup base must be verified
+- roast-turkey: Classic Roast Turkey — stock, broth, bouillon, or soup base must be verified
+- deep-fried-turkey: Deep Fried Turkey — seasoning blend must be verified
+- strawberry-poppy-seed-salad: Strawberry Salad with Poppy Seed Dressing — prepared sauce or dressing must be verified
+- pumpkin-chili: Pumpkin Chili — stock, broth, bouillon, or soup base must be verified
+- christmas-eve-tamales: Christmas Eve Tamales — stock, broth, bouillon, or soup base must be verified
+- new-years-hoppin-john: New Year's Hoppin' John — stock, broth, bouillon, or soup base must be verified
+- cocktail-smokies: Cocktail Smokies — prepared sauce or dressing must be verified; prepared meatballs or sausage must be verified
+- buffalo-chicken-dip: Buffalo Chicken Dip — prepared sauce or dressing must be verified
+- seven-layer-dip: Seven-Layer Dip — seasoning blend must be verified
+- brunch-cups: Brunch Cups — prepared meatballs or sausage must be verified
+- tailgate-cups: Tailgate Cups — tortillas must specify corn or gluten-free; prepared meatballs or sausage must be verified

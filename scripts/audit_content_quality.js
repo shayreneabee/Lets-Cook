@@ -78,7 +78,23 @@ globalThis.__contentQualityAudit = {
       cuisine: recipe.cuisine || "",
       category: recipe.category || ""
     }))
-  }))
+  })),
+  glutenAuditRows: allRecipeCollection().map((recipe) => {
+    const ingredientText = (recipe.ingredients || []).join(" ").toLowerCase();
+    const assessment = recipeGlutenAssessment(recipe);
+    return {
+      id: recipe.id,
+      title: recipe.title,
+      image: resolveRecipeImage(recipe).image,
+      oldQualifies: !/flour|bread|pasta|noodle|wheat|barley|rye|soy sauce/.test(ingredientText),
+      qualifies: assessment.qualifies,
+      status: assessment.status,
+      verification: assessment.verification,
+      blockers: assessment.blockers,
+      uncertainties: assessment.uncertainties
+    };
+  }),
+  glutenSearchResults: canonicalSearchResults("gluten-free").slice(0, 50).map((recipe) => recipe.id)
 };
 `;
 
@@ -356,6 +372,13 @@ const cuisineCollectionIssues = audit.cuisineCollections.flatMap((collection) =>
     }));
 });
 const ingredientSearchIssues = audit.ingredientSearchSmoke.filter((row) => !row.matches.length);
+const previousGlutenFreeRows = audit.glutenAuditRows.filter((row) => row.oldQualifies);
+const glutenFreeRows = audit.glutenAuditRows.filter((row) => row.qualifies);
+const glutenFreeRemoved = audit.glutenAuditRows.filter((row) => row.oldQualifies && !row.qualifies);
+const glutenFreeAdded = audit.glutenAuditRows.filter((row) => !row.oldQualifies && row.qualifies);
+const glutenFreeUncertain = audit.glutenAuditRows.filter((row) => row.status === "needs gluten verification");
+const glutenFreeContains = audit.glutenAuditRows.filter((row) => row.status === "contains gluten");
+const glutenFreeSearchIssues = audit.glutenSearchResults.filter((id) => !glutenFreeRows.some((row) => row.id === id));
 
 const cookbookClassificationRules = [
   {
@@ -436,6 +459,13 @@ const report = {
     cookbookClassificationIssues: cookbookClassificationIssues.length,
     cookbookCardDuplicateIssues: cookbookCardDuplicateIssues.length,
     ingredientSearchIssues: ingredientSearchIssues.length,
+    previousGlutenFreeRecipes: previousGlutenFreeRows.length,
+    glutenFreeRecipes: glutenFreeRows.length,
+    glutenFreeRemoved: glutenFreeRemoved.length,
+    glutenFreeAdded: glutenFreeAdded.length,
+    glutenFreeUncertain: glutenFreeUncertain.length,
+    glutenFreeContains: glutenFreeContains.length,
+    glutenFreeSearchIssues: glutenFreeSearchIssues.length,
     trainingOnlyGeneralLeaks: trainingOnlyGeneralLeaks.length,
     recipesMissingRequiredDetails: recipesMissingRequiredDetails.length,
     recipesMissingRecommendedDetails: recipesMissingRecommendedDetails.length
@@ -464,6 +494,18 @@ const report = {
   cookbookCardDuplicateIssues,
   ingredientSearchSmoke: audit.ingredientSearchSmoke,
   ingredientSearchIssues,
+  glutenFreeAudit: {
+    reviewed: audit.glutenAuditRows.length,
+    previousCount: previousGlutenFreeRows.length,
+    currentCount: glutenFreeRows.length,
+    removed: glutenFreeRemoved,
+    added: glutenFreeAdded,
+    uncertain: glutenFreeUncertain,
+    containsGluten: glutenFreeContains,
+    qualifyingRecipes: glutenFreeRows,
+    searchResultIds: audit.glutenSearchResults,
+    searchIssues: glutenFreeSearchIssues
+  },
   trainingOnlyGeneralLeaks,
   recipesMissingRequiredDetails,
   recipesMissingRecommendedDetails,
@@ -503,6 +545,11 @@ const md = [
   `- Cookbook classification issues: ${report.summary.cookbookClassificationIssues}`,
   `- Cookbook duplicate-card issues: ${report.summary.cookbookCardDuplicateIssues}`,
   `- Ingredient search smoke issues: ${report.summary.ingredientSearchIssues}`,
+  `- Gluten-free recipes before ingredient audit: ${report.summary.previousGlutenFreeRecipes}`,
+  `- Gluten-free recipes after ingredient audit: ${report.summary.glutenFreeRecipes}`,
+  `- Removed from Gluten-Free: ${report.summary.glutenFreeRemoved}`,
+  `- Added to Gluten-Free: ${report.summary.glutenFreeAdded}`,
+  `- Recipes awaiting gluten verification: ${report.summary.glutenFreeUncertain}`,
   `- Training-only recipes in general discovery: ${report.summary.trainingOnlyGeneralLeaks}`,
   `- Recipes missing required details: ${report.summary.recipesMissingRequiredDetails}`,
   `- Recipes missing recommended enrichment details: ${report.summary.recipesMissingRecommendedDetails}`,
@@ -539,6 +586,27 @@ const md = [
   "",
   ...audit.ingredientSearchSmoke.map((row) => `- ${row.matches.length ? "OK" : "NEEDS WORK"}: ${row.term} -> ${row.matches.map((match) => match.title).join(", ") || "no matches"}`),
   "",
+  "## Gluten-Free Ingredient Audit",
+  "",
+  `- Reviewed: ${report.glutenFreeAudit.reviewed}`,
+  `- Previous automatic collection: ${report.glutenFreeAudit.previousCount}`,
+  `- Current ingredient-reviewed collection: ${report.glutenFreeAudit.currentCount}`,
+  `- Removed: ${report.glutenFreeAudit.removed.length}`,
+  `- Added: ${report.glutenFreeAudit.added.length}`,
+  `- Awaiting packaged-ingredient or substitution verification: ${report.glutenFreeAudit.uncertain.length}`,
+  "",
+  "### Removed from Gluten-Free",
+  "",
+  ...(report.glutenFreeAudit.removed.length ? report.glutenFreeAudit.removed.map((row) => `- ${row.id}: ${row.title} — ${[...row.blockers, ...row.uncertainties].join("; ")}`) : ["- None"]),
+  "",
+  "### Added to Gluten-Free",
+  "",
+  ...(report.glutenFreeAudit.added.length ? report.glutenFreeAudit.added.map((row) => `- ${row.id}: ${row.title} — ${row.verification}`) : ["- None"]),
+  "",
+  "### Needs Manual Verification",
+  "",
+  ...(report.glutenFreeAudit.uncertain.length ? report.glutenFreeAudit.uncertain.map((row) => `- ${row.id}: ${row.title} — ${row.uncertainties.join("; ")}`) : ["- None"]),
+  "",
   "Full machine-readable details are in `data/content-quality-audit.json`."
 ].join("\n");
 
@@ -563,9 +631,10 @@ console.log(`Cuisine collection issues: ${report.summary.cuisineCollectionIssues
 console.log(`Cookbook classification issues: ${report.summary.cookbookClassificationIssues}`);
 console.log(`Cookbook duplicate-card issues: ${report.summary.cookbookCardDuplicateIssues}`);
 console.log(`Ingredient search smoke issues: ${report.summary.ingredientSearchIssues}`);
+console.log(`Gluten-free audit: ${report.glutenFreeAudit.reviewed} reviewed, ${report.glutenFreeAudit.removed.length} removed, ${report.glutenFreeAudit.added.length} added, ${report.glutenFreeAudit.uncertain.length} uncertain, ${report.glutenFreeAudit.currentCount} qualifying`);
 console.log(`Training-only recipes in general discovery: ${report.summary.trainingOnlyGeneralLeaks}`);
 console.log("Reports: data/content-quality-audit.json, data/content-quality-audit.md");
 
-if (missingImageFiles.length || duplicateRecipeIds.length || duplicateRecipeTitles.length || duplicateRecipeSlugs.length || duplicateIngredientLists.length || duplicateInstructionLists.length || semanticImageMismatches.length || menuReferenceIssues.length || cuisineCollectionIssues.length || cookbookClassificationIssues.length || cookbookCardDuplicateIssues.length || ingredientSearchIssues.length || trainingOnlyGeneralLeaks.length) {
+if (missingImageFiles.length || duplicateRecipeIds.length || duplicateRecipeTitles.length || duplicateRecipeSlugs.length || duplicateIngredientLists.length || duplicateInstructionLists.length || semanticImageMismatches.length || menuReferenceIssues.length || cuisineCollectionIssues.length || cookbookClassificationIssues.length || cookbookCardDuplicateIssues.length || ingredientSearchIssues.length || glutenFreeSearchIssues.length || trainingOnlyGeneralLeaks.length) {
   process.exitCode = 1;
 }

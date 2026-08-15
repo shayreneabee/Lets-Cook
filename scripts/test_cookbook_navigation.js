@@ -12,6 +12,7 @@ source = source.replace(
 );
 
 source += `
+applyRecipeDatabase(globalThis.__recipeDatabaseInput);
 globalThis.__cookbookTest = {
   cookbookChapterDefinitions,
   cookbookChapterKeys,
@@ -29,6 +30,8 @@ globalThis.__cookbookTest = {
   canonicalSearchResults,
   renderSearchPage,
   recipeDietaryProfile,
+  recipeGlutenAssessment,
+  recipeIsGlutenFree,
   recipeAllowedForCookYourWay,
   cookbookSectionRoute,
   cookbookChapterShelf,
@@ -128,7 +131,8 @@ const context = {
     addEventListener() {},
     createElement() { return element; }
   },
-  fetch: async () => ({ ok: false, json: async () => ({}), text: async () => "" })
+  fetch: async () => ({ ok: false, json: async () => ({}), text: async () => "" }),
+  __recipeDatabaseInput: JSON.parse(fs.readFileSync(path.join(root, "data", "recipes.json"), "utf8"))
 };
 context.window = context;
 context.globalThis = context;
@@ -158,6 +162,22 @@ assert(/class="visual-cookbook-card active"[^>]*data-cookbook-collection-select=
 assert(/data-cookbook-collection-select="desserts-baking"[^>]*style="--collection-photo:url\('images\/recipes\/photo-review\/coconut-cake\.webp'\)"/.test(collectionMarkup), "Desserts & Baking must use the intentional coconut cake cover");
 assert(!/data-cookbook-collection-select="desserts-baking"[^>]*roasted-vegetable-tray/.test(collectionMarkup), "Desserts & Baking must never use the roasted vegetable photo");
 assert.strictEqual(api.recipeCookbookPrimarySection(api.allRecipeCollection().find((recipe) => recipe.id === "roasted-vegetable-tray")), "vegetables", "Roasted vegetables must remain in the Vegetables chapter");
+assert(/data-cookbook-collection-select="around-the-world"[^>]*style="--collection-photo:url\('assets\/around-the-world-cookbook-cover\.webp'\)"/.test(collectionMarkup), "Around the World must use dedicated global-food artwork");
+assert(!/data-cookbook-collection-select="around-the-world"[^>]*(?:pb-and-j|kid-friendly)/i.test(collectionMarkup), "Around the World must never inherit PB&J artwork");
+const glutenFreeRecipes = api.recipesForCookbookCollection(api.cookbookCollectionById("gluten-free"));
+assert(glutenFreeRecipes.length > 20, "Gluten-Free must retain a substantial ingredient-reviewed collection");
+assert(glutenFreeRecipes.every(api.recipeIsGlutenFree), "Every Gluten-Free collection recipe must pass ingredient-level validation");
+assert.strictEqual(api.recipeGlutenAssessment({ ingredients: ["2 cups all-purpose flour"] }).qualifies, false, "Wheat flour must fail gluten-free validation");
+assert.strictEqual(api.recipeGlutenAssessment({ ingredients: ["2 cups regular oats"] }).qualifies, false, "Standard oats must require gluten verification");
+assert.strictEqual(api.recipeGlutenAssessment({ ingredients: ["2 cups certified gluten-free oats"] }).qualifies, true, "Certified gluten-free oats may qualify");
+assert.strictEqual(api.recipeGlutenAssessment({ ingredients: ["3 tbsp soy sauce"] }).qualifies, false, "Regular soy sauce must fail gluten-free validation");
+assert.strictEqual(api.recipeGlutenAssessment({ ingredients: ["3 tbsp gluten-free tamari"] }).qualifies, true, "Gluten-free tamari may qualify");
+assert.strictEqual(api.recipeGlutenAssessment({ ingredients: ["6 cups chicken broth"] }).qualifies, false, "Unverified broth must not silently qualify");
+assert.strictEqual(api.recipeGlutenAssessment({ ingredients: ["2 mini bagels"] }).qualifies, false, "Bagels must fail gluten-free validation");
+assert.strictEqual(api.recipeGlutenAssessment({ ingredients: ["8 tortillas"] }).qualifies, false, "Unspecified tortillas must require gluten verification");
+assert.strictEqual(api.recipeGlutenAssessment({ ingredients: ["8 corn tortillas"] }).qualifies, true, "Corn tortillas may qualify");
+assert.strictEqual(api.recipeGlutenAssessment({ ingredients: ["Sponge cake squares"] }).qualifies, false, "Prepared cake must fail gluten-free validation unless explicitly gluten-free");
+assert(glutenFreeRecipes.every((recipe) => collectionMarkup.includes(`data-cookbook-collection-select="gluten-free"`) && api.recipeCard(recipe).includes(`href="#recipes/${recipe.id}"`) && api.recipeCard(recipe).includes(`src="${api.recipePhotoFor(recipe)}"`)), "Every Gluten-Free card must preserve its canonical link and image");
 const drinksCollection = api.recipesForCookbookCollection(api.cookbookCollectionById("drinks"));
 assert(drinksCollection.length >= 25, "Drinks must contain a substantial beverage library");
 assert(drinksCollection.every(api.isDrinkRecipe), "The Drinks collection must contain beverages only");
@@ -304,11 +324,11 @@ assert(source.length > 1_000_000, "Deployable app.js must not be truncated");
 assert(fs.statSync(path.join(root, "data", "world-countries-110m.json")).size > 100_000, "World geography asset must not be truncated");
 const productionHtml = fs.readFileSync(path.join(root, "index.html"), "utf8");
 assert(productionHtml.includes("data/south-america-recipes.js?v=20260815-photo-restoration"), "Production HTML must load the South America canonical recipe expansion");
-assert(productionHtml.includes("app.js?v=20260815-dessert-cover"), "Production HTML must request the corrected dessert-cover JavaScript asset");
+assert(productionHtml.includes("app.js?v=20260815-world-gluten-audit-v2"), "Production HTML must request the world-cover and gluten-audit JavaScript asset");
 assert(productionHtml.includes("lcy:app-rendered"), "Production HTML must recover visitors from a stale broken app bundle");
 assert(source.includes('window.dispatchEvent(new CustomEvent("lcy:app-rendered"))'), "The app must confirm successful shared rendering to the bootstrap watchdog");
 const serviceWorkerSource = fs.readFileSync(path.join(root, "sw.js"), "utf8");
-assert(serviceWorkerSource.includes('lets-cook-community-food-v87'), "The dessert cover repair must invalidate stale service-worker caches");
+assert(serviceWorkerSource.includes('lets-cook-community-food-v89'), "The world-cover and gluten audit must invalidate stale service-worker caches");
 assert(api.aroundWorldSearchMatches("India").some((culture) => culture.id === "india"), "Search must return the India culture collection");
 assert(api.aroundWorldSearchMatches("hibiscus").some((culture) => culture.id === "africa"), "Search must connect signature ingredients and drinks to culture collections");
 assert(api.worldGlobeDestinations.length >= 40, "World Map must expose a substantial set of globe destinations");
@@ -499,3 +519,4 @@ for (const href of literalInternalLinks) {
 
 console.log(`Cookbook navigation tests passed for ${expectedSections.length} chapters, ${recipeIds.size} recipe cards, and ${literalInternalLinks.length} literal internal links.`);
 console.log(`Drinks audit passed for ${drinksCollection.length} beverage recipes with zero food-item leaks.`);
+module.exports = api;
